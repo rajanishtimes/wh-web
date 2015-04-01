@@ -1,0 +1,183 @@
+/**
+=================================
+LARGE DESKTOP > 1200px
+=================================
+**/
+@media (min-width: 1200px) {
+
+}
+
+
+
+
+
+/**
+=================================
+STANDARD DESKTOP 992px <> 1200px
+=================================
+**/
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+
+
+
+
+/**
+=================================
+STANDARD DESKTOP < 1024px
+=================================
+**/
+@media (max-width: 1023px) {
+	
+	
+	/**
+	-------------------------------------------
+	BACK TO TOP
+	-------------------------------------------
+	**/
+	#back-top{
+		right: 0px;
+		bottom: 0px;
+		border-radius: 0;
+	}
+}
+
+
+
+
+
+/**
+=================================
+SMALL DESKTOP 768px <> 991px
+=================================
+**/
+@media (min-width: 768px) and (max-width: 991px) {
+	
+	.android-icon{float:none}
+	.iphone-icon{float:none; margin:auto}
+	/**
+	-------------------------------------------
+	FOOTER
+	-------------------------------------------
+	**/
+	footer h4{
+		margin-top: 40px;
+		margin-bottom: 10px;
+	}
+}
+
+
+
+
+/**
+=================================
+TABLET < 767px
+=================================
+**/
+@media (max-width: 767px) {
+	.left-side{position:static; width:auto;}
+	.right-side{padding:10px;}
+	footer{display:none}
+	.feed-list .media .media-heading{font-size: 16px;}
+	.tag-line{font-size: 23px; padding: 20px;}
+	.android-icon{float:none}
+	.iphone-icon{float:none; margin:auto}
+	.top_feeds_head{margin:27px 0 0 0;}
+	.feed-list, .feedimg{padding:0}
+	/**
+	-------------------------------------------
+	FOOTER
+	-------------------------------------------
+	**/
+	footer{padding: 10px 0 50px;}
+	footer h4{
+		margin-top: 40px;
+		margin-bottom: 10px;
+	}
+	.footer{
+		min-height: 80px;
+		height: auto;
+		text-align: center;
+	}
+	.footer .text-right{text-align: center;}
+	.footer .list-inline {
+		margin-top: 15px;
+	}
+	.footer .list-inline > li {
+		padding-left: 3px;
+		padding-right: 3px;
+	}
+}
+
+
+
+
+/**
+=================================
+PHONE < 640px
+=================================
+**/
+@media (max-width: 640px){
+	
+}
+
+
+
+
+/**
+=================================
+PHONE < 600px
+=================================
+**/
+@media (max-width: 600px){
+	
+}
+
+
+
+/**
+=================================
+PHONE < 548px
+=================================
+**/
+@media (max-width: 548px){
+
+}
+
+
+
+/**
+=================================
+PHONE < 480px
+=================================
+**/
+@media (max-width: 480px){
+	
+}
+
+
+
+
+/**
+=================================
+PHONE < 360px
+=================================
+**/
+@media (max-width: 360px){
+	
+}
+
+
+
+
+/**
+=================================
+PHONE < 320px
+=================================
+**/
+@media (max-width: 320px){
+	.feed-list .media .img-post{width:75px; height:75px}
+	.media-body{padding:0 0 0 94px;}
+}
