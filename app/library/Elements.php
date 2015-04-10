@@ -12,25 +12,17 @@ class Elements extends Component
 
     private $_headerMenu = array(
         'navbar-left' => array(
-            'terms' => array(
-                'caption' => 'Terms',
+            
+        ),
+        'navbar-right' => array(
+			'terms' => array(
+                'caption' => 'Terms and Conditions',
                 'action' => '#'
             ),
             'privacy' => array(
-                'caption' => 'Privacy',
+                'caption' => 'Privacy Policy',
                 'action' => '#'
-            ),
-            'facebook' => array(
-                'caption' => 'Facebook',
-                'action' => '#'
-            ),
-            'twitter' => array(
-                'caption' => 'Twitter',
-                'action' => '#'
-            ),
-        ),
-        'navbar-right' => array(
-		
+            )
         )
     );
 

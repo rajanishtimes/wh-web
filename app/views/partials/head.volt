@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{ get_doctype() }}
 <html lang="en">
 <head>
 		{% block head %}
@@ -8,11 +8,17 @@
 		<meta name="keywords" content="{{ meta_keywords }}">
 		<meta name="author" content="{{ meta_author }}">
 		{{ get_title() }}
+		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
+		{{ stylesheet_link('css/bootstrap.min.css') }}
 		
 		<!-- MAIN CSS (REQUIRED ALL PAGE)-->
 		{{ stylesheet_link('plugins/font-awesome/css/font-awesome.min.css') }}
 		{{ stylesheet_link('css/style.css') }}
 		{{ stylesheet_link('css/style-responsive.css') }}
+		
+		{{ stylesheet_link('plugins/owl-carousel/owl.carousel.css') }}
+		
+		
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		
@@ -27,4 +33,5 @@
 		
 		{% endblock %}
 	</head>
-	<body>
+	<body class="tooltips no-padding">
+		<div class="wrapper">

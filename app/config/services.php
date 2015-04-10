@@ -18,25 +18,28 @@ $di = new FactoryDefault();
 /**
  * We register the events manager
  */
-$di->set('dispatcher', function() use ($di) {
+ $di->set(
+    'dispatcher',
+    function() use ($di) {
 
+        $evManager = $di->getShared('eventsManager');
+        $evManager->attach("dispatch:beforeException", new NotFoundPlugin);
+        $dispatcher = new Phalcon\Mvc\Dispatcher();
+        $dispatcher->setEventsManager($evManager);
+        return $dispatcher;
+    },
+    true
+);
+
+/* $di->set('dispatcher', function() use ($di) {
 	$eventsManager = new EventsManager;
-
-	/**
-	 * Check if the user is allowed to access certain action using the SecurityPlugin
-	 */
 	$eventsManager->attach('dispatch:beforeDispatch', new SecurityPlugin);
-
-	/**
-	 * Handle exceptions and not-found exceptions using NotFoundPlugin
-	 */
 	$eventsManager->attach('dispatch:beforeException', new NotFoundPlugin);
-
 	$dispatcher = new Dispatcher;
 	$dispatcher->setEventsManager($eventsManager);
 	return $dispatcher;
 });
-
+ */
 $di->set('config', $config);
 
 /**

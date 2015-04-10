@@ -1,38 +1,67 @@
-<div class="col-sm-6 col-md-6 col-lg-6">
-	<div class="right-side">
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			<h2 class="top_feeds_head">TOP FEEDS</h2>
-		</div>
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right selectcity">
-			<select>
-				<?php foreach($allcities->cities as $allcity){ ?>
-					<option value="<?php echo strtolower($allcity->name);?>" <?php if(strtolower($allcity->name) == $city){ echo "selected='selected'";} ?>><?php echo ucwords($allcity->name);?></option>
-				<?php } ?>
-			</select>
-		</div>
-		<div class="clearfix"></div>
-		<?php //echo "<pre>"; print_r($allfeeds); echo "</pre>";?>
-		<div class="feeds-container">
-			<div class="section">
-				<ul id="feeds-list" class="media-list feed-list">
-					<form id="formfeeds" type="POST">
-						<input type="hidden" value="{{allfeeds.meta.match_count}}" name="total_feeds">
-						<input type="hidden" value="0" name="start_feeds">
-						<input type="hidden" value="10" name="limit_feeds">
-						<input type="hidden" value="{{city}}" name="city_feeds">
-						<input type="hidden" value="{{getfeedsUrl}}" name="url_feeds">
-					</form>
-					
-					
-					
-				</ul>
-				<div class="primary"></div>
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<h1>Hey! Top Things to do today</h1>
+			<div class="work-content">
+				{% for topfeed in topfeeds['results'] %}
+					<div class="col-sm-6 col-md-4 col-xs-6">
+						<a href="{{baseUrl}}{{city}}/{{topfeed['slug']}}">
+							<div class="work-item">
+								<div class="the-box full no-border transparent no-margin make-up">
+									<p class="feed-name">{{topfeed['title']}}</p>
+								</div>
+								<img src="{{topfeed['image']['uri']}}" alt="{{topfeed['title']}}">
+							</div>
+						</a>
+					</div>
+				{% endfor  %}
 			</div>
+			<div class="clearfix"></div>
+			<hr>
+			<input id="tags" type="hidden" value="">
+			<input id="bydatefeed" type="hidden" value="">
+			
+			<div class="work-content">						
+				<h2 class="heading">Popular Tips</h2>
+				<ul id="populartag" class="work-category-wrap">
+					{% for populartag in populartags['popular_tags'] %}
+					<li class="filter" ><a href="javascript:void(0)">
+					{{populartag | capitalize}}
+					</a></li>
+					{% endfor  %}
+				</ul><div class="clearfix"></div>
+			</div><div class="clearfix"></div><hr>
+			<div class="col-sm-6 col-md-6 col-xs-12 no-padding">
+				<h2>Your Feeds</h2>
+			</div>
+			<div class="col-sm-6 col-md-6 col-xs-12">
+				<ul id="bydate" class="filter_type text-right">
+					<li><a href="javascript:void(0)">TODAY</a></li>
+					<li><a href="javascript:void(0)">TOMMORROW</a></li>
+					<li><a href="javascript:void(0)">THIS WEEKEND</a></li>
+					<li class="active"><a href="javascript:void(0)">ALL</a></li>
+				</ul>
+			</div><div class="clearfix"></div>
+			
+			
+			<div class="work-content allfeeds">
+				<div id="getallfeeds"></div><div class="clearfix"></div><div class="loadmore"></div>
+				
+				<!--{% for feed in allfeedslist['results'] %}
+				<?php //echo "<pre>"; print_r($feed); ?>
+				<div class="col-sm-4 col-md-3 col-xs-6">
+					<div class="work-item">
+						<a href="{{baseUrl}}{{city}}/{{topfeed['slug']}}"><img src="{{feed['image']['uri']}}" alt="{{feed['title']}}"></a>
+						<div class="the-box no-margin">
+							<div class="feed-title"><a href="{{baseUrl}}{{city}}/{{topfeed['slug']}}">{{feed['title']}}</a></div>
+							<p class="feed-short-desc">{{feed['description']}}</p>
+						</div>
+					</div>
+				</div>
+				{% endfor  %}-->
+
+			</div>
+			
 		</div>
-		
-		<div class="align-center">
-			<button class="btn btn-primary">Load More</button>
-		</div>
-		
 	</div>
 </div>

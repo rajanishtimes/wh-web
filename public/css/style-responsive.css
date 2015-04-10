@@ -4,7 +4,28 @@ LARGE DESKTOP > 1200px
 =================================
 **/
 @media (min-width: 1200px) {
+	.contentarea {
+		padding: 0 148px;
+	}
+	.contentarea .detail {
+		padding: 0 62px;
+	}
+}
 
+
+/**
+=================================
+COMMON DESKTOP > 992px
+=================================
+**/
+@media (min-width: 992px) {
+	.work-content > div:first-child{ margin-left: -12px; }
+	.contentarea {
+		padding: 0 75px;
+	}
+	.contentarea .detail {
+		padding: 0 62px;
+	}
 }
 
 
@@ -31,7 +52,6 @@ STANDARD DESKTOP < 1024px
 **/
 @media (max-width: 1023px) {
 	
-	
 	/**
 	-------------------------------------------
 	BACK TO TOP
@@ -54,20 +74,23 @@ SMALL DESKTOP 768px <> 991px
 =================================
 **/
 @media (min-width: 768px) and (max-width: 991px) {
-	
-	.android-icon{float:none}
-	.iphone-icon{float:none; margin:auto}
-	/**
-	-------------------------------------------
-	FOOTER
-	-------------------------------------------
-	**/
-	footer h4{
-		margin-top: 40px;
-		margin-bottom: 10px;
+	.contentarea {
+		padding: 0 50px;
+	}
+	.contentarea .detail {
+		padding: 0 62px;
 	}
 }
 
+
+/**
+=================================
+SMALL DESKTOP 480px <> 600px
+=================================
+**/
+@media (min-width: 480px) and (max-width: 600px) {
+	.feed-name{font-size:17px}
+}
 
 
 
@@ -77,37 +100,11 @@ TABLET < 767px
 =================================
 **/
 @media (max-width: 767px) {
-	.left-side{position:static; width:auto;}
-	.right-side{padding:10px;}
-	footer{display:none}
-	.feed-list .media .media-heading{font-size: 16px;}
-	.tag-line{font-size: 23px; padding: 20px;}
-	.android-icon{float:none}
-	.iphone-icon{float:none; margin:auto}
-	.top_feeds_head{margin:27px 0 0 0;}
-	.feed-list, .feedimg{padding:0}
-	/**
-	-------------------------------------------
-	FOOTER
-	-------------------------------------------
-	**/
-	footer{padding: 10px 0 50px;}
-	footer h4{
-		margin-top: 40px;
-		margin-bottom: 10px;
+	.contentarea {
+		padding: 0 10px;
 	}
-	.footer{
-		min-height: 80px;
-		height: auto;
-		text-align: center;
-	}
-	.footer .text-right{text-align: center;}
-	.footer .list-inline {
-		margin-top: 15px;
-	}
-	.footer .list-inline > li {
-		padding-left: 3px;
-		padding-right: 3px;
+	.contentarea .detail {
+		padding: 0 62px;
 	}
 }
 
@@ -120,7 +117,8 @@ PHONE < 640px
 =================================
 **/
 @media (max-width: 640px){
-	
+
+
 }
 
 
@@ -132,7 +130,7 @@ PHONE < 600px
 =================================
 **/
 @media (max-width: 600px){
-	
+
 }
 
 
@@ -143,7 +141,11 @@ PHONE < 548px
 =================================
 **/
 @media (max-width: 548px){
-
+	.nav-search.navbar-right {
+		float: right;
+		margin: 15px 0 0;
+		padding: 11px;
+	}
 }
 
 
@@ -154,7 +156,25 @@ PHONE < 480px
 =================================
 **/
 @media (max-width: 480px){
-	
+	.work-content .col-xs-6{width:100%}
+	.allfeeds .col-xs-6{padding:0;}
+	.contentarea {
+		padding: 0;
+	}
+	.contentarea .detail {
+		padding: 0;
+	}
+}
+
+/**
+=================================
+PHONE < 420px
+=================================
+**/
+@media (max-width: 420px){
+	.top-navbar .logo{
+		width: 100%;
+	}
 }
 
 
@@ -166,7 +186,7 @@ PHONE < 360px
 =================================
 **/
 @media (max-width: 360px){
-	
+	.feed-name{font-size:17px}
 }
 
 
@@ -178,6 +198,5 @@ PHONE < 320px
 =================================
 **/
 @media (max-width: 320px){
-	.feed-list .media .img-post{width:75px; height:75px}
-	.media-body{padding:0 0 0 94px;}
+
 }

@@ -2,7 +2,6 @@
 {{ partial('partials/header')}}
 <div class="container-fluid">
 	<div class="row">
-		{{ partial('partials/main')}}
 		<?php
 			echo $this->getContent();
 		?>
@@ -14,4 +13,6 @@
 	<i class="fa fa-chevron-up"></i>
 </div>
 <!-- END BACK TO TOP -->
+{{ partial('partials/globalsearch')}}
+{{ partial('partials/footer')}}
 {{ partial('partials/bottom')}}

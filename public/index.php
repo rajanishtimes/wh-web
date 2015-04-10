@@ -16,19 +16,18 @@ try {
 	 * Read the configuration
 	 */
 	$config = new ConfigIni(APP_PATH . 'app/config/config.ini');
-
+	
 	/**
 	 * Auto-loader configuration
 	 */
 	require APP_PATH . 'app/config/loader.php';
-
+	
 	/**
 	 * Load application services
 	 */
 	require APP_PATH . 'app/config/services.php';
-
-	$application = new Application($di);
 	
+	$application = new Application($di);
 	echo $application->handle()->getContent();
 
 } catch (Exception $e){

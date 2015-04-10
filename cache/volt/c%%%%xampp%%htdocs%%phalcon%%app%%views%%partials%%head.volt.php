@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php echo $this->tag->getDoctype(); ?>
 <html lang="en">
 <head>
 		
@@ -8,11 +8,17 @@
 		<meta name="keywords" content="<?php echo $meta_keywords; ?>">
 		<meta name="author" content="<?php echo $meta_author; ?>">
 		<?php echo $this->tag->getTitle(); ?>
+		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
+		<?php echo $this->tag->stylesheetLink('css/bootstrap.min.css'); ?>
 		
 		<!-- MAIN CSS (REQUIRED ALL PAGE)-->
 		<?php echo $this->tag->stylesheetLink('plugins/font-awesome/css/font-awesome.min.css'); ?>
 		<?php echo $this->tag->stylesheetLink('css/style.css'); ?>
 		<?php echo $this->tag->stylesheetLink('css/style-responsive.css'); ?>
+		
+		<?php echo $this->tag->stylesheetLink('plugins/owl-carousel/owl.carousel.css'); ?>
+		
+		
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		
@@ -27,4 +33,5 @@
 		
 		
 	</head>
-	<body>
+	<body class="tooltips no-padding">
+		<div class="wrapper">

@@ -21,7 +21,7 @@ class NotFoundPlugin extends Plugin
 	 * @param Dispatcher $dispatcher
 	 */
 	public function beforeException(Event $event, MvcDispatcher $dispatcher, Exception $exception)
-	{
+	{		
 		if ($exception instanceof DispatcherException) {
 			switch ($exception->getCode()) {
 				case Dispatcher::EXCEPTION_HANDLER_NOT_FOUND:
@@ -33,11 +33,11 @@ class NotFoundPlugin extends Plugin
 					return false;
 			}
 		}
-
+/* 
 		$dispatcher->forward(array(
 			'controller' => 'errors',
 			'action'     => 'show500'
-		));
+		)); */
 		return false;
 	}
 }

@@ -15,17 +15,21 @@ $loader->registerDirs(
 		APP_PATH . $config->application->coreDir,
 	)
 )->register();
+
 $loader->registerNamespaces(
     array(
-       'WH\Core'    => APP_PATH."/app/core/",
-        )
-);
-/*
-$loader->registerClasses(
-    array(
-        "BaseController"	=>	APP_PATH .'/app/core/BaseController.php',
+		'WH\Forms'    => APP_PATH."app/forms/",
+		'WH\Core'    => APP_PATH."app/core/",
+		'WH'    => APP_PATH."app/models/wh-appapi/",
     )
 );
-*/
+
+
+/* $loader->registerClasses(
+    array(
+        "SearchForm"	=>	APP_PATH .'/app/forms/SearchForm.php',
+    )
+); */
+
 $loader->register();
-//$ControllerBase = new ControllerBase();
+//$SearchForm = new SearchForm();
