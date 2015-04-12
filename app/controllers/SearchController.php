@@ -6,6 +6,8 @@ use WH\Api\Params;
 class SearchController extends BaseController{
 	public function initialize(){
 		$this->view->setLayout('ajaxLayout');
+		$this->view->searchform = new SearchForm;
+		$this->view->newsletterform = new NewsletterForm;
         parent::initialize();
     }
 	
@@ -17,20 +19,20 @@ class SearchController extends BaseController{
 		$start = $this->request->getPost('start');
 		$limit = $this->request->getPost('limit');
 		$parentid = $this->request->getPost('parentid');
-		
-		//echo $start.' '.$limit.' '.$this->city.' '.$bydate.' '.$tags.' '.$searchkeyword; exit;
-		
+
 		$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword);
-		
-		$this->view->allfeedslist = $allfeedslist;
-		$this->view->mainurl = $mainurl;
-		$this->view->searchkeyword = $searchkeyword;
-		$this->view->start = $start+1;
-		$this->view->limit = $limit;
-		$this->view->tags = $tags;
-		$this->view->bydate = $bydate;
-		$this->view->parentid = $parentid;
-		
+		$this->view->setVars(
+			array(
+				'allfeedslist' => $allfeedslist,
+				'mainurl'=>$mainurl,
+				'searchkeyword'=>$searchkeyword,
+				'start'=>$start+$limit,
+				'limit'=>$limit,
+				'tags'=>$tags,
+				'bydate'=>$bydate,
+				'parentid'=>$parentid
+				)
+			);
     }
 	
     public function autosuggestionAction(){

@@ -8,16 +8,18 @@ class TagController extends BaseController{
 	public function initialize(){
         $this->tag->setTitle('Tag');
         $this->view->setLayout('mainLayout');
+		$this->view->searchform = new SearchForm;
+		$this->view->newsletterform = new NewsletterForm;
 		
 		if(!empty($this->dispatcher->getParam('tag')))
 			$this->tags = $this->dispatcher->getParam('tag');
-			$this->view->tags = $this->tags;
-		
+			
+		$this->view->setVars(array('tags' => $this->tags));
 		parent::initialize();
     }
 
     public function indexAction(){
-		$tagsfeeds = $this->getfeeddata(0, 3, $this->city, 'all', 'tags', $this->tags);
-		$this->view->tagsfeeds = $tagsfeeds;
+		$tagsfeeds = $this->getfeeddata(0, 12, $this->city, 'all', 'tags', $this->tags);
+		$this->view->setVars(array('tagsfeeds' => $tagsfeeds));
     }
 }

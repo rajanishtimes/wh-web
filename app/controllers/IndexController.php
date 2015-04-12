@@ -6,7 +6,6 @@ use WH\Api\Params;
 class IndexController extends BaseController{
 	
 	public function initialize(){
-		
         $this->tag->setTitle('Welcome');
         $this->view->setLayout('mainLayout');
 		$this->view->searchform = new SearchForm;
@@ -16,17 +15,26 @@ class IndexController extends BaseController{
 
     public function indexAction(){
 		$getfeedsUrl = $this->api_end_point.'solr/searchEntity';
-		$this->view->getfeedsUrl = $getfeedsUrl;
 		$topfeeds = $this->getfeeddata(0, 3, $this->city, 'Today');
-		$this->view->topfeeds = $topfeeds;
 		
 		$core = new \WH\Model\Core();
 		$core->setCity($this->cityId);
         $populartags = $core->getResults();
-		$this->view->populartags = $populartags;
 		
-		$allfeedslist = $this->getfeeddata(0, 12, $this->city, 'all');
-		$this->view->allfeedslist = $allfeedslist;
+		$start = 0;
+		$limit = 12;
+		$allfeedslist = $this->getfeeddata($start, $limit, $this->city, 'all');
+		
+		$this->view->setVars(
+			array(
+				'getfeedsUrl' => $getfeedsUrl,
+				'allfeedslist' => $allfeedslist,
+				'start'=>$limit,
+				'limit'=>$limit,
+				'populartags'=>$populartags,
+				'topfeeds'=>$topfeeds
+				)
+			);
     }
 	
 	public function getfeedsAction(){

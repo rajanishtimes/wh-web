@@ -1,13 +1,4 @@
-<!-- BEGIN BERADCRUMB AND PAGE TITLE -->
-<div class="page-title-wrap">
-	<div class="container no-padding">
-		<ol class="breadcrumb">
-		  <li><a href="{{baseUrl}}">Home</a></li>
-		  <li class="active">{{contentdetail['title']}}</li>
-		</ol>
-	</div><!-- /.container -->
-</div><!-- /.page-title-wrap -->
-<!-- END BERADCRUMB AND PAGE TITLE -->
+<?php $this->partial('partials/breadcrumbs', array('breadcrumbs' => $breadcrumbs)); ?>
 
 <div class="section">
 	<div class="container">
@@ -25,7 +16,7 @@
 					</ul><div class="clearfix"></div>
 					<h2 class="contenttitle text-center">{{contentdetail['title']}}</h2>
 					<div class="contentdetail text-center">
-						By <a href="{{contentdetail['author']['name']}}">{{contentdetail['author']['name']}}</a>
+						By <a href="{{baseUrl}}author/{{contentdetail['author']['slug']}}">{{contentdetail['author']['name']}}</a>
 					</div>
 					<hr class="small">
 					<div class="detail">

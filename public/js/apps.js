@@ -55,7 +55,10 @@ $(window).load(function() {
 	$('#searchbox').click(function(){
 		$('.seach-overlay-box').height($(document).height());
 		$('.seach-overlay-box').show();
+		$('#searchtextinput').val();
 		$('#searchtextinput').focus();
+		$('#searchallfeeds').html('');
+		$('#searchallfeeds').parent().find('.loadmore').html('');
 	});
 	
 	$('#searchformbtn').click(function(){
@@ -67,7 +70,7 @@ $(window).load(function() {
 	});
 	
 	if($('#getallfeeds').length > 0){
-		view_feed_with_ajax(baseUrl+'search/index', 0, 12, 'getallfeeds', '', '', 'all');
+		//view_feed_with_ajax(baseUrl+'search/index', 0, 12, 'getallfeeds', '', '', 'all');
 	}
 	
 	$('#searchtextinput').typeahead({
@@ -135,14 +138,14 @@ $.fn.center = function () {
 
 function view_feed_with_ajax(mainURL, start, limit, parentId, searchval='', tags='', bydate=''){
 	$('#'+parentId).append('<div class="loader"><img src="'+baseUrl+'img/ajax-loader.gif"></div>');
-	$('.loadmore .btn').attr('disabled','disabled');
+	$('#'+parentId).parent().find('.loadmore .btn').attr('disabled','disabled');
 	$.ajax( {
 		url:mainURL,
 		type:'POST',
 		data: 'searchkeyword='+searchval+'&start='+start+'&limit='+limit+'&tags='+tags+'&bydate='+bydate+'&mainurl='+mainURL+'&parentid='+parentId,
 		success:function(data) {
 			var splitdata = data.split("<-!-###@###->");
-			$('.loader').remove();
+			$('#'+parentId).parent().find('.loader').remove();
 			$('#'+parentId).append(splitdata[0]);
 			$('#'+parentId).parent().find('.loadmore').html(splitdata[1]);
 			resizefeedimage();

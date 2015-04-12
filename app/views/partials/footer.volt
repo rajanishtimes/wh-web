@@ -21,19 +21,12 @@
 			
 			<div class="col-sm-6 col-md-2">
 				<h4>Our Story</h4>
-				<ul class="list">
-					<li><a href="index.html">Site Map</a></li>
-					<li><a href="index.html">Help</a></li>
-					<li><a href="index.html">Carrers</a></li>
-					<li><a href="index.html">User Agreement</a></li>
-					<li><a href="index.html">Policy</a></li>
-					<li><a href="index.html">Patent Info</a></li>
-				</ul>
+				{{ elements.getStaticpages() }}
 			</div><!-- /.col-sm-4 -->
 			<div class="col-sm-6 col-md-3">
 				<ul class="list citylist">
 					{% for cities in allcities['cities'] %}
-						<li><a href="#fakelink">{{cities['name']}}</a></li>
+						<li><a href="{{baseUrl}}{{cities['name']|lower|trim}}">{{cities['name']}}</a></li>
 					{% endfor  %}
 				</ul>
 			</div><!-- /.col-sm-3 -->
