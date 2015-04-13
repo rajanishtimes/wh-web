@@ -9,8 +9,9 @@ class BaseController extends Controller{
 	public $meta_keywords = '';
 	public $meta_author = '';
 	public $city = 'delhi';
-	public $cityId;
+	public $cityId = 0;
 	public $request;
+	public $baseUrl;
 	
     protected function initialize()
     {
@@ -20,24 +21,27 @@ class BaseController extends Controller{
 		$this->view->meta_keywords = $this->meta_keywords;
 		$this->view->meta_author = $this->meta_author;
 		
-		$baseurl = ((empty($_SERVER['REQUEST_SCHEME'])) ? 'http' : $_SERVER['REQUEST_SCHEME']).'://'.$_SERVER['SERVER_NAME'].$this->config->application->baseUri;
-		$this->view->baseUrl = $baseurl;
+		$this->baseUrl = ((empty($_SERVER['REQUEST_SCHEME'])) ? 'http' : $_SERVER['REQUEST_SCHEME']).'://'.$_SERVER['SERVER_NAME'].$this->config->application->baseUri;
+		$this->view->baseUrl = $this->baseUrl;
 		
 		//echo $this->dispatcher->getControllerName();exit;
+		//echo $this->dispatcher->getActionName();exit;
 		
-		if(!empty($this->dispatcher->getParam('city'))){
-			$this->city = $this->dispatcher->getParam('city');
-			$this->session->set("cities", $this->city);
-			$this->view->city = $this->city;
-		}else{
-			$this->session->set("cities", 'delhi');
-			$this->view->city = 'delhi';
-		}
-		
-		if ($this->session->has("cities")) {
+		if ($this->session->has("cities") && empty($this->dispatcher->getParam('city'))) {
 			$this->city = $this->session->get("cities");
 			$this->view->city = $this->city;
-        }
+        }else{
+			if(!empty($this->dispatcher->getParam('city'))){
+				$this->city = $this->dispatcher->getParam('city');
+				$this->session->set("cities", $this->city);
+				$this->view->city = $this->city;
+			}else{
+				$this->session->set("cities", 'delhi');
+				$this->view->city = 'delhi';
+			}
+		}
+		
+		
 		
 		
 		$cities = new \WH\Model\Cities();
@@ -49,6 +53,13 @@ class BaseController extends Controller{
 				$this->cityId = $getallcity['id'];
 				break;
 			}
+		}
+		
+		if($this->cityId == 0){
+			$this->cityId = $getallcities['cities'][0]['id'];
+			$this->city = $getallcities['cities'][0]['name'];
+			$this->session->set("cities", $this->city);
+			$this->view->city = $this->city;
 		}
 		
     }
@@ -119,5 +130,11 @@ class BaseController extends Controller{
 			$entityresult['results'][$key]['slug'] = $this->create_slug($entity['title']).'-'.str_replace('_', '-', strtolower($entity['id']));
 		}
 		return $entityresult;
+	}
+	
+	public function breadcrumbs($arr){
+		$bdc = array('Home'=>$this->baseUrl);
+		$breadcrumbs = array_merge($bdc, $arr);
+		return $breadcrumbs;
 	}
 }

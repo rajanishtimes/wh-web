@@ -13,12 +13,15 @@ class ContentController extends BaseController{
 		
 		if(!empty($this->dispatcher->getParam('city')))
 			$this->city = $this->dispatcher->getParam('city');
-			$this->view->city = $this->city;
-		
 		
 		if(!empty($this->dispatcher->getParam('contenttitle')))
 			$this->contenttitle = $this->dispatcher->getParam('contenttitle');
-			$this->view->contenttitle = $this->contenttitle;
+			
+		$this->view->setVars(array(
+			'city' => $this->city,
+			'contenttitle' => $this->contenttitle
+		));
+		
 		parent::initialize();
     }
 
@@ -39,6 +42,12 @@ class ContentController extends BaseController{
 				}
 			}
 		}
-		$this->view->contentdetail = $contentdetail;
+		$contentdetail['author']['slug'] = $this->create_slug($contentdetail['author']['name']).'-'.$contentdetail['author']['id'];
+		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($contentdetail['title']))) =>''));
+		
+		$this->view->setVars(array(
+			'contentdetail' => $contentdetail,
+			'breadcrumbs' => $breadcrumbs
+		));
     }
 }

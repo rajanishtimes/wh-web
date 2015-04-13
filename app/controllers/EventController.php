@@ -12,14 +12,17 @@ class EventController extends BaseController{
 		$this->view->newsletterform = new NewsletterForm;
 		
 		if(!empty($this->dispatcher->getParam('city')))
-			$this->city = $this->dispatcher->getParam('city');
-			$this->view->city = $this->city;
-		
+			$this->city = $this->dispatcher->getParam('city');		
 		
 		if(!empty($this->dispatcher->getParam('eventtitle')))
 			$this->eventtitle = $this->dispatcher->getParam('eventtitle');
-			$this->view->eventtitle = $this->eventtitle;
 		
+		$this->view->setVars(
+			array(
+				'city' => $this->city,
+				'eventtitle' => $eventtitle
+				)
+			);
 		parent::initialize();
     }
 
@@ -39,7 +42,8 @@ class EventController extends BaseController{
 					$eventdetail['images'][$key]['uri'] = $this->config->application->imgbaseUri.$images['uri'];
 				}
 			}
-		}		
-		$this->view->eventdetail = $eventdetail;
+		}
+		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($eventdetail['title']))) =>''));
+		$this->view->setVars(array('eventdetail' => $eventdetail, 'breadcrumbs'=>$breadcrumbs));
     }
 }

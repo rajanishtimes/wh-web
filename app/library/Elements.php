@@ -25,12 +25,34 @@ class Elements extends Component
             )
         )
     );
+	
+	private $_navmenu = array(        
+		'site-map' => array(
+			'caption' => 'Site Map',
+			'action' => '#'
+		),
+		'help' => array(
+			'caption' => 'Help',
+			'action' => '#'
+		),
+		'careers' => array(
+			'caption' => 'Careers',
+			'action' => '#'
+		),
+		'user-agreement' => array(
+			'caption' => 'User Agreement',
+			'action' => '#'
+		),
+		'policy' => array(
+			'caption' => 'Policy',
+			'action' => '#'
+		),
+		'payment-info' => array(
+			'caption' => 'Payment Info',
+			'action' => '#'
+		)
+    );
 
-    /**
-     * Builds header menu with left and right items
-     *
-     * @return string
-     */
     public function getMenu()
     {
 		$controllerName = $this->view->getControllerName();
@@ -47,6 +69,23 @@ class Elements extends Component
             }
             echo '</ul>';
         }
+
+    }
+	
+	public function getStaticpages()
+    {
+		$actionName = $this->view->getActionName();
+		echo "<ul class='list'>";
+		foreach ($this->_navmenu as $action => $option) {
+			if ($actionName == $action) {
+				echo '<li class="active">';
+			} else {
+				echo '<li>';
+			}
+			echo $this->tag->linkTo($option['action'], $option['caption']);
+			echo '</li>';
+		}
+		echo '</ul>';
 
     }
 }

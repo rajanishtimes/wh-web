@@ -27,7 +27,7 @@
 				  </a>
 				  <ul class="dropdown-menu square primary margin-list-rounded with-triangle">
 					{% for cities in allcities['cities'] %}
-						<li><a href="#fakelink">{{cities['name']}}</a></li>
+						<li><a href="{{baseUrl}}{{cities['name'] | trim | lower}}">{{cities['name']}}</a></li>
 					{% endfor  %}
 				  </ul>
 				</li>

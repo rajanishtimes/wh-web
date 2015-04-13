@@ -24,11 +24,13 @@
 			<div class="work-content">						
 				<h2 class="heading">Popular Tips</h2>
 				<ul id="populartag" class="work-category-wrap">
-					{% for populartag in populartags['popular_tags'] %}
-					<li class="filter" ><a href="javascript:void(0)">
-					{{populartag | capitalize}}
-					</a></li>
-					{% endfor  %}
+					<?php if(!empty($populartags['popular_tags'])){ ?>
+						{% for populartag in populartags['popular_tags'] %}
+							<li class="filter" ><a href="javascript:void(0)">
+							{{populartag | capitalize}}
+							</a></li>
+						{% endfor  %}
+					<?php } ?>
 				</ul><div class="clearfix"></div>
 			</div><div class="clearfix"></div><hr>
 			<div class="col-sm-6 col-md-6 col-xs-12 no-padding">
@@ -45,21 +47,25 @@
 			
 			
 			<div class="work-content allfeeds">
-				<div id="getallfeeds"></div><div class="clearfix"></div><div class="loadmore"></div>
-				
-				<!--{% for feed in allfeedslist['results'] %}
-				<?php //echo "<pre>"; print_r($feed); ?>
-				<div class="col-sm-4 col-md-3 col-xs-6">
-					<div class="work-item">
-						<a href="{{baseUrl}}{{city}}/{{topfeed['slug']}}"><img src="{{feed['image']['uri']}}" alt="{{feed['title']}}"></a>
-						<div class="the-box no-margin">
-							<div class="feed-title"><a href="{{baseUrl}}{{city}}/{{topfeed['slug']}}">{{feed['title']}}</a></div>
-							<p class="feed-short-desc">{{feed['description']}}</p>
+				<div id="getallfeeds">					
+					{% for feed in allfeedslist['results'] %}
+					<?php //echo "<pre>"; print_r($feed); ?>
+					<div class="col-sm-4 col-md-3 col-xs-6">
+						<div class="work-item">
+							<a href="{{baseUrl}}{{city}}/{{feed['slug']}}"><img src="{{feed['image']['uri']}}" alt="{{feed['title']}}"></a>
+							<div class="the-box no-margin">
+								<div class="feed-title"><a href="{{baseUrl}}{{city}}/{{feed['slug']}}">{{feed['title']}}</a></div>
+								<p class="feed-short-desc">{{feed['description']}}</p>
+							</div>
 						</div>
 					</div>
+					{% endfor  %}
+				</div><div class="clearfix"></div>
+				<div class="loadmore">
+					<?php if($allfeedslist['meta']['match_count'] > ($limit)){ ?>
+						<div class="btn btn-primary" onclick="view_feed_with_ajax('{{baseUrl}}search/index', '{{start}}', '{{limit}}', 'getallfeeds', '', '', 'all')">Load More</div>
+					<?php }?>
 				</div>
-				{% endfor  %}-->
-
 			</div>
 			
 		</div>
