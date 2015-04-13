@@ -4,7 +4,7 @@
 <footer>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-6 col-md-4 extrapaddright">
+			<div class="col-xs-12 col-sm-6 col-md-4 extrapaddright">
 				<p>We deliver. Get the best of What's HOT Today in your inbox.</p>
 				<?php echo $this->partial('partials/newsletter'); ?>
 				<p><small>You can opt-out at any time. Please refer to our privacy policy for contact information.</small></p>
@@ -19,7 +19,7 @@
 				</div>
 			</div>
 			
-			<div class="col-sm-6 col-md-2">
+			<div class="col-xs-12 col-sm-6 col-md-2">
 				<h4>Our Story</h4>
 				<ul class="list">
 					<li><a href="index.html">Site Map</a></li>
@@ -30,7 +30,7 @@
 					<li><a href="index.html">Patent Info</a></li>
 				</ul>
 			</div><!-- /.col-sm-4 -->
-			<div class="col-sm-6 col-md-3">
+			<div class="col-xs-12 col-sm-6 col-md-3">
 				<ul class="list citylist">
 					<?php foreach ($allcities['cities'] as $cities) { ?>
 						<li><a href="#fakelink"><?php echo $cities['name']; ?></a></li>
@@ -38,7 +38,7 @@
 				</ul>
 			</div><!-- /.col-sm-3 -->
 			<div class="clearfix visible-sm"></div>
-			<div class="col-sm-6 col-md-3 text-right">
+			<div class="col-xs-12 col-sm-6 col-md-3 text-right">
 				<div class="setbottom">
 					<div class="app_option">
 						<a href=""><div class="iphone_app float-right"></div></a>&nbsp;&nbsp;

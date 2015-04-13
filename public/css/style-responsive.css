@@ -164,6 +164,8 @@ PHONE < 480px
 	.contentarea .detail {
 		padding: 0;
 	}
+	.extrapaddright{padding-left: 15px;
+    padding-right: 15px;}
 }
 
 /**
