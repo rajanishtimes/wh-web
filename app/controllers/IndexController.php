@@ -13,9 +13,8 @@ class IndexController extends BaseController{
 		parent::initialize();
     }
 
-    public function indexAction(){
-		$getfeedsUrl = $this->api_end_point.'solr/searchEntity';
-		$topfeeds = $this->getfeeddata(0, 3, $this->city, 'Today');
+	public function homepageAction(){
+		$topfeeds = $this->getfeeddata(0, 3, $this->city, 'Today', '', '', 'Event,Content');
 		
 		$core = new \WH\Model\Core();
 		$core->setCity($this->cityId);
@@ -23,11 +22,9 @@ class IndexController extends BaseController{
 		
 		$start = 0;
 		$limit = 12;
-		$allfeedslist = $this->getfeeddata($start, $limit, $this->city, 'all');
-		
+		$allfeedslist = $this->getfeeddata($start, $limit, $this->city, 'all', '', '', 'Event,Content');
 		$this->view->setVars(
 			array(
-				'getfeedsUrl' => $getfeedsUrl,
 				'allfeedslist' => $allfeedslist,
 				'start'=>$limit,
 				'limit'=>$limit,
@@ -36,17 +33,6 @@ class IndexController extends BaseController{
 				)
 			);
     }
-	
-	public function getfeedsAction(){
-		$start = 0;
-		$city = $this->city;
-		$limit = 12;
-		$bydays = 'all';
-		$allfeeds = $this->getfeeddata($start, $limit, $city, $bydays);
-		echo "<pre>"; print_r($allfeeds);
-		$this->view->allfeeds = $allfeeds;
-		exit;
-	}
 	
 	public function newsletterAction(){
 		$ermessage = array();
@@ -65,5 +51,8 @@ class IndexController extends BaseController{
 			exit;
 		}
 	}
-
+	
+	public function indexAction(){
+		$this->view->setLayout('homepageLayout');
+    }
 }

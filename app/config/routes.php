@@ -14,6 +14,12 @@ $urlparams = end($split);
 ));
 */
 
+$router->add("/homepage", array(
+    'controller' => 'index',
+    'action' => 'homepage',
+)); 
+
+
 $router->add("/author/{authorname:[a-zA-Z0-9\-]+}", array(
     'controller' => 'author',
     'action' => 'index',
@@ -23,6 +29,13 @@ $router->add("/author/posts", array(
     'controller' => 'author',
     'action' => 'posts',
 )); 
+
+
+$router->add("/{city:[a-zA-Z0-9\-]+}/venue/{venue:[a-zA-Z0-9\-]+}", array(
+	'controller' => 'venue',
+	'action' => 'index',
+));
+
 
 /* $router->add("/critic-review/{critic:[a-zA-Z0-9\-]+}", array(
     'controller' => 'critic',
@@ -50,7 +63,7 @@ if(preg_match('/\b-c-[0-9]{1,}\b/i', $urlparams, $match)){
 
 $router->add("/{city:[a-zA-Z0-9\-]+}", array(
 	'controller' => 'index',
-	'action' => 'index',
+	'action' => 'homepage',
 ));
 
 $router->handle();

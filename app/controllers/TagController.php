@@ -19,7 +19,7 @@ class TagController extends BaseController{
     }
 
     public function indexAction(){
-		$tagsfeeds = $this->getfeeddata(0, 12, $this->city, 'all', 'tags', $this->tags);
+		$tagsfeeds = $this->getfeeddata(0, 12, $this->city, 'all', 'tags', $this->tags, 'Event,Content');
 		$this->view->setVars(array('tagsfeeds' => $tagsfeeds));
     }
 }

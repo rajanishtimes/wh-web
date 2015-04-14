@@ -4,7 +4,7 @@
 		<div class="top-navbar">
 		<!-- Begin logo -->
 		<div class="logo">
-			<a href="{{baseUrl}}{{city}}"><img src="{{baseUrl}}img/logo.png" alt="WhatsHot"></a>
+			<a href="<?php echo $baseUrl; ?><?php echo $city; ?>"><img src="<?php echo $baseUrl; ?>img/logo.png" alt="WhatsHot"></a>
 		</div><!-- /.logo -->
 		<!-- End logo -->
 		
@@ -23,12 +23,12 @@
 			<ul class="nav-search navbar-right">
 				<li class="dropdown">
 				  <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">
-					<span>{{city | capitalize}}</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-down"></i>
+					<span><?php echo ucwords($city); ?></span>&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-down"></i>
 				  </a>
 				  <ul class="dropdown-menu square primary margin-list-rounded with-triangle">
-					{% for cities in allcities['cities'] %}
-						<li><a href="{{baseUrl}}{{cities['name'] | trim | lower}}">{{cities['name']}}</a></li>
-					{% endfor  %}
+					<?php foreach ($allcities['cities'] as $cities) { ?>
+						<li><a href="<?php echo $baseUrl; ?><?php echo Phalcon\Text::lower(trim($cities['name'])); ?>"><?php echo $cities['name']; ?></a></li>
+					<?php } ?>
 				  </ul>
 				</li>
 			</ul>

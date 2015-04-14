@@ -20,7 +20,7 @@ class EventController extends BaseController{
 		$this->view->setVars(
 			array(
 				'city' => $this->city,
-				'eventtitle' => $eventtitle
+				'eventtitle' => $this->eventtitle
 				)
 			);
 		parent::initialize();

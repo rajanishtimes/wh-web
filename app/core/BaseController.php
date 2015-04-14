@@ -27,22 +27,20 @@ class BaseController extends Controller{
 		//echo $this->dispatcher->getControllerName();exit;
 		//echo $this->dispatcher->getActionName();exit;
 		
-		if ($this->session->has("cities") && empty($this->dispatcher->getParam('city'))) {
-			$this->city = $this->session->get("cities");
-			$this->view->city = $this->city;
+		if ($this->session->has("cities") && empty($this->dispatcher->getParam('city')) && !empty($this->session->get("cities"))) {			
+			$this->city = strtolower($this->session->get("cities"));
+			$this->view->city = strtolower($this->city);
         }else{
 			if(!empty($this->dispatcher->getParam('city'))){
 				$this->city = $this->dispatcher->getParam('city');
 				$this->session->set("cities", $this->city);
-				$this->view->city = $this->city;
+				$this->view->city = strtolower($this->city);
 			}else{
 				$this->session->set("cities", 'delhi');
+				$this->city = 'delhi';
 				$this->view->city = 'delhi';
 			}
 		}
-		
-		
-		
 		
 		$cities = new \WH\Model\Cities();
 		$getallcities = $cities->getResults();
@@ -99,11 +97,12 @@ class BaseController extends Controller{
 		return $slug;
 	}
 	
-	public function getfeeddata($start, $limit, $city, $bydays, $filter_type='', $keyword=''){
+	public function getfeeddata($start, $limit, $city, $bydays, $filter_type='', $keyword='', $bytype=''){
 		$Search = new \WH\Model\Solr();
 		$Search->setParam('bycity',$city);
 		$Search->setParam('start',$start);
 		$Search->setParam('limit',$limit);
+		$Search->setParam('byType',$bytype);
 		
 		if(strtolower($bydays)!='all')
 		$Search->setParam('byDays',$bydays);
@@ -118,6 +117,7 @@ class BaseController extends Controller{
 			$Search->setParam('spstart',$start);
 			$Search->setParam('splimit',$limit);
 		}
+		$Search->setParam('bysort',2);
 		
 		$Search->setSearchEntity();
 		$entityresult = $Search->getSearchResults();
@@ -129,6 +129,7 @@ class BaseController extends Controller{
 			}
 			$entityresult['results'][$key]['slug'] = $this->create_slug($entity['title']).'-'.str_replace('_', '-', strtolower($entity['id']));
 		}
+		
 		return $entityresult;
 	}
 	
