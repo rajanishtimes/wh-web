@@ -6,7 +6,6 @@ use WH\Api\Params;
 class ContentController extends BaseController{
 	public $contenttitle = '';
 	public function initialize(){
-        $this->tag->setTitle('Content');
         $this->view->setLayout('mainLayout');
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
@@ -35,6 +34,19 @@ class ContentController extends BaseController{
 		$Solr->setSolrType('detail');
         $Solr->setEntityDetails();
         $contentdetail = $Solr->getDetailResults();
+		
+		/* ======= Seo Update ============= */
+		if(!empty($contentdetail['page_title']))
+			$this->tag->setTitle($contentdetail['page_title']);
+		$this->view->meta_description = $contentdetail['meta_description'];
+		$this->view->meta_keywords = $contentdetail['meta_keywords'];
+		$this->view->og_title = $contentdetail['og_title'];
+		$this->view->og_type = 'Content';
+		$this->view->og_description = $contentdetail['og_description'];
+		$this->view->og_image = $contentdetail['og_image'];
+		$this->view->og_url = $this->baseUrl.$this->city.$contentdetail['url'];
+		/* ======= Seo Update ============= */
+		
 		foreach($contentdetail['images'] as $key=>$images){
 			if(!empty($images['uri'])){
 				if(substr($images['uri'], 0, 4) != 'http'){

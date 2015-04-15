@@ -16,7 +16,7 @@
 					<h2 class="contenttitle text-center"><?php echo $eventdetail['title']; ?></h2>
 					<div class="eventdetail">
 						<div class="time"><?php echo $eventdetail['time']['short']; ?>, <?php echo $eventdetail['time']['long']; ?></div>
-						<div class="venue"><?php echo $eventdetail['venue']['formatted_address']; ?></div>
+						<div class="venue"><a href="<?php echo $baseUrl; ?><?php echo $city; ?>/venue/<?php echo $eventdetail['venue']['slug']; ?>"><?php echo $eventdetail['venue']['formatted_address']; ?></a></div>
 					</div>
 					<hr class="small">
 					<div class="detail">

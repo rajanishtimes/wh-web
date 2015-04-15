@@ -6,7 +6,6 @@ use WH\Api\Params;
 class EventController extends BaseController{
 	public $eventtitle = '';
 	public function initialize(){
-        $this->tag->setTitle('Event');
         $this->view->setLayout('mainLayout');
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
@@ -43,6 +42,19 @@ class EventController extends BaseController{
 				}
 			}
 		}
+		$eventdetail['venue']['slug'] = $this->create_slug($eventdetail['venue']['name']).'-v-'.str_replace('_', '-', strtolower($eventdetail['venue']['id']));
+		/* ======= Seo Update ============= */
+		if(!empty($eventdetail['page_title']))
+			$this->tag->setTitle($eventdetail['page_title']);
+		$this->view->meta_description = $eventdetail['meta_description'];
+		$this->view->meta_keywords = $eventdetail['meta_keywords'];
+		$this->view->og_title = $eventdetail['og_title'];
+		$this->view->og_type = 'Event';
+		$this->view->og_description = $eventdetail['og_description'];
+		$this->view->og_image = $eventdetail['og_image'];
+		$this->view->og_url = $this->baseUrl.$this->city.$eventdetail['url'];
+		/* ======= Seo Update ============= */
+		
 		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($eventdetail['title']))) =>''));
 		$this->view->setVars(array('eventdetail' => $eventdetail, 'breadcrumbs'=>$breadcrumbs));
     }

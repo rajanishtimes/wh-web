@@ -8,6 +8,11 @@ class BaseController extends Controller{
 	public $meta_description = '';
 	public $meta_keywords = '';
 	public $meta_author = '';
+	public $og_title = '';
+	public $og_type = '';
+	public $og_description = '';
+	public $og_image = '';
+	public $og_url = '';
 	public $city = 'delhi';
 	public $cityId = 0;
 	public $request;
@@ -16,10 +21,17 @@ class BaseController extends Controller{
     protected function initialize()
     {
 		$this->request = new \Phalcon\Http\Request();
-		$this->tag->prependTitle('WhatsHot | ');
+		$this->tag->prependTitle($this->config->application->SiteName.' | ');
 		$this->view->meta_description = $this->meta_description;
 		$this->view->meta_keywords = $this->meta_keywords;
 		$this->view->meta_author = $this->meta_author;
+		
+		$this->view->og_title = $this->og_title;
+		$this->view->og_type = $this->og_type;
+		$this->view->og_description = $this->og_description;
+		$this->view->og_image = $this->og_image;
+		$this->view->og_url = $this->og_url;
+		$this->view->og_site_name = $this->config->application->SiteName;
 		
 		$this->baseUrl = ((empty($_SERVER['REQUEST_SCHEME'])) ? 'http' : $_SERVER['REQUEST_SCHEME']).'://'.$_SERVER['SERVER_NAME'].$this->config->application->baseUri;
 		$this->view->baseUrl = $this->baseUrl;

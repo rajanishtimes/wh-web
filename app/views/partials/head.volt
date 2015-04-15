@@ -4,9 +4,33 @@
 		{% block head %}
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="{{ meta_description }}">
-		<meta name="keywords" content="{{ meta_keywords }}">
-		<meta name="author" content="{{ meta_author }}">
+		{% if meta_description is defined %}
+			<meta name="description" content="{{ meta_description }}">
+		{% endif  %}
+		{% if meta_keywords is defined %}
+			<meta name="keywords" content="{{ meta_keywords }}">
+		{% endif  %}		
+		{% if meta_author is defined %}
+			<meta name="author" content="{{ meta_author }}">
+		{% endif  %}
+		{% if og_title is defined %}
+			<meta property="og:title" content="{{og_title}}" />
+		{% endif  %}
+		{% if og_description is defined %}
+			<meta property="og:description" content="{{og_description}}" />
+		{% endif  %}
+		{% if og_site_name is defined %}
+			<meta property="og:site_name" content="{{og_site_name}}" />
+		{% endif  %}
+		{% if og_type is defined %}
+			<meta property="og:type" content="{{og_type}}" />
+		{% endif  %}
+		{% if og_url is defined %}
+			<meta property="og:url" content="{{og_url}}" />
+		{% endif  %}
+		{% if og_image is defined %}
+			<meta property="og:image" content="{{og_image}}" />
+		{% endif  %}
 		{{ get_title() }}
 		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
 		{{ stylesheet_link('css/bootstrap.min.css') }}

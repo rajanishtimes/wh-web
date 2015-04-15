@@ -22,8 +22,8 @@ class VenueController extends BaseController{
     }
 
     public function indexAction(){
-		preg_match('/\b-v-[0-9]{1,}\b/i', $this->venue, $match);
-		$id = str_replace('-', '_', $match[0]);
+		preg_match('/\bv-[0-9]{1,}\b/i', $this->venue, $match);
+		echo $id = str_replace('-', '_', $match[0]);
 		
 		$Solr = new \WH\Model\Solr();
 		$Solr->setParam('ids',$id);
@@ -31,19 +31,37 @@ class VenueController extends BaseController{
 		$Solr->setSolrType('detail');
         $Solr->setEntityDetails();
         $venuedetail = $Solr->getDetailResults();
-		exit;
-		foreach($contentdetail['images'] as $key=>$images){
-			if(!empty($images['uri'])){
-				if(substr($images['uri'], 0, 4) != 'http'){
-					$contentdetail['images'][$key]['uri'] = $this->config->application->imgbaseUri.$images['uri'];
-				}
-			}
-		}
-		$contentdetail['author']['slug'] = $this->create_slug($contentdetail['author']['name']).'-'.$contentdetail['author']['id'];
-		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($contentdetail['title']))) =>''));
 		
+		$formatted_address = '';
+		if(isSet($venuedetail['address']) && trim($venuedetail['address'])!=''){
+			$address_arr[] = $venuedetail['address'];
+		}
+		if(isSet($venuedetail['localityname']) && trim($venuedetail['localityname'])!=''){
+			$address_arr[] = $venuedetail['localityname'];
+		}
+		if(isSet($venuedetail['cityname']) && trim($venuedetail['cityname'])!=''){
+			$address_arr[] = $venuedetail['cityname'];
+		}
+		
+		$formatted_address = implode(', ', $address_arr);
+		$venuedetail['formatted_address'] = $formatted_address;
+		
+		
+		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($venuedetail['title']))) =>''));
+		
+		/* ======= Seo Update ============= */
+		if(!empty($venuedetail['page_title']))
+			$this->tag->setTitle($venuedetail['page_title']);
+		$this->view->meta_description = $venuedetail['meta_description'];
+		$this->view->meta_keywords = $venuedetail['meta_keywords'];
+		$this->view->og_title = $venuedetail['og_title'];
+		$this->view->og_type = 'Venue';
+		$this->view->og_description = $venuedetail['og_description'];
+		$this->view->og_image = $venuedetail['og_image'];
+		$this->view->og_url = $this->baseUrl.$this->city.$venuedetail['url'];
+		/* ======= Seo Update ============= */
 		$this->view->setVars(array(
-			'contentdetail' => $contentdetail,
+			'venuedetail' => $venuedetail,
 			'breadcrumbs' => $breadcrumbs
 		));
     }
