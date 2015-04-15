@@ -39,11 +39,11 @@ class BaseController extends Controller{
 		//echo $this->dispatcher->getControllerName();exit;
 		//echo $this->dispatcher->getActionName();exit;
 		
-		if ($this->session->has("cities") && empty($this->dispatcher->getParam('city')) && !empty($this->session->get("cities"))) {			
+		if ($this->session->has("cities") && empty($this->dispatcher->getParam('city')) && $this->session->get("cities")) {			
 			$this->city = strtolower($this->session->get("cities"));
 			$this->view->city = strtolower($this->city);
         }else{
-			if(!empty($this->dispatcher->getParam('city'))){
+			if($this->dispatcher->getParam('city')){
 				$this->city = $this->dispatcher->getParam('city');
 				$this->session->set("cities", $this->city);
 				$this->view->city = strtolower($this->city);
