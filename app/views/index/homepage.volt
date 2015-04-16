@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<h1>Hey! Top Things to do today</h1>
-			<div class="work-content">
+			<div class="work-content resize">
 				{% for topfeed in topfeeds['results'] %}
 					<div class="col-sm-6 col-md-4 col-xs-6">
 						<a href="{{baseUrl}}{{city}}/{{topfeed['slug']}}">

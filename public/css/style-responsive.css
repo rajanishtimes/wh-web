@@ -177,6 +177,22 @@ PHONE < 420px
 	.top-navbar .logo{
 		width: 100%;
 	}
+	
+	.filter_type{
+		padding:0; margin:10px 0 5px;
+	}
+	.filter_type li{
+		margin: 0 2px;
+	}
+	
+	footer .row > div {
+		border-bottom: 1px solid #c9c9c9;
+		margin: 0 0 23px;
+		padding: 0 0 9px;
+	}
+	footer .row > div:last-child {
+		border-bottom: none; padding:0; margin:0;
+	}
 }
 
 
@@ -200,5 +216,14 @@ PHONE < 320px
 =================================
 **/
 @media (max-width: 320px){
-
+	.dropdown-menu.with-triangle::before, .dropdown-menu.with-triangle::after{
+		display:block;
+	}
+	.nav-search.navbar-right{
+		position:absolute;
+		right: 0;
+	}
+	.dropdown-menu{
+		left: -110px;
+	}
 }

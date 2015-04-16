@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<h1>Hey! Top Things to do today</h1>
-			<div class="work-content">
+			<div class="work-content resize">
 				<?php foreach ($topfeeds['results'] as $topfeed) { ?>
 					<div class="col-sm-6 col-md-4 col-xs-6">
 						<a href="<?php echo $baseUrl; ?><?php echo $city; ?>/<?php echo $topfeed['slug']; ?>">

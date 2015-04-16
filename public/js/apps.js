@@ -126,7 +126,7 @@ function ajax_feed_filter_type(){
 }
 
 function resizefeedimage(){
-	$(".work-item img").each(function( index ) {
+	$(".resize .work-item img").each(function( index ) {
 		$(this).height(($(this).width()));
 	});
 }
