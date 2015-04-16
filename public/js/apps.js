@@ -77,12 +77,12 @@ $(window).load(function() {
 		name: 'country',
 		remote : baseUrl+'search/autosuggestion?search=%QUERY'
 	});	
-	
+	/* 
 	$('#searchForm').submit(function(){
 		$('#searchallfeeds').html('');
 		view_feed_with_ajax($('#mainUrl').val(), $('#start').val(), $('#limit').val(), 'searchallfeeds', $('#searchtextinput').val());
 		return false;
-	});
+	}); */
 	
 	$('#populartag li > a').click(function(){
 		$('#populartag li > a').parent().removeClass('active');
@@ -115,8 +115,25 @@ $(window).load(function() {
 		});
 	}, 1000);
 	
-	$('.swipebox').swipebox();
+	//$('.swipebox').swipebox();
 	
+	$('#searchinputform').click(function(){
+		$('#expandable').animate({ width: 320 }, 'slow');
+		$('.overlay-search').remove();
+		$('body').append('<div class="overlay-search"></div>');
+		$('#searchinputform').focus();
+	});
+	
+	$( "body" ).on( "click", ".overlay-search", function() {
+		$('#expandable').animate({ width: 220 }, 'slow');
+		$('.overlay-search').remove();
+	});
+	
+	
+	/* .blur(function(){
+		var w = $('#expandable').attr('data-default');
+		$('#expandable').animate({ width: w }, 'slow');
+	}) */
 });
 
 

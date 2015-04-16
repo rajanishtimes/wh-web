@@ -78,10 +78,9 @@ class BaseController extends Controller{
 		
     }
 
-    protected function forward($uri){
+    /* protected function forward($uri){
         $uriParts = explode('/', $uri);
         $params = array_slice($uriParts, 2);
-		print_r($uriParts);
     	return $this->dispatcher->forward(
     		array(
     			'controller' => $uriParts[0],
@@ -89,6 +88,24 @@ class BaseController extends Controller{
                 'params' => $params
     		)
     	);
+    } */
+	
+	protected function forwardtoerrorpage($errorcode){
+        if($errorcode == 404){
+			$this->response->setStatusCode(404, 'Not Found');
+			$this->view->pick('errors/show404');
+		}
+		
+		if($errorcode == 401){
+			$this->response->setStatusCode(401, 'Unauthorized Access');
+			$this->view->pick('errors/show401');
+		}
+		
+		if($errorcode == 500){
+			$this->response->setStatusCode(401, 'Internal Server Error');
+			$this->view->pick('errors/show500');
+		}
+		
     }
 	
 	public function sendCurl($url, $params = array()){

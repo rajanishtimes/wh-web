@@ -8,16 +8,10 @@ $request = trim($request, '/');
 $split = explode('/', $request);
 $urlparams = end($split);
 	
-/* $router->add("/tag/{tags:[a-zA-Z0-9\-]+}", array(
+$router->add("/tag/{tags:[a-zA-Z0-9\- ]+}", array(
     'controller' => 'tag',
     'action' => 'index',
 ));
-*/
-
-$router->add("/homepage", array(
-    'controller' => 'index',
-    'action' => 'homepage',
-)); 
 
 
 $router->add("/author/{authorname:[a-zA-Z0-9\-]+}", array(
@@ -41,11 +35,33 @@ $router->add("/{city:[a-zA-Z0-9\-]+}/venue/{venue:[a-zA-Z0-9\-]+}", array(
     'controller' => 'critic',
     'action' => 'index',
 )); */
-/* 
-$router->add("/search/{searchquery:[a-zA-Z0-9\-]+}", array(
+
+
+$router->add("/search/{searchquery:[a-zA-Z0-9\- ]+}", array(
+    'controller' => 'search',
+    'action' => 'search',
+));
+
+$router->add("/search/search", array(
+    'controller' => 'search',
+    'action' => 'forwardsearch',
+));
+
+$router->add("/search/index", array(
     'controller' => 'search',
     'action' => 'index',
-)); */
+));
+
+$router->add("/search", array(
+    'controller' => 'search',
+    'action' => 'search',
+));
+
+
+$router->add("/search/autosuggestion", array(
+    'controller' => 'search',
+    'action' => 'autosuggestion',
+));
 
 if(preg_match('/\b-e-[0-9]{1,}\b/i', $urlparams, $match)){
 	$router->add("/{city:[a-zA-Z0-9\-]+}/{eventtitle:[a-zA-Z0-9\-]+}", array(
@@ -65,5 +81,18 @@ $router->add("/{city:[a-zA-Z0-9\-]+}", array(
 	'controller' => 'index',
 	'action' => 'homepage',
 ));
+
+
+$router->add("/search", array(
+    'controller' => 'search',
+    'action' => 'search',
+));
+
+
+$router->add("/homepage", array(
+    'controller' => 'index',
+    'action' => 'homepage',
+)); 
+
 
 $router->handle();

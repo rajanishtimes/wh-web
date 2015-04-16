@@ -8,12 +8,12 @@
 		</div><!-- /.logo -->
 		<!-- End logo -->
 		
-		<!-- Begin search nav -->
-		<div id="searchbox" class="nav-right-info">
-			<form role="form">
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search...">
-					<span class="input-group-addon"><i class="fa fa-search"></i></span>
+		<!-- Begin search nav id="searchbox" -->
+		<div id="searchboxmakeoverlay" class="nav-right-info">
+			<form id="searchForm" method="POST" action="/search/search">
+				<div id="expandable" class="input-group">
+					<div id="searchinputform" class="textinput float-left"><input type="text" class="form-control" placeholder="Search..." id="searchtextinput" name="search"></div>
+					<div class="searchinout float-right"><button class="input-group-addon"><i class="fa fa-search"></i></button></div>
 				</div>
 			</form>
 		</div>

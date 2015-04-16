@@ -127,16 +127,25 @@ NAVBAR
 	width: 210px;
 }
 
+.textinput {
+	width:85%;
+}
+
+.searchinout{
+	width:15%;
+}
+
 .nav-right-info .form-control{
 	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: medium none;
     float: left;
     height: 45px;
-    padding: 10px 20px;
-    width: 80%;
+	font-weight: 600;
+    padding: 10px;
 	-webkit-transition:All 0.2s ease;
 	-moz-transition:All 0.2s ease;
 	-o-transition:All 0.2s ease;
+	letter-spacing: -0.2px;
 }
 
 .nav-search.navbar-right{
@@ -156,24 +165,34 @@ NAVBAR
     float: left;
     font-size: 20px;
     height: 45px;
-    padding: 10px 0;
-    width: 20%;
 	border: medium none;
 	color: #bbb;
 	cursor: pointer;
+	padding: 0 0 0 5px;
+    width: 32px;
 }
 
 .nav-right-info .input-group{
 	border: 1px solid #bbbbbb;
 	background: none repeat scroll 0 0 #fff;
     border-collapse: unset;
-    border-radius: 21px;
+    border-radius: 5px;
     display: block;
-    float: left;
+    float: right;
     width: 210px;
+	position: relative;
+    z-index: 10;
 }
 
-
+.overlay-search{
+	width:100%;
+	height:100%;
+	background:#000;
+	opacity:0.8;
+	position:fixed;
+    z-index: 9;
+	top:0;
+}
 /**
 -------------------------------------------
 BREADCRUMB AND PAGE TITLE
@@ -1278,26 +1297,29 @@ SEARCH
 .typeahead-devs, .tt-hint {
 	border:none;
 	border-bottom:1px solid #ccc;
-	font-size:22px;
-	font-weight:bold;
- 	width: 100%;
-	padding: 0 0 0 12px;
-	margin: 1px 0 0;
+	font-size: 14px;
+    height: 49px;
+    margin: -1px 0 0 8px;
+    padding: 0 0 0 2px;
+    width: 105%;
 }
 
 .tt-dropdown-menu {
-	color: #111;
-	font-size: 18px;
-	margin-top: 5px;
-	padding: 8px 12px;
-	width: 100%;
 	background: none repeat scroll 0 0 #fff;
+    border: 1px solid #bbbbbb;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 #fff;
+    color: #111;
+    font-size: 18px;
+    margin-left: 0;
+    margin-top: 10px;
+    padding: 8px 3px;
+    width: 118%;
 }
 .tt-suggestion > p{
-	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 	line-height: 24px;
     margin: 0;
-    padding: 0 0 8px;
+    padding: 0 0 0 6px;
 }
 .tt-suggestion > p:hover{
     color: #D11A6D;    

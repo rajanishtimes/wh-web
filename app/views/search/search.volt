@@ -3,10 +3,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 col-md-12">
-				<h1>{{tagsfeeds['meta']['match_count']}} result(s) found from &#8220;{{tags}}&#8221;</h1>
+				<h1>{{allfeedslist['meta']['match_count']}} result(s) found from &#8220;{{searchkeyword}}&#8221;</h1>
 				<div class="work-content allfeeds">
 					<div id="getallfeedssearch">					
-						{% for feed in tagsfeeds['results'] %}
+						{% for feed in allfeedslist['results'] %}
 						<?php //echo "<pre>"; print_r($feed); ?>
 						<div class="col-sm-4 col-md-3 col-xs-6">
 							<div class="work-item">
@@ -20,7 +20,7 @@
 						{% endfor  %}
 					</div><div class="clearfix"></div>
 					<div class="loadmore">
-						<?php if($tagsfeeds['meta']['match_count'] > ($limit)){ ?>
+						<?php if($allfeedslist['meta']['match_count'] > ($limit)){ ?>
 							<div class="btn btn-primary" onclick="view_feed_with_ajax('{{baseUrl}}search/index', '{{start}}', '{{limit}}', 'getallfeedssearch', '', '', 'all')">Load More</div>
 						<?php }?>
 					</div>

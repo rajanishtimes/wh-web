@@ -11,8 +11,8 @@ class TagController extends BaseController{
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
 		
-		if($this->dispatcher->getParam('tag'))
-			$this->tags = $this->dispatcher->getParam('tag');
+		if($this->dispatcher->getParam('tags'))
+			$this->tags = $this->dispatcher->getParam('tags');
 			
 		$this->view->setVars(array('tags' => $this->tags));
 		parent::initialize();
@@ -20,6 +20,22 @@ class TagController extends BaseController{
 
     public function indexAction(){
 		$tagsfeeds = $this->getfeeddata(0, 12, $this->city, 'all', 'tags', $this->tags, 'Event,Content');
-		$this->view->setVars(array('tagsfeeds' => $tagsfeeds));
+		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($this->tags))) =>''));
+		
+		$this->view->setVars(
+			array(
+				'tagsfeeds' => $tagsfeeds,
+				'tags'=>$this->tags,
+				'start'=>$limit,
+				'limit'=>$limit,
+				'breadcrumbs'=>$breadcrumbs
+				)
+			);
+			
+		/* ======= Seo Update ============= */
+		$this->tag->setTitle($this->tags.' | '.$this->config->application->SiteName);
+		$this->view->meta_description = $this->tags;
+		$this->view->meta_keywords = $this->tags;
+		/* ======= Seo Update ============= */
     }
 }

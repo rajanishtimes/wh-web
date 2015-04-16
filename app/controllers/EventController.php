@@ -35,27 +35,31 @@ class EventController extends BaseController{
 		$Solr->setSolrType('detail');
         $Solr->setEntityDetails();
         $eventdetail = $Solr->getDetailResults();
-		foreach($eventdetail['images'] as $key=>$images){
-			if($images['uri']){
-				if(substr($images['uri'], 0, 4) != 'http'){
-					$eventdetail['images'][$key]['uri'] = $this->config->application->imgbaseUri.$images['uri'];
+		if($eventdetail){			
+			foreach($eventdetail['images'] as $key=>$images){
+				if($images['uri']){
+					if(substr($images['uri'], 0, 4) != 'http'){
+						$eventdetail['images'][$key]['uri'] = $this->config->application->imgbaseUri.$images['uri'];
+					}
 				}
 			}
+			$eventdetail['venue']['slug'] = $this->create_slug($eventdetail['venue']['name']).'-v-'.str_replace('_', '-', strtolower($eventdetail['venue']['id']));
+			/* ======= Seo Update ============= */
+			if($eventdetail['page_title'])
+				$this->tag->setTitle($eventdetail['page_title']);
+			$this->view->meta_description = $eventdetail['meta_description'];
+			$this->view->meta_keywords = $eventdetail['meta_keywords'];
+			$this->view->og_title = $eventdetail['og_title'];
+			$this->view->og_type = 'Event';
+			$this->view->og_description = $eventdetail['og_description'];
+			$this->view->og_image = $eventdetail['og_image'];
+			$this->view->og_url = $this->baseUrl.$this->city.$eventdetail['url'];
+			/* ======= Seo Update ============= */
+			
+			$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($eventdetail['title']))) =>''));
+			$this->view->setVars(array('eventdetail' => $eventdetail, 'breadcrumbs'=>$breadcrumbs));
+		}else{
+			$this->forwardtoerrorpage(404);
 		}
-		$eventdetail['venue']['slug'] = $this->create_slug($eventdetail['venue']['name']).'-v-'.str_replace('_', '-', strtolower($eventdetail['venue']['id']));
-		/* ======= Seo Update ============= */
-		if($eventdetail['page_title'])
-			$this->tag->setTitle($eventdetail['page_title']);
-		$this->view->meta_description = $eventdetail['meta_description'];
-		$this->view->meta_keywords = $eventdetail['meta_keywords'];
-		$this->view->og_title = $eventdetail['og_title'];
-		$this->view->og_type = 'Event';
-		$this->view->og_description = $eventdetail['og_description'];
-		$this->view->og_image = $eventdetail['og_image'];
-		$this->view->og_url = $this->baseUrl.$this->city.$eventdetail['url'];
-		/* ======= Seo Update ============= */
-		
-		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($eventdetail['title']))) =>''));
-		$this->view->setVars(array('eventdetail' => $eventdetail, 'breadcrumbs'=>$breadcrumbs));
     }
 }

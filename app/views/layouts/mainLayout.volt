@@ -12,7 +12,7 @@
 <div id="back-top">
 	<i class="fa fa-chevron-up"></i>
 </div>
-<!-- END BACK TO TOP -->
-{{ partial('partials/globalsearch')}}
+<!-- END BACK TO TOP 
+{{ partial('partials/globalsearch')}} -->
 {{ partial('partials/footer')}}
 {{ partial('partials/bottom')}}

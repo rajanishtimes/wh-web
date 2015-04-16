@@ -23,10 +23,11 @@
 			
 			<div class="work-content">						
 				<h2 class="heading">Popular Tips</h2>
-				<ul id="populartag" class="work-category-wrap">
+				<!--<ul id="populartag" class="work-category-wrap">-->
+				<ul class="work-category-wrap">
 					<?php if(!empty($populartags['popular_tags'])){ ?>
 						{% for populartag in populartags['popular_tags'] %}
-							<li class="filter" ><a href="javascript:void(0)">
+							<li class="filter" ><a href="{{baseUrl}}tag/{{populartag | lower}}">
 							{{populartag | capitalize}}
 							</a></li>
 						{% endfor  %}

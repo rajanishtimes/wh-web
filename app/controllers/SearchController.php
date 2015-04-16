@@ -47,4 +47,40 @@ class SearchController extends BaseController{
 		}
 		exit;
     }
+	
+	
+	public function searchAction(){
+		$this->view->setLayout('mainLayout');
+		if($this->dispatcher->getParam('searchquery'))
+			$searchkeyword = $this->dispatcher->getParam('searchquery');
+		
+		$start = 0;
+		$limit = 12;
+	
+		$allfeedslist = $this->getfeeddata($start, $limit, $this->city, '', '', $searchkeyword, 'Event,Content');
+		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($searchkeyword))) =>''));
+		
+		$this->view->setVars(
+			array(
+				'allfeedslist' => $allfeedslist,
+				'searchkeyword'=>$searchkeyword,
+				'start'=>$limit,
+				'limit'=>$limit,
+				'breadcrumbs'=>$breadcrumbs
+				)
+			);
+			
+		/* ======= Seo Update ============= */
+		$this->tag->setTitle($searchkeyword.' | '.$this->config->application->SiteName);
+		$this->view->meta_description = $searchkeyword;
+		$this->view->meta_keywords = $searchkeyword;
+		/* ======= Seo Update ============= */
+		
+    }
+	
+	public function forwardsearchAction(){
+		$searchkeyword = $this->request->getPost('search');
+		$url = $this->baseUrl.'search/'.$searchkeyword;
+		return $this->response->redirect($url);     
+	}
 }
