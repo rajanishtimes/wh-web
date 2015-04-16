@@ -296,7 +296,19 @@ Venue
 -------------------------------------------
 **/
 .venuetitle{font-family:'Lora', Calibri, Arial, sans-serif; font-size: 34px; font-weight: 700; line-height:49px; margin: 0 0px 14px;}
-
+.venuedetail > div {line-height: 27px; padding: 0 0 0 35px;}
+.venuedetail .time {
+    background: url("../img/venueicon.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.venuedetail .phone{
+    background: url("../img/venueicon.png") no-repeat scroll 0 -30px rgba(0, 0, 0, 0);
+}
+.venuedetail .landmark{
+    background: url("../img/venueicon.png") no-repeat scroll 0 -60px rgba(0, 0, 0, 0);
+}
+.venuedetail .website{
+    background: url("../img/venueicon.png") no-repeat scroll 0 -90px rgba(0, 0, 0, 0);
+}
 
 /**
 -------------------------------------------
@@ -431,6 +443,9 @@ ul.work-category-wrap li.active:focus{
     -ms-transition: all .3s ease; /* IE 9 */
     -o-transition: all .3s ease; /* Opera */
     transition: all .3s ease-in-out;
+}
+.work-content.allfeeds .work-item img{
+	height:200px !important;
 }
 .work-content .work-item img:hover{
 	-webkit-transform:scale(1.05); /* Safari and Chrome */
