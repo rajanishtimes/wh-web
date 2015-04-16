@@ -38,7 +38,7 @@ STANDARD DESKTOP 992px <> 1200px
 =================================
 **/
 @media (min-width: 992px) and (max-width: 1199px) {
-
+	.extrapaddright{padding:0;}
 }
 
 
@@ -79,6 +79,9 @@ SMALL DESKTOP 768px <> 991px
 	}
 	.contentarea .detail {
 		padding: 0 62px;
+	}
+	footer .row > div {
+		height: 300px;
 	}
 }
 
