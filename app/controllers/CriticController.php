@@ -11,7 +11,7 @@ class CriticController extends BaseController{
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
 		
-		if(!empty($this->dispatcher->getParam('critic')))
+		if($this->dispatcher->getParam('critic'))
 			$this->critic = $this->dispatcher->getParam('critic');
 			$this->view->critic = $this->critic;
 		

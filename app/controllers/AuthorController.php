@@ -11,7 +11,7 @@ class AuthorController extends BaseController{
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
 		
-		if(!empty($this->dispatcher->getParam('authorname')))
+		if($this->dispatcher->getParam('authorname'))
 			$this->authorname = $this->dispatcher->getParam('authorname');
 		
 		$this->view->setVars(array('city' => $city, 'authorname'=>$authorname));
@@ -70,7 +70,7 @@ class AuthorController extends BaseController{
 		$Profile->setPostParams();
 		$profilepost = $Profile->getPostsResults();
 		foreach($profilepost['results'] as $key=>$entity){
-			if(!empty($entity['cover_image'])){
+			if($entity['cover_image']){
 				if(substr($entity['cover_image'], 0, 4) != 'http'){
 					$profilepost['results'][$key]['cover_image'] = $this->config->application->imgbaseUri.$entity['image']['uri'];
 				}

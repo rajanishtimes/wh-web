@@ -11,7 +11,7 @@ class TagController extends BaseController{
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
 		
-		if(!empty($this->dispatcher->getParam('tag')))
+		if($this->dispatcher->getParam('tag'))
 			$this->tags = $this->dispatcher->getParam('tag');
 			
 		$this->view->setVars(array('tags' => $this->tags));

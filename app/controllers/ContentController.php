@@ -10,10 +10,10 @@ class ContentController extends BaseController{
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
 		
-		if(!empty($this->dispatcher->getParam('city')))
+		if($this->dispatcher->getParam('city'))
 			$this->city = $this->dispatcher->getParam('city');
 		
-		if(!empty($this->dispatcher->getParam('contenttitle')))
+		if($this->dispatcher->getParam('contenttitle'))
 			$this->contenttitle = $this->dispatcher->getParam('contenttitle');
 			
 		$this->view->setVars(array(
@@ -36,7 +36,7 @@ class ContentController extends BaseController{
         $contentdetail = $Solr->getDetailResults();
 		
 		/* ======= Seo Update ============= */
-		if(!empty($contentdetail['page_title']))
+		if($contentdetail['page_title'])
 			$this->tag->setTitle($contentdetail['page_title']);
 		$this->view->meta_description = $contentdetail['meta_description'];
 		$this->view->meta_keywords = $contentdetail['meta_keywords'];
@@ -48,7 +48,7 @@ class ContentController extends BaseController{
 		/* ======= Seo Update ============= */
 		
 		foreach($contentdetail['images'] as $key=>$images){
-			if(!empty($images['uri'])){
+			if($images['uri']){
 				if(substr($images['uri'], 0, 4) != 'http'){
 					$contentdetail['images'][$key]['uri'] = $this->config->application->imgbaseUri.$images['uri'];
 				}

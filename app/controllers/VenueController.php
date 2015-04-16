@@ -11,7 +11,7 @@ class VenueController extends BaseController{
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
 		
-		if(!empty($this->dispatcher->getParam('venue')))
+		if($this->dispatcher->getParam('venue'))
 			$this->venue = $this->dispatcher->getParam('venue');
 		
 		$this->view->setVars(array(
@@ -50,7 +50,7 @@ class VenueController extends BaseController{
 		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($venuedetail['title']))) =>''));
 		
 		/* ======= Seo Update ============= */
-		if(!empty($venuedetail['page_title']))
+		if($venuedetail['page_title'])
 			$this->tag->setTitle($venuedetail['page_title']);
 		$this->view->meta_description = $venuedetail['meta_description'];
 		$this->view->meta_keywords = $venuedetail['meta_keywords'];

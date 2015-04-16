@@ -33,13 +33,17 @@ class BaseController extends Controller{
 		$this->view->og_url = $this->og_url;
 		$this->view->og_site_name = $this->config->application->SiteName;
 		
-		$this->baseUrl = ((empty($_SERVER['REQUEST_SCHEME'])) ? 'http' : $_SERVER['REQUEST_SCHEME']).'://'.$_SERVER['SERVER_NAME'].$this->config->application->baseUri;
+		if($_SERVER['REQUEST_SCHEME']){
+			$this->baseUrl = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].$this->config->application->baseUri;
+		}else{
+			$this->baseUrl = 'http://'.$_SERVER['SERVER_NAME'].$this->config->application->baseUri;
+		}
 		$this->view->baseUrl = $this->baseUrl;
 		
 		//echo $this->dispatcher->getControllerName();exit;
 		//echo $this->dispatcher->getActionName();exit;
 		
-		if ($this->session->has("cities") && empty($this->dispatcher->getParam('city')) && $this->session->get("cities")) {			
+		if ($this->session->has("cities") && $this->dispatcher->getParam('city') && $this->session->get("cities")) {			
 			$this->city = strtolower($this->session->get("cities"));
 			$this->view->city = strtolower($this->city);
         }else{

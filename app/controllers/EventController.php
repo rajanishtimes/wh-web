@@ -10,10 +10,10 @@ class EventController extends BaseController{
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
 		
-		if(!empty($this->dispatcher->getParam('city')))
+		if($this->dispatcher->getParam('city'))
 			$this->city = $this->dispatcher->getParam('city');		
 		
-		if(!empty($this->dispatcher->getParam('eventtitle')))
+		if($this->dispatcher->getParam('eventtitle'))
 			$this->eventtitle = $this->dispatcher->getParam('eventtitle');
 		
 		$this->view->setVars(
@@ -36,7 +36,7 @@ class EventController extends BaseController{
         $Solr->setEntityDetails();
         $eventdetail = $Solr->getDetailResults();
 		foreach($eventdetail['images'] as $key=>$images){
-			if(!empty($images['uri'])){
+			if($images['uri']){
 				if(substr($images['uri'], 0, 4) != 'http'){
 					$eventdetail['images'][$key]['uri'] = $this->config->application->imgbaseUri.$images['uri'];
 				}
@@ -44,7 +44,7 @@ class EventController extends BaseController{
 		}
 		$eventdetail['venue']['slug'] = $this->create_slug($eventdetail['venue']['name']).'-v-'.str_replace('_', '-', strtolower($eventdetail['venue']['id']));
 		/* ======= Seo Update ============= */
-		if(!empty($eventdetail['page_title']))
+		if($eventdetail['page_title'])
 			$this->tag->setTitle($eventdetail['page_title']);
 		$this->view->meta_description = $eventdetail['meta_description'];
 		$this->view->meta_keywords = $eventdetail['meta_keywords'];
