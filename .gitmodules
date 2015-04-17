@@ -1,0 +1,3 @@
+[submodule "app/models/wh-appapi"]
+	path = app/models/wh-appapi
+	url = https://github.com/Timescity/wh-appapi.git
