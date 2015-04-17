@@ -162,13 +162,13 @@ NAVBAR
 
 .nav-right-info .input-group-addon{
 	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    float: left;
+    float: right;
     font-size: 20px;
     height: 45px;
 	border: medium none;
 	color: #bbb;
 	cursor: pointer;
-	padding: 0 0 0 5px;
+	padding: 0 10px 0 5px;
     width: 32px;
 }
 
