@@ -56,4 +56,29 @@ class IndexController extends BaseController{
 	public function indexAction(){
 		$this->view->setLayout('homepageLayout');
     }
+	
+	public function policyAction(){
+        $allData=$this->getConstants();
+        $policy='';
+        if(isset($allData['constants']['privacy'])){
+            $policy=$allData['constants']['privacy'];
+        }
+        $this->view->setVars(
+            array(
+                'data' => $policy
+                )
+            );
+    }
+    public function termsAction(){
+        $allData=$this->getConstants();
+        $terms='';
+        if(isset($allData['constants']['terms'])){
+            $terms=$allData['constants']['terms'];
+        }
+        $this->view->setVars(
+            array(
+                'data' => $terms
+                )
+            );
+    }
 }

@@ -700,6 +700,21 @@ h4.small-title{
 	width: 100%;
 }
  
+.info-content > p {
+    color: black;
+    font-family: "Lora",Calibri,Arial,sans-serif;
+    font-size: 13px;
+    line-height: 22px;
+}
+.info-content {
+    text-align: justify;
+}
+.info-content ol {
+    list-style-type: lower-alpha;
+}
+.info-content li {
+    font-size: 15px;
+}
  
 
 /**
@@ -709,7 +724,7 @@ ERRORPAGE
 **/
 
 .errorpage{background: #455f74;}
-.errorpage .cloud{background:url('../img/cloud.png'); height: 191px; width: 100%; position: fixed; top: 0;}
+.errorpage .cloud{background:url('../img/light2.gif'); height: 247px; width: 100%; position: fixed; top: 0;}
 .errorpage .buildings{background:url('../img/city.png'); height: 226px; width: 100%; position: fixed; bottom: 0;}
 .errorpage .box404 {
     margin: 0 auto;
@@ -718,20 +733,35 @@ ERRORPAGE
     width: 320px;
 }
 
-.rain { width:100%; overflow-x:hidden; background-repeat:no-repeat; background-size:100% 100%; background-attachment:fixed; background-color:#455f74; }
-.rain .drop { display: block; z-index:0; position: absolute; background-repeat: no-repeat; min-width:2px; min-height:4px;
-background:#E7F4FA;
-background: -moz-linear-gradient(top, #25A3DE, #E7F4FA);
-background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#25A3DE), to(#E7F4FA));
-background: -webkit-linear-gradient(top, #25A3DE, #E7F4FA);
-background: -ms-linear-gradient(top, #25A3DE, #E7F4FA);
-background: -o-linear-gradient(top, #25A3DE, #E7F4FA);
-border-radius: 50% 50% 50% 50%/80% 80% 20% 20%;
--moz-border-radius: 50% 50% 50% 50%/90% 90% 10% 10%;
--webkit-border-radius:63px 63px 63px 63px/138px 138px 42px 42px;
+.rain {
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: 39px;
+    width: 100%;
+    z-index: 99;
 }
-.rain .lighting_effect { position:absolute; left:0; top:0; width:1000px; height:562px; background:url(images/lighting_bg.png) no-repeat; opacity:0; }
-.rain .lighting_effect.right { left:0; right:0; transform: rotate(-90deg); -ms-transform:rotate(-90deg); -moz-transform: rotate(-90deg); -webkit-transform: rotate(-90deg); }
+
+.drop {
+  background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13,52,58,1) ), to(rgba(255,255,255,0.6))  );
+  background: -moz-linear-gradient(top, rgba(13,52,58,1) 0%, rgba(255,255,255,.6) 100%);
+	width:1px;
+	height:20px;
+	position: absolute;
+	bottom:200px;
+	-webkit-animation: fall .63s linear infinite;
+  -moz-animation: fall .63s linear infinite;
+  
+}
+
+/* animate the drops*/
+@-webkit-keyframes fall {
+	to {margin-top:900px;}
+}
+@-moz-keyframes fall {
+	to {margin-top:900px;}
+}
+
 
 /**
 -------------------------------------------

@@ -174,4 +174,11 @@ class BaseController extends Controller{
 		$breadcrumbs = array_merge($bdc, $arr);
 		return $breadcrumbs;
 	}
+	
+	protected function getConstants(){
+        $constants=new \WH\Model\Constants();
+        $constants->setSource('web');
+        $allConstants=$constants->getResults();
+        return $allConstants;
+    }
 }

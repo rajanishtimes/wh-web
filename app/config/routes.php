@@ -82,6 +82,16 @@ $router->add("/{city:[a-zA-Z0-9\-]+}", array(
 	'action' => 'homepage',
 ));
 
+$router->add("/policy", array(
+    'controller' => 'index',
+    'action' => 'policy',
+));
+
+$router->add("/terms", array(
+    'controller' => 'index',
+    'action' => 'terms',
+));
+
 
 $router->add("/search", array(
     'controller' => 'search',

@@ -23,6 +23,7 @@
 	</head>
 	<body class="tooltips no-padding errorpage">
 		<div class="wrapper">
+			<section class="rain"></section>
 			<div class="cloud"></div>
 			<div class="clearfix"></div>
 			<div class="box404">
@@ -33,20 +34,7 @@
 			<div class="buildings"></div>
 		</div>
 		
-		{{ javascript_include('js/jquery-1.9.1.js') }}
-		{{ javascript_include('js/rainsnow.js') }}
-		<script>
-		$(document).ready(function() {
-			$('body').RainSnow({
-				effect_name: 'rain',
-				drop_appear_speed: 80,
-				drop_falling_speed: 15000,
-				wind_direction: -3,
-				drop_rotate_angle : '10deg',
-				drop_count_width_height:[[2,10], [2,15], [2,20]],
-				lighting_effect : [false, 150]
-			});
-		});
-		</script>
+		{{ javascript_include('js/jquery.js') }}
+		{{ javascript_include('js/rain.js') }}
     </body>
 </html>
