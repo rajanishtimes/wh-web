@@ -56,7 +56,10 @@ class ContentController extends BaseController{
 				}
 			}
 			$contentdetail['author']['slug'] = $this->create_slug($contentdetail['author']['name']).'-'.$contentdetail['author']['id'];
-			$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($contentdetail['title']))) =>''));
+			$breadcrumbs = $this->breadcrumbs(array(
+				ucwords($this->city) => $this->baseUrl.$this->city,
+				ucwords(strtolower(trim($contentdetail['title']))) =>''
+			));
 			
 			$this->view->setVars(array(
 				'contentdetail' => $contentdetail,

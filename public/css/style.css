@@ -448,6 +448,9 @@ ul.work-category-wrap li.active:focus{
 	margin: 0 0 10px;
 	color: #434a54;
 }
+.imgbox{
+	background:url(../img/img_feed_default.png);
+}
 .work-content .work-item p.project-category{
 	font-size: 14px;
 	padding: 0;
@@ -464,7 +467,7 @@ ul.work-category-wrap li.active:focus{
     transition: all .3s ease-in-out;
 }
 .work-content.allfeeds .work-item img{
-	height:200px !important;
+	
 }
 .work-content .work-item img:hover{
 	-webkit-transform:scale(1.05); /* Safari and Chrome */

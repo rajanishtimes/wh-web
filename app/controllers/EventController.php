@@ -45,8 +45,10 @@ class EventController extends BaseController{
 			}
 			$eventdetail['venue']['slug'] = $this->create_slug($eventdetail['venue']['name']).'-v-'.str_replace('_', '-', strtolower($eventdetail['venue']['id']));
 			/* ======= Seo Update ============= */
-			if($eventdetail['page_title'])
+			if($eventdetail['page_title']){
 				$this->tag->setTitle($eventdetail['page_title']);
+			}
+				
 			$this->view->meta_description = $eventdetail['meta_description'];
 			$this->view->meta_keywords = $eventdetail['meta_keywords'];
 			$this->view->og_title = $eventdetail['og_title'];
@@ -56,7 +58,10 @@ class EventController extends BaseController{
 			$this->view->og_url = $this->baseUrl.$this->city.$eventdetail['url'];
 			/* ======= Seo Update ============= */
 			
-			$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($eventdetail['title']))) =>''));
+			$breadcrumbs = $this->breadcrumbs(array(
+				ucwords($this->city) => $this->baseUrl.$this->city,
+				ucwords(strtolower(trim($eventdetail['title']))) =>''
+			));
 			$this->view->setVars(array('eventdetail' => $eventdetail, 'breadcrumbs'=>$breadcrumbs));
 		}else{
 			$this->forwardtoerrorpage(404);

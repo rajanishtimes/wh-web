@@ -47,7 +47,10 @@ class VenueController extends BaseController{
 		$venuedetail['formatted_address'] = $formatted_address;
 		
 		
-		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($venuedetail['title']))) =>''));
+		$breadcrumbs = $this->breadcrumbs(array(
+			ucwords($this->city) => $this->baseUrl.$this->city,
+			ucwords(strtolower(trim($venuedetail['title']))) =>''
+		));
 		
 		/* ======= Seo Update ============= */
 		if($venuedetail['page_title'])

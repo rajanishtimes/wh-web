@@ -3,7 +3,13 @@
 	{% for feed in allfeedslist['results'] %}
 	<div class="col-sm-4 col-md-3 col-xs-6">
 		<div class="work-item">
-			<a href="{{baseUrl}}{{city}}/{{feed['slug']}}"><img src="{{feed['cover_image']}}" alt="{{feed['title']}}"></a>
+			<a href="{{baseUrl}}{{city}}/{{feed['slug']}}">
+				{% if(feed['cover_image'] is empty) %}
+					{{elements.imgnotfound(baseUrl, feed['title'])}}
+				{% else %}
+					<img src="{{feed['cover_image']}}" alt="{{feed['title']}}">
+				{% endif %}
+			</a>
 			<div class="the-box no-margin">
 				<div class="feed-title"><a href="{{baseUrl}}{{city}}/{{feed['slug']}}">{{feed['title']}}</a></div>
 			</div>

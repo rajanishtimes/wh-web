@@ -10,9 +10,6 @@
 		{% if meta_keywords is defined %}
 			<meta name="keywords" content="{{ meta_keywords }}">
 		{% endif  %}		
-		{% if meta_author is defined %}
-			<meta name="author" content="{{ meta_author }}">
-		{% endif  %}
 		{% if og_title is defined %}
 			<meta property="og:title" content="{{og_title}}" />
 		{% endif  %}

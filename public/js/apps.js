@@ -143,7 +143,7 @@ function ajax_feed_filter_type(){
 }
 
 function resizefeedimage(){
-	$(".resize .work-item img").each(function( index ) {
+	$(".work-item img").each(function( index ) {
 		$(this).height(($(this).width()));
 	});
 }

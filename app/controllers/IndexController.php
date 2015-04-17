@@ -6,7 +6,6 @@ use WH\Api\Params;
 class IndexController extends BaseController{
 	
 	public function initialize(){
-        $this->tag->setTitle('Welcome');
         $this->view->setLayout('mainLayout');
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
@@ -14,6 +13,8 @@ class IndexController extends BaseController{
     }
 
 	public function homepageAction(){
+		$title = ucwords($this->city).' Events: Things to do in '.ucwords($this->city).' Today | '.$this->config->application->SiteName;
+		$this->tag->setTitle($title);
 		$topfeeds = $this->getfeeddata(0, 3, $this->city, 'Today', '', '', 'Event,Content');
 		
 		$core = new \WH\Model\Core();

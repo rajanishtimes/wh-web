@@ -1,7 +1,8 @@
 <div class="section">
 	<div class="container">
 		<div class="row">
-			<h1>Hey! Top Things to do today</h1>
+			<!--<h1>Hey! Top Things to do today</h1>-->
+			<h1>Discover best things to do in {{city}} including all the events taking place in {{city}}</h1>
 			<div class="work-content resize">
 				{% for topfeed in topfeeds['results'] %}
 					<div class="col-sm-6 col-md-4 col-xs-6">
@@ -40,7 +41,7 @@
 			<div class="col-sm-6 col-md-6 col-xs-12">
 				<ul id="bydate" class="filter_type text-right">
 					<li><a href="javascript:void(0)">TODAY</a></li>
-					<li><a href="javascript:void(0)">TOMMORROW</a></li>
+					<li><a href="javascript:void(0)">TOMORROW</a></li>
 					<li><a href="javascript:void(0)">THIS WEEKEND</a></li>
 					<li class="active"><a href="javascript:void(0)">ALL</a></li>
 				</ul>
@@ -53,7 +54,13 @@
 					<?php //echo "<pre>"; print_r($feed); ?>
 					<div class="col-sm-4 col-md-3 col-xs-6">
 						<div class="work-item">
-							<a href="{{baseUrl}}{{city}}/{{feed['slug']}}"><img src="{{feed['image']['uri']}}" alt="{{feed['title']}}"></a>
+							<a href="{{baseUrl}}{{city}}/{{feed['slug']}}">
+								{% if(feed['image']['uri'] is empty) %}
+									{{elements.imgnotfound(baseUrl, feed['title'])}}
+								{% else %}
+									<img src="{{feed['image']['uri']}}" alt="{{feed['title']}}">
+								{% endif %}
+							</a>
 							<div class="the-box no-margin">
 								<div class="feed-title"><a href="{{baseUrl}}{{city}}/{{feed['slug']}}">{{feed['title']}}</a></div>
 								<p class="feed-short-desc">{{feed['description']}}</p>

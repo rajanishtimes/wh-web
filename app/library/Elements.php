@@ -88,4 +88,9 @@ class Elements extends Component
 		echo '</ul>';
 
     }
+	
+	public function imgnotfound($url, $alt){
+		$imgbox = '<img src="'.$url.'img/img_feed_default.png" alt="'.$alt.'">';
+		return $imgbox;
+	}
 }

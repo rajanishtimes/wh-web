@@ -2,6 +2,7 @@
 
 namespace WH\Core;
 use Phalcon\Mvc\Controller;
+use WH\Api\Params;
 
 class BaseController extends Controller{
 	public $api_end_point;
@@ -94,6 +95,8 @@ class BaseController extends Controller{
         if($errorcode == 404){
 			$this->response->setStatusCode(404, 'Not Found');
 			$this->view->pick('errors/show404');
+			$this->view->setLayout('errorpageLayout');
+			$this->tag->setTitle('Page Not Found');
 		}
 		
 		if($errorcode == 401){
@@ -108,7 +111,7 @@ class BaseController extends Controller{
 		
     }
 	
-	public function sendCurl($url, $params = array()){
+	protected function sendCurl($url, $params = array()){
 		$query = http_build_query($params);
 		if(!empty($query)){
 			$url = $url.'?'.$query;
@@ -120,17 +123,17 @@ class BaseController extends Controller{
 		return json_decode($data);
 	}
 	
-	public function create_slug($string){
+	protected function create_slug($string){
 		$slug=preg_replace('/[^A-Za-z0-9-]+/', '-', strtolower($string));
 		return $slug;
 	}
 
-	public function create_title($string){
+	protected function create_title($string){
 		$slug = str_replace('-', ' ', strtolower($string));
 		return $slug;
 	}
 	
-	public function getfeeddata($start, $limit, $city, $bydays, $filter_type='', $keyword='', $bytype=''){
+	protected function getfeeddata($start, $limit, $city, $bydays, $filter_type='', $keyword='', $bytype=''){
 		$Search = new \WH\Model\Solr();
 		$Search->setParam('bycity',$city);
 		$Search->setParam('start',$start);
@@ -138,7 +141,7 @@ class BaseController extends Controller{
 		$Search->setParam('byType',$bytype);
 		
 		if(strtolower($bydays)!='all')
-		$Search->setParam('byDays',$bydays);
+		$Search->setParam('byDays',ucwords(strtolower($bydays)));
 		
 		if($filter_type=='tags')
 			$Search->setParam('byTags',$keyword);
@@ -150,7 +153,7 @@ class BaseController extends Controller{
 			$Search->setParam('spstart',$start);
 			$Search->setParam('splimit',$limit);
 		}
-		$Search->setParam('bysort',2);
+		$Search->setParam('bysort',Params::getSort(2));
 		
 		$Search->setSearchEntity();
 		$entityresult = $Search->getSearchResults();
@@ -166,8 +169,8 @@ class BaseController extends Controller{
 		return $entityresult;
 	}
 	
-	public function breadcrumbs($arr){
-		$bdc = array('Home'=>$this->baseUrl);
+	protected function breadcrumbs($arr){
+		$bdc = array('Whatshot'=>$this->baseUrl);
 		$breadcrumbs = array_merge($bdc, $arr);
 		return $breadcrumbs;
 	}

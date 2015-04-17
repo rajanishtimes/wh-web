@@ -29,7 +29,7 @@ class AuthorController extends BaseController{
         $author = $Profile->getProfileResults();
 		$profilepost = $this->getauthorpost($authorid, $start, $limit);
 		
-		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($author['profile']['full_name']))).'\'s profiles' =>''));
+		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($author['profile']['full_name'])))' =>''));
 		
 		$this->view->setVars(array(
 			'authorid' => $authorid,
