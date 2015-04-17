@@ -21,15 +21,32 @@
 		
 		{% endblock %}
 	</head>
-	<body class="tooltips no-padding">
-		<div class="wrapper">		
-			<div class="jumbotron">
+	<body class="tooltips no-padding errorpage">
+		<div class="wrapper">
+			<div class="cloud"></div>
+			<div class="clearfix"></div>
+			<div class="box404">
 				<h1>Page not found</h1>
 				<p>Sorry, you have accesed a page that does not exist or was moved</p>
 			</div>
+			<div class="clearfix"></div>
+			<div class="buildings"></div>
 		</div>
-		{{ javascript_include('js/jquery.js') }}
-		{{ javascript_include('js/bootstrap.min.js') }}
-		{{ javascript_include('js/apps.js') }}
+		
+		{{ javascript_include('js/jquery-1.9.1.js') }}
+		{{ javascript_include('js/rainsnow.js') }}
+		<script>
+		$(document).ready(function() {
+			$('body').RainSnow({
+				effect_name: 'rain',
+				drop_appear_speed: 80,
+				drop_falling_speed: 15000,
+				wind_direction: -3,
+				drop_rotate_angle : '10deg',
+				drop_count_width_height:[[2,10], [2,15], [2,20]],
+				lighting_effect : [false, 150]
+			});
+		});
+		</script>
     </body>
 </html>
