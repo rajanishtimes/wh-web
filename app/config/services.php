@@ -116,6 +116,16 @@ $di->set('session', function() {
 	return $session;
 });
 
+
+/**
+ * Start the cookie the first time some component request the session service
+ */
+$di->set('cookies', function() {
+    $cookies = new Phalcon\Http\Response\Cookies();
+    $cookies->useEncryption(false);
+    return $cookies;
+});
+
 /**
  * Register the flash service with custom CSS classes
  */

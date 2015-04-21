@@ -52,6 +52,11 @@ $router->add("/search/index", array(
     'action' => 'index',
 ));
 
+$router->add("/search/searchlist", array(
+    'controller' => 'search',
+    'action' => 'searchlist',
+));
+
 $router->add("/search", array(
     'controller' => 'search',
     'action' => 'search',
@@ -73,6 +78,13 @@ if(preg_match('/\b-e-[a-zA-Z0-9\- ]+/i', $urlparams, $match)){
 if(preg_match('/\b-c-[a-zA-Z0-9\- ]+/i', $urlparams, $match)){
 	$router->add("/{city:[a-zA-Z0-9\-]+}/{contenttitle:[a-zA-Z0-9\-]+}", array(
 		'controller' => 'content',
+		'action' => 'index',
+	));
+}
+
+if(preg_match('/\b-s-[a-zA-Z0-9\- ]+/i', $urlparams, $match)){
+	$router->add("/{city:[a-zA-Z0-9\-]+}/{specialpagetitle:[a-zA-Z0-9\-]+}", array(
+		'controller' => 'specialpage',
 		'action' => 'index',
 	));
 }

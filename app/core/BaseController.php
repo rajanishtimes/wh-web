@@ -41,6 +41,8 @@ class BaseController extends Controller{
 		}
 		$this->view->baseUrl = $this->baseUrl;
 		
+		$this->setcookie();
+		
 		//echo $this->dispatcher->getControllerName();exit;
 		//echo $this->dispatcher->getActionName();exit;
 		
@@ -177,4 +179,13 @@ class BaseController extends Controller{
         $allConstants=$constants->getResults();
         return $allConstants;
     }
+	
+	private function setcookie(){
+		if ($this->cookies->has('uniquekey')) {
+			$uniquekey = $this->cookies->get('uniquekey');
+        }else{
+			$uniquekey = md5(microtime().$_SERVER['REMOTE_ADDR']);
+			$this->cookies->set('uniquekey', $uniquekey, time() + 365 * 86400);
+		}
+	}
 }

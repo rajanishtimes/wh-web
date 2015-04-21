@@ -57,6 +57,33 @@ class Feeds extends Component
     }
 	
 	
+	public function getfeedslist($baseUrl, $data)
+    {		
+		foreach($data['results'] as $feed){ ?>
+			<li class="media">
+				<a class="pull-left" href="<?php echo $baseUrl . $feed['url']; ?>">
+					<?php if($feed['image']['uri']){ ?>
+						<img src="<?php echo $feed['image']['uri']; ?>" alt="<?php echo $feed['title'] ?>">
+					<?php }else{?>
+						<?php echo $this->imagenotfound($baseUrl, $feed['title']); ?>
+					<?php }?>
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">
+						<a href="<?php echo $baseUrl. $feed['url']; ?>"><?php echo $feed['title']; ?></a>
+					</h4>
+					<p class="small">
+						<?php echo $feed['type']; ?>
+					</p>
+					<p>
+						<?php echo $feed['description']; ?>
+					</p>
+				</div>
+			</li>										
+		<?php }
+    }
+	
+	
 	private function imagenotfound($url, $alt){
 		$imgbox = '<img src="'.$url.'img/img_feed_default.png" alt="'.$alt.'">';
 		return $imgbox;

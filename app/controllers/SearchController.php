@@ -54,10 +54,12 @@ class SearchController extends BaseController{
 		if($this->dispatcher->getParam('searchquery'))
 			$searchkeyword = $this->dispatcher->getParam('searchquery');
 		
+		
+		
 		$start = 0;
 		$limit = 12;
 	
-		$allfeedslist = $this->getfeeddata($start, $limit, $this->city, '', '', $searchkeyword, 'Event,Content');
+		$allfeedslist = $this->getfeeddata($start, $limit, $this->city, '', '', $searchkeyword);
 		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($searchkeyword))) =>''));
 		
 		$this->view->setVars(
@@ -71,11 +73,39 @@ class SearchController extends BaseController{
 			);
 			
 		/* ======= Seo Update ============= */
-		$this->tag->setTitle($searchkeyword.' | '.$this->config->application->SiteName);
+		if($searchkeyword){
+			$this->tag->setTitle($searchkeyword.' | '.$this->config->application->SiteName);
+		}else{
+			$this->tag->setTitle('Search | '.$this->config->application->SiteName);
+		}
 		$this->view->meta_description = $searchkeyword;
 		$this->view->meta_keywords = $searchkeyword;
 		/* ======= Seo Update ============= */
 		
+    }
+	
+	public function searchlistAction(){
+		$mainurl = $this->request->getPost('mainurl');
+		$searchkeyword = $this->request->getPost('searchkeyword');
+		$tags = $this->request->getPost('tags');
+		$bydate = ucwords(strtolower($this->request->getPost('bydate')));
+		$start = $this->request->getPost('start');
+		$limit = $this->request->getPost('limit');
+		$parentid = $this->request->getPost('parentid');
+
+		$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword);
+		$this->view->setVars(
+			array(
+				'allfeedslist' => $allfeedslist,
+				'mainurl'=>$mainurl,
+				'searchkeyword'=>$searchkeyword,
+				'start'=>$start+$limit,
+				'limit'=>$limit,
+				'tags'=>$tags,
+				'bydate'=>$bydate,
+				'parentid'=>$parentid
+				)
+			);
     }
 	
 	public function forwardsearchAction(){

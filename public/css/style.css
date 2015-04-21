@@ -149,11 +149,11 @@ NAVBAR
 }
 
 .textinput {
-	width:85%;
+	width:90%;
 }
 
 .searchinout{
-	width:15%;
+	width:10%;
 }
 
 .nav-right-info .form-control{
@@ -368,7 +368,7 @@ Venue
 .venuedetail .website{
     background: url("../img/venueicon.png") no-repeat scroll 0 -90px rgba(0, 0, 0, 0);
 }
-
+`
 /**
 -------------------------------------------
 LATEST WORK
@@ -1413,6 +1413,92 @@ a.bg-dark:hover 			{background-color: #434A54;}
 SEARCH
 -------------------------------------------
 **/
+.searchbox{
+	border: 1px solid #b7b7b7;
+    margin: 18px auto 0;
+    padding: 8px;
+    width: 60%;
+	border-radius: 3px;
+	min-width:290px;
+	background :#fff;
+}
+
+.searchbox .form-control {
+	border:none; font-size: 23px
+}
+
+.searchbox .searchinout .input-group-addon {
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    float: right;
+    font-size: 19px;
+    width: auto;
+	color: #333333;
+}
+
+.feed-list{
+	width: 60%;
+	min-width:290px;
+	margin: 0 auto 20px;
+	padding:0 23px;
+}
+
+.feed-list .media {
+    margin: 0;
+    padding: 20px 0;
+	border-bottom: 1px solid #d1d1d1;
+}
+
+.feed-list .media  a{
+    width: 100px;
+}
+
+.feed-list .media  a > img{
+    width: 100%;
+}
+
+.media-left, .media > .pull-left {
+    padding-right: 10px;
+}
+
+.feed-list .media .img-post {
+    margin-right: 20px;
+    margin-top: 5px;
+    width: 270px;
+}
+
+.feed-list .media-heading  a{
+	color: #fc3768;
+    font-weight: 700;
+    width: 100%;
+}
+
+.media-body, .media-left, .media-right {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.feed-list .media .media-heading {
+    font-size: 20px;
+    line-height: 19px;
+}
+
+.feed-list .media p.small {
+    color: #676b74;
+    font-size: 14px;
+    line-height: 19px;
+    margin: 0;
+    padding: 0;
+}
+
+.feed-list .media p{
+	color: #676b74;
+    font-size: 16px;
+    line-height: 17px;
+    margin: 9px 0 0;
+}
+
+
 .seach-overlay-box{
 	background:url("../img/search-back.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
 	position:absolute;
@@ -1441,32 +1527,33 @@ SEARCH
 .typeahead-devs, .tt-hint {
 	border:none;
 	border-bottom:1px solid #ccc;
-	font-size: 14px;
+	font-size: 23px;
     height: 49px;
-    margin: -1px 0 0 8px;
+    margin: -7px 0 0 10px;
     padding: 0 0 0 2px;
-    width: 105%;
+	color: #d1d1d1;
 }
 
 .tt-dropdown-menu {
 	background: none repeat scroll 0 0 #fff;
     border: 1px solid #bbbbbb;
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px;
     box-shadow: 0 0 10px 0 #fff;
     color: #111;
     font-size: 18px;
-    margin-left: 0;
-    margin-top: 10px;
-    padding: 8px 3px;
-    width: 118%;
+    margin-left: -5px;
+    margin-top: 14px;
+    padding: 8px 0px;
+    width: 113%;
 }
 .tt-suggestion > p{
 	line-height: 24px;
     margin: 0;
-    padding: 0 0 0 6px;
+    padding: 2px 0 5px 6px;
 }
-.tt-suggestion > p:hover{
-    color: #D11A6D;    
+.tt-is-under-cursor, .tt-suggestion > p:hover {
+    background-color: #e6e6e6;
+    color: #333;
 }
 .loadmore {
     text-align: center;

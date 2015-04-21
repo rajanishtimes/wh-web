@@ -8,7 +8,7 @@
 		</div><!-- /.logo -->
 		<!-- End logo -->
 		
-		<div class="searchbtn float-right"><a href="{{baseUrl}}search/search"><i class="fa fa-search"></i></a></div>
+		<div class="searchbtn float-right"><a href="{{baseUrl}}search/search"><img src="{{baseUrl}}img/search.png"></a></div>
 		<!-- Begin search nav id="searchbox" --
 		<div id="searchboxmakeoverlay" class="nav-right-info">
 			<form id="searchForm" method="POST" action="/search/search">
