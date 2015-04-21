@@ -6,24 +6,7 @@
 				<h1>{{allfeedslist['meta']['match_count']}} result(s) found from &#8220;{{searchkeyword}}&#8221;</h1>
 				<div class="work-content allfeeds">
 					<div id="getallfeedssearch">					
-						{% for feed in allfeedslist['results'] %}
-						<?php //echo "<pre>"; print_r($feed); ?>
-						<div class="col-sm-4 col-md-3 col-xs-6">
-							<div class="work-item">
-								<a href="{{baseUrl}}{{city}}/{{feed['slug']}}">
-									{% if(feed['image']['uri'] is empty) %}
-										{{elements.imgnotfound(baseUrl, feed['title'])}}
-									{% else %}
-										<img src="{{feed['image']['uri']}}" alt="{{feed['title']}}">
-									{% endif %}
-								</a>
-								<div class="the-box no-margin">
-									<div class="feed-title"><a href="{{baseUrl}}{{city}}/{{feed['slug']}}">{{feed['title']}}</a></div>
-									<p class="feed-short-desc">{{feed['description']}}</p>
-								</div>
-							</div>
-						</div>
-						{% endfor  %}
+						{{feeds.getfeeds(baseUrl, allfeedslist)}}
 					</div><div class="clearfix"></div>
 					<div class="loadmore">
 						<?php if($allfeedslist['meta']['match_count'] > ($limit)){ ?>

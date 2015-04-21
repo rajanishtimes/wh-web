@@ -17,7 +17,7 @@ hr{
 }
 .clear{clear: both;}
 
-.section h1{font-size: 23px; font-family: 'Lora', Calibri, Arial, sans-serif; font-weight: bold; margin-bottom: 18px;}
+.section h1{font-size: 23px; font-family: 'Lora', Calibri, Arial, sans-serif; font-weight: bold; margin-bottom: 18px; line-height: 35px;}
 
 h3 {font-size: 28px;}
 h3 {font-size: 28px;}
@@ -51,6 +51,19 @@ NAVBAR
 -------------------------------------------
 **/
 /** TOP NAVBAR SHRINK **/
+.fixed-head {
+    background: none repeat scroll 0 0 #fff;
+    left: 46%;
+    margin: 0 0 0 -40.5%;
+    position: fixed;
+    z-index: 999;
+}
+.tophr{
+	position:fixed;
+}
+.makepadd{
+    padding: 84px 0 0;
+}
 .top-navbar.shrink-nav{
 	height: 60px;
 }
@@ -97,7 +110,7 @@ NAVBAR
 .top-navbar .logo{
 	display: block;
 	float: left;
-	padding: 17px 0;
+	padding: 12px 0;
 	-webkit-transition:All 0.2s ease;
 	-moz-transition:All 0.2s ease;
 	-o-transition:All 0.2s ease;
@@ -151,13 +164,32 @@ NAVBAR
 .nav-search.navbar-right{
 	float: right;
 	margin: 0 30px 0 0;
-    padding: 27px;
+    padding: 24px;
 	list-style: outside none none;
 }
 
+.nav-search.navbar-right:hover, .searchbtn:hover{
+	background-color: #efefef;
+}
+
+
+.makered {
+    color: #d11a6d;
+    font-size: 19px;
+    margin: 0 6px 0 0;
+}
+
 .nav-search.navbar-right a{
-	color:#1e1e1e;
-	text-decoration:none;
+	color: #1e1e1e;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.searchbtn {
+    color: #333333;
+    font-size: 28px;
+    padding: 17px 23px;
 }
 
 .nav-right-info .input-group-addon{
@@ -696,7 +728,7 @@ h4.small-title{
 	background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.64) 99%,rgba(0,0,0,0.65) 100%); /* IE10+ */
 	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.64) 99%,rgba(0,0,0,0.65) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
-	z-index: 99;
+	z-index: 9;
 	width: 100%;
 }
  
@@ -728,9 +760,52 @@ ERRORPAGE
 .errorpage .buildings{background:url('../img/city.png'); height: 226px; width: 100%; position: fixed; bottom: 0;}
 .errorpage .box404 {
     margin: 0 auto;
-    padding: 131px 0 0;
+    min-height: 500px;
+    padding: 147px 0 0;
+    position: relative;
     text-align: center;
     width: 320px;
+    z-index: 999;
+}
+.errorpage h1 {
+    color: #fff;
+    font-family: Lora;
+    font-size: 141px;
+    font-weight: 700;
+    line-height: 99px;
+    margin: 0;
+}
+
+.errorpage .text {
+    color: #fff;
+    font-family: Lora;
+    font-size: 27px;
+    font-weight: 700;
+    margin: 21px 0 0;
+}
+
+.errorpage p {
+    color: #fff;
+    font-size: 17px;
+    padding: 0 35px;
+    text-align: left;
+    word-spacing: -2px;
+}
+
+.btn.btn-primary.errorbtn {
+    border-color: #fff;
+    border-radius: 17px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 36px;
+    width: 250px;
+}
+
+.btn.btn-primary.errorbtn:hover {
+    border-color: #fff;
+	background-color:#fff;
+	color:#455F74;
 }
 
 .rain {
@@ -930,14 +1005,14 @@ BACK TO TOP
 	text-align: center;
 	position: fixed;
 	right: 10px;
-	bottom: 130px;
+	bottom: 70px;
 	z-index: 10001;
 	padding: 10px 0;
 	display: none;
 	width: 50px;
 	height: 50px;
 	cursor: pointer;
-	border-radius: 3px;
+	border-radius: 50%;
 	filter: alpha(opacity=80);
 	opacity: .80;
 }
@@ -1614,8 +1689,10 @@ DROPDOWN
 }
 .dropdown-menu.margin-list > li > a {margin: 5px;}
 .dropdown-menu.margin-list-rounded > li > a {
-	margin: 5px;
 	border-radius: 3px;
+    font-size: 15px;
+    font-weight: normal;
+    margin: 5px 0;
 }
 
 .dropdown-menu.with-triangle{top: 130%;}
@@ -3367,6 +3444,7 @@ OWL CAROUSEL
 .owl-carousel{
 	padding: 0px;
 	margin: 0;
+	display:block !important;
 }
 .owl-carousel .item{
 	padding: 10px 0px;
@@ -3383,6 +3461,7 @@ OWL CAROUSEL
 	padding: 0px;
 	margin: 0px;
 }
+
 #Owlbar{
 	width: 0%;
 	max-width: 100%;

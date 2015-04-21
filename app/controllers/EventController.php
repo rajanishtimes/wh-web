@@ -55,7 +55,7 @@ class EventController extends BaseController{
 			$this->view->og_type = 'Event';
 			$this->view->og_description = $eventdetail['og_description'];
 			$this->view->og_image = $eventdetail['og_image'];
-			$this->view->og_url = $this->baseUrl.$this->city.$eventdetail['url'];
+			$this->view->og_url = $this->baseUrl.$eventdetail['url'];
 			/* ======= Seo Update ============= */
 			
 			$breadcrumbs = $this->breadcrumbs(array(

@@ -14,7 +14,7 @@ class AuthorController extends BaseController{
 		if($this->dispatcher->getParam('authorname'))
 			$this->authorname = $this->dispatcher->getParam('authorname');
 		
-		$this->view->setVars(array('city' => $city, 'authorname'=>$authorname));
+		$this->view->setVars(array('city' => $this->city, 'authorname'=>$this->authorname));
 		parent::initialize();
     }
 
@@ -28,17 +28,19 @@ class AuthorController extends BaseController{
 		$Profile->setProfile();
         $author = $Profile->getProfileResults();
 		$profilepost = $this->getauthorpost($authorid, $start, $limit);
-		
-		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($author['profile']['full_name'])))' =>''));
-		
-		$this->view->setVars(array(
-			'authorid' => $authorid,
-			'author' => $author,
-			'start'	=> $start,
-			'limit'	=> $limit,
-			'profilepost'=>$profilepost,
-			'breadcrumbs'=>$breadcrumbs
-		));
+		if($profilepost['meta']['match_count'] > 0){
+			$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($author['profile']['full_name']))) =>''));		
+			$this->view->setVars(array(
+				'authorid' => $authorid,
+				'author' => $author,
+				'start'	=> $start,
+				'limit'	=> $limit,
+				'profilepost'=>$profilepost,
+				'breadcrumbs'=>$breadcrumbs
+			));
+		}else{
+			$this->forwardtoerrorpage(404);
+		}
     }
 	
 	
@@ -72,10 +74,10 @@ class AuthorController extends BaseController{
 		foreach($profilepost['results'] as $key=>$entity){
 			if($entity['cover_image']){
 				if(substr($entity['cover_image'], 0, 4) != 'http'){
-					$profilepost['results'][$key]['cover_image'] = $this->config->application->imgbaseUri.$entity['image']['uri'];
+						$profilepost['results'][$key]['cover_image'] = $this->config->application->imgbaseUri.$entity['cover_image'];
 				}
 			}
-			$profilepost['results'][$key]['slug'] = $this->create_slug($entity['title']).'-'.str_replace('_', '-', strtolower($entity['id']));
+			//$profilepost['results'][$key]['slug'] = $this->create_slug($entity['title']).'-'.str_replace('_', '-', strtolower($entity['id']));
 		}
 		//echo "<pre>"; print_r($profilepost); exit;
 		return $profilepost;

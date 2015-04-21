@@ -17,11 +17,11 @@ class Elements extends Component
         'navbar-right' => array(
 			'terms' => array(
                 'caption' => 'Terms and Conditions',
-                'action' => '#'
+                'action' => 'terms'
             ),
-            'privacy' => array(
+            'policy' => array(
                 'caption' => 'Privacy Policy',
-                'action' => '#'
+                'action' => 'policy'
             )
         )
     );
@@ -43,17 +43,13 @@ class Elements extends Component
 			'caption' => 'User Agreement',
 			'action' => '#'
 		),
-		'policy' => array(
-			'caption' => 'Policy',
-			'action' => '#'
-		),
 		'payment-info' => array(
 			'caption' => 'Payment Info',
 			'action' => '#'
 		)
     );
 
-    public function getMenu()
+    public function getMenu($url)
     {
 		$controllerName = $this->view->getControllerName();
         foreach ($this->_headerMenu as $position => $menu) {
@@ -64,7 +60,7 @@ class Elements extends Component
                 } else {
                     echo '<li>';
                 }
-                echo $this->tag->linkTo($controller . '/' . $option['action'], $option['caption']);
+                echo '<a href="'.$url.$option['action'].'">'.$option['caption'].'</a>';
                 echo '</li>';
             }
             echo '</ul>';
@@ -88,6 +84,7 @@ class Elements extends Component
 		echo '</ul>';
 
     }
+	
 	
 	public function imgnotfound($url, $alt){
 		$imgbox = '<img src="'.$url.'img/img_feed_default.png" alt="'.$alt.'">';

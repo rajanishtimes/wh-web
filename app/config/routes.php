@@ -14,7 +14,7 @@ $router->add("/tag/{tags:[a-zA-Z0-9\- ]+}", array(
 ));
 
 
-$router->add("/author/{authorname:[a-zA-Z0-9\-]+}", array(
+$router->add("/author/{authorname:[a-zA-Z0-9\- ]+}", array(
     'controller' => 'author',
     'action' => 'index',
 )); 
@@ -25,7 +25,7 @@ $router->add("/author/posts", array(
 )); 
 
 
-$router->add("/{city:[a-zA-Z0-9\-]+}/venue/{venue:[a-zA-Z0-9\-]+}", array(
+$router->add("/{city:[a-zA-Z0-9\-]+}/venue/{venue:[a-zA-Z0-9\- ]+}", array(
 	'controller' => 'venue',
 	'action' => 'index',
 ));
@@ -63,14 +63,14 @@ $router->add("/search/autosuggestion", array(
     'action' => 'autosuggestion',
 ));
 
-if(preg_match('/\b-e-[0-9]{1,}\b/i', $urlparams, $match)){
+if(preg_match('/\b-e-[a-zA-Z0-9\- ]+/i', $urlparams, $match)){	
 	$router->add("/{city:[a-zA-Z0-9\-]+}/{eventtitle:[a-zA-Z0-9\-]+}", array(
 		'controller' => 'event',
 		'action' => 'index',
 	));
 }
 
-if(preg_match('/\b-c-[0-9]{1,}\b/i', $urlparams, $match)){
+if(preg_match('/\b-c-[a-zA-Z0-9\- ]+/i', $urlparams, $match)){
 	$router->add("/{city:[a-zA-Z0-9\-]+}/{contenttitle:[a-zA-Z0-9\-]+}", array(
 		'controller' => 'content',
 		'action' => 'index',

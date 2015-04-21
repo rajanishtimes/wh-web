@@ -21,7 +21,7 @@
 			
 			<div class="col-xs-12 col-sm-6 col-md-2">
 				<h4>Our Story</h4>
-				{{ elements.getStaticpages() }}
+				{{ elements.getStaticpages(baseUrl) }}
 			</div><!-- /.col-sm-4 -->
 			<div class="col-xs-12 col-sm-6 col-md-3">
 				<ul class="list citylist">
@@ -51,7 +51,7 @@
 				&copy; 2015 <a href="#fakelink">WhatsHot.com</a> &ndash; all rights reserved.
 			</div><!-- /.col-sm-5 -->
 			<div class="col-sm-7 text-right">
-				{{ elements.getMenu() }}
+				{{ elements.getMenu(baseUrl) }}
 			</div><!-- /.col-sm-7 -->
 		</div><!-- /.row -->
 	</div><!-- /.container -->

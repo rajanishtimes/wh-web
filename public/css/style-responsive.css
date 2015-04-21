@@ -146,8 +146,8 @@ PHONE < 548px
 @media (max-width: 548px){
 	.nav-search.navbar-right {
 		float: right;
-		margin: 15px 0 0;
-		padding: 11px;
+		margin: 0;
+		padding: 24px 11px;
 	}
 }
 
@@ -178,7 +178,7 @@ PHONE < 420px
 **/
 @media (max-width: 420px){
 	.top-navbar .logo{
-		width: 100%;
+		
 	}
 	
 	.filter_type{
@@ -223,8 +223,7 @@ PHONE < 320px
 		display:block;
 	}
 	.nav-search.navbar-right{
-		position:absolute;
-		right: 0;
+		
 	}
 	.dropdown-menu{
 		left: -110px;

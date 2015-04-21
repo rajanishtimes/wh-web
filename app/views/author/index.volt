@@ -25,16 +25,7 @@
 				<h1>{{profilepost['meta']['match_count']}} Posts from {{author['profile']['full_name'] | lower | capitalize}}</h1>
 				<div id="authorpost">
 					<div class="work-content allfeeds">
-						{% for feed in profilepost['results'] %}
-						<div class="col-sm-4 col-md-3 col-xs-6">
-							<div class="work-item">
-								<a href="{{baseUrl}}{{city}}/{{feed['slug']}}"><img src="{{feed['cover_image']}}" alt="{{feed['title']}}"></a>
-								<div class="the-box no-margin">
-									<div class="feed-title"><a href="{{baseUrl}}{{city}}/{{feed['slug']}}">{{feed['title']}}</a></div>
-								</div>
-							</div>
-						</div>
-						{% endfor  %}
+						{{feeds.getfeedsforcoverimg(baseUrl, profilepost)}}
 					</div>
 				</div><div class="clearfix"></div>
 				<div class="loadmore">

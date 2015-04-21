@@ -44,7 +44,7 @@ class BaseController extends Controller{
 		//echo $this->dispatcher->getControllerName();exit;
 		//echo $this->dispatcher->getActionName();exit;
 		
-		if ($this->session->has("cities") && $this->dispatcher->getParam('city') && $this->session->get("cities")) {			
+		if ($this->session->has("cities") && $this->dispatcher->getParam('city')=='' && $this->session->get("cities")) {			
 			$this->city = strtolower($this->session->get("cities"));
 			$this->view->city = strtolower($this->city);
         }else{
@@ -62,19 +62,15 @@ class BaseController extends Controller{
 		$cities = new \WH\Model\Cities();
 		$getallcities = $cities->getResults();
 		$this->view->allcities = $getallcities;
-		
 		foreach($getallcities['cities'] as $getallcity){
 			if(strtolower($getallcity['name']) == $this->city){
 				$this->cityId = $getallcity['id'];
 				break;
 			}
 		}
-		
 		if($this->cityId == 0){
-			$this->cityId = $getallcities['cities'][0]['id'];
-			$this->city = $getallcities['cities'][0]['name'];
-			$this->session->set("cities", $this->city);
-			$this->view->city = $this->city;
+			$this->session->remove("cities");
+			$this->forwardtoerrorpage(404);
 		}
 		
     }
@@ -163,7 +159,7 @@ class BaseController extends Controller{
 					$entityresult['results'][$key]['image']['uri'] = $this->config->application->imgbaseUri.$entity['image']['uri'];
 				}
 			}
-			$entityresult['results'][$key]['slug'] = $this->create_slug($entity['title']).'-'.str_replace('_', '-', strtolower($entity['id']));
+			//$entityresult['results'][$key]['slug'] = $this->create_slug($entity['title']).'-'.str_replace('_', '-', strtolower($entity['id']));
 		}
 		
 		return $entityresult;

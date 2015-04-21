@@ -153,7 +153,7 @@ $.fn.center = function () {
     return this;
 }
 
-function view_feed_with_ajax(mainURL, start, limit, parentId, searchval='', tags='', bydate=''){
+function view_feed_with_ajax(mainURL, start, limit, parentId, searchval, tags, bydate){
 	$('#'+parentId).append('<div class="loader"><img src="'+baseUrl+'img/ajax-loader.gif"></div>');
 	$('#'+parentId).parent().find('.loadmore .btn').attr('disabled','disabled');
 	$.ajax( {

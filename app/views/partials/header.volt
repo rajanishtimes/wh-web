@@ -8,7 +8,8 @@
 		</div><!-- /.logo -->
 		<!-- End logo -->
 		
-		<!-- Begin search nav id="searchbox" -->
+		<div class="searchbtn float-right"><a href="{{baseUrl}}search/search"><i class="fa fa-search"></i></a></div>
+		<!-- Begin search nav id="searchbox" --
 		<div id="searchboxmakeoverlay" class="nav-right-info">
 			<form id="searchForm" method="POST" action="/search/search">
 				<div id="expandable" class="input-group">
@@ -22,14 +23,15 @@
 		<!-- Begin City Nav -->
 			<ul class="nav-search navbar-right">
 				<li class="dropdown">
-				  <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">
-					<span>{{city | capitalize}}</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-down"></i>
-				  </a>
-				  <ul class="dropdown-menu square primary margin-list-rounded with-triangle">
-					{% for cities in allcities['cities'] %}
-						<li><a href="{{baseUrl}}{{cities['name'] | trim | lower}}">{{cities['name']}}</a></li>
-					{% endfor  %}
-				  </ul>
+					<i class="fa fa-map-marker makered"></i>
+					<a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">
+						<span>{{city | capitalize}}</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="dropdown-menu square primary margin-list-rounded with-triangle">
+						{% for cities in allcities['cities'] %}
+							<li><a href="{{baseUrl}}{{cities['name'] | trim | lower}}">{{cities['name']}}</a></li>
+						{% endfor  %}
+					</ul>
 				</li>
 			</ul>
 		<!-- End City Nav -->
