@@ -137,6 +137,7 @@ class BaseController extends Controller{
 		$Search->setParam('start',$start);
 		$Search->setParam('limit',$limit);
 		$Search->setParam('byType',$bytype);
+		$Search->setParam('mm',3);
 		
 		if(strtolower($bydays)!='all')
 		$Search->setParam('byDays',ucwords(strtolower($bydays)));
