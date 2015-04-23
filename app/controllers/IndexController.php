@@ -26,10 +26,15 @@ class IndexController extends BaseController{
 		
 		$core = new \WH\Model\Core();
 		$core->setCity($this->cityId);
-        $populartags = $core->getResults();
+		try{
+			$populartags = $core->getResults();
+		}catch(Exception $e){
+			$populartags = array();
+		}
+        
 		
 		$start = 0;
-		$limit = 12;
+		$limit = 11;
 		
 		try{
 			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, 'all', '', '', 'Event,Content');

@@ -19,17 +19,27 @@ class AuthorController extends BaseController{
     }
 
     public function indexAction(){
-		$author_split = explode('-', $this->authorname);
-		$authorid = end($author_split);
-		$start = 0;
-		$limit = 12;
-		$Profile = new \WH\Model\User();
-		$Profile->setId($authorid);
-		$Profile->setProfile();
-        $author = $Profile->getProfileResults();
-		$profilepost = $this->getauthorpost($authorid, $start, $limit);
-		if($profilepost['meta']['match_count'] > 0){
-			$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($author['profile']['full_name']))) =>''));		
+		preg_match('/\ba-[0-9]{1,}\b/i', $this->authorname, $match);
+		$id = str_replace('-', '_', $match[0]);
+		$Author = new \WH\Model\Solr();
+		$Author->setParam('ids',$id);
+		$Author->setParam('fl','detail');
+		$Author->setSolrType('detail');
+		$Author->setEntityDetails();
+		try{
+			$author = $Author->getDetailResults();
+		}catch(Exception $e){
+			$author = array();
+		}
+		
+		//echo "<pre>"; print_r($author); exit;
+		if($author){
+			$ids = explode('_', $id);
+			$authorid = end($ids);
+			$start = 0;
+			$limit = 12;
+			$profilepost = $this->getauthorpost($authorid, $start, $limit);
+			$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($author['title']))) =>''));		
 			$this->view->setVars(array(
 				'authorid' => $authorid,
 				'author' => $author,
@@ -70,15 +80,19 @@ class AuthorController extends BaseController{
 		$Profile->setStart($start);
 		$Profile->setLimit($limit);
 		$Profile->setPostParams();
-		$profilepost = $Profile->getPostsResults();
-		foreach($profilepost['results'] as $key=>$entity){
-			if($entity['cover_image']){
-				if(substr($entity['cover_image'], 0, 4) != 'http'){
-						$profilepost['results'][$key]['cover_image'] = $this->config->application->imgbaseUri.$entity['cover_image'];
+		try{
+			$profilepost = $Profile->getPostsResults();
+			foreach($profilepost['results'] as $key=>$entity){
+				if($entity['cover_image']){
+					if(substr($entity['cover_image'], 0, 4) != 'http'){
+							$profilepost['results'][$key]['cover_image'] = $this->config->application->imgbaseUri.$entity['cover_image'];
+					}
 				}
 			}
-			//$profilepost['results'][$key]['slug'] = $this->create_slug($entity['title']).'-'.str_replace('_', '-', strtolower($entity['id']));
+		}catch(Exception $e){
+			$profilepost = array();
 		}
+		
 		//echo "<pre>"; print_r($profilepost); exit;
 		return $profilepost;
 	}

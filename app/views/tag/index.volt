@@ -6,7 +6,7 @@
 				<h1>{{tagsfeeds['meta']['match_count']}} result(s) found from &#8220;{{tags}}&#8221;</h1>
 				<div class="work-content allfeeds">
 					<div id="getallfeedssearch">					
-						{{feeds.getfeeds(baseUrl, tagsfeeds)}}
+						{{feeds.getfeeds(baseUrl, tagsfeeds, start)}}
 					</div><div class="clearfix"></div>
 					<div class="loadmore">
 						<?php if($tagsfeeds['meta']['match_count'] > ($limit)){ ?>

@@ -27,17 +27,26 @@ class CriticController extends BaseController{
 		$Solr->setParam('fl','detail');
 		$Solr->setSolrType('detail');
         $Solr->setEntityDetails();
-        $criticdetail = $Solr->getDetailResults();
-		
+		try{
+			$criticdetail = $Solr->getDetailResults();
+		}catch(Exception $e){
+			$criticdetail = array();
+		}
+        
+
 		if($criticdetail){
 			//echo "<pre>"; print_r($criticdetail);
+			$Author = new \WH\Model\Solr();
+			$Author->setParam('ids','a_'.$criticdetail['author_id']);
+			$Author->setParam('fl','detail');
+			$Author->setSolrType('detail');
+			$Author->setEntityDetails();
+			try{
+				$author = $Author->getDetailResults();
+			}catch(Exception $e){
+				$author = array();
+			}
 			
-			$Profile = new \WH\Model\User();
-			//$Profile->setId($criticdetail['author_id']);
-			$Profile->setId(71);
-			$Profile->setProfile();
-			$author = $Profile->getProfileResults();
-			//print_r($author); exit;
 			/* ======= Seo Update ============= */
 			if($criticdetail['page_title'])
 				$this->tag->setTitle($criticdetail['page_title']);
@@ -58,7 +67,7 @@ class CriticController extends BaseController{
 				}
 			}
 			
-			$rwidth = (($criticdetail['food_rate'] + $criticdetail['service_rate'] + $criticdetail['decor_rate'])/3);
+			$rwidth = round((($criticdetail['food_rate'] + $criticdetail['service_rate'] + $criticdetail['decor_rate'])/3), 1);
 			$reviewwidth = $rwidth*33;
 			
 			$breadcrumbs = $this->breadcrumbs(array(

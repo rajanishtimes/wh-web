@@ -30,7 +30,12 @@ class VenueController extends BaseController{
 		$Solr->setParam('fl','detail');
 		$Solr->setSolrType('detail');
         $Solr->setEntityDetails();
-        $venuedetail = $Solr->getDetailResults();
+        try{
+			$venuedetail = $Solr->getDetailResults();
+		}catch(Exception $e){
+			$venuedetail = array();
+		}
+		
 		
 		$formatted_address = '';
 		if(isSet($venuedetail['address']) && trim($venuedetail['address'])!=''){

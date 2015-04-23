@@ -10,12 +10,18 @@ use Phalcon\Mvc\User\Component;
 class Feeds extends Component
 {
 
-    public function getfeeds($url, $data)
-    {		
+    public function getfeeds($url, $data, $start)
+    {	$i = 1;
 		foreach($data['results'] as $feed){
+			if($i%9 != 0){
 			?>
 				<div class="col-sm-4 col-md-3 col-xs-6">
 					<div class="work-item">
+						<a href="<?php echo $url . $feed['url']; ?>">
+							<div class="hover-wrap">
+								<i class="glyphicon glyphicon-plus fa fa-eye"></i>
+							</div>
+						</a>
 						<a href="<?php echo $url . $feed['url']; ?>">
 							<?php if($feed['image']['uri']){ ?>
 								<img src="<?php echo $feed['image']['uri']; ?>" alt="<?php echo $feed['title'] ?>">
@@ -30,6 +36,25 @@ class Feeds extends Component
 					</div>
 				</div>
 			<?php
+			}else{
+			?>
+				<div class="col-sm-12 col-md-6 col-xs-6">
+					<a href="<?php echo $url . $feed['url']; ?>">
+						<div class="work-item withmask">
+							<div class="the-box full no-border transparent no-margin make-up">
+								<p class="feed-name"><?php echo $feed['title']; ?></p>
+							</div>
+							<?php if($feed['image']['uri']){ ?>
+								<img src="<?php echo $feed['image']['uri']; ?>" alt="<?php echo $feed['title'] ?>">
+							<?php }else{?>
+								<?php echo $this->imagenotfound($url, $feed['title']); ?>
+							<?php }?>
+						</div>
+					</a>
+				</div>
+			<?php
+			}
+			$i++;
 		}
     }
 	

@@ -7,16 +7,16 @@
 				<div class="contentarea">
 					<div class="authordata text-center">
 						<div class="author-image float-left">
-							<?php if($author['profile']['image_url']){ ?>
-								<img src="{{author['profile']['image_url']}}" alt="{{author['profile']['full_name']}}" class="img-detail icon-circle">
+							<?php if($author['images'][0]['uri']){ ?>
+								<img src="{{author['images'][0]['uri']}}" alt="{{author['title']}}" class="img-detail icon-circle">
 							<?php }else{ ?>
-								<img src="{{baseUrl}}img/avatar-12.jpg" alt="{{author['profile']['full_name']}}" class="img-detail icon-circle">
+								<img src="{{baseUrl}}img/avatar-12.jpg" alt="{{author['title']}}" class="img-detail icon-circle">
 							<?php }?>
 						</div>
 						<div class="authordetail float-left">
-							<h2 class="reviewtitle text-center"><span class="reviewd">Reviewed by</span><br>{{author['profile']['full_name'] | lower | capitalize}}</h2>
-							{% if(author['profile']['twitter_url'] != '') %}
-								<div class="twitter"><a href="{{author['profile']['twitter_url']}}"><i class="fa fa-twitter"></i> @{{author['profile']['name']}}</a></div>
+							<h2 class="reviewtitle text-center"><span class="reviewd">Reviewed by</span><br>{{author['title'] | lower | capitalize}}</h2>
+							{% if(author['twitter_url'] != '') %}
+								<div class="twitter"><a href="{{author['profile']['twitter_url']}}"><i class="fa fa-twitter"></i> @{{author['user_name']}}</a></div>
 							{% endif %}
 						</div>
 					</div><div class="clearfix"></div>
@@ -41,7 +41,7 @@
 							<ul class="work-category-wrap">
 								<?php $populartags = explode(',', $criticdetail['tags']);?>								
 								{% for populartag in populartags %}
-									<li class="filter" ><a href="{{baseUrl}}tag/{{populartag}}">
+									<li class="filter" ><a href="javascript:void(0)">
 									{{populartag}}
 									</a></li>
 								{% endfor  %}
@@ -52,23 +52,23 @@
 						<div class="share">
 							<ul class="list-inline navbar-left">
 								<li class="sharek">SHARE</li>
-								<li><a href="{{author['profile']['twitter_url']}}"><i class="fa fa-twitter-square"></i> share on twitter</a></li>
-								<li><a href="{{author['profile']['facebook_url']}}"><i class="fa fa-facebook-square"></i> share on facebook</a></li>
-								<li><a href="{{author['profile']['google_url']}}"><i class="fa fa-google-plus-square"></i> share on google+</a></li>
+								<li><a href="{{author['twitter_url']}}"><i class="fa fa-twitter-square"></i> share on twitter</a></li>
+								<li><a href="{{author['facebook_url']}}"><i class="fa fa-facebook-square"></i> share on facebook</a></li>
+								<li><a href="{{author['google_url']}}"><i class="fa fa-google-plus-square"></i> share on google+</a></li>
 							</ul><div class="clearfix"></div>
 						</div>
 						
 						<div class="authordetailsection">
 							<div class="author-image float-left">
-								<?php if($author['profile']['image_url']){ ?>
-									<img src="{{author['profile']['image_url']}}" alt="{{author['profile']['full_name']}}" class="img-detail icon-circle">
+								<?php if($author['images'][0]['uri']){ ?>
+									<img src="{{author['images'][0]['uri']}}" alt="{{author['title']}}" class="img-detail icon-circle">
 								<?php }else{ ?>
-									<img src="{{baseUrl}}img/avatar-12.jpg" alt="{{author['profile']['full_name']}}" class="img-detail icon-circle">
+									<img src="{{baseUrl}}img/avatar-12.jpg" alt="{{author['title']}}" class="img-detail icon-circle">
 								<?php }?>
 							</div>
 							<div class="author-detail float-left">
-								<h2>{{author['profile']['full_name']}}</h2>
-								<p>{{author['profile']['description']}}</p>
+								<h2>{{author['title']}}</h2>
+								<p>{{author['description']}}</p>
 							</div>
 						</div>
 						

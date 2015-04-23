@@ -33,7 +33,12 @@ class SpecialpageController extends BaseController{
 		$Solr->setParam('fl','detail');
 		$Solr->setSolrType('detail');
         $Solr->setEntityDetails();
-        $specialpagedetail = $Solr->getDetailResults();
+        try{
+			$specialpagedetail = $Solr->getDetailResults();
+		}catch(Exception $e){
+			$specialpagedetail = array();
+		}
+		
 		
 		if($specialpagedetail){
 			/* ======= Seo Update ============= */

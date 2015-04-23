@@ -20,7 +20,7 @@ hr{
 .section h1{
 	color: #333333;
     font-family: "Lora",Calibri,Arial,sans-serif;
-    font-size: 23px;
+    font-size: 24px;
     font-weight: bold;
     line-height: 35px;
     margin-bottom: 10px;
@@ -124,7 +124,7 @@ NAVBAR
 	-o-transition:All 0.2s ease;
 }
 .top-navbar .logo img{
-	width: 136px;
+	width: 100px;
 }
 
 .top-navbar .container{position: relative}
@@ -171,13 +171,13 @@ NAVBAR
 
 .nav-search.navbar-right{
 	float: right;
-	margin: 0 30px 0 0;
-    padding: 24px;
+	margin: 0 20px 0 0;
+    padding: 20px;
 	list-style: outside none none;
 }
 
 .nav-search.navbar-right:hover, .searchbtn:hover{
-	background-color: #E6E6E6;
+	background-color: #f5f5f5;
 }
 
 
@@ -187,17 +187,21 @@ NAVBAR
     margin: 0 6px 0 0;
 }
 
+.dropdown-toggle .fa.fa-angle-down {
+    margin: 0 0 0 -8px;
+}
+
 .nav-search.navbar-right a{
 	color: #1e1e1e;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: normal;
     text-decoration: none;
 }
 
 .searchbtn {
     color: #333333;
     font-size: 28px;
-    padding: 17px 23px;
+    padding: 11px 23px;
 }
 
 .nav-right-info .input-group-addon{
@@ -436,10 +440,24 @@ ul.work-category-wrap li.active:focus{
 	overflow: hidden;
 	margin-bottom: 30px;
 }
-.work-content .work-item a{
-	text-decoration: none;
-	color: #1e1e1e;
+
+.work-item.withmask {
+    height: 421px;
 }
+
+.work-content .work-item  a .hover-wrap{
+	text-decoration: none;
+    font-size: 46px;
+}
+
+.work-content .work-item a .glyphicon {
+	top: 37%;
+}
+
+.work-content .work-item .hover-wrap a .glyphicon {
+	color: #fff;
+}
+
 .work-content .work-item a:hover{
     color: #D11A6D;
 }
@@ -450,17 +468,17 @@ ul.work-category-wrap li.active:focus{
 	left: 0;
 	right: 0;
 	bottom: 100%;
-	background: none repeat scroll 0 0 rgba(209, 26, 109, 0.7);
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);
 	color: #fff;
 	filter: alpha(opacity=0);
 	opacity: 0;
-	-webkit-transition:All 0.2s ease;
+	/* -webkit-transition:All 0.2s ease;
 	-moz-transition:All 0.2s ease;
-	-o-transition:All 0.2s ease;
+	-o-transition:All 0.2s ease; */
 }
 .work-content .work-item:hover .hover-wrap{
 	top: 0;
-	bottom: 0;
+	bottom: 35%;
 	filter: alpha(opacity=100);
 	opacity: 1;
 }
@@ -517,9 +535,11 @@ ul.work-category-wrap li.active:focus{
     transform:scale(1.05);
 }
 
-.work-content .work-item:hover{
-	-webkit-box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
+.work-content .work-item .the-box.no-margin:hover{
+	border-left:1px solid #000;
+	border-right:1px solid #000;
+	border-bottom:1px solid #000;
+	border-top:none;
 }
 
 .work-content .mix{
@@ -542,6 +562,7 @@ ul.work-category-wrap li.active:focus{
 .owl-carousel.work-detail .item{
 	padding: 0;
 	margin: 0;
+	height: 350px;
 }
 .owl-carousel.work-detail .item img{
     display: block;
@@ -574,23 +595,24 @@ ul.work-category-wrap li.active:focus{
 
 .feed-title {
     font-family: "Lora",Calibri,Arial,sans-serif;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
-    line-height: 26px;
-    margin-bottom: 8px;
+    line-height: 27px;
+    margin-bottom: 2px;
     text-align: left;
-	height: 55px;
+	max-height: 55px;
     overflow: hidden;
 }
 
-.allfeeds .the-box{border:1px solid #c7c7c7}
+.allfeeds .the-box{border:1px solid #c7c7c7; border-top:none; height:147px; padding:15px 20px;}
 
 .feed-short-desc {
-    font-size: 16px;
-    text-align: left;
-	height: 73px;
+    font-family: open sans;
+    font-size: 13px;
+    line-height: 18px;
     margin: 0;
-	overflow: hidden;
+    text-align: left;
+	color:#6a6a6a;
 }
 /**
 -------------------------------------------
@@ -850,7 +872,7 @@ FOOTER
 **/
 footer{
 	background: none repeat scroll 0 0 #f5f5f5;
-    color: #606060;
+    color: #f5f5f5;
     padding: 30px 0 0;
 	border-top: 1px solid #cccccc;
 }
@@ -897,6 +919,10 @@ footer ul.list li{
 	display: block;
 	padding: 0;
 	margin-bottom: 7px;
+	font-size: 12px;	
+}
+footer ul.list li a{
+	color:#606060;
 }
 footer .subscribe{
 	margin-top: 20px;
@@ -968,7 +994,7 @@ footer .social-icon {
     margin: 10px 0 0;
 }
 footer .shareon {
-    margin: 0 10px 0 0; font-size: 18px;
+    margin: 0 10px 0 0; font-size: 18px; color:#606060;
 }
 footer .social_icon {
     background: none repeat scroll 0 0 #8c8c8c;
@@ -983,7 +1009,7 @@ footer .social_icon {
 }
 .app_option {
     height: 48px;
-    margin: 60px 0 0;
+    margin: 4px 0 0;
 }
 .android_app{
     background: url("../img/app-icon.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -1552,7 +1578,7 @@ SEARCH
     padding: 2px 0 5px 6px;
 }
 .tt-is-under-cursor, .tt-suggestion > p:hover {
-    background-color: #e6e6e6;
+    background-color: #f5f5f5;
     color: #333;
 }
 .loadmore {
@@ -1954,7 +1980,7 @@ DROPDOWN
 .dropdown-menu.primary > li > a:hover,
 .dropdown-menu.primary > li > a:focus {
 	color: #333333;
-	background-color: #e6e6e6;
+	background-color: #f5f5f5;
 }
 .dropdown-menu.primary > .active > a,
 .dropdown-menu.primary > .active > a:hover,

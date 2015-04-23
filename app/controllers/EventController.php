@@ -34,7 +34,12 @@ class EventController extends BaseController{
 		$Solr->setParam('fl','detail');
 		$Solr->setSolrType('detail');
         $Solr->setEntityDetails();
-        $eventdetail = $Solr->getDetailResults();
+		try{
+			$eventdetail = $Solr->getDetailResults();
+		}catch(Exception $e){
+			$eventdetail = array();
+		}
+        
 		if($eventdetail){			
 			foreach($eventdetail['images'] as $key=>$images){
 				if($images['uri']){

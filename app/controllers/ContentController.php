@@ -33,9 +33,23 @@ class ContentController extends BaseController{
 		$Solr->setParam('fl','detail');
 		$Solr->setSolrType('detail');
         $Solr->setEntityDetails();
-        $contentdetail = $Solr->getDetailResults();
-		//echo "<pre>"; print_r($contentdetail); exit;
+		try{
+			$contentdetail = $Solr->getDetailResults();
+		}catch(Exception $e){
+			$contentdetail = array();
+		}
 		if($contentdetail){
+			$Author = new \WH\Model\Solr();
+			$Author->setParam('ids','a_'.$contentdetail['author']['id']);
+			$Author->setParam('fl','detail');
+			$Author->setSolrType('detail');
+			$Author->setEntityDetails();
+			try{
+				$author = $Author->getDetailResults();
+			}catch(Exception $e){
+				$author = array();
+			}
+			
 			/* ======= Seo Update ============= */
 			if($contentdetail['page_title'])
 				$this->tag->setTitle($contentdetail['page_title']);
@@ -62,7 +76,8 @@ class ContentController extends BaseController{
 			
 			$this->view->setVars(array(
 				'contentdetail' => $contentdetail,
-				'breadcrumbs' => $breadcrumbs
+				'breadcrumbs' => $breadcrumbs,
+				'author'	=> $author
 			));
 		}else{
 			$this->forwardtoerrorpage(404);

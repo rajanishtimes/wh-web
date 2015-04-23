@@ -20,7 +20,12 @@ class SearchController extends BaseController{
 		$limit = $this->request->getPost('limit');
 		$parentid = $this->request->getPost('parentid');
 
-		$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword, 'Event,Content');
+		try{
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword, 'Event,Content');
+		}catch(Exception $e){
+			$allfeedslist = array();
+		}
+		
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,
@@ -42,7 +47,11 @@ class SearchController extends BaseController{
 			$Suggestion->setParam('searchname',$searchkeyword);
 			$Suggestion->setParam('bycity',$this->city);
 			$Suggestion->setAutoSuggest();
-			$autosuggestresult = $Suggestion->getSuggestResults();
+			try{
+				$autosuggestresult = $Suggestion->getSuggestResults();
+			}catch(Exception $e){
+				$autosuggestresult = array();
+			}
 			echo json_encode($autosuggestresult['suggestions']);
 		}
 		exit;
@@ -54,12 +63,15 @@ class SearchController extends BaseController{
 		if($this->dispatcher->getParam('searchquery'))
 			$searchkeyword = $this->dispatcher->getParam('searchquery');
 		
-		
-		
 		$start = 0;
-		$limit = 12;
-	
-		$allfeedslist = $this->getfeeddata($start, $limit, $this->city, '', '', $searchkeyword);
+		$limit = 11;
+		
+		try{
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, '', '', $searchkeyword);
+		}catch(Exception $e){
+			$allfeedslist = array();
+		}
+		
 		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($searchkeyword))) =>''));
 		
 		$this->view->setVars(
@@ -93,7 +105,12 @@ class SearchController extends BaseController{
 		$limit = $this->request->getPost('limit');
 		$parentid = $this->request->getPost('parentid');
 
-		$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword);
+		try{
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword);
+		}catch(Exception $e){
+			$allfeedslist = array();
+		}
+		
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,

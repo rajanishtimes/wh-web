@@ -57,7 +57,7 @@
 			{% if(allfeedslist | length > 0) %}
 			<div class="work-content allfeeds">
 				<div id="getallfeeds">					
-					{{feeds.getfeeds(baseUrl, allfeedslist)}}
+					{{feeds.getfeeds(baseUrl, allfeedslist, start)}}
 				</div><div class="clearfix"></div>
 				<div class="loadmore">
 					<?php if($allfeedslist['meta']['match_count'] > ($limit)){ ?>

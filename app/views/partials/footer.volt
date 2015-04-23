@@ -20,7 +20,6 @@
 			</div>
 			
 			<div class="col-xs-12 col-sm-6 col-md-2">
-				<h4>Our Story</h4>
 				{{ elements.getStaticpages(baseUrl) }}
 			</div><!-- /.col-sm-4 -->
 			<div class="col-xs-12 col-sm-6 col-md-3">

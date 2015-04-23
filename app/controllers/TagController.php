@@ -19,7 +19,12 @@ class TagController extends BaseController{
     }
 
     public function indexAction(){
-		$tagsfeeds = $this->getfeeddata(0, 12, $this->city, 'all', 'tags', $this->tags, 'Event,Content');
+		try{
+			$tagsfeeds = $this->getfeeddata(0, 11, $this->city, 'all', 'tags', $this->tags, 'Event,Content');
+		}catch(Exception $e){
+			$tagsfeeds = array();
+		}
+		
 		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($this->tags))) =>''));
 		
 		$this->view->setVars(

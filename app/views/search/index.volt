@@ -1,7 +1,7 @@
 <?php if(!empty($allfeedslist['results'])){ ?>
 <div class="work-content allfeeds">
 	<?php //echo "<pre>"; print_r($allfeedslist);?>
-	{{feeds.getfeeds(baseUrl, allfeedslist)}}
+	{{feeds.getfeeds(baseUrl, allfeedslist, start)}}
 </div>
 <-!-###@###->
 <?php if($allfeedslist['meta']['match_count'] > ($start)){ ?>
