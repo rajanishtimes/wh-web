@@ -19,8 +19,10 @@ class TagController extends BaseController{
     }
 
     public function indexAction(){
+		$start = 0;
+		$limit = 11;
 		try{
-			$tagsfeeds = $this->getfeeddata(0, 11, $this->city, 'all', 'tags', $this->tags, 'Event,Content');
+			$tagsfeeds = $this->getfeeddata($start, $limit, $this->city, 'all', 'tags', $this->tags, 'Event,Content');
 		}catch(Exception $e){
 			$tagsfeeds = array();
 		}
@@ -39,7 +41,7 @@ class TagController extends BaseController{
 			
 		/* ======= Seo Update ============= */
 		$this->tag->setTitle($this->tags.' | '.$this->config->application->SiteName);
-		$this->view->meta_description = $this->tags;
+		$this->view->meta_description = $this->tags.': Find all the information related to '.$this->tags.' at '.$this->config->application->SiteName;
 		$this->view->meta_keywords = $this->tags;
 		/* ======= Seo Update ============= */
     }

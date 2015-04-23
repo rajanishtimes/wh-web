@@ -139,7 +139,7 @@ $(window).load(function() {
 
 function ajax_feed_filter_type(){
 	$('#getallfeeds').empty();
-	view_feed_with_ajax(baseUrl+'search/index', 0, 12, 'getallfeeds', '', $('#tags').val(), $('#bydatefeed').val());
+	view_feed_with_ajax(baseUrl+'search/index', 0, 11, 'getallfeeds', '', $('#tags').val(), $('#bydatefeed').val());
 }
 
 function resizefeedimage(){

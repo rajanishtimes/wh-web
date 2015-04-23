@@ -22,17 +22,20 @@
 						{{author['description']}}
 					</div>
 				</div>
-				<h1>{{profilepost['meta']['match_count']}} Posts from {{author['title'] | lower | capitalize}}</h1>
-				<div id="authorpost">
-					<div class="work-content allfeeds">
-						{{feeds.getfeedsforcoverimg(baseUrl, profilepost)}}
+				
+				{% if(profilepost['meta']['match_count'] > 0) %}
+					<h1>{{profilepost['meta']['match_count']}} Posts from {{author['title'] | lower | capitalize}}</h1>
+					<div id="authorpost">
+						<div class="work-content allfeeds">
+							{{feeds.getfeedsforcoverimg(baseUrl, profilepost)}}
+						</div>
+					</div><div class="clearfix"></div>
+					<div class="loadmore">
+						<?php if($profilepost['meta']['match_count'] > ($limit)){ ?>
+							<div class="btn btn-primary" onclick="view_feed_with_ajax('{{baseUrl}}author/posts', '{{start}}', '{{limit}}', 'authorpost', '{{authorid}}', '', '')">Load More</div>
+						<?php }?>
 					</div>
-				</div><div class="clearfix"></div>
-				<div class="loadmore">
-					<?php if($profilepost['meta']['match_count'] > ($limit)){ ?>
-						<div class="btn btn-primary" onclick="view_feed_with_ajax('{{baseUrl}}author/posts', '{{start}}', '{{limit}}', 'authorpost', '{{authorid}}', '', '')">Load More</div>
-					<?php }?>
-				</div>
+				{% endif %}
 			</div>
 		</div>
 	</div>

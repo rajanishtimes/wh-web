@@ -46,7 +46,7 @@ class CriticController extends BaseController{
 			}catch(Exception $e){
 				$author = array();
 			}
-			
+			//print_r($author); exit;
 			/* ======= Seo Update ============= */
 			if($criticdetail['page_title'])
 				$this->tag->setTitle($criticdetail['page_title']);

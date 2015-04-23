@@ -33,6 +33,9 @@ class Feeds extends Component
 							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo $feed['title']; ?></a></div>
 							<p class="feed-short-desc"><?php echo $feed['description']; ?></p>
 						</div>
+						<?php if(strtolower($feed['label']) == 'sponsored'){ ?>
+							<div class="sponsors">Sponsors</div>
+						<?php } ?>
 					</div>
 				</div>
 			<?php
@@ -92,11 +95,7 @@ class Feeds extends Component
 		foreach($data['results'] as $feed){ ?>
 			<li class="media">
 				<a class="pull-left" href="<?php echo $baseUrl . $feed['url']; ?>">
-					<?php if($feed['image']['uri']){ ?>
-						<img src="<?php echo $feed['image']['uri']; ?>" alt="<?php echo $feed['title'] ?>">
-					<?php }else{?>
-						<?php echo $this->imagenotfound($baseUrl, $feed['title']); ?>
-					<?php }?>
+					<?php echo $this->getimage($baseUrl, $feed['image']['uri'], 100, 100, $feed['title'], $feed['image']); ?>
 				</a>
 				<div class="media-body">
 					<h4 class="media-heading">
@@ -113,6 +112,20 @@ class Feeds extends Component
 		<?php }
     }
 	
+	public function getimage($url, $image_url, $width, $height, $alt, $dimension){
+		if($image_url){
+			$pos = strpos($image_url, 'http');
+			if($pos === false){
+				$imgurl = $this->config->application->imgbaseUri.$image_url;
+			}else{
+				$imgurl = $image_url;
+			}
+			$imgbox = '<img src="'.$imgurl.'" alt="'.$alt.'">';
+		}else{
+			$imgbox = '<img src="'.$url.'img/img_feed_default.png" alt="'.$alt.'">';
+		}
+		return $imgbox;
+	}
 	
 	public function imagenotfound($url, $alt){
 		$imgbox = '<img src="'.$url.'img/img_feed_default.png" alt="'.$alt.'">';
