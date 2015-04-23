@@ -42,13 +42,13 @@
 				</ul><div class="clearfix"></div>
 			</div><div class="clearfix"></div><hr>
 			<div class="col-sm-6 col-md-6 col-xs-12 no-padding">
-				<h2>Your Feeds</h2>
+				<h2 class="yfeeds">Your Feeds</h2>
 			</div>
 			<div class="col-sm-6 col-md-6 col-xs-12 no-padding">
 				<ul id="bydate" class="filter_type text-right">
 					<li><a href="javascript:void(0)" rel="Today">TODAY</a></li>
 					<li><a href="javascript:void(0)" rel="Tomorrow">TOMORROW</a></li>
-					<li><a href="javascript:void(0)" rel="Week">WEEKEND</a></li>
+					<li><a href="javascript:void(0)" rel="Week">THIS WEEK</a></li>
 					<li><a href="javascript:void(0)" rel="Month">MONTH</a></li>
 					<li class="active"><a href="javascript:void(0)" rel="All">ALL</a></li>
 				</ul>

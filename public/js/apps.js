@@ -98,7 +98,7 @@ $(window).load(function() {
 		ajax_feed_filter_type();
 	});
 	
-	
+	$('.swipebox').swipebox();
 	$(".owl-carousel").owlCarousel({
 		navigation : false,
 		slideSpeed : 400,
@@ -143,8 +143,14 @@ function ajax_feed_filter_type(){
 }
 
 function resizefeedimage(){
+	var width = 0;
 	$(".work-item img").each(function( index ) {
+		width = $(this).width();
 		$(this).height(($(this).width()));
+	});
+	
+	$(".withmask").each(function( index ) {
+		$(this).height(width+147);
 	});
 }
 

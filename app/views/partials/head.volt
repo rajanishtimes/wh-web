@@ -37,10 +37,8 @@
 		{{ stylesheet_link('plugins/font-awesome/css/font-awesome.min.css') }}
 		{{ stylesheet_link('css/style.css') }}
 		{{ stylesheet_link('css/style-responsive.css') }}
-		
 		{{ stylesheet_link('plugins/owl-carousel/owl.carousel.css') }}
-		
-		
+		{{ stylesheet_link('plugins/swipebox/src/css/swipebox.css') }}
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		

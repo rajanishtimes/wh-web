@@ -10,6 +10,7 @@ LARGE DESKTOP > 1200px
 	.contentarea .detail {
 		padding: 0 62px;
 	}
+	
 }
 
 
@@ -39,6 +40,9 @@ STANDARD DESKTOP 992px <> 1200px
 **/
 @media (min-width: 992px) and (max-width: 1199px) {
 	.extrapaddright{padding:0;}
+	.work-content .work-item:hover .hover-wrap{
+		bottom: 41%;
+	}
 }
 
 
@@ -62,6 +66,10 @@ STANDARD DESKTOP < 1024px
 		bottom: 0px;
 		border-radius: 0;
 	}
+	.work-content .work-item:hover .hover-wrap{
+		bottom: 30%;
+	}
+
 }
 
 
@@ -83,6 +91,10 @@ SMALL DESKTOP 768px <> 991px
 	footer .row > div {
 		height: 300px;
 	}
+	.work-content .work-item:hover .hover-wrap{
+		bottom: 40%;
+	}
+
 }
 
 
@@ -112,8 +124,11 @@ TABLET < 767px
 	.top-navbar .logo {
 		padding: 12px 0 12px 12px;
 	}
-	.section h1, .heading{
+	.section h1, .heading, .yfeeds{
 		padding: 0 12px;
+	}
+	.work-content .work-item:hover .hover-wrap{
+		bottom: 30%;
 	}
 }
 
@@ -126,8 +141,9 @@ PHONE < 640px
 =================================
 **/
 @media (max-width: 640px){
-
-
+	.work-content .work-item:hover .hover-wrap{
+		bottom: 34%;
+	}
 }
 
 
@@ -139,7 +155,9 @@ PHONE < 600px
 =================================
 **/
 @media (max-width: 600px){
-
+	.work-content .work-item:hover .hover-wrap{
+		bottom: 35%;
+	}
 }
 
 
@@ -155,6 +173,9 @@ PHONE < 548px
 		margin: 0;
 		padding: 24px 11px;
 	}
+	.work-content .work-item:hover .hover-wrap{
+		bottom: 38%;
+	}
 }
 
 
@@ -165,6 +186,9 @@ PHONE < 480px
 =================================
 **/
 @media (max-width: 480px){
+	.work-content .work-item:hover .hover-wrap{
+		bottom: 25%;
+	}
 	.work-content .col-xs-6{width:100%}
 	.allfeeds .col-xs-6{padding:0;}
 	.contentarea {
@@ -176,7 +200,7 @@ PHONE < 480px
 	.extrapaddright{padding-left: 15px;
     padding-right: 15px;}
 	
-	.work-content.allfeeds {
+	#getallfeeds {
 		padding: 0 20px;
 	}
 	footer{
@@ -193,6 +217,10 @@ PHONE < 420px
 =================================
 **/
 @media (max-width: 420px){
+	.work-content .work-item:hover .hover-wrap{
+		bottom: 28%;
+	}
+	
 	.top-navbar .logo{
 		
 	}
@@ -224,6 +252,9 @@ PHONE < 360px
 **/
 @media (max-width: 360px){
 	.feed-name{font-size:17px}
+	.work-content .work-item:hover .hover-wrap{
+		bottom: 31%;
+	}
 }
 
 
@@ -235,6 +266,9 @@ PHONE < 320px
 =================================
 **/
 @media (max-width: 320px){
+	.work-content .work-item:hover .hover-wrap{
+		bottom: 35%;
+	}
 	.dropdown-menu.with-triangle::before, .dropdown-menu.with-triangle::after{
 		display:block;
 	}

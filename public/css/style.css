@@ -201,7 +201,7 @@ NAVBAR
 .searchbtn {
     color: #333333;
     font-size: 28px;
-    padding: 11px 23px;
+    padding: 15px 23px;
 }
 
 .nav-right-info .input-group-addon{
@@ -555,7 +555,7 @@ ul.work-category-wrap li.active:focus{
 }
 
 .owl-carousel.work-detail .owl-controls{
-	left: 41%;
+	left: 47%;
     margin: 20px 0 0;
 	position: relative;
 }
@@ -605,6 +605,7 @@ ul.work-category-wrap li.active:focus{
 }
 
 .allfeeds .the-box{border:1px solid #c7c7c7; border-top:none; height:147px; padding:15px 20px;}
+#authorpost .allfeeds .the-box{height:83px;}
 
 .feed-short-desc {
     font-family: open sans;
@@ -1466,7 +1467,7 @@ SEARCH
 	width: 60%;
 	min-width:290px;
 	margin: 0 auto 20px;
-	padding:0 23px;
+	padding:0;
 }
 
 .feed-list .media {

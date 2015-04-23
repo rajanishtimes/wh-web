@@ -66,6 +66,11 @@ class Feeds extends Component
 				<div class="col-sm-4 col-md-3 col-xs-6">
 					<div class="work-item">
 						<a href="<?php echo $url . $feed['url']; ?>">
+							<div class="hover-wrap">
+								<i class="glyphicon glyphicon-plus fa fa-eye"></i>
+							</div>
+						</a>
+						<a href="<?php echo $url . $feed['url']; ?>">
 							<?php if($feed['cover_image']){ ?>
 								<img src="<?php echo $feed['cover_image'] ?>" alt="<?php echo $feed['title']; ?>">
 							<?php }else{ ?>
