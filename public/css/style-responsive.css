@@ -109,6 +109,12 @@ TABLET < 767px
 	.contentarea .detail {
 		padding: 0 62px;
 	}
+	.top-navbar .logo {
+		padding: 12px 0 12px 12px;
+	}
+	.section h1, .heading{
+		padding: 0 12px;
+	}
 }
 
 
@@ -169,6 +175,16 @@ PHONE < 480px
 	}
 	.extrapaddright{padding-left: 15px;
     padding-right: 15px;}
+	
+	.work-content.allfeeds {
+		padding: 0 20px;
+	}
+	footer{
+		padding:30px 12px 0 12px;
+	}
+	.setbottom {
+		text-align: center;
+	}
 }
 
 /**

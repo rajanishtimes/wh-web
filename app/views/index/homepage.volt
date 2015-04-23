@@ -44,7 +44,7 @@
 			<div class="col-sm-6 col-md-6 col-xs-12 no-padding">
 				<h2>Your Feeds</h2>
 			</div>
-			<div class="col-sm-6 col-md-6 col-xs-12">
+			<div class="col-sm-6 col-md-6 col-xs-12 no-padding">
 				<ul id="bydate" class="filter_type text-right">
 					<li><a href="javascript:void(0)" rel="Today">TODAY</a></li>
 					<li><a href="javascript:void(0)" rel="Tomorrow">TOMORROW</a></li>
