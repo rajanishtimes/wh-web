@@ -45,4 +45,9 @@ class TagController extends BaseController{
 		$this->view->meta_keywords = $this->tags;
 		/* ======= Seo Update ============= */
     }
+	
+	public function forwardtagAction(){
+		$url = $this->baseUrl.'#finished';
+		return $this->response->redirect($url);     
+	}
 }

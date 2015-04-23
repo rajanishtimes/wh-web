@@ -47,6 +47,12 @@ $router->add("/search/search", array(
     'action' => 'forwardsearch',
 ));
 
+$router->add("/tag/forwardtag", array(
+    'controller' => 'tag',
+    'action' => 'forwardtag',
+));
+
+
 $router->add("/search/index", array(
     'controller' => 'search',
     'action' => 'index',

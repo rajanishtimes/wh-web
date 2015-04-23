@@ -23,11 +23,7 @@ class Feeds extends Component
 							</div>
 						</a>
 						<a href="<?php echo $url . $feed['url']; ?>">
-							<?php if($feed['image']['uri']){ ?>
-								<img src="<?php echo $feed['image']['uri']; ?>" alt="<?php echo $feed['title'] ?>">
-							<?php }else{?>
-								<?php echo $this->imagenotfound($url, $feed['title']); ?>
-							<?php }?>
+							<?php echo $this->getimage($url, $feed['image']['uri'], 480, 480, $feed['title']); ?>
 						</a>
 						<div class="the-box no-margin">
 							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo $feed['title']; ?></a></div>
@@ -47,11 +43,7 @@ class Feeds extends Component
 							<div class="the-box full no-border transparent no-margin make-up">
 								<p class="feed-name"><?php echo $feed['title']; ?></p>
 							</div>
-							<?php if($feed['image']['uri']){ ?>
-								<img src="<?php echo $feed['image']['uri']; ?>" alt="<?php echo $feed['title'] ?>">
-							<?php }else{?>
-								<?php echo $this->imagenotfound($url, $feed['title']); ?>
-							<?php }?>
+							<?php echo $this->getimage($url, $feed['image']['uri'], 480, 480, $feed['title']); ?>
 						</div>
 					</a>
 				</div>
@@ -74,11 +66,7 @@ class Feeds extends Component
 							</div>
 						</a>
 						<a href="<?php echo $url . $feed['url']; ?>">
-							<?php if($feed['cover_image']){ ?>
-								<img src="<?php echo $feed['cover_image'] ?>" alt="<?php echo $feed['title']; ?>">
-							<?php }else{ ?>
-								<?php echo $this->imagenotfound($url, $feed['title']); ?>
-							<?php } ?>
+							<?php echo $this->getimage($baseUrl, $feed['cover_image'], 480, 480, $feed['title']); ?>
 						</a>
 						<div class="the-box no-margin">
 							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo $feed['title']; ?></a></div>
@@ -112,17 +100,17 @@ class Feeds extends Component
 		<?php }
     }
 	
-	public function getimage($url, $image_url, $width, $height, $alt, $dimension){
+	public function getimage($url, $image_url, $width, $height, $alt, $dimension='', $style='', $class=''){
 		if($image_url){
-			$pos = strpos($image_url, 'http');
+			$pos = strpos($image_url, 'whatshot');
 			if($pos === false){
 				$imgurl = $this->config->application->imgbaseUri.$image_url;
 			}else{
-				$imgurl = $image_url;
+				$imgurl = $image_url.'?w='.$width.'&h='.$height.'&c=1';
 			}
-			$imgbox = '<img src="'.$imgurl.'" alt="'.$alt.'">';
+			$imgbox = '<img src="'.$imgurl.'" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
 		}else{
-			$imgbox = '<img src="'.$url.'img/img_feed_default.png" alt="'.$alt.'">';
+			$imgbox = '<img src="'.$url.'img/img_feed_default.png" alt="'.$alt.'"  style="'.$style.'" class="'.$class.'">';
 		}
 		return $imgbox;
 	}
