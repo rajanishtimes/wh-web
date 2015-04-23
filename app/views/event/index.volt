@@ -25,7 +25,33 @@
 					<hr class="small">
 					<div class="detail">
 						{{eventdetail['description']}}
+						
+						<?php if(!empty($eventdetail['tags'])){ ?>
+						<h3 class="tags">Tags</h3>
+						<hr>
+						<div class="work-content">
+							<ul class="work-category-wrap">
+								<?php $populartags = explode(',', $eventdetail['tags']);?>								
+								{% for populartag in populartags %}
+									<li class="filter" ><a href="javascript:void(0)">
+									{{populartag}}
+									</a></li>
+								{% endfor  %}
+							</ul><div class="clearfix"></div>
+						</div><div class="clearfix"></div>
+						<?php } ?>
+							
+						<div class="share">
+							<ul class="list-inline navbar-left">
+								<li class="sharek">SHARE</li>
+								<li><a href=""><i class="fa fa-twitter-square"></i> Share on twitter</a></li>
+								<li><a href=""><i class="fa fa-facebook-square"></i> Share on facebook</a></li>
+								<li><a href=""><i class="fa fa-google-plus-square"></i> Share on google+</a></li>
+							</ul><div class="clearfix"></div>
+						</div>
 					</div>
+				
+					
 				</div>
 			</div>
 		</div>

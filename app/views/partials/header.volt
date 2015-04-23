@@ -1,4 +1,5 @@
 <!-- BEGIN TOP NAVBAR -->
+<nav class="navbar navbar-default navbar-fixed-top">
 <div class="container">
 	<div class="row">
 		<div class="top-navbar">
@@ -49,5 +50,6 @@
 	</div><!-- /.top-navbar -->
 	</div>
 </div><!-- /.container -->
+</nav>
 <!-- END TOP NAVBAR -->
 <hr>

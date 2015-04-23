@@ -201,7 +201,7 @@ NAVBAR
 .searchbtn {
     color: #333333;
     font-size: 28px;
-    padding: 15px 23px;
+    padding: 11px 23px;
 }
 
 .nav-right-info .input-group-addon{
@@ -1661,7 +1661,7 @@ h3.tags {
     border-bottom: 1px solid rgb(238, 238, 238);
     border-top: 1px solid rgb(238, 238, 238);
     margin: 17px 0;
-    padding: 9px 0;
+    padding: 28px 0;
 	color:#ababab;
 }
 .share ul{
@@ -1669,7 +1669,8 @@ h3.tags {
 }
 
 .share ul a{
-	color:#ababab;  font-size: 18px;
+	color:#ababab;  font-family: open sans;
+    font-size: 15px;
 }
 .share .sharek {
     font-weight: bold;
@@ -3709,10 +3710,40 @@ OWL CAROUSEL
 	background: #EDEDED;
 }
 
-
-
-
-
+/*Added by Anshu*/
+.navbar-default{
+background-color:#fff;
+}
+.container-fluid {
+    margin-top: 62px;
+}
+.social_icon a{color:#fff;}
+.social_icon a:hover{color:#fff;}
+.tags {
+    color: #1e1e1e;
+    font-family: open sans;
+    font-weight: bold;
+    margin-top: 40px;
+    text-transform: uppercase;
+}
+.share .sharek{
+color: #1e1e1e;
+ font-family: open sans;
+}
+.sponsors {
+    margin: -26px 0 0 10px;
+    position: absolute;
+    text-align: left;
+    z-index: 999;
+}
+.share ul i {
+    font-size: 25px;
+}
+.share ul a:hover{
+    color: #1e1e1e;
+	text-decoration:underline;
+}
+.list-inline > li{padding-left:20px;}
 /**
 -------------------------------------------
 RESPONSIVE IFRAME

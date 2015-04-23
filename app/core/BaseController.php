@@ -33,6 +33,7 @@ class BaseController extends Controller{
 		$this->view->og_image = $this->og_image;
 		$this->view->og_url = $this->og_url;
 		$this->view->og_site_name = $this->config->application->SiteName;
+		$this->view->constants=$this->getConstants();
 		
 		if($_SERVER['REQUEST_SCHEME']){
 			$this->baseUrl = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].$this->config->application->baseUri;
