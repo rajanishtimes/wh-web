@@ -25,11 +25,21 @@
 				<li class="dropdown">
 					<i class="fa fa-map-marker makered"></i>
 					<a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">
-						<span>{{city | capitalize}}</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+						{% if(city | trim | lower == 'delhi') %}
+							<span>Delhi NCR</span>
+						{% else %}
+							<span>{{city | capitalize}}</span>
+						{% endif %}
+						
+						&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
 					</a>
 					<ul class="dropdown-menu square primary margin-list-rounded with-triangle">
 						{% for cities in allcities['cities'] %}
-							<li><a href="{{baseUrl}}{{cities['name'] | trim | lower}}">{{cities['name']}}</a></li>
+							{% if(cities['name'] | trim | lower == 'delhi') %}
+								<li><a href="{{baseUrl}}{{cities['name'] | trim | lower}}">Delhi NCR</a></li>
+							{% else %}
+								<li><a href="{{baseUrl}}{{cities['name'] | trim | lower}}">{{cities['name']}}</a></li>
+							{% endif %}
 						{% endfor  %}
 					</ul>
 				</li>

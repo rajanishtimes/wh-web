@@ -31,10 +31,10 @@ $router->add("/{city:[a-zA-Z0-9\-]+}/venue/{venue:[a-zA-Z0-9\- ]+}", array(
 ));
 
 
-/* $router->add("/critic-review/{critic:[a-zA-Z0-9\-]+}", array(
+$router->add("/critic-review/{critic:[a-zA-Z0-9\- ]+}", array(
     'controller' => 'critic',
     'action' => 'index',
-)); */
+));
 
 
 $router->add("/search/{searchquery:[a-zA-Z0-9\- ]+}", array(
@@ -104,6 +104,10 @@ $router->add("/terms", array(
     'action' => 'terms',
 ));
 
+$router->add("/about-us", array(
+    'controller' => 'index',
+    'action' => 'aboutus',
+));
 
 $router->add("/search", array(
     'controller' => 'search',

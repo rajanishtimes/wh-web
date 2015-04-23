@@ -19,6 +19,62 @@ class CriticController extends BaseController{
     }
 
     public function indexAction(){
+		preg_match('/\br-[0-9]{1,}\b/i', $this->critic, $match);
+		$id = str_replace('-', '_', $match[0]);
 		
+		$Solr = new \WH\Model\Solr();
+		$Solr->setParam('ids',$id);
+		$Solr->setParam('fl','detail');
+		$Solr->setSolrType('detail');
+        $Solr->setEntityDetails();
+        $criticdetail = $Solr->getDetailResults();
+		
+		if($criticdetail){
+			//echo "<pre>"; print_r($criticdetail);
+			
+			$Profile = new \WH\Model\User();
+			//$Profile->setId($criticdetail['author_id']);
+			$Profile->setId(71);
+			$Profile->setProfile();
+			$author = $Profile->getProfileResults();
+			//print_r($author); exit;
+			/* ======= Seo Update ============= */
+			if($criticdetail['page_title'])
+				$this->tag->setTitle($criticdetail['page_title']);
+			$this->view->meta_description = $criticdetail['meta_description'];
+			$this->view->meta_keywords = $criticdetail['meta_keywords'];
+			$this->view->og_title = $criticdetail['og_title'];
+			$this->view->og_type = 'Content';
+			$this->view->og_description = $criticdetail['og_description'];
+			$this->view->og_image = $this->baseUrl.$criticdetail['og_image'];
+			$this->view->og_url = $this->baseUrl.$criticdetail['url'];
+			/* ======= Seo Update ============= */
+			
+			foreach($criticdetail['images'] as $key=>$images){
+				if($images['uri']){
+					if(substr($images['uri'], 0, 4) != 'http'){
+						$criticdetail['images'][$key]['uri'] = $this->config->application->imgbaseUri.$images['uri'];
+					}
+				}
+			}
+			
+			$rwidth = (($criticdetail['food_rate'] + $criticdetail['service_rate'] + $criticdetail['decor_rate'])/3);
+			$reviewwidth = $rwidth*33;
+			
+			$breadcrumbs = $this->breadcrumbs(array(
+				ucwords($this->city) => $this->baseUrl.$this->city,
+				ucwords(strtolower(trim($criticdetail['title']))) =>''
+			));
+			
+			$this->view->setVars(array(
+				'author'	=> $author,
+				'criticdetail' => $criticdetail,
+				'breadcrumbs' => $breadcrumbs,
+				'reviewwidth' => $reviewwidth,
+				'rwidth' => $rwidth
+			));
+		}else{
+			$this->forwardtoerrorpage(404);
+		}
     }
 }

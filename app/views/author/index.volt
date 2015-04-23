@@ -6,10 +6,10 @@
 			<div class="col-sm-12 col-md-12">
 				<div class="contentarea">
 					<div class="author-image text-center">
-						<?php if(empty($author['profile']['image_url'])){ ?>
-							<img src="{{baseUrl}}img/avatar-12.jpg" alt="{{author['profile']['full_name']}}" class="img-detail icon-circle">
-						<?php }else{ ?>
+						<?php if($author['profile']['image_url']){ ?>
 							<img src="{{author['profile']['image_url']}}" alt="{{author['profile']['full_name']}}" class="img-detail icon-circle">
+						<?php }else{ ?>
+							<img src="{{baseUrl}}img/avatar-12.jpg" alt="{{author['profile']['full_name']}}" class="img-detail icon-circle">
 						<?php }?>
 					</div>
 					<div class="clearfix"></div>

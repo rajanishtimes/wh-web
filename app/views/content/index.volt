@@ -20,7 +20,7 @@
 					</ul><div class="clearfix"></div>
 					<h2 class="contenttitle text-center">{{contentdetail['title']}}</h2>
 					<div class="contentdetail text-center">
-						By <a href="{{baseUrl}}author/{{contentdetail['author']['slug']}}">{{contentdetail['author']['name']}}</a>
+						By <a href="{{baseUrl}}{{contentdetail['author']['url']}}">{{contentdetail['author']['name']}}</a>
 					</div>
 					<hr class="small">
 					<div class="detail">

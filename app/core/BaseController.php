@@ -91,6 +91,12 @@ class BaseController extends Controller{
 	
 	protected function forwardtoerrorpage($errorcode){
         if($errorcode == 404){
+			$Logger = new \WH\Model\Logger();
+            $Logger->setCode('404');
+            $Logger->setMessage('Page not found');
+            $Logger->setOrigin('web');
+            $Logger->setParamsValue($_SERVER['REQUEST_URI']);
+            $Logger->allLogs();
 			$this->response->setStatusCode(404, 'Not Found');
 			$this->view->pick('errors/show404');
 			$this->view->setLayout('errorpageLayout');
@@ -98,12 +104,24 @@ class BaseController extends Controller{
 		}
 		
 		if($errorcode == 401){
+			$Logger = new \WH\Model\Logger();
+            $Logger->setCode('401');
+            $Logger->setMessage('Unauthorized Access');
+            $Logger->setOrigin('web');
+            $Logger->setParamsValue($_SERVER['REQUEST_URI']);
+            $Logger->allLogs();
 			$this->response->setStatusCode(401, 'Unauthorized Access');
 			$this->view->pick('errors/show401');
 		}
 		
 		if($errorcode == 500){
-			$this->response->setStatusCode(401, 'Internal Server Error');
+			$Logger = new \WH\Model\Logger();
+            $Logger->setCode('500');
+            $Logger->setMessage('Internal Server Error');
+            $Logger->setOrigin('web');
+            $Logger->setParamsValue($_SERVER['REQUEST_URI']);
+            $Logger->allLogs();
+			$this->response->setStatusCode(500, 'Internal Server Error');
 			$this->view->pick('errors/show500');
 		}
 		
@@ -131,16 +149,17 @@ class BaseController extends Controller{
 		return $slug;
 	}
 	
-	protected function getfeeddata($start, $limit, $city, $bydays, $filter_type='', $keyword='', $bytype=''){
+	protected function getfeeddata($start, $limit, $city, $bydays, $filter_type='', $keyword='', $bytype='', $sort_by=4){
 		$Search = new \WH\Model\Solr();
 		$Search->setParam('bycity',$city);
 		$Search->setParam('start',$start);
 		$Search->setParam('limit',$limit);
 		$Search->setParam('byType',$bytype);
-		$Search->setParam('mm',3);
+		$Search->setParam('bysort',Params::getSort(2));
+		$Search->setParam('mm',3);		
 		
 		if(strtolower($bydays)!='all')
-		$Search->setParam('byDays',ucwords(strtolower($bydays)));
+			$Search->setParam('byDays',ucwords(strtolower($bydays)));
 		
 		if($filter_type=='tags')
 			$Search->setParam('byTags',$keyword);
@@ -152,17 +171,33 @@ class BaseController extends Controller{
 			$Search->setParam('spstart',$start);
 			$Search->setParam('splimit',$limit);
 		}
-		$Search->setParam('bysort',Params::getSort(2));
 		
-		$Search->setSearchEntity();
-		$entityresult = $Search->getSearchResults();
-		foreach($entityresult['results'] as $key=>$entity){
-			if(!empty($entity['image']['uri'])){
-				if(substr($entity['image']['uri'], 0, 4) != 'http'){
-					$entityresult['results'][$key]['image']['uri'] = $this->config->application->imgbaseUri.$entity['image']['uri'];
-				}
+		
+		if($sort_by!=2){
+			if(isSet($keyword) && $keyword!='')
+				$sort_by=1;
+			else{
+				if(isSet($bydays) && strtolower($bydays) != 'all' )
+					$sort_by=4;
+				else
+					$sort_by=2;
 			}
-			//$entityresult['results'][$key]['slug'] = $this->create_slug($entity['title']).'-'.str_replace('_', '-', strtolower($entity['id']));
+		}
+		$Search->setParam('bysort',$sort_by);
+		$Search->setSearchEntity();
+		
+			$entityresult = $Search->getSearchResults();
+		
+			
+		if($entityresult){
+			foreach($entityresult['results'] as $key=>$entity){
+				if(!empty($entity['image']['uri'])){
+					if(substr($entity['image']['uri'], 0, 4) != 'http'){
+						$entityresult['results'][$key]['image']['uri'] = $this->config->application->imgbaseUri.$entity['image']['uri'];
+					}
+				}
+				//$entityresult['results'][$key]['slug'] = $this->create_slug($entity['title']).'-'.str_replace('_', '-', strtolower($entity['id']));
+			}
 		}
 		
 		return $entityresult;

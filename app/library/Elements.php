@@ -27,26 +27,18 @@ class Elements extends Component
     );
 	
 	private $_navmenu = array(        
-		'site-map' => array(
-			'caption' => 'Site Map',
-			'action' => '#'
+		'terms' => array(
+			'caption' => 'Terms and Conditions',
+			'action' => 'terms'
 		),
-		'help' => array(
-			'caption' => 'Help',
-			'action' => '#'
+		'policy' => array(
+			'caption' => 'Privacy Policy',
+			'action' => 'policy'
 		),
-		'careers' => array(
-			'caption' => 'Careers',
-			'action' => '#'
+		'about-us' => array(
+			'caption' => 'About Us',
+			'action' => 'about-us'
 		),
-		'user-agreement' => array(
-			'caption' => 'User Agreement',
-			'action' => '#'
-		),
-		'payment-info' => array(
-			'caption' => 'Payment Info',
-			'action' => '#'
-		)
     );
 
     public function getMenu($url)

@@ -94,7 +94,7 @@ $(window).load(function() {
 	$('#bydate li > a').click(function(){
 		$('#bydate li > a').parent().removeClass('active');
 		$(this).parent().addClass('active');
-		$('#bydatefeed').val($(this).html());
+		$('#bydatefeed').val($(this).attr('rel'));
 		ajax_feed_filter_type();
 	});
 	
@@ -138,7 +138,7 @@ $(window).load(function() {
 
 
 function ajax_feed_filter_type(){
-	$('#getallfeeds').html('');
+	$('#getallfeeds').empty();
 	view_feed_with_ajax(baseUrl+'search/index', 0, 12, 'getallfeeds', '', $('#tags').val(), $('#bydatefeed').val());
 }
 

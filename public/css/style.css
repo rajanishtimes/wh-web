@@ -1563,6 +1563,116 @@ SEARCH
     text-align: center;
 	margin: 30px 0;
 }
+
+/**
+-------------------------------------------
+CRITIC REVIEW
+-------------------------------------------
+**/
+.grayscale {
+    background: url("../img/rating.png") repeat scroll 0 33px rgba(0, 0, 0, 0);
+    height: 33px;
+    width: 165px;
+}
+
+.yellowscale {
+    background: url("../img/rating.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 33px;
+    margin: -32px 0 0;
+    position: relative;
+    width: 0px;
+    z-index: 9;
+}
+
+.review {
+    height: 70px; text-align: center;
+}
+
+.rating {
+    left: 43%;
+    position: absolute;
+    text-align: center;
+}
+
+.authordata.text-center {
+    margin: 0 auto;
+    width: 290px;
+}
+
+.rmani {
+    padding: 40px 0 0;
+}
+
+.rmani .rwidth {
+    font-size: 22px;
+    font-weight: 700;
+}
+.authordetail {
+    padding: 0 0 0 15px;
+}
+.reviewtitle {
+    font-size: 24px;
+    text-align: left;
+	margin:7px 0 0 0;
+}
+.twitter{
+    text-align: left;
+}
+.twitter a {
+    color: rgb(209, 26, 109);
+}
+.reviewd {
+    color: #7b7b7d;
+    font-size: 16px;
+}
+
+h3.tags {
+    font-family: arial;
+}
+
+.share {
+    border-bottom: 1px solid rgb(238, 238, 238);
+    border-top: 1px solid rgb(238, 238, 238);
+    margin: 17px 0;
+    padding: 9px 0;
+	color:#ababab;
+}
+.share ul{
+	margin:0;
+}
+
+.share ul a{
+	color:#ababab;  font-size: 18px;
+}
+.share .sharek {
+    font-weight: bold;
+}
+
+.authordetailsection .author-detail {
+    padding: 0 0 0 30px;
+}
+
+.authordetailsection .author-image {
+    width: 100px;
+}
+
+.authordetailsection .author-detail {
+    width: 88%;
+}
+
+.authordetailsection .author-detail h2 {
+    margin: 3px 0 0;
+}
+
+.authordetailsection .author-detail h2 {
+    margin: 0;
+}
+
+.authordetailsection .author-detail > p {
+    font-family: open sans;
+    font-size: 14px;
+}
+
 /**
 -------------------------------------------
 BREADCRUMB

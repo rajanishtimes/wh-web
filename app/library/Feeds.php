@@ -84,7 +84,7 @@ class Feeds extends Component
     }
 	
 	
-	private function imagenotfound($url, $alt){
+	public function imagenotfound($url, $alt){
 		$imgbox = '<img src="'.$url.'img/img_feed_default.png" alt="'.$alt.'">';
 		return $imgbox;
 	}

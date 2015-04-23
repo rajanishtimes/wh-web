@@ -15,7 +15,14 @@ class IndexController extends BaseController{
 	public function homepageAction(){
 		$title = ucwords($this->city).' Events: Things to do in '.ucwords($this->city).' Today | '.$this->config->application->SiteName;
 		$this->tag->setTitle($title);
-		$topfeeds = $this->getfeeddata(0, 3, $this->city, 'Today', '', '', 'Event,Content');
+		
+		try{
+			$topfeeds = $this->getfeeddata(0, 3, $this->city, 'Today', '', '', 'Event,Content', 2);
+		}catch(Exception $e){
+			$topfeeds = array();
+		}
+		
+		
 		
 		$core = new \WH\Model\Core();
 		$core->setCity($this->cityId);
@@ -23,7 +30,13 @@ class IndexController extends BaseController{
 		
 		$start = 0;
 		$limit = 12;
-		$allfeedslist = $this->getfeeddata($start, $limit, $this->city, 'all', '', '', 'Event,Content');
+		
+		try{
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, 'all', '', '', 'Event,Content');
+		}catch(Exception $e){
+			$allfeedslist = array();
+		}
+		
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,
@@ -74,6 +87,19 @@ class IndexController extends BaseController{
         $terms='';
         if(isset($allData['constants']['terms'])){
             $terms=$allData['constants']['terms'];
+        }
+        $this->view->setVars(
+            array(
+                'data' => $terms
+                )
+            );
+    }
+	
+	public function aboutusAction(){
+        $allData=$this->getConstants();
+        $terms='';
+        if(isset($allData['constants']['About us'])){
+            $terms=$allData['constants']['About us'];
         }
         $this->view->setVars(
             array(

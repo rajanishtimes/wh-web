@@ -26,7 +26,11 @@
 			<div class="col-xs-12 col-sm-6 col-md-3">
 				<ul class="list citylist">
 					{% for cities in allcities['cities'] %}
-						<li><a href="{{baseUrl}}{{cities['name']|lower|trim}}">{{cities['name']}}</a></li>
+						{% if(cities['name'] | trim | lower == 'delhi') %}
+							<li><a href="{{baseUrl}}{{cities['name']|lower|trim}}">Delhi NCR</a></li>
+						{% else %}
+							<li><a href="{{baseUrl}}{{cities['name']|lower|trim}}">{{cities['name']}}</a></li>
+						{% endif %}
 					{% endfor  %}
 				</ul>
 			</div><!-- /.col-sm-3 -->

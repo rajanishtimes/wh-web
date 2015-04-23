@@ -34,7 +34,7 @@ class ContentController extends BaseController{
 		$Solr->setSolrType('detail');
         $Solr->setEntityDetails();
         $contentdetail = $Solr->getDetailResults();
-		
+		//echo "<pre>"; print_r($contentdetail); exit;
 		if($contentdetail){
 			/* ======= Seo Update ============= */
 			if($contentdetail['page_title'])
@@ -55,7 +55,6 @@ class ContentController extends BaseController{
 					}
 				}
 			}
-			$contentdetail['author']['slug'] = $this->create_slug($contentdetail['author']['name']).'-'.$contentdetail['author']['id'];
 			$breadcrumbs = $this->breadcrumbs(array(
 				ucwords($this->city) => $this->baseUrl.$this->city,
 				ucwords(strtolower(trim($contentdetail['title']))) =>''
