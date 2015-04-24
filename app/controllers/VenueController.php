@@ -54,9 +54,12 @@ class VenueController extends BaseController{
 			$formatted_address = implode(', ', $address_arr);
 			$venuedetail['formatted_address'] = $formatted_address;
 			
-			$pos = strpos($venuedetail['website'], 'http');
-			if($pos === false){
-				$venuedetail['website'] = 'http://'.$venuedetail['website'];
+			
+			if($venuedetail['website']){
+				$pos = strpos($venuedetail['website'], 'http');
+				if($pos === false){
+					$venuedetail['website'] = 'http://'.$venuedetail['website'];
+				}
 			}
 			
 			$breadcrumbs = $this->breadcrumbs(array(
