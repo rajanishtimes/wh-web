@@ -150,7 +150,8 @@ class BaseController extends Controller{
 		return $slug;
 	}
 	
-	protected function getfeeddata($start, $limit, $city, $bydays, $filter_type='', $keyword='', $bytype='', $sort_by=4){
+	protected function getfeeddata($start, $limit, $city, $bydays, $filter_type='', $keyword='', $bytype='', $sort_by=2){
+		
 		$Search = new \WH\Model\Solr();
 		$Search->setParam('bycity',$city);
 		$Search->setParam('start',$start);
@@ -186,6 +187,8 @@ class BaseController extends Controller{
 		}
 		$Search->setParam('bysort',$sort_by);
 		$Search->setSearchEntity();
+		
+		//echo "<pre>"; print_r($Search); exit;
 		
 			$entityresult = $Search->getSearchResults();
 		

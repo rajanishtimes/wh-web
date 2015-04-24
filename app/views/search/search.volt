@@ -14,18 +14,24 @@
 				<div class="clearfix"></div>
 				
 				<div class="work-content allfeeds">
-					<ul id="getallfeedssearch" class="media-list feed-list">
-						{% if(searchkeyword is defined) %}
-							<h1>{{allfeedslist['meta']['match_count']}} result(s) found from &#8220;{{searchkeyword}}&#8221;</h1>
-						{% endif %}
-						
-						{{feeds.getfeedslist(baseUrl, allfeedslist)}}
-					</ul><div class="clearfix"></div>
-					<div class="loadmore">
-						<?php if($allfeedslist['meta']['match_count'] > ($limit)){ ?>
-							<div class="btn btn-primary" onclick="view_feed_with_ajax('{{baseUrl}}search/searchlist', '{{start}}', '{{limit}}', 'getallfeedssearch', '', '', 'all')">Load More</div>
-						<?php }?>
-					</div>
+					{% if(allfeedslist | length > 0) %}
+						<ul id="getallfeedssearch" class="media-list feed-list">
+							{% if(searchkeyword is defined) %}
+								<h1>{{allfeedslist['meta']['match_count']}} result(s) found from &#8220;{{searchkeyword}}&#8221;</h1>
+							{% endif %}
+							
+							{{feeds.getfeedslist(baseUrl, allfeedslist)}}
+						</ul><div class="clearfix"></div>
+						<div class="loadmore">
+							<?php if($allfeedslist['meta']['match_count'] > ($limit)){ ?>
+								<div class="btn btn-primary" onclick="view_feed_with_ajax('{{baseUrl}}search/searchlist', '{{start}}', '{{limit}}', 'getallfeedssearch', '', '', 'all')">Load More</div>
+							<?php }?>
+						</div>
+					{% else %}
+						<ul id="getallfeedssearch" class="media-list feed-list">
+							<h1>No result(s) found from &#8220;{{searchkeyword}}&#8221;</h1><div style="height:200px"></div>
+						</ul><div class="clearfix"></div>
+					{% endif %}
 				</div>
 			</div>
 		</div>

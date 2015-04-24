@@ -44,6 +44,17 @@
 								<li><a href=""><i class="fa fa-google-plus-square"></i> Share on google+</a></li>
 							</ul><div class="clearfix"></div>
 						</div>
+						
+						<div class="authordetailsection">
+							<div class="author-image float-left">
+								{{feeds.getimage(baseUrl, author['images'][0]['uri'], '', '', author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
+							</div>
+							<div class="author-detail float-left">
+								<h2>{{author['title']}}</h2>
+								<p>{{author['description']}}</p>
+							</div>
+						</div>
+						
 					</div>
 				</div>
 			</div>

@@ -11,12 +11,12 @@
 						</div><div class="clearfix"></div>
 						<div class="loadmore">
 							<?php if($tagsfeeds['meta']['match_count'] > ($limit)){ ?>
-								<div class="btn btn-primary" onclick="view_feed_with_ajax('{{baseUrl}}search/index', '{{start}}', '{{limit}}', 'getallfeedssearch', '', '', 'all')">Load More</div>
+								<div class="btn btn-primary" onclick="view_feed_with_ajax('{{baseUrl}}search/index', '{{start}}', '{{limit}}', 'getallfeedssearch', '{{tags}}', 'tags', 'all')">Load More</div>
 							<?php }?>
 						</div>
 					</div>
 				{% else %}
-					<h1>No Result Found From &#8220;{{tags | lower | capitalize}}&#8221;</h1>
+					<h1>No Result Found From &#8220;{{tags | lower | capitalize}}&#8221;</h1><div style="height:250px"></div>
 				{% endif %}
 			</div>
 		</div>
