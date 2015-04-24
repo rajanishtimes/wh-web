@@ -47,10 +47,12 @@
 						
 						<div class="authordetailsection">
 							<div class="author-image float-left">
-								{{feeds.getimage(baseUrl, author['images'][0]['uri'], '', '', author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
+								<a href="{{baseUrl}}{{author['url']}}">
+									{{feeds.getimage(baseUrl, author['images'][0]['uri'], '', '', author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
+								</a>
 							</div>
 							<div class="author-detail float-left">
-								<h2>{{author['title']}}</h2>
+								<h2><a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a></h2>
 								<p>{{author['description']}}</p>
 							</div>
 						</div>

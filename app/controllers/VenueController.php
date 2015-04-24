@@ -41,16 +41,23 @@ class VenueController extends BaseController{
 			if(isSet($venuedetail['address']) && trim($venuedetail['address'])!=''){
 				$address_arr[] = $venuedetail['address'];
 			}
-			if(isSet($venuedetail['localityname']) && trim($venuedetail['localityname'])!=''){
-				$address_arr[] = $venuedetail['localityname'];
+			if(isSet($venuedetail['landmark']) && trim($venuedetail['landmark'])!=''){
+				$address_arr[] = $venuedetail['landmark'];
 			}
-			if(isSet($venuedetail['cityname']) && trim($venuedetail['cityname'])!=''){
-				$address_arr[] = $venuedetail['cityname'];
+			if(isSet($venuedetail['locality']) && trim($venuedetail['locality'])!=''){
+				$address_arr[] = $venuedetail['locality'];
+			}
+			if(isSet($venuedetail['city']) && trim($venuedetail['city'])!=''){
+				$address_arr[] = $venuedetail['city'];
 			}
 			
 			$formatted_address = implode(', ', $address_arr);
 			$venuedetail['formatted_address'] = $formatted_address;
 			
+			$pos = strpos($venuedetail['website'], 'http');
+			if($pos === false){
+				$venuedetail['website'] = 'http://'.$venuedetail['website'];
+			}
 			
 			$breadcrumbs = $this->breadcrumbs(array(
 				ucwords($this->city) => $this->baseUrl.$this->city,
