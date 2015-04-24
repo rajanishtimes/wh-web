@@ -49,7 +49,7 @@ class SpecialpageController extends BaseController{
 			$this->view->og_title = $specialpagedetail['og_title'];
 			$this->view->og_type = 'Content';
 			$this->view->og_description = $specialpagedetail['og_description'];
-			$this->view->og_image = $specialpagedetail['og_image'];
+			$this->view->og_image = $this->baseUrl.$specialpagedetail['og_image'];
 			$this->view->og_url = $this->baseUrl.$specialpagedetail['url'];
 			/* ======= Seo Update ============= */
 			
