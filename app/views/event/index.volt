@@ -39,9 +39,9 @@
 						<div class="share">
 							<ul class="list-inline navbar-left">
 								<li class="sharek">SHARE</li>
-								<li><a href=""><i class="fa fa-twitter-square"></i> Share on twitter</a></li>
-								<li><a href=""><i class="fa fa-facebook-square"></i> Share on facebook</a></li>
-								<li><a href=""><i class="fa fa-google-plus-square"></i> Share on google+</a></li>
+								<li><a target="_blank" href="https://twitter.com/share?url={{eventdetail['share_url']}}"><i class="fa fa-twitter-square"></i> Share on twitter</a></li>
+								<li><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u={{eventdetail['share_url']}}"><i class="fa fa-facebook-square"></i> Share on facebook</a></li>
+								<li><a target="_blank" href="https://plus.google.com/share?url={{eventdetail['share_url']}}"><i class="fa fa-google-plus-square"></i> Share on google+</a></li>
 							</ul><div class="clearfix"></div>
 						</div>
 					</div>
