@@ -60,14 +60,14 @@ class LocationController extends BaseController{
 	
 	public function locationAction(){
 		$this->view->setLayout('mainLayout');
-		if($this->dispatcher->getParam('searchquery'))
-			$searchkeyword = $this->dispatcher->getParam('searchquery');
+		if($this->dispatcher->getParam('locationname'))
+			$searchkeyword = $this->dispatcher->getParam('locationname');
 		
 		$start = 0;
 		$limit = 11;
 		
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, '', '', $searchkeyword);
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, '', '', '', '', $searchkeyword);
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
@@ -125,9 +125,9 @@ class LocationController extends BaseController{
 			);
     }
 	
-	public function forwardsearchAction(){
-		$searchkeyword = $this->request->getPost('search');
-		$url = $this->baseUrl.'search/'.$searchkeyword;
+	public function forwardlocationAction(){
+		$searchkeyword = $this->request->getPost('location');
+		$url = $this->baseUrl.$this->city.'/location/'.$searchkeyword;
 		return $this->response->redirect($url);     
 	}
 }

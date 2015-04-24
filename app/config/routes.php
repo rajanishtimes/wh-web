@@ -32,7 +32,7 @@ $router->add("/{city:[a-zA-Z0-9\-]+}/venue/{venue:[a-zA-Z0-9\- ]+}", array(
 
 $router->add("/{city:[a-zA-Z0-9\-]+}/location/{locationname:[a-zA-Z0-9\- ]+}", array(
 	'controller' => 'location',
-	'action' => 'index',
+	'action' => 'location',
 ));
 
 
@@ -50,6 +50,11 @@ $router->add("/search/{searchquery:[a-zA-Z0-9\- ]+}", array(
 $router->add("/search/search", array(
     'controller' => 'search',
     'action' => 'forwardsearch',
+));
+
+$router->add("/location/location", array(
+    'controller' => 'location',
+    'action' => 'forwardlocation',
 ));
 
 $router->add("/tag/forwardtag", array(
@@ -71,6 +76,16 @@ $router->add("/search/searchlist", array(
 $router->add("/search", array(
     'controller' => 'search',
     'action' => 'search',
+));
+
+$router->add("/{city:[a-zA-Z0-9\-]+}/location", array(
+    'controller' => 'location',
+    'action' => 'location',
+));
+
+$router->add("/{city:[a-zA-Z0-9\-]+}/events", array(
+    'controller' => 'event',
+    'action' => 'eventlist',
 ));
 
 
