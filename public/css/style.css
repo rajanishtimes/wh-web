@@ -1542,6 +1542,13 @@ SEARCH
     margin: 9px 0 0;
 }
 
+.feed-list .searchlist p{
+	color: #676b74;
+    font-size: 14px;
+    line-height: 21px;
+    margin: 9px 0 0;
+}
+
 
 .seach-overlay-box{
 	background:url("../img/search-back.png") repeat scroll 0 0 rgba(0, 0, 0, 0);

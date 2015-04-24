@@ -75,7 +75,8 @@ $(window).load(function() {
 	
 	$('#searchtextinput').typeahead({
 		name: 'country',
-		remote : baseUrl+'search/autosuggestion?search=%QUERY'
+		remote : baseUrl+'search/autosuggestion?search=%QUERY',
+		limit: 25
 	});	
 	/* 
 	$('#searchForm').submit(function(){

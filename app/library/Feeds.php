@@ -88,7 +88,7 @@ class Feeds extends Component
 	public function getfeedslist($baseUrl, $data)
     {		
 		foreach($data['results'] as $feed){ ?>
-			<li class="media">
+			<li class="media searchlist">
 				<a class="pull-left" href="<?php echo $baseUrl . $feed['url']; ?>">
 					<?php echo $this->getimage($baseUrl, $feed['image']['uri'], 100, 100, $feed['title'], $feed['image']); ?>
 				</a>
@@ -99,9 +99,14 @@ class Feeds extends Component
 					<p class="small">
 						<?php echo $feed['type']; ?>
 					</p>
-					<p>
-						<?php echo $feed['description']; ?>
-					</p>
+					<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
+						<div class="homepagevenue">
+							<div class="time"><?php echo $feed['time']; ?></div>
+							<div class="landmark"><?php echo $feed['venue']; ?></div>
+						</div>
+					<?php }else{ ?>
+						<p class="feed-short-desc"><?php echo $feed['description']; ?></p>
+					<?php }?>
 				</div>
 			</li>										
 		<?php }
