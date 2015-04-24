@@ -30,20 +30,19 @@
 					<div class="detail">
 						{{criticdetail['description']}}
 						
-						<?php if(!empty($criticdetail['tags'])){ ?>
-						<h3 class="tags">Tags</h3>
-						<hr>
-						<div class="work-content">
-							<ul class="work-category-wrap">
-								<?php $populartags = explode(',', $criticdetail['tags']);?>								
-								{% for populartag in populartags %}
-									<li class="filter" ><a href="javascript:void(0)">
-									{{populartag}}
-									</a></li>
-								{% endfor  %}
-							</ul><div class="clearfix"></div>
-						</div><div class="clearfix"></div>
-						<?php } ?>
+						{% if(criticdetail['tags'] | length > 0) %}
+							<p class="tags">Tags</p>
+							<div class="work-content">
+								<ul class="work-category-wrap">
+									<?php $populartags =$criticdetail['tags'];?>								
+									{% for populartag in populartags %}
+										<li class="filter" ><a href="javascript:void(0)">
+										{{populartag}}
+										</a></li>
+									{% endfor  %}
+								</ul><div class="clearfix"></div>
+							</div><div class="clearfix"></div>
+						{% endif %}
 						
 						<div class="share">
 							<ul class="list-inline navbar-left">

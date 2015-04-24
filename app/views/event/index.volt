@@ -22,20 +22,19 @@
 					<div class="detail">
 						{{eventdetail['description']}}
 						
-						<?php if(!empty($eventdetail['tags'])){ ?>
-						<h3 class="tags">Tags</h3>
-						<hr>
-						<div class="work-content">
-							<ul class="work-category-wrap">
-								<?php $populartags = explode(',', $eventdetail['tags']);?>								
-								{% for populartag in populartags %}
-									<li class="filter" ><a href="javascript:void(0)">
-									{{populartag}}
-									</a></li>
-								{% endfor  %}
-							</ul><div class="clearfix"></div>
-						</div><div class="clearfix"></div>
-						<?php } ?>
+						{% if(eventdetail['tags'] | length > 0) %}
+							<p class="tags">Tags</p>
+							<div class="work-content">
+								<ul class="work-category-wrap">
+									<?php $populartags =$eventdetail['tags'];?>								
+									{% for populartag in populartags %}
+										<li class="filter" ><a href="javascript:void(0)">
+										{{populartag}}
+										</a></li>
+									{% endfor  %}
+								</ul><div class="clearfix"></div>
+							</div><div class="clearfix"></div>
+						{% endif %}
 							
 						<div class="share">
 							<ul class="list-inline navbar-left">

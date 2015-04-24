@@ -21,21 +21,20 @@
 					<hr class="small">
 					<div class="detail">
 						{{contentdetail['description']}}
-						<?php if(!empty($contentdetail['tags'])){
-						?>
-						<p class="tags">Tags</p>
-						<h>
-						<div class="work-content">
-							<ul class="work-category-wrap">
-								<?php $populartags =$contentdetail['tags'];?>								
-								{% for populartag in populartags %}
-									<li class="filter" ><a href="javascript:void(0)">
-									{{populartag}}
-									</a></li>
-								{% endfor  %}
-							</ul><div class="clearfix"></div>
-						</div><div class="clearfix"></div>
-						<?php } ?>
+						
+						{% if(contentdetail['tags'] | length > 0) %}
+							<p class="tags">Tags</p>
+							<div class="work-content">
+								<ul class="work-category-wrap">
+									<?php $populartags =$contentdetail['tags'];?>								
+									{% for populartag in populartags %}
+										<li class="filter" ><a href="javascript:void(0)">
+										{{populartag}}
+										</a></li>
+									{% endfor  %}
+								</ul><div class="clearfix"></div>
+							</div><div class="clearfix"></div>
+						{% endif %}
 							
 						<div class="share">
 							<ul class="list-inline navbar-left">
