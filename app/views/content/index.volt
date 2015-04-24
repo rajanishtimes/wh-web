@@ -9,7 +9,7 @@
 					{% for images in contentdetail['images'] %}
 						<li class="item">
 							<a href="{{images['uri']}}" class="swipebox" title="{{contentdetail['title']}}">
-								{{elements.getimage(baseUrl, images['uri'], '', '', contentdetail['title'], '', '', 'img-detail')}}
+								{{feeds.getimage(baseUrl, images['uri'], '', '', contentdetail['title'], '', '', 'img-detail')}}
 							</a>
 						</li>
 					{% endfor  %}

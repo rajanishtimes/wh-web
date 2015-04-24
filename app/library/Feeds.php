@@ -66,7 +66,7 @@ class Feeds extends Component
 							</div>
 						</a>
 						<a href="<?php echo $url . $feed['url']; ?>">
-							<?php echo $this->getimage($baseUrl, $feed['cover_image'], 480, 480, $feed['title']); ?>
+							<?php echo $this->getimage($url, $feed['cover_image'], 480, 480, $feed['title']); ?>
 						</a>
 						<div class="the-box no-margin">
 							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo $feed['title']; ?></a></div>

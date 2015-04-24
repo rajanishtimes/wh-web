@@ -12,7 +12,7 @@
 									<div class="the-box full no-border transparent no-margin make-up">
 										<p class="feed-name">{{topfeed['title']}}</p>
 									</div>
-									{{elements.getimage(baseUrl, topfeed['image']['uri'], topfeed['image'], '', topfeed['title'])}}
+									{{feeds.getimage(baseUrl, topfeed['image']['uri'], 480, 480, topfeed['title'], topfeed['image'])}}
 								</div>
 							</a>
 						</div>
