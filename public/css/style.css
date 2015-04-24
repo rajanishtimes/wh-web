@@ -374,8 +374,9 @@ Venue
 }
 
 .homepagevenue{
-	font-family: open sans;
-    font-size: 13px;
+	color: #7b7b7b;
+    font-family: open sans;
+    font-size: 11px;
 }
 .homepagevenue > div {line-height: 17px;
     margin: 0;
