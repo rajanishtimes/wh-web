@@ -580,6 +580,7 @@ ul.work-category-wrap li.active:focus{
 	padding: 0;
 	margin: 0;
 	height: 350px;
+	overflow:hidden;
 }
 .owl-carousel.work-detail .item img{
     display: block;

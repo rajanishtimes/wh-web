@@ -76,40 +76,13 @@ class IndexController extends BaseController{
     }
 	
 	public function policyAction(){
-        $allData=$this->getConstants();
-        $policy='';
-        if(isset($allData['constants']['privacy'])){
-            $policy=$allData['constants']['privacy'];
-        }
-        $this->view->setVars(
-            array(
-                'data' => $policy
-                )
-            );
+        
     }
     public function termsAction(){
-        $allData=$this->getConstants();
-        $terms='';
-        if(isset($allData['constants']['terms'])){
-            $terms=$allData['constants']['terms'];
-        }
-        $this->view->setVars(
-            array(
-                'data' => $terms
-                )
-            );
+        
     }
 	
 	public function aboutusAction(){
-        $allData=$this->getConstants();
-        $terms='';
-        if(isset($allData['constants']['About us'])){
-            $terms=$allData['constants']['About us'];
-        }
-        $this->view->setVars(
-            array(
-                'data' => $terms
-                )
-            );
+        
     }
 }

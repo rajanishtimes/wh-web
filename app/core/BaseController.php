@@ -47,16 +47,16 @@ class BaseController extends Controller{
 		//echo $this->dispatcher->getControllerName();exit;
 		//echo $this->dispatcher->getActionName();exit;
 		
-		if ($this->session->has("cities") && $this->dispatcher->getParam('city')=='' && $this->session->get("cities")) {			
-			$this->city = strtolower($this->session->get("cities"));
+		if ($this->cookies->has("cities") && $this->dispatcher->getParam('city')=='' && $this->cookies->get("cities")) {			
+			$this->city = strtolower($this->cookies->get("cities"));
 			$this->view->city = strtolower($this->city);
         }else{
 			if($this->dispatcher->getParam('city')){
 				$this->city = $this->dispatcher->getParam('city');
-				$this->session->set("cities", $this->city);
+				$this->cookies->set("cities", $this->city);
 				$this->view->city = strtolower($this->city);
 			}else{
-				$this->session->set("cities", 'delhi');
+				$this->cookies->set("cities", 'delhi');
 				$this->city = 'delhi';
 				$this->view->city = 'delhi';
 			}

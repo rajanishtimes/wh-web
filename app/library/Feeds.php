@@ -33,7 +33,7 @@ class Feeds extends Component
 									<div class="landmark"><?php echo $feed['venue']; ?></div>
 								</div>
 							<?php }else{ ?>
-								<p class="feed-short-desc"><?php echo $feed['description']; ?></p>
+								<div class="feed-short-desc"><?php echo $feed['description']; ?></div>
 							<?php }?>
 						</div>
 						<?php if(strtolower($feed['label']) == 'sponsored'){ ?>
@@ -77,7 +77,7 @@ class Feeds extends Component
 						</a>
 						<div class="the-box no-margin">
 							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo $feed['title']; ?></a></div>
-							<p class="feed-short-desc"><?php echo $feed['description']; ?></p>
+							<div class="feed-short-desc"><?php echo $feed['description']; ?></div>
 						</div>
 					</div>
 				</div>
