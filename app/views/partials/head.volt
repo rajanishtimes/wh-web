@@ -29,6 +29,21 @@
 		{% if og_image is defined %}
 			<meta property="og:image" content="{{og_image}}" />
 		{% endif  %}
+		
+		{% if og_site_name is defined %}
+			<meta name="twitter:card" content="og_site_name" />
+		{% endif  %}
+		{% if og_title is defined %}
+		<meta name="twitter:title" content="{{og_title}}" />
+		{% endif  %}
+		{% if og_description is defined %}
+		<meta name="twitter:description" content="{{og_description}}" />
+		{% endif  %}
+		{% if og_image is defined %}
+		<meta name="twitter:image" content="{{og_image}}" />
+		{% endif  %}
+		
+		
 		{{ get_title() }}
 		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
 		{{ stylesheet_link('css/bootstrap.min.css') }}

@@ -75,7 +75,7 @@ class VenueController extends BaseController{
 			$this->view->og_title = $venuedetail['og_title'];
 			$this->view->og_type = 'Venue';
 			$this->view->og_description = $venuedetail['og_description'];
-			$this->view->og_image = $venuedetail['og_image'];
+			$this->view->og_image = $this->baseUrl.$venuedetail['og_image'];
 			$this->view->og_url = $this->baseUrl.$this->city.$venuedetail['url'];
 			/* ======= Seo Update ============= */
 			$this->view->setVars(array(
