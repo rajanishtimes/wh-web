@@ -8,11 +8,7 @@
 					{% for images in eventdetail['images'] %}
 						<li class="item">
 							<a href="{{images['uri']}}" class="swipebox" title="{{eventdetail['title']}}">
-								{% if(images['uri'] is empty) %}
-									{{elements.imgnotfound(baseUrl, eventdetail['title'])}}
-								{% else %}
-									<img src="{{images['uri']}}" alt="{{eventdetail['title']}}" class="img-detail">
-								{% endif %}
+								{{elements.getimage(baseUrl, images['uri'], '', '', eventdetail['title'], '', '', 'img-detail')}}
 							</a>
 						</li>
 					{% endfor  %}

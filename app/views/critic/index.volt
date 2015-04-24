@@ -7,11 +7,7 @@
 				<div class="contentarea">
 					<div class="authordata text-center">
 						<div class="author-image float-left">
-							<?php if($author['images'][0]['uri']){ ?>
-								<img src="{{author['images'][0]['uri']}}" alt="{{author['title']}}" class="img-detail icon-circle">
-							<?php }else{ ?>
-								<img src="{{baseUrl}}img/avatar-12.jpg" alt="{{author['title']}}" class="img-detail icon-circle">
-							<?php }?>
+							{{elements.getimage(baseUrl, author['images'][0]['uri'], '', '', author['title'], author['images'], '', 'img-detail icon-circle')}}
 						</div>
 						<div class="authordetail float-left">
 							<h2 class="reviewtitle text-center"><span class="reviewd">Reviewed by</span><br>{{author['title'] | lower | capitalize}}</h2>
@@ -60,11 +56,7 @@
 						
 						<div class="authordetailsection">
 							<div class="author-image float-left">
-								<?php if($author['images'][0]['uri']){ ?>
-									<img src="{{author['images'][0]['uri']}}" alt="{{author['title']}}" class="img-detail icon-circle">
-								<?php }else{ ?>
-									<img src="{{baseUrl}}img/avatar-12.jpg" alt="{{author['title']}}" class="img-detail icon-circle">
-								<?php }?>
+								{{elements.getimage(baseUrl, author['images'][0]['uri'], '', '', author['title'], author['images'], '', 'img-detail icon-circle')}}
 							</div>
 							<div class="author-detail float-left">
 								<h2>{{author['title']}}</h2>

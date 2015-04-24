@@ -6,11 +6,7 @@
 			<div class="col-sm-12 col-md-12">
 				<div class="contentarea">
 					<div class="author-image text-center">
-						<?php if($author['images'][0]['uri']){ ?>
-							<img src="{{author['images'][0]['uri']}}" alt="{{author['title']}}" class="img-detail icon-circle">
-						<?php }else{ ?>
-							<img src="{{baseUrl}}img/avatar-12.jpg" alt="{{author['title']}}" class="img-detail icon-circle">
-						<?php }?>
+						{{elements.getimage(baseUrl, author['images'][0]['uri'], 100, 100, author['title'], author['image'], '', 'img-detail icon-circle')}}
 					</div>
 					<div class="clearfix"></div>
 					<h2 class="contenttitle text-center">{{author['title'] | lower | capitalize}}</h2>

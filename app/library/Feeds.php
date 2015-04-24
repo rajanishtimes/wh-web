@@ -102,11 +102,11 @@ class Feeds extends Component
 	
 	public function getimage($url, $image_url, $width, $height, $alt, $dimension='', $style='', $class=''){
 		if($image_url){
-			$pos = strpos($image_url, 'whatshot');
-			if($pos === false){
-				$imgurl = $this->config->application->imgbaseUri.$image_url;
-			}else{
+			$pos = strpos($image_url, 'http');
+			if($pos !== false){
 				$imgurl = $image_url.'?w='.$width.'&h='.$height.'&c=1';
+			}else{
+				$imgurl = $this->config->application->imgbaseUri.$image_url;
 			}
 			$imgbox = '<img src="'.$imgurl.'" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
 		}else{

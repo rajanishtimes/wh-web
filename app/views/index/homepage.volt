@@ -12,11 +12,7 @@
 									<div class="the-box full no-border transparent no-margin make-up">
 										<p class="feed-name">{{topfeed['title']}}</p>
 									</div>
-									{% if(topfeed['image']['uri'] is empty) %}
-										{{feeds.imagenotfound(baseUrl, topfeed['title'])}}
-									{% else %}
-										<img src="{{topfeed['image']['uri']}}" alt="{{topfeed['title']}}">
-									{% endif %}
+									{{elements.getimage(baseUrl, topfeed['image']['uri'], topfeed['image'], '', topfeed['title'])}}
 								</div>
 							</a>
 						</div>

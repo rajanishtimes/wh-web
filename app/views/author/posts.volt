@@ -4,11 +4,7 @@
 	<div class="col-sm-4 col-md-3 col-xs-6">
 		<div class="work-item">
 			<a href="{{baseUrl}}{{feed['url']}}">
-				{% if(feed['cover_image'] is empty) %}
-					{{elements.imgnotfound(baseUrl, feed['title'])}}
-				{% else %}
-					<img src="{{feed['cover_image']}}" alt="{{feed['title']}}">
-				{% endif %}
+				{{elements.getimage(baseUrl, feed['cover_image'], 100, 100, feed['title'])}}
 			</a>
 			<div class="the-box no-margin">
 				<div class="feed-title"><a href="{{baseUrl}}{{feed['url']}}">{{feed['title']}}</a></div>
