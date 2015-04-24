@@ -97,7 +97,7 @@ class Feeds extends Component
 						<a href="<?php echo $baseUrl. $feed['url']; ?>" data-ga-cat="search" data-ga-action="<?php echo $baseUrl . $feed['url']; ?>" data-in-label="pos_<?php echo $i+1; ?>"><?php echo $feed['title']; ?></a>
 					</h4>
 					<p class="small">
-						<?php echo $feed['type']; ?>
+						<?php //echo $feed['type']; ?>
 					</p>
 					<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
 						<div class="homepagevenue">
@@ -112,13 +112,21 @@ class Feeds extends Component
 		<?php }
     }
 	
+	
+	public function getimageendpoint(){
+		$i = rand(0,5);
+		$img_url='imgbaseUri'.$i;
+		$url = $this->config->application->$img_url;
+		return $url;
+	}
+	
 	public function getimage($url, $image_url, $width, $height, $alt, $dimension='', $style='', $class=''){
 		if($image_url){
 			$pos = strpos($image_url, 'http');
 			if($pos !== false){
 				$imgurl = $image_url.'?w='.$width.'&h='.$height.'&c=1';
 			}else{
-				$imgurl = $this->config->application->imgbaseUri.$image_url;
+				$imgurl = $this->getimageendpoint().$image_url;
 			}
 			$imgbox = '<img src="'.$imgurl.'" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
 		}else{

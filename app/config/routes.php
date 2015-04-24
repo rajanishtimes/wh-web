@@ -30,6 +30,11 @@ $router->add("/{city:[a-zA-Z0-9\-]+}/venue/{venue:[a-zA-Z0-9\- ]+}", array(
 	'action' => 'index',
 ));
 
+$router->add("/{city:[a-zA-Z0-9\-]+}/location/{locationname:[a-zA-Z0-9\- ]+}", array(
+	'controller' => 'location',
+	'action' => 'index',
+));
+
 
 $router->add("/critic-review/{critic:[a-zA-Z0-9\- ]+}", array(
     'controller' => 'critic',
