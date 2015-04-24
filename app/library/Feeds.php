@@ -77,6 +77,7 @@ class Feeds extends Component
 						</a>
 						<div class="the-box no-margin">
 							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo $feed['title']; ?></a></div>
+							<p class="feed-short-desc"><?php echo $feed['description']; ?></p>
 						</div>
 					</div>
 				</div>
