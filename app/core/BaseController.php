@@ -158,9 +158,9 @@ class BaseController extends Controller{
 		$Search->setParam('limit',$limit);
 		$Search->setParam('byType',$bytype);
 		$Search->setParam('bysort',Params::getSort(2));
-		$Search->setParam('location',$location);
-		$Search->setParam('mm',3);		
+		$Search->setParam('byLocation',$location);
 		
+		$Search->setParam('mm',3);
 		if(strtolower($bydays)!='all')
 			$Search->setParam('byDays',ucwords(strtolower($bydays)));
 		
@@ -188,11 +188,7 @@ class BaseController extends Controller{
 		}
 		$Search->setParam('bysort',$sort_by);
 		$Search->setSearchEntity();
-		
-		//echo "<pre>"; print_r($Search); exit;
-		
-			$entityresult = $Search->getSearchResults();
-		
+		$entityresult = $Search->getSearchResults();
 			
 		if($entityresult){
 			foreach($entityresult['results'] as $key=>$entity){

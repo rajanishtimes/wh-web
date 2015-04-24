@@ -59,7 +59,7 @@ class EventController extends BaseController{
 			$this->view->og_title = $eventdetail['og_title'];
 			$this->view->og_type = 'Event';
 			$this->view->og_description = $eventdetail['og_description'];
-			$this->view->og_image = $eventdetail['og_image'];
+			$this->view->og_image = $this->baseUrl.$eventdetail['og_image'];
 			$this->view->og_url = $this->baseUrl.$eventdetail['url'];
 			/* ======= Seo Update ============= */
 			
@@ -72,4 +72,27 @@ class EventController extends BaseController{
 			$this->forwardtoerrorpage(404);
 		}
     }
+	
+	
+	function eventlistAction(){
+		$start = 0;
+		$limit = 11;
+		
+		try{
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, 'all', '', '', 'Event');
+		}catch(Exception $e){
+			$allfeedslist = array();
+		}
+		
+		$breadcrumbs = $this->breadcrumbs(array('Event' =>''));
+		
+		$this->view->setVars(
+			array(
+				'allfeedslist' => $allfeedslist,
+				'start'=>$limit,
+				'limit'=>$limit,
+				'breadcrumbs'=>$breadcrumbs
+				)
+			);
+	}
 }
