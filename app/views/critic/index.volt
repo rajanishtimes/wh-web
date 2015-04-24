@@ -36,7 +36,7 @@
 								<ul class="work-category-wrap">
 									<?php $populartags =$criticdetail['tags'];?>								
 									{% for populartag in populartags %}
-										<li class="filter" ><a href="javascript:void(0)">
+										<li class="filter" ><a href="{{baseUrl}}tag/{{populartag}}">
 										{{populartag}}
 										</a></li>
 									{% endfor  %}
