@@ -35,6 +35,7 @@ class VenueController extends BaseController{
 		}catch(Exception $e){
 			$venuedetail = array();
 		}
+
 		if($venuedetail){
 			$formatted_address = '';
 			if(isSet($venuedetail['address']) && trim($venuedetail['address'])!=''){

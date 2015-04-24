@@ -22,11 +22,8 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
 //<![CDATA[
- 
 var map;
- 
-// Ban Jelačić Square - Center of Zagreb, Croatia
-var center = new google.maps.LatLng(45.812897, 15.97706);
+var center = new google.maps.LatLng({{venuedetail['latitude']}}, {{venuedetail['longitude']}});
  
 function init() {
 	 
