@@ -166,6 +166,7 @@ function view_feed_with_ajax(mainURL, start, limit, parentId, searchval, tags, b
 	$.ajax( {
 		url:mainURL,
 		type:'POST',
+		async:false,
 		data: 'searchkeyword='+searchval+'&start='+start+'&limit='+limit+'&tags='+tags+'&bydate='+bydate+'&mainurl='+mainURL+'&parentid='+parentId,
 		success:function(data) {
 			var splitdata = data.split("<-!-###@###->");
