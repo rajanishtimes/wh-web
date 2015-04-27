@@ -1,7 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700|Lora);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700|Roboto);
+
 body{
 	background: #fff;
-	font-family: open sans, Arial, sans-serif;
+	font-family: Roboto, Arial, Calibri, sans-serif;
 	font-size: 14px;
 	color: #1e1e1e;
 	overflow-x: hidden;
@@ -19,7 +21,7 @@ hr{
 
 .section h1{
 	color: #333333;
-    font-family: "Lora",Calibri,Arial,sans-serif;
+    font-family: "Lora", times new roman, times, sans-serif;
     font-size: 24px;
     font-weight: bold;
     line-height: 35px;
@@ -54,10 +56,11 @@ p {
 .float-right{float:right;}
 .float-none{float:none;}
 .yfeeds {
-    font-family: Lora;
+    font-family: "Lora", times new roman, times, sans-serif;
     font-size: 25px;
     font-weight: bold;
 }
+.visibilityhide{visibility:hidden;}
 /**
 -------------------------------------------
 NAVBAR
@@ -320,7 +323,7 @@ CONTENT/EVENT AREA
 	padding:0;
 }
 
-.contenttitle{font-family:'Lora', Calibri, Arial, sans-serif; margin:14px 0 0px 10px; font-size: 41px; font-weight: 700; line-height:49px;}
+.contenttitle{font-family: "Lora", times new roman, times, sans-serif; margin:14px 0 0px 10px; font-size: 41px; font-weight: 700; line-height:49px;}
 
 .contentdetail {
     color: #d11a6d;
@@ -339,9 +342,9 @@ hr.small {
     width: 90px;
 }
 .contentarea .detail {
-    font-family: Lora;
+    font-family: "Lora", times new roman, times, sans-serif;
     font-size: 19px;
-	text-align: justify;
+	text-align: left;
 }
 
 .contentarea .detail img {
@@ -350,7 +353,7 @@ hr.small {
 }
 
 .eventdetail {
-	font-family: Lora;
+	font-family: "Lora", times new roman, times, sans-serif;
     font-size: 17px;
     text-align: center;
 }
@@ -372,7 +375,7 @@ hr.small {
 Venue
 -------------------------------------------
 **/
-.venuetitle{font-family:'Lora', Calibri, Arial, sans-serif; font-size: 34px; font-weight: 700; line-height:49px; margin: 0 0px 14px;}
+.venuetitle{font-family: "Lora", times new roman, times, sans-serif; font-size: 34px; font-weight: 700; line-height:49px; margin: 0 0px 14px;}
 .venuedetail > div {line-height: 27px; padding: 0 0 0 35px;}
 .venuedetail .time {
     background: url("../img/venueicon.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -389,13 +392,15 @@ Venue
 
 .homepagevenue{
 	color: #7b7b7b;
-    font-family: open sans;
-    font-size: 11px;
+    font-family: Roboto;
+    font-size: 12px;
 }
-.homepagevenue > div {line-height: 17px;
+.homepagevenue > div {
+	line-height: 17px;
     margin: 0;
     padding: 0 0 4px 30px;
-    text-align: left;}
+    text-align: left;
+}
 .homepagevenue .time{
 	background: url("../img/timeve.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0); height: 36px; overflow:hidden;
 }
@@ -479,7 +484,7 @@ ul.work-category-wrap li.active:focus{
 }
 
 .work-content .work-item a .glyphicon {
-	top: 37%;
+	margin-top: 37%;
 }
 
 .work-content .work-item .hover-wrap a .glyphicon {
@@ -626,11 +631,11 @@ ul.work-category-wrap li.active:focus{
     font-family: "Lora",Calibri,Arial,sans-serif;
     font-size: 20px;
     font-weight: 700;
-    line-height: 27px;
-    margin-bottom: 2px;
-    text-align: left;
-	max-height: 55px;
+    line-height: 21px;
+    margin-bottom: 10px;
+    max-height: 45px;
     overflow: hidden;
+    text-align: left;
 }
 
 .feeds-data{border:1px solid #c7c7c7;}
@@ -638,16 +643,16 @@ ul.work-category-wrap li.active:focus{
 
 
 .feed-short-desc {
-    font-family: open sans;
-    font-size: 13px;
-    line-height: 18px;
+    font-family: Roboto;
     margin: 0;
     text-align: left;
 	color:#6a6a6a;
+	font-size: 12px;
+    line-height: 16px;
 }
 
-.feeds-data:hover .feed-title a{
-	color:#d11a6d;
+.feeds-data:hover .feed-title{
+	color:#000;
 }
 
 .feeds-data .bino::before{
@@ -840,7 +845,7 @@ ERRORPAGE
 }
 .errorpage h1 {
     color: #fff;
-    font-family: Lora;
+    font-family: "Lora", times new roman, times, sans-serif;
     font-size: 141px;
     font-weight: 700;
     line-height: 99px;
@@ -849,7 +854,7 @@ ERRORPAGE
 
 .errorpage .text {
     color: #fff;
-    font-family: Lora;
+    font-family: "Lora", times new roman, times, sans-serif;
     font-size: 27px;
     font-weight: 700;
     margin: 21px 0 0;
@@ -982,7 +987,7 @@ footer .subscribe .form-control{
 }
 footer .subscribe .input-group-btn .btn{
     border-radius: 4px;
-    font-size: 18px;
+    font-size: 14px;
     height: 40px;
     margin: 0 0 0 7px;
     width: 78px;
@@ -1490,7 +1495,7 @@ SEARCH
 .searchbox{
 	border: 1px solid #b7b7b7;
     margin: 18px auto 15px;
-    padding: 8px;
+    padding: 8px 8px 1px;
     width: 60%;
 	border-radius: 3px;
 	min-width:290px;
@@ -1609,7 +1614,7 @@ SEARCH
 	border:none;
 	border-bottom:1px solid #ccc;
 	font-size: 23px;
-    height: 49px;
+    height: 53px;
     margin: -7px 0 0 10px;
     padding: 0 0 0 2px;
 	color: #d1d1d1;
@@ -1623,7 +1628,7 @@ SEARCH
     color: #111;
     font-size: 18px;
     margin-left: -5px;
-    margin-top: 14px;
+    margin-top: 7px;
     padding: 8px 0px;
     width: 113%;
 }
@@ -1642,7 +1647,6 @@ SEARCH
 }
 .loader {
     text-align: center;
-	margin: 30px 0;
 }
 
 .media.searchlist:hover {
@@ -1650,7 +1654,9 @@ SEARCH
     border: 1px solid #fc3768;
     border-radius: 5px;
 }
-
+.tt-query{
+	height: 40px;
+}
 /**
 -------------------------------------------
 CRITIC REVIEW
@@ -1729,7 +1735,7 @@ h3.tags {
 }
 
 .share ul a{
-	color:#ababab;  font-family: open sans;
+	color:#ababab;  font-family: Roboto;
     font-size: 15px;
 }
 .share .sharek {
@@ -1757,7 +1763,7 @@ h3.tags {
 }
 
 .authordetailsection .author-detail > p {
-    font-family: open sans;
+    font-family: Roboto;
     font-size: 14px;
 }
 
@@ -3781,14 +3787,14 @@ background-color:#fff;
 .social_icon a:hover{color:#fff;}
 .tags {
     color: #1e1e1e;
-    font-family: open sans;
+    font-family: Roboto;
     font-weight: bold;
     margin-top: 40px;
     text-transform: uppercase;
 }
 .share .sharek{
 color: #1e1e1e;
- font-family: open sans;
+ font-family: Roboto;
 }
 .sponsors {
     margin: -26px 0 0 10px;

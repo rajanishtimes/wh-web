@@ -6,15 +6,15 @@
 				<h1>Discover best things to do in {{city}} including all the events taking place in {{city}}</h1>
 				<div class="work-content resize">
 					{% for key, topfeed in topfeeds['results'] %}
-						<div class="col-sm-6 col-md-4 col-xs-6 topthing">
-							<a href="{{baseUrl}}{{topfeed['url']}}" data-ga-cat="topToday" data-ga-action="{{baseUrl}}{{topfeed['url']}}" data-in-label="pos_{{key+1}}">
-								<div class="work-item">
+						<div class="col-sm-6 col-md-4 col-xs-6">
+								<div class="work-item topthing">
+									<a href="{{baseUrl}}{{topfeed['url']}}" data-ga-cat="topToday" data-ga-action="{{baseUrl}}{{topfeed['url']}}" data-in-label="pos_{{key+1}}">
 									<div class="the-box full no-border transparent no-margin make-up">
 										<p class="feed-name">{{topfeed['title']}}</p>
 									</div>
 									{{feeds.getimage(baseUrl, topfeed['image']['uri'], 480, 480, topfeed['title'], topfeed['image'])}}
+									</a>
 								</div>
-							</a>
 						</div>
 					{% endfor  %}
 				</div>
