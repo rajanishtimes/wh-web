@@ -48,8 +48,8 @@ class BaseController extends Controller{
 		//echo $this->dispatcher->getActionName();exit;
 		
 		//if ($this->cookies->has("cities") && $this->dispatcher->getParam('city')=='' && $this->cookies->get("cities")) {			
-		if ($this->cookies->has("cities")) {
-			$this->city = strtolower($this->cookies->get("cities"));
+		if ($this->cookies->has("city")) {
+			$this->city = strtolower($this->cookies->get("city"));
 			$this->view->city = strtolower($this->city);
         }else{
 			$this->setcities();
@@ -57,7 +57,7 @@ class BaseController extends Controller{
 		
 		$this->setcityid();
 		if($this->cityId == 0){
-			$this->session->remove("cities");
+			$this->session->remove("city");
 			$this->forwardtoerrorpage(404);
 		}
 		
@@ -213,10 +213,10 @@ class BaseController extends Controller{
 	protected function setcities(){
 		if($this->dispatcher->getParam('city')){
 			$this->city = $this->dispatcher->getParam('city');
-			$this->cookies->set("cities", $this->city);
+			$this->cookies->set("city", $this->city);
 			$this->view->city = strtolower($this->city);
 		}else{
-			$this->cookies->set("cities", 'delhi');
+			$this->cookies->set("city", 'delhi');
 			$this->city = 'delhi';
 			$this->view->city = 'delhi';
 		}

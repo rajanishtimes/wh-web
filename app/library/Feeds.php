@@ -127,7 +127,7 @@ class Feeds extends Component
 			if($pos !== false){
 				$imgurl = $image_url.'?w='.$width.'&h='.$height.'&c=1';
 			}else{
-				$imgurl = $this->getimageendpoint().$image_url;
+				$imgurl = $this->getimageendpoint().$image_url.'?w='.$width.'&h='.$height.'&c=1';
 			}
 			$imgbox = '<img src="'.$imgurl.'" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
 		}else{
