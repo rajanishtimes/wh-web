@@ -402,7 +402,8 @@ Venue
     text-align: left;
 }
 .homepagevenue .time{
-	background: url("../img/timeve.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0); height: 36px; overflow:hidden;
+	background: url("../img/timeve.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0); height: 22px;
+    margin-top: 14px; overflow:hidden;
 }
 .homepagevenue .landmark{
     background: url("../img/landmarkeve.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);  height: 36px; overflow:hidden;
@@ -1523,8 +1524,11 @@ SEARCH
 
 .feed-list .media {
     margin: 0;
-    padding: 20px 0;
-	border-bottom: 1px solid #d1d1d1;
+    padding: 12px 10px;
+	border-left:1px solid #f9f9f9;
+	border-top:1px solid #f9f9f9;
+	border-right:1px solid #f9f9f9;
+	border-bottom:1px solid #d1d1d1;
 }
 
 .feed-list .media  a{
@@ -1614,7 +1618,7 @@ SEARCH
 	border-bottom:1px solid #ccc;
 	font-size: 23px;
     height: 43px;
-    margin: 0;
+    margin: -1px 0 0px 12px;
     padding: 0;
 	color: #d1d1d1;
 }
@@ -1622,19 +1626,26 @@ SEARCH
 .tt-dropdown-menu {
 	background: none repeat scroll 0 0 #fff;
     border: 1px solid #bbbbbb;
-    border-radius: 0 0 5px 5px;
-    box-shadow: 0 0 10px 0 #fff;
+    box-shadow: 12px 20px 21px -14px #bbbbbb;
     color: #111;
     font-size: 18px;
-    margin-left: -5px;
+    margin-left: -9px;
     margin-top: 7px;
-    padding: 8px 0px;
-    width: 113%;
+    padding: 0;
+    width: 114%;
+	border-top:none;
+}
+.tt-dataset-country {
+    border-top: 1px solid #bbbbbb;
 }
 .tt-suggestion > p{
 	line-height: 24px;
     margin: 0;
-    padding: 2px 0 5px 6px;
+    padding: 7px 0 5px 22px;
+}
+.tt-suggestion {
+    height: 41px;
+	 border-bottom: 1px solid #f4f4f4;
 }
 .tt-is-under-cursor, .tt-suggestion > p:hover {
     background-color: #f5f5f5;
@@ -1753,11 +1764,6 @@ h3.tags {
 .authordetailsection .author-image {
     width: 100px; min-width: 130px;
 }
-
-.authordetailsection .author-detail {
-
-}
-
 .authordetailsection .author-detail h2 {
     margin: 3px 0 0;
 }
