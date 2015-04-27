@@ -55,8 +55,8 @@ class CriticController extends BaseController{
 			$this->view->og_title = $criticdetail['og_title'];
 			$this->view->og_type = 'Content';
 			$this->view->og_description = $criticdetail['og_description'];
-			$this->view->og_image = $this->baseUrl.$criticdetail['og_image'];
-			$this->view->og_url = $this->baseUrl.$criticdetail['url'];
+			$this->view->og_image = $this->baseUrl.'/'.$criticdetail['og_image'];
+			$this->view->og_url = $this->baseUrl.'/'.$criticdetail['url'];
 			/* ======= Seo Update ============= */
 			
 			foreach($criticdetail['images'] as $key=>$images){
@@ -71,7 +71,7 @@ class CriticController extends BaseController{
 			$reviewwidth = $rwidth*33;
 			
 			$breadcrumbs = $this->breadcrumbs(array(
-				ucwords($this->city) => $this->baseUrl.$this->city,
+				ucwords($this->city) => $this->baseUrl.'/'.$this->city,
 				ucwords(strtolower(trim($criticdetail['title']))) =>''
 			));
 			

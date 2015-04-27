@@ -47,7 +47,7 @@ class TagController extends BaseController{
     }
 	
 	public function forwardtagAction(){
-		$url = $this->baseUrl.'#finished';
+		$url = $this->baseUrl.'/'.'#finished';
 		return $this->response->redirect($url);     
 	}
 }

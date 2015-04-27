@@ -75,7 +75,7 @@ $(window).load(function() {
 	
 	$('#searchtextinput').typeahead({
 		name: 'country',
-		remote : baseUrl+'search/autosuggestion?search=%QUERY',
+		remote : baseUrl+'/search/autosuggestion?search=%QUERY',
 		limit: 25
 	});	
 	/* 
@@ -140,7 +140,7 @@ $(window).load(function() {
 
 function ajax_feed_filter_type(){
 	$('#getallfeeds').empty();
-	view_feed_with_ajax(baseUrl+'search/index', 0, 11, 'getallfeeds', '', $('#tags').val(), $('#bydatefeed').val());
+	view_feed_with_ajax(baseUrl+'/search/index', 0, 11, 'getallfeeds', '', $('#tags').val(), $('#bydatefeed').val());
 }
 
 function resizefeedimage(){
@@ -161,7 +161,7 @@ $.fn.center = function () {
 }
 
 function view_feed_with_ajax(mainURL, start, limit, parentId, searchval, tags, bydate){
-	$('#'+parentId).append('<div class="loader"><img src="'+baseUrl+'img/ajax-loader.gif"></div>');
+	$('#'+parentId).append('<div class="loader"><img src="'+baseUrl+'/img/ajax-loader.gif"></div>');
 	$('#'+parentId).parent().find('.loadmore .btn').addClass('visibilityhide');
 	
 	$.ajax( {

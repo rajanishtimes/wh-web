@@ -58,8 +58,8 @@ class ContentController extends BaseController{
 			$this->view->og_title = $contentdetail['og_title'];
 			$this->view->og_type = 'Content';
 			$this->view->og_description = $contentdetail['og_description'];
-			$this->view->og_image = $this->baseUrl.$contentdetail['og_image'];
-			$this->view->og_url = $this->baseUrl.$contentdetail['url'];
+			$this->view->og_image = $this->baseUrl.'/'.$contentdetail['og_image'];
+			$this->view->og_url = $this->baseUrl.'/'.$contentdetail['url'];
 			/* ======= Seo Update ============= */
 			
 			foreach($contentdetail['images'] as $key=>$images){
@@ -70,7 +70,7 @@ class ContentController extends BaseController{
 				}
 			}
 			$breadcrumbs = $this->breadcrumbs(array(
-				ucwords($this->city) => $this->baseUrl.$this->city,
+				ucwords($this->city) => $this->baseUrl.'/'.$this->city,
 				ucwords(strtolower(trim($contentdetail['title']))) =>''
 			));
 			

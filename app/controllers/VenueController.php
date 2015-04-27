@@ -63,7 +63,7 @@ class VenueController extends BaseController{
 			}
 			
 			$breadcrumbs = $this->breadcrumbs(array(
-				ucwords($this->city) => $this->baseUrl.$this->city,
+				ucwords($this->city) => $this->baseUrl.'/'.$this->city,
 				ucwords(strtolower(trim($venuedetail['title']))) =>''
 			));
 			
@@ -75,8 +75,8 @@ class VenueController extends BaseController{
 			$this->view->og_title = $venuedetail['og_title'];
 			$this->view->og_type = 'Venue';
 			$this->view->og_description = $venuedetail['og_description'];
-			$this->view->og_image = $this->baseUrl.$venuedetail['og_image'];
-			$this->view->og_url = $this->baseUrl.$this->city.$venuedetail['url'];
+			$this->view->og_image = $this->baseUrl.'/'.$venuedetail['og_image'];
+			$this->view->og_url = $this->baseUrl.'/'.$this->city.$venuedetail['url'];
 			/* ======= Seo Update ============= */
 			$this->view->setVars(array(
 				'venuedetail' => $venuedetail,

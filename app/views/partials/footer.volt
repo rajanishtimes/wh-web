@@ -26,9 +26,9 @@
 				<ul class="list citylist">
 					{% for cities in allcities['cities'] %}
 						{% if(cities['name'] | trim | lower == 'delhi') %}
-							<li><a href="{{baseUrl}}{{cities['name']|lower|trim}}">Delhi NCR</a></li>
+							<li><a href="{{baseUrl}}/{{cities['name']|lower|trim}}">Delhi NCR</a></li>
 						{% else %}
-							<li><a href="{{baseUrl}}{{cities['name']|lower|trim}}">{{cities['name']}}</a></li>
+							<li><a href="{{baseUrl}}/{{cities['name']|lower|trim}}">{{cities['name']}}</a></li>
 						{% endif %}
 					{% endfor  %}
 				</ul>
@@ -40,7 +40,7 @@
 						<a href=""><div class="iphone_app float-right"></div></a>&nbsp;&nbsp;
 						<a href=""><div class="android_app float-right"></div></a>
 					</div>
-					<img src="{{baseUrl}}img/mobiles.png">
+					<img src="{{baseUrl}}/img/mobiles.png">
 				</div>
 			</div><!-- /.col-sm-2 -->
 		</div><!-- /.row -->

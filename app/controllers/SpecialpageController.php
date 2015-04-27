@@ -49,8 +49,8 @@ class SpecialpageController extends BaseController{
 			$this->view->og_title = $specialpagedetail['og_title'];
 			$this->view->og_type = 'Content';
 			$this->view->og_description = $specialpagedetail['og_description'];
-			$this->view->og_image = $this->baseUrl.$specialpagedetail['og_image'];
-			$this->view->og_url = $this->baseUrl.$specialpagedetail['url'];
+			$this->view->og_image = $this->baseUrl.'/'.$specialpagedetail['og_image'];
+			$this->view->og_url = $this->baseUrl.'/'.$specialpagedetail['url'];
 			/* ======= Seo Update ============= */
 			
 			foreach($specialpagedetail['images'] as $key=>$images){
@@ -62,7 +62,7 @@ class SpecialpageController extends BaseController{
 			}
 			$specialpagedetail['author']['slug'] = $this->create_slug($specialpagedetail['author']['name']).'-'.$specialpagedetail['author']['id'];
 			$breadcrumbs = $this->breadcrumbs(array(
-				ucwords($this->city) => $this->baseUrl.$this->city,
+				ucwords($this->city) => $this->baseUrl.'/'.$this->city,
 				ucwords(strtolower(trim($specialpagedetail['title']))) =>''
 			));
 			

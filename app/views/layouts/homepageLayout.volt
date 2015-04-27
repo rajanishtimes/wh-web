@@ -10,10 +10,10 @@
     <meta name="description" content="Coming soon, WhatsHot ">
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 	<!-- CSS start here -->
-	<link rel="stylesheet" type="text/css" href="{{baseUrl}}homepages/css/bootstrap.min.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="{{baseUrl}}homepages/css/styles.css" />
-	<link rel="stylesheet" type="text/css" href="{{baseUrl}}homepages/css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="{{baseUrl}}homepages/css/animate.css" />
+	<link rel="stylesheet" type="text/css" href="{{baseUrl}}/homepages/css/bootstrap.min.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="{{baseUrl}}/homepages/css/styles.css" />
+	<link rel="stylesheet" type="text/css" href="{{baseUrl}}/homepages/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="{{baseUrl}}/homepages/css/animate.css" />
 	<!-- CSS end here -->
 	<!-- Google fonts start here -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -185,15 +185,15 @@
 <!-- Contact end here --> 
 		<!-- Main container start here -->
 		<!-- Javascript framework and plugins start here -->
-		<script type="text/javascript" src="{{baseUrl}}homepages/js/jquery.js"></script> 
-		<script type="text/javascript" src="{{baseUrl}}homepages/js/bootstrap.min.js"></script> 
-		<script src="{{baseUrl}}homepages/js/jquery.validate.min.js"></script>
-		<script src="{{baseUrl}}homepages/js/modernizr.js"></script> 
-		<script type="text/javascript" src="{{baseUrl}}homepages/js/appear.js"></script> 		
-		<script src="{{baseUrl}}homepages/js/jquery.knob.js"></script>
-		<script src="{{baseUrl}}homepages/js/jquery.ccountdown.js"></script>
-		<script src="{{baseUrl}}homepages/js/init.js"></script>
-		<script src="{{baseUrl}}homepages/js/general.js"></script>
+		<script type="text/javascript" src="{{baseUrl}}/homepages/js/jquery.js"></script> 
+		<script type="text/javascript" src="{{baseUrl}}/homepages/js/bootstrap.min.js"></script> 
+		<script src="{{baseUrl}}/homepages/js/jquery.validate.min.js"></script>
+		<script src="{{baseUrl}}/homepages/js/modernizr.js"></script> 
+		<script type="text/javascript" src="{{baseUrl}}/homepages/js/appear.js"></script> 		
+		<script src="{{baseUrl}}/homepages/js/jquery.knob.js"></script>
+		<script src="{{baseUrl}}/homepages/js/jquery.ccountdown.js"></script>
+		<script src="{{baseUrl}}/homepages/js/init.js"></script>
+		<script src="{{baseUrl}}/homepages/js/general.js"></script>
 <!-- Javascript framework and plugins end here -->
 </body>
 </html>

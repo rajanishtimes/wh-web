@@ -30,7 +30,7 @@
 				<h1>404</h1>
 				<div class="text">Oh! No, It&apos;s Raining</div>
 				<p>The page you were looking for cannot be found.</p>
-				<a href="{{baseUrl}}"><div class="btn btn-primary errorbtn">Go To Home</div></a>
+				<a href="{{baseUrl}}/"><div class="btn btn-primary errorbtn">Go To Home</div></a>
 			</div>
 			<div class="clearfix"></div>
 			<div class="buildings"></div>

@@ -8,7 +8,7 @@
 					<form id="searchForm" method="POST" action="/search/search">
 							<div class="textinput float-left"><input id="searchtextinput" type="text" autofocus class="form-control" placeholder="Search..." name="search" value="{% if(searchkeyword is defined) %}{{searchkeyword}}{% endif %}""></div>
 							<div class="searchinout float-right"><button class="input-group-addon">
-							<img src="{{baseUrl}}img/smallsearchicon.png">
+							<img src="{{baseUrl}}/img/smallsearchicon.png">
 							</button></div>
 					</form><div class="clearfix"></div>
 				</div>
@@ -26,7 +26,7 @@
 						</ul><div class="clearfix"></div>
 						<div class="loadmore">
 							<?php if($allfeedslist['meta']['match_count'] > ($limit)){ ?>
-								<div class="btn btn-primary" onclick="view_feed_with_ajax('{{baseUrl}}search/searchlist', '{{start}}', '{{limit}}', 'getallfeedssearch', '', '', 'all')">Load More</div>
+								<div class="btn btn-primary" onclick="view_feed_with_ajax('{{baseUrl}}/search/searchlist', '{{start}}', '{{limit}}', 'getallfeedssearch', '', '', 'all')">Load More</div>
 							<?php }?>
 						</div>
 					{% else %}

@@ -127,7 +127,7 @@ class LocationController extends BaseController{
 	
 	public function forwardlocationAction(){
 		$searchkeyword = $this->request->getPost('location');
-		$url = $this->baseUrl.$this->city.'/location/'.$searchkeyword;
+		$url = $this->baseUrl.'/'.$this->city.'/location/'.$searchkeyword;
 		return $this->response->redirect($url);     
 	}
 }

@@ -44,13 +44,12 @@ class BaseController extends Controller{
 		//echo $this->dispatcher->getControllerName();exit;
 		//echo $this->dispatcher->getActionName();exit;
 		
-		if ($this->cookies->has("city") && $this->dispatcher->getParam('city')=='' && $this->cookies->get("city")) {
-		//if ($this->cookies->has("city")) {
-			$this->city = strtolower($this->cookies->get("city"));
-			$this->view->city = strtolower($this->city);
-        }else{
-			$this->setcities();
-		}
+		
+		/* ============= Set cookie for city =============== */
+		
+		$this->setcities();
+		
+		/* ============= Set cookie for city =============== */
 		
 		$this->setcityid();
 		//echo $this->cityId; exit;
@@ -188,7 +187,7 @@ class BaseController extends Controller{
 	}
 	
 	protected function breadcrumbs($arr){
-		$bdc = array('Whatshot'=>$this->baseUrl.$this->city);
+		$bdc = array('Whatshot'=>$this->baseUrl.'/'.$this->city);
 		$breadcrumbs = array_merge($bdc, $arr);
 		return $breadcrumbs;
 	}
@@ -208,17 +207,24 @@ class BaseController extends Controller{
 			$this->cookies->set('uniquekey', $uniquekey, time() + 365 * 86400);
 		}
 	}
+	
 	protected function setcities(){
 		if($this->dispatcher->getParam('city')){
 			$this->city = $this->dispatcher->getParam('city');
 			$this->cookies->set("city", $this->city, time() + 15 * 86400);
 			$this->view->city = strtolower($this->city);
 		}else{
-			$this->cookies->set("city", 'delhi', time() + 15 * 86400);
-			$this->city = 'delhi';
-			$this->view->city = 'delhi';
+			if ($this->cookies->has("city")){
+				$this->city = strtolower($this->cookies->get("city"));
+				$this->view->city = strtolower($this->city);
+			}else{
+				$this->cookies->set("city", 'delhi', time() + 15 * 86400);
+				$this->city = 'delhi';
+				$this->view->city = 'delhi';
+			}
 		}
 	}
+	
 	protected function setcityid(){
 		$cities = new \WH\Model\Cities();
 		$getallcities = $cities->getResults();

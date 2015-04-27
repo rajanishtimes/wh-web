@@ -82,7 +82,7 @@ class IndexController extends BaseController{
 		$this->view->meta_keywords = '';
 		$this->view->og_title = 'Privacy Policy';
 		$this->view->og_description = '';
-		$this->view->og_url = $this->baseUrl.'policy';
+		$this->view->og_url = $this->baseUrl.'/'.'policy';
     }
     public function termsAction(){
         $this->tag->setTitle('Terms & Conditions');
@@ -90,7 +90,7 @@ class IndexController extends BaseController{
 		$this->view->meta_keywords = '';
 		$this->view->og_title = 'Terms & Conditions';
 		$this->view->og_description = '';
-		$this->view->og_url = $this->baseUrl.'terms';
+		$this->view->og_url = $this->baseUrl.'/'.'terms';
     }
 	
 	public function aboutusAction(){
@@ -99,6 +99,6 @@ class IndexController extends BaseController{
 		$this->view->meta_keywords = '';
 		$this->view->og_title = 'About Us';
 		$this->view->og_description = '';
-		$this->view->og_url = $this->baseUrl.'about-us';
+		$this->view->og_url = $this->baseUrl.'/'.'about-us';
     }
 }

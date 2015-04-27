@@ -5,11 +5,11 @@
 		<div class="top-navbar">
 		<!-- Begin logo -->
 		<div class="logo">
-			<a href="{{baseUrl}}{{city}}"><img src="{{baseUrl}}img/logo.png" alt="WhatsHot"></a>
+			<a href="{{baseUrl}}/{{city}}"><img src="{{baseUrl}}/img/logo.png" alt="WhatsHot"></a>
 		</div><!-- /.logo -->
 		<!-- End logo -->
 		
-		<div class="searchbtn float-right"><a href="{{baseUrl}}search/search"><img src="{{baseUrl}}img/search.png"></a></div>
+		<div class="searchbtn float-right"><a href="{{baseUrl}}/search/search"><img src="{{baseUrl}}/img/search.png"></a></div>
 		<!-- Begin search nav id="searchbox" --
 		<div id="searchboxmakeoverlay" class="nav-right-info">
 			<form id="searchForm" method="POST" action="/search/search">
@@ -37,9 +37,9 @@
 					<ul class="dropdown-menu square primary margin-list-rounded with-triangle">
 						{% for cities in allcities['cities'] %}
 							{% if(cities['name'] | trim | lower == 'delhi') %}
-								<li><a href="{{baseUrl}}{{cities['name'] | trim | lower}}">Delhi NCR</a></li>
+								<li><a href="{{baseUrl}}/{{cities['name'] | trim | lower}}">Delhi NCR</a></li>
 							{% else %}
-								<li><a href="{{baseUrl}}{{cities['name'] | trim | lower}}">{{cities['name']}}</a></li>
+								<li><a href="{{baseUrl}}/{{cities['name'] | trim | lower}}">{{cities['name']}}</a></li>
 							{% endif %}
 						{% endfor  %}
 					</ul>

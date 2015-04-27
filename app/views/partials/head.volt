@@ -49,11 +49,11 @@
 		{{ stylesheet_link('css/bootstrap.min.css') }}
 		
 		<!-- MAIN CSS (REQUIRED ALL PAGE)-->
-		{{ stylesheet_link('plugins/font-awesome/css/font-awesome.min.css') }}
-		{{ stylesheet_link('css/style.css') }}
-		{{ stylesheet_link('css/style-responsive.css') }}
-		{{ stylesheet_link('plugins/owl-carousel/owl.carousel.css') }}
-		{{ stylesheet_link('plugins/swipebox/src/css/swipebox.css') }}
+		{{ stylesheet_link('/plugins/font-awesome/css/font-awesome.min.css') }}
+		{{ stylesheet_link('/css/style.css') }}
+		{{ stylesheet_link('/css/style-responsive.css') }}
+		{{ stylesheet_link('/plugins/owl-carousel/owl.carousel.css') }}
+		{{ stylesheet_link('/plugins/swipebox/src/css/swipebox.css') }}
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		
@@ -63,7 +63,7 @@
 		<![endif]-->
 		
 		<script type="text/javascript">
-			var baseUrl = '<?php echo $baseUrl; ?>';
+			var baseUrl = '{{baseUrl}}';
 		</script>
 		
 		{% endblock %}

@@ -16,7 +16,7 @@
 					<h2 class="contenttitle text-center">{{eventdetail['title']}}</h2>
 					<div class="eventdetail">
 						<div class="time">{{eventdetail['time']['short']}}, {{eventdetail['time']['long']}}</div>
-						<div class="venue"><a href="{{baseUrl}}{{city}}/venue/{{eventdetail['venue']['slug']}}">{{eventdetail['venue']['name']}}, {{eventdetail['venue']['formatted_address']}}</a></div>
+						<div class="venue"><a href="{{baseUrl}}/{{city}}/venue/{{eventdetail['venue']['slug']}}">{{eventdetail['venue']['name']}}, {{eventdetail['venue']['formatted_address']}}</a></div>
 					</div>
 					<hr class="small">
 					<div class="detail">
@@ -27,7 +27,7 @@
 								<ul class="work-category-wrap">
 									<?php $populartags =$eventdetail['tags'];?>								
 									{% for populartag in populartags %}
-										<li class="filter" ><a href="{{baseUrl}}tag/{{populartag}}">
+										<li class="filter" ><a href="{{baseUrl}}/tag/{{populartag}}">
 										{{populartag}}
 										</a></li>
 									{% endfor  %}

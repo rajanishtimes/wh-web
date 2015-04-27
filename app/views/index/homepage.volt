@@ -8,7 +8,7 @@
 					{% for key, topfeed in topfeeds['results'] %}
 						<div class="col-sm-6 col-md-4 col-xs-6">
 								<div class="work-item topthing">
-									<a href="{{baseUrl}}{{topfeed['url']}}" data-ga-cat="topToday" data-ga-action="{{baseUrl}}{{topfeed['url']}}" data-in-label="pos_{{key+1}}">
+									<a href="{{baseUrl}}/{{topfeed['url']}}" data-ga-cat="topToday" data-ga-action="{{baseUrl}}/{{topfeed['url']}}" data-in-label="pos_{{key+1}}">
 									<div class="the-box full no-border transparent no-margin make-up">
 										<p class="feed-name">{{topfeed['title']}}</p>
 									</div>
@@ -30,7 +30,7 @@
 					<h2 class="heading">Popular Tips</h2>
 					<ul class="work-category-wrap">
 						{% for populartag in populartags['popular_tags'] %}
-							<li class="filter" ><a href="{{baseUrl}}tag/{{populartag}}">
+							<li class="filter" ><a href="{{baseUrl}}/tag/{{populartag}}">
 							{{populartag}}
 							</a></li>
 						{% endfor  %}
@@ -59,7 +59,7 @@
 					</div><div class="clearfix"></div>
 					<div class="loadmore">
 						<?php if($allfeedslist['meta']['match_count'] > ($limit)){ ?>
-							<div class="btn btn-primary" onclick="view_feed_with_ajax('{{baseUrl}}search/index', '{{start}}', '{{limit}}', 'getallfeeds', '', '', 'all')">Load More</div>
+							<div class="btn btn-primary" onclick="view_feed_with_ajax('{{baseUrl}}/search/index', '{{start}}', '{{limit}}', 'getallfeeds', '', '', 'all')">Load More</div>
 						<?php }?>
 					</div>
 				</div>

@@ -16,7 +16,7 @@
 					</ul><div class="clearfix"></div>
 					<h2 class="contenttitle text-center">{{contentdetail['title']}}</h2>
 					<div class="contentdetail text-center">
-						By <a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a>
+						By <a href="{{baseUrl}}/{{author['url']}}">{{author['title']}}</a>
 					</div>
 					<hr class="small">
 					<div class="detail">
@@ -28,7 +28,7 @@
 								<ul class="work-category-wrap">
 									<?php $populartags =$contentdetail['tags'];?>								
 									{% for populartag in populartags %}
-										<li class="filter" ><a href="{{baseUrl}}tag/{{populartag}}">
+										<li class="filter" ><a href="{{baseUrl}}/tag/{{populartag}}">
 										{{populartag}}
 										</a></li>
 									{% endfor  %}
@@ -48,12 +48,12 @@
 						
 						<div class="authordetailsection">
 							<div class="col-sm-4 col-md-2 float-left author-image">
-									<a href="{{baseUrl}}{{author['url']}}">
+									<a href="{{baseUrl}}/{{author['url']}}">
 										{{feeds.getimage(baseUrl, author['images'][0]['uri'], '', '', author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
 									</a>
 							</div>
 							<div class="col-xs-12 col-sm-8 col-md-10 author-detail">
-									<h2><a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a></h2>
+									<h2><a href="{{baseUrl}}/{{author['url']}}">{{author['title']}}</a></h2>
 									<p>{{author['description']}}</p>
 							</div>
 						</div>
