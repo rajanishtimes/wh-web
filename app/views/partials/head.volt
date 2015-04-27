@@ -46,14 +46,15 @@
 		
 		{{ get_title() }}
 		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
-		{{ stylesheet_link('css/bootstrap.min.css') }}
+		
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/bootstrap.min.css" />
 		
 		<!-- MAIN CSS (REQUIRED ALL PAGE)-->
-		{{ stylesheet_link('/plugins/font-awesome/css/font-awesome.min.css') }}
-		{{ stylesheet_link('/css/style.css') }}
-		{{ stylesheet_link('/css/style-responsive.css') }}
-		{{ stylesheet_link('/plugins/owl-carousel/owl.carousel.css') }}
-		{{ stylesheet_link('/plugins/swipebox/src/css/swipebox.css') }}
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/style-responsive.css" />
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/owl-carousel/owl.carousel.css" />
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/swipebox/src/css/swipebox.css" />
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		

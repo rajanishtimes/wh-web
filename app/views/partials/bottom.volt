@@ -1,10 +1,11 @@
-		{{ javascript_include('/js/jquery.js') }}
-		{{ javascript_include('/js/bootstrap.min.js') }}
-		{{ javascript_include('/js/typeahead.min.js') }}		
-		{{ javascript_include('/plugins/owl-carousel/owl.carousel.min.js') }}
-		{{ javascript_include('/plugins/swipebox/src/js/jquery.swipebox.js') }}
-		{{ javascript_include('/js/utils.js') }}
-		{{ javascript_include('/js/apps.js') }}
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="{{baseUrl}}/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="{{baseUrl}}/js/typeahead.min.js"></script>
+		<script type="text/javascript" src="{{baseUrl}}/plugins/owl-carousel/owl.carousel.min.js"></script>
+		<script type="text/javascript" src="{{baseUrl}}/plugins/swipebox/src/js/jquery.swipebox.js"></script>
+		<script type="text/javascript" src="{{baseUrl}}/js/utils.js"></script>
+		<script type="text/javascript" src="{{baseUrl}}/js/apps.js"></script>
+		
 		<script type="text/javascript">
                       
             /* (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
