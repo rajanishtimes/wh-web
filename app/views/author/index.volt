@@ -10,11 +10,15 @@
 					</div>
 					<div class="clearfix"></div>
 					<h2 class="contenttitle text-center">{{author['title'] | lower | capitalize}}</h2>
-					<div class="contentdetail text-center">
-						By {{author['user_name']}}
+					<?php if(isset($author['twitter_url']) && !empty($author['twitter_url'])){?>
+					<div class="atwitter text-center">
+						<a href="http://www.twitter.com/{{author['twitter_url']}}">
+							<i class="fa fa-twitter"></i>@{{author['twitter_url']}}
+						</a>
 					</div>
+					<?php }?>
 					<hr class="small">
-					<div class="detail">
+					<div class="detail text-center">
 						{{author['description']}}
 					</div>
 				</div>
