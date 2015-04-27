@@ -16,26 +16,28 @@ class Feeds extends Component
 			if($i%9 != 0){
 			?>
 				<div class="col-sm-4 col-md-3 col-xs-6">
-					<div class="work-item">
+					<div class="work-item feeds-data">
 						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-in-label="pos_<?php echo $i; ?>">
 							<div class="hover-wrap">
-								<i class="glyphicon glyphicon-plus fa fa-eye"></i>
+								<i class="glyphicon glyphicon-plus bino"></i>
 							</div>
 						</a>
 						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-in-label="pos_<?php echo $i; ?>">
 							<?php echo $this->getimage($url, $feed['image']['uri'], 480, 480, $feed['title']); ?>
 						</a>
-						<div class="the-box no-margin">
-							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo $feed['title']; ?></a></div>
-							<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
-								<div class="homepagevenue">
-									<div class="time"><?php echo $feed['time']; ?></div>
-									<div class="landmark"><?php echo $feed['venue']; ?></div>
-								</div>
-							<?php }else{ ?>
-								<div class="feed-short-desc"><?php echo $feed['description']; ?></div>
-							<?php }?>
-						</div>
+						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-in-label="pos_<?php echo $i; ?>">
+							<div class="the-box no-margin no-border">
+								<div class="feed-title"><?php echo $feed['title']; ?></div>
+								<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
+									<div class="homepagevenue">
+										<div class="time"><?php echo $feed['time']; ?></div>
+										<div class="landmark"><?php echo $feed['venue']; ?></div>
+									</div>
+								<?php }else{ ?>
+									<div class="feed-short-desc"><?php echo $feed['description']; ?></div>
+								<?php }?>
+							</div>
+						</a>
 						<?php if(strtolower($feed['label']) == 'sponsored'){ ?>
 							<div class="sponsors">Sponsors</div>
 						<?php } ?>
@@ -66,10 +68,10 @@ class Feeds extends Component
 		foreach($data['results'] as $feed){
 			?>
 				<div class="col-sm-4 col-md-3 col-xs-6">
-					<div class="work-item">
-						<a href="<?php echo $url . $feed['url']; ?>">
+					<div class="work-item feeds-data">
+						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-in-label="pos_<?php echo $i; ?>">
 							<div class="hover-wrap">
-								<i class="glyphicon glyphicon-plus fa fa-eye"></i>
+								<i class="glyphicon glyphicon-plus bino"></i>
 							</div>
 						</a>
 						<a href="<?php echo $url . $feed['url']; ?>">

@@ -130,6 +130,13 @@ TABLET < 767px
 	.work-content .work-item:hover .hover-wrap{
 		bottom: 30%;
 	}
+	
+	.nav-search.navbar-right li.dropdown > a {
+		padding: 28px;
+	}
+	ul.work-category-wrap{
+		padding: 2px 10px;
+	}
 }
 
 
@@ -226,7 +233,7 @@ PHONE < 420px
 	}
 	
 	.filter_type{
-		padding:0; margin:10px 0 5px;
+		padding: 0 18px; margin:10px 0 5px;
 	}
 	.filter_type li{
 		margin: 0 2px;
@@ -240,6 +247,16 @@ PHONE < 420px
 	footer .row > div:last-child {
 		border-bottom: none; padding:0; margin:0;
 	}
+	
+	.nav-search.navbar-right li.dropdown > a {
+		padding: 24px 4px;
+	}
+	
+	.searchbtn{
+		padding:15px 23px;
+	}
+	
+	
 }
 
 
@@ -277,5 +294,8 @@ PHONE < 320px
 	}
 	.dropdown-menu{
 		left: -110px;
+	}
+	.filter_type li{
+		font-size: 12px;
 	}
 }

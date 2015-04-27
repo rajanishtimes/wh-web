@@ -10,9 +10,9 @@
 				<p><small>You can opt-out at any time. Please refer to our privacy policy for contact information.</small></p>
 				<hr style="border-color: #ccc;">
 				<div class="social-icon">
-					<div class="shareon float-left">
+					<!--<div class="shareon float-left">
 						Share on:
-					</div>
+					</div>-->
 					<div class="social_icon facebook float-left"><a target="_blank" href="{{constants['constants']['facebook_url']}}"><i class="fa fa-facebook"></i></a></div>
 					<div class="social_icon twitter float-left"><a target="_blank" href="{{constants['constants']['twitter_url']}}"><i class="fa fa-twitter"></i></a></div>
 					<div class="social_icon google-plus float-left"><a target="_blank" href="{{constants['constants']['google_url']}}"><i class="fa fa-google-plus"></i></a></div>

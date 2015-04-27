@@ -24,8 +24,8 @@
 		<!-- Begin City Nav -->
 			<ul class="nav-search navbar-right">
 				<li class="dropdown">
-					<i class="fa fa-map-marker makered"></i>
-					<a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">
+					<a href="#fakelink" class="dropdown-toggle makeactive" data-toggle="dropdown">
+						<i class="fa fa-map-marker makered"></i>
 						{% if(city | trim | lower == 'delhi') %}
 							<span>Delhi NCR</span>
 						{% else %}

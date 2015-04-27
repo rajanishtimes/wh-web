@@ -6,7 +6,7 @@
 				<h1>Discover best things to do in {{city}} including all the events taking place in {{city}}</h1>
 				<div class="work-content resize">
 					{% for key, topfeed in topfeeds['results'] %}
-						<div class="col-sm-6 col-md-4 col-xs-6">
+						<div class="col-sm-6 col-md-4 col-xs-6 topthing">
 							<a href="{{baseUrl}}{{topfeed['url']}}" data-ga-cat="topToday" data-ga-action="{{baseUrl}}{{topfeed['url']}}" data-in-label="pos_{{key+1}}">
 								<div class="work-item">
 									<div class="the-box full no-border transparent no-margin make-up">
@@ -44,11 +44,11 @@
 				</div>
 				<div class="col-sm-6 col-md-6 col-xs-12 no-padding">
 					<ul id="bydate" class="filter_type text-right">
+						<li class="active"><a href="javascript:void(0)" rel="All">ALL</a></li>
 						<li><a href="javascript:void(0)" rel="Today">TODAY</a></li>
 						<li><a href="javascript:void(0)" rel="Tomorrow">TOMORROW</a></li>
 						<li><a href="javascript:void(0)" rel="Week">THIS WEEK</a></li>
 						<li><a href="javascript:void(0)" rel="Month">MONTH</a></li>
-						<li class="active"><a href="javascript:void(0)" rel="All">ALL</a></li>
 					</ul>
 				</div><div class="clearfix"></div>
 			

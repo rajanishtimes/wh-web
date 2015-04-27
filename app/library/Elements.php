@@ -45,7 +45,7 @@ class Elements extends Component
     {
 		$controllerName = $this->view->getControllerName();
         foreach ($this->_headerMenu as $position => $menu) {
-            echo "<ul class='list-inline ".$position."'>";
+            echo "<ul class='list-inline ".$position."  text-left'>";
             foreach ($menu as $controller => $option) {
                 if ($controllerName == $controller) {
                     echo '<li class="active">';
