@@ -77,13 +77,28 @@ class IndexController extends BaseController{
     }
 	
 	public function policyAction(){
-        
+        $this->tag->setTitle('Privacy Policy');
+		$this->view->meta_description = '';
+		$this->view->meta_keywords = '';
+		$this->view->og_title = 'Privacy Policy';
+		$this->view->og_description = '';
+		$this->view->og_url = $this->baseUrl.'policy';
     }
     public function termsAction(){
-        
+        $this->tag->setTitle('Terms & Conditions');
+		$this->view->meta_description = '';
+		$this->view->meta_keywords = '';
+		$this->view->og_title = 'Terms & Conditions';
+		$this->view->og_description = '';
+		$this->view->og_url = $this->baseUrl.'terms';
     }
 	
 	public function aboutusAction(){
-        
+        $this->tag->setTitle('About Us');
+		$this->view->meta_description = '';
+		$this->view->meta_keywords = '';
+		$this->view->og_title = 'About Us';
+		$this->view->og_description = '';
+		$this->view->og_url = $this->baseUrl.'about-us';
     }
 }

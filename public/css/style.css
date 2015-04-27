@@ -806,17 +806,15 @@ h4.small-title{
 .info-content > p {
     color: black;
     font-family: "Lora",Calibri,Arial,sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 22px;
-}
-.info-content {
-    text-align: justify;
 }
 .info-content ol {
     list-style-type: lower-alpha;
 }
 .info-content li {
     font-size: 15px;
+	font-family: "Lora",Calibri,Arial,sans-serif;
 }
  
 
@@ -3804,6 +3802,9 @@ color: #1e1e1e;
 	text-decoration:underline;
 }
 .list-inline > li{padding-left:20px;}
+.work-content {
+    padding: 0 16%;
+}
 /**
 -------------------------------------------
 RESPONSIVE IFRAME
