@@ -6,7 +6,7 @@
 			
 				<div class="searchbox">
 					<form id="searchForm" method="POST" action="/search/search">
-							<div class="textinput float-left"><input id="searchtextinput" type="text" class="form-control" placeholder="Search..." name="search"></div>
+							<div class="textinput float-left"><input id="searchtextinput" type="text" autofocus class="form-control" placeholder="Search..." name="search"></div>
 							<div class="searchinout float-right"><button class="input-group-addon"><i class="fa fa-search"></i></button></div>
 					</form><div class="clearfix"></div>
 				</div>

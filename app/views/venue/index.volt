@@ -8,7 +8,7 @@
 					<div class="time">{{venuedetail['formatted_address']}}</div>
 					<div class="phone"><?php echo implode(',', $venuedetail['phonedata']); if($venuedetail['phonedata']){echo ",";}?> <?php echo implode(',', $venuedetail['mobiledata']); ?></div>
 					<div class="landmark">{{venuedetail['landmark']}}</div>
-					<div class="website"><a href="{{venuedetail['website']}}" target="_blank">{{venuedetail['website']}}</a></div>
+					<div class="website"><a href="{{venuedetail['website']}}" target="_blank"><?php echo str_replace('http://','',$venuedetail['website'])?></a></div>
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-6">
