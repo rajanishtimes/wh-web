@@ -19,7 +19,7 @@
 					<?php }?>
 					<hr class="small">
 					<div class="detail text-center">
-						{{author['description']}}
+						<div class="text-center">{{author['description']}}</div>
 					</div>
 				</div>
 				
