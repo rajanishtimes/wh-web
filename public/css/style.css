@@ -626,7 +626,9 @@ ul.work-category-wrap li.active:focus{
 	background: #D11A6D;
 } 
 
-
+.owl-carousel .owl-wrapper, .owl-carousel .owl-item{
+	width:100% !important;
+}
 .feed-title {
     font-family: "Lora",Calibri,Arial,sans-serif;
     font-size: 20px;
@@ -1272,7 +1274,8 @@ TYPOGRAPY
 -------------------------------------------
 **/
 a						{color: #000}
-a:hover					{color: #D11A6D; text-decoration:none;}
+a:hover, a:focus		{color: #D11A6D; text-decoration:none;}
+
 .text-muted {
 	color: #999;
 	color: rgba(1,1,1,0.5);
@@ -1728,7 +1731,7 @@ h3.tags {
     border-bottom: 1px solid rgb(238, 238, 238);
     border-top: 1px solid rgb(238, 238, 238);
     margin: 17px 0;
-    padding: 28px 0;
+    padding: 10px 0;
 	color:#ababab;
 }
 .share ul{
@@ -1736,11 +1739,13 @@ h3.tags {
 }
 
 .share ul a{
-	color:#ababab;  font-family: Roboto;
-    font-size: 15px;
+	color:#ababab;
+	font-family: Roboto;
+    font-size: 19px;
 }
 .share .sharek {
     font-weight: bold;
+	font-size:18px;
 }
 
 .authordetailsection .author-detail {
@@ -3794,8 +3799,9 @@ background-color:#fff;
     text-transform: uppercase;
 }
 .share .sharek{
-color: #1e1e1e;
- font-family: Roboto;
+	color: #ababab;
+	font-family: Roboto;
+	padding: 0;
 }
 .sponsors {
     margin: -26px 0 0 10px;
@@ -3803,8 +3809,8 @@ color: #1e1e1e;
     text-align: left;
     z-index: 999;
 }
-.share ul i {
-    font-size: 25px;
+.share ul a span {
+    font-size: 16px;
 }
 .share ul a:hover{
     color: #1e1e1e;
@@ -3813,6 +3819,15 @@ color: #1e1e1e;
 .list-inline > li{padding-left:20px;}
 .info-content{
     padding: 0 16%;
+}
+.detail p {
+    color: #000;
+}
+.detail p a{
+    color: #d11a6d;
+}
+.detail p a:hover{
+    text-decoration: underline;
 }
 /**
 -------------------------------------------

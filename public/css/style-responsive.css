@@ -70,6 +70,9 @@ STANDARD DESKTOP < 1024px
 	.work-content .work-item:hover .hover-wrap{
 		bottom: 30%;
 	}
+	.owl-carousel.work-detail .item{
+		height:300px;
+	}
 
 }
 
@@ -137,6 +140,9 @@ TABLET < 767px
 	}
 	ul.work-category-wrap{
 		padding: 2px 10px;
+	}
+	.owl-carousel.work-detail .item{
+		height:250px;
 	}
 }
 
@@ -217,6 +223,9 @@ PHONE < 480px
 	.setbottom {
 		text-align: center;
 	}
+	.owl-carousel.work-detail .item{
+		height:250px;
+	}
 }
 
 /**
@@ -256,8 +265,6 @@ PHONE < 420px
 	.searchbtn{
 		padding:15px 23px;
 	}
-	
-	
 }
 
 
@@ -299,4 +306,5 @@ PHONE < 320px
 	.filter_type li{
 		font-size: 12px;
 	}
+	
 }

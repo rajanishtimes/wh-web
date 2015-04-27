@@ -21,31 +21,29 @@
 					<hr class="small">
 					<div class="detail">
 						{{eventdetail['description']}}
-						
-						{% if(eventdetail['tags'] | length > 0) %}
-							<p class="tags">Tags</p>
-							<div class="work-content">
-								<ul class="work-category-wrap">
-									<?php $populartags =$eventdetail['tags'];?>								
-									{% for populartag in populartags %}
-										<li class="filter" ><a href="{{baseUrl}}tag/{{populartag}}">
-										{{populartag}}
-										</a></li>
-									{% endfor  %}
-								</ul><div class="clearfix"></div>
-							</div><div class="clearfix"></div>
-						{% endif %}
-							
-						<div class="share">
-							<ul class="list-inline navbar-left">
-								<li class="sharek">SHARE</li>
-								<li><a target="_blank" onclick="window.open('https://twitter.com/share?url={{eventdetail['share_url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-twitter-square"></i> Share on twitter</a></li>
-								<li><a target="_blank" onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{eventdetail['share_url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-facebook-square"></i> Share on facebook</a></li>
-								<li><a target="_blank" onclick="window.open('https://plus.google.com/share?url={{eventdetail['share_url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-google-plus-square"></i> Share on google+</a></li>
-							</ul><div class="clearfix"></div>
-						</div>
 					</div>
-				
+					{% if(eventdetail['tags'] | length > 0) %}
+						<p class="tags">Tags</p>
+						<div class="work-content">
+							<ul class="work-category-wrap">
+								<?php $populartags =$eventdetail['tags'];?>								
+								{% for populartag in populartags %}
+									<li class="filter" ><a href="{{baseUrl}}tag/{{populartag}}">
+									{{populartag}}
+									</a></li>
+								{% endfor  %}
+							</ul><div class="clearfix"></div>
+						</div><div class="clearfix"></div>
+					{% endif %}
+						
+					<div class="share">
+						<ul class="list-inline navbar-left">
+							<li class="sharek">SHARE</li>
+							<li><a target="_blank" onclick="window.open('https://twitter.com/share?url={{eventdetail['share_url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-twitter-square"></i> <span>Share on twitter</span></a></li>
+							<li><a target="_blank" onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{eventdetail['share_url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-facebook-square"></i> <span>Share on facebook</span></a></li>
+							<li><a target="_blank" onclick="window.open('https://plus.google.com/share?url={{eventdetail['share_url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-google-plus-square"></i> <span>Share on google+</span></a></li>
+						</ul><div class="clearfix"></div>
+					</div>
 					
 				</div>
 			</div>
