@@ -150,5 +150,6 @@ class Feeds extends Component
 		}else{
 			$imgurl = $this->getimageendpoint().$image_url;
 		}
+		return $imgurl;
 	}
 }

@@ -633,7 +633,7 @@ ul.work-category-wrap li.active:focus{
     font-weight: 700;
     line-height: 21px;
     margin-bottom: 10px;
-    max-height: 45px;
+    max-height: 43px;
     overflow: hidden;
     text-align: left;
 }
@@ -1708,6 +1708,9 @@ CRITIC REVIEW
 }
 .twitter{
     text-align: left;
+}
+.atwitter a {
+    color: rgb(209, 26, 109);
 }
 .twitter a {
     color: rgb(209, 26, 109);
