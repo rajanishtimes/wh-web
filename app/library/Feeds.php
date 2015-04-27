@@ -142,4 +142,14 @@ class Feeds extends Component
 		$imgbox = '<img src="'.$url.'img/img_feed_default.png" alt="'.$alt.'">';
 		return $imgbox;
 	}
+	
+	public function makeurl($image_url){
+		$pos = strpos($image_url, 'http');
+		if($pos !== false){
+			$imgurl = $image_url;
+		}else{
+			$imgurl = $this->getimageendpoint().$image_url;
+		}
+		return $imgurl;
+	}
 }
