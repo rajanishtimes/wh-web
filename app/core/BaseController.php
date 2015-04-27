@@ -54,8 +54,12 @@ class BaseController extends Controller{
 		$this->setcityid();
 		//echo $this->cityId; exit;
 		if($this->cityId == 0){
-			$this->cookies->get("city")->delete();
-			$this->forwardtoerrorpage(404);
+			$this->cookies->set("city", 'delhi', time() + 15 * 86400);
+			$this->city = 'delhi';
+			$this->view->city = 'delhi';
+			$this->setcityid();
+			//$this->cookies->get("city")->delete();
+			//$this->forwardtoerrorpage(404);
 		}
 		
     }

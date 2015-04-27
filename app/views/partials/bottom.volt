@@ -31,6 +31,10 @@
                 });
             }); */
             
+			$('#citieslist').click(function(){
+				$.cookie("city", {{city}});
+			});
+			
         </script>
     </body>
 </html>

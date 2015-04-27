@@ -13,8 +13,8 @@ class IndexController extends BaseController{
     }
 
 	public function homepageAction(){
-		$this->setcities();
-		$this->setcityid();
+		/* $this->setcities();
+		$this->setcityid();*/
 		
 		$title = ucwords($this->city).' Events: Things to do in '.ucwords($this->city).' Today | '.$this->config->application->SiteName;
 		$this->tag->setTitle($title);
