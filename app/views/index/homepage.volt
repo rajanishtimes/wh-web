@@ -8,7 +8,7 @@
 					{% for key, topfeed in topfeeds['results'] %}
 						<div class="col-sm-6 col-md-4 col-xs-6">
 								<div class="work-item topthing">
-									<a href="{{baseUrl}}/{{topfeed['url']}}" data-ga-cat="topToday" data-ga-action="{{baseUrl}}/{{topfeed['url']}}" data-in-label="pos_{{key+1}}">
+									<a href="{{baseUrl}}{{topfeed['url']}}" data-ga-cat="topToday" data-ga-action="{{baseUrl}}{{topfeed['url']}}" data-in-label="pos_{{key+1}}">
 									<div class="the-box full no-border transparent no-margin make-up">
 										<p class="feed-name">{{topfeed['title']}}</p>
 									</div>
