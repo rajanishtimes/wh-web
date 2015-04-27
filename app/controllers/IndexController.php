@@ -20,12 +20,10 @@ class IndexController extends BaseController{
 		$this->tag->setTitle($title);
 		
 		try{
-			$topfeeds = $this->getfeeddata(0, 3, $this->city, 'Today', '', '', 'Event,Content', 2);
+			$topfeeds = $this->getfeeddata(0, 3, $this->city, 'Today', '', '', 'Event,Content', '', 2);
 		}catch(Exception $e){
 			$topfeeds = array();
 		}
-		
-		
 		
 		$core = new \WH\Model\Core();
 		$core->setCity($this->cityId);

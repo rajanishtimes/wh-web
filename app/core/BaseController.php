@@ -42,12 +42,12 @@ class BaseController extends Controller{
 		}
 		$this->view->baseUrl = $this->baseUrl;
 		
-		$this->setcookie();
+		//$this->setcookie();
 		
 		//echo $this->dispatcher->getControllerName();exit;
 		//echo $this->dispatcher->getActionName();exit;
 		
-		//if ($this->cookies->has("cities") && $this->dispatcher->getParam('city')=='' && $this->cookies->get("cities")) {			
+		//if ($this->cookies->has("city") && $this->dispatcher->getParam('city')=='' && $this->cookies->get("city")) {
 		if ($this->cookies->has("city")) {
 			$this->city = strtolower($this->cookies->get("city"));
 			$this->view->city = strtolower($this->city);
@@ -179,7 +179,7 @@ class BaseController extends Controller{
 			foreach($entityresult['results'] as $key=>$entity){
 				if(!empty($entity['image']['uri'])){
 					if(substr($entity['image']['uri'], 0, 4) != 'http'){
-						$entityresult['results'][$key]['image']['uri'] = $this->config->application->imgbaseUri.$entity['image']['uri'];
+						$entityresult['results'][$key]['image']['uri'] = $this->getimageendpoint().$entityresult['results'][$key]['image']['uri'];
 					}
 				}
 				//$entityresult['results'][$key]['slug'] = $this->create_slug($entity['title']).'-'.str_replace('_', '-', strtolower($entity['id']));
@@ -231,5 +231,12 @@ class BaseController extends Controller{
 				break;
 			}
 		}
+	}
+	
+	public function getimageendpoint(){
+		$i = rand(0,5);
+		$img_url='imgbaseUri'.$i;
+		$url = $this->config->application->$img_url;
+		return $url;
 	}
 }
