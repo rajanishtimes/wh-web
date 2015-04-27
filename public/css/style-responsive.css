@@ -27,7 +27,9 @@ COMMON DESKTOP > 992px
 	.contentarea .detail {
 		padding: 0 62px;
 	}
-	
+	.authordetailsection {
+		padding: 0 62px;
+	}
 }
 
 
@@ -144,6 +146,12 @@ TABLET < 767px
 	.owl-carousel.work-detail .item{
 		height:250px;
 	}
+	.share .sharek{
+		width: 100%;
+	}
+	.share{
+		padding:0;
+	}
 }
 
 
@@ -226,6 +234,9 @@ PHONE < 480px
 	.owl-carousel.work-detail .item{
 		height:250px;
 	}
+	.authordetailsection .author-detail {
+		width: 60%; min-width: 200px;
+	}
 }
 
 /**
@@ -264,6 +275,9 @@ PHONE < 420px
 	
 	.searchbtn{
 		padding:15px 23px;
+	}
+	.authordetailsection .author-detail {
+		width: 100%;
 	}
 }
 
@@ -305,8 +319,5 @@ PHONE < 320px
 	}
 	.filter_type li{
 		font-size: 12px;
-	}
-	.share .sharek{
-		width: 10px 0;
 	}
 }

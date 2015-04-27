@@ -36,6 +36,7 @@
 							</div><div class="clearfix"></div>
 						{% endif %}
 							
+					</div>
 						<div class="share">
 							<ul class="list-inline navbar-left">
 								<li class="sharek">SHARE</li>
@@ -46,18 +47,16 @@
 						</div>
 						
 						<div class="authordetailsection">
-							<div class="author-image float-left">
-								<a href="{{baseUrl}}{{author['url']}}">
-									{{feeds.getimage(baseUrl, author['images'][0]['uri'], '', '', author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
-								</a>
+							<div class="col-sm-4 col-md-2 float-left author-image">
+									<a href="{{baseUrl}}{{author['url']}}">
+										{{feeds.getimage(baseUrl, author['images'][0]['uri'], '', '', author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
+									</a>
 							</div>
-							<div class="author-detail float-left">
-								<h2><a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a></h2>
-								<p>{{author['description']}}</p>
+							<div class="col-xs-12 col-sm-8 col-md-10 author-detail">
+									<h2><a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a></h2>
+									<p>{{author['description']}}</p>
 							</div>
 						</div>
-						
-					</div>
 				</div>
 			</div>
 		</div>

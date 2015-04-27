@@ -626,9 +626,7 @@ ul.work-category-wrap li.active:focus{
 	background: #D11A6D;
 } 
 
-.owl-carousel .owl-wrapper, .owl-carousel .owl-item{
-	width:100% !important;
-}
+
 .feed-title {
     font-family: "Lora",Calibri,Arial,sans-serif;
     font-size: 20px;
@@ -1504,7 +1502,7 @@ SEARCH
 }
 
 .searchbox .form-control {
-	border:none; font-size: 22px
+	border:none; font-size: 22px;
 }
 
 .searchbox .searchinout .input-group-addon {
@@ -1749,15 +1747,15 @@ h3.tags {
 }
 
 .authordetailsection .author-detail {
-    padding: 0 0 0 30px;
+	width: 85%; min-width: 200px;
 }
 
 .authordetailsection .author-image {
-    width: 100px;
+    width: 100px; min-width: 130px;
 }
 
 .authordetailsection .author-detail {
-    width: 88%;
+
 }
 
 .authordetailsection .author-detail h2 {
