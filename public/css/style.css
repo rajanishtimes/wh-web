@@ -402,7 +402,8 @@ Venue
     text-align: left;
 }
 .homepagevenue .time{
-	background: url("../img/timeve.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0); height: 36px; overflow:hidden;
+	background: url("../img/timeve.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0); height: 22px;
+    margin-top: 14px; overflow:hidden;
 }
 .homepagevenue .landmark{
     background: url("../img/landmarkeve.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);  height: 36px; overflow:hidden;
