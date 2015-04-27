@@ -306,5 +306,7 @@ PHONE < 320px
 	.filter_type li{
 		font-size: 12px;
 	}
-	
+	.share .sharek{
+		width: 10px 0;
+	}
 }

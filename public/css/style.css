@@ -1504,7 +1504,7 @@ SEARCH
 }
 
 .searchbox .form-control {
-	border:none; font-size: 23px
+	border:none; font-size: 22px
 }
 
 .searchbox .searchinout .input-group-addon {
@@ -1615,9 +1615,9 @@ SEARCH
 	border:none;
 	border-bottom:1px solid #ccc;
 	font-size: 23px;
-    height: 53px;
-    margin: -7px 0 0 10px;
-    padding: 0 0 0 2px;
+    height: 43px;
+    margin: 0;
+    padding: 0;
 	color: #d1d1d1;
 }
 
@@ -1731,7 +1731,7 @@ h3.tags {
     border-bottom: 1px solid rgb(238, 238, 238);
     border-top: 1px solid rgb(238, 238, 238);
     margin: 17px 0;
-    padding: 10px 0;
+    padding: 10px 62px;
 	color:#ababab;
 }
 .share ul{

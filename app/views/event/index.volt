@@ -21,20 +21,21 @@
 					<hr class="small">
 					<div class="detail">
 						{{eventdetail['description']}}
+						{% if(eventdetail['tags'] | length > 0) %}
+							<p class="tags">Tags</p>
+							<div class="work-content">
+								<ul class="work-category-wrap">
+									<?php $populartags =$eventdetail['tags'];?>								
+									{% for populartag in populartags %}
+										<li class="filter" ><a href="{{baseUrl}}tag/{{populartag}}">
+										{{populartag}}
+										</a></li>
+									{% endfor  %}
+								</ul><div class="clearfix"></div>
+							</div><div class="clearfix"></div>
+						{% endif %}
 					</div>
-					{% if(eventdetail['tags'] | length > 0) %}
-						<p class="tags">Tags</p>
-						<div class="work-content">
-							<ul class="work-category-wrap">
-								<?php $populartags =$eventdetail['tags'];?>								
-								{% for populartag in populartags %}
-									<li class="filter" ><a href="{{baseUrl}}tag/{{populartag}}">
-									{{populartag}}
-									</a></li>
-								{% endfor  %}
-							</ul><div class="clearfix"></div>
-						</div><div class="clearfix"></div>
-					{% endif %}
+					
 						
 					<div class="share">
 						<ul class="list-inline navbar-left">
