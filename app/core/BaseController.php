@@ -47,30 +47,15 @@ class BaseController extends Controller{
 		//echo $this->dispatcher->getControllerName();exit;
 		//echo $this->dispatcher->getActionName();exit;
 		
-		if ($this->cookies->has("cities") && $this->dispatcher->getParam('city')=='' && $this->cookies->get("cities")) {			
+		//if ($this->cookies->has("cities") && $this->dispatcher->getParam('city')=='' && $this->cookies->get("cities")) {			
+		if ($this->cookies->has("cities")) {
 			$this->city = strtolower($this->cookies->get("cities"));
 			$this->view->city = strtolower($this->city);
         }else{
-			if($this->dispatcher->getParam('city')){
-				$this->city = $this->dispatcher->getParam('city');
-				$this->cookies->set("cities", $this->city);
-				$this->view->city = strtolower($this->city);
-			}else{
-				$this->cookies->set("cities", 'delhi');
-				$this->city = 'delhi';
-				$this->view->city = 'delhi';
-			}
+			$this->setcities();
 		}
 		
-		$cities = new \WH\Model\Cities();
-		$getallcities = $cities->getResults();
-		$this->view->allcities = $getallcities;
-		foreach($getallcities['cities'] as $getallcity){
-			if(strtolower($getallcity['name']) == $this->city){
-				$this->cityId = $getallcity['id'];
-				break;
-			}
-		}
+		$this->setcityid();
 		if($this->cityId == 0){
 			$this->session->remove("cities");
 			$this->forwardtoerrorpage(404);
@@ -205,7 +190,7 @@ class BaseController extends Controller{
 	}
 	
 	protected function breadcrumbs($arr){
-		$bdc = array('Whatshot'=>$this->baseUrl);
+		$bdc = array('Whatshot'=>$this->baseUrl.$this->city);
 		$breadcrumbs = array_merge($bdc, $arr);
 		return $breadcrumbs;
 	}
@@ -223,6 +208,28 @@ class BaseController extends Controller{
         }else{
 			$uniquekey = md5(microtime().$_SERVER['REMOTE_ADDR']);
 			$this->cookies->set('uniquekey', $uniquekey, time() + 365 * 86400);
+		}
+	}
+	protected function setcities(){
+		if($this->dispatcher->getParam('city')){
+			$this->city = $this->dispatcher->getParam('city');
+			$this->cookies->set("cities", $this->city);
+			$this->view->city = strtolower($this->city);
+		}else{
+			$this->cookies->set("cities", 'delhi');
+			$this->city = 'delhi';
+			$this->view->city = 'delhi';
+		}
+	}
+	protected function setcityid(){
+		$cities = new \WH\Model\Cities();
+		$getallcities = $cities->getResults();
+		$this->view->allcities = $getallcities;
+		foreach($getallcities['cities'] as $getallcity){
+			if(strtolower($getallcity['name']) == $this->city){
+				$this->cityId = $getallcity['id'];
+				break;
+			}
 		}
 	}
 }

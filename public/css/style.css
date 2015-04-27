@@ -1460,7 +1460,7 @@ SEARCH
 **/
 .searchbox{
 	border: 1px solid #b7b7b7;
-    margin: 18px auto 0;
+    margin: 18px auto 15px;
     padding: 8px;
     width: 60%;
 	border-radius: 3px;
@@ -1614,6 +1614,12 @@ SEARCH
 .loader {
     text-align: center;
 	margin: 30px 0;
+}
+
+.media.searchlist:hover {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #fc3768;
+    border-radius: 5px;
 }
 
 /**

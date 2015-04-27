@@ -42,7 +42,7 @@ $router->add("/critic-review/{critic:[a-zA-Z0-9\- ]+}", array(
 ));
 
 
-$router->add("/search/{searchquery:[a-zA-Z0-9\- ]+}", array(
+$router->add("/search/{searchquery:[a-zA-Z0-9+!@$%^&*\- ]+}", array(
     'controller' => 'search',
     'action' => 'search',
 ));
