@@ -12,7 +12,7 @@
 						<div class="authordetail float-left">
 							<h2 class="reviewtitle text-center"><span class="reviewd">Reviewed by</span><br>{{author['title'] | lower | capitalize}}</h2>
 							{% if(author['twitter_url'] != '') %}
-								<div class="twitter"><a href="{{author['profile']['twitter_url']}}"><i class="fa fa-twitter"></i> @{{author['user_name']}}</a></div>
+								<div class="twitter"><a href="http://www.twitter.com/{{author['twitter_url']}}" target="_blank"><i class="fa fa-twitter"></i> @{{author['twitter_url']}}</a></div>
 							{% endif %}
 						</div>
 					</div><div class="clearfix"></div>
