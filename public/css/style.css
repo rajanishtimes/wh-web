@@ -179,7 +179,7 @@ NAVBAR
 
 .nav-search.navbar-right{
 	float: right;
-	margin: 0 20px 0 0;
+	margin: 0 10px 0 0;
     padding: 20px;
 	list-style: outside none none;
 }
@@ -202,7 +202,7 @@ NAVBAR
 .nav-search.navbar-right a{
 	color: #1e1e1e;
     font-size: 14px;
-    font-weight: normal;
+    font-weight: 700;
     text-decoration: none;
 }
 
@@ -2483,7 +2483,7 @@ ALERT
 .alert-danger.alert-bold-border 					{border-left-color: #E9573F;}
 .alert-danger.alert-bold-border .alert-link 		{color: #E9573F;}
 
-
+.redborder {	border: 1px solid #EA8676;}
 
 
 /**
