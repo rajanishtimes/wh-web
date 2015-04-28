@@ -88,6 +88,13 @@ SMALL DESKTOP 768px <> 991px
 =================================
 **/
 @media (min-width: 768px) and (max-width: 991px) {
+	.section h1, .yfeeds, .heading, .top-navbar{
+		padding:0 15px;
+	}
+	
+	ul.work-category-wrap{
+		padding:0 15px;
+	}
 	.contentarea {
 		padding: 0 50px;
 	}
@@ -100,7 +107,13 @@ SMALL DESKTOP 768px <> 991px
 	.work-content .work-item:hover .hover-wrap{
 		bottom: 40%;
 	}
-
+	.page-title-wrap .breadcrumb {
+		margin: 0 0 -14px;
+		padding: 21px 15px;
+	}
+	.tt-dropdown-menu{
+		width:116%;
+	}
 }
 
 
@@ -121,6 +134,14 @@ TABLET < 767px
 =================================
 **/
 @media (max-width: 767px) {
+	.page-title-wrap .breadcrumb {
+		margin: 0 0 -14px;
+		padding: 21px 15px;
+	}
+	ul.work-category-wrap{
+		padding:0 15px;
+	}
+	
 	.contentarea {
 		padding: 0 10px;
 	}
@@ -144,7 +165,7 @@ TABLET < 767px
 		padding: 2px 10px;
 	}
 	.owl-carousel.work-detail .item{
-		height:250px;
+		height:200px;
 	}
 	.share .sharek{
 		width: 100%;
@@ -166,6 +187,23 @@ PHONE < 640px
 	.work-content .work-item:hover .hover-wrap{
 		bottom: 34%;
 	}
+	.section h1{
+		font-size:20px;
+		line-height:28px;
+	}
+	.eventdetail{
+		padding:0 30px;
+	}
+	.section .contenttitle{
+		font-size:30px;
+		line-height:35px;
+	}
+	.feed-list .searchlist p{
+		width:100%;
+	}
+	.tt-dropdown-menu{
+		width:117%;
+	}
 }
 
 
@@ -179,6 +217,9 @@ PHONE < 600px
 @media (max-width: 600px){
 	.work-content .work-item:hover .hover-wrap{
 		bottom: 35%;
+	}
+	.tt-dropdown-menu{
+		width:118%;
 	}
 }
 
@@ -283,6 +324,9 @@ PHONE < 420px
 	.dropdown-menu.with-triangle{
 		margin: 0 0 0 -40px;
 	}
+	.withmask{
+		height: 440px !important;
+	}
 }
 
 
@@ -294,9 +338,15 @@ PHONE < 360px
 =================================
 **/
 @media (max-width: 360px){
-	.feed-name{font-size:17px}
+	.feed-name{font-size:20px}
 	.work-content .work-item:hover .hover-wrap{
 		bottom: 31%;
+	}
+	.withmask{
+		height: 320px !important;
+	}
+	.owl-carousel.work-detail .item{
+		height:115px;
 	}
 }
 
@@ -326,5 +376,8 @@ PHONE < 320px
 	}
 	.dropdown-menu.with-triangle {
 		margin: 0 -16px 0 64px;
+	}
+	.withmask{
+		height: 280px !important;
 	}
 }

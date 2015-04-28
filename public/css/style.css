@@ -334,7 +334,7 @@ blockquote {
 }
 .section .contenttitle {
     font-family: "Lora",times new roman,times,sans-serif;
-    font-size: 40px;
+    font-size: 35px;
     font-weight: 700;
     line-height: 49px;
     margin: 14px 0 0 10px;
@@ -495,7 +495,7 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     color: #d11a6d;
 }
 .work-content .work-item {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     overflow: hidden;
     position: relative;
     text-align: center;
@@ -630,7 +630,8 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     font-weight: 700;
     line-height: 22px;
     margin-bottom: 10px;
-    max-height: 43px;
+    max-height: 45px;
+	min-height: 24px;
     overflow: hidden;
     text-align: left;
 }
@@ -1363,6 +1364,7 @@ a.bg-dark:hover {
     height: 43px;
     outline: medium none;
     width: auto;
+	position: relative;
 }
 
 .section h1.searchheading{

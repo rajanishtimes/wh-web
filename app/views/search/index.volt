@@ -1,8 +1,6 @@
 <?php if(!empty($allfeedslist['results'])){ ?>
-<div class="work-content allfeeds">
 	<?php //echo "<pre>"; print_r($allfeedslist);?>
 	{{feeds.getfeeds(baseUrl, allfeedslist, start)}}
-</div>
 <-!-###@###->
 <?php if($allfeedslist['meta']['match_count'] > ($start)){ ?>
 	<div class="btn btn-primary" onclick="view_feed_with_ajax('{{mainurl}}', '{{start}}', '{{limit}}', '{{parentid}}', '{{searchkeyword}}', '{{tags | trim}}', '{{bydate}}')">Load More</div>

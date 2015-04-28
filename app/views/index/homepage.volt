@@ -39,10 +39,10 @@
 			{% endif %}
 			
 			{% if(allfeedslist | length > 0) %}
-				<div class="col-sm-6 col-md-6 col-xs-12 no-padding">
+				<div class="col-sm-5 col-md-6 col-xs-12 no-padding">
 					<h2 class="yfeeds">Your Feeds</h2>
 				</div>
-				<div class="col-sm-6 col-md-6 col-xs-12 no-padding">
+				<div class="col-sm-7 col-md-6 col-xs-12 no-padding">
 					<ul id="bydate" class="filter_type text-right">
 						<li class="active"><a href="javascript:void(0)" rel="All">ALL</a></li>
 						<li><a href="javascript:void(0)" rel="Today">TODAY</a></li>
