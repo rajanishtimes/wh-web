@@ -276,8 +276,10 @@ BREADCRUMB AND PAGE TITLE
 	border-radius: 0;
 }
 .page-title-wrap .breadcrumb a{
-	color: #676b74;
-	
+	color: #676b74;	
+}
+.page-title-wrap .breadcrumb a:hover{
+	color: #d11a6d; text-decoration:underline;	
 }
 .page-title-wrap .breadcrumb > .active {
 	color: #aab2bd;
@@ -328,13 +330,14 @@ CONTENT/EVENT AREA
 	padding:0;
 }
 
-.contenttitle{font-family: "Lora", times new roman, times, sans-serif; margin:14px 0 0px 10px; font-size: 41px; font-weight: 700; line-height:49px;}
+.contenttitle{font-family: "Lora", times new roman, times, sans-serif; margin:14px 0 0px 10px; font-size: 40px; font-weight: 700; line-height:49px;}
 
 .contentdetail {
     color: #d11a6d;
-    font-size: 19px;
+    font-size: 18px;
     font-style: italic;
     padding: 3px 0 0;
+	font-family: Lora;
 }
 .contentdetail a{
     color: #d11a6d;
@@ -344,11 +347,11 @@ hr.small {
     border-color: #d2d2d2;
     margin: 19px auto;
     text-align: center;
-    width: 90px;
+    width: 70px;
 }
 .contentarea .detail {
     font-family: "Lora", times new roman, times, sans-serif;
-    font-size: 19px;
+    font-size: 18px;
 	text-align: left;
 }
 
@@ -606,7 +609,7 @@ ul.work-category-wrap li.active:focus{
 .owl-carousel.work-detail .item{
 	padding: 0;
 	margin: 0;
-	height: 350px;
+	height: 280px;
 	overflow:hidden;
 }
 .owl-carousel.work-detail .item img{

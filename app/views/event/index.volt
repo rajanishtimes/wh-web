@@ -27,7 +27,7 @@
 								<ul class="work-category-wrap">
 									<?php $populartags =$eventdetail['tags'];?>								
 									{% for populartag in populartags %}
-										<li class="filter" ><a href="{{baseUrl}}/tag/{{populartag}}">
+										<li class="filter" ><a href="{{baseUrl}}/tag/{{elements.create_slug(populartag)}}">
 										{{populartag}}
 										</a></li>
 									{% endfor  %}

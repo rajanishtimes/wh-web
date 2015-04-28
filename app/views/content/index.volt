@@ -9,7 +9,7 @@
 					{% for images in contentdetail['images'] %}
 						<li class="item">
 							<a href="{{feeds.makeurl(images['uri'])}}" class="swipebox" title="{{contentdetail['title']}}">
-								{{feeds.getimage(baseUrl, images['uri'], '', '', contentdetail['title'], '', '', 'img-detail')}}
+								{{feeds.getimage(baseUrl, images['uri'], 880, 280, contentdetail['title'], '', '', 'img-detail')}}
 							</a>
 						</li>
 					{% endfor  %}
@@ -28,7 +28,7 @@
 								<ul class="work-category-wrap">
 									<?php $populartags =$contentdetail['tags'];?>								
 									{% for populartag in populartags %}
-										<li class="filter" ><a href="{{baseUrl}}/tag/{{populartag}}">
+										<li class="filter" ><a href="{{baseUrl}}/tag/{{elements.create_slug(populartag)}}">
 										{{populartag}}
 										</a></li>
 									{% endfor  %}

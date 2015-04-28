@@ -34,7 +34,7 @@ class Feeds extends Component
 										<div class="landmark"><?php echo $feed['venue']; ?></div>
 									</div>
 								<?php }else{ ?>
-									<div class="feed-short-desc"><?php echo $feed['description']; ?></div>
+									<div class="feed-short-desc"><?php echo strip_tags($feed['description'], '<p><a>'); ?></div>
 								<?php }?>
 							</div>
 						</a>
@@ -79,7 +79,7 @@ class Feeds extends Component
 						</a>
 						<div class="the-box no-margin">
 							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo $feed['title']; ?></a></div>
-							<div class="feed-short-desc"><?php echo $feed['description']; ?></div>
+							<div class="feed-short-desc"><?php echo strip_tags($feed['description'], '<p><a>'); ?></div>
 						</div>
 					</div>
 				</div>
@@ -108,7 +108,7 @@ class Feeds extends Component
 							<div class="landmark"><?php echo $feed['venue']; ?></div>
 						</div>
 					<?php }else{ ?>
-						<p class="feed-short-desc"><?php echo $feed['description']; ?></p>
+						<p class="feed-short-desc"><?php echo strip_tags($feed['description'], '<p><a>'); ?></p>
 					<?php }?>
 				</div>
 			</li>										

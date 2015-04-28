@@ -132,7 +132,7 @@ class BaseController extends Controller{
 	}
 
 	protected function create_title($string){
-		$slug = str_replace('-', ' ', strtolower($string));
+		$slug = str_replace('-', ' ', $string);
 		return $slug;
 	}
 	

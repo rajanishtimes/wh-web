@@ -28,7 +28,7 @@
 				<ul class="list citylist">
 					{% for cities in allcities['cities'] %}
 						{% if(cities['name'] | trim | lower == 'delhi') %}
-							<li><a href="{{baseUrl}}/{{cities['name']|lower|trim}}">Delhi NCR</a></li>
+							<li><a href="{{baseUrl}}/delhi">Delhi NCR</a></li>
 						{% else %}
 							<li><a href="{{baseUrl}}/{{cities['name']|lower|trim}}">{{cities['name']}}</a></li>
 						{% endif %}

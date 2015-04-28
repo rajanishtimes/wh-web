@@ -37,7 +37,7 @@
 					<ul class="dropdown-menu square primary margin-list-rounded with-triangle" id="citieslist">
 						{% for cities in allcities['cities'] %}
 							{% if(cities['name'] | trim | lower == 'delhi') %}
-								<li><a href="{{baseUrl}}/{{cities['name'] | trim | lower}}">Delhi NCR</a></li>
+								<li><a href="{{baseUrl}}/delhi">Delhi NCR</a></li>
 							{% else %}
 								<li><a href="{{baseUrl}}/{{cities['name'] | trim | lower}}">{{cities['name']}}</a></li>
 							{% endif %}
