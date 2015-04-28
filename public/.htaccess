@@ -2,6 +2,8 @@ AddDefaultCharset UTF-8
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    rewritecond %{http_host} ^whatshot.in [nc]
+    rewriterule ^(.*)$ http://www.whatshot.in/$1 [r=301,nc,L]
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ index.php?_url=/$1 [QSA,L]
