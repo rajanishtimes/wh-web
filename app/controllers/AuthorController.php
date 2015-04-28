@@ -54,7 +54,7 @@ class AuthorController extends BaseController{
 			$this->view->setVars(array(
 				'authorid' => $authorid,
 				'author' => $author,
-				'start'	=> $start,
+				'start'	=> $limit,
 				'limit'	=> $limit,
 				'profilepost'=>$profilepost,
 				'breadcrumbs'=>$breadcrumbs
