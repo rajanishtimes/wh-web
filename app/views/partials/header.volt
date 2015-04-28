@@ -9,7 +9,17 @@
 		</div><!-- /.logo -->
 		<!-- End logo -->
 		
-		<div class="searchbtn float-right"><a href="{{baseUrl}}/search/search"><img src="{{baseUrl}}/img/search.png"></a></div>
+		
+		{% if(controllername == 'search') %}
+			<div class="searchbtn float-right active">
+				<a href="{{baseUrl}}/search/search"><img src="{{baseUrl}}/img/search_close.png"></a>
+			</div>
+		{% else %}
+			<div class="searchbtn float-right">
+				<a href="{{baseUrl}}/search/search"><img src="{{baseUrl}}/img/search.png"></a>
+			</div>
+		{% endif %}
+		
 		<!-- Begin search nav id="searchbox" --
 		<div id="searchboxmakeoverlay" class="nav-right-info">
 			<form id="searchForm" method="POST" action="/search/search">

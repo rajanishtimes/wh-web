@@ -14,7 +14,7 @@
 						</li>
 					{% endfor  %}
 					</ul><div class="clearfix"></div>
-					<h2 class="contenttitle text-center">{{contentdetail['title']}}</h2>
+					<h1 class="contenttitle text-center">{{contentdetail['title']}}</h1>
 					<div class="contentdetail text-center">
 						By <a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a>
 					</div>
@@ -45,7 +45,7 @@
 								<li><a target="_blank" onclick="window.open('https://plus.google.com/share?url={{contentdetail['share_url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-google-plus-square"></i>  <span>Share on google+ </span></a></li>
 							</ul><div class="clearfix"></div>
 						</div>
-						
+
 						<div class="authordetailsection">
 							<div class="col-sm-4 col-md-2 float-left author-image">
 									<a href="{{baseUrl}}{{author['url']}}">
@@ -55,7 +55,12 @@
 							<div class="col-xs-12 col-sm-8 col-md-10 author-detail">
 									<h2><a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a></h2>
 									<p>{{author['description']}}</p>
+									<ul class="list-inline navbar-left authortwitter">
+										<li class="no-padding"><a target="_blank" href="{{author['twitter_url']}}"><i class="fa fa-twitter"></i> <span>{{author['user_name']}} </span></a></li>
+									</ul><div class="clearfix"></div>
+									
 							</div>
+							<div class="clearfix"></div>
 						</div>
 				</div>
 			</div>

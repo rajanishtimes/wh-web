@@ -13,7 +13,7 @@
 						</li>
 					{% endfor  %}
 					</ul><div class="clearfix"></div>
-					<h2 class="contenttitle text-center">{{eventdetail['title']}}</h2>
+					<h1 class="contenttitle text-center">{{eventdetail['title']}}</h1>
 					<div class="eventdetail">
 						<div class="time">{{eventdetail['time']['short']}}, {{eventdetail['time']['long']}}</div>
 						<div class="venue"><a href="{{baseUrl}}{{eventdetail['url']}}">{{eventdetail['venue']['name']}}, {{eventdetail['venue']['formatted_address']}}</a></div>
@@ -24,7 +24,7 @@
 						{% if(eventdetail['tags'] | length > 0) %}
 							<p class="tags">Tags</p>
 							<div class="work-content">
-								<ul class="work-category-wrap">
+								<ul class="work-category-wrap tagsblack">
 									<?php $populartags =$eventdetail['tags'];?>								
 									{% for populartag in populartags %}
 										<li class="filter" ><a href="{{baseUrl}}/tag/{{elements.create_slug(populartag)}}">

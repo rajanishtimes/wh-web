@@ -61,6 +61,7 @@ p {
     font-weight: bold;
 }
 .visibilityhide{visibility:hidden;}
+blockquote{border-left: 5px solid #333;}
 /**
 -------------------------------------------
 NAVBAR
@@ -221,6 +222,10 @@ NAVBAR
 	cursor:pointer;
 }
 
+.searchbtn.active{
+    background-color:#f5f5f5;
+}
+
 .nav-right-info .input-group-addon{
 	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
     float: right;
@@ -330,7 +335,7 @@ CONTENT/EVENT AREA
 	padding:0;
 }
 
-.contenttitle{font-family: "Lora", times new roman, times, sans-serif; margin:14px 0 0px 10px; font-size: 40px; font-weight: 700; line-height:49px;}
+.section .contenttitle{font-family: "Lora", times new roman, times, sans-serif; margin:14px 0 0px 10px; font-size: 40px; font-weight: 700; line-height:49px;}
 
 .contentdetail {
     color: #d11a6d;
@@ -362,8 +367,9 @@ hr.small {
 
 .eventdetail {
 	font-family: "Lora", times new roman, times, sans-serif;
-    font-size: 17px;
+    font-size: 14px;
     text-align: center;
+	padding: 0 60px;
 }
 
 .eventdetail .time {
@@ -1784,7 +1790,7 @@ h3.tags {
 }
 
 .authordetailsection .author-detail {
-	width: 75%; min-width: 200px;
+	width: 75%; min-width: 200px; padding-top: 10px;
 }
 
 .authordetailsection .author-image {
@@ -1794,12 +1800,8 @@ h3.tags {
 	font-family: Lora;
     font-size: 18px;
     font-weight: bold;
-    margin: 3px 0 0;
+    margin: 0 0 -5px 0;
     text-transform: uppercase;
-}
-
-.authordetailsection .author-detail h2 {
-    margin: 0;
 }
 
 .authordetailsection .author-detail > p {
@@ -1807,6 +1809,13 @@ h3.tags {
     font-size: 14px;
     font-weight: normal;
     line-height: 18px;
+}
+.authortwitter li a{
+	color: #969eab;
+}
+
+.authortwitter li span{
+	font-size: 12px;
 }
 
 /**

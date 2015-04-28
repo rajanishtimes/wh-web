@@ -40,6 +40,7 @@ class BaseController extends Controller{
 		$this->view->baseUrl = $this->baseUrl;
 		
 		//$this->setcookie();
+		$this->view->controllername = $this->dispatcher->getControllerName();
 		
 		//echo $this->dispatcher->getControllerName();exit;
 		//echo $this->dispatcher->getActionName();exit;

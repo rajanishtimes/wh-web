@@ -33,7 +33,7 @@
 						{% if(criticdetail['tags'] | length > 0) %}
 							<p class="tags">Tags</p>
 							<div class="work-content">
-								<ul class="work-category-wrap">
+								<ul class="work-category-wrap tagsblack">
 									<?php $populartags =$criticdetail['tags'];?>								
 									{% for populartag in populartags %}
 										<li class="filter" ><a href="{{baseUrl}}/tag/{{elements.create_slug(populartag)}}">
@@ -62,6 +62,9 @@
 							<div class="author-detail float-left">
 								<h2><a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a></h2>
 								<p>{{author['description']}}</p>
+								<ul class="list-inline navbar-left authortwitter">
+									<li class="no-padding"><a target="_blank" href="{{author['twitter_url']}}"><i class="fa fa-twitter"></i> <span>{{author['user_name']}} </span></a></li>
+								</ul><div class="clearfix"></div>
 							</div>
 						</div>
 						

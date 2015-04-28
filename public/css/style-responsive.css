@@ -22,13 +22,13 @@ COMMON DESKTOP > 992px
 @media (min-width: 992px) {
 	.work-content > div:first-child{ margin-left: -12px; }
 	.contentarea {
-		padding: 0 75px;
+		padding: 0 148px;
 	}
 	.contentarea .detail {
 		padding: 0 62px;
 	}
 	.authordetailsection {
-		padding: 0 62px;
+		padding: 14px 62px 65px 62px;
 	}
 }
 
