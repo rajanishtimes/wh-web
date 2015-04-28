@@ -16,7 +16,7 @@
 					<h1 class="contenttitle text-center">{{eventdetail['title']}}</h1>
 					<div class="eventdetail">
 						<div class="time">{{eventdetail['time']['short']}}, {{eventdetail['time']['long']}}</div>
-						<div class="venue"><a href="{{baseUrl}}{{eventdetail['url']}}">{{eventdetail['venue']['name']}}, {{eventdetail['venue']['formatted_address']}}</a></div>
+						<div class="venue"><a href="{{baseUrl}}{{eventdetail['venue']['url']}}">{{eventdetail['venue']['name']}}, {{eventdetail['venue']['formatted_address']}}</a></div>
 					</div>
 					<hr class="small">
 					<div class="detail">

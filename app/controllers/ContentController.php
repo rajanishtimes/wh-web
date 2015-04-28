@@ -27,7 +27,6 @@ class ContentController extends BaseController{
     public function indexAction(){
 		preg_match('/\bc-[0-9]{1,}\b/i', $this->contenttitle, $match);
 		$id = str_replace('-', '_', $match[0]);
-		
 		$Solr = new \WH\Model\Solr();
 		$Solr->setParam('ids',$id);
 		$Solr->setParam('fl','detail');
@@ -38,6 +37,7 @@ class ContentController extends BaseController{
 		}catch(Exception $e){
 			$contentdetail = array();
 		}
+		
 		if($contentdetail){
 			$Author = new \WH\Model\Solr();
 			$Author->setParam('ids','a_'.$contentdetail['author']['id']);
@@ -49,6 +49,7 @@ class ContentController extends BaseController{
 			}catch(Exception $e){
 				$author = array();
 			}
+			
 			
 			/* ======= Seo Update ============= */
 			if($contentdetail['page_title'])

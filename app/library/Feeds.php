@@ -34,7 +34,7 @@ class Feeds extends Component
 										<div class="landmark"><?php echo $feed['venue']; ?></div>
 									</div>
 								<?php }else{ ?>
-									<div class="feed-short-desc"><?php echo strip_tags($feed['description'], '<p><a>'); ?></div>
+									<div class="feed-short-desc"><?php echo strip_tags($feed['description'], '<a>'); ?></div>
 								<?php }?>
 							</div>
 						</a>
@@ -79,7 +79,7 @@ class Feeds extends Component
 						</a>
 						<div class="the-box no-margin">
 							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo $feed['title']; ?></a></div>
-							<div class="feed-short-desc"><?php echo strip_tags($feed['description'], '<p><a>'); ?></div>
+							<div class="feed-short-desc"><?php echo strip_tags($feed['description'], '<a>'); ?></div>
 						</div>
 					</div>
 				</div>
@@ -93,7 +93,7 @@ class Feeds extends Component
 		foreach($data['results'] as $i=>$feed){ ?>
 			<li class="media searchlist">
 				<a class="pull-left" href="<?php echo $baseUrl . $feed['url']; ?>" data-ga-cat="search" data-ga-action="<?php echo $baseUrl . $feed['url']; ?>" data-in-label="pos_<?php echo $i+1; ?>">
-					<?php echo $this->getimage($baseUrl, $feed['image']['uri'], 100, 100, $feed['title'], $feed['image']); ?>
+					<?php echo $this->getimage($baseUrl, $feed['image']['uri'], 80, 80, $feed['title'], $feed['image']); ?>
 				</a>
 				<div class="media-body">
 					<h4 class="media-heading">
@@ -108,7 +108,7 @@ class Feeds extends Component
 							<div class="landmark"><?php echo $feed['venue']; ?></div>
 						</div>
 					<?php }else{ ?>
-						<p class="feed-short-desc"><?php echo strip_tags($feed['description'], '<p><a>'); ?></p>
+						<p class="feed-short-desc"><?php echo strip_tags($feed['description'], '<a>'); ?></p>
 					<?php }?>
 				</div>
 			</li>										

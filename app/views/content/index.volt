@@ -55,10 +55,12 @@
 							<div class="col-xs-12 col-sm-8 col-md-10 author-detail">
 									<h2><a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a></h2>
 									<p>{{author['description']}}</p>
+									
+									{% if(author['twitter_url'] != '') %}
 									<ul class="list-inline navbar-left authortwitter">
 										<li class="no-padding"><a target="_blank" href="{{author['twitter_url']}}"><i class="fa fa-twitter"></i> <span>{{author['user_name']}} </span></a></li>
 									</ul><div class="clearfix"></div>
-									
+									{% endif %}
 							</div>
 							<div class="clearfix"></div>
 						</div>

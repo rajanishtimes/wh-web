@@ -5,16 +5,27 @@
 			<div class="col-sm-12 col-md-6">
 				<h2 class="venuetitle">{{venuedetail['title']}}</h2>
 				<div class="venuedetail">
-					<div class="time">{{venuedetail['formatted_address']}}</div>
-					<div class="phone"><?php echo implode(',', $venuedetail['phonedata']); if($venuedetail['phonedata']){echo ",";}?> <?php echo implode(',', $venuedetail['mobiledata']); ?></div>
-					<div class="landmark">{{venuedetail['landmark']}}</div>
-					<div class="website"><a href="{{venuedetail['website']}}" target="_blank"><?php echo str_replace('http://','',$venuedetail['website'])?></a></div>
+					{% if(venuedetail['formatted_address'] != '') %}
+						<div class="time"><div class="timeimg"></div>{{venuedetail['formatted_address']}}</div>
+					{% endif %}
+					
+					{% if(venuedetail['mobiledata'] != '' or venuedetail['phonedata'] != '') %}
+						<div class="phone"><div class="phoneimg"></div><?php echo implode(',', $venuedetail['phonedata']); if($venuedetail['phonedata']){echo ",";}?> <?php echo implode(',', $venuedetail['mobiledata']); ?></div>
+					{% endif %}
+					
+					{% if(venuedetail['landmark'] != '') %}
+						<div class="landmark"><div class="landmarkimg"></div>{{venuedetail['landmark']}}</div>
+					{% endif %}
+					
+					{% if(venuedetail['website'] != '') %}
+						<div class="website"><div class="websiteimg"></div><a href="{{venuedetail['website']}}" target="_blank"><?php echo str_replace('http://','',$venuedetail['website'])?></a></div>
+					{% endif %}
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-6">
 				<div id="map_canvas" style="width: 100%; height: 250px;"></div>
-			</div>
-			<hr>
+			</div><div class="clearfix"></div><div style="height:20px"></div>
+			<hr><div style="height:200px"></div>
 		</div>
 	</div>
 </div>

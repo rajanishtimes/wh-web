@@ -130,7 +130,11 @@ $(window).load(function() {
 		$('.overlay-search').remove();
 	});
 	
-	
+	$("#searchtextinput").focus(function(){
+		$('.searchbox').addClass('active');
+	}).focusout(function() {
+		$('.searchbox').removeClass('active');
+	});
 	/* .blur(function(){
 		var w = $('#expandable').attr('data-default');
 		$('#expandable').animate({ width: w }, 'slow');

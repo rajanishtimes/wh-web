@@ -6,9 +6,9 @@
 			
 				<div class="searchbox">
 					<form id="searchForm" method="POST" action="{{baseUrl}}/search/search" onsubmit="return searchValid();">
-							<div class="textinput float-left"><input id="searchtextinput" type="text" autofocus class="form-control" placeholder="Search..." name="search" value="{% if(searchkeyword is defined) %}{{searchkeyword}}{% endif %}""></div>
+							<div class="textinput float-left"><input id="searchtextinput" type="text" autofocus class="form-control" placeholder="Search..." name="search" value="{% if(searchkeyword is defined) %}{{searchkeyword}}{% endif %}"></div>
 							<div class="searchinout float-right"><button class="input-group-addon">
-							<img src="{{baseUrl}}/img/smallsearchicon.png">
+							<img src="{{baseUrl}}/img/search.png">
 							</button></div>
 					</form><div class="clearfix"></div>
 				</div>
@@ -19,7 +19,7 @@
 					{% if(allfeedslist | length > 0) %}
 						<ul id="getallfeedssearch" class="media-list feed-list">
 							{% if(searchkeyword is defined) %}
-								<h1>{{allfeedslist['meta']['match_count']}} result(s) found from &#8220;{{searchkeyword}}&#8221;</h1>
+								<h1 class="searchheading">{{allfeedslist['meta']['match_count']}} results found for &#8220;<strong>{{searchkeyword}}</strong>&#8221;</h1>
 							{% endif %}
 							
 							{{feeds.getfeedslist(baseUrl, allfeedslist)}}

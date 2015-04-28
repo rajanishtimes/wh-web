@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-sm-12 col-md-12">
 				{% if(tagsfeeds | length > 0) %}
-					<h1>{{tagsfeeds['meta']['match_count']}} result(s) found from &#8220;{{tags}}&#8221;</h1>
+					<h1 class="searchheading">{{tagsfeeds['meta']['match_count']}} result(s) found from &#8220;<strong>{{tags}}</strong>&#8221;</h1>
 					<div class="work-content allfeeds">
 						<div id="getallfeedssearch">					
 							{{feeds.getfeeds(baseUrl, tagsfeeds, start)}}

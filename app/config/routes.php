@@ -94,21 +94,21 @@ $router->add("/search/autosuggestion", array(
     'action' => 'autosuggestion',
 ));
 
-if(preg_match('/\be-[a-zA-Z0-9\- ]+/i', $urlparams, $match)){	
+if(preg_match('/\be-[0-9\- ]+/i', $urlparams, $match)){	
 	$router->add("/{city}/{eventtitle}", array(
 		'controller' => 'event',
 		'action' => 'index',
 	));
 }
 
-if(preg_match('/\bc-[a-zA-Z0-9\- ]+/i', $urlparams, $match)){
+if(preg_match('/\bc-[0-9\- ]+/i', $urlparams, $match)){
 	$router->add("/{city}/{contenttitle}", array(
 		'controller' => 'content',
 		'action' => 'index',
 	));
 }
 
-if(preg_match('/\b-s-[a-zA-Z0-9\- ]+/i', $urlparams, $match)){
+if(preg_match('/\bs-[0-9\- ]+/i', $urlparams, $match)){
 	$router->add("/{city}/{specialpagetitle}", array(
 		'controller' => 'specialpage',
 		'action' => 'index',
