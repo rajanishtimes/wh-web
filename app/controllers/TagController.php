@@ -21,6 +21,7 @@ class TagController extends BaseController{
     public function indexAction(){
 		$start = 0;
 		$limit = 11;
+		$this->tags = $this->create_title($this->tags);
 		try{
 			$tagsfeeds = $this->getfeeddata($start, $limit, $this->city, 'all', 'tags', $this->tags, 'Event,Content');
 		}catch(Exception $e){

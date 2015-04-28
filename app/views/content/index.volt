@@ -8,7 +8,7 @@
 					<ul id="owl-work-detail" class="owl-carousel work-detail">
 					{% for images in contentdetail['images'] %}
 						<li class="item">
-							<a href="{{images['uri']}}" class="swipebox" title="{{contentdetail['title']}}">
+							<a href="{{feeds.makeurl(images['uri'])}}" class="swipebox" title="{{contentdetail['title']}}">
 								{{feeds.getimage(baseUrl, images['uri'], '', '', contentdetail['title'], '', '', 'img-detail')}}
 							</a>
 						</li>

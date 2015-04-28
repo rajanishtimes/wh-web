@@ -82,4 +82,14 @@ class Elements extends Component
 		$imgbox = '<img src="'.$url.'img/img_feed_default.png" alt="'.$alt.'">';
 		return $imgbox;
 	}
+	
+	public function create_slug($string){
+		$slug=str_replace(' ', '-', $string);
+		return $slug;
+	}
+
+	public function create_title($string){
+		$slug = str_replace('-', ' ', $string);
+		return $slug;
+	}
 }

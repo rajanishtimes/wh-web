@@ -30,7 +30,7 @@
 					<h2 class="heading">Popular Tips</h2>
 					<ul class="work-category-wrap">
 						{% for populartag in populartags['popular_tags'] %}
-							<li class="filter" ><a href="{{baseUrl}}/tag/{{populartag}}">
+							<li class="filter" ><a href="{{baseUrl}}/tag/{{elements.create_slug(populartag)}}">
 							{{populartag}}
 							</a></li>
 						{% endfor  %}
