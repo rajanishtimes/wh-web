@@ -137,6 +137,18 @@ $(window).load(function() {
 	}) */
 });
 
+function searchValid(){
+	var searchVal=$('#searchtextinput').val();
+	if(searchVal=='')
+		$('.searchbox').addClass('redborder');
+	else
+		$('.searchbox').removeClass('redborder');
+	
+	if(searchVal=='')
+		return false;
+	
+}
+
 
 function ajax_feed_filter_type(){
 	$('#getallfeeds').empty();
