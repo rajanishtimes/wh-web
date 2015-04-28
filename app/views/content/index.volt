@@ -25,7 +25,7 @@
 						{% if(contentdetail['tags'] | length > 0) %}
 							<p class="tags">Tags</p>
 							<div class="work-content">
-								<ul class="work-category-wrap">
+								<ul class="work-category-wrap tagsblack">
 									<?php $populartags =$contentdetail['tags'];?>								
 									{% for populartag in populartags %}
 										<li class="filter" ><a href="{{baseUrl}}/tag/{{elements.create_slug(populartag)}}">

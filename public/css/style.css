@@ -351,7 +351,7 @@ hr.small {
 }
 .contentarea .detail {
     font-family: "Lora", times new roman, times, sans-serif;
-    font-size: 18px;
+    font-size: 16px;
 	text-align: left;
 }
 
@@ -435,6 +435,9 @@ ul.work-category-wrap{
 	list-style: none;
 	text-align: left;
 }
+
+
+
 ul.work-category-wrap li{
 	background: none repeat scroll 0 0 #fc3768;
     border: 1px solid #fc3768;
@@ -453,6 +456,15 @@ ul.work-category-wrap li a{
 
 ul.work-category-wrap li:hover a, ul.work-category-wrap li.active a{
 	color:#d11a6d;
+}
+
+
+ul.tagsblack  li{
+	border: 1px solid #ababab;
+	background: #fff;
+}
+ul.tagsblack  li a{
+	color: #ababab; font-family: roboto;
 }
 
 .filter_type{
@@ -1754,7 +1766,7 @@ h3.tags {
     border-bottom: 1px solid rgb(238, 238, 238);
     border-top: 1px solid rgb(238, 238, 238);
     margin: 17px 0;
-    padding: 10px 62px;
+    padding: 26px 62px;
 	color:#ababab;
 }
 .share ul{
@@ -1762,7 +1774,7 @@ h3.tags {
 }
 
 .share ul a{
-	color:#ababab;
+	color:#8e8d8d;
 	font-family: Roboto;
     font-size: 19px;
 }
@@ -1772,14 +1784,18 @@ h3.tags {
 }
 
 .authordetailsection .author-detail {
-	width: 85%; min-width: 200px;
+	width: 75%; min-width: 200px;
 }
 
 .authordetailsection .author-image {
     width: 100px; min-width: 130px;
 }
 .authordetailsection .author-detail h2 {
+	font-family: Lora;
+    font-size: 18px;
+    font-weight: bold;
     margin: 3px 0 0;
+    text-transform: uppercase;
 }
 
 .authordetailsection .author-detail h2 {
@@ -1789,6 +1805,8 @@ h3.tags {
 .authordetailsection .author-detail > p {
     font-family: Roboto;
     font-size: 14px;
+    font-weight: normal;
+    line-height: 18px;
 }
 
 /**
@@ -3813,13 +3831,15 @@ background-color:#fff;
     color: #1e1e1e;
     font-family: Roboto;
     font-weight: bold;
-    margin-top: 40px;
+    margin: 0 0 8px 0 !important;
     text-transform: uppercase;
+	font-size:18px;
 }
 .share .sharek{
-	color: #ababab;
+	color: #000;
 	font-family: Roboto;
 	padding: 0;
+	font-size:18px;
 }
 .sponsors {
     margin: -26px 0 0 10px;
@@ -3828,7 +3848,7 @@ background-color:#fff;
     z-index: 999;
 }
 .share ul a span {
-    font-size: 16px;
+    font-size: 14px;
 }
 .share ul a:hover{
     color: #1e1e1e;
@@ -3839,7 +3859,8 @@ background-color:#fff;
     padding: 0 16%;
 }
 .detail p {
-    color: #000;
+    color: #333;
+    margin-bottom: 40px;
 }
 .detail p a{
     color: #d11a6d;
