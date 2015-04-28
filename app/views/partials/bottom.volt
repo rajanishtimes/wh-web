@@ -4,7 +4,7 @@
 		<script type="text/javascript" src="{{baseUrl}}/plugins/owl-carousel/owl.carousel.min.js"></script>
 		<script type="text/javascript" src="{{baseUrl}}/plugins/swipebox/src/js/jquery.swipebox.js"></script>
 		<script type="text/javascript" src="{{baseUrl}}/js/utils.js"></script>
-		<script type="text/javascript" src="{{baseUrl}}/js/apps.js"></script>
+		<script type="text/javascript" src="{{baseUrl}}/js/apps.js{{time}}"></script>
 		
 		<script type="text/javascript">
                       

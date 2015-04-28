@@ -37,7 +37,8 @@ class BaseController extends Controller{
 		
 		$this->baseUrl = $this->config->application->baseUri;
 		$this->view->baseUrl = $this->baseUrl;
-		
+
+		$this->view->isdebug = $this->config->application->mode;
 		//$this->setcookie();
 		$this->view->controllername = $this->dispatcher->getControllerName();
 		

@@ -1,17 +1,6 @@
 <?php if(!empty($allfeedslist['results'])){ ?>
 <div class="work-content allfeeds">
-	{% for feed in allfeedslist['results'] %}
-	<div class="col-sm-4 col-md-3 col-xs-6">
-		<div class="work-item">
-			<a href="{{baseUrl}}/{{feed['url']}}">
-				{{feeds.getimage(baseUrl, feed['cover_image'], 100, 100, feed['title'])}}
-			</a>
-			<div class="the-box no-margin">
-				<div class="feed-title"><a href="{{baseUrl}}{{feed['url']}}">{{feed['title']}}</a></div>
-			</div>
-		</div>
-	</div>
-	{% endfor  %}
+	{{feeds.getfeedsforcoverimg(baseUrl, allfeedslist)}}
 </div>
 <-!-###@###->
 <?php if($allfeedslist['meta']['match_count'] > $start){ ?>

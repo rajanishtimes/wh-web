@@ -49,7 +49,7 @@
 							{% if(cities['name'] | trim | lower == 'delhi') %}
 								<li><a href="{{baseUrl}}/delhi">Delhi NCR</a></li>
 							{% else %}
-								<li><a href="{{baseUrl}}/{{cities['name'] | trim | lower}}">{{cities['name']}}</a></li>
+								<li><a href="{{baseUrl}}/{{elements.create_slug(cities['name']) | trim | lower}}">{{cities['name']}}</a></li>
 							{% endif %}
 						{% endfor  %}
 					</ul>
