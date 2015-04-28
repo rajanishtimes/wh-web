@@ -191,7 +191,7 @@ class BaseController extends Controller{
 	}
 	
 	protected function breadcrumbs($arr){
-		$bdc = array('Whatshot'=>$this->baseUrl.'/'.$this->city);
+		$bdc = array('What&apos;s Hot'=>$this->baseUrl.'/'.$this->city);
 		$breadcrumbs = array_merge($bdc, $arr);
 		return $breadcrumbs;
 	}

@@ -8,13 +8,13 @@ $request = trim($request, '/');
 $split = explode('/', $request);
 $urlparams = end($split);
 	
-$router->add("/tag/{tags:[a-zA-Z0-9\- ]+}", array(
+$router->add("/tag/{tags}", array(
     'controller' => 'tag',
     'action' => 'index',
 ));
 
 
-$router->add("/author/{authorname:[a-zA-Z0-9\- ]+}", array(
+$router->add("/author/{authorname}", array(
     'controller' => 'author',
     'action' => 'index',
 )); 
@@ -25,24 +25,24 @@ $router->add("/author/posts", array(
 )); 
 
 
-$router->add("/{city:[a-zA-Z0-9\-]+}/venue/{venue:[a-zA-Z0-9\- ]+}", array(
+$router->add("/{city}/venue/{venue}", array(
 	'controller' => 'venue',
 	'action' => 'index',
 ));
 
-$router->add("/{city:[a-zA-Z0-9\-]+}/location/{locationname:[a-zA-Z0-9\- ]+}", array(
+$router->add("/{city}/location/{locationname}", array(
 	'controller' => 'location',
 	'action' => 'location',
 ));
 
 
-$router->add("/critic-review/{critic:[a-zA-Z0-9\- ]+}", array(
+$router->add("/critic-review/{critic}", array(
     'controller' => 'critic',
     'action' => 'index',
 ));
 
 
-$router->add("/search/{searchquery:[a-zA-Z0-9+!@$%^&*\- ]+}", array(
+$router->add("/search/{searchquery}", array(
     'controller' => 'search',
     'action' => 'search',
 ));
@@ -78,12 +78,12 @@ $router->add("/search", array(
     'action' => 'search',
 ));
 
-$router->add("/{city:[a-zA-Z0-9\-]+}/location", array(
+$router->add("/{city}/location", array(
     'controller' => 'location',
     'action' => 'location',
 ));
 
-$router->add("/{city:[a-zA-Z0-9\-]+}/events", array(
+$router->add("/{city}/events", array(
     'controller' => 'event',
     'action' => 'eventlist',
 ));
@@ -94,28 +94,28 @@ $router->add("/search/autosuggestion", array(
     'action' => 'autosuggestion',
 ));
 
-if(preg_match('/\b-e-[a-zA-Z0-9\- ]+/i', $urlparams, $match)){	
-	$router->add("/{city:[a-zA-Z0-9\-]+}/{eventtitle:[a-zA-Z0-9\-]+}", array(
+if(preg_match('/\be-[a-zA-Z0-9\- ]+/i', $urlparams, $match)){	
+	$router->add("/{city}/{eventtitle}", array(
 		'controller' => 'event',
 		'action' => 'index',
 	));
 }
 
-if(preg_match('/\b-c-[a-zA-Z0-9\- ]+/i', $urlparams, $match)){
-	$router->add("/{city:[a-zA-Z0-9\-]+}/{contenttitle:[a-zA-Z0-9\-]+}", array(
+if(preg_match('/\bc-[a-zA-Z0-9\- ]+/i', $urlparams, $match)){
+	$router->add("/{city}/{contenttitle}", array(
 		'controller' => 'content',
 		'action' => 'index',
 	));
 }
 
 if(preg_match('/\b-s-[a-zA-Z0-9\- ]+/i', $urlparams, $match)){
-	$router->add("/{city:[a-zA-Z0-9\-]+}/{specialpagetitle:[a-zA-Z0-9\-]+}", array(
+	$router->add("/{city}/{specialpagetitle}", array(
 		'controller' => 'specialpage',
 		'action' => 'index',
 	));
 }
 
-$router->add("/{city:[a-zA-Z0-9\-]+}", array(
+$router->add("/{city}", array(
 	'controller' => 'index',
 	'action' => 'homepage',
 ));

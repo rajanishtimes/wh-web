@@ -1511,13 +1511,14 @@ SEARCH
 	border:none; font-size: 22px;
 }
 
-.searchbox .searchinout .input-group-addon {
+.searchbox .searchinout .input-group-addon, .searchbox .searchinout .input-group-addon:focus, .searchbox .searchinout .input-group-addon:active {
 	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: medium none;
     float: right;
     font-size: 19px;
     width: auto;
 	color: #333333;
+	outline:none
 }
 
 .feed-list{

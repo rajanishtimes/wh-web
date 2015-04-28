@@ -127,10 +127,25 @@ class Feeds extends Component
 		if($image_url){
 			$pos = strpos($image_url, 'http');
 			if($pos !== false){
-				$imgurl = $image_url.'?w='.$width.'&h='.$height.'&c=1';
+				$imgurl = $image_url;
 			}else{
-				$imgurl = $this->getimageendpoint().$image_url.'?w='.$width.'&h='.$height.'&c=1';
+				$imgurl = $this->getimageendpoint().$image_url;
 			}
+			
+			$size = getimagesize($imgurl);
+			$original_width = $size[0];
+			$original_height = $size[1];
+			
+			$x = $y = 0;
+			
+			if($original_width > $width && $width != 0){
+				$x = ($original_width - $width)/2;
+			}
+			
+			if($original_height > $height  && $height != 0){
+				$y = ($original_height - $height)/2;
+			}
+			$imgurl = $imgurl.'?x='.$x.'&y='.$y.'&w='.$width.'&h='.$height.'&c=1';
 			$imgbox = '<img src="'.$imgurl.'" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
 		}else{
 			$imgbox = '<img src="'.$url.'/img/img_feed_default.png" alt="'.$alt.'"  style="'.$style.'" class="'.$class.'">';
