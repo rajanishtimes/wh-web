@@ -35,8 +35,7 @@ class BaseController extends Controller{
 		$this->view->og_site_name = $this->config->application->SiteName;
 		$this->view->constants=$this->getConstants();
 		
-		
-		$this->baseUrl = 'http://'.$_SERVER['HTTP_HOST'].$this->config->application->baseUri;
+		$this->baseUrl = $this->config->application->baseUri;
 		$this->view->baseUrl = $this->baseUrl;
 		
 		//$this->setcookie();
