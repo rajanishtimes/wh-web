@@ -6,11 +6,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		{{ get_title() }}
 		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
-		{{ stylesheet_link('css/bootstrap.min.css') }}
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/bootstrap.min.css" />
+		
 		<!-- MAIN CSS (REQUIRED ALL PAGE)-->
-		{{ stylesheet_link('plugins/font-awesome/css/font-awesome.min.css') }}
-		{{ stylesheet_link('css/style.css') }}
-		{{ stylesheet_link('css/style-responsive.css') }}
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/style-responsive.css" />
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		
@@ -36,7 +37,7 @@
 			<div class="buildings"></div>
 		</div>
 		
-		{{ javascript_include('js/jquery.js') }}
-		{{ javascript_include('js/rain.js') }}
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="{{baseUrl}}/js/rain.js"></script>
     </body>
 </html>
