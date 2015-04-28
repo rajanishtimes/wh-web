@@ -44,6 +44,7 @@ class AuthorController extends BaseController{
 		
 		//echo "<pre>"; print_r($author); exit;
 		if($author){
+			$this->validateRequest($author['url']);
 			$ids = explode('_', $id);
 			$authorid = end($ids);
 			$start = 0;

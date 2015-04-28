@@ -41,6 +41,7 @@ class SpecialpageController extends BaseController{
 		
 		
 		if($specialpagedetail){
+			$this->validateRequest($specialpagedetail['url']);
 			/* ======= Seo Update ============= */
 			if($specialpagedetail['page_title'])
 				$this->tag->setTitle($specialpagedetail['page_title']);

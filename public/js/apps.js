@@ -175,26 +175,37 @@ $.fn.center = function () {
     this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + "px");
     return this;
 }
-
+var feed_with_ajax_running = false;
 function view_feed_with_ajax(mainURL, start, limit, parentId, searchval, tags, bydate){
-	$('#'+parentId).append('<div class="loader"><img src="'+baseUrl+'/img/ajax-loader.gif"></div>');
-	$('#'+parentId).parent().find('.loadmore .btn').addClass('visibilityhide');
-	
-	$.ajax( {
-		url:mainURL,
-		type:'POST',
-		//async:false,
-		data: 'searchkeyword='+searchval+'&start='+start+'&limit='+limit+'&tags='+tags+'&bydate='+bydate+'&mainurl='+mainURL+'&parentid='+parentId,
-		success:function(data) {
-			var splitdata = data.split("<-!-###@###->");
-			$('#'+parentId).parent().find('.loader').remove();
-			$('#'+parentId).append(splitdata[0]);
-			$('#'+parentId).parent().find('.loadmore').html(splitdata[1]);
-			resizefeedimage();
-			setTimeout(function(){ resizefeedimage(); }, 1000);
-			if($('.seach-overlay-box').css('display') == 'block'){
-				$('.seach-overlay-box').height($(document).height());
+	if(feed_with_ajax_running === false){
+		console.log("starting ....");
+		$.ajax( {
+			url:mainURL,
+			type:'POST',
+			//async:false,
+			data: 'searchkeyword='+searchval+'&start='+start+'&limit='+limit+'&tags='+tags+'&bydate='+bydate+'&mainurl='+mainURL+'&parentid='+parentId,
+			beforeSend: function(){
+				feed_with_ajax_running = true;
+				console.log("sending request ... ");
+				$('#'+parentId).append('<div class="loader"><img src="'+baseUrl+'/img/ajax-loader.gif"></div>');
+				$('#'+parentId).parent().find('.loadmore .btn').addClass('visibilityhide');
+			},
+			success:function(data) {
+				var splitdata = data.split("<-!-###@###->");
+				$('#'+parentId).parent().find('.loader').remove();
+				$('#'+parentId).append(splitdata[0]);
+				$('#'+parentId).parent().find('.loadmore').html(splitdata[1]);
+				resizefeedimage();
+				setTimeout(function(){ resizefeedimage(); }, 1000);
+				if($('.seach-overlay-box').css('display') == 'block'){
+					$('.seach-overlay-box').height($(document).height());
+				}
+				feed_with_ajax_running = false;
+				console.log("request complete ....");
 			}
-		}
-	});
+		});
+
+	}else{
+		console.log("running already ....")
+	}
 }

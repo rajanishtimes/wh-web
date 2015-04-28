@@ -39,6 +39,7 @@ class ContentController extends BaseController{
 		}
 		
 		if($contentdetail){
+			$this->validateRequest($contentdetail['url']);
 			$Author = new \WH\Model\Solr();
 			$Author->setParam('ids','a_'.$contentdetail['author']['id']);
 			$Author->setParam('fl','detail');

@@ -36,6 +36,7 @@ class CriticController extends BaseController{
 
 		if($criticdetail){
 			//echo "<pre>"; print_r($criticdetail);
+			$this->validateRequest($criticdetail['url']);
 			$Author = new \WH\Model\Solr();
 			$Author->setParam('ids','a_'.$criticdetail['author_id']);
 			$Author->setParam('fl','detail');

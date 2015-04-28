@@ -247,4 +247,14 @@ class BaseController extends Controller{
 		$url = $this->config->application->$img_url;
 		return $url;
 	}
+	
+	public function validateRequest($url){
+		$request_uri = trim($_SERVER['REQUEST_URI'], '/');
+		$arr = explode('?', $request_uri);
+		$request_uri = $arr[0];
+		$uri = trim($url, '/');
+		if($uri != $request_uri){
+			$this->response->redirect($this->baseUrl.'/'.$url, true, 301);
+		}
+	}
 }

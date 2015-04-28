@@ -37,6 +37,7 @@ class VenueController extends BaseController{
 		}
 
 		if($venuedetail){
+			$this->validateRequest($venuedetail['url']);
 			$formatted_address = '';
 			if(isSet($venuedetail['address']) && trim($venuedetail['address'])!=''){
 				$address_arr[] = $venuedetail['address'];

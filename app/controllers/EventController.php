@@ -41,6 +41,7 @@ class EventController extends BaseController{
 		}
         
 		if($eventdetail){			
+			$this->validateRequest($eventdetail['url']);
 			foreach($eventdetail['images'] as $key=>$images){
 				if($images['uri']){
 					if(substr($images['uri'], 0, 4) != 'http'){
