@@ -32,14 +32,20 @@
             }); */
             
 			$('#citieslist li').click(function(){
-				var myDate = new Date();
-				myDate.setMonth(myDate.getMonth() + 12);
-				document.cookie = "city={{city}};expires=" + myDate + ";domain={{host}};path=/";
+				SetCookie('city', '{{city}}', 15);
+				//document.cookie = "city={{city}};expires=" + myDate + ";domain={{host}};path=/";
 				var href = $(this).find('a').attr('href');
 				window.location.href = href;
 				return false;
 			});
 			
+			function SetCookie(cookieName,cookieValue,nDays) {
+				var today = new Date();
+				var expire = new Date();
+				if (nDays==null || nDays==0) nDays=1;
+				expire.setTime(today.getTime() + 3600000*24*nDays);
+				document.cookie = cookieName+"="+escape(cookieValue)+ ";expires="+expire.toGMTString();
+			}
         </script>
     </body>
 </html>
