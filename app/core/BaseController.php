@@ -36,7 +36,7 @@ class BaseController extends Controller{
 		$this->view->constants=$this->getConstants();
 		
 		$this->view->host = $this->config->application->baseUri;
-		$this->baseUrl = 'http://'.$this->config->application->baseUri;
+		$this->baseUrl = 'http://'.$this->config->application->baseUri.'/';
 		$this->view->baseUrl = $this->baseUrl;
 
 		$this->view->isdebug = $this->config->application->mode;
