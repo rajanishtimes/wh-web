@@ -1,3 +1,4 @@
+var feed_with_ajax_running = false;
 var $sidebar = $('.sidebar'),
 $window = $(window),
 previousScroll = 0;
@@ -155,7 +156,9 @@ function searchValid(){
 
 
 function ajax_feed_filter_type(){
-	$('#getallfeeds').empty();
+	if(feed_with_ajax_running === false){
+		$('#getallfeeds').empty();
+	}
 	view_feed_with_ajax(baseUrl+'/search/index', 0, 11, 'getallfeeds', '', $('#tags').val(), $('#bydatefeed').val());
 }
 
@@ -175,10 +178,10 @@ $.fn.center = function () {
     this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + "px");
     return this;
 }
-var feed_with_ajax_running = false;
+
 function view_feed_with_ajax(mainURL, start, limit, parentId, searchval, tags, bydate){
 	if(feed_with_ajax_running === false){
-		console.log("starting ....");
+		//console.log("starting ....");
 		$.ajax( {
 			url:mainURL,
 			type:'POST',
@@ -186,7 +189,7 @@ function view_feed_with_ajax(mainURL, start, limit, parentId, searchval, tags, b
 			data: 'searchkeyword='+searchval+'&start='+start+'&limit='+limit+'&tags='+tags+'&bydate='+bydate+'&mainurl='+mainURL+'&parentid='+parentId,
 			beforeSend: function(){
 				feed_with_ajax_running = true;
-				console.log("sending request ... ");
+				//console.log("sending request ... ");
 				$('#'+parentId).append('<div class="loader"><img src="'+baseUrl+'/img/ajax-loader.gif"></div>');
 				$('#'+parentId).parent().find('.loadmore .btn').addClass('visibilityhide');
 			},
@@ -201,11 +204,9 @@ function view_feed_with_ajax(mainURL, start, limit, parentId, searchval, tags, b
 					$('.seach-overlay-box').height($(document).height());
 				}
 				feed_with_ajax_running = false;
-				console.log("request complete ....");
+				//console.log("request complete ....");
 			}
 		});
 
-	}else{
-		console.log("running already ....")
 	}
 }

@@ -22,6 +22,7 @@ class TagController extends BaseController{
 		$start = 0;
 		$limit = 11;
 		$this->tags = $this->create_title($this->tags);
+		$tags = htmlspecialchars($this->tags);
 		try{
 			$tagsfeeds = $this->getfeeddata($start, $limit, $this->city, 'all', 'tags', $this->tags, 'Event,Content');
 		}catch(Exception $e){
@@ -31,11 +32,11 @@ class TagController extends BaseController{
 		//$current_encoding = mb_detect_encoding($this->tags, 'auto');
 		//$ttgs = iconv($current_encoding, 'UTF-8', $this->tags);
 	
-		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($this->tags))) =>''));
+		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($tags))) =>''));
 		$this->view->setVars(
 			array(
 				'tagsfeeds' => $tagsfeeds,
-				'tags'=>$this->tags,
+				'tags'=>$tags,
 				'start'=>$limit,
 				'limit'=>$limit,
 				'breadcrumbs'=>$breadcrumbs
