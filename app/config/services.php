@@ -47,6 +47,9 @@ $di->set('config', $config);
  */
 $di->set('router', function(){
 	require APP_PATH.'app/config/routes.php';
+	//$router->notFound(['controller' => 'Index', 'action'=> 'index']);
+    //$router->setDefaultController('index');
+    //$router->setDefaultAction('index');
 	return $router;
 });
 

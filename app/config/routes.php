@@ -147,4 +147,9 @@ $router->add("/homepage", array(
 )); 
 
 
+$router->add("/", array(
+    'controller' => 'index',
+    'action' => 'index',
+)); 
+
 $router->handle();
