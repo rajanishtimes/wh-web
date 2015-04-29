@@ -24,6 +24,7 @@ class IndexController extends BaseController{
 		
 		$this->view->meta_description = 'Events in '.ucwords($this->city).': Getting bored? Wondering what to do in '.ucwords($this->city).' today? Check out the list of things to do in '.ucwords($this->city).' today and have unlimited fun. ';
 		$this->view->meta_keywords = 'things to do in '.ucwords($this->city).', what to do in '.ucwords($this->city).', '.ucwords($this->city).' events';
+		$this->view->canonical_url = $this->baseUrl.'/'.$this->city;
 		/* ======= Seo Update ============= */
 		
 		

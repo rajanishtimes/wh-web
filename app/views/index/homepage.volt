@@ -1,3 +1,4 @@
+{% if(topfeeds | length > 0 AND populartags['popular_tags'] | length > 0 AND allfeedslist | length > 0) %}
 <div class="section">
 	<div class="container">
 		<div class="row">
@@ -67,5 +68,12 @@
 		</div>
 	</div>
 </div>
-
-
+{% else %}
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<img src="{{baseUrl}}/img/no-event.png" style="width:100%">
+		</div>
+	</div>
+</div>
+{% endif %}
