@@ -16,7 +16,7 @@
 						</div>
 					</div>
 				{% else %}
-					<h1>No Result Found From &#8220;{{tags | lower | capitalize}}&#8221;</h1><div style="height:250px"></div>
+					<h1>No Result Found From &#8220;{{tags}}&#8221;</h1><div style="height:250px"></div>
 				{% endif %}
 			</div>
 		</div>
