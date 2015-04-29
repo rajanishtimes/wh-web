@@ -22,7 +22,7 @@ class TagController extends BaseController{
 		$start = 0;
 		$limit = 11;
 		$this->tags = $this->create_title($this->tags);
-		$tags = htmlspecialchars($this->tags);
+		$tags = htmlspecialchars($this->tags, ENT_COMPAT,'ISO-8859-1', true);
 		try{
 			$tagsfeeds = $this->getfeeddata($start, $limit, $this->city, 'all', 'tags', $this->tags, 'Event,Content');
 		}catch(Exception $e){
