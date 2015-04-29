@@ -16,6 +16,7 @@ class IndexController extends BaseController{
 		/* $this->setcities();
 		$this->setcityid();*/
 		
+		$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
 		
 		/* ======= Seo Update ============= */
 		$title = ucwords($this->city).' Events: Things to do in '.ucwords($this->city).' Today | '.$this->config->application->SiteName;
@@ -91,6 +92,7 @@ class IndexController extends BaseController{
 		$this->view->og_title = 'Privacy Policy';
 		$this->view->og_description = '';
 		$this->view->og_url = $this->baseUrl.'/'.'policy';
+		$this->view->canonical_url = $this->baseUrl.'/'.'policy';
     }
     public function termsAction(){
         $this->tag->setTitle('Terms & Conditions');
@@ -99,6 +101,7 @@ class IndexController extends BaseController{
 		$this->view->og_title = 'Terms & Conditions';
 		$this->view->og_description = '';
 		$this->view->og_url = $this->baseUrl.'/'.'terms';
+		$this->view->canonical_url = $this->baseUrl.'/'.'terms';
     }
 	
 	public function aboutusAction(){
@@ -108,5 +111,6 @@ class IndexController extends BaseController{
 		$this->view->og_title = 'About Us';
 		$this->view->og_description = '';
 		$this->view->og_url = $this->baseUrl.'/'.'about-us';
+		$this->view->canonical_url = $this->baseUrl.'/'.'about-us';
     }
 }

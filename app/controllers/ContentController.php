@@ -61,7 +61,9 @@ class ContentController extends BaseController{
 			$this->view->og_type = 'Content';
 			$this->view->og_description = $contentdetail['og_description'];
 			$this->view->og_image = $this->baseUrl.'/'.$contentdetail['og_image'];
-			$this->view->og_url = $this->baseUrl.'/'.$contentdetail['url'];
+			$this->view->og_url = $this->baseUrl.$contentdetail['url'];
+			$this->view->canonical_url = $this->baseUrl.$contentdetail['url'];
+			$this->view->deep_link = $contentdetail['deep_link'];
 			/* ======= Seo Update ============= */
 			
 			foreach($contentdetail['images'] as $key=>$images){

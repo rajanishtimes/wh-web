@@ -44,3 +44,17 @@
 		background: none repeat scroll 0 0 #f9f9f9;
 	}
 </style>
+
+
+<script type="application/ld+json">
+{
+   "@context": "http://schema.org",
+   "@type": "WebSite",
+   "url": "{{baseUrl}}",
+   "potentialAction": {
+ 	"@type": "SearchAction",
+ 	"target": "{{baseUrl}}/search/{{searchkeyword}}",
+ 	"query-input": "{{searchkeyword}}"
+   }
+}
+</script>

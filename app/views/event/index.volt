@@ -51,3 +51,19 @@
 		</div>
 	</div>
 </div>
+
+<?php $date = explode('-', $eventdetail['time']['short']); $startdate = date('Y-m-d', strtotime($date[0])); ?>
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type" : "Event",
+	"name" : "{{eventdetail['title']}}",
+	"url" : "{{canonical_url}}",
+	"location": {
+	"@type" : "Place",
+	"name" : "{{eventdetail['venue']['name']}}",
+	"address" : "{{eventdetail['venue']['formatted_address']}}"
+	},
+	"startDate": "{{startdate}}"
+}
+</script>

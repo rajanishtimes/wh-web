@@ -51,7 +51,9 @@ class SpecialpageController extends BaseController{
 			$this->view->og_type = 'Content';
 			$this->view->og_description = $specialpagedetail['og_description'];
 			$this->view->og_image = $this->baseUrl.'/'.$specialpagedetail['og_image'];
-			$this->view->og_url = $this->baseUrl.'/'.$specialpagedetail['url'];
+			$this->view->og_url = $this->baseUrl.$specialpagedetail['url'];
+			$this->view->canonical_url = $this->baseUrl.$specialpagedetail['url'];
+			$this->view->deep_link = $specialpagedetail['deep_link'];
 			/* ======= Seo Update ============= */
 			
 			foreach($specialpagedetail['images'] as $key=>$images){

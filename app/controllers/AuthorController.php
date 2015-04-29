@@ -40,6 +40,8 @@ class AuthorController extends BaseController{
 		$this->view->og_title = 'Events and Content Submitted by '.$author['title'].' | WhatsHot';
 		$this->view->og_type = 'Author';
 		$this->view->og_description = $author['title'].': Check out the list of events and content that '.$author['title'].' submitted.';
+		$this->view->canonical_url = $this->baseUrl.$author['url'];
+		$this->view->deep_link = $author['deep_link'];
 		/* ======= Seo Update ============= */
 		
 		//echo "<pre>"; print_r($author); exit;

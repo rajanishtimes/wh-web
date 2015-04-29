@@ -14,6 +14,8 @@ class BaseController extends Controller{
 	public $og_description = '';
 	public $og_image = '';
 	public $og_url = '';
+	public $canonical_url = '';
+	public $deep_link = '';
 	public $city = 'delhi';
 	public $cityId = 0;
 	public $request;
@@ -32,6 +34,8 @@ class BaseController extends Controller{
 		$this->view->og_description = $this->og_description;
 		$this->view->og_image = $this->og_image;
 		$this->view->og_url = $this->og_url;
+		$this->view->canonical_url = $this->canonical_url;
+		$this->view->deep_link = $this->deep_link;
 		$this->view->og_site_name = $this->config->application->SiteName;
 		$this->view->constants=$this->getConstants();
 		
