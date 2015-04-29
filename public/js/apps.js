@@ -15,6 +15,15 @@ $window.on('scroll', function (e) {
 	previousScroll = $window.scrollTop();
 });
 
+
+$window.on('scroll', function (e) {
+	if ($(window).scrollTop() + $(window).height() > $('.loadmore').position().top){
+		if($('.loadmore .btn.btn-primary').length > 0){
+			$('.loadmore .btn.btn-primary').trigger('click');
+		}
+    }
+});
+
 $(window).load(function() {
 	$("select").each(function(){
 		$(this).wrap("<span class='select-wrapper'></span>");
