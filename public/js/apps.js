@@ -165,7 +165,9 @@ function ajax_feed_filter_type(){
 function resizefeedimage(){
 	var width = 0;
 	$(".work-item img").each(function( index ) {
-		width = $(this).width();
+		if($(this).parent().find('.make-up').length == 0){
+			width = $(this).width();
+		}
 		$(this).height(($(this).width()));
 	});
 	

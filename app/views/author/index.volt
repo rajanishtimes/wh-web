@@ -13,7 +13,7 @@
 					<?php if(isset($author['twitter_url']) && !empty($author['twitter_url'])){?>
 					<div class="atwitter text-center">
 						<a href="{{author['twitter_url']}}" target="_blank">
-							<i class="fa fa-twitter"></i>@{{author['twitter_url']}}
+							<i class="fa fa-twitter"></i>@{{author['user_name']}}
 						</a>
 					</div>
 					<?php }?>
