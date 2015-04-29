@@ -35,7 +35,8 @@ class BaseController extends Controller{
 		$this->view->og_site_name = $this->config->application->SiteName;
 		$this->view->constants=$this->getConstants();
 		
-		$this->baseUrl = $this->config->application->baseUri;
+		$this->view->host = $this->config->application->baseUri;
+		$this->baseUrl = 'http://'.$this->config->application->baseUri;
 		$this->view->baseUrl = $this->baseUrl;
 
 		$this->view->isdebug = $this->config->application->mode;
@@ -52,10 +53,11 @@ class BaseController extends Controller{
 		
 		/* ============= Set cookie for city =============== */
 		
+
 		$this->setcityid();
 		//echo $this->cityId; exit;
 		if($this->cityId == 0){
-			$this->cookies->set("city", 'delhi', time() + 15 * 86400);
+			$this->cookies->set("city", 'delhi', time() + 15 * 86400, '/', false, $this->config->application->baseUri);
 			$this->city = 'delhi';
 			$this->view->city = 'delhi';
 			$this->setcityid();
@@ -209,21 +211,21 @@ class BaseController extends Controller{
 			$uniquekey = $this->cookies->get('uniquekey');
         }else{
 			$uniquekey = md5(microtime().$_SERVER['REMOTE_ADDR']);
-			$this->cookies->set('uniquekey', $uniquekey, time() + 365 * 86400);
+			$this->cookies->set("uniquekey", $uniquekey, time() + 15 * 86400, '/', false, $this->config->application->baseUri);
 		}
 	}
 	
 	protected function setcities(){
 		if($this->dispatcher->getParam('city')){
 			$this->city = $this->dispatcher->getParam('city');
-			$this->cookies->set("city", $this->city, time() + 15 * 86400);
+			$this->cookies->set("city", $this->city, time() + 15 * 86400, '/', false, $this->config->application->baseUri);
 			$this->view->city = strtolower($this->city);
 		}else{
 			if ($this->cookies->has("city")){
 				$this->city = strtolower($this->cookies->get("city"));
 				$this->view->city = strtolower($this->city);
 			}else{
-				$this->cookies->set("city", 'delhi', time() + 15 * 86400);
+				$this->cookies->set("city", 'delhi', time() + 15 * 86400, '/', false, $this->config->application->baseUri);
 				$this->city = 'delhi';
 				$this->view->city = 'delhi';
 			}
