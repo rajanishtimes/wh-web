@@ -1494,6 +1494,7 @@ a.bg-dark:hover {
     height: 43px;
     margin: -1px 0 0 12px;
     padding: 0;
+	width: 88% !important;
 }
 .tt-dropdown-menu {
     -moz-border-bottom-colors: none;
