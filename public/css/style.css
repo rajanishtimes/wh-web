@@ -211,15 +211,14 @@ blockquote {
 }
 
 
-.searchbtn a{
-	padding: 25px 23px;
+.searchbtn a > div{
+	padding: 11px 23px;
+	background:#f5f5f5;
 }
 .searchbtn a:hover{
     background-color: #f5f5f5;
 }
-.searchbtn img {
-    margin: 16px 0 0;
-}
+
 .makered {
     color: #d11a6d;
     font-size: 19px;

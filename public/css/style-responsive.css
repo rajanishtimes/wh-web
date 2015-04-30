@@ -237,7 +237,7 @@ PHONE < 548px
 	.nav-search.navbar-right {
 		float: right;
 		margin: 0;
-		padding: 24px 11px;
+		padding: 20px 11px;
 	}
 	.work-content .work-item:hover .hover-wrap{
 		bottom: 38%;
