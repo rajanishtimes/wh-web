@@ -593,6 +593,9 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
 .similar-work {
     padding: 0 0 50px;
 }
+.owl-slider-set{
+	width:100%; overflow:hidden;
+}
 .owl-carousel {
     line-height: 0;
 }
