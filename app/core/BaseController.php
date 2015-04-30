@@ -17,6 +17,7 @@ class BaseController extends Controller{
 	public $canonical_url = '';
 	public $deep_link = '';
 	public $city = 'delhi';
+        public $currentCity = 'delhi';
         public $cityId = 0;
 	public $request;
 	public $baseUrl;
@@ -219,15 +220,24 @@ class BaseController extends Controller{
 		}
 	}
 	
-        
-        protected function setcities(){
-            if($this->dispatcher->getParam('city')){
-                $this->city = strtolower($this->dispatcher->getParam('city'));
-            }
-            else if ($this->cookies->has("city")){
+        protected function setHomeCity(){
+            if ($this->cookies->has("city")){
                 $this->city = strtolower($this->cookies->get("city"));
             }
+            else if($this->dispatcher->getParam('city')){
+                $this->city = strtolower($this->dispatcher->getParam('city'));
+            }
             $this->view->city = $this->city;
+        }
+        protected function setcities(){
+            $this->setHomeCity();
+            if($this->dispatcher->getParam('city')){
+                $this->currentCity = strtolower($this->dispatcher->getParam('city'));
+            }
+            else if ($this->cookies->has("currentCity")){
+                $this->currentCity = strtolower($this->cookies->get("currentCity"));
+            }
+            $this->view->currentCity = $this->currentCity;
             
             
             

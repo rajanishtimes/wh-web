@@ -75,7 +75,7 @@
 		<![endif]-->
 		
 		<script type="text/javascript">
-			var baseUrl = '{{baseUrl}}',_scName = '{{city}}';
+			var baseUrl = '{{baseUrl}}',_city = '{{city}}',_crrentCity = '{{currentCity}}';
 		</script>
 		
 		{% endblock %}
