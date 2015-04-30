@@ -325,6 +325,9 @@ PHONE < 420px
 	.withmask{
 		height: 440px !important;
 	}
+	.owl-carousel.work-detail .item{
+		height:190px;
+	}
 }
 
 
@@ -377,5 +380,8 @@ PHONE < 320px
 	}
 	.withmask{
 		height: 280px !important;
+	}
+	.searchbtn a {
+		padding: 25px 13px;
 	}
 }
