@@ -64,6 +64,7 @@
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/style.css{{time}}" />
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/style-responsive.css{{time}}" />
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/owl-carousel/owl.carousel.css" />
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/owl-carousel/owl.theme.css" />
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/swipebox/src/css/swipebox.css" />
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

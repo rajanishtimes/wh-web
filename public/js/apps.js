@@ -119,12 +119,12 @@ $(window).load(function() {
 		stopOnHover : true,
 	});
 	
-	setTimeout(function(){
+	/* setTimeout(function(){
 		$(".owl-item").owlCarousel({
 			autoPlay: 3000, //Set AutoPlay to 3 seconds
 			items: 1
 		});
-	}, 1000);
+	}, 1000); */
 	
 	//$('.swipebox').swipebox();
 	
