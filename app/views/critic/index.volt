@@ -17,7 +17,7 @@
 						</div>
 					</div><div class="clearfix"></div>
 					
-					<h1 class="contenttitle text-center">{{criticdetail['title']}}</h1>
+					<h1 class="contenttitle text-center">{{criticdetail['title'] | stripslashes}}</h1>
 					<div class="review">
 						<div class="rating">
 							<div class="grayscale"></div>

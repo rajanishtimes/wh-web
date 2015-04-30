@@ -27,7 +27,7 @@ class Feeds extends Component
 						</a>
 						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-in-label="pos_<?php echo $i; ?>">
 							<div class="the-box no-margin no-border">
-								<div class="feed-title"><?php echo $feed['title']; ?></div>
+								<div class="feed-title"><?php echo stripslashes($feed['title']); ?></div>
 								<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
 									<div class="homepagevenue">
 										<div class="time"><?php echo $feed['time']; ?></div>
@@ -50,7 +50,7 @@ class Feeds extends Component
 					<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-in-label="pos_<?php echo $i; ?>">
 						<div class="work-item withmask">
 							<div class="the-box full no-border transparent no-margin make-up">
-								<p class="feed-name"><?php echo $feed['title']; ?></p>
+								<p class="feed-name"><?php echo stripslashes($feed['title']); ?></p>
 							</div>
 							<?php echo $this->getimage($url, $feed['image']['uri'], 480, 480, $feed['title']); ?>
 						</div>
@@ -78,7 +78,7 @@ class Feeds extends Component
 							<?php echo $this->getimage($url, $feed['cover_image'], 480, 480, $feed['title']); ?>
 						</a>
 						<div class="the-box no-margin no-border">
-							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo $feed['title']; ?></a></div>
+							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo stripslashes($feed['title']); ?></a></div>
 							<div class="feed-short-desc"><?php echo strip_tags($feed['description'], '<a>'); ?></div>
 						</div>
 					</div>
