@@ -73,7 +73,7 @@
 <!-- END FOOTER -->
 
 
-<!-- BEGIN BACK TO TOP BUTTON -->
+<!-- BEGIN BACK TO TOP BUTTON --
 <div id="back-top">
 	<i class="fa fa-chevron-up"></i>
 </div>
