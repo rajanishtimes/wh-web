@@ -1,4 +1,4 @@
-{% if(topfeeds | length > 0 AND populartags['popular_tags'] | length > 0 AND allfeedslist | length > 0) %}
+{% if(topfeeds | length > 0 OR populartags['popular_tags'] | length > 0 OR allfeedslist | length > 0) %}
 <div class="section">
 	<div class="container">
 		<div class="row">
