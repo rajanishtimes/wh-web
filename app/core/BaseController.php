@@ -61,7 +61,7 @@ class BaseController extends Controller{
 		$this->setcityid();
 		//echo $this->cityId; exit;
 		if($this->cityId == 0){
-			$this->cookies->set("city", 'delhi', time() + 15 * 86400, '/', false, $this->config->application->baseUri);
+			//$this->cookies->set("city", 'delhi', time() + 15 * 86400, '/', false, $this->config->application->baseUri);
 			$this->city = 'delhi';
 			$this->view->city = 'delhi';
 			$this->setcityid();
@@ -222,14 +222,14 @@ class BaseController extends Controller{
 	protected function setcities(){
 		if($this->dispatcher->getParam('city')){
 			$this->city = $this->dispatcher->getParam('city');
-			$this->cookies->set("city", $this->city, time() + 15 * 86400, '/', false, $this->config->application->baseUri);
+			//$this->cookies->set("city", $this->city, time() + 15 * 86400, '/', false, $this->config->application->baseUri);
 			$this->view->city = strtolower($this->city);
 		}else{
 			if ($this->cookies->has("city")){
 				$this->city = strtolower($this->cookies->get("city"));
 				$this->view->city = strtolower($this->city);
 			}else{
-				$this->cookies->set("city", 'delhi', time() + 15 * 86400, '/', false, $this->config->application->baseUri);
+				//$this->cookies->set("city", 'delhi', time() + 15 * 86400, '/', false, $this->config->application->baseUri);
 				$this->city = 'delhi';
 				$this->view->city = 'delhi';
 			}
