@@ -229,13 +229,13 @@ function manageCityCookie(){
         cookies.set('city',_city, {path: '/',expires:expOn});
     }
     else{
-        cookies.set('city','delhi', {path: '/',expires:expOn});
+        cookies.set('city', server_variables.default_city, {path: '/',expires:expOn});
     }
     if(CurrentCity != "" && CurrentCity != undefined){
-        cookies.set('currentCity',_crrentCity, {path: '/',expires:expOn});
+        cookies.set('currentCity', _crrentCity, {path: '/',expires:expOn});
     }
     else{
-        cookies.set('currentCity','delhi', {path: '/',expires:expOn});
+        cookies.set('currentCity', server_variables.default_city, {path: '/',expires:expOn});
     }
     
 }

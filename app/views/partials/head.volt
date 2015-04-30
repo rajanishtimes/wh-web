@@ -78,7 +78,8 @@
 			var baseUrl = '{{baseUrl}}',_city = '{{city}}',_crrentCity = '{{currentCity}}';
 			var server_variables = {
 				city: '{{city}}',
-				current_city: '{{currentCity}}'
+				current_city: '{{currentCity}}',
+				default_city: '{{defaultCity}}'
 			};
 		</script>
 		

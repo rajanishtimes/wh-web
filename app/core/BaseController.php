@@ -16,9 +16,10 @@ class BaseController extends Controller{
 	public $og_url = '';
 	public $canonical_url = '';
 	public $deep_link = '';
-	public $city = 'delhi';
-        public $currentCity = 'delhi';
-        public $cityId = 0;
+	public $city = 'delhi-ncr';
+    public $currentCity = 'delhi-ncr';
+    public $defaultCity = 'delhi-ncr';
+    public $cityId = 0;
 	public $request;
 	public $baseUrl;
 	
@@ -53,7 +54,7 @@ class BaseController extends Controller{
 		
 		
 		/* ============= Set cookie for city =============== */
-		
+		$this->view->defaultCity = $this->defaultCity;
 		$this->setcities();
 		$this->setcityid();
 		/* ============= Set cookie for city =============== */
