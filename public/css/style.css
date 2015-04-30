@@ -209,8 +209,16 @@ blockquote {
     margin: 0 10px 0 0;
     padding: 20px;
 }
-.searchbtn:hover {
+
+
+.searchbtn a{
+	padding: 25px 23px;
+}
+.searchbtn a:hover{
     background-color: #f5f5f5;
+}
+.searchbtn img {
+    margin: 16px 0 0;
 }
 .makered {
     color: #d11a6d;
@@ -236,7 +244,6 @@ blockquote {
     color: #333333;
     cursor: pointer;
     font-size: 28px;
-    padding: 11px 23px;
 }
 .searchbtn.active {
     background-color: #f5f5f5;
@@ -300,7 +307,7 @@ blockquote {
 }
 .page-title-wrap .breadcrumb > li + li::before {
     color: #676b74;
-    padding: 0 10px;
+    padding: 0 3px;
 }
 .breadcrumb > li + li::before {
     font-family: Lora;
@@ -1354,6 +1361,7 @@ a.bg-dark:hover {
 .searchbox .form-control {
     border: medium none;
     font-size: 16px;
+	width: 97%;
 }
 .searchbox .searchinout .input-group-addon, .searchbox .searchinout .input-group-addon:focus, .searchbox .searchinout .input-group-addon:active {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0);

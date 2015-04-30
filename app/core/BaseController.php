@@ -258,8 +258,8 @@ class BaseController extends Controller{
 	public function validateRequest($url){
 		$request_uri = trim($_SERVER['REQUEST_URI'], '/');
 		$arr = explode('?', $request_uri);
-		$request_uri = $arr[0];
-		$uri = trim($url, '/');
+		$request_uri = urldecode($arr[0]);
+		$uri = urldecode(trim($url, '/'));
 		if($uri != $request_uri){
 			$this->response->redirect($this->baseUrl.'/'.$url, true, 301);
 		}

@@ -17,11 +17,11 @@ $window.on('scroll', function (e) {
 
 
 $window.on('scroll', function (e) {
-	if ($(window).scrollTop() + $(window).height() > $('.loadmore').position().top){
-		if($('.loadmore .btn.btn-primary').length > 0){
+	if($('.loadmore .btn.btn-primary').length > 0){
+		if ($(window).scrollTop() + $(window).height() > $('.loadmore').position().top){			
 			$('.loadmore .btn.btn-primary').trigger('click');
 		}
-    }
+	}
 });
 
 $(window).load(function() {

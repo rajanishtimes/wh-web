@@ -158,13 +158,17 @@ class Feeds extends Component
 		return $imgbox;
 	}
 	
-	public function makeurl($image_url){
-		$pos = strpos($image_url, 'http');
-		if($pos !== false){
-			$imgurl = $image_url;
+	public function makeurl($url, $image_url){
+		if($image_url == ''){
+			$imgurl = $url.'/img/img_feed_default.png';
 		}else{
-			$imgurl = $this->getimageendpoint().$image_url;
-		}
+			$pos = strpos($image_url, 'http');
+			if($pos !== false){
+				$imgurl = $image_url;
+			}else{
+				$imgurl = $this->getimageendpoint().$image_url;
+			}
+		}		
 		return $imgurl;
 	}
 }

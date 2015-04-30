@@ -115,6 +115,13 @@ if(preg_match('/\bs-[0-9\- ]+/i', $urlparams, $match)){
 	));
 }
 
+if(preg_match('/\bv-[0-9\- ]+/i', $urlparams, $match)){
+	$router->add("/{city}/{venue}", array(
+		'controller' => 'venue',
+		'action' => 'index',
+	));
+}
+
 $router->add("/{city}", array(
 	'controller' => 'index',
 	'action' => 'homepage',
