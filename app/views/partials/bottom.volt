@@ -3,6 +3,7 @@
 		<script type="text/javascript" src="{{baseUrl}}/js/typeahead.min.js"></script>
 		<script type="text/javascript" src="{{baseUrl}}/plugins/owl-carousel/owl.carousel.min.js"></script>
 		<script type="text/javascript" src="{{baseUrl}}/plugins/swipebox/src/js/jquery.swipebox.js"></script>
+                <script type="text/javascript" src="{{baseUrl}}/js/cookies.js?v=1.0"></script>
 		<script type="text/javascript" src="{{baseUrl}}/js/utils.js"></script>
 		<script type="text/javascript" src="{{baseUrl}}/js/apps.js{{time}}"></script>
 		
@@ -31,21 +32,8 @@
                 });
             }); */
             
-			$('#citieslist li').click(function(){
-				SetCookie('city', '{{city}}', 15);
-				//document.cookie = "city={{city}};expires=" + myDate + ";domain={{host}};path=/";
-				var href = $(this).find('a').attr('href');
-				window.location.href = href;
-				return false;
-			});
 			
-			function SetCookie(cookieName,cookieValue,nDays) {
-				var today = new Date();
-				var expire = new Date();
-				if (nDays==null || nDays==0) nDays=1;
-				expire.setTime(today.getTime() + 3600000*24*nDays);
-				document.cookie = cookieName+"="+escape(cookieValue)+ ";expires="+expire.toGMTString();
-			}
+			
         </script>
     </body>
 </html>

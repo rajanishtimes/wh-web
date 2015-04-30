@@ -75,7 +75,7 @@
 		<![endif]-->
 		
 		<script type="text/javascript">
-			var baseUrl = '{{baseUrl}}';
+			var baseUrl = '{{baseUrl}}',_scName = '{{city}}';
 		</script>
 		
 		{% endblock %}

@@ -17,7 +17,7 @@ class BaseController extends Controller{
 	public $canonical_url = '';
 	public $deep_link = '';
 	public $city = 'delhi';
-	public $cityId = 0;
+        public $cityId = 0;
 	public $request;
 	public $baseUrl;
 	
@@ -54,20 +54,20 @@ class BaseController extends Controller{
 		/* ============= Set cookie for city =============== */
 		
 		$this->setcities();
-		
+		$this->setcityid();
 		/* ============= Set cookie for city =============== */
 		
 
-		$this->setcityid();
+		//
 		//echo $this->cityId; exit;
-		if($this->cityId == 0){
+		//if($this->cityId == 0){
 			//$this->cookies->set("city", 'delhi', time() + 15 * 86400, '/', false, $this->config->application->baseUri);
-			$this->city = 'delhi';
-			$this->view->city = 'delhi';
-			$this->setcityid();
+		//	$this->city = 'delhi';
+		//	$this->view->city = 'delhi';
+		//	$this->setcityid();
 			//$this->cookies->get("city")->delete();
 			//$this->forwardtoerrorpage(404);
-		}
+		//}
 		
     }
 
@@ -219,21 +219,32 @@ class BaseController extends Controller{
 		}
 	}
 	
-	protected function setcities(){
-		if($this->dispatcher->getParam('city')){
-			$this->city = $this->dispatcher->getParam('city');
-			//$this->cookies->set("city", $this->city, time() + 15 * 86400, '/', false, $this->config->application->baseUri);
-			$this->view->city = strtolower($this->city);
-		}else{
-			if ($this->cookies->has("city")){
-				$this->city = strtolower($this->cookies->get("city"));
-				$this->view->city = strtolower($this->city);
-			}else{
-				//$this->cookies->set("city", 'delhi', time() + 15 * 86400, '/', false, $this->config->application->baseUri);
-				$this->city = 'delhi';
-				$this->view->city = 'delhi';
-			}
-		}
+        
+        protected function setcities(){
+            if($this->dispatcher->getParam('city')){
+                $this->city = strtolower($this->dispatcher->getParam('city'));
+            }
+            else if ($this->cookies->has("city")){
+                $this->city = strtolower($this->cookies->get("city"));
+            }
+            $this->view->city = $this->city;
+            
+            
+            
+//            if($this->dispatcher->getParam('city')){
+//                    $this->city = $this->dispatcher->getParam('city');
+//                    //$this->cookies->set("city", $this->city, time() + 15 * 86400, '/', false, $this->config->application->baseUri);
+//                    $this->view->city = strtolower($this->city);
+//            }else{
+//                    if ($this->cookies->has("city")){
+//                            $this->city = strtolower($this->cookies->get("city"));
+//                            $this->view->city = strtolower($this->city);
+//                    }else{
+//                            //$this->cookies->set("city", 'delhi', time() + 15 * 86400, '/', false, $this->config->application->baseUri);
+//                            $this->city = 'delhi';
+//                            $this->view->city = 'delhi';
+//                    }
+//            }
 	}
 	
 	protected function setcityid(){

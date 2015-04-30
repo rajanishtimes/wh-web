@@ -1,5 +1,5 @@
 var feed_with_ajax_running = false;
-var $sidebar = $('.sidebar'),
+var $sidebar = $('.sidebar'),_CityName = _scName,
 $window = $(window),
 previousScroll = 0;
 $window.on('scroll', function (e) {
@@ -221,3 +221,27 @@ function view_feed_with_ajax(mainURL, start, limit, parentId, searchval, tags, b
 
 	}
 }
+
+function manageCityCookie(){
+    expOn = new Date();
+    expOn.setTime(new Date().getTime() + 3600000 * 24 * 365);
+    if(_CityName != "" && _CityName != undefined){
+        cookies.set('city',_scName, {path: '/',expires:expOn});
+    }
+    else{
+        cookies.set('city','delhi', {path: '/',expires:expOn});
+    }
+}
+function DOMReady(){    
+    manageCityCookie();   
+}
+$(document).ready(DOMReady);
+
+$('#citieslist li').click(function(){
+        var C = $(this);
+        expOn = new Date();
+        expOn.setTime(new Date().getTime() + 3600000 * 24 * 365);
+        cookies.set('city', C.data('name'), {path: '/',expires:expOn});
+        window.location.href = C.find('a').attr('href');
+        return false;
+});
