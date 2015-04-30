@@ -1524,7 +1524,6 @@ a.bg-dark:hover {
 }
 .tt-suggestion {
     border-bottom: 1px solid #f4f4f4;
-    height: 41px;
 }
 .tt-is-under-cursor, .tt-suggestion > p:hover {
     background-color: #f5f5f5;
