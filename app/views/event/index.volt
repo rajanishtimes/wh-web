@@ -15,7 +15,7 @@
 						{% endfor  %}
 						</ul>
 					</div><div class="clearfix"></div>
-					<h1 class="contenttitle text-center">{{eventdetail['title']}}</h1>
+					<h1 class="contenttitle text-center">{{eventdetail['title'] | stripslashes}}</h1>
 					<div class="eventdetail">
 						<div class="time">{{eventdetail['time']['short']}}, {{eventdetail['time']['long']}}</div>
 						<div class="venue"><a href="{{baseUrl}}{{eventdetail['venue']['url']}}">{{eventdetail['venue']['name']}}, {{eventdetail['venue']['formatted_address']}}</a></div>

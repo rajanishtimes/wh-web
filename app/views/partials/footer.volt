@@ -62,7 +62,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-5">
-				&copy; 2015 <a href="#fakelink">WhatsHot.com</a> &ndash; all rights reserved.
+				&copy; 2015 <a href="{{baseUrl}}">WhatsHot.in</a> &ndash; all rights reserved.
 			</div><!-- /.col-sm-5 -->
 			<div class="col-sm-7 text-right">
 				{{ elements.getMenu(baseUrl) }}

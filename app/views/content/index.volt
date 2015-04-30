@@ -14,9 +14,9 @@
 						</li>
 					{% endfor  %}
 					</ul><div class="clearfix"></div>
-					<h1 class="contenttitle text-center">{{contentdetail['title']}}</h1>
+					<h1 class="contenttitle text-center">{{contentdetail['title'] | stripslashes}}</h1>
 					<div class="contentdetail text-center">
-						By <a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a>
+						By <a href="{{baseUrl}}{{author['url']}}">{{author['title'] | stripslashes}}</a>
 					</div>
 					<hr class="small">
 					<div class="detail">

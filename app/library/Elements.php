@@ -52,7 +52,7 @@ class Elements extends Component
                 } else {
                     echo '<li>';
                 }
-                echo '<a href="'.$url.$option['action'].'">'.$option['caption'].'</a>';
+                echo '<a href="'.$url.'/'.$option['action'].'">'.$option['caption'].'</a>';
                 echo '</li>';
             }
             echo '</ul>';

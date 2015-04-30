@@ -170,7 +170,6 @@ class BaseController extends Controller{
 		}
 		
 		
-		if($sort_by!=2){
 			if(isSet($keyword) && $keyword!='')
 				$sort_by=1;
 			else{
@@ -179,7 +178,7 @@ class BaseController extends Controller{
 				else
 					$sort_by=2;
 			}
-		}
+		
 		$Search->setParam('bysort',$sort_by);
 		$Search->setSearchEntity();
 		$entityresult = $Search->getSearchResults();

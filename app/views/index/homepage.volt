@@ -1,4 +1,4 @@
-{% if(topfeeds | length > 0 OR populartags['popular_tags'] | length > 0 OR allfeedslist | length > 0) %}
+{% if(topfeeds | length > 0 OR (populartags['popular_tags'] is defined AND populartags['popular_tags'] | length > 0) OR allfeedslist | length > 0) %}
 <div class="section">
 	<div class="container">
 		<div class="row">
@@ -11,7 +11,7 @@
 								<div class="work-item topthing">
 									<a href="{{baseUrl}}{{topfeed['url']}}" data-ga-cat="topToday" data-ga-action="{{baseUrl}}{{topfeed['url']}}" data-in-label="pos_{{key+1}}">
 									<div class="the-box full no-border transparent no-margin make-up">
-										<p class="feed-name">{{topfeed['title']}}</p>
+										<p class="feed-name">{{topfeed['title'] | stripslashes}}</p>
 									</div>
 									{{feeds.getimage(baseUrl, topfeed['image']['uri'], 480, 480, topfeed['title'], topfeed['image'])}}
 									</a>
@@ -26,7 +26,7 @@
 			<input id="tags" type="hidden" value="">
 			<input id="bydatefeed" type="hidden" value="">
 			
-			{% if(populartags['popular_tags'] | length > 0) %}
+			{% if(populartags['popular_tags'] is defined AND populartags['popular_tags'] | length > 0) %}
 				<div class="work-content">						
 					<h2 class="heading">Popular Tips</h2>
 					<ul class="work-category-wrap">
