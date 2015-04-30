@@ -4,15 +4,6 @@
 		<div class="row">
 			<div class="col-sm-12 col-md-12">
 				<div class="contentarea">
-					<ul id="owl-work-detail" class="owl-carousel work-detail">
-					{% for images in eventdetail['images'] %}
-						<li class="item">
-							<a href="{{feeds.makeurl(baseUrl, images['uri'])}}" class="swipebox" title="{{eventdetail['title']}}">
-								{{feeds.getimage(baseUrl, images['uri'], 1025, 350, eventdetail['title'], '', '', 'img-detail')}}
-							</a>
-						</li>
-					{% endfor  %}
-					</ul><div class="clearfix"></div>
 					<h1 class="contenttitle text-center">{{eventdetail['title']}}</h1>
 					<div class="eventdetail">
 						<div class="time">{{eventdetail['time']['short']}}, {{eventdetail['time']['long']}}</div>
