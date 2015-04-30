@@ -19,7 +19,7 @@ class IndexController extends BaseController{
 		$city = $this->currentCity;
 		$cityshown = $city;
 		if($cityshown == 'delhi-ncr' || $cityshown == 'delhi')
-			$cityshown = 'Delhi NCR'
+			$cityshown = 'Delhi NCR';
 		$this->view->cityshown = $cityshown;
 			
 		
