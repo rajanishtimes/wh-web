@@ -97,7 +97,7 @@ class Feeds extends Component
 				</a>
 				<div class="media-body">
 					<h4 class="media-heading">
-						<a href="<?php echo $baseUrl. $feed['url']; ?>" data-ga-cat="search" data-ga-action="<?php echo $baseUrl . $feed['url']; ?>" data-in-label="pos_<?php echo $i+1; ?>"><?php echo $feed['title']; ?></a>
+						<a href="<?php echo $baseUrl. $feed['url']; ?>" data-ga-cat="search" data-ga-action="<?php echo $baseUrl . $feed['url']; ?>" data-in-label="pos_<?php echo $i+1; ?>"><?php echo stripslashes($feed['title']); ?></a>
 					</h4>
 					<p class="small">
 						<?php //echo $feed['type']; ?>

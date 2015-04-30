@@ -159,7 +159,7 @@ TABLET < 767px
 	}
 	
 	.nav-search.navbar-right li.dropdown > a {
-		padding: 28px;
+		padding: 21px;
 	}
 	ul.work-category-wrap{
 		padding: 2px 10px;
@@ -203,6 +203,9 @@ PHONE < 640px
 	}
 	.tt-dropdown-menu{
 		width:117%;
+	}
+	.navbar-fixed-top{
+		position:absolute;
 	}
 }
 
@@ -316,7 +319,7 @@ PHONE < 420px
 	
 	
 	.authordetailsection .author-detail {
-		width: 100%;
+		width: 50%;
 	}
 	
 	.dropdown-menu.with-triangle{
@@ -349,6 +352,10 @@ PHONE < 360px
 	.owl-carousel.work-detail .item{
 		height:115px;
 	}
+	.authordetailsection .author-detail {
+		width: 50%; min-width: 160px;
+	}
+	
 }
 
 

@@ -245,7 +245,7 @@ blockquote {
     cursor: pointer;
     font-size: 28px;
 }
-.searchbtn.active {
+.searchbtn.active  a{
     background-color: #f5f5f5;
 }
 .nav-right-info .input-group-addon {
@@ -1442,6 +1442,7 @@ a.bg-dark:hover {
     line-height: 16px;
     margin: 9px 0 0;
     width: 80%;
+	word-break: break-all;
 }
 .seach-overlay-box {
     background: url("../img/search-back.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -1629,7 +1630,7 @@ h3.tags {
 .authordetailsection .author-detail {
     min-width: 200px;
     padding-top: 10px;
-    width: 75%;
+    width: 65%;
 }
 .authordetailsection .author-image {
     min-width: 130px;

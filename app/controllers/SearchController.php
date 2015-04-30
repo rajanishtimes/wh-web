@@ -21,7 +21,7 @@ class SearchController extends BaseController{
 		$parentid = $this->request->getPost('parentid');
 
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword, 'Event,Content');
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword, 'Event,Content', '', 4);
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
@@ -49,6 +49,9 @@ class SearchController extends BaseController{
 			$Suggestion->setAutoSuggest();
 			try{
 				$autosuggestresult = $Suggestion->getSuggestResults();
+				foreach($autosuggestresult['suggestions'] as $key=>$autos){
+					$autosuggestresult['suggestions'][$key] = stripslashes($autos);
+				}
 			}catch(Exception $e){
 				$autosuggestresult = array();
 			}
