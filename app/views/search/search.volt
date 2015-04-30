@@ -26,7 +26,7 @@
 						</ul><div class="clearfix"></div>
 						<div class="loadmore">
 							<?php if($allfeedslist['meta']['match_count'] > ($limit)){ ?>
-								<div class="btn btn-primary" onclick="view_feed_with_ajax('{{baseUrl}}/search/searchlist', '{{start}}', '{{limit}}', 'getallfeedssearch', '', '', 'all')">Load More</div>
+								<div class="btn btn-primary" onclick="view_feed_with_ajax('{{city}}', '{{baseUrl}}/search/searchlist', '{{start}}', '{{limit}}', 'getallfeedssearch', '', '', 'all')">Load More</div>
 							<?php }?>
 						</div>
 					{% else %}

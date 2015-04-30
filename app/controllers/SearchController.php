@@ -19,9 +19,10 @@ class SearchController extends BaseController{
 		$start = $this->request->getPost('start');
 		$limit = $this->request->getPost('limit');
 		$parentid = $this->request->getPost('parentid');
+		$city = $this->request->getPost('city');
 
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword, 'Event,Content', '', 4);
+			$allfeedslist = $this->getfeeddata($start, $limit, $city, $bydate, $tags, $searchkeyword, 'Event,Content', '', 4);
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
@@ -35,7 +36,8 @@ class SearchController extends BaseController{
 				'limit'=>$limit,
 				'tags'=>$tags,
 				'bydate'=>$bydate,
-				'parentid'=>$parentid
+				'parentid'=>$parentid,
+				'city' => $city
 				)
 			);
     }

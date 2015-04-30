@@ -237,6 +237,7 @@ class BaseController extends Controller{
                 $this->currentCity = strtolower($this->cookies->get("currentCity"));
             }
             $this->view->currentCity = $this->currentCity;
+			
             
             
             
@@ -261,7 +262,7 @@ class BaseController extends Controller{
 		$getallcities = $cities->getResults();
 		$this->view->allcities = $getallcities;
 		foreach($getallcities['cities'] as $getallcity){
-			if(strtolower($getallcity['name']) == $this->city){
+			if(strtolower($getallcity['name']) == $this->currentCity){
 				$this->cityId = $getallcity['id'];
 				break;
 			}

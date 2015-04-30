@@ -16,22 +16,24 @@ class IndexController extends BaseController{
 		/* $this->setcities();
 		$this->setcityid();*/
 		
+		$city = $this->currentCity;
+		
 		$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
 		
 		/* ======= Seo Update ============= */
-		$title = ucwords($this->city).' Events: Things to do in '.ucwords($this->city).' Today | '.$this->config->application->SiteName;
+		$title = ucwords($city).' Events: Things to do in '.ucwords($city).' Today | '.$this->config->application->SiteName;
 		$this->tag->setTitle($title);
 		
-		$this->view->meta_description = 'Events in '.ucwords($this->city).': Getting bored? Wondering what to do in '.ucwords($this->city).' today? Check out the list of things to do in '.ucwords($this->city).' today and have unlimited fun. ';
-		$this->view->meta_keywords = 'things to do in '.ucwords($this->city).', what to do in '.ucwords($this->city).', '.ucwords($this->city).' events';
-		$this->view->canonical_url = $this->baseUrl.'/'.$this->city;
+		$this->view->meta_description = 'Events in '.ucwords($city).': Getting bored? Wondering what to do in '.ucwords($city).' today? Check out the list of things to do in '.ucwords($city).' today and have unlimited fun. ';
+		$this->view->meta_keywords = 'things to do in '.ucwords($city).', what to do in '.ucwords($city).', '.ucwords($city).' events';
+		$this->view->canonical_url = $this->baseUrl.'/'.$city;
 		$this->view->deep_link = 'timescity://wh/ty';
 		/* ======= Seo Update ============= */
 		
 		
 		
 		try{
-			$topfeeds = $this->getfeeddata(0, 3, $this->city, 'Today', '', '', 'Event,Content', '', 2);
+			$topfeeds = $this->getfeeddata(0, 3, $city, 'Today', '', '', 'Event,Content', '', 2);
 		}catch(Exception $e){
 			$topfeeds = array();
 		}
@@ -49,7 +51,7 @@ class IndexController extends BaseController{
 		$limit = 11;
 		
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, 'all', '', '', 'Event,Content');
+			$allfeedslist = $this->getfeeddata($start, $limit, $city, 'all', '', '', 'Event,Content');
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}

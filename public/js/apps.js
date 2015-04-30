@@ -80,7 +80,7 @@ $(window).load(function() {
 	});
 	
 	if($('#getallfeeds').length > 0){
-		//view_feed_with_ajax(baseUrl+'search/index', 0, 12, 'getallfeeds', '', '', 'all');
+		//view_feed_with_ajax(server_variables.current_city,baseUrl+'search/index', 0, 12, 'getallfeeds', '', '', 'all');
 	}
 	
 	$('#searchtextinput').typeahead({
@@ -168,7 +168,7 @@ function ajax_feed_filter_type(){
 	if(feed_with_ajax_running === false){
 		$('#getallfeeds').empty();
 	}
-	view_feed_with_ajax(baseUrl+'/search/index', 0, 11, 'getallfeeds', '', $('#tags').val(), $('#bydatefeed').val());
+	view_feed_with_ajax(server_variables.current_city, baseUrl+'/search/index', 0, 11, 'getallfeeds', '', $('#tags').val(), $('#bydatefeed').val());
 }
 
 function resizefeedimage(){
@@ -190,14 +190,14 @@ $.fn.center = function () {
     return this;
 }
 
-function view_feed_with_ajax(mainURL, start, limit, parentId, searchval, tags, bydate){
+function view_feed_with_ajax(city, mainURL, start, limit, parentId, searchval, tags, bydate){
 	if(feed_with_ajax_running === false){
 		//console.log("starting ....");
 		$.ajax( {
 			url:mainURL,
 			type:'POST',
 			//async:false,
-			data: 'searchkeyword='+searchval+'&start='+start+'&limit='+limit+'&tags='+tags+'&bydate='+bydate+'&mainurl='+mainURL+'&parentid='+parentId,
+			data: 'city='+city+'&searchkeyword='+searchval+'&start='+start+'&limit='+limit+'&tags='+tags+'&bydate='+bydate+'&mainurl='+mainURL+'&parentid='+parentId,
 			beforeSend: function(){
 				feed_with_ajax_running = true;
 				//console.log("sending request ... ");

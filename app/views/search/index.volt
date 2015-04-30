@@ -3,7 +3,7 @@
 	{{feeds.getfeeds(baseUrl, allfeedslist, start)}}
 <-!-###@###->
 <?php if($allfeedslist['meta']['match_count'] > ($start)){ ?>
-	<div class="btn btn-primary" onclick="view_feed_with_ajax('{{mainurl}}', '{{start}}', '{{limit}}', '{{parentid}}', '{{searchkeyword}}', '{{tags | trim}}', '{{bydate}}')">Load More</div>
+	<div class="btn btn-primary" onclick="view_feed_with_ajax('{{city}}','{{mainurl}}', '{{start}}', '{{limit}}', '{{parentid}}', '{{searchkeyword}}', '{{tags | trim}}', '{{bydate}}')">Load More</div>
 <?php }?>
 <?php }else{ ?>
 	<div class="container"><div class="alert alert-info in">No Result Found</div></div>

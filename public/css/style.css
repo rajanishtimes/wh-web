@@ -2132,6 +2132,7 @@ textarea.no-resize {
     background-color: #96ddfa;
     border-color: #71c6e5;
     color: #218bb2;
+	clear: both;
 }
 .alert-info .alert-link {
     color: #245269;

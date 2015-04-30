@@ -75,6 +75,7 @@ class AuthorController extends BaseController{
 		$parentid = $this->request->getPost('parentid');
 		$authorid = $this->request->getPost('searchkeyword');
 		$profilepost = $this->getauthorpost($authorid, $start, $limit);
+		$city = $this->city;
 		
 		$this->view->setVars(array(
 			'allfeedslist' => $profilepost,
@@ -82,7 +83,8 @@ class AuthorController extends BaseController{
 			'authorid' => $authorid,
 			'start'	=> $start+$limit,
 			'limit'	=> $limit,
-			'parentid'=>$parentid
+			'parentid'=>$parentid,
+			'city' => $city
 		));
     }
 	

@@ -32,7 +32,7 @@
 					</div><div class="clearfix"></div>
 					<div class="loadmore">
 						<?php if($profilepost['meta']['match_count'] > ($limit)){ ?>
-							<div class="btn btn-primary" onclick="view_feed_with_ajax('{{baseUrl}}/author/posts', '{{start}}', '{{limit}}', 'authorpost', '{{authorid}}', '', '')">Load More</div>
+							<div class="btn btn-primary" onclick="view_feed_with_ajax('{{city}}','{{baseUrl}}/author/posts', '{{start}}', '{{limit}}', 'authorpost', '{{authorid}}', '', '')">Load More</div>
 						<?php }?>
 					</div>
 				{% endif %}
