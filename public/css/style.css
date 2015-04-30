@@ -214,6 +214,8 @@ blockquote {
 .searchbtn a > div{
 	padding: 11px 23px;
 	background:#f5f5f5;
+	max-height: 62px;
+    overflow: hidden;
 }
 .searchbtn a:hover{
     background-color: #f5f5f5;
