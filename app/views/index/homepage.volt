@@ -1,4 +1,4 @@
-{% if(topfeeds | length > 0 OR populartags['popular_tags'] | length > 0 OR allfeedslist | length > 0) %}
+{% if(topfeeds | length > 0 OR (populartags['popular_tags'] is defined AND populartags['popular_tags'] | length > 0) OR allfeedslist | length > 0) %}
 <div class="section">
 	<div class="container">
 		<div class="row">
@@ -26,7 +26,7 @@
 			<input id="tags" type="hidden" value="">
 			<input id="bydatefeed" type="hidden" value="">
 			
-			{% if(populartags['popular_tags'] | length > 0) %}
+			{% if(populartags['popular_tags'] is defined AND populartags['popular_tags'] | length > 0) %}
 				<div class="work-content">						
 					<h2 class="heading">Popular Tips</h2>
 					<ul class="work-category-wrap">
