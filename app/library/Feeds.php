@@ -145,7 +145,7 @@ class Feeds extends Component
 			if($original_height > $height  && $height != 0){
 				$y = ($original_height - $height)/2;
 			}
-			$imgurl = $imgurl.'?x='.$x.'&y='.$y.'&w='.$width.'&h='.$height.'&c=1';
+			$imgurl = $imgurl.'?x='.$x.'&y='.$y.'&w='.$width.'&h='.$height.'&c=1&q=75';
 			$imgbox = '<img src="'.$imgurl.'" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
 		}else{
 			$imgbox = '<img src="'.$url.'/img/img_feed_default.png" alt="'.$alt.'"  style="'.$style.'" class="'.$class.'">';

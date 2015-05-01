@@ -18,7 +18,7 @@
 				<div class="work-content allfeeds">
 					{% if(allfeedslist | length > 0) %}
 						<ul id="getallfeedssearch" class="media-list feed-list">
-							{% if(searchkeyword is defined) %}
+							{% if(searchkeyword != '') %}
 								<h1 class="searchheading">{{allfeedslist['meta']['match_count']}} results found for &#8220;<strong>{{searchkeyword}}</strong>&#8221;</h1>
 							{% endif %}
 							
