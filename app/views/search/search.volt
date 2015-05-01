@@ -18,7 +18,8 @@
 				<div class="work-content allfeeds">
 					{% if(allfeedslist | length > 0) %}
 						<ul id="getallfeedssearch" class="media-list feed-list">
-							{% if(searchkeyword != '') %}
+							{% if(searchkeyword is empty) %}
+							{% else %}
 								<h1 class="searchheading">{{allfeedslist['meta']['match_count']}} results found for &#8220;<strong>{{searchkeyword}}</strong>&#8221;</h1>
 							{% endif %}
 							
@@ -31,7 +32,12 @@
 						</div>
 					{% else %}
 						<ul id="getallfeedssearch" class="media-list feed-list">
-							<h1>No result(s) found from &#8220;{{searchkeyword}}&#8221;</h1><div style="height:200px"></div>
+							{% if(searchkeyword is empty) %}
+							{% else %}
+								<h1>No result(s) found from &#8220;{{searchkeyword}}&#8221;</h1><div style="height:200px"></div>
+							{% endif %}
+							
+							<div style="height:200px"></div>
 						</ul><div class="clearfix"></div>
 					{% endif %}
 				</div>
