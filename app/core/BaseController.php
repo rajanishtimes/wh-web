@@ -26,7 +26,7 @@ class BaseController extends Controller{
     protected function initialize()
     {
 		$this->request = new \Phalcon\Http\Request();
-		$this->tag->prependTitle(' | '.$this->config->application->SiteName);
+		$this->tag->prependTitle($this->config->application->SiteName.' | ');
 		$this->view->meta_description = $this->meta_description;
 		$this->view->meta_keywords = $this->meta_keywords;
 		$this->view->meta_author = $this->meta_author;
@@ -63,7 +63,7 @@ class BaseController extends Controller{
 		}
 		/* ============= Set cookie for city =============== */
 		
-
+		
 		//
 		//echo $this->cityId; exit;
 		//if($this->cityId == 0){

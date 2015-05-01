@@ -44,6 +44,7 @@ class IndexController extends BaseController{
 			$topfeeds = array();
 		}
 		
+		
 		$core = new \WH\Model\Core();
 		$core->setCity($this->cityId);
 		try{
@@ -56,11 +57,14 @@ class IndexController extends BaseController{
 		$start = 0;
 		$limit = 11;
 		
+		$GLOBALS["time_start"] = microtime(true);
 		try{
 			$allfeedslist = $this->getfeeddata($start, $limit, $city, 'all', '', '', 'Event,Content');
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
+		//$GLOBALS["time_end"] = microtime(true);
+		//echo $time = $GLOBALS["time_end"] - $GLOBALS["time_start"]; exit;
 		
 		$this->view->setVars(
 			array(
@@ -71,6 +75,7 @@ class IndexController extends BaseController{
 				'topfeeds'=>$topfeeds
 				)
 			);
+		
     }
 	
 	public function newsletterAction(){

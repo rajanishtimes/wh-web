@@ -90,7 +90,7 @@
 
 <!-- BEGIN BACK TO TOP BUTTON -->
 <div id="back-top">
-	<i class="fa fa-chevron-up"></i>
+	<i class="fa fa-angle-up fa-stack-1x fa-inverse"></i>
 </div>
 <!-- END BACK TO TOP -->
 {% endblock %}
