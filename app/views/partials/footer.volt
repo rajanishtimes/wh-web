@@ -25,6 +25,8 @@
 						{% for cities in allcities['cities'] %}
 							{% if(cities['name'] | trim | lower == 'delhi') %}
 								<li><a href="{{baseUrl}}/delhi">Delhi NCR</a></li>
+							{% elseif(cities['name'] | trim | lower == 'delhi-ncr' OR cities['name'] | trim | lower == 'delhi ncr' OR cities['name'] | trim | lower == 'delhi-ncr') %}
+								<li><a href="{{baseUrl}}/delhi-ncr">Delhi NCR</a></li>
 							{% else %}
 								<li><a href="{{baseUrl}}/{{cities['name']|lower|trim}}">{{cities['name']}}</a></li>
 							{% endif %}
@@ -37,6 +39,8 @@
 						{% for cities in allcities['cities'] %}
 							{% if(cities['name'] | trim | lower == 'delhi') %}
 								<li><a href="{{baseUrl}}/delhi/events">Events in Delhi NCR</a></li>
+							{% elseif(cities['name'] | trim | lower == 'delhi-ncr' OR cities['name'] | trim | lower == 'delhi ncr' OR cities['name'] | trim | lower == 'delhi-ncr') %}
+								<li><a href="{{baseUrl}}/delhi-ncr/events">Events in Delhi NCR</a></li>
 							{% else %}
 								<li><a href="{{baseUrl}}/{{cities['name']|lower|trim}}/events">Events in {{cities['name']}}</a></li>
 							{% endif %}

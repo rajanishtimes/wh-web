@@ -60,7 +60,7 @@ class Elements extends Component
 
     }
 	
-	public function getStaticpages()
+	public function getStaticpages($url)
     {
 		$actionName = $this->view->getActionName();
 		echo "<ul class='list'>";
@@ -70,7 +70,7 @@ class Elements extends Component
 			} else {
 				echo '<li>';
 			}
-			echo $this->tag->linkTo($option['action'], $option['caption']);
+			echo '<a href="'.$url.'/'.$option['action'].'">'.$option['caption'].'</a>';
 			echo '</li>';
 		}
 		echo '</ul>';

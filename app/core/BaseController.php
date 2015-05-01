@@ -57,6 +57,9 @@ class BaseController extends Controller{
 		$this->view->defaultCity = $this->defaultCity;
 		$this->setcities();
 		$this->setcityid();
+		if($this->cityId == 0){
+			//$this->forwardtoerrorpage(404);
+		}
 		/* ============= Set cookie for city =============== */
 		
 
@@ -263,7 +266,7 @@ class BaseController extends Controller{
 		$getallcities = $cities->getResults();
 		$this->view->allcities = $getallcities;
 		foreach($getallcities['cities'] as $getallcity){
-			if(strtolower($getallcity['name']) == $this->currentCity){
+			if(strtolower($getallcity['name']) == $this->city){
 				$this->cityId = $getallcity['id'];
 				break;
 			}

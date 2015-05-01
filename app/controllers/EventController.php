@@ -10,8 +10,8 @@ class EventController extends BaseController{
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
 		
-		if($this->dispatcher->getParam('city'))
-			$this->city = $this->dispatcher->getParam('city');		
+		/* if($this->dispatcher->getParam('city'))
+			$this->city = $this->dispatcher->getParam('city');		 */
 		
 		if($this->dispatcher->getParam('eventtitle'))
 			$this->eventtitle = $this->dispatcher->getParam('eventtitle');
@@ -80,14 +80,12 @@ class EventController extends BaseController{
 	function eventlistAction(){
 		$start = 0;
 		$limit = 11;
-		
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, 'all', '', '', 'Event');
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, 'all', '', '', 'Event');
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
-		
-		$breadcrumbs = $this->breadcrumbs(array('Event' =>''));
+		$breadcrumbs = $this->breadcrumbs(array('Events in '.ucwords($this->currentCity) =>''));
 		
 		$this->view->setVars(
 			array(
