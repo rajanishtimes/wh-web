@@ -57,8 +57,9 @@ class BaseController extends Controller{
 		$this->view->defaultCity = $this->defaultCity;
 		$this->setcities();
 		$this->setcityid();
+		
 		if($this->cityId == 0){
-			//$this->forwardtoerrorpage(404);
+			$this->forwardtoerrorpage(404);
 		}
 		/* ============= Set cookie for city =============== */
 		
@@ -266,7 +267,13 @@ class BaseController extends Controller{
 		$getallcities = $cities->getResults();
 		$this->view->allcities = $getallcities;
 		foreach($getallcities['cities'] as $getallcity){
-			if(strtolower($getallcity['name']) == $this->city){
+			if(strtolower($getallcity['name']) == 'delhi ncr'){
+				$drawdity = 'delhi-ncr';
+			}else{
+				$drawdity = strtolower($getallcity['name']);
+			}
+			
+			if($drawdity == $this->currentCity){
 				$this->cityId = $getallcity['id'];
 				break;
 			}
@@ -286,7 +293,7 @@ class BaseController extends Controller{
 		$request_uri = urldecode($arr[0]);
 		$uri = urldecode(trim($url, '/'));
 		if($uri != $request_uri){
-			$this->response->redirect($this->baseUrl.'/'.$url, true, 301);
+			$this->response->redirect($this->baseUrl.$url, true, 301);
 		}
 	}
 }

@@ -54,4 +54,9 @@ class TagController extends BaseController{
 		$url = $this->baseUrl.'/'.'#finished';
 		return $this->response->redirect($url);     
 	}
+	
+	public function apptestingAction(){
+		$url = 'timescity://ty=s&qu=WhatsHot App';
+		return $this->response->redirect($url);     
+	}
 }

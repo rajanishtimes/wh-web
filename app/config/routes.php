@@ -62,6 +62,11 @@ $router->add("/tag/forwardtag", array(
     'action' => 'forwardtag',
 ));
 
+$router->add("/tag/apptesting", array(
+    'controller' => 'tag',
+    'action' => 'apptesting',
+));
+
 
 $router->add("/search/index", array(
     'controller' => 'search',
