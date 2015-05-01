@@ -5,7 +5,7 @@
 			<div class="col-sm-12 col-md-12">
 				{% if(allfeedslist | length > 0) %}
 					<div class="col-sm-6 col-md-6 col-xs-12 no-padding">
-						<h2 class="yfeeds">Your Feeds</h2>
+						<h2 class="yfeeds">Events in {{currentCity | lower | capitalize}}</h2>
 					</div><div class="clearfix"></div>
 					<div class="work-content allfeeds">
 						<div id="getallfeeds">					

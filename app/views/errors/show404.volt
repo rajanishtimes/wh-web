@@ -4,7 +4,8 @@
 		{% block head %}
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		{{ get_title() }}
+		
+		<title>Page Not Found | WhatsHot</title>
 		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/bootstrap.min.css" />
 		

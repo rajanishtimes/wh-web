@@ -26,7 +26,7 @@ class BaseController extends Controller{
     protected function initialize()
     {
 		$this->request = new \Phalcon\Http\Request();
-		$this->tag->prependTitle($this->config->application->SiteName.' | ');
+		$this->tag->prependTitle(' | '.$this->config->application->SiteName);
 		$this->view->meta_description = $this->meta_description;
 		$this->view->meta_keywords = $this->meta_keywords;
 		$this->view->meta_author = $this->meta_author;
@@ -97,10 +97,11 @@ class BaseController extends Controller{
             $Logger->setOrigin('web');
             $Logger->setParamsValue($_SERVER['REQUEST_URI']);
             $Logger->allLogs();
+			$this->tag->setTitle('Page Not Found | '.$this->config->application->SiteName);
 			$this->response->setStatusCode(404, 'Not Found');
 			$this->view->pick('errors/show404');
 			$this->view->setLayout('errorpageLayout');
-			$this->tag->setTitle('Page Not Found');
+			
 		}
 		
 		if($errorcode == 401){
