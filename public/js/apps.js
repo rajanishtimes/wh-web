@@ -181,7 +181,7 @@ function resizefeedimage(){
 	}); */
 	
 	$(".withmask").each(function( index ) {
-		$(this).height(width+147);
+		$(this).height(width+149);
 	});
 }
 
