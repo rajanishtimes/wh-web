@@ -95,5 +95,5 @@ class EventController extends BaseController{
 				'breadcrumbs'=>$breadcrumbs
 				)
 			);
-	}
+	} 
 }
