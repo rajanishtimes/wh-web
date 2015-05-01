@@ -74,7 +74,7 @@ class ContentController extends BaseController{
 				}
 			}
 			$breadcrumbs = $this->breadcrumbs(array(
-				ucwords($this->city) => $this->baseUrl.'/'.$this->city,
+				ucwords($this->city) => $this->baseUrl.'/'.$this->currentCity,
 				ucwords(strtolower(trim($contentdetail['title']))) =>''
 			));
 			
