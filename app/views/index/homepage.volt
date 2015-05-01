@@ -1,4 +1,4 @@
-{% if(topfeeds | length > 0 OR (populartags['popular_tags'] is defined AND populartags['popular_tags'] | length > 0) OR allfeedslist | length > 0) %}
+{% if((topfeeds is defined AND topfeeds | length > 0) OR (populartags['popular_tags'] is defined AND populartags['popular_tags'] | length > 0) OR (allfeedslist is defined AND allfeedslist | length > 0)) %}
 <div class="section">
 	<div class="container">
 		<div class="row">
@@ -71,8 +71,15 @@
 {% else %}
 <div class="section">
 	<div class="container">
-		<div class="row">
-			<img src="{{baseUrl}}/img/no-event.png" style="width:100%">
+		<div class="row notfound">
+			<div class="col-sm-3 col-md-3 col-xs-12 text-center">
+				<img src="{{baseUrl}}/img/no-feed.png">
+			</div>
+			<div class="col-sm-9 col-md-9 col-xs-12">
+				<h1>Oops!</h1>
+				Unfortunately, We could not find any results matching your search. We tried really hard. We looked all over the place and frankly, We just couldn't find anything good.
+				<div style="height:100px"></div>
+			</div>
 		</div>
 	</div>
 </div>

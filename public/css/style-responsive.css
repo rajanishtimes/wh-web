@@ -78,6 +78,9 @@ STANDARD DESKTOP < 1024px
 	.rating {
 		left: 42%;
 	}
+	.notfound {
+		padding: 0px;
+	}
 }
 
 
@@ -115,6 +118,9 @@ SMALL DESKTOP 768px <> 991px
 	}
 	.tt-dropdown-menu{
 		width:116%;
+	}
+	.app_option{
+		margin:31px 0;
 	}
 	
 }

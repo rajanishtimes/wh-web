@@ -21,13 +21,14 @@ class IndexController extends BaseController{
 		if($cityshown == 'delhi-ncr' || $cityshown == 'delhi')
 			$cityshown = 'Delhi NCR';
 		$this->view->cityshown = $cityshown;
-			
 		
 		$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
+		
 		
 		/* ======= Seo Update ============= */
 		$title = ucwords($city).' Events: Things to do in '.ucwords($city).' Today | '.$this->config->application->SiteName;
 		$this->tag->setTitle($title);
+		
 		
 		$this->view->meta_description = 'Events in '.ucwords($city).': Getting bored? Wondering what to do in '.ucwords($city).' today? Check out the list of things to do in '.ucwords($city).' today and have unlimited fun. ';
 		$this->view->meta_keywords = 'things to do in '.ucwords($city).', what to do in '.ucwords($city).', '.ucwords($city).' events';
