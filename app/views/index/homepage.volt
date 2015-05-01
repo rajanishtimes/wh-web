@@ -4,7 +4,7 @@
 		<div class="row">
 			<!--<h1>Hey! Top Things to do today</h1>-->
 			{% if(topfeeds | length > 0) %}
-				<h1>Discover best things to do in {{city}} including all the events taking place in {{city}}</h1>
+				<h1>Discover best things to do in {{cityshown}} including all the events taking place in {{cityshown}}</h1>
 				<div class="work-content resize">
 					{% for key, topfeed in topfeeds['results'] %}
 						<div class="col-sm-6 col-md-4 col-xs-6">

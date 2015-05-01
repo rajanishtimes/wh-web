@@ -17,6 +17,11 @@ class IndexController extends BaseController{
 		$this->setcityid();*/
 		
 		$city = $this->currentCity;
+		$cityshown = $city;
+		if($cityshown == 'delhi-ncr' || $cityshown == 'delhi')
+			$cityshown = 'Delhi NCR';
+		$this->view->cityshown = $cityshown;
+			
 		
 		$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
 		

@@ -34,7 +34,7 @@
 		<!-- Begin City Nav -->
 			<ul class="nav-search navbar-right">
 				<li class="dropdown">
-					<a href="#fakelink" class="dropdown-toggle makeactive" data-toggle="dropdown">
+					<a href="#" class="dropdown-toggle makeactive" data-toggle="dropdown">
 						<i class="fa fa-map-marker makered"></i>
 						{% if(city | trim | lower == 'delhi') %}
 							<span>Delhi NCR</span>
@@ -50,7 +50,7 @@
 						{% for cities in allcities['cities'] %}
 							{% if(cities['name'] | trim | lower == 'delhi') %}
 								<li data-name="delhi"><a href="{{baseUrl}}/delhi">Delhi NCR</a></li>
-							{% elseif(cities['name'] | trim | lower == 'delhi-ncr' OR cities['name'] | trim | lower == 'delhi ncr' OR cities['name'] | trim | lower == 'delhi-ncr') %}
+							{% elseif(cities['name'] | trim | lower == 'delhi-ncr' OR cities['name'] | trim | lower == 'delhi ncr' OR cities['name'] | trim | lower == 'delhincr') %}
 								<li data-name="delhi-ncr"><a href="{{baseUrl}}/delhi-ncr">Delhi NCR</a></li>
 							{% else %}
 								<li data-name="{{elements.create_slug(cities['name']) | trim | lower}}"><a href="{{baseUrl}}/{{elements.create_slug(cities['name']) | trim | lower}}">{{cities['name']}}</a></li>
