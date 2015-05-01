@@ -75,7 +75,9 @@ STANDARD DESKTOP < 1024px
 	.owl-carousel.work-detail .item{
 		height:300px;
 	}
-
+	.rating {
+		left: 42%;
+	}
 }
 
 
@@ -114,6 +116,7 @@ SMALL DESKTOP 768px <> 991px
 	.tt-dropdown-menu{
 		width:116%;
 	}
+	
 }
 
 
@@ -173,6 +176,9 @@ TABLET < 767px
 	.share{
 		padding:0;
 	}
+	.rating {
+		left: 39%;
+	}
 }
 
 
@@ -206,6 +212,9 @@ PHONE < 640px
 	}
 	.navbar-fixed-top{
 		position:absolute;
+	}
+	.rating {
+		left: 38%;
 	}
 }
 
@@ -281,6 +290,9 @@ PHONE < 480px
 	.authordetailsection .author-detail {
 		width: 60%; min-width: 200px;
 	}
+	.rating {
+		left: 33%;
+	}
 }
 
 /**
@@ -331,6 +343,9 @@ PHONE < 420px
 	.owl-carousel.work-detail .item{
 		height:190px;
 	}
+	.rating {
+		left: 33%;
+	}
 }
 
 
@@ -355,7 +370,9 @@ PHONE < 360px
 	.authordetailsection .author-detail {
 		width: 50%; min-width: 160px;
 	}
-	
+	.rating {
+		left: 27%;
+	}
 }
 
 
@@ -391,5 +408,7 @@ PHONE < 320px
 	.searchbtn a  > div{
 		padding: 11px 15px;
 	}
-	
+	.rating {
+		left: 23%;
+	}
 }

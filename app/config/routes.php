@@ -159,4 +159,9 @@ $router->add("/", array(
     'action' => 'index',
 )); 
 
+$router->notFound(array(
+    "controller" => "error",
+    "action"     => "route404"
+));
+
 $router->handle();

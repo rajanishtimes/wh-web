@@ -42,13 +42,13 @@ class EventController extends BaseController{
         
 		if($eventdetail){			
 			$this->validateRequest($eventdetail['url']);
-			foreach($eventdetail['images'] as $key=>$images){
+			/* foreach($eventdetail['images'] as $key=>$images){
 				if($images['uri']){
 					if(substr($images['uri'], 0, 4) != 'http'){
 						$eventdetail['images'][$key]['uri'] = $this->config->application->imgbaseUri.$images['uri'];
 					}
 				}
-			}
+			} */
 			$eventdetail['venue']['slug'] = $this->create_slug($eventdetail['venue']['name']).'-v-'.str_replace('_', '-', strtolower($eventdetail['venue']['id']));
 			/* ======= Seo Update ============= */
 			if($eventdetail['page_title']){
@@ -67,7 +67,7 @@ class EventController extends BaseController{
 			/* ======= Seo Update ============= */
 			
 			$breadcrumbs = $this->breadcrumbs(array(
-				ucwords($this->city) => $this->baseUrl.'/'.$this->currentCity,
+				ucwords($this->currentCity) => $this->baseUrl.'/'.$this->currentCity,
 				ucwords(strtolower(trim($eventdetail['title']))) =>''
 			));
 			$this->view->setVars(array('eventdetail' => $eventdetail, 'breadcrumbs'=>$breadcrumbs));
@@ -86,7 +86,7 @@ class EventController extends BaseController{
 			$allfeedslist = array();
 		}
 		$breadcrumbs = $this->breadcrumbs(array('Events in '.ucwords($this->currentCity) =>''));
-		
+		$this->tag->setTitle('Events in '.ucwords($this->currentCity));
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,

@@ -74,7 +74,7 @@ class CriticController extends BaseController{
 			$reviewwidth = $rwidth*33;
 			
 			$breadcrumbs = $this->breadcrumbs(array(
-				ucwords($this->city) => $this->baseUrl.'/'.$this->currentCity,
+				ucwords($this->currentCity) => $this->baseUrl.'/'.$this->currentCity,
 				ucwords(strtolower(trim($criticdetail['title']))) =>''
 			));
 			
