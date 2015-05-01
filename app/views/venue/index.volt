@@ -10,7 +10,7 @@
 					{% endif %}
 					
 					{% if(venuedetail['mobiledata'] != '' or venuedetail['phonedata'] != '') %}
-						<div class="phone"><div class="phoneimg"></div><?php echo implode(',', $venuedetail['phonedata']); if($venuedetail['phonedata']){echo ",";}?> <?php echo implode(',', $venuedetail['mobiledata']); ?></div>
+						<div class="phone"><div class="phoneimg"></div><?php echo implode(', ', $venuedetail['phonedata']); if($venuedetail['phonedata']){echo ",";}?> <?php echo implode(', ', $venuedetail['mobiledata']); ?></div>
 					{% endif %}
 					
 					{% if(venuedetail['landmark'] != '') %}
