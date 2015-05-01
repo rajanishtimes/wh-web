@@ -9,7 +9,7 @@
 						<div class="time"><div class="timeimg"></div>{{venuedetail['formatted_address']}}</div>
 					{% endif %}
 					
-					{% if(venuedetail['mobiledata'] != '' or venuedetail['phonedata'] != '') %}
+					{% if(venuedetail['mobiledata'] | length > 0 or venuedetail['phonedata'] | length >  0) %}
 						<div class="phone"><div class="phoneimg"></div><?php echo implode(', ', $venuedetail['phonedata']); if($venuedetail['phonedata']){echo ",";}?> <?php echo implode(', ', $venuedetail['mobiledata']); ?></div>
 					{% endif %}
 					
