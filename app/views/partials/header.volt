@@ -12,24 +12,13 @@
 		
 		{% if(controllername == 'search') %}
 			<div class="searchbtn float-right active">
-				<a href="{{baseUrl}}/{{city}}"><div class="madewidth"><img src="{{baseUrl}}/img/search_close.png"></div></a>
+				<a href="{{baseUrl}}/{{city}}"><div class="madewidth"><img src="{{baseUrl}}/img/search_close.png" alt="Go to Home"></div></a>
 			</div>
 		{% else %}
 			<div class="searchbtn float-right">
-				<a href="{{baseUrl}}/search/search"><div class="madewidth"><img src="{{baseUrl}}/img/search.png"></div></a>
+				<a href="{{baseUrl}}/search/search"><div class="madewidth"><img src="{{baseUrl}}/img/search.png" alt="Search"></div></a>
 			</div>
 		{% endif %}
-		
-		<!-- Begin search nav id="searchbox" --
-		<div id="searchboxmakeoverlay" class="nav-right-info">
-			<form id="searchForm" method="POST" action="/search/search">
-				<div id="expandable" class="input-group">
-					<div id="searchinputform" class="textinput float-left"><input type="text" class="form-control" placeholder="Search..." id="searchtextinput" name="search"></div>
-					<div class="searchinout float-right"><button class="input-group-addon"><i class="fa fa-search"></i></button></div>
-				</div>
-			</form>
-		</div>
-		<!-- End search nav -->
 		
 		<!-- Begin City Nav -->
 			<ul class="nav-search navbar-right">

@@ -4,7 +4,7 @@
 <footer>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-3 extrapaddright">
+			<!--<div class="col-xs-12 col-sm-6 col-md-3 extrapaddright">
 				<p>We deliver. Get the best of What's HOT Today in your inbox.</p>
 				{{ partial('partials/newsletter')}}
 				<p><small>You can opt-out at any time. Please refer to our privacy policy for contact information.</small></p>
@@ -14,40 +14,39 @@
 					<div class="social_icon twitter float-left"><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></div>
 					<div class="social_icon google-plus float-left"><a target="_blank" href="#"><i class="fa fa-google-plus"></i></a></div>
 				</div>
-			</div>
+			</div>-->
 			
-			<div class="col-xs-12 col-sm-6 col-md-2">
+			<div class="col-xs-12 col-sm-6 col-md-3">
 				{{ elements.getStaticpages(baseUrl) }}
 			</div><!-- /.col-sm-4 -->
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<div class="col-lg-6">
-					<ul class="list">
-						{% for cities in allcities['cities'] %}
-							{% if(cities['name'] | trim | lower == 'delhi') %}
-								<li><a href="{{baseUrl}}/delhi">Delhi NCR</a></li>
-							{% elseif(cities['name'] | trim | lower == 'delhi-ncr' OR cities['name'] | trim | lower == 'delhi ncr' OR cities['name'] | trim | lower == 'delhi-ncr') %}
-								<li><a href="{{baseUrl}}/delhi-ncr">Delhi NCR</a></li>
-							{% else %}
-								<li><a href="{{baseUrl}}/{{cities['name']|lower|trim}}">{{cities['name']}}</a></li>
-							{% endif %}
-						{% endfor  %}
-					</ul>
-				</div>
-				<div class="col-lg-6">
-					<!--<ul class="list citylist">-->
-					<ul class="list">
-						{% for cities in allcities['cities'] %}
-							{% if(cities['name'] | trim | lower == 'delhi') %}
-								<li><a href="{{baseUrl}}/delhi/events">Events in Delhi NCR</a></li>
-							{% elseif(cities['name'] | trim | lower == 'delhi-ncr' OR cities['name'] | trim | lower == 'delhi ncr' OR cities['name'] | trim | lower == 'delhi-ncr') %}
-								<li><a href="{{baseUrl}}/delhi-ncr/events">Events in Delhi NCR</a></li>
-							{% else %}
-								<li><a href="{{baseUrl}}/{{cities['name']|lower|trim}}/events">Events in {{cities['name']}}</a></li>
-							{% endif %}
-						{% endfor  %}
-					</ul>
-				</div>
-			</div><!-- /.col-sm-3 -->
+			<div class="col-xs-12 col-sm-6 col-md-3">
+				<ul class="list">
+					{% for cities in allcities['cities'] %}
+						{% if(cities['name'] | trim | lower == 'delhi') %}
+							<li><a href="{{baseUrl}}/delhi">Delhi NCR</a></li>
+						{% elseif(cities['name'] | trim | lower == 'delhi-ncr' OR cities['name'] | trim | lower == 'delhi ncr' OR cities['name'] | trim | lower == 'delhi-ncr') %}
+							<li><a href="{{baseUrl}}/delhi-ncr">Delhi NCR</a></li>
+						{% else %}
+							<li><a href="{{baseUrl}}/{{cities['name']|lower|trim}}">{{cities['name']}}</a></li>
+						{% endif %}
+					{% endfor  %}
+				</ul>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-3">
+				<!--<ul class="list citylist">-->
+				<ul class="list">
+					{% for cities in allcities['cities'] %}
+						{% if(cities['name'] | trim | lower == 'delhi') %}
+							<li><a href="{{baseUrl}}/delhi/events">Events in Delhi NCR</a></li>
+						{% elseif(cities['name'] | trim | lower == 'delhi-ncr' OR cities['name'] | trim | lower == 'delhi ncr' OR cities['name'] | trim | lower == 'delhi-ncr') %}
+							<li><a href="{{baseUrl}}/delhi-ncr/events">Events in Delhi NCR</a></li>
+						{% else %}
+							<li><a href="{{baseUrl}}/{{cities['name']|lower|trim}}/events">Events in {{cities['name']}}</a></li>
+						{% endif %}
+					{% endfor  %}
+				</ul>
+			</div>
+			
 			<div class="clearfix visible-sm"></div>
 			<div class="col-xs-12 col-sm-6 col-md-3 text-right">
 				<div class="setbottom">
