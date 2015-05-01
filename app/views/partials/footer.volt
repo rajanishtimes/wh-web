@@ -16,10 +16,13 @@
 				</div>
 			</div>-->
 			
-			<div class="col-xs-12 col-sm-6 col-md-3">
+			<div class="col-xs-12 col-sm-6 col-md-2">
+				<h2 class="footerstyle">COMPANY</h2>
 				{{ elements.getStaticpages(baseUrl) }}
-			</div><!-- /.col-sm-4 -->
-			<div class="col-xs-12 col-sm-6 col-md-3">
+			</div>
+			
+			<div class="col-xs-12 col-sm-6 col-md-2">
+				<h2 class="footerstyle">WHAT'S HOT IN</h2>
 				<ul class="list">
 					{% for cities in allcities['cities'] %}
 						{% if(cities['name'] | trim | lower == 'delhi') %}
@@ -32,8 +35,17 @@
 					{% endfor  %}
 				</ul>
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-3">
-				<!--<ul class="list citylist">-->
+			
+			<div class="col-xs-12 col-sm-6 col-md-2">
+				<h2 class="footerstyle">MOST POPULAR</h2>
+				<ul class="list">
+					
+				</ul>
+			</div>
+			
+			
+			<div class="col-xs-12 col-sm-6 col-md-2">
+				<h2 class="footerstyle">TOP EVENTS</h2>
 				<ul class="list">
 					{% for cities in allcities['cities'] %}
 						{% if(cities['name'] | trim | lower == 'delhi') %}
@@ -48,7 +60,7 @@
 			</div>
 			
 			<div class="clearfix visible-sm"></div>
-			<div class="col-xs-12 col-sm-6 col-md-3 text-right">
+			<div class="col-xs-12 col-sm-6 col-md-4 text-right">
 				<div class="setbottom">
 					<div class="app_option">
 						<a href="https://itunes.apple.com/in/app/timescity-food-restaurant/id636515332?mt=8"><div class="iphone_app float-right"></div></a>&nbsp;&nbsp;

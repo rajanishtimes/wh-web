@@ -1041,22 +1041,34 @@ footer .social_icon {
     margin: 0 9px;
     padding: 0 6px;
 }
+.footerstyle {
+    color: #606060;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 13px;
+}
 .social_icon.facebook {
     padding: 0 8px;
 }
 .app_option {
     height: 48px;
-    margin: 4px 0 0;
+    margin: 80px 0 0;
 }
 .android_app {
-    background: url("../img/app-icon.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
-    height: 39px;
+    background: url("../img/android_playstore_btn.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 42px;
     width: 126px;
 }
+.android_app:hover {
+    background: url("../img/android_playstore_btn_hover.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
 .iphone_app {
-    background: url("../img/app-icon.png") repeat scroll -126px 0 rgba(0, 0, 0, 0);
-    height: 39px;
+    background: url("../img/ios_Appstore_bnt.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 42px;
     width: 126px;
+}
+.iphone_app:hover {
+	background: url("../img/ios_Appstore_bnt_hover.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 }
 #back-top {
     background: none repeat scroll 0 0 #d11a6d;
