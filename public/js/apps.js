@@ -201,7 +201,7 @@ function view_feed_with_ajax(city, mainURL, start, limit, parentId, searchval, t
 			beforeSend: function(){
 				feed_with_ajax_running = true;
 				//console.log("sending request ... ");
-				$('#'+parentId).append('<div class="clearfix"></div><div class="loader"><img src="'+baseUrl+'/img/ajax-loader.gif"></div>');
+				$('#'+parentId).append('<div class="loader"><div class="clearfix"></div><img src="'+baseUrl+'/img/ajax-loader.gif"></div>');
 				$('#'+parentId).parent().find('.loadmore .btn').addClass('visibilityhide');
 			},
 			success:function(data) {
