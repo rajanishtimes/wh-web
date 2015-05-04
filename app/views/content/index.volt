@@ -55,7 +55,7 @@
 									</a>
 							</div>
 							
-							{% if(author['title'] != '') %}
+							{% if(author['url'] != '') %}
 								<div class="col-xs-12 col-sm-8 col-md-10 author-detail">
 										<h2><a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a></h2>
 										<p>{{author['description']}}</p>

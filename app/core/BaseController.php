@@ -27,7 +27,7 @@ class BaseController extends Controller{
     protected function initialize()
     {
 		$GLOBALS["time_end"] = microtime(true);
-		$GLOBALS["logs"]['Base_Initialize'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
+		$GLOBALS["logs"]['base_initialize'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
 		$GLOBALS["time_start"] = microtime(true);
 		
 		$this->request = new \Phalcon\Http\Request();
@@ -303,9 +303,18 @@ class BaseController extends Controller{
 		}
 	}
 	
-	public function getlogs(){
+	public function getlogs($type, $uri){
 		$Mongo = new WhMongo();
 		$Mongo->setCollection('api_web_logs');
+		$overall = 0;
+		foreach($GLOBALS["logs"]['timings'] as $key=>$timing){
+			$overall = $overall + $timing;
+			$GLOBALS["logs"]['timings'][$key] = $timing * 1000;
+		}
+		$GLOBALS["logs"]['overall'] = $overall * 1000;
+		$GLOBALS["logs"]['uri'] = $uri;
+		$GLOBALS["logs"]['type'] = $type;
+		echo "<pre>"; print_r($GLOBALS["logs"]); exit;
 		$saveData=$Mongo->save($GLOBALS["logs"]);
 	}
 }

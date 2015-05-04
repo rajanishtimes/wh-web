@@ -16,7 +16,7 @@ class IndexController extends BaseController{
 		/* $this->setcities();
 		$this->setcityid();*/
 		$GLOBALS["time_end"] = microtime(true);
-		$GLOBALS["logs"]['Homepage_Start'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
+		$GLOBALS["logs"]['timings']['homepage_start'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
 		$GLOBALS["time_start"] = microtime(true);
 		
 		$city = $this->currentCity;
@@ -48,7 +48,7 @@ class IndexController extends BaseController{
 		}
 		
 		$GLOBALS["time_end"] = microtime(true);
-		$GLOBALS["logs"]['Top_Feeds'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
+		$GLOBALS["logs"]['timings']['top_feeds'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
 		$GLOBALS["time_start"] = microtime(true);
 		
 		$core = new \WH\Model\Core();
@@ -60,7 +60,7 @@ class IndexController extends BaseController{
 		}
 		
         $GLOBALS["time_end"] = microtime(true);
-		$GLOBALS["logs"]['Popular_tags'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
+		$GLOBALS["logs"]['timings']['popular_tags'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
 		$GLOBALS["time_start"] = microtime(true);
 		
 		$start = 0;
@@ -83,10 +83,10 @@ class IndexController extends BaseController{
 			);
 		
 		$GLOBALS["time_end"] = microtime(true);
-		$GLOBALS["logs"]['All_Feeds'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
+		$GLOBALS["logs"]['timings']['all_feeds'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
 		$GLOBALS["time_start"] = microtime(true);
 		
-		$this->getlogs();
+		$this->getlogs('Homepage', $this->baseUrl.'/homepage');
 		
     }
 	
@@ -142,6 +142,7 @@ class IndexController extends BaseController{
     }
 	
 	public function unsubscribeAction(){
-		
+		echo "unsubscribed";
+		exit;
 	}
 }
