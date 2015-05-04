@@ -20,13 +20,13 @@ class TagController extends BaseController{
     }
 
     public function indexAction(){
-		$response->setHeader('Cache-Control', 'max-age=900');
+		$this->response->setHeader('Cache-Control', 'max-age=900');
 		$start = 0;
 		$limit = 11;
 		$this->tags = $this->create_title($this->tags);
                 $tags = $this->tags;
 		try{
-			$tagsfeeds = $this->getfeeddata($start, $limit, $this->city, 'all', 'tags', $this->tags, 'Event,Content');
+			$tagsfeeds = $this->getfeeddata($start, $limit, $this->currentCity, 'all', 'tags', $this->tags, 'Event,Content');
 			$this->setlogsarray('tag_get_records');
 		}catch(Exception $e){
 			$tagsfeeds = array();
