@@ -16,7 +16,7 @@
 					</ul><div class="clearfix"></div>
 					<h1 class="contenttitle text-center">{{contentdetail['title'] | stripslashes}}</h1>
 					<div class="contentdetail text-center">
-						{% if(author['title'] != ''){ %}
+						{% if(author['title'] != '') %}
 							By <a href="{{baseUrl}}{{author['url']}}">{{author['title'] | stripslashes}}</a>
 						{% endif %}
 					</div>
