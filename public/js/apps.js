@@ -225,7 +225,8 @@ function view_feed_with_ajax(city, mainURL, start, limit, parentId, searchval, t
 function manageCityCookie(){
     expOn = new Date();
     expOn.setTime(new Date().getTime() + 3600000 * 24 * 365);
-    if(HomeCityName != "" && HomeCityName != undefined){
+	
+	if(HomeCityName != "" && HomeCityName != undefined){
         cookies.set('city',_city, {path: '/',expires:expOn});
     }
     else{
@@ -237,7 +238,9 @@ function manageCityCookie(){
     else{
         cookies.set('currentCity', server_variables.default_city, {path: '/',expires:expOn});
     }
-    
+    if(cookies.get('city').length > 15){
+		cookies.set('city', server_variables.default_city, {path: '/',expires:expOn});
+	}
 }
 function DOMReady(){    
     manageCityCookie();   

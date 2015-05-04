@@ -158,7 +158,6 @@ class Feeds extends Component
 			
 			$x = $y = 0;
 			
-			if($dimension['x'] == 0 && $dimension['y'] == 0){
 				if($original_width > $width && $width != 0){
 					$x = ($original_width - $width)/2;
 				}
@@ -166,10 +165,6 @@ class Feeds extends Component
 				if($original_height > $height  && $height != 0){
 					$y = ($original_height - $height)/2;
 				}
-			}else{
-				$x = $dimension['x'];
-				$y = $dimension['y'];
-			}
 			
 			
 			if($c == 1){

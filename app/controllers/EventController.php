@@ -71,6 +71,7 @@ class EventController extends BaseController{
 			
 			$breadcrumbs = $this->breadcrumbs(array(
 				ucwords($this->currentCity) => $this->baseUrl.'/'.$this->currentCity,
+				'Events' => $this->baseUrl.'/'.$this->currentCity.'/events',
 				ucwords(strtolower(trim($eventdetail['title']))) =>''
 			));
 			$this->view->setVars(array('eventdetail' => $eventdetail, 'breadcrumbs'=>$breadcrumbs));
