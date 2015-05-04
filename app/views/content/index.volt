@@ -16,7 +16,9 @@
 					</ul><div class="clearfix"></div>
 					<h1 class="contenttitle text-center">{{contentdetail['title'] | stripslashes}}</h1>
 					<div class="contentdetail text-center">
-						By <a href="{{baseUrl}}{{author['url']}}">{{author['title'] | stripslashes}}</a>
+						{% if(author['title'] != ''){ %}
+							By <a href="{{baseUrl}}{{author['url']}}">{{author['title'] | stripslashes}}</a>
+						{% endif %}
 					</div>
 					<hr class="small">
 					<div class="detail">
@@ -52,16 +54,19 @@
 										{{feeds.getimage(baseUrl, author['images'][0]['uri'], '', '', author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
 									</a>
 							</div>
-							<div class="col-xs-12 col-sm-8 col-md-10 author-detail">
-									<h2><a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a></h2>
-									<p>{{author['description']}}</p>
-									
-									{% if(author['twitter_url'] != '') %}
-									<ul class="list-inline navbar-left authortwitter">
-										<li class="no-padding"><a target="_blank" href="{{author['twitter_url']}}"><i class="fa fa-twitter"></i> <span>{{author['user_name']}} </span></a></li>
-									</ul><div class="clearfix"></div>
-									{% endif %}
-							</div>
+							
+							{% if(author['title'] != ''){ %}
+								<div class="col-xs-12 col-sm-8 col-md-10 author-detail">
+										<h2><a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a></h2>
+										<p>{{author['description']}}</p>
+										
+										{% if(author['twitter_url'] != '') %}
+										<ul class="list-inline navbar-left authortwitter">
+											<li class="no-padding"><a target="_blank" href="http://twitter.com/{{author['twitter_url']}}"><i class="fa fa-twitter"></i> <span>{{author['user_name']}} </span></a></li>
+										</ul><div class="clearfix"></div>
+										{% endif %}
+								</div>
+							{% endif %}
 							<div class="clearfix"></div>
 						</div>
 				</div>

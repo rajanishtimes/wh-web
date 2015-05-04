@@ -12,7 +12,7 @@
 					<h2 class="contenttitle text-center">{{author['title'] | lower | capitalize}}</h2>
 					<?php if(isset($author['twitter_url']) && !empty($author['twitter_url'])){?>
 					<div class="atwitter text-center">
-						<a href="{{author['twitter_url']}}" target="_blank">
+						<a href="http://twitter.com/{{author['twitter_url']}}" target="_blank">
 							<i class="fa fa-twitter"></i>@{{author['user_name']}}
 						</a>
 					</div>

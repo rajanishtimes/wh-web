@@ -76,7 +76,7 @@ class VenueController extends BaseController{
 			$this->view->og_title = $venuedetail['og_title'];
 			$this->view->og_type = 'Venue';
 			$this->view->og_description = $venuedetail['og_description'];
-			$this->view->og_image = $this->baseUrl.'/'.$venuedetail['og_image'];
+			$this->view->og_image = $this->baseUrl.$venuedetail['og_image'];
 			$this->view->og_url = $this->baseUrl.$venuedetail['url'];
 			$this->view->canonical_url = $this->baseUrl.$venuedetail['url'];
 			$this->view->deep_link = $venuedetail['deep_link'];
