@@ -97,7 +97,7 @@ class Feeds extends Component
 		foreach($data['results'] as $i=>$feed){ ?>
 			<li class="media searchlist">
 				<a class="pull-left" href="<?php echo $baseUrl . $feed['url']; ?>" data-ga-cat="search" data-ga-action="<?php echo $baseUrl . $feed['url']; ?>" data-in-label="pos_<?php echo $i+1; ?>">
-					<?php echo $this->getimage($baseUrl, $feed['image']['uri'], 80, 80, $feed['title'], $feed['image']); ?>
+					<?php echo $this->getimage($baseUrl, $feed['image']['uri'], 80, 80, $feed['title'], $feed['image'], '', '', 0); ?>
 				</a>
 				<div class="media-body">
 					<h4 class="media-heading">
@@ -143,7 +143,7 @@ class Feeds extends Component
 		return $url;
 	}
 	
-	public function getimage($url, $image_url, $width, $height, $alt, $dimension='', $style='', $class=''){
+	public function getimage($url, $image_url, $width, $height, $alt, $dimension='', $style='', $class='', $c=1){
 		if($image_url){
 			$pos = strpos($image_url, 'http');
 			if($pos !== false){
@@ -158,14 +158,26 @@ class Feeds extends Component
 			
 			$x = $y = 0;
 			
-			if($original_width > $width && $width != 0){
-				$x = ($original_width - $width)/2;
+			if($dimension['x'] == 0 && $dimension['y'] == 0){
+				if($original_width > $width && $width != 0){
+					$x = ($original_width - $width)/2;
+				}
+				
+				if($original_height > $height  && $height != 0){
+					$y = ($original_height - $height)/2;
+				}
+			}else{
+				$x = $dimension['x'];
+				$y = $dimension['y'];
 			}
 			
-			if($original_height > $height  && $height != 0){
-				$y = ($original_height - $height)/2;
+			
+			if($c == 1){
+				$imgurl = $imgurl.'?x='.$x.'&y='.$y.'&w='.$width.'&h='.$height.'&c=1&q=75';
+			}else{
+				$imgurl = $imgurl.'?x='.$x.'&y='.$y.'&w='.$width.'&h='.$height.'&q=75';
 			}
-			$imgurl = $imgurl.'?x='.$x.'&y='.$y.'&w='.$width.'&h='.$height.'&c=1&q=75';
+			
 			$imgbox = '<img src="'.$imgurl.'" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
 		}else{
 			$imgbox = '<img src="'.$url.'/img/img_feed_default.png" alt="'.$alt.'"  style="'.$style.'" class="'.$class.'">';
