@@ -1,5 +1,38 @@
-@import "http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700|Lora";
 @import "http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700|Roboto";
+@font-face {
+	font-family: 'Lora-Bold';
+	src: url('../fonts/Lora-Bold.eot');
+	src: local('?'), url('../fonts/Lora-Bold.woff') format('woff'), url('../fonts/Lora-Bold.ttf') format('truetype'), url('../fonts/Lora-Bold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Lora-BoldItalic';
+	src: url('../fonts/Lora-BoldItalic.eot');
+	src: local('?'), url('../fonts/Lora-BoldItalic.woff') format('woff'), url('../fonts/Lora-BoldItalic.ttf') format('truetype'), url('../fonts/Lora-BoldItalic.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Lora-Italic';
+	src: url('../fonts/Lora-Italic.eot');
+	src: local('?'), url('../fonts/Lora-Italic.woff') format('woff'), url('../fonts/Lora-Italic.ttf') format('truetype'), url('../fonts/Lora-Italic.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Lora';
+	src: url('../fonts/Lora-Regular.eot');
+	src: local('?'), url('../fonts/Lora-Regular.woff') format('woff'), url('../fonts/Lora-Regular.ttf') format('truetype'), url('../fonts/Lora-Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
 body {
     background: none repeat scroll 0 0 #fff;
     color: #1e1e1e;
@@ -20,9 +53,8 @@ hr {
 }
 .section h1 {
     color: #333333;
-    font-family: "Lora",times new roman,times,sans-serif;
+    font-family: "Lora-Bold",times new roman,times,sans-serif;
     font-size: 24px;
-    font-weight: bold;
     line-height: 35px;
     margin-bottom: 10px;
     margin-top: 18px;
@@ -94,9 +126,8 @@ p {
     float: none;
 }
 .yfeeds {
-    font-family: "Lora",times new roman,times,sans-serif;
+    font-family: "Lora-Bold",times new roman,times,sans-serif;
     font-size: 25px;
-    font-weight: bold;
 }
 .visibilityhide {
     visibility: hidden;
@@ -338,17 +369,15 @@ blockquote {
     padding: 0;
 }
 .section .contenttitle {
-    font-family: "Lora",times new roman,times,sans-serif;
+    font-family: "Lora-Bold",times new roman,times,sans-serif;
     font-size: 35px;
-    font-weight: 700;
     line-height: 49px;
     margin: 14px 0 0 10px;
 }
 .contentdetail {
     color: #d11a6d;
-    font-family: Lora;
+    font-family: Lora-Italic;
     font-size: 18px;
-    font-style: italic;
     padding: 3px 0 0;
 }
 .contentdetail a {
@@ -385,9 +414,8 @@ hr.small {
     cursor: pointer;
 }
 .venuetitle {
-    font-family: "Lora",times new roman,times,sans-serif;
+    font-family: "Lora-Bold",times new roman,times,sans-serif;
     font-size: 32px;
-    font-weight: 700;
     line-height: 49px;
     margin: 0 0 14px;
 }
@@ -632,9 +660,8 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     background: none repeat scroll 0 0 #d11a6d;
 }
 .feed-title {
-    font-family: "Lora",Calibri,Arial,sans-serif;
+    font-family: "Lora-Bold",Calibri,Arial,sans-serif;
     font-size: 20px;
-    font-weight: 700;
     line-height: 22px;
     margin-bottom: 10px;
     max-height: 45px;
@@ -754,9 +781,8 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
 .feed-name {
     bottom: 0;
     color: #fff;
-    font-family: "Lora",Calibri,Arial,sans-serif;
+    font-family: "Lora-Bold",Calibri,Arial,sans-serif;
     font-size: 25px;
-    font-weight: bold;
     line-height: 30px;
     margin: 0;
     padding: 20px;
@@ -1656,9 +1682,8 @@ h3.tags {
     width: 100px;
 }
 .authordetailsection .author-detail h2 {
-    font-family: Lora;
+    font-family: Lora-Bold;
     font-size: 18px;
-    font-weight: bold;
     margin: 0 0 -5px;
     text-transform: uppercase;
 }
@@ -3275,6 +3300,9 @@ a .icon-primary, a .icon-success, a .icon-info, a .icon-danger, a .icon-warning,
 .detail p {
     color: #333;
     margin-bottom: 40px;
+}
+.authorbio p {
+    font-family: Lora-Italic;
 }
 .detail p a {
     color: #d11a6d;

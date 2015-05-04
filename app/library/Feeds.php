@@ -79,7 +79,11 @@ class Feeds extends Component
 						</a>
 						<div class="the-box no-margin no-border">
 							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo stripslashes($feed['title']); ?></a></div>
-							<div class="feed-short-desc"><?php echo strip_tags($feed['description'], '<a>'); ?></div>
+							<?php
+								$desc = strip_tags($feed['description']);
+								$description = strlen($desc) > 100 ? substr($desc, 0, 100).'...' : $desc;
+							?>
+							<div class="feed-short-desc"><?php echo $description; ?></div>
 						</div>
 					</div>
 				</div>

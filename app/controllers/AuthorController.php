@@ -19,6 +19,7 @@ class AuthorController extends BaseController{
     }
 
     public function indexAction(){
+		$this->response->setHeader('Cache-Control', 'max-age=86400');
 		$this->setlogsarray('author_start');
 		preg_match('/\ba-[0-9]{1,}\b/i', $this->authorname, $match);
 		$id = str_replace('-', '_', $match[0]);
