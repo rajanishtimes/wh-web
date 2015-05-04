@@ -48,6 +48,7 @@
 							</ul><div class="clearfix"></div>
 						</div>
 
+						{% if(author['url'] != '') %}
 						<div class="authordetailsection">
 							<div class="col-sm-4 col-md-2 float-left author-image">
 									<a href="{{baseUrl}}{{author['url']}}">
@@ -55,7 +56,7 @@
 									</a>
 							</div>
 							
-							{% if(author['url'] != '') %}
+							
 								<div class="col-xs-12 col-sm-8 col-md-10 author-detail">
 										<h2><a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a></h2>
 										<p>{{author['description']}}</p>
@@ -66,9 +67,9 @@
 										</ul><div class="clearfix"></div>
 										{% endif %}
 								</div>
-							{% endif %}
 							<div class="clearfix"></div>
 						</div>
+						{% endif %}
 				</div>
 			</div>
 		</div>
