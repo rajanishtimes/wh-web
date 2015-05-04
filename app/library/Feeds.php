@@ -111,6 +111,22 @@ class Feeds extends Component
 							<div class="time"><?php echo $feed['time']; ?></div>
 							<div class="landmark"><?php echo $feed['venue']; ?></div>
 						</div>
+					<?php }else if(strtoupper($feed['type']) == 'VENUE'){ ?>
+						<?php 
+							if(isSet($feed['address']) && trim($feed['address'])!=''){
+								$address_arr[] = $feed['address'];
+							}
+							if(isSet($feed['landmark']) && trim($feed['landmark'])!=''){
+								$address_arr[] = $feed['landmark'];
+							}
+							if(isSet($feed['locality']) && trim($feed['locality'])!=''){
+								$address_arr[] = $feed['locality'];
+							}
+							if(isSet($feed['city']) && trim($feed['city'])!=''){
+								$address_arr[] = $feed['city'];
+							}
+							echo $formatted_address = implode(', ', $address_arr);
+						?>
 					<?php }else{ ?>
 						<p class="feed-short-desc"><?php echo strip_tags($feed['description'], '<a>'); ?></p>
 					<?php }?>

@@ -35,7 +35,10 @@ class TagController extends BaseController{
 		//$current_encoding = mb_detect_encoding($this->tags, 'auto');
 		//$ttgs = iconv($current_encoding, 'UTF-8', $this->tags);
 	
-		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($tags))) =>''));
+		$breadcrumbs = $this->breadcrumbs(array(
+			ucwords($this->currentCity) => $this->baseUrl.'/'.$this->currentCity,
+			ucwords(strtolower(trim($tags))) =>''
+		));
 		$this->view->setVars(
 			array(
 				'tagsfeeds' => $tagsfeeds,
