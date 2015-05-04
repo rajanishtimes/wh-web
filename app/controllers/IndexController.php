@@ -132,7 +132,10 @@ class IndexController extends BaseController{
     }
 	
 	public function unsubscribeAction(){
-		echo "unsubscribed";
-		exit;
+		$email = base64_decode($this->dispatcher->getParam('email'));
+		$Newsletter = new \WH\Model\User();
+		$Newsletter->setNewsletter();
+        $Newsletter->setEmail($email);
+		$Newsletter->getUnsubNewsletterResults();
 	}
 }

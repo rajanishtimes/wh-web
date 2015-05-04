@@ -68,7 +68,7 @@ class AuthorController extends BaseController{
 			$this->forwardtoerrorpage(404);
 		}
 		$this->setlogsarray('author_end');
-		$this->getlogs('author', $this->baseUrl.$url);
+		$this->getlogs('author', $this->baseUrl.$author['url']);
     }
 	
 	

@@ -93,6 +93,6 @@ class CriticController extends BaseController{
 			$this->forwardtoerrorpage(404);
 		}
 		$this->setlogsarray('critic_end');
-		$this->getlogs('critic', $this->baseUrl.$url);
+		$this->getlogs('critic', $this->baseUrl.$criticdetail['url']);
     }
 }

@@ -92,6 +92,6 @@ class VenueController extends BaseController{
 			$this->forwardtoerrorpage(404);
 		}
 		$this->setlogsarray('venue_end');
-		$this->getlogs('venue', $this->baseUrl.$url);
+		$this->getlogs('venue', $this->baseUrl.$venuedetail['url']);
     }
 }

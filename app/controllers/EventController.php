@@ -78,7 +78,7 @@ class EventController extends BaseController{
 			$this->forwardtoerrorpage(404);
 		}
 		$this->setlogsarray('event_end');
-		$this->getlogs('event', $this->baseUrl.$url);
+		$this->getlogs('event', $this->baseUrl.$eventdetail['url']);
     }
 	
 	

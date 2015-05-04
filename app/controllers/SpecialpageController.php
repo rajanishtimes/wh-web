@@ -80,6 +80,6 @@ class SpecialpageController extends BaseController{
 			$this->forwardtoerrorpage(404);
 		}
 		$this->setlogsarray('speacialpage_end');
-		$this->getlogs('specialpage', $this->baseUrl.$url);
+		$this->getlogs('specialpage', $this->baseUrl.$specialpagedetail['url']);
     }
 }

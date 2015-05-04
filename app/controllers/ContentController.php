@@ -91,6 +91,6 @@ class ContentController extends BaseController{
 			$this->forwardtoerrorpage(404);
 		}
 		$this->setlogsarray('content_end');
-		$this->getlogs('content', $this->baseUrl.$url);
+		$this->getlogs('content', $this->baseUrl.$contentdetail['url']);
     }
 }
