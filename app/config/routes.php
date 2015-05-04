@@ -7,12 +7,6 @@ $request = $_SERVER['QUERY_STRING'];
 $request = trim($request, '/');
 $split = explode('/', $request);
 $urlparams = end($split);
-	
-$router->add("/tag/{tags}", array(
-    'controller' => 'tag',
-    'action' => 'index',
-));
-
 
 $router->add("/author/{authorname}", array(
     'controller' => 'author',
@@ -35,6 +29,10 @@ $router->add("/{city}/location/{locationname}", array(
 	'action' => 'location',
 ));
 
+$router->add("/{city}/tag/{tags}", array(
+    'controller' => 'tag',
+    'action' => 'index',
+));
 
 $router->add("/critic-review/{critic}", array(
     'controller' => 'critic',

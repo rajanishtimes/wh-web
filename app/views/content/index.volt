@@ -30,7 +30,7 @@
 								<ul class="work-category-wrap tagsblack">
 									<?php $populartags =$contentdetail['tags'];?>								
 									{% for populartag in populartags %}
-										<li class="filter" ><a href="{{baseUrl}}/tag/{{elements.create_slug(populartag)}}">
+										<li class="filter" ><a href="{{baseUrl}}/{{currentCity}}/tag/{{elements.create_slug(populartag)}}">
 										{{populartag}}
 										</a></li>
 									{% endfor  %}
