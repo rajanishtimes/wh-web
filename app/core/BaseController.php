@@ -3,6 +3,7 @@
 namespace WH\Core;
 use Phalcon\Mvc\Controller;
 use WH\Api\Params;
+use WH\Model\Util\WhMongo;
 
 class BaseController extends Controller{
 	public $api_end_point;
@@ -27,6 +28,7 @@ class BaseController extends Controller{
     {
 		$GLOBALS["time_end"] = microtime(true);
 		$GLOBALS["logs"]['Base_Initialize'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
+		$GLOBALS["time_start"] = microtime(true);
 		
 		$this->request = new \Phalcon\Http\Request();
 		$this->tag->prependTitle($this->config->application->SiteName.' | ');
@@ -299,5 +301,14 @@ class BaseController extends Controller{
 		if($uri != $request_uri){
 			$this->response->redirect($this->baseUrl.$url, true, 301);
 		}
+	}
+	
+	public function getlogs(){
+		$Mongo = new WhMongo();
+		$Mongo->setCollection('api_web_logs');
+		$saveData=$Mongo->save($GLOBALS["logs"]);
+		
+		echo "<pre>"; print_r($saveData);
+		exit;
 	}
 }

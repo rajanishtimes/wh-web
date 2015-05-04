@@ -164,6 +164,11 @@ $router->add("/", array(
     'action' => 'index',
 )); 
 
+$router->add("/unsubscribe", array(
+    'controller' => 'index',
+    'action' => 'unsubscribe',
+)); 
+
 $router->notFound(array(
     "controller" => "error",
     "action"     => "route404"
