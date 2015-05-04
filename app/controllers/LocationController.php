@@ -5,6 +5,7 @@ use WH\Api\Params;
 
 class LocationController extends BaseController{
 	public function initialize(){
+		$this->setlogsarray('location_start');
 		$this->view->setLayout('mainLayout');
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
@@ -21,7 +22,8 @@ class LocationController extends BaseController{
 		$parentid = $this->request->getPost('parentid');
 
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword, 'Event,Content');
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword);
+			$this->setlogsarray('location_get_records');
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
@@ -38,6 +40,8 @@ class LocationController extends BaseController{
 				'parentid'=>$parentid
 				)
 			);
+		$this->setlogsarray('location_end');
+		$this->getlogs('location', $this->baseUrl.'/'.$this->city.'/location/'.$searchkeyword);
     }
 	
     public function autosuggestionAction(){

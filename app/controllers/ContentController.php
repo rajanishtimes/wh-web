@@ -6,6 +6,7 @@ use WH\Api\Params;
 class ContentController extends BaseController{
 	public $contenttitle = '';
 	public function initialize(){
+		$this->setlogsarray('content_start');
         $this->view->setLayout('mainLayout');
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
@@ -34,6 +35,7 @@ class ContentController extends BaseController{
         $Solr->setEntityDetails();
 		try{
 			$contentdetail = $Solr->getDetailResults();
+			$this->setlogsarray('content_get_detail');
 		}catch(Exception $e){
 			$contentdetail = array();
 		}
@@ -47,6 +49,7 @@ class ContentController extends BaseController{
 			$Author->setEntityDetails();
 			try{
 				$author = $Author->getDetailResults();
+				$this->setlogsarray('author_get_detail');
 			}catch(Exception $e){
 				$author = array();
 			}
@@ -86,5 +89,7 @@ class ContentController extends BaseController{
 		}else{
 			$this->forwardtoerrorpage(404);
 		}
+		$this->setlogsarray('content_end');
+		$this->getlogs('content', $this->baseUrl.$url);
     }
 }

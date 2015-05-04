@@ -6,6 +6,7 @@ use WH\Api\Params;
 class VenueController extends BaseController{
 	public $venue;
 	public function initialize(){
+		$this->setlogsarray('venue_start');
         $this->tag->setTitle('Venue');
         $this->view->setLayout('mainLayout');
 		$this->view->searchform = new SearchForm;
@@ -32,6 +33,7 @@ class VenueController extends BaseController{
         $Solr->setEntityDetails();
         try{
 			$venuedetail = $Solr->getDetailResults();
+			$this->setlogsarray('venue_get_detail');
 		}catch(Exception $e){
 			$venuedetail = array();
 		}
@@ -88,5 +90,7 @@ class VenueController extends BaseController{
 		}else{
 			$this->forwardtoerrorpage(404);
 		}
+		$this->setlogsarray('venue_end');
+		$this->getlogs('venue', $this->baseUrl.$url);
     }
 }

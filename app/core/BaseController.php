@@ -314,7 +314,12 @@ class BaseController extends Controller{
 		$GLOBALS["logs"]['overall'] = $overall * 1000;
 		$GLOBALS["logs"]['uri'] = $uri;
 		$GLOBALS["logs"]['type'] = $type;
-		echo "<pre>"; print_r($GLOBALS["logs"]); exit;
+		//echo "<pre>"; print_r($GLOBALS["logs"]); exit;
 		$saveData=$Mongo->save($GLOBALS["logs"]);
+	}
+	public function setlogsarray($key){
+		$GLOBALS["time_end"] = microtime(true);
+		$GLOBALS["logs"]['timings'][$key] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
+		$GLOBALS["time_start"] = microtime(true);
 	}
 }

@@ -6,7 +6,8 @@ use WH\Api\Params;
 class CriticController extends BaseController{
 	public $critic = '';
 	public function initialize(){
-        $this->tag->setTitle('Critic');
+        $this->setlogsarray('critic_start');
+		$this->tag->setTitle('Critic');
         $this->view->setLayout('mainLayout');
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
@@ -29,6 +30,7 @@ class CriticController extends BaseController{
         $Solr->setEntityDetails();
 		try{
 			$criticdetail = $Solr->getDetailResults();
+			$this->setlogsarray('critic_get_detail');
 		}catch(Exception $e){
 			$criticdetail = array();
 		}
@@ -44,6 +46,7 @@ class CriticController extends BaseController{
 			$Author->setEntityDetails();
 			try{
 				$author = $Author->getDetailResults();
+				$this->setlogsarray('author_get_detail');
 			}catch(Exception $e){
 				$author = array();
 			}
@@ -88,5 +91,7 @@ class CriticController extends BaseController{
 		}else{
 			$this->forwardtoerrorpage(404);
 		}
+		$this->setlogsarray('critic_end');
+		$this->getlogs('critic', $this->baseUrl.$url);
     }
 }

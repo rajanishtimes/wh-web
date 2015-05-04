@@ -6,6 +6,7 @@ use WH\Api\Params;
 class EventController extends BaseController{
 	public $eventtitle = '';
 	public function initialize(){
+		$this->setlogsarray('event_start');
         $this->view->setLayout('mainLayout');
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
@@ -36,6 +37,7 @@ class EventController extends BaseController{
         $Solr->setEntityDetails();
 		try{
 			$eventdetail = $Solr->getDetailResults();
+			$this->setlogsarray('event_get_detail');
 		}catch(Exception $e){
 			$eventdetail = array();
 		}
@@ -74,6 +76,8 @@ class EventController extends BaseController{
 		}else{
 			$this->forwardtoerrorpage(404);
 		}
+		$this->setlogsarray('event_end');
+		$this->getlogs('event', $this->baseUrl.$url);
     }
 	
 	

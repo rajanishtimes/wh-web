@@ -214,7 +214,7 @@ blockquote {
 .searchbtn a > div{
 	padding: 11px 23px;
 }
-.searchbtn a > div:hover{
+.searchbtn a > div:hover, .searchbtn a > div.active{
     background-color: #f5f5f5;
 }
 

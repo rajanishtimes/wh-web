@@ -6,6 +6,7 @@ use WH\Api\Params;
 class TagController extends BaseController{
 	public $tags = '';
 	public function initialize(){
+		$this->setlogsarray('tag_start');
         $this->tag->setTitle('Tag');
         $this->view->setLayout('mainLayout');
 		$this->view->searchform = new SearchForm;
@@ -25,6 +26,7 @@ class TagController extends BaseController{
                 $tags = $this->tags;
 		try{
 			$tagsfeeds = $this->getfeeddata($start, $limit, $this->city, 'all', 'tags', $this->tags, 'Event,Content');
+			$this->setlogsarray('tag_get_records');
 		}catch(Exception $e){
 			$tagsfeeds = array();
 		}
@@ -48,6 +50,8 @@ class TagController extends BaseController{
 		$this->view->meta_description = $this->tags.': Find all the information related to '.$this->tags.' at '.$this->config->application->SiteName;
 		$this->view->meta_keywords = $this->tags;
 		/* ======= Seo Update ============= */
+		$this->setlogsarray('tag_end');
+		$this->getlogs('tag', $this->baseUrl.'/tag/'.$this->tags);
     }
 	
 	public function forwardtagAction(){

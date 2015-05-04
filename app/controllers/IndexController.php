@@ -15,9 +15,7 @@ class IndexController extends BaseController{
 	public function homepageAction(){
 		/* $this->setcities();
 		$this->setcityid();*/
-		$GLOBALS["time_end"] = microtime(true);
-		$GLOBALS["logs"]['timings']['homepage_start'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
-		$GLOBALS["time_start"] = microtime(true);
+		$this->setlogsarray('homepage_start');
 		
 		$city = $this->currentCity;
 		$cityshown = $city;
@@ -47,9 +45,7 @@ class IndexController extends BaseController{
 			$topfeeds = array();
 		}
 		
-		$GLOBALS["time_end"] = microtime(true);
-		$GLOBALS["logs"]['timings']['top_feeds'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
-		$GLOBALS["time_start"] = microtime(true);
+		$this->setlogsarray('top_feeds');
 		
 		$core = new \WH\Model\Core();
 		$core->setCity($this->cityId);
@@ -59,9 +55,7 @@ class IndexController extends BaseController{
 			$populartags = array();
 		}
 		
-        $GLOBALS["time_end"] = microtime(true);
-		$GLOBALS["logs"]['timings']['popular_tags'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
-		$GLOBALS["time_start"] = microtime(true);
+		$this->setlogsarray('popular_tags');
 		
 		$start = 0;
 		$limit = 11;
@@ -82,12 +76,8 @@ class IndexController extends BaseController{
 				)
 			);
 		
-		$GLOBALS["time_end"] = microtime(true);
-		$GLOBALS["logs"]['timings']['all_feeds'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
-		$GLOBALS["time_start"] = microtime(true);
-		
-		$this->getlogs('Homepage', $this->baseUrl.'/homepage');
-		
+		$this->setlogsarray('all_feeds');
+		$this->getlogs('homepage', $this->baseUrl.'/homepage');
     }
 	
 	public function newsletterAction(){

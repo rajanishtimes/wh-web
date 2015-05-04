@@ -19,6 +19,7 @@ class AuthorController extends BaseController{
     }
 
     public function indexAction(){
+		$this->setlogsarray('author_start');
 		preg_match('/\ba-[0-9]{1,}\b/i', $this->authorname, $match);
 		$id = str_replace('-', '_', $match[0]);
 		$Author = new \WH\Model\Solr();
@@ -28,6 +29,7 @@ class AuthorController extends BaseController{
 		$Author->setEntityDetails();
 		try{
 			$author = $Author->getDetailResults();
+			$this->setlogsarray('author_get_detail');
 		}catch(Exception $e){
 			$author = array();
 		}
@@ -64,6 +66,8 @@ class AuthorController extends BaseController{
 		}else{
 			$this->forwardtoerrorpage(404);
 		}
+		$this->setlogsarray('author_end');
+		$this->getlogs('author', $this->baseUrl.$url);
     }
 	
 	
@@ -86,6 +90,8 @@ class AuthorController extends BaseController{
 			'parentid'=>$parentid,
 			'city' => $city
 		));
+		$this->setlogsarray('author_posts');
+		$this->getlogs('author_post', $mainurl.'/start:'.$start.'/limit:'.$limit.'/authorid:'.$authorid);
     }
 	
 	

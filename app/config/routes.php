@@ -164,7 +164,7 @@ $router->add("/", array(
     'action' => 'index',
 )); 
 
-$router->add("/unsubscribe", array(
+$router->add("/unsubscribe/{email}", array(
     'controller' => 'index',
     'action' => 'unsubscribe',
 )); 

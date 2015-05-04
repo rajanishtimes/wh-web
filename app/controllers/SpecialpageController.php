@@ -6,6 +6,7 @@ use WH\Api\Params;
 class SpecialpageController extends BaseController{
 	public $specialpagetitle = '';
 	public function initialize(){
+		$this->setlogsarray('specialpage_start');
         $this->view->setLayout('mainLayout');
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
@@ -35,6 +36,7 @@ class SpecialpageController extends BaseController{
         $Solr->setEntityDetails();
         try{
 			$specialpagedetail = $Solr->getDetailResults();
+			$this->setlogsarray('speacialpage_get_records');
 		}catch(Exception $e){
 			$specialpagedetail = array();
 		}
@@ -76,5 +78,7 @@ class SpecialpageController extends BaseController{
 		}else{
 			$this->forwardtoerrorpage(404);
 		}
+		$this->setlogsarray('speacialpage_end');
+		$this->getlogs('specialpage', $this->baseUrl.$url);
     }
 }

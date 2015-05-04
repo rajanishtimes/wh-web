@@ -5,6 +5,7 @@ use WH\Api\Params;
 
 class SearchController extends BaseController{
 	public function initialize(){
+		$this->setlogsarray('search_start');
 		$this->view->setLayout('ajaxLayout');
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
@@ -23,6 +24,7 @@ class SearchController extends BaseController{
 
 		try{
 			$allfeedslist = $this->getfeeddata($start, $limit, $city, $bydate, $tags, $searchkeyword, 'Event,Content', '', 4);
+			$this->setlogsarray('search_get_records');
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
@@ -40,6 +42,9 @@ class SearchController extends BaseController{
 				'city' => $city
 				)
 			);
+			
+		$this->setlogsarray('search_end');
+		$this->getlogs('search', $this->baseUrl.'/search/'.$searchkeyword);
     }
 	
     public function autosuggestionAction(){
