@@ -307,8 +307,5 @@ class BaseController extends Controller{
 		$Mongo = new WhMongo();
 		$Mongo->setCollection('api_web_logs');
 		$saveData=$Mongo->save($GLOBALS["logs"]);
-		
-		echo "<pre>"; print_r($saveData);
-		exit;
 	}
 }

@@ -86,9 +86,7 @@ class IndexController extends BaseController{
 		$GLOBALS["logs"]['All_Feeds'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
 		$GLOBALS["time_start"] = microtime(true);
 		
-		if($_GET['getlogs'] == 1){
-			$this->getlogs();
-		}
+		$this->getlogs();
 		
     }
 	
