@@ -46,6 +46,12 @@ STANDARD DESKTOP 992px <> 1200px
 	.work-content .work-item:hover .hover-wrap{
 		bottom: 41%;
 	}
+	.list-inline > li:last-child{
+		padding-left: 81px;
+	}
+	.work-item.withmask {
+		height: 367px;
+	}
 }
 
 
@@ -122,7 +128,12 @@ SMALL DESKTOP 768px <> 991px
 	.app_option{
 		margin:31px 0;
 	}
-	
+	.list-inline > li:last-child{
+		padding-left: 81px;
+	}
+	.work-item.withmask {
+		height: 367px;
+	}
 }
 
 

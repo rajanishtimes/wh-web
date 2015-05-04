@@ -180,9 +180,9 @@ function resizefeedimage(){
 		$(this).height(($(this).width()));
 	}); */
 	
-	$(".withmask").each(function( index ) {
+	/* $(".withmask").each(function( index ) {
 		$(this).height(width+149);
-	});
+	}); */
 }
 
 $.fn.center = function () {

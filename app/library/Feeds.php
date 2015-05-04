@@ -46,7 +46,7 @@ class Feeds extends Component
 			<?php
 			}else{
 			?>
-				<div class="col-sm-12 col-md-6 col-xs-6">
+				<div class="col-sm-4 col-md-6 col-xs-12">
 					<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-in-label="pos_<?php echo $i; ?>">
 						<div class="work-item withmask">
 							<div class="the-box full no-border transparent no-margin make-up">
