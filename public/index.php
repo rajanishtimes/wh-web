@@ -1,5 +1,9 @@
 <?php
 
+$GLOBALS["time_start"] = microtime(true);
+$GLOBALS["time_end"] = 0;
+$GLOBALS["logs"] = array();
+
 error_reporting(E_ALL);
 
 use Phalcon\Mvc\Application;
@@ -7,6 +11,7 @@ use Phalcon\Config\Adapter\Ini as ConfigIni;
 
 //$_GET['_url'] = '/contact/send';
 //$_SERVER['REQUEST_METHOD'] = 'POST';
+
 
 try {
 

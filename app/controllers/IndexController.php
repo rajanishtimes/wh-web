@@ -15,6 +15,8 @@ class IndexController extends BaseController{
 	public function homepageAction(){
 		/* $this->setcities();
 		$this->setcityid();*/
+		$GLOBALS["time_end"] = microtime(true);
+		$GLOBALS["logs"]['Homepage_Start'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
 		
 		$city = $this->currentCity;
 		$cityshown = $city;
@@ -43,7 +45,8 @@ class IndexController extends BaseController{
 		}catch(Exception $e){
 			$topfeeds = array();
 		}
-		
+		$GLOBALS["time_end"] = microtime(true);
+		$GLOBALS["logs"]['Top_Feeds'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
 		
 		$core = new \WH\Model\Core();
 		$core->setCity($this->cityId);
@@ -52,19 +55,17 @@ class IndexController extends BaseController{
 		}catch(Exception $e){
 			$populartags = array();
 		}
-        
+        $GLOBALS["time_end"] = microtime(true);
+		$GLOBALS["logs"]['Popular_tags'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
 		
 		$start = 0;
 		$limit = 11;
 		
-		$GLOBALS["time_start"] = microtime(true);
 		try{
 			$allfeedslist = $this->getfeeddata($start, $limit, $city, 'all', '', '', 'Event,Content');
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
-		//$GLOBALS["time_end"] = microtime(true);
-		//echo $time = $GLOBALS["time_end"] - $GLOBALS["time_start"]; exit;
 		
 		$this->view->setVars(
 			array(
@@ -75,6 +76,13 @@ class IndexController extends BaseController{
 				'topfeeds'=>$topfeeds
 				)
 			);
+		
+		$GLOBALS["time_end"] = microtime(true);
+		$GLOBALS["logs"]['All_Feeds'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
+		
+		if($_GET['getlogs'] == 1){
+			$this->getlogs();
+		}
 		
     }
 	
@@ -128,4 +136,9 @@ class IndexController extends BaseController{
 		$this->view->og_url = $this->baseUrl.'/'.'about-us';
 		$this->view->canonical_url = $this->baseUrl.'/'.'about-us';
     }
+	
+	public function getlogs(){
+		echo "<pre>"; print_r($GLOBALS["logs"]);
+		exit;
+		}
 }
