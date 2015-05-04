@@ -232,7 +232,11 @@ class BaseController extends Controller{
 	
         protected function setHomeCity(){
             if ($this->cookies->has("city")){
-                $this->city = strtolower($this->cookies->get("city"));
+				if( strlen($this->cookies->get("city")) > 15 ){
+					$this->city = strtolower('delhi-ncr');
+				}else{
+					$this->city = strtolower($this->cookies->get("city"));
+				}
             }
             else if($this->dispatcher->getParam('city')){
                 $this->city = strtolower($this->dispatcher->getParam('city'));
