@@ -63,7 +63,7 @@ class EventController extends BaseController{
 			$this->view->og_title = $eventdetail['og_title'];
 			$this->view->og_type = 'Event';
 			$this->view->og_description = $eventdetail['og_description'];
-			$this->view->og_image = $this->baseUrl.$eventdetail['og_image'];
+			$this->view->og_image = $this->getimageendpoint().$eventdetail['og_image'];
 			$this->view->og_url = $this->baseUrl.$eventdetail['url'];
 			$this->view->canonical_url = $this->baseUrl.$eventdetail['url'];
 			$this->view->deep_link = $eventdetail['deep_link'];

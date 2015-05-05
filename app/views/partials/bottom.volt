@@ -13,7 +13,7 @@
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-            ga('create', 'UA-23401975-48', {'cookieDomain': 'none'});
+            ga('create', 'UA-116455-36', {'cookieDomain': 'none'});
             ga('send', 'pageview');
             
             
