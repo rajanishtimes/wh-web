@@ -13,23 +13,15 @@
 						$venuedetail['mobiledata'] = array_filter($venuedetail['mobiledata']);
 						$venuedetail['phonedata'] = array_filter($venuedetail['phonedata']);
 					?>
-					{% if(venuedetail['mobiledata'] | length > 0 AND venuedetail['phonedata'] | length >  0) %}
+					{% if(venuedetail['mobiledata'] | length > 0 OR venuedetail['phonedata'] | length >  0) %}
 						<div class="phone"><div class="phoneimg"></div>
-					{% endif %}
-					
-						{% if(venuedetail['mobiledata'] | length > 0) %}
 							<?php 
-								if(!empty($venuedetail['phonedata'])){
-									echo implode(', ', $venuedetail['phonedata']);
+								echo implode(', ', $venuedetail['phonedata']);
+								if(!empty($venuedetail['mobiledata'])){
 									echo ",";
-							}?>
-						{% endif %}
-						
-						{% if(venuedetail['phonedata'] | length > 0) %}
-							<?php echo implode(', ', $venuedetail['phonedata']);?>
-						{% endif %}
-					
-					{% if(venuedetail['mobiledata'] | length > 0 AND venuedetail['phonedata'] | length >  0) %}
+								}
+							?>
+							<?php echo implode(', ', $venuedetail['mobiledata']);?>
 						</div>
 					{% endif %}
 					
