@@ -77,7 +77,7 @@ class VenueController extends BaseController{
 			$this->view->meta_description = $venuedetail['meta_description'];
 			$this->view->meta_keywords = $venuedetail['meta_keywords'];
 			$this->view->og_title = $venuedetail['og_title'];
-			$this->view->og_type = 'Venue';
+			$this->view->og_type = 'website';
 			$this->view->og_description = $venuedetail['og_description'];
 			$this->view->og_image = $this->baseUrl.$venuedetail['og_image'];
 			$this->view->og_url = $this->baseUrl.$venuedetail['url'];

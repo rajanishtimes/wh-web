@@ -62,7 +62,7 @@ class ContentController extends BaseController{
 			$this->view->meta_description = $contentdetail['meta_description'];
 			$this->view->meta_keywords = $contentdetail['meta_keywords'];
 			$this->view->og_title = $contentdetail['og_title'];
-			$this->view->og_type = 'Content';
+			$this->view->og_type = 'website';
 			$this->view->og_description = $contentdetail['og_description'];
 			$this->view->og_image = $this->getimageendpoint().$contentdetail['og_image'];
 			$this->view->og_url = $this->baseUrl.$contentdetail['url'];
