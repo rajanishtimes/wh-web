@@ -49,9 +49,9 @@
 					<div class="share">
 							<ul class="list-inline navbar-left">
 								<li class="sharek">SHARE</li>
-								<li><a onclick="window.open('https://twitter.com/share?url={{criticdetail['share_url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-twitter-square"></i>  <span>Share on twitter</span></a></li>
-								<li><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{criticdetail['share_url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-facebook-square"></i> <span> Share on facebook</span></a></li>
-								<li><a onclick="window.open('https://plus.google.com/share?url={{criticdetail['share_url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-google-plus-square"></i>  <span>Share on google+ </span></a></li>
+								<li><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{criticdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-twitter-square"></i>  <span>Share on twitter</span></a></li>
+								<li><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{criticdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-facebook-square"></i> <span> Share on facebook</span></a></li>
+								<li><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{criticdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-google-plus-square"></i>  <span>Share on google+ </span></a></li>
 							</ul><div class="clearfix"></div>
 						</div>
 					<div class="authordetailsection">

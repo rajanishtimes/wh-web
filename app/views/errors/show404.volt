@@ -29,10 +29,10 @@
 			<div class="cloud"></div>
 			<div class="clearfix"></div>
 			<div class="box404">
-				<h1>404</h1>
-				<div class="text">Oh! No, It&apos;s Raining</div>
-				<p>The page you were looking for cannot be found.</p>
-				<a href="{{baseUrl}}/"><div class="btn btn-primary errorbtn">Go To Home</div></a>
+				<h1>Doh!</h1>
+				<div class="text">What you were looking for is not available.</div>
+				<p>Check below instead.</p>
+				<a href="{{baseUrl}}/"><div class="btn btn-primary errorbtn">TAKE ME HOME</div></a>
 			</div>
 			<div class="clearfix"></div>
 			<div class="buildings"></div>

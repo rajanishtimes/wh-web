@@ -408,7 +408,7 @@ hr.small {
     font-weight: 700;
 }
 .eventdetail .venue {
-    font-style: italic;
+    font-family: Lora-Italic;
 }
 #searchformbtn {
     cursor: pointer;
@@ -886,13 +886,13 @@ h4.small-title {
 .errorpage .text {
     color: #fff;
     font-family: "Lora",times new roman,times,sans-serif;
-    font-size: 27px;
+    font-size: 15px;
     font-weight: 700;
     margin: 21px 0 0;
 }
 .errorpage p {
     color: #fff;
-    font-size: 17px;
+    font-size: 15px;
     padding: 0 35px;
     text-align: left;
     word-spacing: -2px;

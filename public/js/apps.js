@@ -232,12 +232,14 @@ function manageCityCookie(){
     else{
         cookies.set('city', server_variables.default_city, {path: '/',expires:expOn});
     }
+	
     if(CurrentCity != "" && CurrentCity != undefined){
         cookies.set('currentCity', _crrentCity, {path: '/',expires:expOn});
     }
     else{
         cookies.set('currentCity', server_variables.default_city, {path: '/',expires:expOn});
     }
+	
     if(cookies.get('city').length > 15){
 		cookies.set('city', server_variables.default_city, {path: '/',expires:expOn});
 	}

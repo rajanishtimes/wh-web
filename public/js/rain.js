@@ -11,7 +11,7 @@ $(document).ready(function() {
 	function createRain() {
 
 		for( i=1;i<nbDrop;i++) {
-		var dropLeft = randRange(0,1600);
+		var dropLeft = randRange(0,1920);
 		var dropTop = randRange(-1000,1400);
 
 		$('.rain').append('<div class="drop" id="drop'+i+'"></div>');
