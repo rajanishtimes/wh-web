@@ -64,7 +64,7 @@ class ContentController extends BaseController{
 			$this->view->og_title = $contentdetail['og_title'];
 			$this->view->og_type = 'website';
 			$this->view->og_description = $contentdetail['og_description'];
-			$this->view->og_image = $this->getimageendpoint().$contentdetail['og_image'];
+			$this->view->og_image = $this->getimageendpoint().$contentdetail['og_image'].'?w=500';
 			$this->view->og_url = $this->baseUrl.$contentdetail['url'];
 			$this->view->canonical_url = $this->baseUrl.$contentdetail['url'];
 			$this->view->deep_link = $contentdetail['deep_link'];

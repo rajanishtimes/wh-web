@@ -58,9 +58,9 @@ class CriticController extends BaseController{
 			$this->view->meta_description = $criticdetail['meta_description'];
 			$this->view->meta_keywords = $criticdetail['meta_keywords'];
 			$this->view->og_title = $criticdetail['og_title'];
-			$this->view->og_type = 'Content';
+			$this->view->og_type = 'website';
 			$this->view->og_description = $criticdetail['og_description'];
-			$this->view->og_image = $this->getimageendpoint().$criticdetail['og_image'];
+			$this->view->og_image = $this->getimageendpoint().$criticdetail['og_image'].'?w=500';
 			$this->view->og_url = $this->baseUrl.$criticdetail['url'];
 			$this->view->canonical_url = $this->baseUrl.$criticdetail['url'];
 			$this->view->deep_link = $criticdetail['deep_link'];
