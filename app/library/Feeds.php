@@ -113,6 +113,7 @@ class Feeds extends Component
 						</div>
 					<?php }else if(strtoupper($feed['type']) == 'VENUE'){ ?>
 						<?php 
+							$address_arr = array();
 							if(isSet($feed['address']) && trim($feed['address'])!=''){
 								$address_arr[] = $feed['address'];
 							}
