@@ -30,9 +30,7 @@
 			<meta property="og:image" content="{{og_image}}" />
 		{% endif  %}
 		
-		{% if og_site_name != '' %}
-			<meta name="twitter:card" content="og_site_name" />
-		{% endif  %}
+		<meta name="twitter:card" content="summary" />
 		{% if og_title != '' %}
 		<meta name="twitter:title" content="{{og_title}}" />
 		{% endif  %}
