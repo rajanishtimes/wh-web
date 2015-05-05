@@ -6,10 +6,10 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		{% if meta_description != '' %}
-			<meta name="description" content="{{ meta_description }}">
+			<meta name="description" content="{{ meta_description }}" />
 		{% endif  %}
 		{% if meta_keywords != '' %}
-			<meta name="keywords" content="{{ meta_keywords }}">
+			<meta name="keywords" content="{{ meta_keywords }}" />
 		{% endif  %}		
 		{% if og_title != '' %}
 			<meta property="og:title" content="{{og_title}}" />

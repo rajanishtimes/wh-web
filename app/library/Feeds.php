@@ -122,8 +122,8 @@ class Feeds extends Component
 							if(isSet($feed['locality']) && trim($feed['locality'])!=''){
 								$address_arr[] = $feed['locality'];
 							}
-							if(isSet($feed['city']) && trim($feed['city'])!=''){
-								$address_arr[] = $feed['city'];
+							if(isSet($feed['cities']) && trim($feed['cities'])!=''){
+								$address_arr[] = $feed['cities'];
 							}
 							echo $formatted_address = implode(', ', $address_arr);
 						?>
