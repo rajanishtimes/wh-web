@@ -327,4 +327,18 @@ class BaseController extends Controller{
 		$GLOBALS["logs"]['timings'][$key] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
 		$GLOBALS["time_start"] = microtime(true);
 	}
+	
+	public function makeurl($url, $image_url){
+		if($image_url == ''){
+			$imgurl = $url.'/img/img_feed_default.png';
+		}else{
+			$pos = strpos($image_url, 'http');
+			if($pos !== false){
+				$imgurl = $image_url;
+			}else{
+				$imgurl = $this->getimageendpoint().$image_url;
+			}
+		}		
+		return $imgurl;
+	}
 }
