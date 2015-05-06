@@ -166,6 +166,8 @@ class BaseController extends Controller{
 		$Search->setParam('byLocation',$location);
 		
 		$Search->setParam('mm',3);
+		$Search->setSolrType('search');
+		
 		if(strtolower($bydays)!='all')
 			$Search->setParam('byDays',ucwords(strtolower($bydays)));
 		

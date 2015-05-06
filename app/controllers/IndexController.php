@@ -65,7 +65,7 @@ class IndexController extends BaseController{
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
-		
+				
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,

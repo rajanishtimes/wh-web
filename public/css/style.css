@@ -606,6 +606,10 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
 }
 .work-content.allfeeds .work-item img {
 }
+.work-item.withmask.sponsor > img {
+    width: 154%;
+}
+
 .topthing:hover img, .withmask:hover img {
     transform: scale(1.05);
 }
@@ -3281,10 +3285,12 @@ a .icon-primary, a .icon-success, a .icon-info, a .icon-danger, a .icon-warning,
     padding: 0;
 }
 .sponsors {
-    margin: -26px 0 0 10px;
+    bottom: 0;
+    color: #fff;
+    margin: 0;
+    padding: 5px 18px;
     position: absolute;
-    text-align: left;
-    z-index: 999;
+    left: 0;
 }
 .share ul a span {
     font-size: 14px;

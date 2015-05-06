@@ -15,6 +15,7 @@ class Feeds extends Component
 		foreach($data['results'] as $feed){
 			if($i%9 != 0){
 			?>
+				<?php if(strtolower($feed['label']) != 'sponsored'){ ?>
 				<div class="col-sm-4 col-md-3 col-xs-6">
 					<div class="work-item feeds-data">
 						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-in-label="pos_<?php echo $i; ?>">
@@ -38,11 +39,21 @@ class Feeds extends Component
 								<?php }?>
 							</div>
 						</a>
-						<?php if(strtolower($feed['label']) == 'sponsored'){ ?>
-							<div class="sponsors">Sponsors</div>
-						<?php } ?>
 					</div>
 				</div>
+				<?php }else{ ?>
+					<div class="col-sm-4 col-md-3 col-xs-6">
+						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-in-label="pos_<?php echo $i; ?>">
+							<div class="work-item withmask sponsor">
+								<div class="the-box full no-border transparent no-margin make-up">
+									<p class="feed-name"><?php //echo stripslashes($feed['title']); ?></p>
+									<div class="sponsors">Sponsors</div>
+								</div>
+								<?php echo $this->getimage($url, $feed['image']['uri'], 480, 480, $feed['title'], $feed['image']); ?>
+							</div>
+						</a>
+					</div>
+				<?php } ?>
 			<?php
 			}else{
 			?>
