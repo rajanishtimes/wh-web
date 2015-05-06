@@ -23,7 +23,7 @@ class Feeds extends Component
 							</div>
 						</a>
 						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-in-label="pos_<?php echo $i; ?>">
-							<?php echo $this->getimage($url, $feed['image']['uri'], 480, 480, $feed['title']); ?>
+							<?php echo $this->getimage($url, $feed['image']['uri'], 480, 480, $feed['title'], $feed['image']); ?>
 						</a>
 						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-in-label="pos_<?php echo $i; ?>">
 							<div class="the-box no-margin no-border">
@@ -52,7 +52,7 @@ class Feeds extends Component
 							<div class="the-box full no-border transparent no-margin make-up">
 								<p class="feed-name"><?php echo stripslashes($feed['title']); ?></p>
 							</div>
-							<?php echo $this->getimage($url, $feed['image']['uri'], 480, 480, $feed['title']); ?>
+							<?php echo $this->getimage($url, $feed['image']['uri'], 480, 480, $feed['title'], $feed['image']); ?>
 						</div>
 					</a>
 				</div>
@@ -97,7 +97,7 @@ class Feeds extends Component
 		foreach($data['results'] as $i=>$feed){ ?>
 			<li class="media searchlist">
 				<a class="pull-left" href="<?php echo $baseUrl . $feed['url']; ?>" data-ga-cat="search" data-ga-action="<?php echo $baseUrl . $feed['url']; ?>" data-in-label="pos_<?php echo $i+1; ?>">
-					<?php echo $this->getimage($baseUrl, $feed['image']['uri'], 80, 80, $feed['title'], $feed['image'], '', '', 0); ?>
+					<?php echo $this->getimage($baseUrl, $feed['image']['uri'], 80, 80, $feed['title'], $feed['image'], '', ''); ?>
 				</a>
 				<div class="media-body">
 					<h4 class="media-heading">
@@ -144,7 +144,7 @@ class Feeds extends Component
 		return $url;
 	}
 	
-	public function getimage($url, $image_url, $width, $height, $alt, $dimension='', $style='', $class='', $c=1){
+	public function getimage($url, $image_url, $width, $height, $alt, $dimension='', $style='', $class=''){
 		if($image_url){
 			$pos = strpos($image_url, 'http');
 			if($pos !== false){
@@ -157,22 +157,29 @@ class Feeds extends Component
 			$original_width = $size[0];
 			$original_height = $size[1];
 			
-			$x = $y = 0;
+			//$x = $y = 0;
 			
-				if($original_width > $width && $width != 0){
+			if(isset($dimension['x']) && isset($dimension['y'])){
+				if($dimension['x'] == 0 && $dimension['y'] == 0){
+					$parts = '?w='.$width.'&h='.$height.'&cc=1&q=75';
+				}else{
+					$parts = '?x='.$dimension['x'].'&y='.$dimension['y'].'&w='.$width.'&h='.$height.'&c=1&q=75';
+				}
+			}else{
+				$parts = '?w='.$width.'&h='.$height.'&cc=1&q=75';
+			}
+			
+			
+				/* if($original_width > $width && $width != 0){
 					$x = ($original_width - $width)/2;
 				}
 				
 				if($original_height > $height  && $height != 0){
 					$y = ($original_height - $height)/2;
-				}
+				} */
 			
+				$imgurl = $imgurl.$parts;
 			
-			if($c == 1){
-				$imgurl = $imgurl.'?x='.$x.'&y='.$y.'&w='.$width.'&h='.$height.'&c=1&q=75';
-			}else{
-				$imgurl = $imgurl.'?x='.$x.'&y='.$y.'&w='.$width.'&h='.$height.'&q=75';
-			}
 			
 			$imgbox = '<img src="'.$imgurl.'" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
 		}else{

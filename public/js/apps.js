@@ -173,7 +173,7 @@ function ajax_feed_filter_type(){
 
 function resizefeedimage(){
 	var width = 0;
-	$(".work-item img").each(function( index ) {
+	/* $(".work-item img").each(function( index ) {
 		if($(this).parent().find('.make-up').length == 0){
 			width = $(this).width();
 		}
@@ -182,7 +182,7 @@ function resizefeedimage(){
 	
 	$(".withmask").each(function( index ) {
 		$(this).height(width+147);
-	}); 
+	});  */
 }
 
 $.fn.center = function () {
