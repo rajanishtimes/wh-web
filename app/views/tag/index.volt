@@ -2,7 +2,7 @@
 <div class="section">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12 col-md-12">
+			<div class="col-sm-12 col-md-12 no-padding">
 				{% if(tagsfeeds | length > 0) %}
 					<h1 class="searchheading">{{tagsfeeds['meta']['match_count']}} result(s) found from &#8220; <strong><?php echo $tags; ?></strong> &#8221;</h1>
 					<div class="work-content allfeeds">
