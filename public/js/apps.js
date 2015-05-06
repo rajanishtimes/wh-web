@@ -252,9 +252,9 @@ $(document).ready(DOMReady);
 $('#citieslist li').click(function(){
         var C = $(this);
         expOn = new Date();
-        expOn.setTime(new Date().getTime() + 3600000 * 24 * 365);
-        cookies.set('city', C.data('name'), {path: '/',expires:expOn});
-        cookies.set('currentCity', C.data('name'), {path: '/',expires:expOn});
+        expOn.setTime(new Date().getTime() + 3600 * 24 * 365);
+        cookies.set('city', C.attr('data-name'), {path: '/',expires:expOn});
+        cookies.set('currentCity', C.attr('data-name'), {path: '/',expires:expOn});
         window.location.href = C.find('a').attr('href');
         return false;
 });
