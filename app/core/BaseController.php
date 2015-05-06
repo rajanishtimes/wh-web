@@ -29,7 +29,6 @@ class BaseController extends Controller{
 		$GLOBALS["time_end"] = microtime(true);
 		$GLOBALS["logs"]['base_initialize'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
 		$GLOBALS["time_start"] = microtime(true);
-		
 		$this->request = new \Phalcon\Http\Request();
 		$this->tag->prependTitle($this->config->application->SiteName.' | ');
 		$this->view->meta_description = $this->meta_description;

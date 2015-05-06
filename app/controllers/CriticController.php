@@ -60,7 +60,13 @@ class CriticController extends BaseController{
 			$this->view->og_title = $criticdetail['og_title'];
 			$this->view->og_type = 'website';
 			$this->view->og_description = $criticdetail['og_description'];
-			$this->view->og_image = $this->getimageendpoint().$criticdetail['og_image'].'?w=500';
+			
+			if($contentdetail['og_image'] == '/img/wh_default.png'){
+				$this->view->og_image = $this->makeurl(baseUrl, $author['images'][0]['uri']).'?w=500';
+			}else{
+				$this->view->og_image = $this->getimageendpoint().$contentdetail['og_image'].'?w=500';
+			}
+			
 			$this->view->og_url = $this->baseUrl.$criticdetail['url'];
 			$this->view->canonical_url = $this->baseUrl.$criticdetail['url'];
 			$this->view->deep_link = $criticdetail['deep_link'];
