@@ -2,7 +2,7 @@
 <div class="section">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12 col-md-12">
+			<div class="col-sm-12 col-md-12 no-padding">
 				{% if(allfeedslist | length > 0) %}
 					<div class="col-sm-6 col-md-6 col-xs-12 no-padding">
 						<h1 class="yfeeds">Events in {{currentCity | lower | capitalize}}</h1>

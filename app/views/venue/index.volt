@@ -17,7 +17,7 @@
 						<div class="phone"><div class="phoneimg"></div>
 							<?php 
 								echo implode(', ', $venuedetail['phonedata']);
-								if(!empty($venuedetail['mobiledata'])){
+								if(!empty($venuedetail['mobiledata'] && !empty($venuedetail['phonedata'])){
 									echo ",";
 								}
 							?>
