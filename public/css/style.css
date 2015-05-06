@@ -668,6 +668,7 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
 	min-height: 24px;
     overflow: hidden;
     text-align: left;
+	padding-bottom: 3px;
 }
 .feeds-data {
     border: 1px solid #c7c7c7;
