@@ -61,7 +61,6 @@ class BaseController extends Controller{
 		$this->view->defaultCity = $this->defaultCity;
 		$this->setcities();
 		$this->setcityid();
-		
 		if($this->cityId == 0){
 			$this->forwardtoerrorpage(404);
 		}

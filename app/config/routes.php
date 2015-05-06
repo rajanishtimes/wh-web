@@ -29,6 +29,12 @@ $router->add("/{city}/location/{locationname}", array(
 	'action' => 'location',
 ));
 
+$router->add("/{city}/search/{searchquery}", array(
+    'controller' => 'search',
+    'action' => 'search',
+));
+
+
 $router->add("/{city}/tag/{tags}", array(
     'controller' => 'tag',
     'action' => 'index',
@@ -39,13 +45,7 @@ $router->add("/critic-review/{critic}", array(
     'action' => 'index',
 ));
 
-
-$router->add("/search/{searchquery}", array(
-    'controller' => 'search',
-    'action' => 'search',
-));
-
-$router->add("/search/search", array(
+$router->add("/{city}/search/search", array(
     'controller' => 'search',
     'action' => 'forwardsearch',
 ));
@@ -76,7 +76,7 @@ $router->add("/search/searchlist", array(
     'action' => 'searchlist',
 ));
 
-$router->add("/search", array(
+$router->add("/{city}/search", array(
     'controller' => 'search',
     'action' => 'search',
 ));

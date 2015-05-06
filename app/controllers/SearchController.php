@@ -78,7 +78,7 @@ class SearchController extends BaseController{
 		$limit = 11;
 		
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, '', '', $searchkeyword);
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, '', '', $searchkeyword);
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
@@ -117,7 +117,7 @@ class SearchController extends BaseController{
 		$parentid = $this->request->getPost('parentid');
 
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword);
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, $bydate, $tags, $searchkeyword);
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
@@ -138,7 +138,7 @@ class SearchController extends BaseController{
 	
 	public function forwardsearchAction(){
 		$searchkeyword = $this->request->getPost('search');
-		$url = $this->baseUrl.'/'.'search/'.$searchkeyword;
+		$url = $this->baseUrl.'/'.$this->currentCity.'/search/'.$searchkeyword;
 		return $this->response->redirect($url);     
 	}
 }

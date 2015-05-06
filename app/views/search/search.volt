@@ -5,7 +5,7 @@
 			<div class="col-sm-12 col-md-12">
 			
 				<div class="searchbox">
-					<form id="searchForm" method="POST" action="{{baseUrl}}/search/search" onsubmit="return searchValid();">
+					<form id="searchForm" method="POST" action="{{baseUrl}}/{{currentCity}}/search/search" onsubmit="return searchValid();">
 							<div class="textinput float-left"><input id="searchtextinput" type="text" autofocus class="form-control" placeholder="Search..." name="search" value="{% if(searchkeyword is defined) %}{{searchkeyword}}{% endif %}"></div>
 							<div class="searchinout float-right"><button class="input-group-addon">
 							<img src="{{baseUrl}}/img/search.png">

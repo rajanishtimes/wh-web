@@ -12,11 +12,11 @@
 		
 		{% if(controllername == 'search') %}
 			<div class="searchbtn float-right active">
-				<a href="{{baseUrl}}/{{city}}"><div class="madewidth active"><img src="{{baseUrl}}/img/search_close.png" alt="Go to Home"></div></a>
+				<a href="{{baseUrl}}/{{currentCity}}"><div class="madewidth active"><img src="{{baseUrl}}/img/search_close.png" alt="Go to Home"></div></a>
 			</div>
 		{% else %}
 			<div class="searchbtn float-right">
-				<a href="{{baseUrl}}/search/search"><div class="madewidth"><img src="{{baseUrl}}/img/search.png" alt="Search"></div></a>
+				<a href="{{baseUrl}}/{{currentCity}}/search/search"><div class="madewidth"><img src="{{baseUrl}}/img/search.png" alt="Search"></div></a>
 			</div>
 		{% endif %}
 		
@@ -25,12 +25,12 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle makeactive" data-toggle="dropdown">
 						<i class="fa fa-map-marker makered"></i>
-						{% if(city | trim | lower == 'delhi') %}
+						{% if(currentCity | trim | lower == 'delhi') %}
 							<span>Delhi NCR</span>
-						{% elseif(city | trim | lower == 'delhi-ncr' OR city | trim | lower == 'delhi ncr' OR city | trim | lower == 'delhi-ncr') %}
+						{% elseif(currentCity | trim | lower == 'delhi-ncr' OR currentCity | trim | lower == 'delhi ncr' OR currentCity | trim | lower == 'delhi-ncr') %}
 							<span>Delhi NCR</span>
 						{% else %}
-							<span>{{city | capitalize}}</span>
+							<span>{{currentCity | capitalize}}</span>
 						{% endif %}
 						
 						&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
