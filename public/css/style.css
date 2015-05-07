@@ -607,7 +607,7 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
 .work-content.allfeeds .work-item img {
 }
 .work-item.withmask.sponsor > img {
-    width: 154%;
+    width: 100%;
 }
 
 .topthing:hover img, .withmask:hover img {
