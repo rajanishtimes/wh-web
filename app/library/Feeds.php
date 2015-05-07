@@ -28,7 +28,7 @@ class Feeds extends Component
 						</a>
 						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-in-label="pos_<?php echo $i; ?>">
 							<div class="the-box no-margin no-border">
-								<div class="feed-title"><?php echo stripslashes($feed['title']); ?></div>
+								<div class="feed-title"><?php echo $this->process_title($feed['title']); ?></div>
 								<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
 									<div class="homepagevenue">
 										<div class="time"><?php echo $feed['time']; ?></div>
@@ -89,7 +89,7 @@ class Feeds extends Component
 							<?php echo $this->getimage($url, $feed['cover_image'], 480, 480, $feed['title']); ?>
 						</a>
 						<div class="the-box no-margin no-border">
-							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo stripslashes($feed['title']); ?></a></div>
+							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo $this->process_title($feed['title']); ?></a></div>
 							<?php
 								$desc = strip_tags($feed['description']);
 								$description = strlen($desc) > 100 ? substr($desc, 0, 100).'...' : $desc;
@@ -112,7 +112,7 @@ class Feeds extends Component
 				</a>
 				<div class="media-body">
 					<h4 class="media-heading">
-						<a href="<?php echo $baseUrl. $feed['url']; ?>" data-ga-cat="search" data-ga-action="<?php echo $baseUrl . $feed['url']; ?>" data-in-label="pos_<?php echo $i+1; ?>"><?php echo stripslashes($feed['title']); ?></a>
+						<a href="<?php echo $baseUrl. $feed['url']; ?>" data-ga-cat="search" data-ga-action="<?php echo $baseUrl . $feed['url']; ?>" data-in-label="pos_<?php echo $i+1; ?>"><?php echo $this->process_title($feed['title']); ?></a>
 					</h4>
 					<p class="small">
 						<?php //echo $feed['type']; ?>
@@ -215,5 +215,11 @@ class Feeds extends Component
 			}
 		}		
 		return $imgurl;
+	}
+	
+	public function process_title($title){
+		$title = stripslashes($title);
+		$p_title = strlen($title) > 20 ? substr($title, 0, 20).'...' : $title;
+		return $p_title;
 	}
 }

@@ -66,7 +66,7 @@ class EventController extends BaseController{
 			if($eventdetail['og_image'] == '/img/wh_default.png'){
 				$this->view->og_image = $this->makeurl($this->baseUrl, $eventdetail['images'][0]['uri']).'?w=500';
 			}else{
-				$this->view->og_image = $this->getimageendpoint().$eventdetail['og_image'].'?w=500';
+				$this->view->og_image = $this->makeurl($this->baseUrl, $eventdetail['og_image']).'?w=500';
 			}
 			$this->view->og_url = $this->baseUrl.$eventdetail['url'];
 			$this->view->canonical_url = $this->baseUrl.$eventdetail['url'];

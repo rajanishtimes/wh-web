@@ -643,7 +643,7 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     display: block;
     height: auto;
     width: 100%;
-	margin-top:-40%;
+	margin-top:-5%;
 }
 .owl-carousel.work-detail .owl-controls .owl-page span {
     background: none repeat scroll 0 0 #ccd0db;
