@@ -34,7 +34,7 @@
 						<ul id="getallfeedssearch" class="media-list feed-list">
 							{% if(searchkeyword is empty) %}
 							{% else %}
-								<h1>No result(s) found from &#8220;{{searchkeyword}}&#8221;</h1><div style="height:200px"></div>
+								<h1>No result(s) found for &#8220;{{searchkeyword}}&#8221;</h1><div style="height:200px"></div>
 							{% endif %}
 							
 							<div style="height:200px"></div>

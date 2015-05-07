@@ -171,7 +171,7 @@ class BaseController extends Controller{
 			$Search->setParam('byDays',ucwords(strtolower($bydays)));
 		
 		if($filter_type=='tags')
-			$Search->setParam('byTags',$keyword);
+			$Search->setParam('byTags',strtolower($keyword));
 		else
 			$Search->setParam('searchname',$keyword);
 		

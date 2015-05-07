@@ -6,7 +6,7 @@
 	<div class="btn btn-primary" onclick="view_feed_with_ajax('{{currentCity}}','{{mainurl}}', '{{start}}', '{{limit}}', '{{parentid}}', '{{searchkeyword}}', '{{tags | trim}}', '{{bydate}}')">Load More</div>
 <?php }?>
 <?php }else{ ?>
-	<div class="container"><div class="alert alert-info in">No Result Found</div></div>
+	<div class="container"><div class="alert alert-info in">No Result(s) Found</div></div>
 	<-!-###@###->
 	<div class=""></div>
 <?php }?>

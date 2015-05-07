@@ -7,7 +7,7 @@
 <?php }?>
 <?php }else{ ?>
 	{% if(start < 1) %}
-		<div class="container"><div class="alert alert-info in">No Result Found</div></div>
+		<div class="container"><div class="alert alert-info in">No Result(s) Found</div></div>
 	{% endif %}
 	<-!-###@###->
 	<div class=""></div>

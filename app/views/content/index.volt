@@ -22,8 +22,8 @@
 					</div>
 					<hr class="small">
 					<div class="detail">
-						<?php $description = str_replace(array('<p><strong>', '</strong></p>'), array('<h4>', '</h4>'), $contentdetail['description']); ?>
-						{{description}}
+						<?php //$description = str_replace(array('<p><strong>', '</strong></p>'), array('<h4>', '</h4>'), $contentdetail['description']); ?>
+						{{contentdetail['description']}}
 						
 						{% if(contentdetail['tags'] | length > 0) %}
 							<p class="tags">Tags</p>

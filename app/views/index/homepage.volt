@@ -4,7 +4,7 @@
 		<div class="row">
 			<!--<h1>Hey! Top Things to do today</h1>-->
 			{% if(topfeeds | length > 0) %}
-				<h1>Discover best things to do in {{cityshown}} including all the events taking place in {{cityshown}}</h1>
+				<h1>Discover {{cityshown}} with our curated features and events.</h1>
 				<div class="work-content resize">
 					{% for key, topfeed in topfeeds['results'] %}
 						{% if(topfeed['label'] | lower != 'sponsored') %}
@@ -30,7 +30,7 @@
 			
 			{% if(populartags['popular_tags'] is defined AND populartags['popular_tags'] | length > 0) %}
 				<div class="work-content">						
-					<h2 class="heading">Popular Tips</h2>
+					<h2 class="heading">Popular Tags</h2>
 					<ul class="work-category-wrap">
 						{% for populartag in populartags['popular_tags'] %}
 							<li class="filter" ><a href="{{baseUrl}}/{{currentCity}}/tag/{{elements.create_slug(populartag)}}">
@@ -43,7 +43,7 @@
 			
 			{% if(allfeedslist | length > 0) %}
 				<div class="col-sm-5 col-md-6 col-xs-12 no-padding">
-					<h2 class="yfeeds">Your Feeds</h2>
+					<h2 class="yfeeds">Your Feed</h2>
 				</div>
 				<div class="col-sm-7 col-md-6 col-xs-12 no-padding">
 					<ul id="bydate" class="filter_type text-right">
@@ -51,7 +51,7 @@
 						<li><a href="javascript:void(0)" rel="Today">TODAY</a></li>
 						<li><a href="javascript:void(0)" rel="Tomorrow">TOMORROW</a></li>
 						<li><a href="javascript:void(0)" rel="Week">THIS WEEK</a></li>
-						<li><a href="javascript:void(0)" rel="Month">MONTH</a></li>
+						<li><a href="javascript:void(0)" rel="Month">THIS MONTH</a></li>
 					</ul>
 				</div><div class="clearfix"></div>
 			
