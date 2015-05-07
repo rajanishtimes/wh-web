@@ -16,6 +16,7 @@ use Phalcon\Config\Adapter\Ini as ConfigIni;
 try {
 
 	define('APP_PATH', realpath('..') . '/');
+	define('APP_ROOT', APP_PATH . 'app/models/wh-appapi');
 
 	/**
 	 * Read the configuration
