@@ -24,7 +24,7 @@ class Feeds extends Component
 							</div>
 						</a>
 						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-in-label="pos_<?php echo $i; ?>">
-							<?php echo $this->getimage($url, $feed['image']['uri'], 480, 480, $feed['title'], $feed['image']); ?>
+							<?php echo $this->getimage($url, $feed['image']['uri'], 479, 479, $feed['title'], $feed['image']); ?>
 						</a>
 						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-in-label="pos_<?php echo $i; ?>">
 							<div class="the-box no-margin no-border">
@@ -47,9 +47,9 @@ class Feeds extends Component
 							<div class="work-item withmask sponsor">
 								<div class="the-box full no-border transparent no-margin make-up">
 									<p class="feed-name"><?php //echo stripslashes($feed['title']); ?></p>
-									<div class="sponsors">Sponsors</div>
+									<div class="sponsors"><?php echo $feed['label'];?></div>
 								</div>
-								<?php echo $this->getimage($url, $feed['image']['uri'], 480, 480, $feed['title'], $feed['image']); ?>
+								<?php echo $this->getimage($url, $feed['image']['uri'], 479, 479, $feed['title'], $feed['image']); ?>
 							</div>
 						</a>
 					</div>
@@ -63,7 +63,7 @@ class Feeds extends Component
 							<div class="the-box full no-border transparent no-margin make-up">
 								<p class="feed-name"><?php echo stripslashes($feed['title']); ?></p>
 							</div>
-							<?php echo $this->getimage($url, $feed['image']['uri'], 480, 480, $feed['title'], $feed['image']); ?>
+							<?php echo $this->getimage($url, $feed['image']['uri'], 479, 479, $feed['title'], $feed['image']); ?>
 						</div>
 					</a>
 				</div>
@@ -86,7 +86,7 @@ class Feeds extends Component
 							</div>
 						</a>
 						<a href="<?php echo $url . $feed['url']; ?>">
-							<?php echo $this->getimage($url, $feed['cover_image'], 480, 480, $feed['title']); ?>
+							<?php echo $this->getimage($url, $feed['cover_image'], 479, 479, $feed['title']); ?>
 						</a>
 						<div class="the-box no-margin no-border">
 							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo $this->process_title($feed['title']); ?></a></div>
