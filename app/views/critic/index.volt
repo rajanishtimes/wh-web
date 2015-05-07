@@ -28,7 +28,8 @@
 					<hr class="small">
 					<div class="clearfix"></div>
 					<div class="detail">
-						{{criticdetail['description']}}
+						<?php $description = str_replace(array('<p><strong>', '</strong></p>'), array('<h4>', '</h4>'), $criticdetail['description']); ?>
+						{{description}}
 						
 						{% if(criticdetail['tags'] | length > 0) %}
 							<p class="tags">Tags</p>
