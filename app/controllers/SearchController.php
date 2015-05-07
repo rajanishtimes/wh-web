@@ -115,9 +115,10 @@ class SearchController extends BaseController{
 		$start = $this->request->getPost('start');
 		$limit = $this->request->getPost('limit');
 		$parentid = $this->request->getPost('parentid');
+		$city = $this->request->getPost('city');
 
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, $bydate, $tags, $searchkeyword);
+			$allfeedslist = $this->getfeeddata($start, $limit, $city, $bydate, $tags, $searchkeyword);
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
