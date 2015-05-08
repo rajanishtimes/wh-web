@@ -47,6 +47,11 @@
 		<link rel="alternate" href="{{deep_link}}" />
 		{% endif  %}
 		
+		{% if(tagsfeedscount is defined) %}
+			{% if(tagsfeedscount == 0) %}
+				<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+			{% endif  %}
+		{% endif  %}
 		
 		{{ get_title() }}
 		

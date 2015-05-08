@@ -244,6 +244,8 @@ class BaseController extends Controller{
             if ($this->cookies->has("city")){
 				if( strlen($this->cookies->get("city")) > 15 ){
 					$this->city = strtolower('delhi-ncr');
+				}else if( $this->cookies->get("city") == 'delhi' ){
+					$this->city = strtolower('delhi-ncr');
 				}else{
 					$this->city = strtolower($this->cookies->get("city"));
 				}
@@ -259,7 +261,11 @@ class BaseController extends Controller{
                 $this->currentCity = strtolower($this->dispatcher->getParam('city'));
             }
             else if ($this->cookies->has("city")){
-                $this->currentCity = strtolower($this->cookies->get("city"));
+				if( $this->cookies->get("city") == 'delhi' ){
+					$this->currentCity = strtolower('delhi-ncr');
+				}else{
+					$this->currentCity = strtolower($this->cookies->get("city"));
+				}
             }
             $this->view->currentCity = $this->currentCity;
 			
@@ -349,5 +355,14 @@ class BaseController extends Controller{
 			}
 		}		
 		return $imgurl;
+	}
+	
+	public function cityshown($city){
+		if($this->currentCity == 'delhi-ncr')
+			$cityshown = 'Delhi NCR';
+		else
+			$cityshown = ucwords($city);
+		
+		return $cityshown;
 	}
 }

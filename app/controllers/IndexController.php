@@ -18,28 +18,27 @@ class IndexController extends BaseController{
 		$this->setlogsarray('homepage_start');
 		
 		$city = $this->currentCity;
-		$cityshown = $city;
-		if($cityshown == 'delhi-ncr' || $cityshown == 'delhi')
-			$cityshown = 'Delhi NCR';
-		else
-			$cityshown = ucwords($city);
+		$cityshown = $this->cityshown($city);
 		$this->view->cityshown = $cityshown;
 		$this->response->setHeader('Cache-Control', 'max-age=900');
 		//$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
 		
 		
 		/* ======= Seo Update ============= */
-		$title = $cityshown.' Events: Things to do in '.$cityshown.' Today | '.$this->config->application->SiteName;
+		
+		if($cityshown == 'Delhi NCR'){
+			$title = 'Things to do in Delhi NCR, Gurgaon, Noida, Faridabad & Ghaziabad Today | '.$this->config->application->SiteName;
+			$this->view->meta_description = 'Events in NCR - Delhi, Gurgaon, Noida, Faridabad, Ghaziabad & Greater Noida: Check out the list of things to do in Delhi NCR today and have unlimited fun.';
+			$this->view->meta_keywords = 'things to do in Delhi NCR, what to do in Delhi NCR, Delhi NCR events';
+		}else{
+			$title = $cityshown.' Events: Things to do in '.$cityshown.' Today | '.$this->config->application->SiteName;
+			$this->view->meta_description = 'Events in '.$cityshown.': Getting bored? Wondering what to do in '.$cityshown.' today? Check out the list of things to do in '.ucwords($city).' today and have unlimited fun. ';
+			$this->view->meta_keywords = 'things to do in '.$cityshown.', what to do in '.$cityshown.', '.$cityshown.' events';
+		}
 		$this->tag->setTitle($title);
-		
-		
-		$this->view->meta_description = 'Events in '.$cityshown.': Getting bored? Wondering what to do in '.$cityshown.' today? Check out the list of things to do in '.ucwords($city).' today and have unlimited fun. ';
-		$this->view->meta_keywords = 'things to do in '.$cityshown.', what to do in '.$cityshown.', '.$cityshown.' events';
 		$this->view->canonical_url = $this->baseUrl.'/'.$city;
 		$this->view->deep_link = 'timescity://wh/ty';
 		/* ======= Seo Update ============= */
-		
-		
 		
 		try{
 			$topfeeds = $this->getfeeddata(0, 3, $city, 'Today', '', '', 'Event,Content', '', 2);

@@ -32,6 +32,7 @@ class TagController extends BaseController{
 			$tagsfeeds = array();
 		}
 		
+		
 		//$current_encoding = mb_detect_encoding($this->tags, 'auto');
 		//$ttgs = iconv($current_encoding, 'UTF-8', $this->tags);
 	
@@ -39,9 +40,11 @@ class TagController extends BaseController{
 			ucwords($this->currentCity) => $this->baseUrl.'/'.$this->currentCity,
 			ucwords(strtolower(trim($tags))) =>''
 		));
+		
 		$this->view->setVars(
 			array(
 				'tagsfeeds' => $tagsfeeds,
+				'tagsfeedscount' => count($tagsfeeds),
 				'tags'=>$tags,
 				'start'=>$limit,
 				'limit'=>$limit,
@@ -49,9 +52,10 @@ class TagController extends BaseController{
 				)
 			);
 			
+		$cityshown = $this->cityshown($this->currentCity);
 		/* ======= Seo Update ============= */
-		$this->tag->setTitle($this->tags.' | '.$this->config->application->SiteName);
-		$this->view->meta_description = $this->tags.': Find all the information related to '.$this->tags.' at '.$this->config->application->SiteName;
+		$this->tag->setTitle($this->tags.' | '.$cityshown.' | '.$this->config->application->SiteName);
+		$this->view->meta_description = $this->tags.' in '.$cityshown.': Find all the information related to '.$this->tags.' in '.$cityshown.' at '.$this->config->application->SiteName;
 		$this->view->meta_keywords = $this->tags;
 		/* ======= Seo Update ============= */
 		$this->setlogsarray('tag_end');

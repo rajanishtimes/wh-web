@@ -29,6 +29,12 @@ class SearchController extends BaseController{
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
+
+		/* ======= Seo Update ============= */
+		$this->tag->setTitle($searchkeyword.' | '.$this->config->application->SiteName);
+		$this->view->meta_description = 'Find all information related to '.$searchkeyword.' at '.$this->config->application->SiteName;
+		$this->view->meta_keywords = $searchkeyword;
+		/* ======= Seo Update ============= */
 		
 		$this->view->setVars(
 			array(
