@@ -58,6 +58,15 @@ class BaseController extends Controller{
 		
 		
 		/* ============= Set cookie for city =============== */
+		if($this->dispatcher->getParam('city') == 'delhi'){
+			$request_uri = trim($_SERVER['REQUEST_URI'], '/');
+			$url = str_replace("delhi","delhi-ncr",$request_uri);
+			
+			header("HTTP/1.1 301 Moved Permanently");
+			header("Location: ".$this->baseUrl.'/'.$url);
+            exit;
+        }
+		
 		$this->view->defaultCity = $this->defaultCity;
 		$this->setcities();
 		$this->setcityid();

@@ -73,14 +73,26 @@
 	</div><!-- /.container -->
 </footer><!-- /.section -->
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=117653771586254";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div class="footer">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-5">
-				&copy; 2015 <a href="{{baseUrl}}">WhatsHot.in</a> &ndash; all rights reserved.
+			<div class="col-sm-4">
+				&copy; 2015 <a href="{{baseUrl}}">WhatsHot.in</a> &ndash; all rights reserved. <br><br>
 			</div><!-- /.col-sm-5 -->
-			<div class="col-sm-7 text-right">
-				{{ elements.getMenu(baseUrl) }}
+			<div class="col-sm-4 text-center">
+				<div class="fb-like" data-href="https://www.whatshot.com" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div><br>
+			</div>
+			<div class="col-sm-4 text-right">
+				{{ elements.getMenu(baseUrl) }}<br>
 			</div><!-- /.col-sm-7 -->
 		</div><!-- /.row -->
 	</div><!-- /.container -->

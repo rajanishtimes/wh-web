@@ -1,7 +1,11 @@
 User-agent: Googlebot
-Disallow:/ 
+Disallow: / 
 
+User-agent: Yahoo! Slurp
+Disallow: / 
+
+User-agent: bingbot
+Disallow: / 
 
 User-agent: *
 Allow: /
-Disallow:
