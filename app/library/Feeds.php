@@ -110,6 +110,7 @@ class Feeds extends Component
 				<a class="pull-left" href="<?php echo $baseUrl . $feed['url']; ?>" data-ga-cat="search" data-ga-action="<?php echo $baseUrl . $feed['url']; ?>" data-in-label="pos_<?php echo $i+1; ?>">
 					<?php echo $this->getimage($baseUrl, $feed['image']['uri'], 80, 80, $feed['title'], $feed['image'], '', ''); ?>
 				</a>
+				<a class="pull-left width100" href="<?php echo $baseUrl . $feed['url']; ?>" data-ga-cat="search" data-ga-action="<?php echo $baseUrl . $feed['url']; ?>" data-in-label="pos_<?php echo $i+1; ?>">
 					<div class="media-body">
 						<h4 class="media-heading">
 							<?php echo $feed['title']; ?>
@@ -143,6 +144,7 @@ class Feeds extends Component
 							<p class="feed-short-desc"><?php echo strip_tags($feed['description'], '<a>'); ?></p>
 						<?php }?>
 					</div>
+				</a>
 			</li>										
 		<?php }
     }

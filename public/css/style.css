@@ -3356,3 +3356,7 @@ iframe {
 .social-share-widget{
 	float:left; margin-right: 10px;
 }
+.width100 {
+    padding: 0 !important;
+    width: 86% !important;
+}
