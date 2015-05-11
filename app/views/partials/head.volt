@@ -111,8 +111,6 @@
 		<iframe style="display:none" height="0" width="0" id="loader"></iframe>
 
 		<script>(function(){
-			
-			var fallbackLink = '{{canonical_url}}';
 			var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
 				isAndroid = navigator.userAgent.match('Android');
 				
@@ -128,9 +126,9 @@
 				var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
 				isAndroid = navigator.userAgent.match('Android');
 				if(isiOS){
-					document.getElementById('devicetype').html = 'IOS';
+					document.getElementById('devicetype').innerHTML = 'IOS';
 				}else{
-					document.getElementById('devicetype').html = 'android';
+					document.getElementById('devicetype').innerHTML = 'android';
 				}
 				document.getElementById('installer').style.display = 'block';
 				document.getElementById('navbar-fixed-top').style.top = '60px';
