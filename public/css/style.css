@@ -3361,3 +3361,24 @@ iframe {
     padding: 0 !important;
     width: 86% !important;
 }
+#installer {
+    background: none repeat scroll 0 0 #d2186b;
+    color: #fff;
+    padding: 15px;
+	display:none;
+}
+.left-side {
+    line-height: 26px;
+}
+.close-time {
+    font-size: 19px;
+    margin: 1px 16px 0 0;
+}
+.setmargin {
+    margin-right: 10px;
+}
+.installbtn .btn {
+    background: none repeat scroll 0 0 #fff;
+    border-radius: 5px !important;
+    color: #d2186b;
+}

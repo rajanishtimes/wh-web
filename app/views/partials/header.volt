@@ -1,5 +1,19 @@
+<div id="installer">
+	<div class="row">
+		<div class="col-xs-8 col-md-6 left-side">
+			<i class="fa fa-times float-left close-time"></i>
+			<img src="{{baseUrl}}/img/whatshot-l.jpg" class="float-left setmargin">
+			<div class="float-left setmargin">for <span id="devicetype">android</span></div>
+		</div>
+		<div class="col-xs-4 col-md-6 text-right">
+			<span class="input-group-btn installbtn">
+				<button class="btn btn-primary" type="button">Install App</button>
+			</span>
+		</div>
+	</div>
+</div>
 <!-- BEGIN TOP NAVBAR -->
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav id="navbar-fixed-top" class="navbar navbar-default navbar-fixed-top">
 <div class="container">
 	<div class="row">
 		<div class="top-navbar">
