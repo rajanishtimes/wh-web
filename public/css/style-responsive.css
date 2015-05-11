@@ -30,6 +30,9 @@ COMMON DESKTOP > 992px
 	.authordetailsection {
 		padding: 14px 62px 65px 62px;
 	}
+	.width100 {
+		width: 82% !important;
+	}
 }
 
 
@@ -427,5 +430,8 @@ PHONE < 320px
 	}
 	.rating {
 		left: 23%;
+	}
+	.width100 {
+		width: 64% !important;
 	}
 }
