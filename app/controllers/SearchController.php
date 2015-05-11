@@ -59,7 +59,7 @@ class SearchController extends BaseController{
 			$Suggestion = new \WH\Model\Solr();
 			$searchkeyword = $this->request->get("search");
 			$Suggestion->setParam('searchname',$searchkeyword);
-			$Suggestion->setParam('bycity',$this->city);
+			$Suggestion->setParam('bycity',$this->currentCity);
 			$Suggestion->setAutoSuggest();
 			try{
 				$autosuggestresult = $Suggestion->getSuggestResults();
@@ -69,6 +69,7 @@ class SearchController extends BaseController{
 			}catch(Exception $e){
 				$autosuggestresult['suggestions'] = array();
 			}
+			print_r($autosuggestresult['suggestions']);
 			echo json_encode($autosuggestresult['suggestions']);
 		}
 		exit;

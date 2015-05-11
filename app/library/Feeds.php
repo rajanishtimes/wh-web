@@ -109,40 +109,40 @@ class Feeds extends Component
 			<li class="media searchlist">
 				<a class="pull-left" href="<?php echo $baseUrl . $feed['url']; ?>" data-ga-cat="search" data-ga-action="<?php echo $baseUrl . $feed['url']; ?>" data-in-label="pos_<?php echo $i+1; ?>">
 					<?php echo $this->getimage($baseUrl, $feed['image']['uri'], 80, 80, $feed['title'], $feed['image'], '', ''); ?>
+					<div class="media-body">
+						<h4 class="media-heading">
+							<?php echo $feed['title']; ?>
+						</h4>
+						<p class="small">
+							<?php //echo $feed['type']; ?>
+						</p>
+						<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
+							<div class="homepagevenue">
+								<div class="time"><?php echo $feed['time']; ?></div>
+								<div class="landmark"><?php echo $feed['venue']; ?></div>
+							</div>
+						<?php }else if(strtoupper($feed['type']) == 'VENUE'){ ?>
+							<?php 
+								$address_arr = array();
+								if(isSet($feed['address']) && trim($feed['address'])!=''){
+									$address_arr[] = $feed['address'];
+								}
+								if(isSet($feed['landmark']) && trim($feed['landmark'])!=''){
+									$address_arr[] = $feed['landmark'];
+								}
+								if(isSet($feed['locality']) && trim($feed['locality'])!=''){
+									$address_arr[] = $feed['locality'];
+								}
+								if(isSet($feed['cities']) && trim($feed['cities'])!=''){
+									$address_arr[] = $feed['cities'];
+								}
+								echo $formatted_address = implode(', ', $address_arr);
+							?>
+						<?php }else{ ?>
+							<p class="feed-short-desc"><?php echo strip_tags($feed['description'], '<a>'); ?></p>
+						<?php }?>
+					</div>
 				</a>
-				<div class="media-body">
-					<h4 class="media-heading">
-						<a href="<?php echo $baseUrl. $feed['url']; ?>" data-ga-cat="search" data-ga-action="<?php echo $baseUrl . $feed['url']; ?>" data-in-label="pos_<?php echo $i+1; ?>"><?php echo $this->process_title($feed['title']); ?></a>
-					</h4>
-					<p class="small">
-						<?php //echo $feed['type']; ?>
-					</p>
-					<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
-						<div class="homepagevenue">
-							<div class="time"><?php echo $feed['time']; ?></div>
-							<div class="landmark"><?php echo $feed['venue']; ?></div>
-						</div>
-					<?php }else if(strtoupper($feed['type']) == 'VENUE'){ ?>
-						<?php 
-							$address_arr = array();
-							if(isSet($feed['address']) && trim($feed['address'])!=''){
-								$address_arr[] = $feed['address'];
-							}
-							if(isSet($feed['landmark']) && trim($feed['landmark'])!=''){
-								$address_arr[] = $feed['landmark'];
-							}
-							if(isSet($feed['locality']) && trim($feed['locality'])!=''){
-								$address_arr[] = $feed['locality'];
-							}
-							if(isSet($feed['cities']) && trim($feed['cities'])!=''){
-								$address_arr[] = $feed['cities'];
-							}
-							echo $formatted_address = implode(', ', $address_arr);
-						?>
-					<?php }else{ ?>
-						<p class="feed-short-desc"><?php echo strip_tags($feed['description'], '<a>'); ?></p>
-					<?php }?>
-				</div>
 			</li>										
 		<?php }
     }

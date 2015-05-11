@@ -50,7 +50,7 @@ class LocationController extends BaseController{
 			$Suggestion = new \WH\Model\Solr();
 			$searchkeyword = $this->request->get("search");
 			$Suggestion->setParam('searchname',$searchkeyword);
-			$Suggestion->setParam('bycity',$this->city);
+			$Suggestion->setParam('bycity',$this->currentCity);
 			$Suggestion->setAutoSuggest();
 			try{
 				$autosuggestresult = $Suggestion->getSuggestResults();
@@ -72,7 +72,7 @@ class LocationController extends BaseController{
 		$limit = 11;
 		
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, '', '', '', '', $searchkeyword);
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, '', '', '', '', $searchkeyword);
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
@@ -110,9 +110,10 @@ class LocationController extends BaseController{
 		$start = $this->request->getPost('start');
 		$limit = $this->request->getPost('limit');
 		$parentid = $this->request->getPost('parentid');
+		$city = $this->request->getPost('city');
 
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword);
+			$allfeedslist = $this->getfeeddata($start, $limit, $city, $bydate, $tags, $searchkeyword);
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
@@ -133,7 +134,7 @@ class LocationController extends BaseController{
 	
 	public function forwardlocationAction(){
 		$searchkeyword = $this->request->getPost('location');
-		$url = $this->baseUrl.'/'.$this->city.'/location/'.$searchkeyword;
+		$url = $this->baseUrl.'/'.$this->currentCity.'/location/'.$searchkeyword;
 		return $this->response->redirect($url);     
 	}
 }

@@ -5,7 +5,7 @@
 			<div class="col-sm-12 col-md-12">
 			
 				<div class="searchbox">
-					<form id="searchForm" method="POST" action="{{baseUrl}}/location/location">
+					<form id="searchForm" method="POST" action="{{baseUrl}}/{{currentCity}}/location/location">
 							<div class="textinput float-left"><input id="searchtextinput" type="text" class="form-control" placeholder="Search..." name="location"></div>
 							<div class="searchinout float-right"><button class="input-group-addon">
 							<img src="{{baseUrl}}/img/search.png">
