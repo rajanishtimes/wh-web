@@ -5,8 +5,8 @@
 			<div class="col-sm-12 col-md-12">
 			
 				<div class="searchbox">
-					<form id="searchForm" method="POST" action="{{baseUrl}}/{{currentCity}}/location/location">
-							<div class="textinput float-left"><input id="searchtextinput" type="text" class="form-control" placeholder="Search..." name="location"></div>
+					<form id="searchForm" method="POST" action="{{baseUrl}}/{{currentCity}}/location/location" onsubmit="return searchValid();">
+							<div class="textinput float-left"><input id="searchtextinput" type="text" autofocus class="form-control" placeholder="Search..." name="location" value="{% if(searchkeyword is defined) %}{{searchkeyword}}{% endif %}"></div>
 							<div class="searchinout float-right"><button class="input-group-addon">
 							<img src="{{baseUrl}}/img/search.png">
 							</button></div>
@@ -31,7 +31,11 @@
 						</div>
 					{% else %}
 						<ul id="getallfeedssearch" class="media-list feed-list">
-							<h1>No result(s) found from &#8220;{{searchkeyword}}&#8221;</h1><div style="height:200px"></div>
+							{% if(searchkeyword is empty) %}
+							{% else %}
+								<h1>No result(s) found for &#8220;{{searchkeyword}}&#8221;</h1><div style="height:200px"></div>
+							{% endif %}
+							<div style="height:200px"></div>
 						</ul><div class="clearfix"></div>
 					{% endif %}
 				</div>

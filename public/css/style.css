@@ -1472,6 +1472,7 @@ a.bg-dark:hover {
 .feed-list .media .media-heading {
     font-size: 18px;
     line-height: 19px;
+	color:#d11a6d;
 }
 .feed-list .media p.small {
     color: #676b74;

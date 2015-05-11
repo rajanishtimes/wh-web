@@ -50,7 +50,7 @@ $router->add("/{city}/search/search", array(
     'action' => 'forwardsearch',
 ));
 
-$router->add("/location/location", array(
+$router->add("/{city}/location/location", array(
     'controller' => 'location',
     'action' => 'forwardlocation',
 ));

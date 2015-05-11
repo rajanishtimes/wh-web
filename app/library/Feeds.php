@@ -105,7 +105,8 @@ class Feeds extends Component
 	
 	public function getfeedslist($baseUrl, $data)
     {		
-		foreach($data['results'] as $i=>$feed){ ?>
+		foreach($data['results'] as $i=>$feed){
+			if(strtolower($feed['label']) != 'sponsored'){?>
 			<li class="media searchlist">
 				<a class="pull-left" href="<?php echo $baseUrl . $feed['url']; ?>" data-ga-cat="search" data-ga-action="<?php echo $baseUrl . $feed['url']; ?>" data-in-label="pos_<?php echo $i+1; ?>">
 					<?php echo $this->getimage($baseUrl, $feed['image']['uri'], 80, 80, $feed['title'], $feed['image'], '', ''); ?>
@@ -146,7 +147,7 @@ class Feeds extends Component
 					</div>
 				</a>
 			</li>										
-		<?php }
+		<?php }}
     }
 	
 	
