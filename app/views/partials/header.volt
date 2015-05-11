@@ -1,5 +1,17 @@
 <div id="installer">
-	<div class="row">
+	<div id="iphone" class="row">
+		<div class="col-xs-8 col-md-6 left-side">
+			<i class="fa fa-times float-left close-time"></i>
+			<img src="{{baseUrl}}/img/whatshot-l.jpg" class="float-left setmargin">
+			<div class="float-left setmargin">for <span id="devicetype">IOS</span></div>
+		</div>
+		<div class="col-xs-4 col-md-6 text-right">
+			<span class="input-group-btn installbtn">
+				<a href="https://itunes.apple.com/in/app/timescity-food-restaurant/id636515332?mt=8"><button class="btn btn-primary" type="button">Install App</button></a>
+			</span>
+		</div>
+	</div>
+	<div id="android" class="row">
 		<div class="col-xs-8 col-md-6 left-side">
 			<i class="fa fa-times float-left close-time"></i>
 			<img src="{{baseUrl}}/img/whatshot-l.jpg" class="float-left setmargin">
@@ -7,7 +19,7 @@
 		</div>
 		<div class="col-xs-4 col-md-6 text-right">
 			<span class="input-group-btn installbtn">
-				<button class="btn btn-primary" type="button">Install App</button>
+				<a href="https://play.google.com/store/apps/details?id=com.phdmobi.timescity"><button class="btn btn-primary" type="button">Install App</button></a>
 			</span>
 		</div>
 	</div>

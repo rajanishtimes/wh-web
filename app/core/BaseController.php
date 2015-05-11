@@ -291,6 +291,7 @@ class BaseController extends Controller{
 	protected function setcityid(){
 		$cities = new \WH\Model\Cities();
 		$getallcities = $cities->getResults();
+		usort($getallcities['cities'], function($a, $b){ return strcmp($a["name"], $b["name"]); });
 		$this->view->allcities = $getallcities;
 		foreach($getallcities['cities'] as $getallcity){
 			if(strtolower($getallcity['name']) == 'delhi ncr'){
@@ -306,6 +307,8 @@ class BaseController extends Controller{
 		}
 	}
 	
+	
+
 	public function getimageendpoint(){
 		$i = rand(0,5);
 		$img_url='imgbaseUri'.$i;

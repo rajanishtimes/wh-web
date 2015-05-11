@@ -126,9 +126,11 @@
 				var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
 				isAndroid = navigator.userAgent.match('Android');
 				if(isiOS){
-					document.getElementById('devicetype').innerHTML = 'IOS';
+					document.getElementById('iphone').style.display = 'block';
+					document.getElementById('android').style.display = 'none';
 				}else{
-					document.getElementById('devicetype').innerHTML = 'android';
+					document.getElementById('iphone').style.display = 'none';
+					document.getElementById('android').style.display = 'block';
 				}
 				document.getElementById('installer').style.display = 'block';
 				document.getElementById('navbar-fixed-top').style.top = '60px';
