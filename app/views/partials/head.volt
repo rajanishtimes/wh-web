@@ -53,6 +53,24 @@
 			{% endif  %}
 		{% endif  %}
 		
+		{% if(searchresultcount is defined) %}
+			{% if(searchresultcount == 0) %}
+				<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+			{% endif  %}
+		{% endif  %}
+		
+		{% if(eventscount is defined) %}
+			{% if(eventscount == 0) %}
+				<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+			{% endif  %}
+		{% endif  %}
+		
+		{% if(locationresultcount is defined) %}
+			{% if(locationresultcount == 0) %}
+				<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+			{% endif  %}
+		{% endif  %}
+		
 		{{ get_title() }}
 		
 		{% if(isdebug == 'debug') %}

@@ -89,7 +89,24 @@
 				&copy; 2015 <a href="{{baseUrl}}">WhatsHot.in</a> &ndash; all rights reserved. <br><br>
 			</div><!-- /.col-sm-5 -->
 			<div class="col-sm-4 text-center">
-				<div class="fb-like" data-href="https://www.whatshot.com" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div><br>
+				<div class="social-share-widget">
+					<div class="fb-like" data-href="https://www.whatshot.com" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+				</div>
+				
+				<div class="social-share-widget">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.whatshot.in">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+				</div>
+				
+				<!-- Place this tag in your head or just before your close body tag. -->
+				<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+				<!-- Place this tag where you want the share button to render. -->
+				<div class="social-share-widget">
+					<div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://www.whatshot.in"></div>
+				</div>
+				
+				<br>
+				
 			</div>
 			<div class="col-sm-4 text-right">
 				{{ elements.getMenu(baseUrl) }}<br>

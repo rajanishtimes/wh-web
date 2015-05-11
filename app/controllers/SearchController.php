@@ -94,6 +94,7 @@ class SearchController extends BaseController{
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,
+				'searchresultcount' => count($allfeedslist),
 				'searchkeyword'=>$searchkeyword,
 				'start'=>$limit,
 				'limit'=>$limit,
@@ -132,6 +133,7 @@ class SearchController extends BaseController{
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,
+				'searchresultcount' => count($allfeedslist),
 				'mainurl'=>$mainurl,
 				'searchkeyword'=>$searchkeyword,
 				'start'=>$start+$limit,

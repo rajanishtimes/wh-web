@@ -82,6 +82,7 @@ class LocationController extends BaseController{
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,
+				'locationresultcount' => $allfeedslist,
 				'searchkeyword'=>$searchkeyword,
 				'start'=>$limit,
 				'limit'=>$limit,

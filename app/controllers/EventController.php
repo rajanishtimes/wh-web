@@ -100,6 +100,7 @@ class EventController extends BaseController{
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,
+				'eventscount' => count($allfeedslist),
 				'start'=>$limit,
 				'limit'=>$limit,
 				'breadcrumbs'=>$breadcrumbs

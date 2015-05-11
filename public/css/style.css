@@ -3352,3 +3352,7 @@ iframe {
 .notfound a:hover {
     text-decoration: underline;
 }
+
+.social-share-widget{
+	float:left; margin-right: 10px;
+}
