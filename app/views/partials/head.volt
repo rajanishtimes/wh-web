@@ -107,4 +107,49 @@
 		{% endblock %}
 	</head>
 	<body class="tooltips no-padding">
+		<!-- iframe used for attempting to load a custom protocol -->
+		<iframe style="display:none" height="0" width="0" id="loader"></iframe>
+
+		<script>(function(){
+			
+			// For desktop browser, remember to pass though any metadata on the link for deep linking
+			var fallbackLink = '{{canonical_url}}';
+
+
+			// Simple device detection
+			var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
+				isAndroid = navigator.userAgent.match('Android');
+
+			// Mobile
+			if (isiOS || isAndroid) {
+				// Load our custom protocol in the iframe, for Chrome and Opera this burys the error dialog (which is actually HTML)
+				// for iOS we will get a popup error if this protocol is not supported, but it won't block javascript
+				document.getElementById('loader').src = '{{deep_link}}';
+
+				// The fallback link for Android needs to be https:// rather than market:// or the device will try to 
+				// load both URLs and only the last one will win. (Especially FireFox, where an "Are You Sure" dialog will appear)
+				// on iOS we can link directly to the App Store as our app switch will fire prior to the switch
+				// If you have a mobile web app, your fallback could be that instead. 
+				fallbackLink = isAndroid ? 'https://play.google.com/store/apps/details?id=com.phdmobi.timescity' :
+										 'https://itunes.apple.com/in/app/timescity-food-restaurant/id636515332?mt=8' ;
+				window.setTimeout(function (){ window.location.replace(fallbackLink); }, 1);
+			}
+
+			// Now we just wait for everything to execute, if the user is redirected to your custom app
+			// the timeout below will never fire, if a custom app is not present (or the user is on the Desktop)
+			// we will replace the current URL with the fallbackLink (store URL or desktop URL as appropriate)
+			
+
+
+			/*
+			  Q&A
+
+			  I have a native desktop app as well, how do I link to a custom protocol handler on the desktop?
+				IE Only: http://msdn.microsoft.com/en-us/library/ms537512.aspx#Version_Vectors
+				All Other Browsers: Use a custom plugin like iTunes does: http://ax.itunes.apple.com/detection/itmsCheck.js
+
+			*/
+
+			})();
+		</script>
 		<div class="wrapper">
