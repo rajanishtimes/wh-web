@@ -67,7 +67,7 @@ class SearchController extends BaseController{
 					$autosuggestresult['suggestions'][$key] = stripslashes($autos);
 				}
 			}catch(Exception $e){
-				$autosuggestresult = array();
+				$autosuggestresult['suggestions'] = array();
 			}
 			echo json_encode($autosuggestresult['suggestions']);
 		}
