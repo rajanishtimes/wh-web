@@ -110,7 +110,7 @@
 		<!-- iframe used for attempting to load a custom protocol -->
 		<iframe style="display:none" height="0" width="0" id="loader"></iframe>
 
-		<script>(function(){
+		<script>//(function(){
 			var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
 				isAndroid = navigator.userAgent.match('Android');
 				
