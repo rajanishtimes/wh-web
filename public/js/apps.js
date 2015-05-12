@@ -151,13 +151,13 @@ $(window).load(function() {
 	}) */
 	
 	
-	$.ajax( {
+	/* $.ajax( {
 		url:'http://appapi.whatshot.in/appapi/solr/searchEntity?city=pune&start=0&limit=10',
 		//async:false,
 		success:function(data) {
 			console.log(data);
 		}
-	});
+	}); */
 	
 });
 
