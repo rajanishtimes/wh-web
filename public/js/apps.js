@@ -149,6 +149,16 @@ $(window).load(function() {
 		var w = $('#expandable').attr('data-default');
 		$('#expandable').animate({ width: w }, 'slow');
 	}) */
+	
+	
+	$.ajax( {
+		url:'http://appapi.whatshot.in/appapi/solr/searchEntity?city=pune&start=0&limit=10',
+		//async:false,
+		success:function(data) {
+			console.log(data);
+		}
+	});
+	
 });
 
 function searchValid(){
