@@ -366,6 +366,9 @@ PHONE < 420px
 	.rating {
 		left: 33%;
 	}
+	.width100 {
+		width: 64% !important;
+	}
 }
 
 
@@ -393,10 +396,8 @@ PHONE < 360px
 	.rating {
 		left: 27%;
 	}
+	
 }
-
-
-
 
 /**
 =================================
