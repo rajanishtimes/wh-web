@@ -7,7 +7,7 @@
 				$i++;
 				if(!empty($breadcrumb)){
 			?>
-				<li id="{{i}}" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemref="{{i+1}}" <?php if($i > 1){ ?> itemprop="child" <?php } ?> >
+				<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
 					<a href="{{breadcrumb}}" itemprop="url">
 						<span itemprop="title">
 							<?php if(strtolower($key)=='delhi' || strtolower($key)=='delhincr' || strtolower($key)=='delhi-ncr'){ ?>
@@ -19,7 +19,7 @@
 					</a>
 				</li>
 			<?php }else{ ?>
-				<li id="{{i}}" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="child" class="active">
+				<li class="active">
 					{{key}}
 				</li>
 			<?php }} ?>
