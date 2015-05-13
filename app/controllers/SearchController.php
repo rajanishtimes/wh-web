@@ -64,7 +64,7 @@ class SearchController extends BaseController{
 			try{
 				$autosuggestresult = $Suggestion->getSuggestResults();
 				foreach($autosuggestresult['suggestions'] as $key=>$autos){
-					$autosuggestresult['suggestions'][$key] = stripslashes($autos);
+					$autosuggestresult['suggestions'][$key] = str_replace("/"," ",stripslashes($autos));
 				}
 			}catch(Exception $e){
 				$autosuggestresult['suggestions'] = array();
