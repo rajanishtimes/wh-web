@@ -55,7 +55,7 @@
 </div>
 
 <?php $date = explode('-', $eventdetail['time']['short']); $startdate = date('Y-m-d', strtotime($date[0]));
-	$desc = strip_tags(eventdetail['description']);
+	$desc = strip_tags($eventdetail['description']);
 	$description = strlen($desc) > 150 ? substr($desc, 0, 150).'...' : $desc;
 ?>
 <script type="application/ld+json">
