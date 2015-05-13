@@ -95,7 +95,10 @@ class EventController extends BaseController{
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
-		$breadcrumbs = $this->breadcrumbs(array('Events in '.ucwords($this->currentCity) =>''));
+		$breadcrumbs = $this->breadcrumbs(array(
+			ucwords($this->currentCity) => $this->baseUrl.'/'.$this->currentCity,
+			'Events in '.ucwords($this->currentCity) =>''
+		));
 		$this->tag->setTitle('Events in '.ucwords($this->currentCity));
 		$this->view->setVars(
 			array(

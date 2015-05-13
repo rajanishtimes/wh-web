@@ -54,17 +54,23 @@
 	</div>
 </div>
 
-<?php $date = explode('-', $eventdetail['time']['short']); $startdate = date('Y-m-d', strtotime($date[0])); ?>
+<?php $date = explode('-', $eventdetail['time']['short']); $startdate = date('Y-m-d', strtotime($date[0]));
+	$desc = strip_tags(eventdetail['description']);
+	$description = strlen($desc) > 150 ? substr($desc, 0, 150).'...' : $desc;
+?>
 <script type="application/ld+json">
 {
 	"@context": "http://schema.org",
 	"@type" : "Event",
 	"name" : "{{eventdetail['title']}}",
+	"image" : "{{eventdetail['images'][0]['uri']}}",
+	"description" : "{{description}}",
 	"url" : "{{canonical_url}}",
 	"location": {
-	"@type" : "Place",
-	"name" : "{{eventdetail['venue']['name']}}",
-	"address" : "{{eventdetail['venue']['formatted_address']}}"
+		"@type" : "Place",
+		"name" : "{{eventdetail['venue']['name']}}",
+		"address" : "{{eventdetail['venue']['formatted_address']}}"
+		"url" : "{{baseUrl}}{{eventdetail['venue']['url']}}"
 	},
 	"startDate": "{{startdate}}"
 }
