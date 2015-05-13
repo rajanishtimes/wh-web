@@ -9,7 +9,7 @@
 						{{feeds.getimage(baseUrl, author['images'][0]['uri'], '', '', author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
 					</div>
 					<div class="clearfix"></div>
-					<h2 class="contenttitle text-center">{{author['title'] | lower | capitalize}}</h2>
+					<h2 class="contenttitle text-center">{{author['title']}}</h2>
 					<?php if(isset($author['twitter_url']) && !empty($author['twitter_url'])){?>
 					<div class="atwitter text-center">
 						<a href="http://twitter.com/{{author['twitter_url']}}" target="_blank">
@@ -24,7 +24,7 @@
 				</div>
 				
 				{% if(profilepost['meta']['match_count'] > 0) %}
-					<h1>{{profilepost['meta']['match_count']}} Posts from {{author['title'] | lower | capitalize}}</h1>
+					<h1>{{profilepost['meta']['match_count']}} Posts from {{author['title']}}</h1>
 					<div id="authorpost">
 						<div class="work-content allfeeds">
 							{{feeds.getfeedsforcoverimg(baseUrl, profilepost)}}
