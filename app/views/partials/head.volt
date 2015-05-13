@@ -95,6 +95,20 @@
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
 		
+		{% if canonical_url != '' AND deep_link != '' %}
+			<script type="application/ld+json">
+			{
+			  "@context": "http://schema.org", 
+			  "@type": "WebPage", 
+			  "@id": "{{canonical_url}}", 
+			  "potentialAction": {
+				"@type": "ViewAction", 
+				"target": "{{deep_link}}"
+			  }
+			}
+			</script>
+		{% endif  %}
+		
 		<script type="text/javascript">
 			var baseUrl = '{{baseUrl}}',_city = '{{city}}',_crrentCity = '{{currentCity}}';
 			var server_variables = {
