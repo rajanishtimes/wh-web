@@ -125,6 +125,13 @@
 			}
 			})();
 			
+			function closebanner(){
+				document.getElementById('installer').style.display = 'none';
+				document.getElementById('iphone').style.display = 'none';
+				document.getElementById('android').style.display = 'none';
+				document.getElementById('navbar-fixed-top').style.top = '0px';
+			}
+
 			function setheader(){
 				var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
 				isAndroid = navigator.userAgent.match('Android');
