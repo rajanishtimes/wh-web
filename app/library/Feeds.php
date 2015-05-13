@@ -13,8 +13,8 @@ class Feeds extends Component
     public function getfeeds($url, $data, $start)
     {	$i = 1;
 		foreach($data['results'] as $feed){
-			if($i%9 != 0){
 			?>
+			<?php if($i%9 != 0){ ?>
 				<?php if(strtolower($feed['label']) != 'sponsored'){ ?>
 				<div class="col-sm-4 col-md-3 col-xs-6">
 					<div class="work-item feeds-data">
@@ -69,6 +69,30 @@ class Feeds extends Component
 				</div>
 			<?php
 			}
+			?>
+				<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
+					<script type="application/ld+json">
+					{
+						"@context": "http://schema.org",
+						"@type" : "Event",
+						"name" : "<?php echo $this->process_title($feed['title']); ?>",
+						"image" : "<?php echo $feed['image']['uri']; ?>",
+						"description" : "<?php echo strip_tags($feed['description']); ?>",
+						"url" : "<?php echo $url.'/'.$feed['url']; ?>",
+						"location": {
+							"@type" : "Place",
+							"name" : "<?php echo $feed['venueDetail']['name']; ?>",
+							"address" : "<?php echo $feed['venueDetail']['formatted_address']; ?>",
+							"url" : "<?php echo $url.'/'.$feed['venueDetail']['url']; ?>"
+						},
+						"startDate": "<?php echo date('Y-m-d', $feed['start_time']); ?>"
+					}
+					</script>
+				<?php }else if(strtoupper($feed['type']) == 'CONTENT'){ ?>
+					
+				<?php } ?>
+			
+			<?php
 			$i++;
 		}
     }
