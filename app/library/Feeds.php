@@ -77,7 +77,7 @@ class Feeds extends Component
 						"@type" : "Event",
 						"name" : "<?php echo $this->process_title($feed['title']); ?>",
 						"image" : "<?php echo $feed['image']['uri']; ?>",
-						"description" : "<?php echo strip_tags($feed['description']); ?>",
+						"description" : "<?php echo htmlentities(strip_tags($feed['description'])); ?>",
 						"url" : "<?php echo $url.'/'.$feed['url']; ?>",
 						"location": {
 							"@type" : "Place",
