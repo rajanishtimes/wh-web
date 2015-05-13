@@ -15,7 +15,7 @@
 		<div class="col-xs-8 col-md-6 left-side">
 			<i class="fa fa-times float-left close-time" onclick="closebanner()"></i>
 			<img src="{{baseUrl}}/img/whatshot-l.jpg" class="float-left setmargin">
-			<div class="float-left setmargin">for <span id="devicetype">android</span></div>
+			<div class="float-left setmargin">for <span id="devicetype">Android</span></div>
 		</div>
 		<div class="col-xs-4 col-md-6 text-right">
 			<span class="input-group-btn installbtn">

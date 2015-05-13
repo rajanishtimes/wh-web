@@ -52,6 +52,8 @@ class BaseController extends Controller{
 		$this->view->isdebug = $this->config->application->mode;
 		//$this->setcookie();
 		$this->view->controllername = $this->dispatcher->getControllerName();
+		$this->view->actionname = $this->dispatcher->getActionName();
+		$this->view->request_uri = $this->baseUrl.'/'.trim($_SERVER['REQUEST_URI'], '/');;
 		
 		//echo $this->dispatcher->getControllerName();exit;
 		//echo $this->dispatcher->getActionName();exit;

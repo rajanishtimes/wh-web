@@ -159,6 +159,15 @@ $(window).load(function() {
 		}
 	}); */
 	
+	var milliseconds = new Date().getTime();
+	$.ajax({
+		url:baseUrl+'/log/index/'+milliseconds,
+		type:'POST',
+		data:'type='+server_variables.controllername+'&request_uri='+server_variables.request_uri,
+		success:function(data) {
+		}
+	});
+	
 });
 
 function searchValid(){
@@ -268,3 +277,25 @@ $('#citieslist li').click(function(){
         window.location.href = C.find('a').attr('href');
         return false;
 });
+
+
+function closebanner(){
+	$('#installer').css('display', 'none');
+	$('#iphone').css('display', 'none');
+	$('#android').css('display', 'none');
+	$('#navbar-fixed-top').css('top', 0);
+}
+
+function setheader(){
+	var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
+	isAndroid = navigator.userAgent.match('Android');
+	if(isiOS){
+		$('#iphone').css('display', 'block');
+		$('#android').css('display', 'none');
+	}else{
+		$('#iphone').css('display', 'none');
+		$('#android').css('display', 'block');
+	}
+	$('#installer').css('display', 'block');
+	$('#navbar-fixed-top').css('top', 60);
+}

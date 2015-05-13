@@ -114,7 +114,10 @@
 			var server_variables = {
 				city: '{{city}}',
 				current_city: '{{currentCity}}',
-				default_city: '{{defaultCity}}'
+				default_city: '{{defaultCity}}',
+				controllername: '{{controllername}}',
+				actionname: '{{actionname}}',
+				request_uri: '{{request_uri}}',
 			};
 		</script>
 		
@@ -124,44 +127,22 @@
 		<!-- iframe used for attempting to load a custom protocol -->
 		<iframe style="display:none" height="0" width="0" id="loader"></iframe>
 
-		<script>(function(){
-			var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
-				isAndroid = navigator.userAgent.match('Android');
-				
-			if(baseUrl != 'http://www.whatshot.in'){
-				if (isiOS || isAndroid) {
-					document.getElementById('loader').src = '{{deep_link}}';
-					fallbackLink = isAndroid ? 'https://play.google.com/store/apps/details?id=com.phdmobi.timescity' :
-											 'https://itunes.apple.com/in/app/timescity-food-restaurant/id636515332?mt=8' ;
-					window.setTimeout(function (){
-							//window.location.replace(fallbackLink);
-							setheader();
-					}, 1);
-				}
-			}
-			
-			
-			})();
-			
-			function closebanner(){
-				document.getElementById('installer').style.display = 'none';
-				document.getElementById('iphone').style.display = 'none';
-				document.getElementById('android').style.display = 'none';
-				document.getElementById('navbar-fixed-top').style.top = '0px';
-			}
-
-			function setheader(){
+		<script>
+			(function(){
 				var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
-				isAndroid = navigator.userAgent.match('Android');
-				if(isiOS){
-					document.getElementById('iphone').style.display = 'block';
-					document.getElementById('android').style.display = 'none';
-				}else{
-					document.getElementById('iphone').style.display = 'none';
-					document.getElementById('android').style.display = 'block';
+					isAndroid = navigator.userAgent.match('Android');
+					
+				if(baseUrl != 'http://www.whatshot.in'){
+					if (isiOS || isAndroid) {
+						document.getElementById('loader').src = '{{deep_link}}';
+						fallbackLink = isAndroid ? 'https://play.google.com/store/apps/details?id=com.phdmobi.timescity' :
+												 'https://itunes.apple.com/in/app/timescity-food-restaurant/id636515332?mt=8' ;
+						window.setTimeout(function (){
+								//window.location.replace(fallbackLink);
+								setheader();
+						}, 1);
+					}
 				}
-				document.getElementById('installer').style.display = 'block';
-				document.getElementById('navbar-fixed-top').style.top = '60px';
-			}
+			})();			
 		</script>
 		<div class="wrapper">
