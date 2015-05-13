@@ -69,7 +69,7 @@
 	"location": {
 		"@type" : "Place",
 		"name" : "{{eventdetail['venue']['name']}}",
-		"address" : "{{eventdetail['venue']['formatted_address']}}"
+		"address" : "{{eventdetail['venue']['formatted_address']}}",
 		"url" : "{{baseUrl}}{{eventdetail['venue']['url']}}"
 	},
 	"startDate": "{{startdate}}"
