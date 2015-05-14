@@ -226,7 +226,7 @@ class Feeds extends Component
 			$style = 'background-color:#fff;'.$style;
 			$imgbox = '<img data-original="'.$imgurl.'" src="'.$url.'/img/transparent.png" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
 		}else{
-			$imgbox = '<img data-original="'.$url.'/img/img_feed_default.png" alt="'.$alt.'"  style="'.$style.'" class="'.$class.'">';
+			$imgbox = '<img src="'.$url.'/img/img_feed_default.png" alt="'.$alt.'"  style="'.$style.'" class="'.$class.'">';
 		}
 		return $imgbox;
 	}
