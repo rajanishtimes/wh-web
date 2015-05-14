@@ -118,6 +118,8 @@
 				controllername: '{{controllername}}',
 				actionname: '{{actionname}}',
 				request_uri: '{{request_uri}}',
+				entityid: '{{entityid}}',
+				entitytype: '{{entitytype}}',
 			};
 		</script>
 		

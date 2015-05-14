@@ -6,10 +6,11 @@
 			<div class="col-sm-12 col-md-12">
 				<div class="contentarea">
 					<ul id="owl-work-detail" class="owl-carousel work-detail">
-					{% for images in contentdetail['images'] %}
+					
+					{% for key, images in contentdetail['images'] %}
 						<li class="item">
 							<a href="{{feeds.makeurl(baseUrl, images['uri'])}}" class="swipebox" title="{{contentdetail['title']}}">
-								{{feeds.getimage(baseUrl, images['uri'], 880, 880, contentdetail['title'], '', '', 'img-detail')}} 
+								{{feeds.getimage(baseUrl, images['uri'], 880, 880, contentdetail['title'], '', '', 'img-detail', key+1)}} 
 							</a>
 						</li>
 					{% endfor  %}

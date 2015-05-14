@@ -23,6 +23,8 @@ class BaseController extends Controller{
     public $cityId = 0;
 	public $request;
 	public $baseUrl;
+	public $entityid = '';
+	public $entitytype = '';
 	
     protected function initialize()
     {
@@ -53,7 +55,9 @@ class BaseController extends Controller{
 		//$this->setcookie();
 		$this->view->controllername = $this->dispatcher->getControllerName();
 		$this->view->actionname = $this->dispatcher->getActionName();
-		$this->view->request_uri = $this->baseUrl.'/'.trim($_SERVER['REQUEST_URI'], '/');;
+		$this->view->request_uri = $this->baseUrl.'/'.trim($_SERVER['REQUEST_URI'], '/');
+		$this->view->entityid = $this->entityid;
+		$this->view->entitytype = $this->entitytype;
 		
 		//echo $this->dispatcher->getControllerName();exit;
 		//echo $this->dispatcher->getActionName();exit;

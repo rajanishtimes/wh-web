@@ -148,6 +148,7 @@ class SearchController extends BaseController{
 	
 	public function forwardsearchAction(){
 		$searchkeyword = $this->request->getPost('search');
+		$searchkeyword = str_replace("/"," ",stripslashes($searchkeyword));
 		$url = $this->baseUrl.'/'.$this->currentCity.'/search/'.$searchkeyword;
 		return $this->response->redirect($url);     
 	}

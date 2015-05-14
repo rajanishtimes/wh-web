@@ -16,7 +16,7 @@ class IndexController extends BaseController{
 		/* $this->setcities();
 		$this->setcityid();*/
 		$this->setlogsarray('homepage_start');
-		
+		$this->view->entitytype = 'homepage';
 		$city = $this->currentCity;
 		$cityshown = $this->cityshown($city);
 		$this->view->cityshown = $cityshown;
