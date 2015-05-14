@@ -28,6 +28,10 @@ class AuthorController extends BaseController{
 		$Author->setParam('fl','detail');
 		$Author->setSolrType('detail');
 		$Author->setEntityDetails();
+		
+		$this->view->entityid = $id;
+		$this->view->entitytype = 'author';
+		
 		try{
 			$author = $Author->getDetailResults();
 			$this->setlogsarray('author_get_detail');

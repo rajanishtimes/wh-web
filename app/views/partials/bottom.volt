@@ -7,7 +7,7 @@
         <script type="text/javascript" src="{{baseUrl}}/js/cookies.js?v=1.0"></script>
 		<script type="text/javascript" src="{{baseUrl}}/js/apps.js{{time}}"></script>
 		
-		<script type="text/javascript">
+		<script type="text/javascript" defer>
                       
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

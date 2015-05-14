@@ -22,7 +22,8 @@ class SearchController extends BaseController{
 		$limit = $this->request->getPost('limit');
 		$parentid = $this->request->getPost('parentid');
 		$city = $this->request->getPost('city');
-
+		$this->view->entitytype = 'search';
+		
 		try{
 			$allfeedslist = $this->getfeeddata($start, $limit, $city, $bydate, $tags, $searchkeyword, 'Event,Content', '', 4);
 			$this->setlogsarray('search_get_records');
@@ -34,6 +35,7 @@ class SearchController extends BaseController{
 		$this->tag->setTitle($searchkeyword.' | '.$this->config->application->SiteName);
 		$this->view->meta_description = 'Find all information related to '.$searchkeyword.' at '.$this->config->application->SiteName;
 		$this->view->meta_keywords = $searchkeyword;
+		$this->view->deep_link = 'timescity://ty=s&qu'.$searchkeyword;
 		/* ======= Seo Update ============= */
 		
 		$this->view->setVars(
@@ -80,6 +82,9 @@ class SearchController extends BaseController{
 		if($this->dispatcher->getParam('searchquery'))
 			$searchkeyword = $this->dispatcher->getParam('searchquery');
 		
+		$this->view->entityid = 0;
+		$this->view->entitytype = 'search';
+		
 		$start = 0;
 		$limit = 11;
 		
@@ -124,6 +129,7 @@ class SearchController extends BaseController{
 		$parentid = $this->request->getPost('parentid');
 		$cities = $this->request->getPost('city');
 
+		
 		try{
 			$allfeedslist = $this->getfeeddata($start, $limit, $cities, $bydate, $tags, $searchkeyword);
 		}catch(Exception $e){

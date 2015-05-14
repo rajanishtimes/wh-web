@@ -184,7 +184,7 @@ class Feeds extends Component
 	
 	
 	public function getimage($url, $image_url, $width, $height, $alt, $dimension='', $style='', $class='', $key=0){
-		$color = array('#fffae0', '#ffdddd', '#ddfcff', '#ffdef5');
+		$color = array('#fffae0', '#ffdddd', '#ddfcff', '#ffdef5', '#deffe4');
 		if($image_url){
 			$pos = strpos($image_url, 'http');
 			if($pos !== false){
@@ -221,8 +221,9 @@ class Feeds extends Component
 			
 			$imgurl = $imgurl.$parts;
 			$class = 'lazy '.$class;
-			$select_color = $key%4;
-			$style = 'background-color:'.$color[$select_color].';'.$style;
+			$select_color = $key%5;
+			//$style = 'background-color:'.$color[$select_color].';'.$style;
+			$style = 'background-color:#fff;'.$style;
 			$imgbox = '<img data-original="'.$imgurl.'" src="'.$url.'/img/transparent.png" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
 		}else{
 			$imgbox = '<img data-original="'.$url.'/img/img_feed_default.png" alt="'.$alt.'"  style="'.$style.'" class="'.$class.'">';

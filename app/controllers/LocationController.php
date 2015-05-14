@@ -20,8 +20,9 @@ class LocationController extends BaseController{
 		$bydate = ucwords(strtolower($this->request->getPost('bydate')));
 		$start = $this->request->getPost('start');
 		$limit = $this->request->getPost('limit');
-		$parentid = $this->request->getPost('parentid');
-
+		$parentid = $this->request->getPost('parentid');	
+		$this->view->entitytype = 'location';
+		
 		try{
 			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword);
 			$this->setlogsarray('location_get_records');
@@ -67,6 +68,9 @@ class LocationController extends BaseController{
 		$this->view->setLayout('mainLayout');
 		if($this->dispatcher->getParam('locationname'))
 			$searchkeyword = $this->dispatcher->getParam('locationname');
+		
+		$this->view->entityid = $searchkeyword;
+		$this->view->entitytype = 'location';
 		
 		$start = 0;
 		$limit = 11;

@@ -30,6 +30,9 @@ class SpecialpageController extends BaseController{
 		preg_match('/\bs-[a-zA-Z0-9\- ]+/i', $this->specialpagetitle, $match);
 		$id = str_replace('-', '_', $match[0]);
 		
+		$this->view->entityid = $id;
+		$this->view->entitytype = 'special page';
+		
 		$Solr = new \WH\Model\Solr();
 		$Solr->setParam('ids',$id);
 		$Solr->setParam('fl','detail');

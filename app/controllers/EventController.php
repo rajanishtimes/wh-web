@@ -36,6 +36,10 @@ class EventController extends BaseController{
 		$Solr->setParam('fl','detail');
 		$Solr->setSolrType('detail');
         $Solr->setEntityDetails();
+		
+		$this->view->entityid = $id;
+		$this->view->entitytype = 'event';
+		
 		try{
 			$eventdetail = $Solr->getDetailResults();
 			$this->setlogsarray('event_get_detail');
@@ -90,6 +94,10 @@ class EventController extends BaseController{
 	function eventlistAction(){
 		$start = 0;
 		$limit = 11;
+		
+		$this->view->entityid = $this->currentCity;
+		$this->view->entitytype = 'eventlist';
+		
 		try{
 			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, 'all', '', '', 'Event');
 		}catch(Exception $e){

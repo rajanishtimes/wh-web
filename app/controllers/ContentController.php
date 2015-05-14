@@ -36,6 +36,9 @@ class ContentController extends BaseController{
         $Solr->setEntityDetails();
 		try{
 			$contentdetail = $Solr->getDetailResults();
+			$this->view->entityid = $id;
+			$this->view->entitytype = 'content';
+			
 			$this->setlogsarray('content_get_detail');
 		}catch(Exception $e){
 			$contentdetail = array();
@@ -48,6 +51,8 @@ class ContentController extends BaseController{
 			$Author->setParam('fl','detail');
 			$Author->setSolrType('detail');
 			$Author->setEntityDetails();
+			
+		
 			try{
 				$author = $Author->getDetailResults();
 				$this->setlogsarray('author_get_detail');

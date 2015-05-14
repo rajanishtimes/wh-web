@@ -29,6 +29,10 @@ class CriticController extends BaseController{
 		$Solr->setParam('fl','detail');
 		$Solr->setSolrType('detail');
         $Solr->setEntityDetails();
+		
+		$this->view->entityid = $id;
+		$this->view->entitytype = 'critic';
+		
 		try{
 			$criticdetail = $Solr->getDetailResults();
 			$this->setlogsarray('critic_get_detail');

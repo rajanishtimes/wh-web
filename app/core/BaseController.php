@@ -23,7 +23,7 @@ class BaseController extends Controller{
     public $cityId = 0;
 	public $request;
 	public $baseUrl;
-	public $entityid = '';
+	public $entityid = 0;
 	public $entitytype = '';
 	
     protected function initialize()

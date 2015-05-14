@@ -32,6 +32,10 @@ class VenueController extends BaseController{
 		$Solr->setParam('fl','detail');
 		$Solr->setSolrType('detail');
         $Solr->setEntityDetails();
+		
+		$this->view->entityid = $id;
+		$this->view->entitytype = 'venue';
+		
         try{
 			$venuedetail = $Solr->getDetailResults();
 			$this->setlogsarray('venue_get_detail');

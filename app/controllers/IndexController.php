@@ -105,6 +105,7 @@ class IndexController extends BaseController{
 	
 	public function policyAction(){
         $this->tag->setTitle('Privacy Policy');
+		$this->view->entitytype = 'policy';
 		$this->view->meta_description = '';
 		$this->view->meta_keywords = '';
 		$this->view->og_title = 'Privacy Policy';
@@ -114,6 +115,7 @@ class IndexController extends BaseController{
     }
     public function termsAction(){
         $this->tag->setTitle('Terms & Conditions');
+		$this->view->entitytype = 'terms';
 		$this->view->meta_description = '';
 		$this->view->meta_keywords = '';
 		$this->view->og_title = 'Terms & Conditions';
@@ -124,6 +126,7 @@ class IndexController extends BaseController{
 	
 	public function aboutusAction(){
         $this->tag->setTitle('About Us');
+		$this->view->entitytype = 'about us';
 		$this->view->meta_description = '';
 		$this->view->meta_keywords = '';
 		$this->view->og_title = 'About Us';
