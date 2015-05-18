@@ -55,6 +55,9 @@ class VenueController extends BaseController{
 			if(isSet($venuedetail['locality']) && trim($venuedetail['locality'])!=''){
 				$address_arr[] = $venuedetail['locality'];
 			}
+			if(isSet($venuedetail['zonename']) && trim($venuedetail['zonename'])!=''){
+				$address_arr[] = $venuedetail['zonename'];
+			}
 			if(isSet($venuedetail['city']) && trim($venuedetail['city'])!=''){
 				$address_arr[] = $venuedetail['city'];
 			}
