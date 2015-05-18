@@ -98,23 +98,28 @@ class EventController extends BaseController{
 		$this->view->entityid = $this->currentCity;
 		$this->view->entitytype = 'eventlist';
 		
+		$cityshown = $this->cityshown($this->currentCity);
 		try{
 			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, 'all', '', '', 'Event');
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
+		
+		//print_r($allfeedslist); exit;
+		
 		$breadcrumbs = $this->breadcrumbs(array(
-			ucwords($this->currentCity) => $this->baseUrl.'/'.$this->currentCity,
-			'Events in '.ucwords($this->currentCity) =>''
+			ucwords($this->currentCity) => $this->baseUrl.'/'.$cityshown,
+			'Events in '.$cityshown =>''
 		));
-		$this->tag->setTitle('Events in '.ucwords($this->currentCity));
+		$this->tag->setTitle('Events in '.$cityshown);
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,
 				'eventscount' => count($allfeedslist),
 				'start'=>$limit,
 				'limit'=>$limit,
-				'breadcrumbs'=>$breadcrumbs
+				'breadcrumbs'=>$breadcrumbs,
+				'cityshown'=>$cityshown
 				)
 			);
 	} 

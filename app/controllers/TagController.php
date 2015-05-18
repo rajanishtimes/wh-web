@@ -36,9 +36,9 @@ class TagController extends BaseController{
 		
 		//$current_encoding = mb_detect_encoding($this->tags, 'auto');
 		//$ttgs = iconv($current_encoding, 'UTF-8', $this->tags);
-	
+		$cityshown = $this->cityshown($this->currentCity);
 		$breadcrumbs = $this->breadcrumbs(array(
-			ucwords($this->currentCity) => $this->baseUrl.'/'.$this->currentCity,
+			ucwords($this->currentCity) => $this->baseUrl.'/'.$cityshown,
 			ucwords(strtolower(trim($tags))) =>''
 		));
 		
@@ -53,7 +53,6 @@ class TagController extends BaseController{
 				)
 			);
 			
-		$cityshown = $this->cityshown($this->currentCity);
 		/* ======= Seo Update ============= */
 		$this->tag->setTitle($this->tags.' | '.$cityshown.' | '.$this->config->application->SiteName);
 		$this->view->meta_description = $this->tags.' in '.$cityshown.': Find all the information related to '.$this->tags.' in '.$cityshown.' at '.$this->config->application->SiteName;

@@ -69,9 +69,10 @@ class VenueController extends BaseController{
 					$venuedetail['website'] = 'http://'.$venuedetail['website'];
 				}
 			}
-			
+
+			$cityshown = $this->cityshown($this->currentCity);
 			$breadcrumbs = $this->breadcrumbs(array(
-				ucwords($this->currentCity) => $this->baseUrl.'/'.$this->currentCity,
+				ucwords($this->currentCity) => $this->baseUrl.'/'.$cityshown,
 				ucwords(strtolower(trim($venuedetail['title']))) =>''
 			));
 			
@@ -90,7 +91,8 @@ class VenueController extends BaseController{
 			/* ======= Seo Update ============= */
 			$this->view->setVars(array(
 				'venuedetail' => $venuedetail,
-				'breadcrumbs' => $breadcrumbs
+				'breadcrumbs' => $breadcrumbs,
+				'cityshown' => $cityshown
 			));
 		}else{
 			$this->forwardtoerrorpage(404);

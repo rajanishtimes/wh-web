@@ -25,7 +25,11 @@ class SearchController extends BaseController{
 		$this->view->entitytype = 'search';
 		
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $city, $bydate, $tags, $searchkeyword, 'Event,Content', '', 4);
+			if($bydate == 'Event'){
+				$allfeedslist = $this->getfeeddata($start, $limit, $city, 'all', $tags, $searchkeyword, $bydate, '', 4);
+			}else{
+				$allfeedslist = $this->getfeeddata($start, $limit, $city, $bydate, $tags, $searchkeyword, 'Event,Content', '', 4);
+			}
 			$this->setlogsarray('search_get_records');
 		}catch(Exception $e){
 			$allfeedslist = array();

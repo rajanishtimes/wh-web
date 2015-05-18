@@ -246,52 +246,78 @@ class BaseController extends Controller{
 		}
 	}
 	
-        protected function setHomeCity(){
-            if ($this->cookies->has("city")){
-				if( strlen($this->cookies->get("city")) > 15 ){
-					$this->city = strtolower('delhi-ncr');
-				}else if( $this->cookies->get("city") == 'delhi' ){
-					$this->city = strtolower('delhi-ncr');
+	protected function setHomeCity(){
+		if ($this->cookies->has("city")){
+			if( strlen($this->cookies->get("city")) > 15 ){
+				$this->city = strtolower('delhi-ncr');
+			}else if( $this->cookies->get("city") == 'delhi' ){
+				$this->city = strtolower('delhi-ncr');
+			}else{
+				$this->city = strtolower($this->cookies->get("city"));
+			}
+		}else if($this->dispatcher->getParam('city')){
+			if(trim($this->dispatcher->getParam('city')) == 'multicity'){
+				$ccityformulti = $this->defaultCity;
+			}else{
+				$ccityformulti = strtolower($this->dispatcher->getParam('city'));
+			}
+			$this->city = $ccityformulti;
+		}
+		$this->view->city = $this->city;
+	}
+
+	protected function setcities($cityname = ''){
+		$this->setHomeCity();
+		if(trim($this->dispatcher->getParam('city')) == 'multicity'){			
+			if ($this->cookies->has("city") && empty($cityname)){
+				$cityformulti = strtolower($this->cookies->get("city"));
+			}else{
+				if(!empty($cityname)){
+					$cityformulti = $cityname;
 				}else{
-					$this->city = strtolower($this->cookies->get("city"));
+					$cityformulti = $this->defaultCity;
 				}
-            }
-            else if($this->dispatcher->getParam('city')){
-                $this->city = strtolower($this->dispatcher->getParam('city'));
-            }
-            $this->view->city = $this->city;
-        }
-        protected function setcities(){
-            $this->setHomeCity();
-            if($this->dispatcher->getParam('city')){
-                $this->currentCity = strtolower($this->dispatcher->getParam('city'));
-            }
-            else if ($this->cookies->has("city")){
-				if( $this->cookies->get("city") == 'delhi' ){
-					$this->currentCity = strtolower('delhi-ncr');
-				}else{
-					$this->currentCity = strtolower($this->cookies->get("city"));
-				}
-            }
-            $this->view->currentCity = $this->currentCity;
+			}
+			$this->currentCity = $cityformulti;
+		}else if($this->dispatcher->getParam('city')){
+			$this->currentCity = strtolower($this->dispatcher->getParam('city'));
+		}else if ($this->cookies->has("city")){
+			if( $this->cookies->get("city") == 'delhi-ncr' ){
+				$this->currentCity = strtolower($this->defaultCity);
+			}else{
+				$this->currentCity = strtolower($this->cookies->get("city"));
+			}
+		}
+		$this->view->currentCity = $this->currentCity;
+		
+		/* if($this->dispatcher->getParam('city')){
+                    $this->city = $this->dispatcher->getParam('city');
+                    //$this->cookies->set("city", $this->city, time() + 15 * 86400, '/', false, $this->config->application->baseUri);
+                    $this->view->city = strtolower($this->city);
+            }else{
+                    if ($this->cookies->has("city")){
+                            $this->city = strtolower($this->cookies->get("city"));
+                            $this->view->city = strtolower($this->city);
+                    }else{
+                            //$this->cookies->set("city", 'delhi', time() + 15 * 86400, '/', false, $this->config->application->baseUri);
+                            $this->city = 'delhi';
+                           $this->view->city = 'delhi';
+                    }
+            } */
+	}
+
+	public function setreferrelcities($cities){
+		foreach($cities as $key=>$city){
+			if($cities[$key] == 'Delhi NCR' || $cities[$key] == 'Delhi-NCR'){
+				$cities[$key] = 'delhi-ncr';
+			}
+		}
+		if(in_array($this->currentCity, $cities)){
 			
-            
-            
-            
-//            if($this->dispatcher->getParam('city')){
-//                    $this->city = $this->dispatcher->getParam('city');
-//                    //$this->cookies->set("city", $this->city, time() + 15 * 86400, '/', false, $this->config->application->baseUri);
-//                    $this->view->city = strtolower($this->city);
-//            }else{
-//                    if ($this->cookies->has("city")){
-//                            $this->city = strtolower($this->cookies->get("city"));
-//                            $this->view->city = strtolower($this->city);
-//                    }else{
-//                            //$this->cookies->set("city", 'delhi', time() + 15 * 86400, '/', false, $this->config->application->baseUri);
-//                            $this->city = 'delhi';
-//                            $this->view->city = 'delhi';
-//                    }
-//            }
+		}else{
+			$this->currentCity = $cities[0];
+		}
+		$this->setcities($this->currentCity);
 	}
 	
 	protected function setcityid(){

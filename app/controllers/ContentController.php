@@ -38,13 +38,16 @@ class ContentController extends BaseController{
 			$contentdetail = $Solr->getDetailResults();
 			$this->view->entityid = $id;
 			$this->view->entitytype = 'content';
-			
 			$this->setlogsarray('content_get_detail');
 		}catch(Exception $e){
 			$contentdetail = array();
 		}
 		
 		if($contentdetail){
+			if($this->dispatcher->getParam('city') == 'multicity'){
+				$this->setreferrelcities($contentdetail['cities']);
+			}
+			//echo "<pre>"; print_r($contentdetail); exit;
 			$this->validateRequest($contentdetail['url']);
 			$Author = new \WH\Model\Solr();
 			$Author->setParam('ids','a_'.$contentdetail['author']['id']);
@@ -52,7 +55,6 @@ class ContentController extends BaseController{
 			$Author->setSolrType('detail');
 			$Author->setEntityDetails();
 			
-		
 			try{
 				$author = $Author->getDetailResults();
 				$this->setlogsarray('author_get_detail');
@@ -81,23 +83,27 @@ class ContentController extends BaseController{
 			$this->view->deep_link = $contentdetail['deep_link'];
 			/* ======= Seo Update ============= */
 			
-			foreach($contentdetail['images'] as $key=>$images){
+			/* foreach($contentdetail['images'] as $key=>$images){
 				if($images['uri']){
 					if(substr($images['uri'], 0, 4) != 'http'){
-						$contentdetail['images'][$key]['uri'] = $this->config->application->imgbaseUri.$images['uri'];
+						$contentdetail['images'][$key]['uri'] = $this->config->application->imgbaseUri0.$images['uri'];
 					}
 				}
-			}
+			} */
+			
+			$cityshown = $this->cityshown($this->currentCity);
 			$breadcrumbs = $this->breadcrumbs(array(
-				ucwords($this->currentCity) => $this->baseUrl.'/'.$this->currentCity,
+				ucwords($this->currentCity) => $this->baseUrl.'/'.$cityshown,
 				ucwords(strtolower(trim($contentdetail['title']))) =>''
 			));
 			
 			$this->view->setVars(array(
 				'contentdetail' => $contentdetail,
 				'breadcrumbs' => $breadcrumbs,
-				'author'	=> $author
+				'author'	=> $author,
+				'cityshown' => $cityshown
 			));
+			
 		}else{
 			$this->forwardtoerrorpage(404);
 		}

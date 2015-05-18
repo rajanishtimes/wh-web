@@ -86,9 +86,10 @@ class CriticController extends BaseController{
 			
 			$rwidth = round((($criticdetail['food_rate'] + $criticdetail['service_rate'] + $criticdetail['decor_rate'])/3), 1);
 			$reviewwidth = $rwidth*33;
-			
+
+			$cityshown = $this->cityshown($this->currentCity);
 			$breadcrumbs = $this->breadcrumbs(array(
-				ucwords($this->currentCity) => $this->baseUrl.'/'.$this->currentCity,
+				ucwords($this->currentCity) => $this->baseUrl.'/'.$cityshown,
 				ucwords(strtolower(trim($criticdetail['title']))) =>''
 			));
 			
@@ -97,7 +98,8 @@ class CriticController extends BaseController{
 				'criticdetail' => $criticdetail,
 				'breadcrumbs' => $breadcrumbs,
 				'reviewwidth' => $reviewwidth,
-				'rwidth' => $rwidth
+				'rwidth' => $rwidth,
+				'cityshown' => $cityshown
 			));
 		}else{
 			$this->forwardtoerrorpage(404);
