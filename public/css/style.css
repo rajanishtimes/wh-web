@@ -1624,6 +1624,9 @@ a.bg-dark:hover {
     position: absolute;
     text-align: center;
 }
+.autorhead{
+	padding: 0 15px;
+}
 .authordata.text-center {
     margin: 0 auto;
     width: 290px;

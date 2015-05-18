@@ -256,7 +256,7 @@ class BaseController extends Controller{
 				$this->city = strtolower($this->cookies->get("city"));
 			}
 		}else if($this->dispatcher->getParam('city')){
-			if(trim($this->dispatcher->getParam('city')) == 'multicity'){
+			if(trim($this->dispatcher->getParam('city')) == 'cities'){
 				$ccityformulti = $this->defaultCity;
 			}else{
 				$ccityformulti = strtolower($this->dispatcher->getParam('city'));
@@ -268,7 +268,7 @@ class BaseController extends Controller{
 
 	protected function setcities($cityname = ''){
 		$this->setHomeCity();
-		if(trim($this->dispatcher->getParam('city')) == 'multicity'){			
+		if(trim($this->dispatcher->getParam('city')) == 'cities'){			
 			if ($this->cookies->has("city") && empty($cityname)){
 				$cityformulti = strtolower($this->cookies->get("city"));
 			}else{

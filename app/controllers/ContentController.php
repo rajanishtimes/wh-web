@@ -44,7 +44,7 @@ class ContentController extends BaseController{
 		}
 		
 		if($contentdetail){
-			if($this->dispatcher->getParam('city') == 'multicity'){
+			if($this->dispatcher->getParam('city') == 'cities'){
 				$this->setreferrelcities($contentdetail['cities']);
 			}
 			//echo "<pre>"; print_r($contentdetail); exit;

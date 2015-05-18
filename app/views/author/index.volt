@@ -24,7 +24,7 @@
 				</div>
 				
 				{% if(profilepost['meta']['match_count'] > 0) %}
-					<h1>{{profilepost['meta']['match_count']}} Posts from {{author['title']}}</h1>
+					<h1 class="autorhead">{{profilepost['meta']['match_count']}} Posts from {{author['title']}}</h1>
 					<div id="authorpost">
 						<div class="work-content allfeeds">
 							{{feeds.getfeedsforcoverimg(baseUrl, profilepost)}}

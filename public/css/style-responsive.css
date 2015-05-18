@@ -20,7 +20,7 @@ COMMON DESKTOP > 992px
 =================================
 **/
 @media (min-width: 992px) {
-	.work-content > div:first-child{ margin-left: -12px; }
+	/* .work-content > div:first-child{ margin-left: -12px; } */
 	.contentarea {
 		padding: 0 148px;
 	}
