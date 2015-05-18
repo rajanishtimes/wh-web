@@ -4,7 +4,7 @@
 		<div class="row">
 			<!--<h1>Hey! Top Things to do today</h1>-->
 			{% if(topfeeds | length > 0) %}
-				<h1>Discover {{cityshown}} with our curated features and events.</h1>
+				<h1>Discover {{cityshown}} with our curated features and events</h1>
 				<div class="work-content resize">
 					{% for key, topfeed in topfeeds['results'] %}
 						{% if(topfeed['label'] | lower != 'sponsored') %}

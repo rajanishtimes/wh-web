@@ -2,6 +2,7 @@ var feed_with_ajax_running = false;
 var $sidebar = $('.sidebar'),HomeCityName = _city, CurrentCity = _crrentCity,
 $window = $(window),
 previousScroll = 0;
+
 $window.on('scroll', function (e) {
 	if ($window.scrollTop() - previousScroll > 0) {
 		$sidebar.css({
@@ -25,16 +26,6 @@ $window.on('scroll', function (e) {
 });
 
 $(window).load(function() {
-	$("select").each(function(){
-		$(this).wrap("<span class='select-wrapper'></span>");
-		$(this).after("<span class='holder'></span>");
-	});
-	$("select").change(function(){
-		var selectedOption = $(this).find(":selected").text();
-		$(this).next(".holder").text(selectedOption);
-	}).trigger('change');
-	
-	/** BEGIN BACK TO TOP **/
 	$(function () {
 		$("#back-top").hide();
 	});
@@ -55,111 +46,16 @@ $(window).load(function() {
 			return false;
 		});
 	});
-	/** END BACK TO TOP **/
 	
 	resizefeedimage();
 	$( window ).resize(function() {
 	  resizefeedimage();
 	});
 	
-	$('#searchbox').click(function(){
-		$('.seach-overlay-box').height($(document).height());
-		$('.seach-overlay-box').show();
-		$('#searchtextinput').val();
-		$('#searchtextinput').focus();
-		$('#searchallfeeds').html('');
-		$('#searchallfeeds').parent().find('.loadmore').html('');
-	});
+	setTimeout(function(){
+		fbandtwitter();
+	}, 5000);
 	
-	$('#searchformbtn').click(function(){
-		$('#searchForm').submit();
-	});
-	
-	$('.seach-overlay-box .close-icon').click(function(){
-		$('.seach-overlay-box').hide();
-	});
-	
-	if($('#getallfeeds').length > 0){
-		//view_feed_with_ajax(server_variables.current_city,baseUrl+'search/index', 0, 12, 'getallfeeds', '', '', 'all');
-	}
-	
-	$('#searchtextinput').typeahead({
-		name: 'country',
-		remote : baseUrl+'/search/autosuggestion?search=%QUERY',
-		limit: 25
-	});	
-	/* 
-	$('#searchForm').submit(function(){
-		$('#searchallfeeds').html('');
-		view_feed_with_ajax($('#mainUrl').val(), $('#start').val(), $('#limit').val(), 'searchallfeeds', $('#searchtextinput').val());
-		return false;
-	}); */
-	
-	$('#populartag li > a').click(function(){
-		$('#populartag li > a').parent().removeClass('active');
-		$(this).parent().addClass('active');
-		$('#tags').val($(this).html());
-		ajax_feed_filter_type();
-	});
-	
-	$('#bydate li > a').click(function(){
-		$('#bydate li > a').parent().removeClass('active');
-		$(this).parent().addClass('active');
-		$('#bydatefeed').val($(this).attr('rel'));
-		ajax_feed_filter_type();
-	});
-	
-	$('.swipebox').swipebox();
-	$(".owl-carousel").owlCarousel({
-		navigation : false,
-		slideSpeed : 400,
-		paginationSpeed : 400,
-		singleItem:true,
-		autoPlay : true,
-		stopOnHover : true,
-	});
-	
-	/* setTimeout(function(){
-		$(".owl-item").owlCarousel({
-			autoPlay: 3000, //Set AutoPlay to 3 seconds
-			items: 1
-		});
-	}, 1000); */
-	
-	//$('.swipebox').swipebox();
-	
-	$('#searchinputform').click(function(){
-		$('#expandable').animate({ width: 320 }, 'slow');
-		$('.overlay-search').remove();
-		$('body').append('<div class="overlay-search"></div>');
-		$('#searchinputform').focus();
-	});
-	
-	$( "body" ).on( "click", ".overlay-search", function() {
-		$('#expandable').animate({ width: 220 }, 'slow');
-		$('.overlay-search').remove();
-	});
-	
-	$("#searchtextinput").focus(function(){
-		$('.searchbox').addClass('active');
-	}).focusout(function() {
-		$('.searchbox').removeClass('active');
-	});
-	/* .blur(function(){
-		var w = $('#expandable').attr('data-default');
-		$('#expandable').animate({ width: w }, 'slow');
-	}) */
-	
-	
-	/* $.ajax( {
-		url:'http://appapi.whatshot.in/appapi/solr/searchEntity?city=pune&start=0&limit=10',
-		//async:false,
-		success:function(data) {
-			console.log(data);
-		}
-	}); */
-	
-	$("img.lazy").lazyload({effect : "fadeIn"});
 });
 
 function searchValid(){
@@ -182,6 +78,15 @@ function ajax_feed_filter_type(){
 	view_feed_with_ajax(server_variables.current_city, baseUrl+'/search/index', 0, 11, 'getallfeeds', '', $('#tags').val(), $('#bydatefeed').val());
 }
 
+
+$.fn.center = function () {
+    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + "px");
+    return this;
+}
+
+
+$(document).ready(DOMReady);
+
 function resizefeedimage(){
 	var width = 0;
 	$(".work-item img").each(function( index ) {
@@ -194,11 +99,6 @@ function resizefeedimage(){
 	/* $(".withmask").each(function( index ) {
 		$(this).height(width+147);
 	});  */
-}
-
-$.fn.center = function () {
-    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + "px");
-    return this;
 }
 
 function view_feed_with_ajax(city, mainURL, start, limit, parentId, searchval, tags, bydate){
@@ -266,6 +166,81 @@ function DOMReady(){
 		}
 	});
 	manageCityCookie();
+	
+	$("img.lazy").lazyload({effect : "fadeIn"});
+	$('.swipebox').swipebox();
+	
+	$("select").each(function(){
+		$(this).wrap("<span class='select-wrapper'></span>");
+		$(this).after("<span class='holder'></span>");
+	});
+	$("select").change(function(){
+		var selectedOption = $(this).find(":selected").text();
+		$(this).next(".holder").text(selectedOption);
+	}).trigger('change');
+	
+	$('#searchformbtn').click(function(){
+		$('#searchForm').submit();
+	});
+	
+	$('.seach-overlay-box .close-icon').click(function(){
+		$('.seach-overlay-box').hide();
+	});
+	
+	$('#searchtextinput').typeahead({
+		name: 'country',
+		remote : baseUrl+'/search/autosuggestion?search=%QUERY',
+		limit: 25
+	});
+	
+	$('#bydate li > a').click(function(){
+		$('#bydate li > a').parent().removeClass('active');
+		$(this).parent().addClass('active');
+		$('#bydatefeed').val($(this).attr('rel'));
+		ajax_feed_filter_type();
+	});
+	
+	$(".owl-carousel").owlCarousel({
+		navigation : false,
+		slideSpeed : 400,
+		paginationSpeed : 400,
+		singleItem:true,
+		autoPlay : true,
+		stopOnHover : true,
+	});
+	
+	$('#searchinputform').click(function(){
+		$('#expandable').animate({ width: 320 }, 'slow');
+		$('.overlay-search').remove();
+		$('body').append('<div class="overlay-search"></div>');
+		$('#searchinputform').focus();
+	});
+	
+	$( "body" ).on( "click", ".overlay-search", function() {
+		$('#expandable').animate({ width: 220 }, 'slow');
+		$('.overlay-search').remove();
+	});
+	
+	$("#searchtextinput").focus(function(){
+		$('.searchbox').addClass('active');
+	}).focusout(function() {
+		$('.searchbox').removeClass('active');
+	});
+	
+	$('#citieslist li').click(function(){
+		var C = $(this);
+		expOn = new Date();
+		expOn.setTime(new Date().getTime() + 3600 * 24 * 365);
+		cookies.set('city', C.attr('data-name'), {path: '/',expires:expOn});
+		cookies.set('currentCity', C.attr('data-name'), {path: '/',expires:expOn});
+		window.location.href = C.find('a').attr('href');
+		return false;
+	});
+	
+}
+
+function fbandtwitter(){
+	//alert('after 5');
 	(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
@@ -275,20 +250,7 @@ function DOMReady(){
 	}(document, 'script', 'facebook-jssdk'));
 	
 	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-	
 }
-$(document).ready(DOMReady);
-
-$('#citieslist li').click(function(){
-        var C = $(this);
-        expOn = new Date();
-        expOn.setTime(new Date().getTime() + 3600 * 24 * 365);
-        cookies.set('city', C.attr('data-name'), {path: '/',expires:expOn});
-        cookies.set('currentCity', C.attr('data-name'), {path: '/',expires:expOn});
-        window.location.href = C.find('a').attr('href');
-        return false;
-});
-
 
 function closebanner(){
 	$('#installer').css('display', 'none');
@@ -310,4 +272,3 @@ function setheader(){
 	$('#installer').css('display', 'block');
 	$('#navbar-fixed-top').css('top', 60);
 }
-

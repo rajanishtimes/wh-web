@@ -77,8 +77,9 @@ class EventController extends BaseController{
 			$this->view->deep_link = $eventdetail['deep_link'];
 			/* ======= Seo Update ============= */
 			
+			$cityshown = $this->cityshown($this->currentCity);
 			$breadcrumbs = $this->breadcrumbs(array(
-				ucwords($this->currentCity) => $this->baseUrl.'/'.$this->currentCity,
+				$cityshown => $this->baseUrl.'/'.$this->currentCity,
 				'Events' => $this->baseUrl.'/'.$this->currentCity.'/events',
 				ucwords(strtolower(trim($eventdetail['title']))) =>''
 			));
@@ -108,7 +109,7 @@ class EventController extends BaseController{
 		//print_r($allfeedslist); exit;
 		
 		$breadcrumbs = $this->breadcrumbs(array(
-			ucwords($this->currentCity) => $this->baseUrl.'/'.$cityshown,
+			$cityshown => $this->baseUrl.'/'.$this->currentCity,
 			'Events in '.$cityshown =>''
 		));
 		$this->tag->setTitle('Events in '.$cityshown);

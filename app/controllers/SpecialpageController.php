@@ -72,7 +72,7 @@ class SpecialpageController extends BaseController{
 			$specialpagedetail['author']['slug'] = $this->create_slug($specialpagedetail['author']['name']).'-'.$specialpagedetail['author']['id'];
 			$cityshown = $this->cityshown($this->currentCity);
 			$breadcrumbs = $this->breadcrumbs(array(
-				ucwords($this->currentCity) => $this->baseUrl.'/'.$cityshown,
+				$cityshown => $this->baseUrl.'/'.$this->currentCity,
 				ucwords(strtolower(trim($specialpagedetail['title']))) =>''
 			));
 			

@@ -38,7 +38,7 @@ class TagController extends BaseController{
 		//$ttgs = iconv($current_encoding, 'UTF-8', $this->tags);
 		$cityshown = $this->cityshown($this->currentCity);
 		$breadcrumbs = $this->breadcrumbs(array(
-			ucwords($this->currentCity) => $this->baseUrl.'/'.$cityshown,
+			$cityshown => $this->baseUrl.'/'.$this->currentCity,
 			ucwords(strtolower(trim($tags))) =>''
 		));
 		
