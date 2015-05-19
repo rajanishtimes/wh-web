@@ -26,7 +26,8 @@ class ContentController extends BaseController{
     }
 
     public function indexAction(){
-		$this->response->setHeader('Cache-Control', 'max-age=86400');
+		$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
+		//$this->response->setHeader('Cache-Control', 'max-age=86400');
 		preg_match('/\bc-[0-9]{1,}\b/i', $this->contenttitle, $match);
 		$id = str_replace('-', '_', $match[0]);
 		$Solr = new \WH\Model\Solr();
