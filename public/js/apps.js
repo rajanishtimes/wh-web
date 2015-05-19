@@ -257,6 +257,11 @@ function closebanner(){
 	$('#iphone').css('display', 'none');
 	$('#android').css('display', 'none');
 	$('#navbar-fixed-top').css('top', 0);
+	
+	expOn = new Date();
+	expOn.setTime(new Date().getTime() + 3600 * 24 * 15);
+	cookies.set('isappclose', 1, {path: '/',expires:expOn});
+	return false;
 }
 
 function setheader(){

@@ -129,12 +129,13 @@
 		<!-- iframe used for attempting to load a custom protocol -->
 		<iframe style="display:none" height="0" width="0" id="loader"></iframe>
 
+		<?php if($isappclose == 0){ ?>
 		<script>
 			(function(){
 				var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
 					isAndroid = navigator.userAgent.match('Android');
 					
-				if(baseUrl != 'http://www.whatshot.in'){
+				//if(baseUrl != 'http://www.whatshot.in'){
 					if (isiOS || isAndroid) {
 						document.getElementById('loader').src = '{{deep_link}}';
 						fallbackLink = isAndroid ? 'https://play.google.com/store/apps/details?id=com.phdmobi.timescity' :
@@ -144,7 +145,8 @@
 								setheader();
 						}, 1);
 					}
-				}
+				//}
 			})();			
 		</script>
+		<?php } ?>
 		<div class="wrapper">

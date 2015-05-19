@@ -81,6 +81,11 @@ class BaseController extends Controller{
 		}
 		/* ============= Set cookie for city =============== */
 		
+		$isappclose = 0;
+		if ($this->cookies->has("isappclose")){
+			$isappclose = (int)$this->cookies->get("isappclose");
+		}
+		$this->view->isappclose = $isappclose;
 		
 		//
 		//echo $this->cityId; exit;

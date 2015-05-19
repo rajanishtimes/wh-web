@@ -1,3 +1,4 @@
+<?php if($isappclose == 0){ ?>
 <div id="installer">
 	<div id="iphone" class="row">
 		<div class="col-xs-8 col-md-6 left-side">
@@ -24,6 +25,7 @@
 		</div>
 	</div>
 </div>
+<?php } ?>
 <!-- BEGIN TOP NAVBAR -->
 <nav id="navbar-fixed-top" class="navbar navbar-default navbar-fixed-top">
 <div class="container">
