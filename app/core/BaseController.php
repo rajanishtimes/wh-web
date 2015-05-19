@@ -310,8 +310,11 @@ class BaseController extends Controller{
 		foreach($cities as $key=>$city){
 			if($cities[$key] == 'Delhi NCR' || $cities[$key] == 'Delhi-NCR'){
 				$cities[$key] = 'delhi-ncr';
+			}else{
+				$cities[$key] = strtolower($city);
 			}
 		}
+		
 		if(in_array($this->currentCity, $cities)){
 			
 		}else{
