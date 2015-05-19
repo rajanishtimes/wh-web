@@ -37,7 +37,7 @@ class IndexController extends BaseController{
 		}
 		$this->tag->setTitle($title);
 		$this->view->canonical_url = $this->baseUrl.'/'.$city;
-		$this->view->deep_link = 'timescity://wh/ty';
+		$this->view->deep_link = 'timescity://';
 		/* ======= Seo Update ============= */
 		
 		try{

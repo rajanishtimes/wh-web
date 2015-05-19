@@ -50,7 +50,7 @@
 							</ul><div class="clearfix"></div>
 						</div>
 
-						{% if(author['url'] != '') %}
+						{% if(author['url'] is defined AND author['url'] != '') %}
 						<div class="authordetailsection">
 							<div class="col-sm-4 col-md-2 float-left author-image">
 									<a href="{{baseUrl}}{{author['url']}}">

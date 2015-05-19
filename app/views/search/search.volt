@@ -20,7 +20,7 @@
 						<ul id="getallfeedssearch" class="media-list feed-list">
 							{% if(searchkeyword is empty) %}
 							{% else %}
-								<h1 class="searchheading">{{allfeedslist['meta']['match_count']}} results found for &#8220;<strong>{{searchkeyword}}</strong>&#8221;</h1>
+								<h1 class="searchheading">{{allfeedslist['meta']['match_count']}} results found for &#8220;<strong>{{searchkeyword | trim}}</strong>&#8221;</h1>
 							{% endif %}
 							
 							{{feeds.getfeedslist(baseUrl, allfeedslist)}}

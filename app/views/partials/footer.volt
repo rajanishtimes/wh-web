@@ -79,7 +79,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
-				&copy; 2015 <a href="{{baseUrl}}">WhatsHot.in</a> &ndash; all rights reserved. <br><br>
+				&copy; 2015 <a href="{{baseUrl}}">WhatsHot.in</a> &ndash; all rights reserved<br><br>
 			</div><!-- /.col-sm-5 -->
 			<div class="col-sm-4 text-center">
 				<div class="social-share-widget">

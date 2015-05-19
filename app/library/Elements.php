@@ -27,6 +27,10 @@ class Elements extends Component
     );
 	
 	private $_navmenu = array(        
+		'about-us' => array(
+			'caption' => 'About Us',
+			'action' => 'about-us'
+		),
 		'terms' => array(
 			'caption' => 'Terms and Conditions',
 			'action' => 'terms'
@@ -34,11 +38,7 @@ class Elements extends Component
 		'policy' => array(
 			'caption' => 'Privacy Policy',
 			'action' => 'policy'
-		),
-		'about-us' => array(
-			'caption' => 'About Us',
-			'action' => 'about-us'
-		),
+		)
     );
 
     public function getMenu($url)

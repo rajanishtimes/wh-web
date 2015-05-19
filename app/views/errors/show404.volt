@@ -30,8 +30,8 @@
 			<div class="clearfix"></div>
 			<div class="box404">
 				<h1>Doh!</h1>
-				<div class="text">What you were looking for is not available.</div>
-				<p>Check below instead.</p>
+				<div class="text">Sorry to rain on your parade, but what you were looking for does not exist</div>
+				<!--<p>Check below instead.</p>--><p></p>
 				<a href="{{baseUrl}}/"><div class="btn btn-primary errorbtn">TAKE ME HOME</div></a>
 			</div>
 			<div class="clearfix"></div>
