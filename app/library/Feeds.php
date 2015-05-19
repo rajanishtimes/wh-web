@@ -18,13 +18,13 @@ class Feeds extends Component
 				<?php if(strtolower($feed['label']) != 'sponsored'){ ?>
 				<div class="col-sm-4 col-md-3 col-xs-6">
 					<div class="work-item feeds-data">
-						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-ga-label="pos_<?php echo $start+$i; ?>">
-							<div class="hover-wrap">
-								<i class="glyphicon glyphicon-plus bino"></i>
-							</div>
-						</a>
 						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-ga-label="pos_<?php echo $i; ?>">
-							<?php echo $this->getimage($url, $feed['image']['uri'], 479, 479, $feed['title'], $feed['image'], '', '', $start+$i); ?>
+							<div class="hover-container">
+								<div class="hover-wrap">
+									<i class="glyphicon glyphicon-plus bino"></i>
+								</div>
+								<?php echo $this->getimage($url, $feed['image']['uri'], 479, 479, $feed['title'], $feed['image'], '', '', $start+$i); ?>
+							</div>
 						</a>
 						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-ga-label="pos_<?php echo $i; ?>">
 							<div class="the-box no-margin no-border">
@@ -104,13 +104,13 @@ class Feeds extends Component
 			?>
 				<div class="col-sm-4 col-md-3 col-xs-6">
 					<div class="work-item feeds-data">
-						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-ga-label="pos_<?php echo $key; ?>">
-							<div class="hover-wrap">
-								<i class="glyphicon glyphicon-plus bino"></i>
-							</div>
-						</a>
 						<a href="<?php echo $url . $feed['url']; ?>">
-							<?php echo $this->getimage($url, $feed['cover_image'], 479, 479, $feed['title'], '', '', $key); ?>
+							<div class="hover-container">
+								<div class="hover-wrap">
+									<i class="glyphicon glyphicon-plus bino"></i>
+								</div>
+								<?php echo $this->getimage($url, $feed['cover_image'], 479, 479, $feed['title'], '', '', $key); ?>
+							</div>
 						</a>
 						<div class="the-box no-margin no-border">
 							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo $this->process_title($feed['title']); ?></a></div>

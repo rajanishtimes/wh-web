@@ -18,9 +18,17 @@ $window.on('scroll', function (e) {
 
 
 $window.on('scroll', function (e) {
-	if($('.loadmore .btn.btn-primary').length > 0){
-		if ($(window).scrollTop() + $(window).height() > $('.loadmore').position().top){			
-			$('.loadmore .btn.btn-primary').trigger('click');
+	var elem = $('.loadmore .btn.btn-primary');
+	if(elem.length > 0){
+		if ($(window).scrollTop() + $(window).height() > $('.loadmore').position().top){
+			var attr = elem.attr('rel');
+			if (typeof attr !== typeof undefined && attr !== false) {
+				if(attr < 3){
+					elem.trigger('click');
+				}
+			}else{
+				elem.trigger('click');
+			}
 		}
 	}
 });

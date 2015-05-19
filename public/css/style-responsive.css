@@ -46,9 +46,6 @@ STANDARD DESKTOP 992px <> 1200px
 **/
 @media (min-width: 992px) and (max-width: 1199px) {
 	.extrapaddright{padding:0;}
-	.work-content .work-item:hover .hover-wrap{
-		bottom: 41%;
-	}
 	.list-inline > li:last-child{
 		padding-left: 81px;
 	}
@@ -77,9 +74,6 @@ STANDARD DESKTOP < 1024px
 		right: 0px;
 		bottom: 0px;
 		border-radius: 0;
-	}
-	.work-content .work-item:hover .hover-wrap{
-		bottom: 30%;
 	}
 	.owl-carousel.work-detail .item{
 		height:300px;
@@ -117,9 +111,6 @@ SMALL DESKTOP 768px <> 991px
 	}
 	footer .row > div {
 		height: 300px;
-	}
-	.work-content .work-item:hover .hover-wrap{
-		bottom: 40%;
 	}
 	.page-title-wrap .breadcrumb {
 		margin: 0 0 -14px;
@@ -177,9 +168,6 @@ TABLET < 767px
 	.section h1, .heading, .yfeeds{
 		padding: 0 12px;
 	}
-	.work-content .work-item:hover .hover-wrap{
-		bottom: 30%;
-	}
 	
 	.nav-search.navbar-right li.dropdown > a {
 		padding: 21px;
@@ -210,9 +198,6 @@ PHONE < 640px
 =================================
 **/
 @media (max-width: 640px){
-	.work-content .work-item:hover .hover-wrap{
-		bottom: 34%;
-	}
 	.section h1{
 		font-size:20px;
 		line-height:28px;
@@ -247,9 +232,6 @@ PHONE < 600px
 =================================
 **/
 @media (max-width: 600px){
-	.work-content .work-item:hover .hover-wrap{
-		bottom: 35%;
-	}
 	.tt-dropdown-menu{
 		width:118%;
 	}
@@ -268,9 +250,6 @@ PHONE < 548px
 		margin: 0;
 		padding: 20px 11px;
 	}
-	.work-content .work-item:hover .hover-wrap{
-		bottom: 38%;
-	}
 }
 
 
@@ -281,9 +260,6 @@ PHONE < 480px
 =================================
 **/
 @media (max-width: 480px){
-	.work-content .work-item:hover .hover-wrap{
-		bottom: 25%;
-	}
 	.work-content .col-xs-6{width:100%}
 	.allfeeds .col-xs-6{padding:0;}
 	.contentarea {
@@ -313,6 +289,9 @@ PHONE < 480px
 	.rating {
 		left: 33%;
 	}
+	.filter_type li{
+		margin: 4px 1px;
+	}
 }
 
 /**
@@ -321,9 +300,6 @@ PHONE < 420px
 =================================
 **/
 @media (max-width: 420px){
-	.work-content .work-item:hover .hover-wrap{
-		bottom: 28%;
-	}
 	
 	.top-navbar .logo{
 		
@@ -333,7 +309,7 @@ PHONE < 420px
 		padding: 0 18px; margin:10px 0 5px;
 	}
 	.filter_type li{
-		margin: 0 2px;
+		margin: 4px 1px;
 	}
 	
 	footer .row > div {
@@ -381,9 +357,6 @@ PHONE < 360px
 **/
 @media (max-width: 360px){
 	.feed-name{font-size:20px}
-	.work-content .work-item:hover .hover-wrap{
-		bottom: 31%;
-	}
 	.withmask{
 		height: 320px !important;
 	}
@@ -405,9 +378,6 @@ PHONE < 320px
 =================================
 **/
 @media (max-width: 320px){
-	.work-content .work-item:hover .hover-wrap{
-		bottom: 35%;
-	}
 	.dropdown-menu.with-triangle::before, .dropdown-menu.with-triangle::after{
 		display:block;
 	}

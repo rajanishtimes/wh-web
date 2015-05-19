@@ -61,7 +61,7 @@
 							<span>{{currentCity | capitalize}}</span>
 						{% endif %}
 						
-						&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+						&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-down down-icon"></i>
 					</a>
 					<ul class="dropdown-menu square primary margin-list-rounded with-triangle" id="citieslist">
 						{% for cities in allcities['cities'] %}

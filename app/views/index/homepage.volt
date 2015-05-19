@@ -5,7 +5,7 @@
 			<!--<h1>Hey! Top Things to do today</h1>-->
 			{% if(topfeeds | length > 0) %}
 				<h1>Discover {{cityshown}} with our curated features, events and guides</h1>
-				<div class="work-content resize">
+				<div class="row work-content resize">
 					{% for key, topfeed in topfeeds['results'] %}
 						{% if(topfeed['label'] | lower != 'sponsored') %}
 							<div class="col-sm-6 col-md-4 col-xs-6">
@@ -31,7 +31,7 @@
 			{% if(populartags['popular_tags'] is defined AND populartags['popular_tags'] | length > 0) %}
 				<div class="work-content">						
 					<h2 class="heading">Popular Tags</h2>
-					<ul class="work-category-wrap">
+					<ul class="work-category-wrap tagsblack">
 						{% for populartag in populartags['popular_tags'] %}
 							<li class="filter" ><a href="{{baseUrl}}/{{currentCity}}/tag/{{elements.create_slug(populartag)}}">
 							{{populartag}}
@@ -42,11 +42,11 @@
 			{% endif %}
 			
 			{% if(allfeedslist | length > 0) %}
-				<div class="col-sm-5 col-md-6 col-xs-12 no-padding">
+				<div class="col-xs-12 no-padding text-center">
 					<h2 class="yfeeds">Your Feed</h2>
 				</div>
-				<div class="col-sm-7 col-md-6 col-xs-12 no-padding">
-					<ul id="bydate" class="filter_type text-right">
+				<div class="col-xs-12 no-padding text-center">
+					<ul id="bydate" class="filter_type">
 						<li class="active"><a href="javascript:void(0)" rel="All">ALL</a></li>
 						<li><a href="javascript:void(0)" rel="Today">TODAY</a></li>
 						<li><a href="javascript:void(0)" rel="Tomorrow">TOMORROW</a></li>
@@ -56,7 +56,7 @@
 				</div><div class="clearfix"></div>
 			
 			
-				<div class="work-content allfeeds">
+				<div class="row work-content allfeeds">
 					<div id="getallfeeds">					
 						{{feeds.getfeeds(baseUrl, allfeedslist, start)}}
 					</div><div class="clearfix"></div>

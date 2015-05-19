@@ -22,16 +22,23 @@ class AuthorController extends BaseController{
 		//$this->response->setHeader('Cache-Control', 'max-age=86400');
 		$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
 		$this->setlogsarray('author_start');
-		preg_match('/\ba-[0-9]{1,}\b/i', $this->authorname, $match);
-		$id = str_replace('-', '_', $match[0]);
+		
+		$isusernametrue = 0;
+		if(preg_match('/\ba-[0-9]{1,}\b/i', $this->authorname, $match)){
+			$id = str_replace('-', '_', $match[0]);
+		}else{
+			$isusernametrue = 1;
+			$Author = new \WH\Model\Author();
+			$Author->setParam('username',$this->authorname);
+			$author = $Author->getResults();
+			$id = $author['author'][0]['id'];
+		}
+		
 		$Author = new \WH\Model\Solr();
 		$Author->setParam('ids',$id);
 		$Author->setParam('fl','detail');
 		$Author->setSolrType('detail');
 		$Author->setEntityDetails();
-		
-		$this->view->entityid = $id;
-		$this->view->entitytype = 'author';
 		
 		try{
 			$author = $Author->getDetailResults();
@@ -39,7 +46,10 @@ class AuthorController extends BaseController{
 		}catch(Exception $e){
 			$author = array();
 		}
+			
 		
+		$this->view->entityid = $id;
+		$this->view->entitytype = 'author';
 		/* ======= Seo Update ============= */
 		if($author['title'])
 			$this->tag->setTitle('Events and Content Submitted by '.$author['title'].' | '.$this->config->application->SiteName);
@@ -54,7 +64,9 @@ class AuthorController extends BaseController{
 		
 		//echo "<pre>"; print_r($author); exit;
 		if($author){
-			$this->validateRequest($author['url']);
+			if($isusernametrue == 0){
+				$this->validateRequest($author['url']);
+			}
 			$ids = explode('_', $id);
 			$authorid = end($ids);
 			$start = 0;
