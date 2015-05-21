@@ -35,7 +35,6 @@
 						{{contentdetail['description']}}
 						
 						{% if(contentdetail['tags'] | length > 0) %}
-							<p class="tags">Tags</p>
 							<div class="work-content">
 								<ul class="work-category-wrap tagsblack">
 									<?php $populartags =$contentdetail['tags'];?>								
@@ -52,9 +51,9 @@
 						<div class="share">
 							<ul class="list-inline navbar-left">
 								<li class="sharek">SHARE</li>
-								<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-twitter"></i> <span>Share on twitter </span></a></li>
-								<li class="facebook"><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-facebook"></i>  <span>Share on facebook </span></a></li>
-								<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-google-plus"></i>  <span>Share on google+ </span></a></li>
+								<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-twitter"></i>&nbsp;&nbsp;&nbsp; <span>Share</span></a></li>
+								<li class="facebook"><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-facebook"></i>&nbsp;&nbsp;&nbsp; <span>Share</span></a></li>
+								<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-google-plus"></i>&nbsp;&nbsp;&nbsp; <span>Share</span></a></li>
 							</ul><div class="clearfix"></div>
 						</div>
 

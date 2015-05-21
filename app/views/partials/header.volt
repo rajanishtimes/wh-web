@@ -34,7 +34,12 @@
 		<!-- Begin logo -->
 		<div class="logo">
 			<a href="{{baseUrl}}/{{city}}"><img src="{{baseUrl}}/img/logo.png" alt="WhatsHot"></a>
-		</div><!-- /.logo -->
+		</div>
+
+		<div class="logo logo2">
+			<a href="{{baseUrl}}/{{city}}"><img src="{{baseUrl}}/img/logo_white.png" alt="WhatsHot"></a>
+		</div>
+		<!-- /.logo -->
 		<!-- End logo -->
 		
 		
@@ -52,7 +57,7 @@
 			<ul class="nav-search navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle makeactive" data-toggle="dropdown">
-						<i class="fa fa-map-marker makered"></i>
+						Discover in
 						{% if(currentCity | trim | lower == 'delhi') %}
 							<span>Delhi NCR</span>
 						{% elseif(currentCity | trim | lower == 'delhi-ncr' OR currentCity | trim | lower == 'delhi ncr' OR currentCity | trim | lower == 'delhi-ncr') %}
