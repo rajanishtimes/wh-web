@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 
 @import "http://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italic|Open+Sans:400normal|Lato:400normal|Oswald:400normal|Source+Sans+Pro:400normal|Raleway:400normal|PT+Sans:400normal|Open+Sans+Condensed:300normal|Roboto+Condensed:400normal|Droid+Sans:400normal|Roboto+Slab:400normal&subset=all";
-=======
-@import 'http://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italic|Open+Sans:400normal|Lato:400normal|Oswald:400normal|Source+Sans+Pro:400normal|Raleway:400normal|PT+Sans:400normal|Open+Sans+Condensed:300normal|Roboto+Condensed:400normal|Droid+Sans:400normal|Roboto+Slab:400normal&subset=all';
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 @font-face {
     font-family: "Lora-Bold";
     font-style: normal;
@@ -184,17 +180,10 @@ blockquote {
     clear: both;
 }
 .top-navbar .logo {
-<<<<<<< HEAD
     float: left;
     overflow: hidden;
     padding: 18px 0;
     transition: all 0.2s ease 0s;
-=======
-   float: left;
-    padding: 18px 0;
-    transition: all 0.2s ease 0s;
-	overflow:hidden;
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 }
 .top-navbar .logo img {
     height: 45px;
@@ -205,7 +194,6 @@ blockquote {
 }
 .navbar-default {
     background-color: #fff;
-<<<<<<< HEAD
     height: 80px;
     transition: height 0.6s ease 0s;
 }
@@ -224,29 +212,6 @@ blockquote {
 }
 .makeheaderintera .logo2, .makeheaderintera #search2 {
     display: block;
-=======
-    height:80px;
-    -webkit-transition: height 0.6s;
-    -moz-transition: height 0.6s;
-    transition: height 0.6s;
-}
-.makeheaderintera{
-	background:#D31A6B !important;
-    height:80px;
-}
-
-.logo{
-    display:block;
-}
-.logo2{
-    display:none;
-}
-.makeheaderintera .logo{
-    display:none;
-}
-.makeheaderintera .logo2{
-    display:block;
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
     padding: 17px 0;
 }
 .btn-toggle-nav {
@@ -283,29 +248,17 @@ blockquote {
     padding: 10px;
     transition: all 0.2s ease 0s;
 }
-<<<<<<< HEAD
 .makeheaderintera .nav-search.navbar-right {
     padding: 29px;
 }
-=======
-
-.makeheaderintera .nav-search.navbar-right {
-    padding: 29px;
-}
-
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 .nav-search.navbar-right {
     float: right;
     list-style: outside none none;
     margin: 0 10px 0 0;
-<<<<<<< HEAD
     padding: 29px;
 }
 .searchbtn a > div {
     padding: 28px 25px;
-=======
-    padding: 30px;
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 }
 
 .searchpage a > div {
@@ -314,7 +267,6 @@ blockquote {
 
 
 
-<<<<<<< HEAD
 .makeheaderintera .searchbtn a > div {
     padding: 11px 25px;
 }
@@ -327,24 +279,6 @@ blockquote {
 .makeheaderintera .searchbtn a > div:hover, .makeheaderintera .searchbtn a > div.active {
     background-color: #c40f60;
 }
-=======
-.searchbtn a > div{
-	padding: 20px 25px;
-}
-
-.makeheaderintera .searchbtn a > div{
-    padding: 20px 25px;
-}
-
-.searchbtn a > div:hover, .searchbtn a > div.active{
-    background-color: #f5f5f5;
-}
-
-.makeheaderintera .searchbtn a > div:hover, .makeheaderintera .searchbtn a > div.active{
-    background-color: #c40f60;
-}
-
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 .makered {
     color: #d11a6d;
     font-size: 19px;
@@ -356,59 +290,29 @@ blockquote {
 .nav-search.navbar-right a {
     color: #1e1e1e;
     font-size: 14px;
-<<<<<<< HEAD
     font-weight: 300;
-=======
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
     text-decoration: none;
-    font-weight: 300;
 }
-
 .dropdown-toggle.makeactive > span {
     border-bottom: 2px solid #d3196b;
     font-weight: normal;
     padding: 0 10px 6px;
 }
-<<<<<<< HEAD
-.dropdown-toggle.makeactive > span {
-    border-bottom: 2px solid #d3196b;
-    font-weight: normal;
-    padding: 0 10px 6px;
-}
-=======
-
-
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 .makeheaderintera .dropdown-toggle.makeactive > span {
     border-bottom: 2px solid #fff;
     font-weight: normal;
     padding-bottom: 2px;
 }
-<<<<<<< HEAD
 .makeheaderintera .nav-search.navbar-right li.dropdown > a {
     color: #fff;
     padding: 31px 10px;
 }
 .nav-search.navbar-right li.dropdown > a {
     padding: 31px 10px;
-=======
-
-.makeheaderintera .nav-search.navbar-right li.dropdown > a {
-    padding: 31px 10px;
-    color:#fff;
-}
-
-.nav-search.navbar-right li.dropdown > a {
-    padding: 30px 10px;
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 }
 .nav-search.navbar-right li.dropdown > a:hover {
     background-color: #f5f5f5;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 .makeheaderintera .nav-search.navbar-right li.dropdown > a:hover {
     background-color: #c40f60;
 }
@@ -598,13 +502,8 @@ hr.small {
     font-family: Roboto;
     font-size: 12px;
 }
-<<<<<<< HEAD
 .feeds-data:hover .homepagevenue {
     color: #d31a6b;
-=======
-.feeds-data:hover .homepagevenue{
-    color:#D31A6B;
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 }
 .homepagevenue > div {
     line-height: 17px;
@@ -685,15 +584,7 @@ ul.tagsblack li a {
     display: inline-block;
     font-size: 12px;
     margin: 0 5px;
-<<<<<<< HEAD
     padding: 5px 10px;
-=======
-	padding: 5px 10px;
-    border: 1px solid #a3a3a3;
-}
-.filter_type li:hover {
-    border: 1px solid #000;
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 }
 .filter_type li:hover {
     border: 1px solid #000;
@@ -702,11 +593,7 @@ ul.tagsblack li a {
     color: #909090;
 }
 .filter_type li.active {
-<<<<<<< HEAD
     background: #d11a6d none repeat scroll 0 0;
-=======
-    background: #d11a6d;
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
     border: 1px solid #d11a6d;
 }
 .filter_type li.active a {
@@ -809,11 +696,7 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     transform: scale(1.05);
 }
 .feeds-data:hover {
-<<<<<<< HEAD
     border: 1px solid #d31a6b;
-=======
-    border: 1px solid #D31A6B;
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 }
 .work-content .mix {
     display: none;
@@ -878,9 +761,6 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
 .feeds-data:hover .feed-title {
     color: #d31a6b;
 }
-.feeds-data:hover .feed-title{
-    color:#D31A6B
-}
 .feeds-data {
     border: 1px solid #c7c7c7;
 }
@@ -898,19 +778,11 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     overflow: hidden;
     text-align: left;
 }
-<<<<<<< HEAD
 .feeds-data:hover .feed-short-desc {
     color: #d31a6b;
 }
 .feeds-data:hover .feed-title {
     color: #d31a6b;
-=======
-.feeds-data:hover .feed-short-desc{
-    color:#D31A6B;
-}
-.feeds-data:hover .feed-title {
-    color: #D31A6B;
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 }
 .feeds-data .bino::before {
     content: "";
@@ -1776,13 +1648,8 @@ a.bg-dark:hover {
     padding: 0;
     width: 114.1%;
 }
-<<<<<<< HEAD
 .active .tt-dropdown-menu {
     border-top: 1px solid;
-=======
-.active .tt-dropdown-menu{
-    border-top:1px solid;
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 }
 .tt-dataset-country {
     border-top: 1px solid #bbbbbb;
@@ -1792,7 +1659,6 @@ a.bg-dark:hover {
     line-height: 24px;
     margin: 0;
     padding: 7px 0 5px 22px;
-    font-size: 14px;
 }
 .tt-suggestion {
     border-bottom: 1px solid #f4f4f4;
@@ -1894,15 +1760,6 @@ h3.tags {
     margin: 0;
 }
 .share ul a {
-<<<<<<< HEAD
-=======
-    color: #8e8d8d;
-    font-family: Roboto;
-    font-size: 12px;
-    padding: 5px 9px;
-    text-decoration: none;
-}
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 
 }
 .sharesmall ul a {
@@ -2181,11 +2038,7 @@ textarea.no-resize {
     margin: 5px 0;
 }
 .navbar-right .dropdown-menu {
-<<<<<<< HEAD
     right: -5px;
-=======
-    right: 23px;
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 }
 .dropdown-menu {
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
@@ -3544,11 +3397,7 @@ a .icon-primary, a .icon-success, a .icon-info, a .icon-danger, a .icon-warning,
     width: 100%;
 }
 .container-fluid {
-<<<<<<< HEAD
     margin-top: 79px;
-=======
-    margin-top: 95px;
->>>>>>> d28a9b33db78cfcf47db58a6898285e1a323882b
 }
 .social_icon a {
     color: #fff;
