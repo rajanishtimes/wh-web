@@ -35,7 +35,6 @@
 						{{contentdetail['description']}}
 						
 						{% if(contentdetail['tags'] | length > 0) %}
-							<p class="tags">Tags</p>
 							<div class="work-content">
 								<ul class="work-category-wrap tagsblack">
 									<?php $populartags =$contentdetail['tags'];?>								

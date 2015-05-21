@@ -252,6 +252,7 @@ class BaseController extends Controller{
 	}
 	
 	protected function setHomeCity(){
+		//echo __FUNCTION__ . '<br/>';
 		if ($this->cookies->has("city")){
 			if( strlen($this->cookies->get("city")) > 15 ){
 				$this->city = strtolower('delhi-ncr');
@@ -268,14 +269,16 @@ class BaseController extends Controller{
 			}
 			$this->city = $ccityformulti;
 		}
+
 		$this->view->city = $this->city;
 	}
 
 	protected function setcities($cityname = ''){
+		//echo __FUNCTION__ . '<br/>';
 		$this->setHomeCity();
 		if(trim($this->dispatcher->getParam('city')) == 'cities'){			
-			if ($this->cookies->has("city") && empty($cityname)){
-				$cityformulti = strtolower($this->cookies->get("city"));
+			if ($this->cookies->has("currentCity") && empty($cityname)){
+				$cityformulti = strtolower($this->cookies->get("currentCity"));
 			}else{
 				if(!empty($cityname)){
 					$cityformulti = $cityname;
@@ -312,6 +315,7 @@ class BaseController extends Controller{
 	}
 
 	public function setreferrelcities($cities){
+		//echo __FUNCTION__ . '<br/>';
 		foreach($cities as $key=>$city){
 			if($cities[$key] == 'Delhi NCR' || $cities[$key] == 'Delhi-NCR'){
 				$cities[$key] = 'delhi-ncr';
@@ -326,6 +330,7 @@ class BaseController extends Controller{
 			$this->currentCity = $cities[0];
 		}
 		$this->setcities($this->currentCity);
+		//exit();
 	}
 	
 	protected function setcityid(){
