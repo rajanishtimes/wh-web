@@ -83,6 +83,7 @@ class SearchController extends BaseController{
 	
 	public function searchAction(){
 		$this->view->setLayout('mainLayout');
+		$searchkeyword = '';
 		if($this->dispatcher->getParam('searchquery'))
 			$searchkeyword = $this->dispatcher->getParam('searchquery');
 		
@@ -97,6 +98,8 @@ class SearchController extends BaseController{
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
+		
+		
 		
 		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($searchkeyword))) =>''));
 		

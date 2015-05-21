@@ -31,6 +31,12 @@ $window.on('scroll', function (e) {
 			}
 		}
 	}
+	
+	if($(window).scrollTop() > 65){
+		$('.navbar-fixed-top').addClass('makeheaderintera');
+	}else{
+		$('.navbar-fixed-top').removeClass('makeheaderintera');
+	}
 });
 
 $(window).load(function() {
@@ -62,7 +68,7 @@ $(window).load(function() {
 	
 	setTimeout(function(){
 		fbandtwitter();
-	}, 5000);
+	}, 2000);
 	
 });
 

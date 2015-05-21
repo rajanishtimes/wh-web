@@ -193,12 +193,17 @@ blockquote {
     float: left;
     padding: 12px 0;
     transition: all 0.2s ease 0s;
+	height:63px;
+	overflow:hidden;
 }
 .top-navbar .logo img {
     width: 100px;
 }
 .top-navbar .container {
     position: relative;
+}
+.makeheaderintera{
+	/* background:#D40A6A; */
 }
 .btn-toggle-nav {
     color: #fff;
@@ -1690,9 +1695,29 @@ h3.tags {
     margin: 0;
 }
 .share ul a {
+    border-radius: 18px;
     color: #8e8d8d;
     font-family: Roboto;
     font-size: 19px;
+    padding: 5px 17px;
+    text-decoration: none;
+}
+
+.sharesmall ul a {
+    color: #8e8d8d;
+    font-family: Roboto;
+    font-size: 12px;
+    padding: 3px 11px;
+    text-decoration: none;
+}
+.twitter > a {
+    background: #5ea9dd none repeat scroll 0 0;
+}
+.facebook > a {
+    background: #46629e none repeat scroll 0 0;
+}
+.google > a {
+    background: #dd4b39 none repeat scroll 0 0;
 }
 .share .sharek {
     font-size: 18px;
@@ -3345,6 +3370,9 @@ a .icon-primary, a .icon-success, a .icon-info, a .icon-danger, a .icon-warning,
     font-size: 18px;
     padding: 0;
 }
+.sharesmall {
+    margin: 13px 0 -6px;
+}
 .sponsors {
     bottom: 0;
     color: #fff;
@@ -3353,15 +3381,19 @@ a .icon-primary, a .icon-success, a .icon-info, a .icon-danger, a .icon-warning,
     position: absolute;
     left: 0;
 }
-.share ul a span {
+.share ul a span, .sharesmall ul a span {
     font-size: 14px;
+	color: #fff;
 }
-.share ul a:hover {
+.share ul a:hover, .sharesmall ul a:hover {
     color: #1e1e1e;
-    text-decoration: underline;
+    /* text-decoration: underline; */
+}
+.twitter i, .facebook i, .google i {
+    color: #fff;
 }
 .list-inline > li {
-    padding-left: 20px;
+    padding-left: 10px;
 }
 .info-content {
     padding: 0 16%;

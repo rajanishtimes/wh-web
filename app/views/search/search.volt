@@ -20,7 +20,12 @@
 						<ul id="getallfeedssearch" class="media-list feed-list">
 							{% if(searchkeyword is empty) %}
 							{% else %}
+							
+								{% if(allfeedslist['meta']['searched_for'] != allfeedslist['meta']['results_for']) %}
+								<h1 class="searchheading">Did you Mean <strong>{{allfeedslist['meta']['results_for']}}</strong>? Found no result for <strong>{{allfeedslist['meta']['search_for']}}</strong></h1>
+								{% else %}
 								<h1 class="searchheading">{{allfeedslist['meta']['match_count']}} results found for &#8220;<strong>{{searchkeyword | trim}}</strong>&#8221;</h1>
+								{% endif %}
 							{% endif %}
 							
 							{{feeds.getfeedslist(baseUrl, allfeedslist)}}
@@ -34,7 +39,7 @@
 						<ul id="getallfeedssearch" class="media-list feed-list">
 							{% if(searchkeyword is empty) %}
 							{% else %}
-								<h1>No result(s) found for &#8220;{{searchkeyword}}&#8221;</h1><div style="height:200px"></div>
+								<h1>No result(s) found for &#8220;{{searchkeyword | trim}}&#8221;</h1><div style="height:200px"></div>
 							{% endif %}
 							
 							<div style="height:200px"></div>
