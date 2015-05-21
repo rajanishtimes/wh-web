@@ -1,1 +1,6 @@
 cache/
+app/config/config.ini
+app/logs/error.log
+cache/volt/dummy
+schemas/createdb.php
+schemas/invo.sql

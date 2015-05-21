@@ -21,19 +21,21 @@
 					</div>
 				</div>
 				
-				{% if(profilepost['meta']['match_count'] > 0) %}
-					<h1 class="autorhead">{{profilepost['meta']['match_count']}} Posts from {{author['title']}}</h1>
-					<div id="authorpost">
-						<div class="work-content allfeeds">
-							{{feeds.getfeedsforcoverimg(baseUrl, profilepost)}}
+				<?php if(!empty($profilepost)){ ?>
+					{% if(profilepost['meta']['match_count'] > 0) %}
+						<h1 class="autorhead">{{profilepost['meta']['match_count']}} Posts from {{author['title']}}</h1>
+						<div id="authorpost">
+							<div class="work-content allfeeds">
+								{{feeds.getfeedsforcoverimg(baseUrl, profilepost)}}
+							</div>
+						</div><div class="clearfix"></div>
+						<div class="loadmore">
+							<?php if($profilepost['meta']['match_count'] > ($limit)){ ?>
+								<div class="btn btn-primary" onclick="view_feed_with_ajax('{{city}}','{{baseUrl}}/author/posts', '{{start}}', '{{limit}}', 'authorpost', '{{authorid}}', '', '')">Load More</div>
+							<?php }?>
 						</div>
-					</div><div class="clearfix"></div>
-					<div class="loadmore">
-						<?php if($profilepost['meta']['match_count'] > ($limit)){ ?>
-							<div class="btn btn-primary" onclick="view_feed_with_ajax('{{city}}','{{baseUrl}}/author/posts', '{{start}}', '{{limit}}', 'authorpost', '{{authorid}}', '', '')">Load More</div>
-						<?php }?>
-					</div>
-				{% endif %}
+					{% endif %}
+				<?php } ?>
 			</div>
 		</div>
 	</div>
