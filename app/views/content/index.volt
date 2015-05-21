@@ -23,13 +23,13 @@
 					</div>
 					<div class="sharesmall">
 						<ul class="list-inline text-center">
-							<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-twitter"></i> <span>Share</span></a></li>
-							<li class="facebook"><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-facebook"></i>  <span>Share</span></a></li>
-							<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-google-plus"></i>  <span>Share</span></a></li>
+							<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="twitter-icon"></div></a></li>
+							<li class="facebook"><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="fb-icon"></div></a></li>
+							<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="google-icon"></div></a></li>
 						</ul><div class="clearfix"></div>
 					</div>
 					
-					<hr class="small">
+					<hr class="small"> 
 					<div class="detail">
 						<?php //$description = str_replace(array('<p><strong>', '</strong></p>'), array('<h4>', '</h4>'), $contentdetail['description']); ?>
 						{{contentdetail['description']}}
@@ -52,9 +52,9 @@
 						<div class="share">
 							<ul class="list-inline navbar-left">
 								<li class="sharek">SHARE</li>
-								<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-twitter"></i> <span>Share on twitter </span></a></li>
-								<li class="facebook"><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-facebook"></i>  <span>Share on facebook </span></a></li>
-								<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-google-plus"></i>  <span>Share on google+ </span></a></li>
+								<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="twitter-icon"></div></a></li>
+								<li class="facebook"><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="fb-icon"></div></a></li>
+								<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="google-icon"></div></a></li>
 							</ul><div class="clearfix"></div>
 						</div>
 
@@ -74,7 +74,7 @@
 										{% if(author['twitter_url'] != '') %}
 										<ul class="list-inline navbar-left authortwitter">
 											<li class="no-padding">
-												<a href="https://twitter.com/{{author['twitter_url']}}" class="twitter-follow-button" data-show-count="true">Follow @{{author['twitter_url']}}</a>
+												<a href="https://twitter.com/{{author['twitter_url']}}" class="twitter-follow-button" data-show-count="true"></a>
 											</li>
 										</ul><div class="clearfix"></div>
 										{% endif %}

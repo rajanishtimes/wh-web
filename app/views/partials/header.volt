@@ -34,17 +34,24 @@
 		<!-- Begin logo -->
 		<div class="logo">
 			<a href="{{baseUrl}}/{{city}}"><img src="{{baseUrl}}/img/logo.png" alt="WhatsHot"></a>
-		</div><!-- /.logo -->
+		</div>
+		<div class="logo logo2">
+			<a href="{{baseUrl}}/{{city}}"><img src="{{baseUrl}}/img/logo_white.png" alt="WhatsHot"></a>
+		</div>
+		<!-- /.logo -->
 		<!-- End logo -->
 		
 		
 		{% if(controllername == 'search') %}
-			<div class="searchbtn float-right active">
+			<div class="searchbtn searchpage float-right active">
 				<a href="{{baseUrl}}/{{currentCity}}"><div class="madewidth active"><img src="{{baseUrl}}/img/search_close.png" alt="Go to Home"></div></a>
 			</div>
 		{% else %}
-			<div class="searchbtn float-right">
-				<a href="{{baseUrl}}/{{currentCity}}/search/search"><div class="madewidth"><img src="{{baseUrl}}/img/search.png" alt="Search"></div></a>
+				<div class="searchbtn  float-right">
+					<a href="{{baseUrl}}/{{currentCity}}/search/search"><div class="madewidth">
+						<img src="{{baseUrl}}/img/search.png" alt="Search" id="search1">
+						<img src="{{baseUrl}}/img/search_white.png" alt="Search" id="search2">
+				</div></a>
 			</div>
 		{% endif %}
 		
@@ -52,7 +59,7 @@
 			<ul class="nav-search navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle makeactive" data-toggle="dropdown">
-						<i class="fa fa-map-marker makered"></i>
+						<div class	="float-left youarehere">Discover In</div>
 						{% if(currentCity | trim | lower == 'delhi') %}
 							<span>Delhi NCR</span>
 						{% elseif(currentCity | trim | lower == 'delhi-ncr' OR currentCity | trim | lower == 'delhi ncr' OR currentCity | trim | lower == 'delhi-ncr') %}
@@ -75,7 +82,7 @@
 						{% endfor  %}
 					</ul>
 				</li>
-			</ul>
+			</ul> 
 		<!-- End City Nav -->
 		
 	</div><!-- /.top-navbar -->

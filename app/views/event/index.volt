@@ -20,11 +20,17 @@
 						<div class="time">{{eventdetail['time']['short']}}, {{eventdetail['time']['long']}}</div>
 						<div class="venue"><a href="{{baseUrl}}{{eventdetail['venue']['url']}}">{{eventdetail['venue']['name']}}, {{eventdetail['venue']['formatted_address']}}</a></div>
 					</div>
-					<hr class="small">
+					<div class="sharesmall">
+						<ul class="list-inline text-center">
+							<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="twitter-icon"></div></a></li>
+							<li class="facebook"><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="fb-icon"></div></a></li>
+							<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="google-icon"></div></a></li>
+						</ul><div class="clearfix"></div>
+					</div>
+					<hr class="small"> 
 					<div class="detail">
 						{{eventdetail['description']}}
 						{% if(eventdetail['tags'] | length > 0) %}
-							<p class="tags">Tags</p>
 							<div class="work-content">
 								<ul class="work-category-wrap tagsblack">
 									<?php $populartags =$eventdetail['tags'];?>								
@@ -42,9 +48,9 @@
 					<div class="share">
 						<ul class="list-inline navbar-left">
 							<li class="sharek">SHARE</li>
-							<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{eventdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-twitter-square"></i> <span>Share on twitter</span></a></li>
-							<li class="facebook"><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{eventdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-facebook-square"></i> <span>Share on facebook</span></a></li>
-							<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{eventdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><i class="fa fa-google-plus-square"></i> <span>Share on google+</span></a></li>
+							<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{eventdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="twitter-icon"></div></a></li>
+							<li class="facebook"><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{eventdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="fb-icon"></div></a></li>
+							<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{eventdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="google-icon"></div></a></li>
 						</ul><div class="clearfix"></div>
 					</div>
 					

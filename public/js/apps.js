@@ -28,7 +28,7 @@ $window.on('scroll', function (e) {
 				}
 			}else{
 				elem.trigger('click');
-			}
+			} 
 		}
 	}
 	

@@ -12,7 +12,7 @@
 					<h2 class="contenttitle text-center">{{author['title']}}</h2>
 					<?php if(isset($author['twitter_url']) && !empty($author['twitter_url'])){?>
 					<div class="atwitter text-center">
-						<a href="https://twitter.com/{{author['twitter_url']}}" class="twitter-follow-button" data-show-count="true">Follow @{{author['twitter_url']}}</a>
+						<a href="https://twitter.com/{{author['twitter_url']}}" class="twitter-follow-button" data-show-count="true"></a>
 					</div>
 					<?php }?>
 					<hr class="small">

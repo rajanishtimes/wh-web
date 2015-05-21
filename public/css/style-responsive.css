@@ -170,7 +170,7 @@ TABLET < 767px
 	}
 	
 	.nav-search.navbar-right li.dropdown > a {
-		padding: 21px;
+		padding: 31px;
 	}
 	ul.work-category-wrap{
 		padding: 2px 10px;
@@ -292,6 +292,13 @@ PHONE < 480px
 	.filter_type li{
 		margin: 4px 1px;
 	}
+	.youarehere{
+		display:none;
+	}
+	.nav-search.navbar-right{
+		padding: 29px 11px;
+	}
+	
 }
 
 /**
@@ -345,6 +352,13 @@ PHONE < 420px
 	.width100 {
 		width: 64% !important;
 	}
+	.top-navbar .logo img
+	{
+		width:100px; height:auto;
+	}
+	.nav-search.navbar-right{
+		padding: 21px 11px;
+	}
 }
 
 
@@ -369,7 +383,20 @@ PHONE < 360px
 	.rating {
 		left: 27%;
 	}
-	
+	.navbar-default{
+		height:auto;
+	}
+
+	.top-navbar .logo img
+	{
+		width:130px; height:auto;
+	}
+	.searchbtn a > div{
+		padding: 19px 25px;
+	}
+	.container-fluid{
+		margin-top: 50px;		
+	}
 }
 
 /**
@@ -405,4 +432,15 @@ PHONE < 320px
 	.width100 {
 		width: 64% !important;
 	}
+	.top-navbar .logo img
+	{
+		width:100px; height:auto;
+	}
+	.youarehere{
+		display:none;
+	}
+	.searchbtn a > div{
+		padding: 19px 15px;
+	}
+
 }
