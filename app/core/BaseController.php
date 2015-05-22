@@ -202,8 +202,13 @@ class BaseController extends Controller{
 		}
 		
 		
-			if(isSet($keyword) && $keyword!='')
-				$sort_by=1;
+			if(isSet($keyword) && $keyword!=''){
+				if($filter_type=='tags'){
+					$sort_by = 2;
+				}else{
+					$sort_by=1;
+				}
+			}
 			else{
 				if(isSet($bydays) && strtolower($bydays) != 'all' )
 					$sort_by=4;
