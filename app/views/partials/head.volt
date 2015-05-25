@@ -140,7 +140,7 @@
 		<?php if($isappclose == 0){ ?>
 		<script>
 			(function(){
-
+				alert(navigator.userAgent);
 				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 					//document.getElementById('loader').src = '{{deep_link}}';
 
