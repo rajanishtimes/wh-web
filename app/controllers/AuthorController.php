@@ -114,11 +114,10 @@ class AuthorController extends BaseController{
 	
 	
 	private function getauthorpost($authorid, $start, $limit){
-		$Profile = new \WH\Model\User();
-		$Profile->setId($authorid);
-		$Profile->setStart($start);
-		$Profile->setLimit($limit);
-		$Profile->setPostParams();
+		$Profile = new \WH\Model\Author();
+        $Profile->setAuthorID($authorid);
+        $Profile->setParam('start', $start);
+        $Profile->setParam('limit', $limit);
 		try{
 			$profilepost = $Profile->getPostsResults();
 			foreach($profilepost['results'] as $key=>$entity){
