@@ -135,16 +135,18 @@
 		{% endblock %}
 	</head>
 	<body class="tooltips no-padding">
-		<!-- iframe used for attempting to load a custom protocol 
-		<iframe style="display:none" height="0" width="0" id="loader"></iframe>-->
+		<!-- iframe used for attempting to load a custom protocol -->
+		<iframe style="display:none" height="0" width="0" id="loader"></iframe>
+
 		<?php if($isappclose == 0){ ?>
 		<script>
 			(function(){
-				setheader();
+				
 				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-					//document.getElementById('loader').src = '{{deep_link}}';
+					
 					{% if(isdeep_link == true) %}
-						window.location = '{{deep_link}}';
+						document.getElementById('loader').src = '{{deep_link}}';
+						//window.location = '{{deep_link}}';
 					{% endif %}
 
 					fallbackLink = isAndroid ? 'https://play.google.com/store/apps/details?id=com.phdmobi.timescity' :
