@@ -89,7 +89,7 @@ class Elements extends Component
 		$slug=str_replace(' ', '-', $string);
 		$slug2=str_replace('/', '_', $slug);
 		$slug3=str_replace('&', '|', $slug2);
-		return $slug2;
+		return $slug3;
 	}
 
 	public function create_title($string){
