@@ -3523,6 +3523,8 @@ iframe {
     color: #fff;
     display: none;
     padding: 15px;
+    overflow: hidden;
+    width: 100%;
 }
 .left-side {
     line-height: 26px;
