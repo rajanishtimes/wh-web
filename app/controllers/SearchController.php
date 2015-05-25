@@ -85,7 +85,7 @@ class SearchController extends BaseController{
 		$this->view->setLayout('mainLayout');
 		$searchkeyword = '';
 		if($this->dispatcher->getParam('searchquery'))
-			$searchkeyword = $this->dispatcher->getParam('searchquery');
+			$searchkeyword = urldecode($this->dispatcher->getParam('searchquery'));
 		
 		$this->view->entityid = 0;
 		$this->view->entitytype = 'search';
@@ -160,7 +160,7 @@ class SearchController extends BaseController{
     }
 	
 	public function forwardsearchAction(){
-		$searchkeyword = $this->request->getPost('search');
+		$searchkeyword = htmlentities($this->request->getPost('search'));
 		$searchkeyword = str_replace("/"," ",stripslashes($searchkeyword));
 		$url = $this->baseUrl.'/'.$this->currentCity.'/search/'.$searchkeyword;
 		return $this->response->redirect($url);     

@@ -122,20 +122,32 @@
 				entitytype: '{{entitytype}}',
 			};
 		</script>
-		
+		<?php
+			$ua = $_SERVER["HTTP_USER_AGENT"];
+			$issafari = strpos($ua, 'Safari') ? true : false;
+			$ischrome = strpos($ua, 'Chrome') ? true : false;
+
+			if($issafari == true && $ischrome == false){
+				echo "<style>.dropdown-menu{display:none;}</style>";
+			}
+		?>
+
 		{% endblock %}
 	</head>
 	<body class="tooltips no-padding">
-		<!-- iframe used for attempting to load a custom protocol -->
-		<iframe style="display:none" height="0" width="0" id="loader"></iframe>
-
+		<!-- iframe used for attempting to load a custom protocol 
+		<iframe style="display:none" height="0" width="0" id="loader"></iframe>-->
 		<?php if($isappclose == 0){ ?>
 		<script>
 			(function(){
 
 				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 					//document.getElementById('loader').src = '{{deep_link}}';
-					window.location = '{{deep_link}}';
+
+					{% if(isdeep_link == true) %}
+						window.location = '{{deep_link}}';
+					{% endif %}
+
 					fallbackLink = isAndroid ? 'https://play.google.com/store/apps/details?id=com.phdmobi.timescity' :
 											 'https://itunes.apple.com/in/app/timescity-food-restaurant/id636515332?mt=8' ;
 					window.setTimeout(function (){
@@ -143,17 +155,6 @@
 							setheader();
 					}, 1);
 				}
-
-
-				/*var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
-					isAndroid = navigator.userAgent.match('Android');
-					
-				if(baseUrl != 'http://www.whatshot.in'){
-					if (isiOS || isAndroid) {
-						alert(navigator.userAgent);
-						
-					}
-				}*/
 			})();			
 		</script>
 		<?php } ?>
