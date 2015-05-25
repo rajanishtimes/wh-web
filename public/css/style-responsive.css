@@ -260,6 +260,9 @@ PHONE < 480px
 =================================
 **/
 @media (max-width: 480px){
+	body{
+		width:480px;
+	}
 	.work-content .col-xs-6{width:100%}
 	.allfeeds .col-xs-6{padding:0;}
 	.contentarea {
@@ -309,7 +312,9 @@ PHONE < 420px
 =================================
 **/
 @media (max-width: 420px){
-	
+	body{
+		width:420px;
+	}
 	.top-navbar .logo{
 		
 	}
@@ -372,6 +377,9 @@ PHONE < 360px
 =================================
 **/
 @media (max-width: 360px){
+	body{
+		width:360px;
+	}
 	.feed-name{font-size:20px}
 	.withmask{
 		height: 320px !important;
@@ -407,6 +415,9 @@ PHONE < 320px
 =================================
 **/
 @media (max-width: 320px){
+	body{
+		width:320px;
+	}
 	.dropdown-menu.with-triangle::before, .dropdown-menu.with-triangle::after{
 		display:block;
 	}
