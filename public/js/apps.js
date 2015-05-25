@@ -32,11 +32,14 @@ $window.on('scroll', function (e) {
 		}
 	}
 	
-	if($(window).scrollTop() > 100){
-		$('.navbar.navbar-default').addClass('makeheaderintera');
-	}else{
-		$('.navbar.navbar-default').removeClass('makeheaderintera');
+	if($(window).width() > 640){
+		if($(window).scrollTop() > 100){
+			$('.navbar.navbar-default').addClass('makeheaderintera');
+		}else{
+			$('.navbar.navbar-default').removeClass('makeheaderintera');
+		}
 	}
+	
 });
 
 $(window).load(function() {
