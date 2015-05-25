@@ -52,6 +52,8 @@ class BaseController extends Controller{
 		$this->view->baseUrl = $this->baseUrl;
 
 		$this->view->isdebug = $this->config->application->mode;
+		$this->view->isdeep_link = $this->config->application->deep_link;
+	
 		//$this->setcookie();
 		$this->view->controllername = $this->dispatcher->getControllerName();
 		$this->view->actionname = $this->dispatcher->getActionName();
@@ -165,8 +167,9 @@ class BaseController extends Controller{
 	}
 	
 	protected function create_slug($string){
-		$slug=preg_replace('/[^A-Za-z0-9-]+/', '-', strtolower($string));
-		return $slug;
+		$slug=str_replace(' ', '-', $string);
+		$slug2=urlencode($slug);
+		return $slug2;
 	}
 
 	protected function create_title($string){

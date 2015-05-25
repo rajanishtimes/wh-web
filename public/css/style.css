@@ -589,19 +589,19 @@ ul.tagsblack li a {
     padding: 0;
 }
 .filter_type li {
-    border: 1px solid #a3a3a3;
     display: inline-block;
     font-size: 12px;
     margin: 0 5px;
-    padding: 5px 10px;
-}
-.filter_type li:hover {
-    border: 1px solid #000;
 }
 .filter_type li a {
     color: #909090;
+    border: 1px solid #a3a3a3;
+    padding: 5px 10px;
 }
-.filter_type li.active {
+.filter_type li a:hover {
+    border: 1px solid #000;
+}
+.filter_type li.active a{
     background: #d11a6d none repeat scroll 0 0;
     border: 1px solid #d11a6d;
 }
