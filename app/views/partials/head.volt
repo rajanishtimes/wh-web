@@ -140,10 +140,9 @@
 		<?php if($isappclose == 0){ ?>
 		<script>
 			(function(){
-
+				setheader();
 				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 					//document.getElementById('loader').src = '{{deep_link}}';
-					alert(navigator.userAgent);
 					{% if(isdeep_link == true) %}
 						window.location = '{{deep_link}}';
 					{% endif %}
