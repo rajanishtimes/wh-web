@@ -59,7 +59,7 @@
 				</ul>
 			</div>
 			
-			<div class="clearfix visible-sm"></div>
+			
 			<div class="col-xs-12 col-sm-6 col-md-3 text-right">
 				<div class="setbottom">
 					<div class="app_option">

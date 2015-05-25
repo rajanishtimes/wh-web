@@ -109,9 +109,6 @@ SMALL DESKTOP 768px <> 991px
 	.contentarea .detail {
 		padding: 0 62px;
 	}
-	footer .row > div {
-		height: 300px;
-	}
 	.page-title-wrap .breadcrumb {
 		margin: 0 0 -14px;
 		padding: 21px 15px;
@@ -120,7 +117,10 @@ SMALL DESKTOP 768px <> 991px
 		width:116%;
 	}
 	.app_option{
-		margin:31px 0;
+		margin:40px 0;
+	}
+	.share .list-inline > li:last-child{
+		padding-left: 81px;
 	}
 	.list-inline > li:last-child{
 		padding-left: 81px;
