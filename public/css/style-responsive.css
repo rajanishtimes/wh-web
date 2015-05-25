@@ -119,7 +119,7 @@ SMALL DESKTOP 768px <> 991px
 	.app_option{
 		margin:40px 0;
 	}
-	.share .list-inline > li:last-child{
+	.share .list-inline > li:last-child, .sharesmall .list-inline > li:last-child{
 		padding-left: 10px;
 	}
 	.list-inline > li:last-child{
