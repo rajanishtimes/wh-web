@@ -30,6 +30,7 @@ body {
     font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 14px;
     height: 100%;
+    width: 100%;
     overflow-x: hidden;
     padding-top: 80px;
 }
