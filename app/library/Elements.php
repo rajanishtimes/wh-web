@@ -41,7 +41,7 @@ class Elements extends Component
 		)
     );
 
-    public function getMenu($url)
+    public function getMenu($url, $city)
     {
 		$controllerName = $this->view->getControllerName();
         foreach ($this->_headerMenu as $position => $menu) {
@@ -55,6 +55,8 @@ class Elements extends Component
                 echo '<a href="'.$url.'/'.$option['action'].'">'.$option['caption'].'</a>';
                 echo '</li>';
             }
+            if($position == 'navbar-right')
+            echo '<li><a href="'.$url.'/'.$city.'/feed">RSS</li>';
             echo '</ul>';
         }
 
@@ -86,12 +88,14 @@ class Elements extends Component
 	public function create_slug($string){
 		$slug=str_replace(' ', '-', $string);
 		$slug2=str_replace('/', '_', $slug);
+		$slug3=str_replace('&', '|', $slug2);
 		return $slug2;
 	}
 
 	public function create_title($string){
 		$slug = str_replace('-', ' ', $string);
 		$slug2=str_replace('_', '/', $slug);
-		return $slug2;
+		$slug3=str_replace('|', '&', $slug2);
+		return $slug3;
 	}
 }

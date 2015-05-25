@@ -41,8 +41,36 @@ class Feeds extends Component
 						</a>
 					</div>
 				</div>
-				<?php }else{ ?>		
+				<?php }else{ ?>
 					<div class="col-sm-4 col-md-3 col-xs-6">
+						<div class="work-item feeds-data">
+							<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-ga-label="pos_<?php echo $i; ?>">
+								<div class="hover-container">
+									<div class="hover-wrap">
+										<i class="glyphicon glyphicon-plus bino"></i>
+									</div>
+									<?php echo $this->getimage($url, $feed['image']['uri'], 479, 479, $feed['title'], $feed['image'], '', '', $start+$i); ?>
+									<div class="sponsors"><?php echo $feed['label'];?></div>
+								</div>
+							</a>
+							<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-ga-label="pos_<?php echo $i; ?>">
+								<div class="the-box no-margin no-border">
+									<div class="feed-title"><?php echo $this->process_title($feed['title']); ?></div>
+									<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
+										<div class="homepagevenue">
+											<div class="time"><?php echo $feed['time']; ?></div>
+											<div class="landmark"><?php echo $feed['venue']; ?></div>
+										</div>
+									<?php }else{ ?>
+										<div class="feed-short-desc"><?php echo strip_tags($feed['description'], '<a>'); ?></div>
+									<?php }?>
+								</div>
+							</a>
+						</div>
+					</div>
+
+
+					<!--<div class="col-sm-4 col-md-3 col-xs-6">
 						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-ga-label="pos_<?php echo $i; ?>">
 							<div class="work-item withmask sponsor">
 								<div class="the-box full no-border transparent no-margin make-up">
@@ -52,7 +80,7 @@ class Feeds extends Component
 								<?php echo $this->getimage($url, $feed['image']['uri'], 479, 479, $feed['title'], $feed['image'], '', '', $start+$i); ?>
 							</div>
 						</a>
-					</div>
+					</div>-->
 				<?php } ?>
 			<?php
 			}else{
@@ -112,14 +140,16 @@ class Feeds extends Component
 								<?php echo $this->getimage($url, $feed['cover_image'], 479, 479, $feed['title'], '', '', $key); ?>
 							</div>
 						</a>
+						<a href="<?php echo $url. $feed['url']; ?>">
 						<div class="the-box no-margin no-border">
-							<div class="feed-title"><a href="<?php echo $url. $feed['url']; ?>"><?php echo $this->process_title($feed['title']); ?></a></div>
+							<div class="feed-title"><?php echo $this->process_title($feed['title']); ?></div>
 							<?php
 								$desc = strip_tags($feed['description']);
 								$description = strlen($desc) > 100 ? substr($desc, 0, 100).'...' : $desc;
 							?>
 							<div class="feed-short-desc"><?php echo $description; ?></div>
 						</div>
+						</a>
 					</div>
 				</div>
 			<?php

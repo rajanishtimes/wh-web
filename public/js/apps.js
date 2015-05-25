@@ -32,10 +32,10 @@ $window.on('scroll', function (e) {
 		}
 	}
 	
-	if($(window).scrollTop() > 65){
-		$('.navbar-fixed-top').addClass('makeheaderintera');
+	if($(window).scrollTop() > 100){
+		$('.navbar.navbar-default').addClass('makeheaderintera');
 	}else{
-		$('.navbar-fixed-top').removeClass('makeheaderintera');
+		$('.navbar.navbar-default').removeClass('makeheaderintera');
 	}
 });
 

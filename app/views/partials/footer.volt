@@ -102,7 +102,7 @@
 				
 			</div>
 			<div class="col-sm-4 text-right">
-				{{ elements.getMenu(baseUrl) }}<br>
+				{{ elements.getMenu(baseUrl, city) }}<br>
 			</div><!-- /.col-sm-7 -->
 		</div><!-- /.row -->
 	</div><!-- /.container -->

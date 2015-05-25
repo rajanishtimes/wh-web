@@ -59,7 +59,7 @@
 			<ul class="nav-search navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle makeactive" data-toggle="dropdown">
-						<div class	="float-left youarehere">Discover In</div>
+						<span class	="youarehere">Discover In</span>
 						{% if(currentCity | trim | lower == 'delhi') %}
 							<span>Delhi NCR</span>
 						{% elseif(currentCity | trim | lower == 'delhi-ncr' OR currentCity | trim | lower == 'delhi ncr' OR currentCity | trim | lower == 'delhi-ncr') %}

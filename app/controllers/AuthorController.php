@@ -29,7 +29,7 @@ class AuthorController extends BaseController{
 		}else{
 			$isusernametrue = 1;
 			$Author = new \WH\Model\Author();
-			$Author->setParam('username',$this->authorname);
+			$Author->setAuthor($this->authorname);
 			$author = $Author->getResults();
 			$id = $author['author'][0]['id'];
 		}

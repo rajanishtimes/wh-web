@@ -298,7 +298,9 @@ PHONE < 480px
 	.nav-search.navbar-right{
 		padding: 29px 11px;
 	}
-	
+	.resize {
+		padding: 0 10px;
+	}
 }
 
 /**
@@ -356,7 +358,7 @@ PHONE < 420px
 	{
 		width:100px; height:auto;
 	}
-	.nav-search.navbar-right{
+	.makeheaderintera .nav-search.navbar-right, .nav-search.navbar-right{
 		padding: 21px 11px;
 	}
 }
@@ -391,7 +393,7 @@ PHONE < 360px
 	{
 		width:130px; height:auto;
 	}
-	.searchbtn a > div{
+	.makeheaderintera .searchbtn a > div, .searchbtn a > div{
 		padding: 19px 25px;
 	}
 	.container-fluid{
@@ -439,7 +441,7 @@ PHONE < 320px
 	.youarehere{
 		display:none;
 	}
-	.searchbtn a > div{
+	.makeheaderintera .searchbtn a > div, .searchbtn a > div{
 		padding: 19px 15px;
 	}
 

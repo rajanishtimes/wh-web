@@ -193,12 +193,15 @@ blockquote {
     position: relative;
 }
 .navbar-default {
+    transition: background-color 0.5s ease;
     background-color: #fff;
     height: 80px;
     transition: height 0.6s ease 0s;
 }
 .makeheaderintera {
+    transition: background-color 0.5s ease;
     background: #d31a6b none repeat scroll 0 0 !important;
+    border-bottom: 1px solid #d31a6b;
     height: 80px;
 }
 .logo, #search1 {
@@ -297,6 +300,11 @@ blockquote {
     border-bottom: 2px solid #d3196b;
     font-weight: normal;
     padding: 0 10px 6px;
+}
+.makeheaderintera .dropdown-toggle.makeactive > span.youarehere, .dropdown-toggle.makeactive > span.youarehere {
+    border: medium none;
+    font-weight: 300;
+    padding: 0;
 }
 .makeheaderintera .dropdown-toggle.makeactive > span {
     border-bottom: 2px solid #fff;
@@ -1766,7 +1774,7 @@ h3.tags {
     
 }
 .sharesmall .twitter-icon, .share .twitter-icon{
-    background: rgba(0, 0, 0, 0) url("../img/share-btn.png") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("../img/share-btn.png") no-repeat scroll 0 1px;
     height: 21px;
     width: 71px;
 }
@@ -1776,18 +1784,18 @@ h3.tags {
     width: 71px;
 }
 .sharesmall .google-icon, .share .google-icon{
-    background: rgba(0, 0, 0, 0) url("../img/share-btn.png") no-repeat scroll 0 -60px;
+    background: rgba(0, 0, 0, 0) url("../img/share-btn.png") no-repeat scroll 0 -61px;
     height: 21px;
     width: 71px;
 }
-.sharesmall .twitter-icon:hover, .shares .twitter-icon:hover{
-    background-position:-71px 0; 
+.sharesmall .twitter-icon:hover, .share .twitter-icon:hover{
+    background-position:-71px 1px; 
 }
-.sharesmall .fb-icon:hover, .shares .twitter-icon:hover{
+.sharesmall .fb-icon:hover, .share .fb-icon:hover{
     background-position:-71px -30px; 
 }
-.sharesmall .google-icon, .shares .twitter-icon:hover{
-    background-position:-71px -60px; 
+.sharesmall .google-icon, .share .google-icon:hover{
+    background-position:-71px -61px; 
 }
 .twitter > a {
     background: #5ea9dd none repeat scroll 0 0;
@@ -3397,7 +3405,7 @@ a .icon-primary, a .icon-success, a .icon-info, a .icon-danger, a .icon-warning,
     width: 100%;
 }
 .container-fluid {
-    margin-top: 79px;
+    margin-top:79px;   
 }
 .social_icon a {
     color: #fff;
@@ -3423,12 +3431,15 @@ a .icon-primary, a .icon-success, a .icon-info, a .icon-danger, a .icon-warning,
     margin: 13px 0 -6px;
 }
 .sponsors {
+    background: #000 none repeat scroll 0 0;
     bottom: 0;
     color: #fff;
-    left: 0;
+    font-size: 12px;
     margin: 0;
-    padding: 5px 18px;
+    opacity: 0.6;
+    padding: 5px 10px;
     position: absolute;
+    right: 0;
 }
 .share ul a span, .sharesmall ul a span {
     color: #fff;

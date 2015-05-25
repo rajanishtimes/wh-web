@@ -76,6 +76,7 @@ class BaseController extends Controller{
 		$this->view->defaultCity = $this->defaultCity;
 		$this->setcities();
 		$this->setcityid();
+
 		if($this->cityId == 0){
 			$this->forwardtoerrorpage(404);
 		}
@@ -171,7 +172,8 @@ class BaseController extends Controller{
 	protected function create_title($string){
 		$slug = str_replace('-', ' ', $string);
 		$slug2=str_replace('_', '/', $slug);
-		return $slug2;
+		$slug3=str_replace('|', '&', $slug2);
+		return $slug3;
 	}
 	
 	protected function getfeeddata($start, $limit, $city, $bydays, $filter_type='', $keyword='', $bytype='', $location='', $sort_by=2){
@@ -333,7 +335,7 @@ class BaseController extends Controller{
 		//exit();
 	}
 	
-	protected function setcityid(){
+	protected function setcityid(){		
 		$cities = new \WH\Model\Cities();
 		$getallcities = $cities->getResults();
 		usort($getallcities['cities'], function($a, $b){ return strcmp($a["name"], $b["name"]); });
