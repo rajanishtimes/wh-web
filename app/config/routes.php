@@ -1,6 +1,7 @@
 <?php
 
 $router = new Phalcon\Mvc\Router(true);
+$router->setUriSource(\Phalcon\Mvc\Router::URI_SOURCE_SERVER_REQUEST_URI);
 $router->removeExtraSlashes(true);
 
 $request = $_SERVER['QUERY_STRING'];
