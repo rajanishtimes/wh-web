@@ -170,10 +170,9 @@ class BaseController extends Controller{
 	}
 
 	protected function create_title($string){
-		$slug = str_replace('-', ' ', $string);
-		$slug2=str_replace('_', '/', $slug);
-		$slug3=str_replace('|', '&', $slug2);
-		return $slug3;
+		$slug = urldecode($string);
+		$slug2 = str_replace('-', ' ', $slug);
+		return $slug2;
 	}
 	
 	protected function getfeeddata($start, $limit, $city, $bydays, $filter_type='', $keyword='', $bytype='', $location='', $sort_by=2){

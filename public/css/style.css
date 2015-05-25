@@ -1806,6 +1806,10 @@ h3.tags {
 .google > a {
     background: #dd4b39 none repeat scroll 0 0;
 }
+.fb-like {
+    height: 20px;
+    overflow: hidden;
+}
 .share .sharek {
     font-size: 18px;
     font-weight: bold;

@@ -87,15 +87,13 @@ class Elements extends Component
 	
 	public function create_slug($string){
 		$slug=str_replace(' ', '-', $string);
-		$slug2=str_replace('/', '_', $slug);
-		$slug3=str_replace('&', '|', $slug2);
-		return $slug3;
+		$slug2=urlencode($slug);
+		return $slug2;
 	}
 
 	public function create_title($string){
-		$slug = str_replace('-', ' ', $string);
-		$slug2=str_replace('_', '/', $slug);
-		$slug3=str_replace('|', '&', $slug2);
-		return $slug3;
+		$slug = urldecode($string);
+		$slug2 = str_replace('-', ' ', $slug);
+		return $slug2;
 	}
 }

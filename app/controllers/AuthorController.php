@@ -120,13 +120,6 @@ class AuthorController extends BaseController{
         $Profile->setParam('limit', $limit);
 		try{
 			$profilepost = $Profile->getPostsResults();
-			foreach($profilepost['results'] as $key=>$entity){
-				if($entity['cover_image']){
-					if(substr($entity['cover_image'], 0, 4) != 'http'){
-							$profilepost['results'][$key]['cover_image'] = $this->config->application->imgbaseUri.$entity['cover_image'];
-					}
-				}
-			}
 		}catch(Exception $e){
 			$profilepost = array();
 		}
