@@ -286,6 +286,7 @@ function closebanner(){
 }
 
 function setheader(){
+	alert('inside');
 	var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
 	isAndroid = navigator.userAgent.match('Android');
 	if(isiOS){
