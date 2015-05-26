@@ -300,7 +300,7 @@ function send_deeplink(){
     	fallbackLink = isAndroid ? 'https://play.google.com/store/apps/details?id=com.phdmobi.timescity' :
 											 'https://itunes.apple.com/in/app/timescity-food-restaurant/id636515332?mt=8' ;
         window.setTimeout(function (){
-        	window.location.replace(fallbackLink);
+        	//window.location.replace(fallbackLink);
 			//setheader();
 		}, 1);
     }

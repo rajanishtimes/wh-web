@@ -190,6 +190,9 @@ class Feeds extends Component
 								if(isSet($feed['locality']) && trim($feed['locality'])!=''){
 									$address_arr[] = $feed['locality'];
 								}
+								if(isSet($feed['zonename']) && trim($feed['zonename'])!=''){
+									$address_arr[] = $feed['zonename'];
+								}
 								if(isSet($feed['cities']) && trim($feed['cities'])!=''){
 									$address_arr[] = $feed['cities'];
 								}

@@ -52,7 +52,7 @@ class BaseController extends Controller{
 		$this->view->baseUrl = $this->baseUrl;
 
 		$this->view->isdebug = $this->config->application->mode;
-		$this->view->isdeep_link = $this->config->application->deep_link;
+		$this->view->isdeep_link = $this->config->application->deeplink_autoredirect;
 	
 		//$this->setcookie();
 		$this->view->controllername = $this->dispatcher->getControllerName();

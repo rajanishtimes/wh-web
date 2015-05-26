@@ -82,9 +82,6 @@
 								<div class="clearfix"></div>
 							</div>
 						{% endif %}
-
-
-						<div class="view_on_app text-right" style="display:none">See In App</div>
 				</div>
 			</div>
 		</div>
