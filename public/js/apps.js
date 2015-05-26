@@ -319,6 +319,7 @@ function setheader(){
 	}
 
 	if (isiOS || isAndroid) {
+		alert('asfd');
 		$('#installer').css('display', 'block');
 		$('#navbar-fixed-top').css('top', 60);
 
