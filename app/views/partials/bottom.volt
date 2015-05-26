@@ -35,5 +35,32 @@
 			
 			
         </script>
+
+        <?php if($isappclose == 0){ ?>
+        <script>
+            {% if(isdeep_link == true) %}
+                setheader();
+            {% endif %}
+
+            
+                /*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                    
+                    {% if(isdeep_link == true) %}
+                        document.getElementById('loader').src = '{{deep_link}}';
+                        //window.location = '{{deep_link}}';
+                    {% endif %}
+
+                    fallbackLink = isAndroid ? 'https://play.google.com/store/apps/details?id=com.phdmobi.timescity' :
+                                             'https://itunes.apple.com/in/app/timescity-food-restaurant/id636515332?mt=8' ;
+                    window.setTimeout(function (){
+                            //window.location.replace(fallbackLink);
+                            setheader();
+                    }, 1);
+                }*/
+            
+        </script>
+        <?php } ?>
+
+        
     </body>
 </html>
