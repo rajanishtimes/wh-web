@@ -189,10 +189,10 @@ class BaseController extends Controller{
 		$Search->setParam('bysort',Params::getSort(2));
 		$Search->setParam('byLocation',$location);
 
-		if($keyword == ''){
+		/*if($keyword == ''){
 			$Search->setRealTime(C::getWHConfig('realtime'));
 			
-		}
+		}*/
 		
 		
 		$Search->setParam('mm',3);
