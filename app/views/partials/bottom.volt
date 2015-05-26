@@ -9,9 +9,7 @@
 		
         <?php if($isappclose == 0){ ?>
         <script>
-            alert('asdf');
             {% if(isdeep_link == true) %}
-                alert('inside');
                 setheader();
             {% endif %}
 
