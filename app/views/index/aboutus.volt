@@ -1,7 +1,8 @@
 <div class="section">
 	<div class="container">
 		<div class="row">
-			<div class="work-content info-content">
+			<div class="work-content info-content"><br>
+				<img src="{{baseUrl}}/img/about-us-illustration.jpg" style="width:100%; height:auto;">
 				<h1>About What’s HOT</h1>
 				<br>
 				That one curious friend who knows everything about the city &ndash; What’s HOT is an editorially curated discovery and exploration platform. With in-depth features covering exclusive restaurant and bar First Looks, acclaimed critic reviews, and insider scoops on the best events in town &ndash; What’s HOT will be a nifty little guide packed with whatever you need to plan your day, weekend or month!<br>
