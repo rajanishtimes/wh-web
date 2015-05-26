@@ -256,6 +256,9 @@ function DOMReady(){
 		return false;
 	});
 	
+	$('.view_on_app').click(function(){
+		send_deeplink();
+	});
 	
 }
 
@@ -285,16 +288,43 @@ function closebanner(){
 	return false;
 }
 
+function send_deeplink(){
+	var isiOS = navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
+    var isAndroid = navigator.userAgent.match('Android');
+
+	if (isiOS) {
+		document.getElementById('loader').src = server_variables.deep_link;
+	}else if (isAndroid) {
+		window.location = server_variables.deep_link;
+	}
+
+    if (isiOS || isAndroid) {
+    	fallbackLink = isAndroid ? 'https://play.google.com/store/apps/details?id=com.phdmobi.timescity' :
+											 'https://itunes.apple.com/in/app/timescity-food-restaurant/id636515332?mt=8' ;
+        window.setTimeout(function (){
+        	window.location.replace(fallbackLink);
+			//setheader();
+		}, 1);
+    }
+}
+
 function setheader(){
 	var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
 	isAndroid = navigator.userAgent.match('Android');
 	if(isiOS){
 		$('#iphone').css('display', 'block');
 		$('#android').css('display', 'none');
-	}else{
+	}else if (isAndroid) {
 		$('#iphone').css('display', 'none');
 		$('#android').css('display', 'block');
 	}
-	$('#installer').css('display', 'block');
-	$('#navbar-fixed-top').css('top', 60);
+
+	if (isiOS || isAndroid) {
+		$('#installer').css('display', 'block');
+		$('#navbar-fixed-top').css('top', 60);
+
+		if($('.view_on_app').length > 0){
+			$('.view_on_app').show();
+		}
+	}
 }

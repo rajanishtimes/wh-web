@@ -1760,10 +1760,9 @@ h3.tags {
 }
 .share {
     border-bottom: 1px solid rgb(238, 238, 238);
-    border-top: 1px solid rgb(238, 238, 238);
     color: #ababab;
-    margin: 17px 0;
     padding: 26px 62px;
+    margin: -20px 0px 10px;
 }
 .share ul {
     margin: 0;
@@ -1773,6 +1772,9 @@ h3.tags {
 }
 .sharesmall ul a {
     
+}
+.view_on_app {
+    color: #d31a6b;
 }
 .sharesmall .twitter-icon, .share .twitter-icon{
     background: rgba(0, 0, 0, 0) url("../img/share-btn.png") no-repeat scroll 0 1px;

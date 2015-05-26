@@ -120,6 +120,7 @@
 				request_uri: '{{request_uri}}',
 				entityid: '{{entityid}}',
 				entitytype: '{{entitytype}}',
+				deep_link: '{{deep_link}}',
 			};
 		</script>
 		<?php
@@ -140,22 +141,11 @@
 
 		<?php if($isappclose == 0){ ?>
 		<script>
-			(function(){
-				var isiOS = navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
-	            var isAndroid = navigator.userAgent.match('Android');
+			{% if(isdeep_link == true) %}
+				setheader();
+            {% endif %}
 
-	            {% if(isdeep_link == true) %}
-					if (isiOS) {
-						document.getElementById('loader').src = "{{deep_link}}";
-					}else if (isAndroid) {
-						window.location = "{{deep_link}}";
-					}
-	            {% endif %}
-	            
-	            window.setTimeout(function (){
-					setheader();
-				}, 1);
-
+			
 				/*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 					
 					{% if(isdeep_link == true) %}
@@ -170,7 +160,7 @@
 							setheader();
 					}, 1);
 				}*/
-			})();			
+			
 		</script>
 		<?php } ?>
 		<div class="wrapper">

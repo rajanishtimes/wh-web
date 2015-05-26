@@ -29,7 +29,16 @@
 					<div class="clearfix"></div>
 					<div class="detail">
 						{{criticdetail['description']}}
-						
+					</div>
+					<div class="share">
+						<ul class="list-inline navbar-left">
+							<li><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{criticdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="twitter-icon"></div></a></li>
+							<li><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{criticdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="fb-icon"></div></a></li>
+							<li><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{criticdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="google-icon"></div></a></li>
+						</ul><div class="clearfix"></div>
+					</div>
+
+					<div class="share">
 						{% if(criticdetail['tags'] | length > 0) %}
 							<p class="tags">Tags</p>
 							<div class="work-content">
@@ -43,17 +52,8 @@
 								</ul><div class="clearfix"></div>
 							</div><div class="clearfix"></div>
 						{% endif %}
-						
-						
 					</div>
-					<div class="share">
-							<ul class="list-inline navbar-left">
-								<li class="sharek">SHARE</li>
-								<li><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{criticdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="twitter-icon"></div></a></li>
-								<li><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{criticdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="fb-icon"></div></a></li>
-								<li><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{criticdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="google-icon"></div></a></li>
-							</ul><div class="clearfix"></div>
-						</div>
+					
 					<div class="authordetailsection">
 						<div class="author-image float-left">
 							<a href="{{baseUrl}}{{author['url']}}">

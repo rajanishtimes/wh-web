@@ -33,47 +33,7 @@
 					<div class="detail">
 						<?php //$description = str_replace(array('<p><strong>', '</strong></p>'), array('<h4>', '</h4>'), $contentdetail['description']); ?>
 						{{contentdetail['description']}}
-						
-						{% if(contentdetail['tags'] | length > 0) %}
-							<div class="work-content">
-								<ul class="work-category-wrap tagsblack">
-									<?php $populartags =$contentdetail['tags'];?>								
-									{% for populartag in populartags %}
-										<li class="filter" ><a href="{{baseUrl}}/{{currentCity}}/tag/{{elements.create_slug(populartag)}}">
-										{{populartag}}
-										</a></li>
-									{% endfor  %}
-								</ul><div class="clearfix"></div>
-							</div><div class="clearfix"></div>
-						{% endif %}
-							
 					</div>
-						
-						{% if(author['url'] is defined AND author['url'] != '') %}
-						<div class="authordetailsection">
-							<div class="col-sm-4 col-md-2 float-left author-image">
-									<a href="{{baseUrl}}{{author['url']}}">
-										{{feeds.getimage(baseUrl, author['images'][0]['uri'], '', '', author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
-									</a>
-							</div>
-							
-							
-								<div class="col-xs-12 col-sm-8 col-md-10 author-detail">
-										<h2><a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a></h2>
-										<p>{{author['description']}}</p>
-										
-										{% if(author['twitter_url'] != '') %}
-										<ul class="list-inline navbar-left authortwitter">
-											<li class="no-padding">
-												<a href="https://twitter.com/{{author['twitter_url']}}" class="twitter-follow-button" data-show-count="true"></a>
-											</li>
-										</ul><div class="clearfix"></div>
-										{% endif %}
-								</div>
-							<div class="clearfix"></div>
-						</div>
-						{% endif %}
-
 						<div class="share">
 							<ul class="list-inline navbar-left">
 								<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="twitter-icon"></div></a></li>
@@ -82,7 +42,49 @@
 							</ul><div class="clearfix"></div>
 						</div>
 
-						
+						<div class="share">
+							{% if(contentdetail['tags'] | length > 0) %}
+								<div class="work-content">
+									<ul class="work-category-wrap tagsblack">
+										<?php $populartags =$contentdetail['tags'];?>								
+										{% for populartag in populartags %}
+											<li class="filter" ><a href="{{baseUrl}}/{{currentCity}}/tag/{{elements.create_slug(populartag)}}">
+											{{populartag}}
+											</a></li>
+										{% endfor  %}
+									</ul><div class="clearfix"></div>
+								</div><div class="clearfix"></div>
+							{% endif %}
+						</div>
+
+
+						{% if(author['url'] is defined AND author['url'] != '') %}
+							<div class="authordetailsection">
+								<div class="col-sm-4 col-md-2 float-left author-image">
+										<a href="{{baseUrl}}{{author['url']}}">
+											{{feeds.getimage(baseUrl, author['images'][0]['uri'], '', '', author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
+										</a>
+								</div>
+								
+								
+									<div class="col-xs-12 col-sm-8 col-md-10 author-detail">
+											<h2><a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a></h2>
+											<p>{{author['description']}}</p>
+											
+											{% if(author['twitter_url'] != '') %}
+											<ul class="list-inline navbar-left authortwitter">
+												<li class="no-padding">
+													<a href="https://twitter.com/{{author['twitter_url']}}" class="twitter-follow-button" data-show-count="true"></a>
+												</li>
+											</ul><div class="clearfix"></div>
+											{% endif %}
+									</div>
+								<div class="clearfix"></div>
+							</div>
+						{% endif %}
+
+
+						<div class="view_on_app text-right" style="display:none">See In App</div>
 				</div>
 			</div>
 		</div>
