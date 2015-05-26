@@ -4,6 +4,7 @@ namespace WH\Core;
 use Phalcon\Mvc\Controller;
 use WH\Api\Params;
 use WH\Model\Util\WhMongo;
+use WH\Model\Core\Constants as C;
 
 class BaseController extends Controller{
 	public $api_end_point;
@@ -187,6 +188,12 @@ class BaseController extends Controller{
 		$Search->setParam('byType',$bytype);
 		$Search->setParam('bysort',Params::getSort(2));
 		$Search->setParam('byLocation',$location);
+
+		if($keyword == ''){
+			$Search->setRealTime(C::getWHConfig('realtime'));
+			
+		}
+		
 		
 		$Search->setParam('mm',3);
 		$Search->setSolrType('search');

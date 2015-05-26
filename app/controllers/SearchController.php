@@ -120,8 +120,9 @@ class SearchController extends BaseController{
 		}else{
 			$this->tag->setTitle('Search | '.$this->config->application->SiteName);
 		}
-		$this->view->meta_description = $searchkeyword;
+		$this->view->meta_description = 'Find all information related to '.$searchkeyword.' at '.$this->config->application->SiteName;
 		$this->view->meta_keywords = $searchkeyword;
+		$this->view->deep_link = 'timescity://ty=s&qu'.$searchkeyword;
 		/* ======= Seo Update ============= */
 		
     }
