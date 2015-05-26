@@ -44,7 +44,7 @@
 		
 		{% if(controllername == 'search') %}
 			<div class="searchbtn searchpage float-right active">
-				<a href="{{baseUrl}}/{{currentCity}}"><div class="madewidth active"><img src="{{baseUrl}}/img/search_close.png" alt="Go to Home"></div></a>
+				<a href="{{baseUrl}}/{{currentCity}}"><div class="madewidth active"><div class="searchclose"></div></div></a>
 			</div>
 		{% else %}
 				<div class="searchbtn  float-right">
