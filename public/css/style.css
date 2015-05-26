@@ -1795,7 +1795,7 @@ h3.tags {
 .sharesmall .fb-icon:hover, .share .fb-icon:hover{
     background-position:-71px -30px; 
 }
-.sharesmall .google-icon, .share .google-icon:hover{
+.sharesmall .google-icon:hover, .share .google-icon:hover{
     background-position:-71px -61px; 
 }
 .twitter > a {

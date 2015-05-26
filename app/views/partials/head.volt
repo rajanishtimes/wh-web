@@ -141,8 +141,22 @@
 		<?php if($isappclose == 0){ ?>
 		<script>
 			(function(){
-				
-				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				var isiOS = navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
+	            var isAndroid = navigator.userAgent.match('Android');
+
+	            {% if(isdeep_link == true) %}
+					if (isiOS) {
+						document.getElementById('loader').src = "{{deep_link}}";
+					}else if (isAndroid) {
+						window.location = "{{deep_link}}";
+					}
+	            {% endif %}
+	            
+	            window.setTimeout(function (){
+					setheader();
+				}, 1);
+
+				/*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 					
 					{% if(isdeep_link == true) %}
 						document.getElementById('loader').src = '{{deep_link}}';
@@ -155,7 +169,7 @@
 							//window.location.replace(fallbackLink);
 							setheader();
 					}, 1);
-				}
+				}*/
 			})();			
 		</script>
 		<?php } ?>
