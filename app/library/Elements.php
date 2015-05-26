@@ -56,7 +56,7 @@ class Elements extends Component
                 echo '</li>';
             }
             if($position == 'navbar-right')
-            echo '<li><a href="'.$url.'/'.$city.'/feed">RSS</li>';
+            echo '<li><a href="'.$url.'/'.$city.'/feed">RSS</a></li>';
             echo '</ul>';
         }
 
