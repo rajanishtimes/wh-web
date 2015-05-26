@@ -309,7 +309,7 @@ function send_deeplink(){
 function setheader(){
 	var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
 	isAndroid = navigator.userAgent.match('Android');
-	alert(isiOS +' and '+ isAndroid);
+
 	if(isiOS){
 		$('#iphone').css('display', 'block');
 		$('#android').css('display', 'none');
@@ -319,7 +319,6 @@ function setheader(){
 	}
 
 	if (isiOS || isAndroid) {
-		alert('asfd');
 		$('#installer').css('display', 'block');
 		$('#navbar-fixed-top').css('top', 60);
 
