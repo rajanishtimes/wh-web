@@ -52,7 +52,8 @@ class SearchController extends BaseController{
 				'tags'=>$tags,
 				'bydate'=>$bydate,
 				'parentid'=>$parentid,
-				'city' => $city
+				'city' => $city,
+				'cityshown' =>$this->cityshown($city)
 				)
 			);
 			
@@ -110,7 +111,8 @@ class SearchController extends BaseController{
 				'searchkeyword'=>$searchkeyword,
 				'start'=>$limit,
 				'limit'=>$limit,
-				'breadcrumbs'=>$breadcrumbs
+				'breadcrumbs'=>$breadcrumbs,
+				'cityshown' =>$this->cityshown($this->currentCity)
 				)
 			);
 			
@@ -155,7 +157,8 @@ class SearchController extends BaseController{
 				'tags'=>$tags,
 				'bydate'=>$bydate,
 				'parentid'=>$parentid,
-				'cities'=>$cities
+				'cities'=>$cities,
+				'cityshown' =>$this->cityshown($cities)
 				)
 			);
     }

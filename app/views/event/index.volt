@@ -18,7 +18,7 @@
 					<h1 class="contenttitle text-center">{{eventdetail['title'] | stripslashes}}</h1>
 					<div class="eventdetail">
 						<div class="time">{{eventdetail['time']['short']}}, {{eventdetail['time']['long']}}</div>
-						<div class="venue"><a href="{{baseUrl}}{{eventdetail['venue']['url']}}">{{eventdetail['venue']['name']}}, {{eventdetail['venue']['formatted_address']}}</a></div>
+						<div class="venue"><a href="{{baseUrl}}{{eventdetail['venue']['url']}}" data-ga-cat="Venue Link Click on Event Detail - {{cityshown}}" data-ga-action="{{eventdetail['venue']['name']}}" data-ga-label="venue">{{eventdetail['venue']['name']}}, {{eventdetail['venue']['formatted_address']}}</a></div>
 					</div>
 					<div class="sharesmall">
 						<ul class="list-inline text-center">
@@ -46,8 +46,8 @@
 							<div class="work-content">
 								<ul class="work-category-wrap tagsblack">
 									<?php $populartags =$eventdetail['tags'];?>								
-									{% for populartag in populartags %}
-										<li class="filter" ><a href="{{baseUrl}}/{{currentCity}}/tag/{{elements.create_slug(populartag)}}">
+									{% for key, populartag in populartags %}
+										<li class="filter" ><a href="{{baseUrl}}/{{currentCity}}/tag/{{elements.create_slug(populartag)}}" data-ga-cat="Tag Link Click on Event Detail - {{cityshown}}" data-ga-action="{{populartag}} | Event" data-ga-label="tag_event_detail_pos_{{key+1}}">
 										{{populartag}}
 										</a></li>
 									{% endfor  %}

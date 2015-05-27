@@ -9,7 +9,7 @@
 					</div><div class="clearfix"></div>
 					<div class="work-content allfeeds">
 						<div id="getallfeeds">					
-							{{feeds.getfeeds(baseUrl, allfeedslist, start)}}
+							{{feeds.getfeeds(baseUrl, allfeedslist, start, cityshown)}}
 						</div><div class="clearfix"></div>
 						<div class="loadmore">
 							<?php if($allfeedslist['meta']['match_count'] > ($limit)){ ?>

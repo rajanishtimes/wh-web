@@ -49,7 +49,8 @@ class TagController extends BaseController{
 				'tags'=>$tags,
 				'start'=>$limit,
 				'limit'=>$limit,
-				'breadcrumbs'=>$breadcrumbs
+				'breadcrumbs'=>$breadcrumbs,
+				'cityshown' =>$cityshown
 				)
 			);
 			

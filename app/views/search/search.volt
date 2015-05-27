@@ -28,7 +28,7 @@
 								{% endif %}
 							{% endif %}
 							
-							{{feeds.getfeedslist(baseUrl, allfeedslist)}}
+							{{feeds.getfeedslist(baseUrl, allfeedslist, cityshown)}}
 						</ul><div class="clearfix"></div>
 						<div class="loadmore">
 							<?php if($allfeedslist['meta']['match_count'] > ($limit)){ ?>

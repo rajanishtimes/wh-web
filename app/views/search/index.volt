@@ -1,6 +1,6 @@
 <?php if(!empty($allfeedslist['results'])){ ?>
 	<?php //echo "<pre>"; print_r($allfeedslist);?>
-	{{feeds.getfeeds(baseUrl, allfeedslist, start)}}
+	{{feeds.getfeeds(baseUrl, allfeedslist, start, cityshown)}}
 <-!-###@###->
 
 <?php if($allfeedslist['meta']['match_count'] > ($start)){ ?>

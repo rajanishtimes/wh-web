@@ -10,15 +10,21 @@ use Phalcon\Mvc\User\Component;
  
 class Feeds extends Component
 {	
-    public function getfeeds($url, $data, $start)
+    public function getfeeds($url, $data, $start, $city='')
     {	$i = 1;
 		foreach($data['results'] as $feed){
+			
+			if(isset($feed['filter_type']) && $feed['filter_type'] == 'tags'){
+				$gaattr = 'data-ga-cat="Entity Link Click on Tag Pages - '.$city.'" data-ga-action="Title | '.$feed['title'].'" data-ga-label="tag_results_pos_'. $i .'"';
+			}else{
+				$gaattr = 'data-ga-cat="Your Feed - '.$city.'" data-ga-action="Entity Type | '.$feed['title'].'" data-ga-label="feed_pos_'. $i .'"';
+			}
 			?>
 			<?php if($i%9 != 0){ ?>
 				<?php if(strtolower($feed['label']) != 'sponsored'){ ?>
 				<div class="col-sm-4 col-md-3 col-xs-6">
 					<div class="work-item feeds-data">
-						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-ga-label="pos_<?php echo $i; ?>">
+						<a href="<?php echo $url . $feed['url']; ?>" <?php echo $gaattr;?>>
 							<div class="hover-container">
 								<div class="hover-wrap">
 									<i class="glyphicon glyphicon-plus bino"></i>
@@ -26,7 +32,7 @@ class Feeds extends Component
 								<?php echo $this->getimage($url, $feed['image']['uri'], 479, 479, $feed['title'], $feed['image'], '', '', $start+$i); ?>
 							</div>
 						</a>
-						<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-ga-label="pos_<?php echo $i; ?>">
+						<a href="<?php echo $url . $feed['url']; ?>" <?php echo $gaattr;?>>
 							<div class="the-box no-margin no-border">
 								<div class="feed-title"><?php echo $this->process_title($feed['title']); ?></div>
 								<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
@@ -44,7 +50,7 @@ class Feeds extends Component
 				<?php }else{ ?>
 					<div class="col-sm-4 col-md-3 col-xs-6">
 						<div class="work-item feeds-data">
-							<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-ga-label="pos_<?php echo $i; ?>">
+							<a href="<?php echo $url . $feed['url']; ?>" <?php echo $gaattr;?>>
 								<div class="hover-container">
 									<div class="hover-wrap">
 										<i class="glyphicon glyphicon-plus bino"></i>
@@ -53,7 +59,7 @@ class Feeds extends Component
 									<div class="sponsors"><?php echo $feed['label'];?></div>
 								</div>
 							</a>
-							<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-ga-label="pos_<?php echo $i; ?>">
+							<a href="<?php echo $url . $feed['url']; ?>"  <?php echo $gaattr;?>>
 								<div class="the-box no-margin no-border">
 									<div class="feed-title"><?php echo $this->process_title($feed['title']); ?></div>
 									<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
@@ -86,7 +92,7 @@ class Feeds extends Component
 			}else{
 			?>
 				<div class="col-sm-4 col-md-6 col-xs-12">
-					<a href="<?php echo $url . $feed['url']; ?>" data-ga-cat="feed" data-ga-action="<?php echo $url . $feed['url']; ?>" data-ga-label="pos_<?php echo $i; ?>">
+					<a href="<?php echo $url . $feed['url']; ?>"  <?php echo $gaattr;?>>
 						<div class="work-item withmask">
 							<div class="the-box full no-border transparent no-margin make-up">
 								<p class="feed-name"><?php echo stripslashes($feed['title']); ?></p>
@@ -157,15 +163,15 @@ class Feeds extends Component
     }
 	
 	
-	public function getfeedslist($baseUrl, $data)
+	public function getfeedslist($baseUrl, $data, $city)
     {		
 		foreach($data['results'] as $i=>$feed){
 			if(strtolower($feed['label']) != 'sponsored'){?>
 			<li class="media searchlist">
-				<a class="pull-left" href="<?php echo $baseUrl . $feed['url']; ?>" data-ga-cat="search" data-ga-action="<?php echo $baseUrl . $feed['url']; ?>" data-ga-label="pos_<?php echo $i+1; ?>">
+				<a class="pull-left" href="<?php echo $baseUrl . $feed['url']; ?>" data-ga-cat="Entity Link Click on Search Pages - <?php echo $city;?>" data-ga-action="Title | <?php echo $feed['title']; ?>" data-ga-label="search_results_pos_<?php echo $i+1; ?>">
 					<?php echo $this->getimage($baseUrl, $feed['image']['uri'], 80, 80, $feed['title'], $feed['image'], '', '', $i); ?>
 				</a>
-				<a class="pull-left width100" href="<?php echo $baseUrl . $feed['url']; ?>" data-ga-cat="search" data-ga-action="<?php echo $baseUrl . $feed['url']; ?>" data-ga-label="pos_<?php echo $i+1; ?>">
+				<a class="pull-left width100" href="<?php echo $baseUrl . $feed['url']; ?>" data-ga-cat="Entity Link Click on Search Pages - <?php echo $city;?>" data-ga-action="Title | <?php echo $feed['title']; ?>" data-ga-label="search_results_pos_<?php echo $i+1; ?>">
 					<div class="media-body">
 						<h4 class="media-heading">
 							<?php echo $feed['title']; ?>

@@ -5,9 +5,9 @@
 			<div class="col-sm-12 col-md-12 no-padding">
 				{% if(tagsfeeds | length > 0) %}
 					<h1 class="searchheading">{{tagsfeeds['meta']['match_count']}} result(s) found from &#8220; <strong><?php echo $tags; ?></strong> &#8221;</h1>
-					<div class="row resize work-content allfeeds">
+					<div class="resize work-content allfeeds">
 						<div id="getallfeedssearch">					
-							{{feeds.getfeeds(baseUrl, tagsfeeds, start)}}
+							{{feeds.getfeeds(baseUrl, tagsfeeds, start, cityshown)}}
 						</div><div class="clearfix"></div>
 						<div class="loadmore">
 							<?php if($tagsfeeds['meta']['match_count'] > ($limit)){ ?>

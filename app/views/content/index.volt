@@ -18,7 +18,7 @@
 					<h1 class="contenttitle text-center">{{contentdetail['title'] | stripslashes}}</h1>
 					<div class="contentdetail text-center">
 						{% if(author['title'] != '') %}
-							By <a href="{{baseUrl}}{{author['url']}}">{{author['title'] | stripslashes}}</a>
+							By <a href="{{baseUrl}}{{author['url']}}" data-ga-cat="Author Link Click on Content Detail - {{cityshown}}" data-ga-action="{{author['title'] | stripslashes | trim}}" data-ga-label="author">{{author['title'] | stripslashes}}</a>
 						{% endif %}
 					</div>
 					<div class="sharesmall">
@@ -48,7 +48,7 @@
 									<ul class="work-category-wrap tagsblack">
 										<?php $populartags =$contentdetail['tags'];?>								
 										{% for populartag in populartags %}
-											<li class="filter" ><a href="{{baseUrl}}/{{currentCity}}/tag/{{elements.create_slug(populartag)}}">
+											<li class="filter" ><a href="{{baseUrl}}/{{currentCity}}/tag/{{elements.create_slug(populartag)}}" data-ga-cat="Tag Link Click on Content Detail - {{cityshown}}" data-ga-action="{{populartag}} | Content" data-ga-label="tag_content_detail_pos_{{key+1}}">
 											{{populartag}}
 											</a></li>
 										{% endfor  %}

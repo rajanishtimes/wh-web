@@ -240,7 +240,14 @@ class BaseController extends Controller{
 				//$entityresult['results'][$key]['slug'] = $this->create_slug($entity['title']).'-'.str_replace('_', '-', strtolower($entity['id']));
 			}
 		}
-		
+
+		if($filter_type=='tags'){
+			foreach($entityresult['results'] as $key=>$entity){
+				$entityresult['results'][$key]['filter_type'] ='tags';
+			}	
+		}
+
+		//echo "<pre>"; print_r($entityresult); exit;
 		return $entityresult;
 	}
 	
