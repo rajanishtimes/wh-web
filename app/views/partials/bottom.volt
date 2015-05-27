@@ -11,9 +11,9 @@
 		
         <?php if($isappclose == 0){ ?>
         <script>
-            {% if(isdeep_link == true) %}
+            
                 setheader();
-            {% endif %}
+            
 
             
                 /*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {

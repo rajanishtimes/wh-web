@@ -10,7 +10,7 @@
 						{% if(topfeed['label'] | lower != 'sponsored') %}
 							<div class="col-sm-6 col-md-4 col-xs-6">
 									<div class="work-item topthing">
-										<a href="{{baseUrl}}{{topfeed['url']}}" data-ga-cat="Top 3 Events {{cityshown}} Home" data-ga-action="{{topfeed['title'] | stripslashes}}" data-in-label="top_3_eve_pos_{{key+1}}">
+										<a href="{{baseUrl}}{{topfeed['url']}}" data-ga-cat="Top 3 Events {{cityshown}} Home" data-ga-action="{{topfeed['title'] | stripslashes}}" data-ga-label="top_3_eve_pos_{{key+1}}">
 										<div class="the-box full no-border transparent no-margin make-up">
 											<p class="feed-name">{{topfeed['title'] | stripslashes}}</p>
 										</div>

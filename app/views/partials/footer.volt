@@ -100,7 +100,11 @@
 				
 			</div>
 			<div class="col-sm-4 text-right">
-				{{ elements.getMenu(baseUrl, city) }}&nbsp;&nbsp;<div class="view_on_app text-left" style="display:none">See In App</div><br>
+				{{ elements.getMenu(baseUrl, city) }}
+				
+				{% if(isdeep_link == true) %}
+					&nbsp;&nbsp;<div class="view_on_app text-left" style="display:none">See In App</div><br>
+				{% endif %}
 			</div><!-- /.col-sm-7 -->
 		</div><!-- /.row -->
 	</div><!-- /.container -->
