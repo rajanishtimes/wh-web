@@ -168,14 +168,14 @@ class BaseController extends Controller{
 	}
 	
 	protected function create_slug($string){
-		$slug=str_replace(' ', '-', trim($string));
-		$slug2=urlencode($slug);
+		//$slug=str_replace(' ', '-', trim($string));
+		$slug2=urlencode(trim($string));
 		return $slug2;
 	}
 
 	protected function create_title($string){
-		$slug = urldecode(trim($string));
-		$slug2 = str_replace('-', ' ', $slug);
+		$slug2 = urldecode(trim($string));
+		//$slug2 = str_replace('-', ' ', $slug);
 		return $slug2;
 	}
 	
