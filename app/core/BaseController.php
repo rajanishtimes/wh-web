@@ -213,14 +213,18 @@ class BaseController extends Controller{
 		}
 		
 		
-			if(isSet($keyword) && $keyword!='')
-				$sort_by=1;
-			else{
-				if(isSet($bydays) && strtolower($bydays) != 'all' )
-					$sort_by=4;
-				else
-					$sort_by=2;
-			}
+		if(isSet($keyword) && $keyword!='')
+			$sort_by=1;
+		else{
+			if(isSet($bydays) && strtolower($bydays) != 'all' )
+				$sort_by=4;
+			else
+				$sort_by=2;
+		}
+
+		if($filter_type=='tags')
+			$sort_by=2;
+
 		
 		$Search->setParam('bysort',$sort_by);
 		$Search->setSearchEntity();
