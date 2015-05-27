@@ -70,6 +70,8 @@
 				<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 			{% endif  %}
 		{% endif  %}
+
+		<link rel='alternate' type='application/rss+xml' title='RSS' href='{{baseUrl}}/{{city}}/feed'>
 		
 		{{ get_title() }}
 		

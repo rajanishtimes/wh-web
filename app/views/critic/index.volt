@@ -68,7 +68,9 @@
 							
 							{% if(author['twitter_url'] != '') %}
 							<ul class="list-inline navbar-left authortwitter">
-								<li class="no-padding"><a target="_blank" href="http://twitter.com/{{author['twitter_url']}}"><i class="fa fa-twitter"></i> <span>{{author['user_name']}} </span></a></li>
+								<li class="no-padding">
+									<a href="https://twitter.com/{{author['twitter_url']}}" class="twitter-follow-button" data-show-count="true"></a>
+								</li>
 							</ul><div class="clearfix"></div>
 							{% endif %}
 						</div>

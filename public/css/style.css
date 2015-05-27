@@ -1205,7 +1205,7 @@ footer .social_icon {
 .iphone_app {
     background: rgba(0, 0, 0, 0) url("../img/ios_Appstore_bnt.png") no-repeat scroll 0 0;
     height: 42px;
-    width: 126px;
+    width: 130px;
 }
 .iphone_app:hover {
     background: rgba(0, 0, 0, 0) url("../img/ios_Appstore_bnt_hover.png") no-repeat scroll 0 0;
