@@ -96,4 +96,20 @@ class Elements extends Component
 		//$slug2 = str_replace('-', ' ', $slug);
 		return $slug2;
 	}
+
+	public function auto_version($file, $ROOT=false){
+
+		if(!$ROOT){
+			$ROOT = APP_PATH . 'public';
+		}
+
+		if(strpos($file, '/') !== 0 || !file_exists( $ROOT . $file)){
+			return $file;
+		}
+		
+		$mtime = filemtime($ROOT . $file);
+		$mtime = floor($mtime / 100) ;
+		return preg_replace('{\\.([^./]+)$}', ".$mtime.\$1", $file);
+	}
+
 }

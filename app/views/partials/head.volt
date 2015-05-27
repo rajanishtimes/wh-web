@@ -75,17 +75,14 @@
 		
 		{{ get_title() }}
 		
-		{% if(isdebug == 'debug') %}
-			<?php $time = '?'.time();?>
-		{% else %}
-			<?php $time = '';?>
-		{% endif %}
+		
 		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/bootstrap.min.css" />
 		<!-- MAIN CSS (REQUIRED ALL PAGE)-->
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/font-awesome/css/font-awesome.min.css" />
-		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/style.css{{time}}" />
-		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/style-responsive.css{{time}}" />
+
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}{{elements.auto_version('/css/style.css')}}" />
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}{{elements.auto_version('/css/style-responsive.css')}}" />
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/owl-carousel/owl.carousel.css" />
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/owl-carousel/owl.theme.css" />
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/swipebox/src/css/swipebox.css" />
