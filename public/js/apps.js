@@ -289,7 +289,8 @@ function closebanner(){
 }
 
 function send_deeplink(){
-	var isiOS = navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
+	//var isiOS = navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
+	var isiOS = false;
     var isAndroid = navigator.userAgent.match('Android');
 	if (isiOS) {
 		document.getElementById('loader').src = server_variables.deep_link;
@@ -307,7 +308,8 @@ function send_deeplink(){
 }
 
 function setheader(){
-	var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
+	//var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
+	var isiOS = false,
 	isAndroid = navigator.userAgent.match('Android');
 
 	if(isiOS){

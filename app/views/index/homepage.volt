@@ -55,7 +55,6 @@
 					</ul>
 				</div><div class="clearfix"></div>
 			
-			
 				<div class="row work-content allfeeds">
 					<div id="getallfeeds">					
 						{{feeds.getfeeds(baseUrl, allfeedslist, start)}}
