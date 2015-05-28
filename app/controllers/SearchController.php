@@ -22,13 +22,14 @@ class SearchController extends BaseController{
 		$limit = $this->request->getPost('limit');
 		$parentid = $this->request->getPost('parentid');
 		$city = $this->request->getPost('city');
+		$fromtype = $this->request->getPost('type');
 		$this->view->entitytype = 'search';
 		
 		try{
 			if($bydate == 'Event'){
-				$allfeedslist = $this->getfeeddata($start, $limit, $city, 'all', $tags, $searchkeyword, $bydate, '', 4);
+				$allfeedslist = $this->getfeeddata($start, $limit, $city, 'all', $tags, $searchkeyword, $bydate, '', $fromtype);
 			}else{
-				$allfeedslist = $this->getfeeddata($start, $limit, $city, $bydate, $tags, $searchkeyword, 'Event,Content', '', 4);
+				$allfeedslist = $this->getfeeddata($start, $limit, $city, $bydate, $tags, $searchkeyword, 'Event,Content', '', $fromtype);
 			}
 			$this->setlogsarray('search_get_records');
 		}catch(Exception $e){
@@ -53,7 +54,8 @@ class SearchController extends BaseController{
 				'bydate'=>$bydate,
 				'parentid'=>$parentid,
 				'city' => $city,
-				'cityshown' =>$this->cityshown($city)
+				'cityshown' => $this->cityshown($city),
+				'fromtype' => $fromtype
 				)
 			);
 			
@@ -95,7 +97,7 @@ class SearchController extends BaseController{
 		$limit = 11;
 		
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, '', '', $searchkeyword);
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, '', '', $searchkeyword, '', '', 'search');
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
@@ -141,7 +143,7 @@ class SearchController extends BaseController{
 
 		
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $cities, $bydate, $tags, $searchkeyword);
+			$allfeedslist = $this->getfeeddata($start, $limit, $cities, $bydate, $tags, $searchkeyword, '', '', 'search');
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}

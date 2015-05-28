@@ -27,7 +27,7 @@ class TagController extends BaseController{
                 $tags = $this->tags;
 		$this->view->entitytype = 'tag';
 		try{
-			$tagsfeeds = $this->getfeeddata($start, $limit, $this->currentCity, 'all', 'tags', strtolower($this->tags), 'Event,Content');
+			$tagsfeeds = $this->getfeeddata($start, $limit, $this->currentCity, 'all', 'tags', strtolower($this->tags), 'Event,Content', '', 'tag');
 			$this->setlogsarray('tag_get_records');
 		}catch(Exception $e){
 			$tagsfeeds = array();

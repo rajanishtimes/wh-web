@@ -57,11 +57,11 @@
 			
 				<div class="row work-content allfeeds">
 					<div id="getallfeeds">					
-						{{feeds.getfeeds(baseUrl, allfeedslist, start, cityshown)}}
+						{{feeds.getfeeds(baseUrl, allfeedslist, start, cityshown, 'feed')}}
 					</div><div class="clearfix"></div>
 					<div class="loadmore">
 						<?php if($allfeedslist['meta']['match_count'] > ($limit)){ ?>
-							<div class="btn btn-primary" onclick="view_feed_with_ajax('{{currentCity}}', '{{baseUrl}}/search/index', '{{start}}', '{{limit}}', 'getallfeeds', '', '', 'all')">Load More</div>
+							<div class="btn btn-primary" onclick="view_feed_with_ajax('{{currentCity}}', '{{baseUrl}}/search/index', '{{start}}', '{{limit}}', 'getallfeeds', '', '', 'all', 'feed')">Load More</div>
 						<?php }?>
 					</div>
 				</div>

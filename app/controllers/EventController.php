@@ -101,7 +101,7 @@ class EventController extends BaseController{
 		
 		$cityshown = $this->cityshown($this->currentCity);
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, 'all', '', '', 'Event');
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, 'all', '', '', 'Event', '', 'event');
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}

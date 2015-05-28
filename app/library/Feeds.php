@@ -10,8 +10,8 @@ use Phalcon\Mvc\User\Component;
  
 class Feeds extends Component
 {	
-    public function getfeeds($url, $data, $start, $city='')
-    {	$i = 1;
+    public function getfeeds($url, $data, $start, $city='', $type=''){
+    	$i = 1;
 		foreach($data['results'] as $feed){
 			
 			if(isset($feed['filter_type']) && $feed['filter_type'] == 'tags'){
@@ -48,6 +48,7 @@ class Feeds extends Component
 					</div>
 				</div>
 				<?php }else{ ?>
+					<?php if($type == 'feed'){ ?>
 					<div class="col-sm-4 col-md-3 col-xs-6">
 						<div class="work-item feeds-data">
 							<a href="<?php echo $url . $feed['url']; ?>" <?php echo $gaattr;?>>
@@ -87,7 +88,7 @@ class Feeds extends Component
 							</div>
 						</a>
 					</div>-->
-				<?php } ?>
+				<?php }} ?>
 			<?php
 			}else{
 			?>

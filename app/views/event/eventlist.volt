@@ -7,13 +7,13 @@
 					<div class="col-sm-6 col-md-6 col-xs-12 no-padding">
 						<h1 class="yfeeds">Events in {{cityshown}} </h1>
 					</div><div class="clearfix"></div>
-					<div class="work-content allfeeds">
+					<div class="row work-content allfeeds">
 						<div id="getallfeeds">					
-							{{feeds.getfeeds(baseUrl, allfeedslist, start, cityshown)}}
+							{{feeds.getfeeds(baseUrl, allfeedslist, start, cityshown, 'event')}}
 						</div><div class="clearfix"></div>
 						<div class="loadmore">
 							<?php if($allfeedslist['meta']['match_count'] > ($limit)){ ?>
-								<div class="btn btn-primary" onclick="view_feed_with_ajax('{{currentCity}}','{{baseUrl}}/search/index', '{{start}}', '{{limit}}', 'getallfeeds', '', '', 'Event')">Load More</div>
+								<div class="btn btn-primary" onclick="view_feed_with_ajax('{{currentCity}}','{{baseUrl}}/search/index', '{{start}}', '{{limit}}', 'getallfeeds', '', '', 'Event', 'event')">Load More</div>
 							<?php }?>
 						</div>
 					</div>

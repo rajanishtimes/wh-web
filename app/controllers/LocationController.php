@@ -20,11 +20,12 @@ class LocationController extends BaseController{
 		$bydate = ucwords(strtolower($this->request->getPost('bydate')));
 		$start = $this->request->getPost('start');
 		$limit = $this->request->getPost('limit');
-		$parentid = $this->request->getPost('parentid');	
+		$parentid = $this->request->getPost('parentid');
+		$fromtype = $this->request->getPost('type');	
 		$this->view->entitytype = 'location';
 		
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword);
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword, '', '', $fromtype);
 			$this->setlogsarray('location_get_records');
 		}catch(Exception $e){
 			$allfeedslist = array();
@@ -76,7 +77,7 @@ class LocationController extends BaseController{
 		$limit = 11;
 		
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, '', '', '', '', $searchkeyword);
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, '', '', '', '', $searchkeyword, 'location');
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
@@ -115,9 +116,10 @@ class LocationController extends BaseController{
 		$limit = $this->request->getPost('limit');
 		$parentid = $this->request->getPost('parentid');
 		$cities = $this->request->getPost('city');
+		$fromtype = $this->request->getPost('type');
 
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $cities, $bydate, $tags, $searchkeyword);
+			$allfeedslist = $this->getfeeddata($start, $limit, $cities, $bydate, $tags, $searchkeyword, '', '', $fromtype);
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
@@ -132,7 +134,8 @@ class LocationController extends BaseController{
 				'tags'=>$tags,
 				'bydate'=>$bydate,
 				'parentid'=>$parentid,
-				'cities'=>$cities
+				'cities'=>$cities,
+				'type' => $fromtype
 				)
 			);
     }
