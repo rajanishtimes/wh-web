@@ -179,7 +179,7 @@ function DOMReady(){
 	var milliseconds = new Date().getTime();
 	$.ajax({
 		url:baseUrl+'/log/index/'+milliseconds,
-		type:'POST',
+		type:'GET',
 		data:'entitytype='+server_variables.entitytype+'&entityid='+server_variables.entityid+'&request_uri='+server_variables.request_uri,
 		success:function(data) {
 		}

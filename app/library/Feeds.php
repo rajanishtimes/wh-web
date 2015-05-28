@@ -48,7 +48,7 @@ class Feeds extends Component
 					</div>
 				</div>
 				<?php }else{ ?>
-					<?php if($type == 'feed'){ ?>
+					<?php if($type == 'feed' || strtolower($feed['type']) == 'event'){ ?>
 					<div class="col-sm-4 col-md-3 col-xs-6">
 						<div class="work-item feeds-data">
 							<a href="<?php echo $url . $feed['url']; ?>" <?php echo $gaattr;?>>
