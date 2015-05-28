@@ -3560,3 +3560,16 @@ iframe {
     color: #d2186b;
     margin: 0 0 0 -10px;
 }
+
+.info-content h2{
+    color: #333333;
+    font-family: "Lora-Bold",times new roman,times,sans-serif;
+    font-size: 20px;
+    line-height: 35px;
+    margin-bottom: 18px;
+    margin-top: 18px;    
+}
+
+.info-content li p {
+    color:#333;
+}
