@@ -226,6 +226,7 @@ class BaseController extends Controller{
 
 		
 		$Search->setParam('bysort',$sort_by);
+		//echo "<pre>"; print_r($Search); exit;
 		$Search->setSearchEntity();
 		$entityresult = $Search->getSearchResults();
 			
@@ -427,7 +428,7 @@ class BaseController extends Controller{
 	}
 	
 	public function cityshown($city){
-		if($this->currentCity == 'delhi-ncr')
+		if($city == 'delhi-ncr')
 			$cityshown = 'Delhi NCR';
 		else
 			$cityshown = ucwords($city);

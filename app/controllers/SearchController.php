@@ -13,7 +13,6 @@ class SearchController extends BaseController{
     }
 	
 	public function indexAction(){
-		$this->response->setHeader('Cache-Control', 'max-age=900');
 		$mainurl = $this->request->getPost('mainurl');
 		$searchkeyword = $this->create_title($this->request->getPost('searchkeyword'));
 		$tags = $this->request->getPost('tags');
