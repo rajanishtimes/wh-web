@@ -42,7 +42,7 @@
 							</ul><div class="clearfix"></div>
 						</div>
 
-						<div class="share">
+						<div class="share sharewithborder">
 							{% if(contentdetail['tags'] | length > 0) %}
 								<div class="work-content">
 									<ul class="work-category-wrap tagsblack">

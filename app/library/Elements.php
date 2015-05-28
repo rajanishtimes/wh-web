@@ -62,7 +62,7 @@ class Elements extends Component
 
     }
 	
-	public function getStaticpages($url)
+	public function getStaticpages($url, $city)
     {
 		$actionName = $this->view->getActionName();
 		echo "<ul class='list'>";
@@ -75,6 +75,7 @@ class Elements extends Component
 			echo '<a href="'.$url.'/'.$option['action'].'">'.$option['caption'].'</a>';
 			echo '</li>';
 		}
+		echo '<li><a href="'.$url.'/'.$city.'/feed">RSS</a></li>';
 		echo '</ul>';
 
     }

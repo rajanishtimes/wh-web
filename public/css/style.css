@@ -1192,7 +1192,7 @@ footer .social_icon {
 }
 .app_option {
     height: 48px;
-    margin: 40px 0;
+    margin: 52px 0;
 }
 .android_app {
     background: rgba(0, 0, 0, 0) url("../img/android_playstore_btn.png") no-repeat scroll 0 0;
@@ -1208,7 +1208,10 @@ footer .social_icon {
     width: 130px;
 }
 .iphone_app:hover {
-    background: rgba(0, 0, 0, 0) url("../img/ios_Appstore_bnt_hover.png") no-repeat scroll 0 0;
+    /*background: rgba(0, 0, 0, 0) url("../img/ios_Appstore_bnt_hover.png") no-repeat scroll 0 0;*/
+}
+.lineheight {
+    margin-top: 3px;
 }
 #back-top {
     background: #d11a6d none repeat scroll 0 0;
@@ -1703,7 +1706,6 @@ a.bg-dark:hover {
 .media.searchlist:hover {
     background: #fff none repeat scroll 0 0;
     border: 1px solid #fabecd;
-    margin-top: -1px;
 }
 .tt-query {
     height: 40px;
@@ -1773,9 +1775,11 @@ h3.tags {
     font-family: arial;
 }
 .share {
-    border-bottom: 1px solid rgb(238, 238, 238);
     color: #ababab;
     padding: 26px 62px;
+}
+.sharewithborder {
+    border-bottom: 1px solid rgb(238, 238, 238);
 }
 .share ul {
     margin: 0;

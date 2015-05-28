@@ -18,7 +18,12 @@
 			
 			<div class="col-xs-12 col-sm-6 col-md-3">
 				<h2 class="footerstyle">COMPANY</h2>
-				{{ elements.getStaticpages(baseUrl) }}
+				{{ elements.getStaticpages(baseUrl, city) }}
+
+				{% if(isdeep_link == true) %}
+					&nbsp;&nbsp;<li class="view_on_app text-left" style="display:none">See In App</li>
+				{% endif %}
+
 			</div>
 			
 			<div class="col-xs-12 col-sm-6 col-md-3">
@@ -64,7 +69,7 @@
 				<div class="setbottom">
 					<div class="app_option">
 						<a href="https://itunes.apple.com/in/app/timescity-food-restaurant/id636515332?mt=8"><div class="iphone_app float-right"></div></a>&nbsp;&nbsp;
-						<a href="https://play.google.com/store/apps/details?id=com.phdmobi.timescity"><div class="android_app float-right"></div></a>
+						<a href="#"><div class="android_app float-right"></div></a>
 					</div>
 					<img src="{{baseUrl}}/img/mobiles.png">
 				</div>
@@ -78,10 +83,7 @@
 <div class="footer">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-4">
-				&copy; 2015 <a href="{{baseUrl}}">WhatsHot.in</a> &ndash; all rights reserved<br><br>
-			</div><!-- /.col-sm-5 -->
-			<div class="col-sm-4 text-center">
+			<div class="col-sm-6 text-left">
 				<div class="social-share-widget">
 					<div class="fb-like" data-href="https://www.whatshot.com" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 				</div>
@@ -96,16 +98,10 @@
 					<div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://www.whatshot.in"></div>
 				</div>
 				
-				<br>
-				
 			</div>
-			<div class="col-sm-4 text-right">
-				{{ elements.getMenu(baseUrl, city) }}
-				
-				{% if(isdeep_link == true) %}
-					&nbsp;&nbsp;<div class="view_on_app text-left" style="display:none">See In App</div><br>
-				{% endif %}
-			</div><!-- /.col-sm-7 -->
+			<div class="col-sm-6 text-right lineheight">
+				&copy; 2015 <a href="{{baseUrl}}">WhatsHot.in</a> &ndash; all rights reserved
+			</div><!-- /.col-sm-5 -->
 		</div><!-- /.row -->
 	</div><!-- /.container -->
 </div><!-- /.footer -->
