@@ -47,7 +47,7 @@ hr {
     font-family: "Lora-Bold",times new roman,times,sans-serif;
     font-size: 24px;
     line-height: 35px;
-    margin-bottom: 10px;
+    margin-bottom: 18px;
     margin-top: 18px;
 }
 h3 {
@@ -261,7 +261,7 @@ blockquote {
     padding: 29px;
 }
 .searchbtn a > div {
-    padding: 28px 25px;
+    padding: 28.5px 25px;
 }
 
 .searchpage a > div {
@@ -297,7 +297,6 @@ blockquote {
     text-decoration: none;
 }
 .dropdown-toggle.makeactive > span {
-    border-bottom: 2px solid #d3196b;
     font-weight: normal;
     padding: 0 10px 6px;
 }
@@ -307,13 +306,12 @@ blockquote {
     padding: 0;
 }
 .makeheaderintera .dropdown-toggle.makeactive > span {
-    border-bottom: 2px solid #fff;
     font-weight: normal;
     padding-bottom: 2px;
 }
 .makeheaderintera .nav-search.navbar-right li.dropdown > a {
     color: #fff;
-    padding: 31px 10px;
+    padding: 31px 20px 31px 10px;
 }
 .nav-search.navbar-right li.dropdown > a {
     padding: 31px 10px;
@@ -1776,7 +1774,7 @@ h3.tags {
 }
 .share {
     color: #ababab;
-    padding: 26px 62px;
+    padding: 11px 62px;
 }
 .sharewithborder {
     border-bottom: 1px solid rgb(238, 238, 238);
@@ -3404,7 +3402,7 @@ a .icon-primary, a .icon-success, a .icon-info, a .icon-danger, a .icon-warning,
     padding: 0;
 }
 .owl-carousel .item {
-    color: #fff;
+    color: transparent;
     margin: 10px;
     padding: 10px 0;
     text-align: center;
@@ -3483,7 +3481,7 @@ a .icon-primary, a .icon-success, a .icon-info, a .icon-danger, a .icon-warning,
 }
 .detail p {
     color: #333;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 .authorbio p {
     font-family: Lora-Italic;

@@ -262,7 +262,7 @@ class Feeds extends Component
 			$imgurl = $imgurl.$parts;
 			$class = 'lazy '.$class;
 			$select_color = $key%5;
-			//$style = 'background-color:'.$color[$select_color].';'.$style;
+			$style = 'background-color:'.$color[$select_color].';'.$style;
 			$style = 'background-color:#fff;'.$style;
 			$imgbox = '<img data-original="'.$imgurl.'" src="'.$url.'/img/transparent.png" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
 		}else{

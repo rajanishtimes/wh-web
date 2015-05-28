@@ -68,10 +68,10 @@
 			<div class="col-xs-12 col-sm-6 col-md-3 text-right">
 				<div class="setbottom">
 					<div class="app_option">
-						<a href="https://itunes.apple.com/in/app/timescity-food-restaurant/id636515332?mt=8"><div class="iphone_app float-right"></div></a>&nbsp;&nbsp;
-						<a href="#"><div class="android_app float-right"></div></a>
+						<a href="#"><div class="iphone_app float-right"></div></a>&nbsp;&nbsp;
+						<a href="https://play.google.com/store/apps/details?id=com.phdmobi.timescity" target="_blank"><div class="android_app float-right"></div></a>
 					</div>
-					<img src="{{baseUrl}}/img/mobiles.png">
+					<img src="{{baseUrl}}/img/footer_app.png">
 				</div>
 			</div><!-- /.col-sm-2 -->
 		</div><!-- /.row -->

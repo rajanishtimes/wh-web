@@ -16,9 +16,13 @@
 					</div>
 					<?php }?>
 					<hr class="small">
+
+					{% if(author['description'] != '') %}
 					<div class="detail text-center">
 						<div class="text-center authorbio">{{author['description']}}</div>
 					</div>
+					<hr class="small">
+					{% endif %}
 				</div>
 				
 				<?php if(!empty($profilepost)){ ?>
