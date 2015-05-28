@@ -135,6 +135,7 @@
 		{% endblock %}
 	</head>
 	<body class="tooltips no-padding">
+		<?php print_r($ua); ?>
 		<!-- iframe used for attempting to load a custom protocol -->
 		<iframe style="display:none" height="0" width="0" id="loader"></iframe>
 
