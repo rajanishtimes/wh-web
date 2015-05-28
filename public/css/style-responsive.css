@@ -312,6 +312,9 @@ PHONE < 480px
 	.resize {
 		padding: 0 10px;
 	}
+	.resize.tags {
+		padding: 0 25px;
+	}
 }
 
 /**
