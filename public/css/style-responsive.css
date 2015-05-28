@@ -312,7 +312,7 @@ PHONE < 480px
 	.resize {
 		padding: 0 10px;
 	}
-	.resize.tags {
+	.resize.feedtags {
 		padding: 0 25px;
 	}
 }
