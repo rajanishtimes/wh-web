@@ -15,7 +15,7 @@ class SearchController extends BaseController{
 	public function indexAction(){
 		$this->response->setHeader('Cache-Control', 'max-age=900');
 		$mainurl = $this->request->getPost('mainurl');
-		$searchkeyword = $this->request->getPost('searchkeyword');
+		$searchkeyword = $this->create_title($this->request->getPost('searchkeyword'));
 		$tags = $this->request->getPost('tags');
 		$bydate = ucwords(strtolower($this->request->getPost('bydate')));
 		$start = $this->request->getPost('start');
@@ -86,7 +86,7 @@ class SearchController extends BaseController{
 		$this->view->setLayout('mainLayout');
 		$searchkeyword = '';
 		if($this->dispatcher->getParam('searchquery'))
-			$searchkeyword = urldecode($this->dispatcher->getParam('searchquery'));
+			$searchkeyword = $this->create_title($this->dispatcher->getParam('searchquery'));
 		
 		$this->view->entityid = 0;
 		$this->view->entitytype = 'search';
@@ -131,7 +131,7 @@ class SearchController extends BaseController{
 	
 	public function searchlistAction(){
 		$mainurl = $this->request->getPost('mainurl');
-		$searchkeyword = $this->request->getPost('searchkeyword');
+		$searchkeyword = $this->create_title($this->request->getPost('searchkeyword'));
 		$tags = $this->request->getPost('tags');
 		$bydate = ucwords(strtolower($this->request->getPost('bydate')));
 		$start = $this->request->getPost('start');
