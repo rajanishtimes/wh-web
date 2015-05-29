@@ -21,7 +21,7 @@ class Feeds extends Component
 			}
 			?>
 			<?php if($i%9 != 0){ ?>
-				<?php if(strtolower($feed['label']) != 'sponsored'){ ?>
+				<?php if(!isset($feed['is_sponsored'])){ ?>
 				<div class="col-sm-4 col-md-3 col-xs-6">
 					<div class="work-item feeds-data">
 						<a href="<?php echo $url . $feed['url']; ?>" <?php echo $gaattr;?>>
@@ -57,7 +57,7 @@ class Feeds extends Component
 										<i class="glyphicon glyphicon-plus bino"></i>
 									</div>
 									<?php echo $this->getimage($url, $feed['image']['uri'], 479, 479, $feed['title'], $feed['image'], '', '', $start+$i); ?>
-									<div class="sponsors"><?php echo $feed['label'];?></div>
+										<div class="sponsors">Sponsored</div>
 								</div>
 							</a>
 							<a href="<?php echo $url . $feed['url']; ?>"  <?php echo $gaattr;?>>
@@ -167,7 +167,7 @@ class Feeds extends Component
 	public function getfeedslist($baseUrl, $data, $city)
     {		
 		foreach($data['results'] as $i=>$feed){
-			if(strtolower($feed['label']) != 'sponsored'){?>
+			if(!isset($feed['is_sponsored'])){ ?>
 			<li class="media searchlist">
 				<a class="pull-left" href="<?php echo $baseUrl . $feed['url']; ?>" data-ga-cat="Entity Link Click on Search Pages - <?php echo $city;?>" data-ga-action="Title | <?php echo $feed['title']; ?>" data-ga-label="search_results_pos_<?php echo $i+1; ?>">
 					<?php echo $this->getimage($baseUrl, $feed['image']['uri'], 80, 80, $feed['title'], $feed['image'], '', '', $i); ?>
