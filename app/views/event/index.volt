@@ -9,7 +9,7 @@
 						{% for key, images in eventdetail['images'] %}
 							<li class="item">
 								<a href="{{feeds.makeurl(baseUrl, images['uri'])}}" class="swipebox" title="{{eventdetail['title']}}">
-									{{feeds.getimage(baseUrl, images['uri'], 880, 880, eventdetail['title'], '', '', 'img-detail', '', '', key+1)}} 
+									{{feeds.getimage(baseUrl, images['uri'], 880, 320, eventdetail['title'], '', '', 'img-detail', key+1, 'banner')}} 
 								</a>
 							</li>
 						{% endfor  %}

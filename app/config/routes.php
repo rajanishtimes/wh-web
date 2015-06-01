@@ -146,6 +146,13 @@ $router->add("/about-us", array(
     'action' => 'aboutus',
 ));
 
+$router->add("/why-timescity-changed-to-whats-hot", array(
+    'controller' => 'index',
+    'action' => 'whytimescity',
+));
+
+
+
 $router->add("/search", array(
     'controller' => 'search',
     'action' => 'search',

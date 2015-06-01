@@ -223,7 +223,7 @@ class Feeds extends Component
 	}
 	
 	
-	public function getimage($url, $image_url, $width, $height, $alt, $dimension='', $style='', $class='', $key=0){
+	public function getimage($url, $image_url, $width, $height, $alt, $dimension='', $style='', $class='', $key=0, $type=''){
 		$color = array('#fffae0', '#ffdddd', '#ddfcff', '#ffdef5', '#deffe4');
 		if($image_url){
 			$pos = strpos($image_url, 'http');
@@ -232,15 +232,23 @@ class Feeds extends Component
 			}else{
 				$imgurl = $this->getimageendpoint().$image_url;
 			}
+
+
+			if($type == 'banner'){
+				$disdim = '&ca=1&cf=n&q=75';
+			}else{
+				$disdim = '&cc=1&q=75';
+			}
+			
 			
 			if(isset($dimension['x']) && isset($dimension['y'])){
 				if($dimension['x'] == 0 && $dimension['y'] == 0){
-					$parts = '?w='.$width.'&h='.$height.'&cc=1&q=75';
+					$parts = '?w='.$width.'&h='.$height.$disdim;
 				}else{
-					$parts = '?x='.$dimension['x'].'&y='.$dimension['y'].'&w='.$width.'&h='.$height.'&c=1&q=75';
+					$parts = '?x='.$dimension['x'].'&y='.$dimension['y'].'&w='.$width.'&h='.$height.$disdim;
 				}
 			}else{
-				$parts = '?w='.$width.'&h='.$height.'&cc=1&q=75';
+				$parts = '?w='.$width.'&h='.$height.$disdim;
 			}
 			
 			

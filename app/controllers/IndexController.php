@@ -41,7 +41,7 @@ class IndexController extends BaseController{
 		/* ======= Seo Update ============= */
 		
 		try{
-			$topfeeds = $this->getfeeddata(0, 3, $city, 'Today', '', '', 'Event,Content', '', 'feed');
+			$topfeeds = $this->getfeeddata(0, 3, $city, 'all', '', '', 'Event', '', 'feed');
 		}catch(Exception $e){
 			$topfeeds = array();
 		}
@@ -124,7 +124,18 @@ class IndexController extends BaseController{
 		$this->view->canonical_url = $this->baseUrl.'/'.'terms';
     }
 	
-	public function aboutusAction(){
+	public function whytimescityAction(){
+        $this->tag->setTitle('Why Timescity changed to What’s Hot');
+		$this->view->entitytype = 'Why Timescity changed to What’s Hot';
+		$this->view->meta_description = '';
+		$this->view->meta_keywords = '';
+		$this->view->og_title = 'Why Timescity changed to What’s Hot';
+		$this->view->og_description = '';
+		$this->view->og_url = $this->baseUrl.'/'.'why-timescity-changed-to-whats-hot';
+		$this->view->canonical_url = $this->baseUrl.'/'.'about-us';
+    }
+
+    public function aboutusAction(){
         $this->tag->setTitle('About Us');
 		$this->view->entitytype = 'about us';
 		$this->view->meta_description = '';
@@ -134,6 +145,7 @@ class IndexController extends BaseController{
 		$this->view->og_url = $this->baseUrl.'/'.'about-us';
 		$this->view->canonical_url = $this->baseUrl.'/'.'about-us';
     }
+
 	
 	public function unsubscribeAction(){
 		$email = base64_decode($this->dispatcher->getParam('email'));
