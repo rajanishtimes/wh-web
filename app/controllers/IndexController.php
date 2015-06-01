@@ -41,7 +41,7 @@ class IndexController extends BaseController{
 		/* ======= Seo Update ============= */
 		
 		try{
-			$topfeeds = $this->getfeeddata(0, 3, $city, 'all', '', '', 'Event', '', 'feed');
+			$topfeeds = $this->getfeeddata(0, 3, $city, '', '', '', 'Event', '', 'feed');
 		}catch(Exception $e){
 			$topfeeds = array();
 		}
