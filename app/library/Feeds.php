@@ -240,7 +240,6 @@ class Feeds extends Component
 				$disdim = '&cc=1&q=75';
 			}
 			
-			
 			if(isset($dimension['x']) && isset($dimension['y'])){
 				if($dimension['x'] == 0 && $dimension['y'] == 0){
 					$parts = '?w='.$width.'&h='.$height.$disdim;
