@@ -62,7 +62,7 @@
 							<div class="authordetailsection">
 								<div class="col-sm-4 col-md-2 float-left author-image">
 										<a href="{{baseUrl}}{{author['url']}}">
-											{{feeds.getimage(baseUrl, author['images'][0]['uri'], '', '', author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
+											{{feeds.getimage(baseUrl, author['images'][0]['uri'], 100, 100, author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
 										</a>
 								</div>
 								

@@ -7,7 +7,7 @@
 				<div class="contentarea">
 					<div class="authordata text-center">
 						<div class="author-image float-left">
-							{{feeds.getimage(baseUrl, author['images'][0]['uri'], '', '', author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
+							{{feeds.getimage(baseUrl, author['images'][0]['uri'], 100, 100, author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
 						</div>
 						<div class="authordetail float-left">
 							<h2 class="reviewtitle text-center"><span class="reviewd">Reviewed by</span><br>{{author['title'] | lower | capitalize}}</h2>
@@ -59,7 +59,7 @@
 					<div class="authordetailsection">
 						<div class="author-image float-left">
 							<a href="{{baseUrl}}{{author['url']}}">
-								{{feeds.getimage(baseUrl, author['images'][0]['uri'], '', '', author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
+								{{feeds.getimage(baseUrl, author['images'][0]['uri'], 100, 100, author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
 							</a>
 						</div>
 						<div class="author-detail float-left">
