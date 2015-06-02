@@ -84,7 +84,7 @@
 <div class="footer">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-6 text-left">
+			<div class="col-sm-6 col-xs-12 text-left">
 				<div class="social-share-widget">
 					<div class="fb-like" data-href="https://www.whatshot.com" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 				</div>
@@ -100,11 +100,12 @@
 				</div>
 				
 			</div>
-			<div class="col-sm-6 text-right lineheight">
+			<div class="col-sm-6 col-xs-12 text-right lineheight">
 				&copy; 2015 <a href="{{baseUrl}}">WhatsHot.in</a> &ndash; all rights reserved
 			</div><!-- /.col-sm-5 -->
 		</div><!-- /.row -->
 	</div><!-- /.container -->
+	<div class="clearfix"></div>
 </div><!-- /.footer -->
 <!-- END FOOTER -->
 
