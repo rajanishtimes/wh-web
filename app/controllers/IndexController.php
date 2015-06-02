@@ -125,13 +125,13 @@ class IndexController extends BaseController{
     }
 	
 	public function whytimescityAction(){
-        $this->tag->setTitle('Why Timescity changed to What’s Hot');
-		$this->view->entitytype = 'Why Timescity changed to What’s Hot';
+        $this->tag->setTitle('what is What&apos; Hot');
+		$this->view->entitytype = 'what is What&apos; Hot';
 		$this->view->meta_description = '';
 		$this->view->meta_keywords = '';
-		$this->view->og_title = 'Why Timescity changed to What’s Hot';
+		$this->view->og_title = 'what is What&apos; Hot';
 		$this->view->og_description = '';
-		$this->view->og_url = $this->baseUrl.'/'.'why-timescity-changed-to-whats-hot';
+		$this->view->og_url = $this->baseUrl.'/'.'story';
 		$this->view->canonical_url = $this->baseUrl.'/'.'about-us';
     }
 
