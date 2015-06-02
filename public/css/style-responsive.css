@@ -424,7 +424,7 @@ IPHONE 6 PLUS
 		width: 414px;
 	}
 	body {
-		width: 414px;
+		width: 414px !important;
 	}
 }
 
@@ -447,7 +447,7 @@ IPHONE 6
 
 @media (width: 375px) {
 	body {
-		width: 375px;
+		width: 375px !important;
 	}
 	.container-fluid {
 		float: left;
