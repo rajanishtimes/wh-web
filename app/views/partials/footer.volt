@@ -76,6 +76,7 @@
 			</div><!-- /.col-sm-2 -->
 		</div><!-- /.row -->
 	</div><!-- /.container -->
+	<div class="clearfix"></div>
 </footer><!-- /.section -->
 
 <div id="fb-root"></div>
