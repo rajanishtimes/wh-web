@@ -315,6 +315,9 @@ PHONE < 480px
 	.resize.feedtags {
 		padding: 0 25px;
 	}
+	.info-content{
+		padding:0 4%;
+	}
 }
 
 /**
@@ -379,7 +382,52 @@ PHONE < 420px
 	}
 }
 
+/**
+=================================
+IPHONE 6 PLUS
+=================================
+**/
 
+@media (width: 414px) {
+	.container{
+		width: 414px;
+		float: left;
+	}
+	.navbar-default{
+		height:61px;
+	}
+	.searchbtn a > div{
+		padding: 19px 25px;
+	}
+	.container-fluid {
+	    margin-top: 60px;
+	}
+}
+
+/**
+=================================
+IPHONE 6
+=================================
+**/
+
+@media (width: 375px) {
+	.container{
+		width: 375px;
+		float: left;
+	}
+	.navbar-default{
+		height:61px;
+	}
+	.searchbtn a > div{
+		padding: 19px 25px;
+	}
+	.container-fluid {
+	    margin-top: 60px;
+	}
+	.social-share-widget{
+		margin-top: 19px;
+	}
+}
 
 
 /**
@@ -464,7 +512,7 @@ PHONE < 320px
 		display:none;
 	}
 	.makeheaderintera .searchbtn a > div, .searchbtn a > div{
-		padding: 19px 15px;
+		padding: 20px 15px;
 	}
 
 }
