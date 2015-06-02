@@ -398,6 +398,9 @@ IPHONE 6 PLUS
 	footer, .footer{
 		width: 736px;
 	}
+	body {
+		width: 736px;
+	}
 }
 
 @media (width: 414px) {
@@ -420,6 +423,9 @@ IPHONE 6 PLUS
 	footer, .footer{
 		width: 414px;
 	}
+	body {
+		width: 414px;
+	}
 }
 
 /**
@@ -428,6 +434,9 @@ IPHONE 6
 =================================
 **/
 @media (width: 667px) {
+	body {
+		width: 667px;
+	}
 	.container-fluid .container{
 		width: 650px;
 	}
@@ -437,6 +446,9 @@ IPHONE 6
 }
 
 @media (width: 375px) {
+	body {
+		width: 375px;
+	}
 	.container-fluid {
 		float: left;
 		width: 375px;
