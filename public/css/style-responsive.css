@@ -195,6 +195,9 @@ TABLET < 767px
 	.rating {
 		left: 39%;
 	}
+	.navbar-fixed-top{
+		position:absolute;
+	}
 }
 
 
@@ -222,9 +225,6 @@ PHONE < 640px
 	}
 	.tt-dropdown-menu{
 		width:117%;
-	}
-	.navbar-fixed-top{
-		position:absolute;
 	}
 	.rating {
 		left: 38%;
