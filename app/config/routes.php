@@ -146,7 +146,7 @@ $router->add("/about-us", array(
     'action' => 'aboutus',
 ));
 
-$router->add("/why-timescity-changed-to-whats-hot", array(
+$router->add("/story", array(
     'controller' => 'index',
     'action' => 'whytimescity',
 ));
