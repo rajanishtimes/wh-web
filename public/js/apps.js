@@ -109,11 +109,21 @@ $(document).ready(DOMReady);
 function resizefeedimage(){
 	var width = 0;
 	$(".work-item img").each(function( index ) {
-		if($(this).parent().find('.make-up').length == 0){
+		if($(this).parent().parent().find('.make-up').length == 0){
 			width = $(this).width();
 		}
 		$(this).height(($(this).width()));
 	});
+
+	$(".allfeeds .work-item").each(function( index ) {
+		if($(this).hasClass('withmask')){
+			if((index+1)%9 == 5){
+				$(this).parent().parent().removeClass('col-sm-4 col-md-6 col-xs-12');
+				$(this).parent().parent().addClass('col-sm-4 col-md-3 col-xs-6');
+			}
+		}
+	});
+
 	
 	/* $(".withmask").each(function( index ) {
 		$(this).height(width+147);
