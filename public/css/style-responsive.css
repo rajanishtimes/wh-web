@@ -395,6 +395,9 @@ IPHONE 6 PLUS
 	.lineheight{
 		margin-top: -22px;
 	}
+	footer{
+		width: 736px;
+	}
 }
 
 @media (width: 414px) {
@@ -414,6 +417,9 @@ IPHONE 6 PLUS
 	.container-fluid {
 	    margin-top: 60px;
 	}
+	footer{
+		width: 414px;
+	}
 }
 
 /**
@@ -424,6 +430,9 @@ IPHONE 6
 @media (width: 667px) {
 	.container-fluid .container{
 		width: 650px;
+	}
+	footer{
+		width: 667px;
 	}
 }
 
@@ -450,6 +459,9 @@ IPHONE 6
 	}
 	.social-share-widget{
 		margin-top: 19px;
+	}
+	footer{
+		width: 375px;
 	}
 	footer .container{
 	    width: 350px;
