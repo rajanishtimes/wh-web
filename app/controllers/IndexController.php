@@ -125,11 +125,11 @@ class IndexController extends BaseController{
     }
 	
 	public function whytimescityAction(){
-        $this->tag->setTitle('what is What&apos; Hot');
-		$this->view->entitytype = 'what is What&apos; Hot';
+        $this->tag->setTitle('What is What&apos; Hot?');
+		$this->view->entitytype = 'What is What&apos; Hot?';
 		$this->view->meta_description = '';
 		$this->view->meta_keywords = '';
-		$this->view->og_title = 'what is What&apos; Hot';
+		$this->view->og_title = 'What is What&apos; Hot?';
 		$this->view->og_description = '';
 		$this->view->og_url = $this->baseUrl.'/'.'story';
 		$this->view->canonical_url = $this->baseUrl.'/'.'about-us';
