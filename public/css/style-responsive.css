@@ -533,7 +533,9 @@ PHONE < 320px
 @media (max-width: 320px){
 	body{
 		width:320px !important;
+		overflow-x:hidden;
 	}
+	.h1{display: none;}
 	.dropdown-menu.with-triangle::before, .dropdown-menu.with-triangle::after{
 		display:block;
 	}
