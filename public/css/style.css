@@ -30,8 +30,13 @@ body {
     font-size: 14px;
     height: 100%;
     width: 100%;
-    overflow-x: hidden;
     padding-top: 80px;
+
+    white-space: nowrap;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
 }
 body.no-padding {
     padding-top: 0;
