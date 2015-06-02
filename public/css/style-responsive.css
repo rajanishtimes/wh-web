@@ -392,6 +392,7 @@ IPHONE 6 PLUS
 	.container{
 		width: 414px;
 		float: left;
+		overflow: hidden;
 	}
 	.navbar-default{
 		height:61px;
@@ -414,6 +415,7 @@ IPHONE 6
 	.container{
 		width: 375px;
 		float: left;
+		overflow: hidden;
 	}
 	.navbar-default{
 		height:61px;
