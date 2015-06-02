@@ -1,6 +1,7 @@
 {% block footer %}
 </div>
 <!-- BEGIN FOOTER -->
+<div class="clearfix"></div>
 <footer>
 	<div class="container">
 		<div class="row">
@@ -79,10 +80,11 @@
 	<div class="clearfix"></div>
 </footer><!-- /.section -->
 
-<div id="fb-root"></div>
+
 
 <div class="footer">
 	<div class="container">
+		<div id="fb-root"></div>
 		<div class="row">
 			<div class="col-sm-6 col-xs-12 text-left">
 				<div class="social-share-widget">

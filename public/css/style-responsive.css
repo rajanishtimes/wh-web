@@ -414,6 +414,10 @@ IPHONE 6
 **/
 
 @media (width: 375px) {
+	.container-fluid {
+		float: left;
+		width: 375px;
+	}
 	.container{
 		width: 375px;
 		float: left;
