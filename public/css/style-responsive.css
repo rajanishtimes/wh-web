@@ -388,6 +388,15 @@ IPHONE 6 PLUS
 =================================
 **/
 
+@media (width: 736px) {
+	.container-fluid .container{
+		width: 720px;
+	}
+	.lineheight{
+		margin-top: -22px;
+	}
+}
+
 @media (width: 414px) {
 	.container{
 		width: 414px;
@@ -412,6 +421,11 @@ IPHONE 6 PLUS
 IPHONE 6
 =================================
 **/
+@media (width: 667px) {
+	.container-fluid .container{
+		width: 650px;
+	}
+}
 
 @media (width: 375px) {
 	.container-fluid {
@@ -439,6 +453,12 @@ IPHONE 6
 	}
 	footer .container{
 	    width: 350px;
+	}
+	.makeheaderintera .searchbtn a > div{
+		padding: 2px 25px;
+	}
+	.makeheaderintera .nav-search.navbar-right li.dropdown > a{
+		padding: 31px 20px 21px 10px;
 	}
 }
 
