@@ -125,6 +125,9 @@ p {
     font-family: "Lora-Bold",times new roman,times,sans-serif;
     font-size: 25px;
 }
+.width85{
+    width:85%;
+}
 .visibilityhide {
     visibility: hidden;
 }

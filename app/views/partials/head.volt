@@ -136,7 +136,7 @@
 		{% endblock %}
 	</head>
 	<body class="tooltips no-padding">
-		<?php //echo $ua = $_SERVER["HTTP_USER_AGENT"]; exit;?>
+		<?php echo $ua = $_SERVER["HTTP_USER_AGENT"]; exit;?>
 		<!-- iframe used for attempting to load a custom protocol -->
 		<iframe style="display:none" height="0" width="0" id="loader"></iframe>
 
