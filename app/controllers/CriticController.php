@@ -95,6 +95,7 @@ class CriticController extends BaseController{
 				$service_rate = ($criticdetail['service_rate']/5)*100;
 				$decor_rate = ($criticdetail['decor_rate']/5)*100;
 
+				$ratings['food']['rating'] = $criticdetail['food_rate'];
 				if($food_rate < 33){
 					$ratings['food']['background_color'] = $background_color[0];
 					$ratings['food']['border_color'] = $border_color[0];
@@ -110,6 +111,7 @@ class CriticController extends BaseController{
 				}
 				
 
+				$ratings['service']['rating'] = $criticdetail['service_rate'];
 				if($service_rate < 33){
 					$ratings['service']['background_color'] = $background_color[0];
 					$ratings['service']['border_color'] = $border_color[0];
@@ -124,6 +126,7 @@ class CriticController extends BaseController{
 					$ratings['service']['width'] = $service_rate;
 				}
 
+				$ratings['decor']['rating'] = $criticdetail['decor_rate'];
 				if($decor_rate < 33){
 					$ratings['decor']['background_color'] = $background_color[0];
 					$ratings['decor']['border_color'] = $border_color[0];

@@ -50,7 +50,7 @@
 										<div class="single-color"></div>
 										<div class="multi-color" style="background-color:{{rating['background_color']}}; border-color:{{rating['border_color']}}; width:{{rating['width']}}%"></div>
 									</div>
-									<div class="text-color float-right"><div class="overall-span float-right">5</div></div>
+									<div class="text-color float-right"><div class="overall-span float-right">{{rating['rating']}}/5</div></div>
 								</div>
 								{% endfor %}
 							</div>
