@@ -1,7 +1,7 @@
 <div class="section">
 	<div class="container">
 		<div class="row">
-			<div class="work-content info-content">
+			<div class="work-content info-content"><br><br>
 				<h1>Privacy Policy</h1>
 
 				<p>Times Internet Limited, ("TIL") is a wholly owned subsidiary of Bennett Coleman &amp; Co. Limited and powers / manages the website www.whatshot.in</p>

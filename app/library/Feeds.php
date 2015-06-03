@@ -13,7 +13,8 @@ class Feeds extends Component
     public function getfeeds($url, $data, $start, $city='', $type=''){
     	$i = 1;
 		foreach($data['results'] as $feed){
-			
+			if($i < 12){
+
 			if(isset($feed['filter_type']) && $feed['filter_type'] == 'tags'){
 				$gaattr = 'data-ga-cat="Entity Link Click on Tag Pages - '.$city.'" data-ga-action="Title | '.$feed['title'].'" data-ga-label="tag_results_pos_'. $i .'"';
 			}else{
@@ -90,7 +91,7 @@ class Feeds extends Component
 					</div>-->
 				<?php }} ?>
 			<?php
-			}else{
+			} else {
 			?>
 				<div class="col-sm-4 col-md-6 col-xs-12">
 					<a href="<?php echo $url . $feed['url']; ?>"  <?php echo $gaattr;?>>
@@ -128,6 +129,7 @@ class Feeds extends Component
 				<?php } ?>
 			
 			<?php
+			}
 			$i++;
 		}
     }

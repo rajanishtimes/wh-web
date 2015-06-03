@@ -102,6 +102,7 @@ class EventController extends BaseController{
 		$cityshown = $this->cityshown($this->currentCity);
 		try{
 			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, 'all', '', '', 'Event', '', 'event');
+			$sponsors_count = count($allfeedslist['results']) - $limit;
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
@@ -117,7 +118,7 @@ class EventController extends BaseController{
 			array(
 				'allfeedslist' => $allfeedslist,
 				'eventscount' => count($allfeedslist),
-				'start'=>$limit,
+				'start'=>$limit - $sponsors_count,
 				'limit'=>$limit,
 				'breadcrumbs'=>$breadcrumbs,
 				'cityshown'=>$cityshown

@@ -1,7 +1,7 @@
 <div class="section">
 	<div class="container">
 		<div class="row">
-			<div class="work-content info-content">
+			<div class="work-content info-content"><br><br>
 				<h1>Terms and Conditions</h1>
 
 				<h2>USER AGREEMENT</h2>

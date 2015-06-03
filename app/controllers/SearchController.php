@@ -30,6 +30,8 @@ class SearchController extends BaseController{
 			}else{
 				$allfeedslist = $this->getfeeddata($start, $limit, $city, $bydate, $tags, $searchkeyword, 'Event,Content', '', $fromtype);
 			}
+
+			$sponsors_count = count($allfeedslist['results']) - $limit;
 			$this->setlogsarray('search_get_records');
 		}catch(Exception $e){
 			$allfeedslist = array();
@@ -47,7 +49,7 @@ class SearchController extends BaseController{
 				'allfeedslist' => $allfeedslist,
 				'mainurl'=>$mainurl,
 				'searchkeyword'=>$searchkeyword,
-				'start'=>$start+$limit,
+				'start'=>$start+$limit-$sponsors_count,
 				'limit'=>$limit,
 				'tags'=>$tags,
 				'bydate'=>$bydate,

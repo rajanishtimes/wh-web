@@ -28,6 +28,7 @@ class TagController extends BaseController{
 		$this->view->entitytype = 'tag';
 		try{
 			$tagsfeeds = $this->getfeeddata($start, $limit, $this->currentCity, 'all', 'tags', strtolower($this->tags), 'Event,Content', '', 'tag');
+			$sponsors_count = count($tagsfeeds['results']) - $limit;
 			$this->setlogsarray('tag_get_records');
 		}catch(Exception $e){
 			$tagsfeeds = array();
@@ -47,7 +48,7 @@ class TagController extends BaseController{
 				'tagsfeeds' => $tagsfeeds,
 				'tagsfeedscount' => count($tagsfeeds),
 				'tags'=>$tags,
-				'start'=>$limit,
+				'start'=>$limit-$sponsors_count,
 				'limit'=>$limit,
 				'breadcrumbs'=>$breadcrumbs,
 				'cityshown' =>$cityshown
