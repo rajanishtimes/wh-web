@@ -32,7 +32,7 @@
 				<h1>Doh!</h1>
 				<div class="text">Sorry to rain on your parade, but what you were looking for does not exist</div>
 				<!--<p>Check below instead.</p>--><p></p>
-				<a href="{{baseUrl}}/"><div class="btn btn-primary errorbtn">TAKE ME HOME</div></a>
+				<a href="{{baseUrl}}/"><div class="btn btn-primary">TAKE ME HOME</div></a>
 			</div>
 			<div class="clearfix"></div>
 			<div class="buildings"></div>

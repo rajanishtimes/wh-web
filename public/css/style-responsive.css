@@ -10,7 +10,6 @@ LARGE DESKTOP > 1200px
 	.contentarea .detail {
 		padding: 0 147px;
 	}
-	
 }
 
 
@@ -51,6 +50,12 @@ STANDARD DESKTOP 992px <> 1200px
 	}
 	.work-item.withmask {
 		height: 363px;
+	}
+	.rating-container{
+		width: 100%;
+	}
+	.progressbar{
+		padding: 0 0 0 16%;
 	}
 }
 
@@ -131,6 +136,12 @@ SMALL DESKTOP 768px <> 991px
 	.width100 {
 	    padding: 0 !important;
 	    width: 76% !important;
+	}
+	.rating-container{
+		width: 100%;
+	}
+	.progressbar{
+		padding: 0 0 0 16%;
 	}
 }
 
@@ -229,6 +240,12 @@ PHONE < 640px
 	.rating {
 		left: 38%;
 	}
+	.rating-container{
+		width: 100%;
+	}
+	.progressbar{
+		padding: 0 0 0 20%;
+	}
 }
 
 
@@ -318,6 +335,12 @@ PHONE < 480px
 	.info-content{
 		padding:0 4%;
 	}
+	.rating-container{
+		width: 100%;
+	}
+	.progressbar{
+		padding: 0 0 0 29%;
+	}
 }
 
 /**
@@ -380,6 +403,7 @@ PHONE < 420px
 	.makeheaderintera .nav-search.navbar-right, .nav-search.navbar-right{
 		padding: 21px 11px;
 	}
+	
 }
 
 /**

@@ -20,15 +20,45 @@
 					</div><div class="clearfix"></div>
 					
 					<h1 class="contenttitle text-center">{{criticdetail['title'] | stripslashes}}</h1>
-					<div class="review">
+					<!--<div class="review">
 						<div class="rating">
 							<div class="grayscale"></div>
 							<div class="yellowscale" style="width:{{reviewwidth}}px"></div>
 						</div>
 						<div class="rmani"><span class="rwidth">{{rwidth}}</span> out of 5</div>
-					</div>
+					</div>-->
+
+					<div class="clearfix"></div>
 					<hr class="small">
 					<div class="clearfix"></div>
+
+					<div class="detail">
+						<div class="rating-container text-center">
+							<div class="rating-div float-left">
+								<div class="total-rate">
+									{{rwidth}}
+								</div>
+								<div class="overall-rate">
+									OUT OF 5
+								</div>
+							</div>
+							<div class="progressbar float-left">
+								{% for key, rating in ratings %}
+								<div class="progres-bar">
+									<div class="text-color float-left"><div class="rate-text float-left">{{key}}</div></div>
+									<div class="progress-container">
+										<div class="single-color"></div>
+										<div class="multi-color" style="background-color:{{rating['background_color']}}; border-color:{{rating['border_color']}}; width:{{rating['width']}}%"></div>
+									</div>
+									<div class="text-color float-right"><div class="overall-span float-right">5</div></div>
+								</div>
+								{% endfor %}
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<br><br>
 					<div class="detail">
 						{{criticdetail['description']}}
 					</div>

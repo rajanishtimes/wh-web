@@ -87,6 +87,59 @@ class CriticController extends BaseController{
 			$rwidth = round((($criticdetail['food_rate'] + $criticdetail['service_rate'] + $criticdetail['decor_rate'])/3), 1);
 			$reviewwidth = $rwidth*33;
 
+			/* Rating Progress Bar */
+				$ratings = array();
+				$background_color = array('#e74c3c', '#f7c912', '#2ecc71');
+				$border_color = array('#b51707', '#be9f0e', '#0f9a4a');
+				$food_rate = ($criticdetail['food_rate']/5)*100;
+				$service_rate = ($criticdetail['service_rate']/5)*100;
+				$decor_rate = ($criticdetail['decor_rate']/5)*100;
+
+				if($food_rate < 33){
+					$ratings['food']['background_color'] = $background_color[0];
+					$ratings['food']['border_color'] = $border_color[0];
+					$ratings['food']['width'] = $food_rate;
+				}else if($food_rate > 33 && $food_rate < 66){
+					$ratings['food']['background_color'] = $background_color[1];
+					$ratings['food']['border_color'] = $border_color[1];
+					$ratings['food']['width'] = $food_rate;
+				}else{
+					$ratings['food']['background_color'] = $background_color[2];
+					$ratings['food']['border_color'] = $border_color[2];
+					$ratings['food']['width'] = $food_rate;
+				}
+				
+
+				if($service_rate < 33){
+					$ratings['service']['background_color'] = $background_color[0];
+					$ratings['service']['border_color'] = $border_color[0];
+					$ratings['service']['width'] = $service_rate;
+				}else if($service_rate > 33 && $service_rate < 66){
+					$ratings['service']['background_color'] = $background_color[1];
+					$ratings['service']['border_color'] = $border_color[1];
+					$ratings['service']['width'] = $service_rate;
+				}else{
+					$ratings['service']['background_color'] = $background_color[2];
+					$ratings['service']['border_color'] = $border_color[2];
+					$ratings['service']['width'] = $service_rate;
+				}
+
+				if($decor_rate < 33){
+					$ratings['decor']['background_color'] = $background_color[0];
+					$ratings['decor']['border_color'] = $border_color[0];
+					$ratings['decor']['width'] = $decor_rate;
+				}else if($decor_rate > 33 && $decor_rate < 66){
+					$ratings['decor']['background_color'] = $background_color[1];
+					$ratings['decor']['border_color'] = $border_color[1];
+					$ratings['decor']['width'] = $decor_rate;
+				}else{
+					$ratings['decor']['background_color'] = $background_color[2];
+					$ratings['decor']['border_color'] = $border_color[2];
+					$ratings['decor']['width'] = $decor_rate;
+				}
+
+			/* Rating Progress Bar End*/
+
 			$cityshown = $this->cityshown($this->currentCity);
 			$breadcrumbs = $this->breadcrumbs(array(
 				$cityshown => $this->baseUrl.'/'.$this->currentCity,
@@ -99,7 +152,8 @@ class CriticController extends BaseController{
 				'breadcrumbs' => $breadcrumbs,
 				'reviewwidth' => $reviewwidth,
 				'rwidth' => $rwidth,
-				'cityshown' => $cityshown
+				'cityshown' => $cityshown,
+				'ratings' => $ratings
 			));
 		}else{
 			$this->forwardtoerrorpage(404);
