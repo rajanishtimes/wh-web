@@ -127,8 +127,9 @@
 			$issafari = strpos($ua, 'Safari') ? true : false;
 			$ischrome = strpos($ua, 'Chrome') ? true : false;
 			$isiPhone = strpos($ua, 'iPhone') ? true : false;
+			$isAndroid = strpos($ua, 'Android') ? true : false;
 
-			if(($issafari == true && $ischrome == false) || $isiPhone == true){
+			if(($issafari == true && $ischrome == false) || $isiPhone == true || ($issafari == true && $ischrome == true && $isAndroid == true)){
 				echo "<style>.dropdown-menu{display:none;}</style>";
 			}
 		?>
@@ -136,7 +137,7 @@
 		{% endblock %}
 	</head>
 	<body class="tooltips no-padding">
-		<?php echo $ua = $_SERVER["HTTP_USER_AGENT"]; exit;?>
+		<?php //echo $ua = $_SERVER["HTTP_USER_AGENT"]; exit;?>
 		<!-- iframe used for attempting to load a custom protocol -->
 		<iframe style="display:none" height="0" width="0" id="loader"></iframe>
 
