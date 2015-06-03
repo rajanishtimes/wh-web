@@ -117,8 +117,9 @@ function resizefeedimage(){
 
 	$(".allfeeds .work-item").each(function( index ) {
 		if($(this).hasClass('withmask')){
-			if((index+1)%9 == 5){
-				$(this).parent().parent().removeClass('col-sm-4 col-md-6 col-xs-12');
+    		var id = (parseInt)((index)/4);
+			if(id%2 == 1){
+        		$(this).parent().parent().removeClass('col-sm-4 col-md-6 col-xs-12');
 				$(this).parent().parent().addClass('col-sm-4 col-md-3 col-xs-6');
 			}
 		}
