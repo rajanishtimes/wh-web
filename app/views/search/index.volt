@@ -5,12 +5,12 @@
 
 <?php
 
-if($spstart != ''){
-	$check = $splimit;
+if($spstart > $start){
+	$check = $spstart;
 }else{
 	$check = $start;
 }
-if($allfeedslist['meta']['match_count'] > ($check)){ ?>
+if($allfeedslist['meta']['match_count'] > $check){ ?>
 	<div class="btn btn-primary" onclick="view_feed_with_ajax('{{city}}','{{mainurl}}', '{{start}}', '{{limit}}', '{{parentid}}', '{{elements.create_slug(searchkeyword)}}', '{{tags | trim}}', '{{bydate}}', '{{fromtype}}', '{{spstart}}', '{{splimit}}')" rel="{{start/limit}}">Load More</div>
 <?php }?>
 <?php }else{ ?>
