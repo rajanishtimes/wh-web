@@ -78,7 +78,7 @@
 							{% elseif(cities['name'] | trim | lower == 'delhi-ncr' OR cities['name'] | trim | lower == 'delhi ncr' OR cities['name'] | trim | lower == 'delhincr') %}
 								<li data-name="delhi-ncr"><a href="{{baseUrl}}/delhi-ncr" <?php echo (($currentCity == 'delhi-ncr') ? 'class="active"' : ''); ?>>Delhi NCR</a></li>
 							{% else %}
-								<li data-name="{{elements.create_slug(cities['name']) | trim | lower}}"><a href="{{baseUrl}}/{{elements.create_slug(cities['name']) | trim | lower}}" <?php echo (($currentCity == $cities['name']) ? 'class="active"' : ''); ?>>{{cities['name']}}</a></li>
+								<li data-name="{{elements.create_slug(cities['name']) | trim | lower}}"><a href="{{baseUrl}}/{{elements.create_slug(cities['name']) | trim | lower}}" <?php echo ((strtolower($currentCity) == strtolower($cities['name'])) ? 'class="active"' : ''); ?>>{{cities['name']}}</a></li>
 							{% endif %}
 						{% endfor  %}
 					</ul>
