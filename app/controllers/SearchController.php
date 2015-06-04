@@ -60,7 +60,7 @@ class SearchController extends BaseController{
 				'city' => $city,
 				'cityshown' => $this->cityshown($city),
 				'fromtype' => $fromtype,
-				'spstart' => $start+$limit,
+				'spstart' => $spstart+$limit,
 				'splimit' => $limit
 				)
 			);
