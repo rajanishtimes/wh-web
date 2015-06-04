@@ -3,7 +3,14 @@
 	{{feeds.getfeeds(baseUrl, allfeedslist, start, cityshown, fromtype)}}
 <-!-###@###->
 
-<?php if($allfeedslist['meta']['match_count'] > ($start)){ ?>
+<?php
+
+if($spstart != ''){
+	$check = $splimit;
+}else{
+	$check = $start;
+}
+if($allfeedslist['meta']['match_count'] > ($check)){ ?>
 	<div class="btn btn-primary" onclick="view_feed_with_ajax('{{city}}','{{mainurl}}', '{{start}}', '{{limit}}', '{{parentid}}', '{{elements.create_slug(searchkeyword)}}', '{{tags | trim}}', '{{bydate}}', '{{fromtype}}', '{{spstart}}', '{{splimit}}')" rel="{{start/limit}}">Load More</div>
 <?php }?>
 <?php }else{ ?>
