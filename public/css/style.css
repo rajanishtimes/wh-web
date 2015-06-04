@@ -1817,11 +1817,11 @@ a.bg-dark:hover {
 }
 .authordetail {
     padding: 0 0 0 15px;
-    width: 190px;
+    width: 188px;
 }
 .reviewtitle {
     font-size: 24px;
-    margin: 7px 0 0;
+    margin: 0;
     text-align: left;
 }
 .twitter {

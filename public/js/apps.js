@@ -120,14 +120,17 @@ function resizefeedimage(){
 	});  */
 }
 
-function view_feed_with_ajax(city, mainURL, start, limit, parentId, searchval, tags, bydate, type){
+function view_feed_with_ajax(city, mainURL, start, limit, parentId, searchval, tags, bydate, type, spstart, splimit){
+	var spstart = spstart || start;
+	var splimit = splimit || limit;
+
 	if(feed_with_ajax_running === false){
 		//console.log("starting ....");
 		$.ajax( {
 			url:mainURL,
 			type:'POST',
 			//async:false,
-			data: 'city='+city+'&searchkeyword='+searchval+'&start='+start+'&limit='+limit+'&tags='+tags+'&bydate='+bydate+'&mainurl='+mainURL+'&parentid='+parentId+'&type='+type,
+			data: 'city='+city+'&searchkeyword='+searchval+'&start='+start+'&limit='+limit+'&tags='+tags+'&bydate='+bydate+'&mainurl='+mainURL+'&parentid='+parentId+'&type='+type+'&spstart='+spstart+'&splimit='+splimit,
 			beforeSend: function(){
 				feed_with_ajax_running = true;
 				//console.log("sending request ... ");

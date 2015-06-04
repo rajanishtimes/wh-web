@@ -22,13 +22,16 @@ class SearchController extends BaseController{
 		$parentid = $this->request->getPost('parentid');
 		$city = $this->request->getPost('city');
 		$fromtype = $this->request->getPost('type');
+		$spstart = $this->request->getPost('spstart');
+		$splimit = $this->request->getPost('splimit');
 		$this->view->entitytype = 'search';
+
 		
 		try{
 			if($bydate == 'Event'){
-				$allfeedslist = $this->getfeeddata($start, $limit, $city, 'all', $tags, $searchkeyword, $bydate, '', $fromtype);
+				$allfeedslist = $this->getfeeddata($start, $limit, $city, 'all', $tags, $searchkeyword, $bydate, '', $fromtype, $spstart, $splimit);
 			}else{
-				$allfeedslist = $this->getfeeddata($start, $limit, $city, $bydate, $tags, $searchkeyword, 'Event,Content', '', $fromtype);
+				$allfeedslist = $this->getfeeddata($start, $limit, $city, $bydate, $tags, $searchkeyword, 'Event,Content', '', $fromtype, $spstart, $splimit);
 			}
 
 			$sponsors_count = count($allfeedslist['results']) - $limit;
@@ -56,7 +59,9 @@ class SearchController extends BaseController{
 				'parentid'=>$parentid,
 				'city' => $city,
 				'cityshown' => $this->cityshown($city),
-				'fromtype' => $fromtype
+				'fromtype' => $fromtype,
+				'spstart' => $start+$limit,
+				'splimit' => $limit
 				)
 			);
 			

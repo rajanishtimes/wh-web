@@ -13,7 +13,7 @@
 						</div><div class="clearfix"></div>
 						<div class="loadmore">
 							<?php if($allfeedslist['meta']['match_count'] > ($limit)){ ?>
-								<div class="btn btn-primary" onclick="view_feed_with_ajax('{{currentCity}}','{{baseUrl}}/search/index', '{{start}}', '{{limit}}', 'getallfeeds', '', '', 'Event', 'event')">Load More</div>
+								<div class="btn btn-primary" onclick="view_feed_with_ajax('{{currentCity}}','{{baseUrl}}/search/index', '{{start}}', '{{limit}}', 'getallfeeds', '', '', 'Event', 'event', '{{spstart}}', '{{splimit}}')">Load More</div>
 							<?php }?>
 						</div>
 					</div>

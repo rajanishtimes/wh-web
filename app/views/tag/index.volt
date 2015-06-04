@@ -11,7 +11,7 @@
 						</div><div class="clearfix"></div>
 						<div class="loadmore">
 							<?php if($tagsfeeds['meta']['match_count'] > ($limit)){ ?>
-								<div class="btn btn-primary" onclick="view_feed_with_ajax('{{currentCity}}', '{{baseUrl}}/search/index', '{{start}}', '{{limit}}', 'getallfeedssearch', '{{elements.create_slug(tags)}}', 'tags', 'all', 'tags')">Load More</div>
+								<div class="btn btn-primary" onclick="view_feed_with_ajax('{{currentCity}}', '{{baseUrl}}/search/index', '{{start}}', '{{limit}}', 'getallfeedssearch', '{{elements.create_slug(tags)}}', 'tags', 'all', 'tags', '{{spstart}}', '{{splimit}}')">Load More</div>
 							<?php }?>
 						</div>
 					</div>

@@ -179,7 +179,7 @@ class BaseController extends Controller{
 		return $slug2;
 	}
 	
-	protected function getfeeddata($start, $limit, $city, $bydays, $filter_type='', $keyword='', $bytype='', $location='', $type=''){
+	protected function getfeeddata($start, $limit, $city, $bydays, $filter_type='', $keyword='', $bytype='', $location='', $type='', $spstart='', $splimit=''){
 		
 		$Search = new \WH\Model\Solr();
 		$Search->setParam('bycity',$this->cityshown($city));
@@ -206,9 +206,15 @@ class BaseController extends Controller{
 			$Search->setParam('searchname',$keyword);
 		
 		if($keyword==''){
+			if($spstart == ''){
+				$spstart = $start;
+			}
+			if($splimit == ''){
+				$splimit = $limit;
+			}
 			$Search->setParam('sponsored','true');
-			$Search->setParam('spstart',$start);
-			$Search->setParam('splimit',$limit);
+			$Search->setParam('spstart',$spstart);
+			$Search->setParam('splimit',$splimit);
 		}
 		
 		

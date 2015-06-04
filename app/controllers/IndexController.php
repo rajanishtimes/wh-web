@@ -41,7 +41,7 @@ class IndexController extends BaseController{
 		/* ======= Seo Update ============= */
 		
 		try{
-			$topfeeds = $this->getfeeddata(0, 3, $city, '', '', '', 'Event', '', 'feed');
+			$topfeeds = $this->getfeeddata(0, 3, $city, '', '', '', 'Event', '', 'feed', 0, 3);
 		}catch(Exception $e){
 			$topfeeds = array();
 		}
@@ -62,7 +62,7 @@ class IndexController extends BaseController{
 		$limit = 11;
 		
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $city, 'all', '', '', 'Event,Content', '', 'feed');
+			$allfeedslist = $this->getfeeddata($start, $limit, $city, 'all', '', '', 'Event,Content', '', 'feed', $start, $limit);
 			$sponsors_count = count($allfeedslist['results']) - $limit;
 		}catch(Exception $e){
 			$allfeedslist = array();
@@ -74,7 +74,9 @@ class IndexController extends BaseController{
 				'start'=> $limit - $sponsors_count,
 				'limit'=>$limit,
 				'populartags'=>$populartags,
-				'topfeeds'=>$topfeeds
+				'topfeeds'=>$topfeeds,
+				'spstart' => $limit,
+				'splimit' => $limit
 				)
 			);
 		
