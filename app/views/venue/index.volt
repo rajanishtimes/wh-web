@@ -6,7 +6,7 @@
 				<h2 class="venuetitle">{{venuedetail['title']}}</h2>
 				<div class="venuedetail">
 					{% if(venuedetail['formatted_address'] != '') %}
-						<div class="time"><div class="timeimg"></div><div class="width85 float-left">{{venuedetail['formatted_address']}}</div></div>
+						<div class="time"><div class="timeimg"></div><div class="width85 float-left">{{venuedetail['formatted_address']}}</div></div><div class="clearfix"></div>
 					{% endif %}
 					
 					<?php
@@ -24,15 +24,15 @@
 							?>
 							<?php echo implode(', ', $venuedetail['mobiledata']);?>
 							</div>
-						</div>
+						</div><div class="clearfix"></div>
 					{% endif %}
 					
 					{% if(venuedetail['landmark'] != '') %}
-						<div class="landmark"><div class="landmarkimg"></div><div class="width85 float-left">{{venuedetail['landmark']}}</div></div>
+						<div class="landmark"><div class="landmarkimg"></div><div class="width85 float-left">{{venuedetail['landmark']}}</div></div><div class="clearfix"></div>
 					{% endif %}
 					
 					{% if(venuedetail['website'] != '') %}
-						<div class="website"><div class="websiteimg"></div><div class="width85 float-left"><a href="{{venuedetail['website']}}" target="_blank"><?php echo str_replace('http://','',$venuedetail['website'])?></a></div></div>
+						<div class="website"><div class="websiteimg"></div><div class="width85 float-left"><a href="{{venuedetail['website']}}" target="_blank"><?php echo str_replace('http://','',$venuedetail['website'])?></a></div></div><div class="clearfix"></div>
 					{% endif %}
 				</div>
 			</div>
