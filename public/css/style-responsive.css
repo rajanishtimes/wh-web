@@ -502,8 +502,8 @@ IPHONE 6
 
 @media (width: 375px) {
 	html,body{
-	    overflow-x: hidden;
-	    -webkit-overflow-scrolling: touch;
+	    overflow-x: hidden !important;
+	    -webkit-overflow-scrolling: touch !important;
 	}
 	body {
 		width: 375px !important;
