@@ -209,6 +209,13 @@ TABLET < 767px
 	.navbar-fixed-top{
 		position:absolute;
 	}
+	.row.work-content {
+	    margin: 0;
+	}
+	#authorpost .row.work-content{
+		margin-left: -15px;
+    	margin-right: -15px;
+	}
 }
 
 
@@ -246,6 +253,9 @@ PHONE < 640px
 	.progressbar{
 		padding: 0 0 0 20%;
 	}
+	.width100{
+		width: 72% !important;
+	}
 }
 
 
@@ -260,6 +270,15 @@ PHONE < 600px
 	.tt-dropdown-menu{
 		width:118%;
 	}
+	.width100 {
+	    width: 70% !important;
+	}
+	
+	.row.work-content {
+	    margin-left: -15px;
+    	margin-right: -15px;
+	}
+
 }
 
 
@@ -341,6 +360,9 @@ PHONE < 480px
 	.progressbar{
 		padding: 0 0 0 29%;
 	}
+	.width100{
+		width: 64% !important;
+	}
 }
 
 /**
@@ -403,7 +425,6 @@ PHONE < 420px
 	.makeheaderintera .nav-search.navbar-right, .nav-search.navbar-right{
 		padding: 21px 11px;
 	}
-	
 }
 
 /**
