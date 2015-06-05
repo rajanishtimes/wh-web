@@ -233,7 +233,7 @@ class Feeds extends Component
 	
 	public function getimage($url, $image_url, $width, $height, $alt, $dimension='', $style='', $class='', $key=0, $type=''){
 		$color = array('#fffae0', '#ffdddd', '#ddfcff', '#ffdef5', '#deffe4');
-		$select_color = $key%5;
+		$select_color = $key%4;
 		$style = 'background-color:'.$color[$select_color].';'.$style;
 
 		if($image_url){

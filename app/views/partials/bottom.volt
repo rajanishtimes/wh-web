@@ -56,19 +56,7 @@
                 });
             </script>
         {% endif %}
-       
-       <?php
-            $ua = $_SERVER["HTTP_USER_AGENT"];
-            $issafari = strpos($ua, 'Safari') ? true : false;
-            $ischrome = strpos($ua, 'Chrome') ? true : false;
-            $isiPhone = strpos($ua, 'iPhone') ? true : false;
-            $isAndroid = strpos($ua, 'Android') ? true : false;
-
-            if(($issafari == true && $ischrome == false) || $isiPhone == true || ($issafari == true && $ischrome == true && $isAndroid == true)){
-                echo "<style>.dropdown-menu{display:none;}</style>";
-            }
-        ?>
-         
+        
 
 
     </body>

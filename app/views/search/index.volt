@@ -10,8 +10,15 @@ if($spstart > $start){
 }else{
 	$check = $start;
 }
+
+if($limit < 1){
+	$relval = 0;
+}else{
+	$relval = $start/$limit;
+}
+
 if($allfeedslist['meta']['match_count'] > $check){ ?>
-	<div class="btn btn-primary" onclick="view_feed_with_ajax('{{city}}','{{mainurl}}', '{{start}}', '{{limit}}', '{{parentid}}', '{{elements.create_slug(searchkeyword)}}', '{{tags | trim}}', '{{bydate}}', '{{fromtype}}', '{{spstart}}', '{{splimit}}')" rel="{{start/limit}}">Load More</div>
+	<div class="btn btn-primary" onclick="view_feed_with_ajax('{{city}}','{{mainurl}}', '{{start}}', '{{limit}}', '{{parentid}}', '{{elements.create_slug(searchkeyword)}}', '{{tags | trim}}', '{{bydate}}', '{{fromtype}}', '{{spstart}}', '{{splimit}}')" rel="{{relval}}">Load More</div>
 <?php }?>
 <?php }else{ ?>
 	{% if(start < 1) %}

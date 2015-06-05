@@ -2158,12 +2158,35 @@ textarea.no-resize {
     box-shadow: 0 2px 6px -2px #333;
     top: 130%;
     transform: scale(0);
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    -moz-transform: scale(0);
+    -o-transform: scale(0);
+
     transform-origin: 50% -10px 0;
+    -webkit-transform-origin: 50% -10px 0;
+    -ms-transform-origin: 50% -10px 0;
+    -moz-transform-origin: 50% -10px 0;
+    -o-transform-origin: 50% -10px 0;
+
     transition: all 0.2s ease-out 0s;
+    -webkit-transition: all 0.2s ease-out 0s;
+    -ms-transition: all 0.2s ease-out 0s;
+    -moz-transition: all 0.2s ease-out 0s;
+    -o-transition: all 0.2s ease-out 0s;
 }
 .dropdown.open .dropdown-menu.with-triangle {
     transform: scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+
     transition: transform 0.3s cubic-bezier(0.3, 1.6, 0.7, 1) 0s, opacity 0.3s ease-out 0s;
+    -webkit-transition: transform 0.3s cubic-bezier(0.3, 1.6, 0.7, 1) 0s, opacity 0.3s ease-out 0s;
+    -ms-transition: transform 0.3s cubic-bezier(0.3, 1.6, 0.7, 1) 0s, opacity 0.3s ease-out 0s;
+    -moz-transition: transform 0.3s cubic-bezier(0.3, 1.6, 0.7, 1) 0s, opacity 0.3s ease-out 0s;
+    -o-transition: transform 0.3s cubic-bezier(0.3, 1.6, 0.7, 1) 0s, opacity 0.3s ease-out 0s;
 }
 .dropdown-menu.with-triangle::before {
     border-bottom: 7px solid rgba(0, 0, 0, 0.2);
