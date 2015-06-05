@@ -432,6 +432,10 @@ IPHONE 6 PLUS
 **/
 
 @media (width: 736px) {
+	html,body{
+	    overflow-x: hidden;
+	    -webkit-overflow-scrolling: touch;
+	}
 	.container-fluid .container{
 		width: 720px;
 	}
@@ -447,6 +451,10 @@ IPHONE 6 PLUS
 }
 
 @media (width: 414px) {
+	html,body{
+	    overflow-x: hidden;
+	    -webkit-overflow-scrolling: touch;
+	}
 	.container{
 		width: 414px;
 		float: left;
@@ -477,6 +485,10 @@ IPHONE 6
 =================================
 **/
 @media (width: 667px) {
+	html,body{
+	    overflow-x: hidden;
+	    -webkit-overflow-scrolling: touch;
+	}
 	body {
 		width: 667px;
 	}
@@ -489,6 +501,10 @@ IPHONE 6
 }
 
 @media (width: 375px) {
+	html,body{
+	    overflow-x: hidden;
+	    -webkit-overflow-scrolling: touch;
+	}
 	body {
 		width: 375px !important;
 	}

@@ -177,7 +177,13 @@ class Feeds extends Component
 				<a class="pull-left width100" href="<?php echo $baseUrl . $feed['url']; ?>" data-ga-cat="Entity Link Click on Search Pages - <?php echo $city;?>" data-ga-action="Title | <?php echo $feed['title']; ?>" data-ga-label="search_results_pos_<?php echo $i+1; ?>">
 					<div class="media-body">
 						<h4 class="media-heading">
-							<?php echo $feed['title']; ?>
+							<?php
+							if(strtoupper($feed['type']) == 'REVIEW'){
+								echo $this->process_title($feed['title']).' - Critic Review';
+							}else{
+								echo $this->process_title($feed['title']);
+							}
+							?>
 						</h4>
 						<p class="small">
 							<?php //echo $feed['type']; ?>
@@ -188,7 +194,7 @@ class Feeds extends Component
 								<div class="landmark"><?php echo $feed['venue']; ?></div>
 							</div>
 						<?php }else if(strtoupper($feed['type']) == 'VENUE'){ ?>
-							<?php 
+							<?php
 								$address_arr = array();
 								if(isSet($feed['address']) && trim($feed['address'])!=''){
 									$address_arr[] = $feed['address'];
