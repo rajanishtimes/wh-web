@@ -24,6 +24,25 @@
     src: local("?"), url("../fonts/Lora-Regular.woff") format("woff"), url("../fonts/Lora-Regular.ttf") format("truetype"), url("../fonts/Lora-Regular.svg") format("svg");
 }
 
+@media (width: 736px) {
+    html,body{
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+    }
+}
+@media (width: 414px) {
+    html,body{
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+    }
+}
+@media (width: 375px) {
+    html,body{
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+    }
+}
+
 body {
     background: #fff none repeat scroll 0 0;
     color: #1e1e1e;
