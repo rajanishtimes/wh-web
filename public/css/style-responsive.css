@@ -273,12 +273,6 @@ PHONE < 600px
 	.width100 {
 	    width: 70% !important;
 	}
-	
-	.row.work-content {
-	    margin-left: -15px;
-    	margin-right: -15px;
-	}
-
 }
 
 
@@ -293,6 +287,10 @@ PHONE < 548px
 		float: right;
 		margin: 0;
 		padding: 20px 11px;
+	}
+	.row.work-content {
+	    margin-left: -15px;
+    	margin-right: -15px;
 	}
 }
 

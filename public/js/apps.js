@@ -262,8 +262,6 @@ function DOMReady(){
 	$('.view_on_app').click(function(){
 		send_deeplink();
 	});
-	
-	alert($(window).width());
 }
 
 function fbandtwitter(){
