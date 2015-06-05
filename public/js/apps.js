@@ -263,6 +263,7 @@ function DOMReady(){
 		send_deeplink();
 	});
 	
+	alert($(window).width());
 }
 
 function fbandtwitter(){
