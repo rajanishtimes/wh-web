@@ -2163,7 +2163,7 @@ textarea.no-resize {
     -moz-transform: scale(0);
     -o-transform: scale(0);
 
-    transform-origin: 50% -10px 0;
+    .social-group: 50% -10px 0;
     -webkit-transform-origin: 50% -10px 0;
     -ms-transform-origin: 50% -10px 0;
     -moz-transform-origin: 50% -10px 0;
@@ -3673,6 +3673,6 @@ iframe {
     color:#333;
 }
 .social-group {
-    height: 20px;
+    height: 41px;
     overflow: hidden;
 }
