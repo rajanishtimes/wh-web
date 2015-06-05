@@ -86,7 +86,7 @@
 	<div class="container">
 		<div id="fb-root"></div>
 		<div class="row">
-			<div class="col-sm-6 col-xs-12 text-left">
+			<div class="col-sm-6 col-xs-12 text-left social-group">
 				<div class="social-share-widget">
 					<div class="fb-like" data-href="https://www.whatshot.com" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 				</div>

@@ -34,7 +34,6 @@ body {
     color: #1e1e1e;
     font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 14px;
-    height: 100%;
     width: 100%;
     padding-top: 80px;
     overflow-x: hidden;
@@ -3649,4 +3648,8 @@ iframe {
 
 .info-content li p {
     color:#333;
+}
+.social-group {
+    height: 20px;
+    overflow: hidden;
 }
