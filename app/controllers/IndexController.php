@@ -12,7 +12,7 @@ class IndexController extends BaseController{
 		parent::initialize();
     }
 
-	public function homepageAction(){
+	public function indexAction(){
 		/* $this->setcities();
 		$this->setcityid();*/
 		$this->setlogsarray('homepage_start');
@@ -102,8 +102,11 @@ class IndexController extends BaseController{
 		}
 	}
 	
-	public function indexAction(){
-		$this->view->setLayout('homepageLayout');
+	public function homepageAction(){
+		header("HTTP/1.1 301 Moved Permanently");
+		header("Location: ".$this->baseUrl);
+		exit;
+		//$this->view->setLayout('homepageLayout');
     }
 	
 	public function policyAction(){

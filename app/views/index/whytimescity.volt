@@ -2,10 +2,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="work-content info-content"><br><br>
-				<div class="text-center">
+				<div class="float-left">
 					<img src="{{baseUrl}}/img/looksy.png" class="text-center" style="width:100px">
 				</div>
-						<!--<h1 class="float-left" style="margin: 0px 0px 0px 5px; width:61%">What is What's Hot?</h1>-->
+				<h1 class="float-left" style="margin:18px 0 0 10px; width:61%">What is What's Hot?</h1>
 				<div class="clearfix"></div><br>
 				Thank you for being a TimesCity regular. Over the years, we've been getting requests from users like you to provide more personalised and curated information. Well, we heard you and we took it seriously enough to give you <strong>What's Hot!</strong><br><br>
 				What is <strong>What's Hot?</strong></span><br><br>

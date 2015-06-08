@@ -128,7 +128,7 @@ if(preg_match('/\bv-[0-9\- ]+/i', $urlparams, $match)){
 
 $router->add("/{city}", array(
 	'controller' => 'index',
-	'action' => 'homepage',
+	'action' => 'index',
 ));
 
 $router->add("/policy", array(
@@ -159,9 +159,9 @@ $router->add("/search", array(
 ));
 
 
-$router->add("/homepage", array(
+$router->add("/index", array(
     'controller' => 'index',
-    'action' => 'homepage',
+    'action' => 'index',
 )); 
 
 
