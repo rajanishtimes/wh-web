@@ -587,10 +587,13 @@ ul.tagsblack li {
     border: 1px solid #fc3768;
     font-size: 12px;
     padding: 7px 18px;
+    padding: 0;
 }
 ul.tagsblack li a {
     color: #fc3768;
     font-family: roboto;
+    line-height: 27px;
+    padding: 7px 18px;
 }
 .filter_type {
     list-style: outside none none;
@@ -954,6 +957,7 @@ h4.small-title {
     font-family: "Lora",Calibri,Arial,sans-serif;
     font-size: 15px;
     line-height: 22px;
+
 }
 .info-content ol {
     list-style-type: lower-alpha;
@@ -3574,7 +3578,7 @@ a .icon-primary, a .icon-success, a .icon-info, a .icon-danger, a .icon-warning,
     padding-left: 10px;
 }
 .info-content {
-    padding: 0 16%;
+    padding: 0 16%; word-wrap: break-word;
 }
 .detail p {
     color: #333;
