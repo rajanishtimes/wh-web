@@ -164,6 +164,10 @@ $router->add("/index", array(
     'action' => 'index',
 )); 
 
+$router->add("/homepage", array(
+    'controller' => 'index',
+    'action' => 'homepage',
+)); 
 
 $router->add("/", array(
     'controller' => 'index',
