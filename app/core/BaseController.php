@@ -36,10 +36,10 @@ class BaseController extends Controller{
 		$this->request = new \Phalcon\Http\Request();
 
 		if ((strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile/') !== false) && (strpos($_SERVER['HTTP_USER_AGENT'], 'Safari/') == false)) {
-			$iswebview = true;
+			$this->iswebview = true;
 		}
 		if($_SERVER['HTTP_X_REQUESTED_WITH'] == "com.phdmobi.timescity") {
-			$iswebview = true;
+			$this->iswebview = true;
 		} 
 		$this->view->iswebview = $this->iswebview;
 
