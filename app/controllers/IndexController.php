@@ -141,6 +141,10 @@ class IndexController extends BaseController{
 		$this->view->canonical_url = $this->baseUrl.'/'.'about-us';
     }
 
+    public function whytimescityrawAction(){
+        $this->view->setLayout('rawLayout');
+    }
+
     public function aboutusAction(){
         $this->tag->setTitle('About Us');
 		$this->view->entitytype = 'about us';

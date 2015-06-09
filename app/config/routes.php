@@ -152,6 +152,11 @@ $router->add("/story", array(
 ));
 
 
+$router->add("/storyraw", array(
+    'controller' => 'index',
+    'action' => 'whytimescityraw',
+));
+
 
 $router->add("/search", array(
     'controller' => 'search',
