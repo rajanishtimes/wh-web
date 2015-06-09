@@ -15,9 +15,10 @@
 <!-- END BACK TO TOP 
 {{ partial('partials/globalsearch')}} -->
 <?php if($iswebview == false){ ?>
+	<style type="text/css">
+		.container-fluid{margin:0;}
+	</style>
 	{{ partial('partials/footer')}}
-	{{ partial('partials/bottom')}}
-<?php }else{ ?>
-	</body>
-	</html>
 <?php } ?>
+
+{{ partial('partials/bottom')}}
