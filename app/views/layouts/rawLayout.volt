@@ -1,10 +1,9 @@
 {{ partial('partials/head')}}
-	<div class="container-fluid">
-		<div class="row">
 			<?php
 				echo $this->getContent();
 			?>
-		</div>
-	</div>
+<style>
+	.container-fluid{margin:0;}
+</style>
 </body>
 </html>
