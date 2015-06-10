@@ -42,13 +42,17 @@ class VenueController extends BaseController{
 		}catch(Exception $e){
 			$venuedetail = array();
 		}
+
 		if($venuedetail){
 			$this->validateRequest($venuedetail['url']);
 			
-			$Venue = new \WH\Model\Venue();
-			$Venue->setId($id);
-			$events = $Venue->getResults();
-
+			try{
+				$Venue = new \WH\Model\Venue();
+				$Venue->setId($id);
+				$events = $Venue->getResults();
+			}catch(Exception $e){
+				$events = array();
+			}
 
 			$formatted_address = '';
 			if(isSet($venuedetail['address']) && trim($venuedetail['address'])!=''){

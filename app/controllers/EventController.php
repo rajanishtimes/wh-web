@@ -113,7 +113,26 @@ class EventController extends BaseController{
 			$cityshown => $this->baseUrl.'/'.$this->currentCity,
 			'Events in '.$cityshown =>''
 		));
-		$this->tag->setTitle('Events in '.$cityshown);
+
+
+		
+		/* ======= Seo Update ============= */
+		
+		if($cityshown == 'Delhi NCR'){
+			$title = 'Events in Delhi NCR, Gurgaon, Noida, Faridabad & Ghaziabad | '.$this->config->application->SiteName;
+			$this->view->meta_description = 'Popular Events in NCR - Delhi, Gurgaon, Noida, Faridabad, Ghaziabad & Greater Noida: Check out the top events today and upcoming events happening in Delhi NCR.';
+			$this->view->meta_keywords = 'events in Delhi NCR, events in Delhi NCR today, currents events in Delhi NCR';
+			$this->tag->setTitle('Events in Delhi NCR, Gurgaon, Noida, Faridabad & Ghaziabad | '.$this->config->application->SiteName);
+		}else{
+			$title = $cityshown.'Events in '.$cityshown.' Today, Upcoming Events Happening in '.$cityshown.' | '.$this->config->application->SiteName;
+			$this->view->meta_description = 'Popular Events in '.$cityshown.': Check out the top events happening in '.$cityshown.' today and upcoming events along with venue details, tickets details and free event passes.';
+			$this->view->meta_keywords = 'events in '.$cityshown.', events in '.$cityshown.' today, currents events in '.$cityshown;
+			$this->tag->setTitle('Events in '.$cityshown.' Today, Upcoming Events Happening in '.$cityshown.' | '.$this->config->application->SiteName);
+		}
+		
+		$this->view->canonical_url = $this->baseUrl.'/'.$this->currentCity.'/events';
+		/* ======= Seo Update ============= */
+
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,

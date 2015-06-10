@@ -71,10 +71,12 @@ $(window).load(function() {
 	
 	fbandtwitter();
 
-	/*setTimeout(function(){
-		
-	}, 1000); */
-	
+	if($('.view_gallery').length > 0){
+		$( '.view_gallery' ).click( function( e ) {
+			e.preventDefault();
+			eventimages();
+		});
+	}
 });
 
 function searchValid(){

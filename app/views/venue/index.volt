@@ -44,28 +44,33 @@
 						</div>
 						<div class="col-sm-12 col-md-4 no-padding venueright">
 							<div class="view_gallery">
-									{{feeds.getimage(baseUrl, venuedetail['images'][0]['uri'], 250, 520, venuedetail['title'], '', '', 'img-detail', 0)}} 
+									{{feeds.getimage(baseUrl, venuedetail['images'][0]['uri'], 480, 480, venuedetail['title'], '', '', 'img-detail', 0)}} 
 									<div class="view-gallery">VIEW GALLERY</div>
 							</div>
 						</div>
 				</div>
-				
+				<div class="clearfix"></div>
 				<br><br>
-				<div class="upcoming_event">
-					<div class="col-sm-12 col-md-12">
-					<div class="row">
-						<div class="col-xs-12 no-padding">
-							<h2 class="yfeeds">Upcoming Events</h2>
-						</div>
-						<div class="row work-content">
-							<div id="getupcomingevents">
-								{{feeds.getfeeds(baseUrl, events, 0, cityshown, 'feed')}}
-							</div><div class="clearfix"></div>
-						</div>
-					</div>
-					</div>
-				</div>
 
+				<?php if(!empty($events)){ ?>
+					<div class="upcoming_event">
+						<div class="col-sm-12 col-md-12">
+						<div class="row">
+							<div class="col-xs-12 no-padding">
+								<h2 class="yfeeds">Upcoming Events</h2>
+							</div>
+							<div class="row work-content">
+								<div id="getupcomingevents">
+									{{feeds.getfeeds(baseUrl, events, 0, cityshown, 'feed')}}
+								</div><div class="clearfix"></div>
+							</div>
+						</div>
+						</div>
+					</div>
+				<?php }else{ ?>
+					<hr>
+					<div style="height:200px"></div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
@@ -73,6 +78,15 @@
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
+function eventimages(){
+	$.swipebox([
+		{% for key, images in venuedetail['images'] %}
+			{ href:'{{feeds.makeurl(baseUrl, images["uri"])}}', title:'{{venuedetail["title"]}}' },
+		{% endfor  %}
+	]);
+}
+
+
 //<![CDATA[
 var map;
 var center = new google.maps.LatLng({{venuedetail['latitude']}}, {{venuedetail['longitude']}});
