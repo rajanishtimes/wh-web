@@ -7,6 +7,7 @@
 					<div class="col-sm-12 col-md-8 no-padding venueleft">
 
 						<div class="view_overlay">
+							<div class="gotoleft"><i class="fa fa-angle-double-left close-time"></i></div>
 							<h2 class="venuetitle">{{venuedetail['title']}}</h2>
 							<div class="venuedetail">
 								{% if(venuedetail['formatted_address'] != '') %}
@@ -66,7 +67,7 @@
 	</div>
 </div>
 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
 <script type="text/javascript">
 //<![CDATA[
 var map;

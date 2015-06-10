@@ -502,6 +502,12 @@ hr.small {
     height: 346px;
     overflow: hidden;
 }
+
+.gotoleft, .gotoright {
+    position: absolute;
+    right: 0;
+}
+
 .venuetitle {
     font-family: "Lora-Bold",times new roman,times,sans-serif;
     font-size: 32px;
@@ -513,28 +519,32 @@ hr.small {
     padding: 0 0 2px;
 }
 .venuedetail .timeimg {
-    background: rgba(0, 0, 0, 0) url("../img/venueicon.png") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("../img/venue-icon.png") no-repeat scroll 0 0;
     float: left;
-    height: 34px;
-    width: 41px;
+    height: 21px;
+    margin: 7px 0 0;
+    width: 33px;
 }
 .venuedetail .phoneimg {
-    background: rgba(0, 0, 0, 0) url("../img/venueicon.png") no-repeat scroll 0 -30px;
+    background: rgba(0, 0, 0, 0) url("../img/venue-icon.png") no-repeat scroll 0 -27px;
     float: left;
-    height: 34px;
-    width: 41px;
+    height: 21px;
+    margin: 7px 0 0;
+    width: 33px;
 }
 .venuedetail .landmarkimg {
-    background: rgba(0, 0, 0, 0) url("../img/venueicon.png") no-repeat scroll 0 -60px;
+    background: rgba(0, 0, 0, 0) url("../img/venue-icon.png") no-repeat scroll 0 -50px;
     float: left;
-    height: 34px;
-    width: 41px;
+    height: 21px;
+    margin: 7px 0 0;
+    width: 33px;
 }
 .venuedetail .websiteimg {
-    background: rgba(0, 0, 0, 0) url("../img/venueicon.png") no-repeat scroll 0 -90px;
+    background: rgba(0, 0, 0, 0) url("../img/venue-icon.png") no-repeat scroll 0 -78px;
     float: left;
-    height: 34px;
-    width: 41px;
+    height: 21px;
+    margin: 7px 0 0;
+    width: 33px;
 }
 .homepagevenue {
     color: #7b7b7b;

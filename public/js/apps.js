@@ -262,6 +262,26 @@ function DOMReady(){
 	$('.view_on_app').click(function(){
 		send_deeplink();
 	});
+
+	$('.gotoleft').click(function(){
+		var gotoleft = -($(".view_overlay").width() - 22);
+		$( ".view_overlay" ).animate({
+			left: gotoleft
+		}, 1000, function() {
+			$(this).find('i').addClass('fa-angle-double-right');
+			$('.gotoleft').addClass('gotoright').removeClass('gotoleft');
+		});
+	});
+
+	$(document.body).on('click', '.gotoright', function(){
+		var gotoright = ($(".view_overlay").width() - 22);
+		$( ".view_overlay" ).animate({
+			left: 0
+		}, 1000, function() {
+			$(this).find('i').removeClass('fa-angle-double-right');
+			$('.gotoright').addClass('gotoleft').removeClass('gotoright');
+		});
+	});
 }
 
 function fbandtwitter(){
