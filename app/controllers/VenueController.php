@@ -42,9 +42,15 @@ class VenueController extends BaseController{
 		}catch(Exception $e){
 			$venuedetail = array();
 		}
-
+		
 		if($venuedetail){
 			$this->validateRequest($venuedetail['url']);
+			
+			$Venue = new \WH\Model\Venue();
+			$Venue->setId($id);
+			$events = $Venue->getResults();
+
+
 			$formatted_address = '';
 			if(isSet($venuedetail['address']) && trim($venuedetail['address'])!=''){
 				$address_arr[] = $venuedetail['address'];
@@ -95,7 +101,8 @@ class VenueController extends BaseController{
 			$this->view->setVars(array(
 				'venuedetail' => $venuedetail,
 				'breadcrumbs' => $breadcrumbs,
-				'cityshown' => $cityshown
+				'cityshown' => $cityshown,
+				'events'	=> $events
 			));
 		}else{
 			$this->forwardtoerrorpage(404);

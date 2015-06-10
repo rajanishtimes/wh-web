@@ -6,7 +6,7 @@ use WH\Api\Params;
 class LocationController extends BaseController{
 	public function initialize(){
 		$this->setlogsarray('location_start');
-		$this->view->setLayout('mainLayout');
+		$this->view->setLayout('ajaxLayout');
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
         parent::initialize();
@@ -15,36 +15,55 @@ class LocationController extends BaseController{
 	public function indexAction(){
 		$this->response->setHeader('Cache-Control', 'max-age=900');
 		$mainurl = $this->request->getPost('mainurl');
-		$searchkeyword = $this->request->getPost('searchkeyword');
+		$searchkeyword = $this->create_title($this->request->getPost('searchkeyword'));
 		$tags = $this->request->getPost('tags');
 		$bydate = ucwords(strtolower($this->request->getPost('bydate')));
 		$start = $this->request->getPost('start');
 		$limit = $this->request->getPost('limit');
 		$parentid = $this->request->getPost('parentid');
-		$fromtype = $this->request->getPost('type');	
+		$city = $this->request->getPost('city');
+		$fromtype = $this->request->getPost('type');
+		$spstart = $this->request->getPost('spstart');
+		$splimit = $this->request->getPost('splimit');
 		$this->view->entitytype = 'location';
 		
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->city, $bydate, $tags, $searchkeyword, '', '', $fromtype);
+			if($bydate == 'Event'){
+				$allfeedslist = $this->getfeeddata($start, $limit, $city, 'all', $tags, '', $bydate, $searchkeyword, $fromtype, $spstart, $splimit);
+			}else{
+				$allfeedslist = $this->getfeeddata($start, $limit, $city, $bydate, $tags, '', '', $searchkeyword, $fromtype, $spstart, $splimit);
+			}
 			$this->setlogsarray('location_get_records');
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
+
+		/* ======= Seo Update ============= */
+		$this->tag->setTitle($searchkeyword.' | '.$this->config->application->SiteName);
+		$this->view->meta_description = 'Find all information related to '.$searchkeyword.' at '.$this->config->application->SiteName;
+		$this->view->meta_keywords = $searchkeyword;
+		$this->view->deep_link = 'timescity://ty=s&qu'.$searchkeyword;
+		/* ======= Seo Update ============= */
 		
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,
 				'mainurl'=>$mainurl,
 				'searchkeyword'=>$searchkeyword,
-				'start'=>$start+$limit,
+				'start'=>$start+$limit-$sponsors_count,
 				'limit'=>$limit,
 				'tags'=>$tags,
 				'bydate'=>$bydate,
-				'parentid'=>$parentid
+				'parentid'=>$parentid,
+				'city' => $city,
+				'cityshown' => $this->cityshown($city),
+				'fromtype' => $fromtype,
+				'spstart' => $spstart+$limit,
+				'splimit' => $limit
 				)
 			);
 		$this->setlogsarray('location_end');
-		$this->getlogs('location', $this->baseUrl.'/'.$this->city.'/location/'.$searchkeyword);
+		$this->getlogs('location', $this->baseUrl.'/'.$city.'/location/'.$searchkeyword);
     }
 	
     public function autosuggestionAction(){
@@ -56,6 +75,9 @@ class LocationController extends BaseController{
 			$Suggestion->setAutoSuggest();
 			try{
 				$autosuggestresult = $Suggestion->getSuggestResults();
+				foreach($autosuggestresult['suggestions'] as $key=>$autos){
+					$autosuggestresult['suggestions'][$key] = str_replace("/"," ",stripslashes($autos));
+				}
 			}catch(Exception $e){
 				$autosuggestresult = array();
 			}
@@ -67,10 +89,11 @@ class LocationController extends BaseController{
 	
 	public function locationAction(){
 		$this->view->setLayout('mainLayout');
+		$searchkeyword = '';
 		if($this->dispatcher->getParam('locationname'))
-			$searchkeyword = $this->dispatcher->getParam('locationname');
+			$searchkeyword = $this->create_title($this->dispatcher->getParam('locationname'));
 		
-		$this->view->entityid = $searchkeyword;
+		$this->view->entityid = 0;
 		$this->view->entitytype = 'location';
 		
 		$start = 0;
@@ -81,17 +104,18 @@ class LocationController extends BaseController{
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
-		
+
+
 		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($searchkeyword))) =>''));
-		
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,
-				'locationresultcount' => count($allfeedslist),
+				'locationresultcount' => count($allfeedslist['results']),
 				'searchkeyword'=>$searchkeyword,
 				'start'=>$limit,
 				'limit'=>$limit,
-				'breadcrumbs'=>$breadcrumbs
+				'breadcrumbs'=>$breadcrumbs,
+				'cityshown' =>$this->cityshown($this->currentCity)
 				)
 			);
 			
@@ -99,17 +123,18 @@ class LocationController extends BaseController{
 		if($searchkeyword){
 			$this->tag->setTitle($searchkeyword.' | '.$this->config->application->SiteName);
 		}else{
-			$this->tag->setTitle('Search | '.$this->config->application->SiteName);
+			$this->tag->setTitle('Location | '.$this->config->application->SiteName);
 		}
-		$this->view->meta_description = $searchkeyword;
+		$this->view->meta_description = 'Find all information related to '.$searchkeyword.' at '.$this->config->application->SiteName;
 		$this->view->meta_keywords = $searchkeyword;
+		$this->view->deep_link = 'timescity://ty=s&qu'.$searchkeyword;
 		/* ======= Seo Update ============= */
 		
     }
 	
 	public function locationlistAction(){
 		$mainurl = $this->request->getPost('mainurl');
-		$searchkeyword = $this->request->getPost('searchkeyword');
+		$searchkeyword = $this->create_title($this->request->getPost('searchkeyword'));
 		$tags = $this->request->getPost('tags');
 		$bydate = ucwords(strtolower($this->request->getPost('bydate')));
 		$start = $this->request->getPost('start');
@@ -119,7 +144,7 @@ class LocationController extends BaseController{
 		$fromtype = $this->request->getPost('type');
 
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $cities, $bydate, $tags, $searchkeyword, '', '', $fromtype);
+			$allfeedslist = $this->getfeeddata($start, $limit, $cities, $bydate, $tags, '', '', $searchkeyword, $fromtype);
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
@@ -127,6 +152,7 @@ class LocationController extends BaseController{
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,
+				'searchresultcount' => count($allfeedslist),
 				'mainurl'=>$mainurl,
 				'searchkeyword'=>$searchkeyword,
 				'start'=>$start+$limit,
@@ -135,14 +161,17 @@ class LocationController extends BaseController{
 				'bydate'=>$bydate,
 				'parentid'=>$parentid,
 				'cities'=>$cities,
-				'type' => $fromtype
+				'cityshown' =>$this->cityshown($cities)
 				)
 			);
     }
 	
 	public function forwardlocationAction(){
-		$searchkeyword = $this->request->getPost('location');
+		$searchkeyword = htmlentities($this->request->getPost('location'));
+		$searchkeyword = str_replace("/"," ",stripslashes($searchkeyword));
+		$searchkeyword = str_replace("*","",$searchkeyword);
+		$searchkeyword = urlencode($searchkeyword);
 		$url = $this->baseUrl.'/'.$this->currentCity.'/location/'.$searchkeyword;
-		return $this->response->redirect($url);     
+		return $this->response->redirect($url);
 	}
 }

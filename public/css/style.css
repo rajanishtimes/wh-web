@@ -481,6 +481,27 @@ hr.small {
 #searchformbtn {
     cursor: pointer;
 }
+
+.view_overlay {
+    background: rgba(0, 0, 0, 0) url("../img/background.png") repeat scroll 0 0;
+    color: #fff;
+    position: absolute;
+    width: 400px;
+    z-index: 99;
+    padding: 10px;
+    height: 100%;
+}
+.view_overlay a{
+    color:#fff;
+}
+
+.view_gallery .img-detail {
+    max-width: 100%;
+}
+.venueleft, .venueright {
+    height: 346px;
+    overflow: hidden;
+}
 .venuetitle {
     font-family: "Lora-Bold",times new roman,times,sans-serif;
     font-size: 32px;

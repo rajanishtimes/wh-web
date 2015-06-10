@@ -1,5 +1,13 @@
 {{ partial('partials/head')}}
-{{ partial('partials/header')}}
+
+<?php if($iswebview == false){ ?>
+	{{ partial('partials/header')}}	
+<?php }else{ ?>
+	<style>
+		.container-fluid{margin:0;}
+	</style>
+<?php }?>
+
 <div class="container-fluid">
 	<div class="row">
 		<?php
@@ -10,5 +18,7 @@
 
 <!-- END BACK TO TOP 
 {{ partial('partials/globalsearch')}} -->
-{{ partial('partials/footer')}}
+<?php if($iswebview == false){ ?>
+	{{ partial('partials/footer')}}
+<?php }?>
 {{ partial('partials/bottom')}}

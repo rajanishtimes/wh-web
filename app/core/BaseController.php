@@ -26,7 +26,7 @@ class BaseController extends Controller{
 	public $baseUrl;
 	public $entityid = 0;
 	public $entitytype = '';
-
+	public $iswebview = false;
 	
     protected function initialize()
     {
@@ -69,6 +69,18 @@ class BaseController extends Controller{
 		//echo $this->dispatcher->getControllerName();exit;
 		//echo $this->dispatcher->getActionName();exit;
 		
+
+		if ((strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile/') !== false) && (strpos($_SERVER['HTTP_USER_AGENT'], 'Safari/') == false)) {
+			$this->iswebview = true;
+		}
+		
+		if(isSet($_SERVER['HTTP_X_REQUESTED_WITH'])){
+			if($_SERVER['HTTP_X_REQUESTED_WITH'] == "com.phdmobi.timescity") {
+				$this->iswebview = true;
+			}	
+		}
+		$this->view->iswebview = $this->iswebview;
+
 		
 		/* ============= Set cookie for city =============== */
 		if($this->dispatcher->getParam('city') == 'delhi'){
