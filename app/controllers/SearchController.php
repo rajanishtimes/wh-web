@@ -66,7 +66,7 @@ class SearchController extends BaseController{
 			);
 			
 		$this->setlogsarray('search_end');
-		$this->getlogs('search', $this->baseUrl.'/'.$city.'/search/'.$searchkeyword);
+		$this->getlogs('search', $this->baseUrl.'/search/'.$searchkeyword);
     }
 	
     public function autosuggestionAction(){
