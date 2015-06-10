@@ -364,6 +364,17 @@ PHONE < 480px
 	.width100{
 		width: 64% !important;
 	}
+	.view_overlay{
+		position: relative;
+		width: auto;
+	}
+	.removepadd{
+		padding-left: 15px;
+    	padding-right: 15px;
+	}
+	.gotoleft{
+		display: none;
+	}
 }
 
 /**
@@ -426,6 +437,7 @@ PHONE < 420px
 	.makeheaderintera .nav-search.navbar-right, .nav-search.navbar-right{
 		padding: 21px 11px;
 	}
+	
 }
 
 /**

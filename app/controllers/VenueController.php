@@ -42,7 +42,6 @@ class VenueController extends BaseController{
 		}catch(Exception $e){
 			$venuedetail = array();
 		}
-		
 		if($venuedetail){
 			$this->validateRequest($venuedetail['url']);
 			
