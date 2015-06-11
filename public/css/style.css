@@ -530,31 +530,27 @@ hr.small {
     padding: 0 0 2px;
 }
 .venuedetail .timeimg {
-    background: rgba(0, 0, 0, 0) url("../img/venue-icon.png") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("../img/venueicon.png") no-repeat scroll 0 0;
     float: left;
-    height: 21px;
-    margin: 7px 0 0;
+    height: 27px;
     width: 33px;
 }
 .venuedetail .phoneimg {
-    background: rgba(0, 0, 0, 0) url("../img/venue-icon.png") no-repeat scroll 0 -27px;
+    background: rgba(0, 0, 0, 0) url("../img/venueicon.png") no-repeat scroll 0 -32px;
     float: left;
-    height: 21px;
-    margin: 7px 0 0;
+    height: 27px;
     width: 33px;
 }
 .venuedetail .landmarkimg {
-    background: rgba(0, 0, 0, 0) url("../img/venue-icon.png") no-repeat scroll 0 -50px;
+    background: rgba(0, 0, 0, 0) url("../img/venueicon.png") no-repeat scroll 0 -61px;
     float: left;
-    height: 21px;
-    margin: 7px 0 0;
+    height: 27px;
     width: 33px;
 }
 .venuedetail .websiteimg {
-    background: rgba(0, 0, 0, 0) url("../img/venue-icon.png") no-repeat scroll 0 -78px;
+    background: rgba(0, 0, 0, 0) url("../img/venueicon.png") no-repeat scroll 0 -95px;
     float: left;
-    height: 21px;
-    margin: 7px 0 0;
+    height: 27px;
     width: 33px;
 }
 .homepagevenue {
