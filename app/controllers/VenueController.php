@@ -151,6 +151,7 @@ class VenueController extends BaseController{
 				$Venue->setCity($this->cityshown($this->currentCity));
 				$nearbyevents = $Venue->allNearByEvents();
 				foreach ($nearbyevents['results'] as $key => $nearbyevent) {
+					 echo "<pre>"; print_r($nearbyevent); echo "</pre>"; exit;
 					$formatted_addresss = '';
 					$address_arrs = array();
 					if(isSet($nearbyevent['address']) && trim($nearbyevent['address'])!=''){
@@ -165,8 +166,8 @@ class VenueController extends BaseController{
 					if(isSet($nearbyevent['zonename']) && trim($nearbyevent['zonename'])!=''){
 						$address_arrs[] = $nearbyevent['zonename'];
 					}
-					if(isSet($nearbyevent['city']) && trim($nearbyevent['city'])!=''){
-						$address_arrs[] = $nearbyevent['city'];
+					if(isSet($nearbyevent['cities']) && trim($nearbyevent['cities'])!=''){
+						$address_arrs[] = $nearbyevent['cities'];
 					}	
 					$formatted_addresss = implode(', ', $address_arrs);
 					$nearbyevents['results'][$key]['formatted_address'] = str_replace(', ,', ',', $formatted_addresss);

@@ -618,6 +618,9 @@ hr.small {
 .nearby_events .the-box{
     height: 100px;
 }
+.critic_review_container .authordata {
+    min-height: 100px;
+}
 .gotoleft, .gotoright {
     position: absolute;
     right: 0;
