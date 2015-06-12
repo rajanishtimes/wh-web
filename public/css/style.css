@@ -540,7 +540,9 @@ hr.small {
     height: 346px;
     overflow: hidden;
 }
-
+.upcoming_event .the-box{
+    height: 160px;
+}
 .gotoleft, .gotoright {
     position: absolute;
     right: 0;

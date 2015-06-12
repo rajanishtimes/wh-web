@@ -45,23 +45,25 @@
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
 				<ul class="list">
 					<li class="service_group cuisine">Cuisine</li>
-					<li>Italian</li>
-					<li>Chinese</li>
-					<li>Indian</li>
+					<?php $cuisines = $venuedetail['features']; ?>
+					{% for key, cuisine in cuisines %}
+						<li>{{cuisine['name']}}</li>
+					{% endfor %}
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
 				<ul class="list">
 					<li class="service_group cost">Cost</li>
-					<li><i class="fa fa-inr"></i> 1400 for two people (aprox.)</li>
+					<li><i class="fa fa-inr"></i> {{venuedetail['price_per']}} for two people (aprox.)</li>
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
 				<ul class="list faceilities_group">
 					<li class="service_group facilities">Facilities</li>
-					<li class="{{'Non-Veg' | lower}}">Non Veg</li>
-					<li class="{{'Alcohol' | lower}}">Alcohol</li>
-					<li class="{{'Buffet' | lower}}">Buffet</li>
+					<?php $features = $venuedetail['cuisines']; ?>
+					{% for key, feature in features %}
+						<li class="{{feature['name'] | lower}}">{{feature['name']}}</li>
+					{% endfor %}
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-3">
@@ -93,14 +95,14 @@
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-6">
 					<div class="rating-container text-center">
-						<div class="rating-div float-left">
+						<!--<div class="rating-div float-left">
 							<div class="total-rate">
 								{{venuedetail['reviews'][0]['rwidth']}}
 							</div>
 							<div class="overall-rate">
 								OUT OF 5
 							</div>
-						</div>
+						</div>-->
 						<div class="progressbar float-left">
 							{% for key, rating in venuedetail['reviews'][0]['ratings'] %}
 							<div class="progres-bar">
@@ -136,7 +138,7 @@
 			</ul><div class="clearfix"></div>
 		</div>
 
-		<?php if(!empty($events)){ ?>
+		<?php if(!empty($events['results'])){ ?>
 			<div class="upcoming_event">
 				<div class="col-sm-12 col-md-12">
 				<div class="row">
@@ -153,7 +155,7 @@
 			</div>
 		<?php } ?>
 
-		<?php if(!empty($pastevents)){ ?>
+		<?php if(!empty($pastevents['results'])){ ?>
 			<div class="upcoming_event">
 				<div class="col-sm-12 col-md-12">
 				<div class="row">
@@ -162,9 +164,7 @@
 					</div>
 					<div class="row work-content">
 						<div id="getupcomingevents">
-							<?php for($i=0; $i<10; $i++){ ?>
 								{{feeds.getfeeds(baseUrl, pastevents, 0, cityshown, 'feed')}}
-							<?php } ?>
 						</div><div class="clearfix"></div>
 					</div>
 				</div>

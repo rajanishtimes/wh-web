@@ -126,10 +126,21 @@ class VenueController extends BaseController{
 			}
 			try{
 				$Venue = new \WH\Model\Venue();
-				$Venue->setId($id);
+				$idwov = substr($id, 2);
+				$Venue->setId($idwov);
 				$events = $Venue->getResults();
 			}catch(Exception $e){
 				$events = array();
+			}
+
+
+			try{
+				$Venue = new \WH\Model\Venue();
+				$idwov = substr($id, 2);
+				$Venue->setId($idwov);
+				$pastevents = $Venue->allPastEvents();
+			}catch(Exception $e){
+				$pastevents = array();
 			}
 
 			$formatted_address = '';
@@ -198,7 +209,7 @@ class VenueController extends BaseController{
 				'breadcrumbs' => $breadcrumbs,
 				'cityshown' => $cityshown,
 				'events'	=> $events,
-				'pastevents'	=> $events
+				'pastevents'	=> $pastevents
 			));
 		}else{
 			$this->forwardtoerrorpage(404);
