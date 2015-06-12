@@ -615,6 +615,9 @@ hr.small {
 .upcoming_event .the-box{
     height: 160px;
 }
+.nearby_events .the-box{
+    height: 100px;
+}
 .gotoleft, .gotoright {
     position: absolute;
     right: 0;
