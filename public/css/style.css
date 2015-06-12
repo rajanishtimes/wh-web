@@ -494,7 +494,44 @@ hr.small {
 .view_overlay a{
     color:#fff;
 }
-
+.service_container .list{
+    list-style: outside none none;
+    padding: 0;
+}
+.service_container .list li.service_group{
+    font-size: 18px;
+    padding: 5px 0 5px 45px;
+}
+.critic_review_container {
+    border: 1px solid #d3d3d3;
+    padding: 15px;
+}
+.service_group.cuisine{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -7px;
+}
+.service_group.cost{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -58px;
+}
+.service_group.facilities{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -104px;
+}
+.faceilities_group .non-veg{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -154px;
+}
+.critic_review_container .rating-container{
+    width: 100%;
+}
+.service_container .list li{
+    list-style: outside none none;
+    padding: 0 0 0 45px;
+}
+.faceilities_group li{
+    padding: 5px 0 5px 45px !important;
+}
+.view_gallery {
+    max-height: 200px;
+    overflow: hidden;
+}
 .view_gallery .img-detail {
     max-width: 100%;
 }
@@ -517,7 +554,7 @@ hr.small {
     opacity: 0.5;
     padding: 5px 10px;
     position: absolute;
-    right: 0;
+    right: 15px;
 }
 .venuetitle {
     font-family: "Lora-Bold",times new roman,times,sans-serif;
@@ -1886,6 +1923,9 @@ h3.tags {
 .share {
     color: #ababab;
     padding: 11px 62px;
+}
+.venue_share{
+    padding: 11px 0;
 }
 .sharewithborder {
     border-bottom: 1px solid rgb(238, 238, 238);

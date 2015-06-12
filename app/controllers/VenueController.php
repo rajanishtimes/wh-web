@@ -45,7 +45,85 @@ class VenueController extends BaseController{
 
 		if($venuedetail){
 			$this->validateRequest($venuedetail['url']);
-			
+
+			$Author = new \WH\Model\Solr();
+			$Author->setParam('fl','detail');
+			$Author->setSolrType('detail');
+
+			foreach($venuedetail['reviews'] as $key=>$reviews){
+				$Author->setParam('ids','a_'.$reviews['critic_id']);
+				$Author->setEntityDetails();
+				try{
+					$author = $Author->getDetailResults();
+				}catch(Exception $e){
+					$author = array();
+				}
+				$venuedetail['reviews'][$key]['author'] = $author;
+
+
+				$rwidth = round((($reviews['food_rate'] + $reviews['service_rate'] + $reviews['decor_rate'])/3), 1);
+				$reviewwidth = $rwidth*33;
+				$venuedetail['reviews'][$key]['rwidth'] = $rwidth;
+				$venuedetail['reviews'][$key]['reviewwidth'] = $reviewwidth;
+
+				/* Rating Progress Bar */
+					$ratings = array();
+					$background_color = array('#e74c3c', '#f7c912', '#2ecc71');
+					$border_color = array('#b51707', '#be9f0e', '#0f9a4a');
+					$food_rate = ($reviews['food_rate']/5)*100;
+					$service_rate = ($reviews['service_rate']/5)*100;
+					$decor_rate = ($reviews['decor_rate']/5)*100;
+
+					$ratings['food']['rating'] = $reviews['food_rate'];
+					if($food_rate < 33){
+						$ratings['food']['background_color'] = $background_color[0];
+						$ratings['food']['border_color'] = $border_color[0];
+						$ratings['food']['width'] = $food_rate;
+					}else if($food_rate > 33 && $food_rate < 66){
+						$ratings['food']['background_color'] = $background_color[1];
+						$ratings['food']['border_color'] = $border_color[1];
+						$ratings['food']['width'] = $food_rate;
+					}else{
+						$ratings['food']['background_color'] = $background_color[2];
+						$ratings['food']['border_color'] = $border_color[2];
+						$ratings['food']['width'] = $food_rate;
+					}
+					
+
+					$ratings['service']['rating'] = $reviews['service_rate'];
+					if($service_rate < 33){
+						$ratings['service']['background_color'] = $background_color[0];
+						$ratings['service']['border_color'] = $border_color[0];
+						$ratings['service']['width'] = $service_rate;
+					}else if($service_rate > 33 && $service_rate < 66){
+						$ratings['service']['background_color'] = $background_color[1];
+						$ratings['service']['border_color'] = $border_color[1];
+						$ratings['service']['width'] = $service_rate;
+					}else{
+						$ratings['service']['background_color'] = $background_color[2];
+						$ratings['service']['border_color'] = $border_color[2];
+						$ratings['service']['width'] = $service_rate;
+					}
+
+					$ratings['decor']['rating'] = $reviews['decor_rate'];
+					if($decor_rate < 33){
+						$ratings['decor']['background_color'] = $background_color[0];
+						$ratings['decor']['border_color'] = $border_color[0];
+						$ratings['decor']['width'] = $decor_rate;
+					}else if($decor_rate > 33 && $decor_rate < 66){
+						$ratings['decor']['background_color'] = $background_color[1];
+						$ratings['decor']['border_color'] = $border_color[1];
+						$ratings['decor']['width'] = $decor_rate;
+					}else{
+						$ratings['decor']['background_color'] = $background_color[2];
+						$ratings['decor']['border_color'] = $border_color[2];
+						$ratings['decor']['width'] = $decor_rate;
+					}
+
+				/* Rating Progress Bar End*/
+				$venuedetail['reviews'][$key]['ratings'] = $ratings;
+
+			}
 			try{
 				$Venue = new \WH\Model\Venue();
 				$Venue->setId($id);
@@ -101,11 +179,13 @@ class VenueController extends BaseController{
 			$this->view->canonical_url = $this->baseUrl.$venuedetail['url'];
 			$this->view->deep_link = $venuedetail['deep_link'];
 			/* ======= Seo Update ============= */
+			//echo "<pre>"; print_r($venuedetail); echo "</pre>"; exit;
 			$this->view->setVars(array(
 				'venuedetail' => $venuedetail,
 				'breadcrumbs' => $breadcrumbs,
 				'cityshown' => $cityshown,
-				'events'	=> $events
+				'events'	=> $events,
+				'pastevents'	=> $events
 			));
 		}else{
 			$this->forwardtoerrorpage(404);
