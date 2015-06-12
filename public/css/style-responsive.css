@@ -54,9 +54,6 @@ STANDARD DESKTOP 992px <> 1200px
 	.rating-container{
 		width: 100%;
 	}
-	.progressbar{
-		padding: 0 0 0 16%;
-	}
 }
 
 
@@ -139,9 +136,6 @@ SMALL DESKTOP 768px <> 991px
 	}
 	.rating-container{
 		width: 100%;
-	}
-	.progressbar{
-		padding: 0 0 0 16%;
 	}
 }
 
@@ -250,9 +244,6 @@ PHONE < 640px
 	.rating-container{
 		width: 100%;
 	}
-	.progressbar{
-		padding: 0 0 0 20%;
-	}
 	.width100{
 		width: 72% !important;
 	}
@@ -357,9 +348,6 @@ PHONE < 480px
 	}
 	.rating-container{
 		width: 100%;
-	}
-	.progressbar{
-		padding: 0 0 0 29%;
 	}
 	.width100{
 		width: 64% !important;
