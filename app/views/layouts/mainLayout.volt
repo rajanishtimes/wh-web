@@ -1,11 +1,11 @@
 {{ partial('partials/head')}}
 
-<?php if($iswebview == false){ ?>
-	{{ partial('partials/header')}}	
-<?php }else{ ?>
+<?php if($iswebview == true && $controllername =='index' && $actionname =='whytimescity' ){ ?>
 	<style>
 		.container-fluid{margin:0;}
 	</style>
+<?php }else{ ?>
+	{{ partial('partials/header')}}
 <?php }?>
 
 <div class="container-fluid">
@@ -18,7 +18,8 @@
 
 <!-- END BACK TO TOP 
 {{ partial('partials/globalsearch')}} -->
-<?php if($iswebview == false){ ?>
+<?php if($iswebview == true && $controllername =='index' && $actionname =='whytimescity' ){ ?>	
+<?php }else{?>
 	{{ partial('partials/footer')}}
-<?php }?>
+<?php } ?>
 {{ partial('partials/bottom')}}

@@ -34,14 +34,14 @@
 
 					<div class="detail">
 						<div class="rating-container text-center">
-							<div class="rating-div float-left">
+							<!--<div class="rating-div float-left">
 								<div class="total-rate">
 									{{rwidth}}
 								</div>
 								<div class="overall-rate">
 									OUT OF 5
 								</div>
-							</div>
+							</div>-->
 							<div class="progressbar float-left">
 								{% for key, rating in ratings %}
 								<div class="progres-bar">
