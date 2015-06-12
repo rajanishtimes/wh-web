@@ -45,7 +45,7 @@
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
 				<ul class="list">
 					<li class="service_group cuisine">Cuisine</li>
-					<?php $cuisines = $venuedetail['features']; ?>
+					<?php $cuisines = $venuedetail['cuisines']; ?>
 					{% for key, cuisine in cuisines %}
 						<li>{{cuisine['name']}}</li>
 					{% endfor %}
@@ -60,9 +60,9 @@
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
 				<ul class="list faceilities_group">
 					<li class="service_group facilities">Facilities</li>
-					<?php $features = $venuedetail['cuisines']; ?>
+					<?php $features = $venuedetail['features']; ?>
 					{% for key, feature in features %}
-						<li class="{{feature['name'] | lower}}">{{feature['name']}}</li>
+						<li class="{{elements.remove_space(feature['name']) | lower}}">{{feature['name']}}</li>
 					{% endfor %}
 				</ul>
 			</div>
@@ -91,7 +91,7 @@
 								<a href="https://twitter.com/{{venuedetail['reviews'][0]['author']['twitter_url']}}" class="twitter-follow-button" data-show-count="true"></a>
 							{% endif %}
 						</div>
-					</div>
+					</div><br>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-6">
 					<div class="rating-container text-center">
@@ -172,11 +172,67 @@
 			</div>
 		<?php } ?>
 
+		<?php if(!empty($nearbyevents['results'])){ ?>
+			<div class="upcoming_event">
+				<div class="col-sm-12 col-md-12">
+				<div class="row">
+					<div class="col-xs-12 no-padding">
+						<h2 class="yfeeds">Near by places</h2>
+					</div>
+					<div class="row work-content">
+						<div id="getupcomingevents">
+							<?php $i= 1; foreach($nearbyevents['results'] as $feed){ ?>
+							<div class="col-sm-4 col-md-3 col-xs-6">
+								<div class="work-item feeds-data">
+									<a href="<?php echo $baseUrl . $feed['url']; ?>">
+										<div class="hover-container">
+											<div class="hover-wrap">
+												<i class="glyphicon glyphicon-plus bino"></i>
+											</div>
+											<?php echo $this->feeds->getimage($baseUrl, $feed['image']['uri'], 479, 479, $feed['title'], $feed['image'], '', '', $i); ?>
+										</div>
+									</a>
+									<a href="<?php echo $baseUrl . $feed['url']; ?>">
+										<div class="the-box no-margin no-border">
+											<div class="feed-title"><?php echo $this->feeds->process_title($feed['title']); ?></div>
+											<div class="homepagevenue">
+												<div class="landmark"><?php echo $feed['formatted_address']; ?></div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+							<?php $i++; } ?>
+						</div><div class="clearfix"></div>
+					</div>
+				</div>
+				</div>
+			</div>
+		<?php } ?>
+
+		
+		<div class="col-sm-12 col-md-12">
+			<div class="row">
+				{% if(venuedetail['tags'] | length > 0) %}
+					<p class="tags">Tags</p>
+					<div class="work-content">
+						<ul class="work-category-wrap tagsblack">
+							<?php $populartags =$venuedetail['tags'];?>						
+							{% for populartag in populartags %}
+								<li class="filter" ><a href="{{baseUrl}}/{{currentCity}}/tag/{{elements.create_slug(populartag['name'])}}">
+								{{populartag['name']}}
+								</a></li>
+							{% endfor  %}
+						</ul><div class="clearfix"></div>
+					</div><div class="clearfix"></div>
+				{% endif %}
+			</div>
+		</div>
 
 	</div>
 </div>
 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
 <script type="text/javascript">
 function eventimages(){
 	$.swipebox([

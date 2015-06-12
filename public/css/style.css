@@ -507,17 +507,89 @@ hr.small {
     padding: 15px;
 }
 .service_group.cuisine{
-    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -7px;
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -1px;
 }
 .service_group.cost{
-    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -58px;
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -34px;
 }
 .service_group.facilities{
-    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -104px;
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -70px;
 }
-.faceilities_group .non-veg{
-    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -154px;
+
+.faceilities_group .sunday-brunch{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -105px;
 }
+
+.faceilities_group .buffet{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -137px;
+}
+.faceilities_group .karaoke{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -167px;
+}
+.faceilities_group .sea-facing{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -204px;
+}
+.faceilities_group .roof-top{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -237px;
+}
+.faceilities_group .poolside{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -265px;
+}
+.faceilities_group .outdoor-seating{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -299px;
+}
+.faceilities_group .big-screen{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -329px;
+}
+.faceilities_group .live-music{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -362px;
+}
+.faceilities_group .reservations-must{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -404px;
+}
+.faceilities_group .dance-floor{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -441px;
+}
+.faceilities_group .smoking-area{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -473px;
+}
+.faceilities_group .air-condition1{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -499px;
+}
+.faceilities_group .dj{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -534px;
+}
+.faceilities_group .wifi{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -568px;
+}
+.faceilities_group .parking-available{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -605px;
+}
+.faceilities_group .valet-available{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -639px;
+}
+.faceilities_group .kids-area{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -671px;
+}
+.faceilities_group .pure-vegetarian{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -706px;
+}
+.faceilities_group .home-delivery{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -733px;
+}
+.faceilities_group .take-away{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -769px;
+}
+.faceilities_group .serves-alcohol{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -800px;
+}
+.faceilities_group .good{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -838px;
+}
+.faceilities_group .rajau{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -871px;
+}
+
 .critic_review_container .rating-container{
     width: 100%;
 }

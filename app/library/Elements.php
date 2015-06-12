@@ -98,6 +98,12 @@ class Elements extends Component
 		return $slug2;
 	}
 
+	public function remove_space($string){
+		$slug = str_replace(' ', '-', $string);
+		$slug2 = str_replace('/', '-', $slug);
+		return $slug2;
+	}
+
 	public function auto_version($file, $ROOT=false){
 
 		if(!$ROOT){

@@ -619,5 +619,7 @@ PHONE < 320px
 	.makeheaderintera .searchbtn a > div, .searchbtn a > div{
 		padding: 20px 15px;
 	}
-
+	.critic_review_container .authordetail{
+		width: 155px;
+	}
 }

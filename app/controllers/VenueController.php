@@ -143,7 +143,38 @@ class VenueController extends BaseController{
 				$pastevents = array();
 			}
 
-			$formatted_address = '';
+			try{
+				$Venue = new \WH\Model\Venue();
+				$idwov = substr($id, 2);
+				$Venue->setLatitude($venuedetail['latitude']);
+				$Venue->setLongitude($venuedetail['longitude']);
+				$nearbyevents = $Venue->allNearByEvents();
+				foreach ($nearbyevents['results'] as $key => $nearbyevent) {
+					$formatted_addresss = '';
+					$address_arr = array();
+					if(isSet($nearbyevent['address']) && trim($nearbyevent['address'])!=''){
+						$address_arr[] = $venuedetail['address'];
+					}
+					if(isSet($nearbyevent['landmark']) && trim($nearbyevent['landmark'])!=''){
+						$address_arr[] = $venuedetail['landmark'];
+					}
+					if(isSet($nearbyevent['locality']) && trim($nearbyevent['locality'])!=''){
+						$address_arr[] = $venuedetail['locality'];
+					}
+					if(isSet($nearbyevent['zonename']) && trim($nearbyevent['zonename'])!=''){
+						$address_arr[] = $venuedetail['zonename'];
+					}
+					if(isSet($nearbyevent['city']) && trim($nearbyevent['city'])!=''){
+						$address_arr[] = $nearbyevent['city'];
+					}	
+					$formatted_addresss = implode(', ', $address_arr);
+					$nearbyevents['results'][$key]['formatted_address'] = str_replace(', ,', ',', $formatted_addresss);
+				}
+			}catch(Exception $e){
+				$nearbyevents = array();
+			}
+
+			$formatted_address = ''; $address_arr = array();
 			if(isSet($venuedetail['address']) && trim($venuedetail['address'])!=''){
 				$address_arr[] = $venuedetail['address'];
 			}
@@ -197,6 +228,7 @@ class VenueController extends BaseController{
 				$currentdatetime = strtotime(date("Y-m-d h:i:s"));
 				//echo ' '.date('Y-m-d h:i:s', $currentdatetime)."<br>";
 				$eventtime = $event['end_time'];
+				$eventtime = strtotime(date('Y-m-d h:i:s', $eventtime));
 				//echo ' '.date('Y-m-d h:i:s', $eventtime)."<br>";
 				if($currentdatetime > $eventtime){
 					unset($events['results'][$key]);
@@ -209,7 +241,8 @@ class VenueController extends BaseController{
 				'breadcrumbs' => $breadcrumbs,
 				'cityshown' => $cityshown,
 				'events'	=> $events,
-				'pastevents'	=> $pastevents
+				'pastevents'	=> $pastevents,
+				'nearbyevents' => $nearbyevents
 			));
 		}else{
 			$this->forwardtoerrorpage(404);
