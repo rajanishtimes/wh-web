@@ -531,6 +531,7 @@ hr.small {
 .view_gallery {
     max-height: 200px;
     overflow: hidden;
+    cursor: pointer;
 }
 .view_gallery .img-detail {
     max-width: 100%;

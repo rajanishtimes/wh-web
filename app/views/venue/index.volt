@@ -65,7 +65,7 @@
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-3">
-				<div class="view_gallery">
+				<div class="view_gallery" title="Click to see Full Gallery">
 						{{feeds.getimage(baseUrl, venuedetail['images'][0]['uri'], 480, 480, venuedetail['title'], '', '', 'img-detail', 0)}} 
 						<div class="view-gallery">VIEW GALLERY</div>
 				</div>
@@ -127,7 +127,7 @@
 
 		</div>
 		{% endif %}
-
+		<div class="clearfix"></div><br/>
 		<div class="share venue_share">
 			<ul class="list-inline navbar-left">
 				<li><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{criticdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="twitter-icon"></div></a></li>

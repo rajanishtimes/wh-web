@@ -180,6 +180,19 @@ class VenueController extends BaseController{
 			$this->view->deep_link = $venuedetail['deep_link'];
 			/* ======= Seo Update ============= */
 			//echo "<pre>"; print_r($venuedetail); echo "</pre>"; exit;
+			//echo "<pre>"; print_r($events); echo "</pre>";
+
+			foreach($events['results'] as $key=>$event){
+				$currentdatetime = strtotime(date("Y-m-d h:i:s"));
+				//echo ' '.date('Y-m-d h:i:s', $currentdatetime)."<br>";
+				$eventtime = $event['end_time'];
+				//echo ' '.date('Y-m-d h:i:s', $eventtime)."<br>";
+				if($currentdatetime > $eventtime){
+					unset($events['results'][$key]);
+				}
+			}
+			$events['results'] = array_values($events['results']);
+			
 			$this->view->setVars(array(
 				'venuedetail' => $venuedetail,
 				'breadcrumbs' => $breadcrumbs,
