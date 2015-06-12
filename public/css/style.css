@@ -606,7 +606,7 @@ hr.small {
     cursor: pointer;
 }
 .view_gallery .img-detail {
-    max-width: 100%;
+    width: 100%;
 }
 .venueleft, .venueright {
     height: 346px;
