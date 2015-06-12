@@ -232,7 +232,7 @@
 	</div>
 </div>
 
-<!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
 function eventimages(){
 	$.swipebox([
