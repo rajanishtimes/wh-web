@@ -151,7 +151,6 @@ class VenueController extends BaseController{
 				$Venue->setCity($this->cityshown($this->currentCity));
 				$nearbyevents = $Venue->allNearByEvents();
 				foreach ($nearbyevents['results'] as $key => $nearbyevent) {
-					 echo "<pre>"; print_r($nearbyevent); echo "</pre>"; exit;
 					$formatted_addresss = '';
 					$address_arrs = array();
 					if(isSet($nearbyevent['address']) && trim($nearbyevent['address'])!=''){
