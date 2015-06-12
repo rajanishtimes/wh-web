@@ -225,14 +225,23 @@ class VenueController extends BaseController{
 			//echo "<pre>"; print_r($events); echo "</pre>";
 
 			foreach($events['results'] as $key=>$event){
-				$currentdatetime = strtotime(date("Y-m-d h:i:s"));
-				//echo ' '.date('Y-m-d h:i:s', $currentdatetime)."<br>";
+				$currentdatetime = strtotime(date("Y-m-d h:i:s a"));
+				//echo ' '.date('Y-m-d h:i:s a', $currentdatetime)." ";
 				$eventtime = $event['end_time'];
-				$eventtime = strtotime(date('Y-m-d h:i:s', $eventtime));
-				//echo ' '.date('Y-m-d h:i:s', $eventtime)."<br>";
+				$eventtime = strtotime(date('Y-m-d h:i:s a', $eventtime));
+				//echo ' '.date('Y-m-d h:i:s a', $eventtime)."<br>";
 				if($currentdatetime > $eventtime){
-					unset($events['results'][$key]);
+				        unset($events['results'][$key]);
 				}
+
+				//$currentdatetime = strtotime(date("Y-m-d h:i:s"));
+				//echo ' '.date('Y-m-d h:i:s', $currentdatetime)."<br>";
+				//$eventtime = $event['end_time'];
+				//$eventtime = strtotime(date('Y-m-d h:i:s', $eventtime));
+				//echo ' '.date('Y-m-d h:i:s', $eventtime)."<br>";
+				//if($currentdatetime > $eventtime){
+				//	unset($events['results'][$key]);
+				//}
 			}
 			$events['results'] = array_values($events['results']);
 			

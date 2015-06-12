@@ -54,7 +54,7 @@
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
 				<ul class="list">
 					<li class="service_group cost">Cost</li>
-					<li><i class="fa fa-inr"></i> {{venuedetail['price_per']}} for two people (aprox.)</li>
+					<li><i class="fa fa-inr"></i> {{venuedetail['price_per']}} for two people (approx.)</li>
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
