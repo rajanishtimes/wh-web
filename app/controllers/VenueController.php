@@ -151,30 +151,30 @@ class VenueController extends BaseController{
 				$nearbyevents = $Venue->allNearByEvents();
 				foreach ($nearbyevents['results'] as $key => $nearbyevent) {
 					$formatted_addresss = '';
-					$address_arr = array();
+					$address_arrs = array();
 					if(isSet($nearbyevent['address']) && trim($nearbyevent['address'])!=''){
-						$address_arr[] = $venuedetail['address'];
+						$address_arrs[] = $nearbyevent['address'];
 					}
 					if(isSet($nearbyevent['landmark']) && trim($nearbyevent['landmark'])!=''){
-						$address_arr[] = $venuedetail['landmark'];
+						$address_arrs[] = $nearbyevent['landmark'];
 					}
 					if(isSet($nearbyevent['locality']) && trim($nearbyevent['locality'])!=''){
-						$address_arr[] = $venuedetail['locality'];
+						$address_arrs[] = $nearbyevent['locality'];
 					}
 					if(isSet($nearbyevent['zonename']) && trim($nearbyevent['zonename'])!=''){
-						$address_arr[] = $venuedetail['zonename'];
+						$address_arrs[] = $nearbyevent['zonename'];
 					}
 					if(isSet($nearbyevent['city']) && trim($nearbyevent['city'])!=''){
-						$address_arr[] = $nearbyevent['city'];
+						$address_arrs[] = $nearbyevent['city'];
 					}	
-					$formatted_addresss = implode(', ', $address_arr);
+					$formatted_addresss = implode(', ', $address_arrs);
 					$nearbyevents['results'][$key]['formatted_address'] = str_replace(', ,', ',', $formatted_addresss);
 				}
 			}catch(Exception $e){
 				$nearbyevents = array();
 			}
 
-			$formatted_address = ''; $address_arr = array();
+			$formatted_address = '';
 			if(isSet($venuedetail['address']) && trim($venuedetail['address'])!=''){
 				$address_arr[] = $venuedetail['address'];
 			}

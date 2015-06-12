@@ -173,7 +173,7 @@
 		<?php } ?>
 
 		<?php if(!empty($nearbyevents['results'])){ ?>
-			<div class="upcoming_event">
+			<div class="nearby_events">
 				<div class="col-sm-12 col-md-12">
 				<div class="row">
 					<div class="col-xs-12 no-padding">
