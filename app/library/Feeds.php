@@ -179,9 +179,9 @@ class Feeds extends Component
 						<h4 class="media-heading">
 							<?php
 							if(strtoupper($feed['type']) == 'REVIEW'){
-								echo $this->process_title($feed['title']).' - Critic Review';
+								echo stripslashes($feed['title']).' - Critic Review';
 							}else{
-								echo $this->process_title($feed['title']);
+								echo stripslashes($feed['title']);
 							}
 							?>
 						</h4>

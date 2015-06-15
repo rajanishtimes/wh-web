@@ -82,10 +82,13 @@
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-3">
-				<div class="view_gallery" title="Click to see Full Gallery">
+				<?php if (!empty($venuedetail['images'][0]['uri'])) { ?>
+					<div class="view_gallery" title="Click to see Full Gallery">
 						{{feeds.getimage(baseUrl, venuedetail['images'][0]['uri'], 480, 480, venuedetail['title'], '', '', 'img-detail', 0)}} 
 						<div class="view-gallery">VIEW GALLERY</div>
-				</div>
+					</div>
+				<?php } ?>
+				
 			</div>
 		</div>
 		<?php } ?>

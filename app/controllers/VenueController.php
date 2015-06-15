@@ -148,6 +148,7 @@ class VenueController extends BaseController{
 				$idwov = substr($id, 2);
 				$Venue->setLatitude($venuedetail['latitude']);
 				$Venue->setLongitude($venuedetail['longitude']);
+				$Venue->setId($idwov);
 				$Venue->setCity($this->cityshown($this->currentCity));
 				$nearbyevents = $Venue->allNearByEvents();
 				foreach ($nearbyevents['results'] as $key => $nearbyevent) {
