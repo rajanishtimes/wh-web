@@ -218,7 +218,16 @@ class VenueController extends BaseController{
 			$this->view->og_title = $venuedetail['og_title'];
 			$this->view->og_type = 'website';
 			$this->view->og_description = $venuedetail['og_description'];
-			$this->view->og_image = $this->baseUrl.$venuedetail['og_image'];
+
+			if($venuedetail['og_image'] == ''){
+				if ($venuedetail['images'][0]['uri'] == '') {
+					$this->view->og_image = $this->baseUrl.'/img/wh_default.png';
+				} else {
+					$this->view->og_image = $this->baseUrl.$venuedetail['images'][0]['uri'];
+				}
+			}else{
+				$this->view->og_image = $this->baseUrl.$venuedetail['og_image'];
+			}
 			$this->view->og_url = $this->baseUrl.$venuedetail['url'];
 			$this->view->canonical_url = $this->baseUrl.$venuedetail['url'];
 			$this->view->deep_link = $venuedetail['deep_link'];
