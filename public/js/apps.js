@@ -70,13 +70,6 @@ $(window).load(function() {
 	});
 	
 	fbandtwitter();
-
-	if($('.view_gallery').length > 0){
-		$( '.view_gallery' ).click( function( e ) {
-			e.preventDefault();
-			eventimages();
-		});
-	}
 });
 
 function searchValid(){
@@ -284,6 +277,15 @@ function DOMReady(){
 			$('.gotoright').addClass('gotoleft').removeClass('gotoright');
 		});
 	});
+
+
+	if($('.view_gallery').length > 0){
+		$( '.view_gallery' ).click( function( e ) {
+			e.preventDefault();
+			eventimages();
+		});
+	}
+	
 }
 
 function fbandtwitter(){
