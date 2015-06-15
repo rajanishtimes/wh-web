@@ -41,31 +41,44 @@
 			</div><div class="clearfix"></div><div style="height:20px"></div>
 		</div>
 
+		<?php if(!empty($venuedetail['cuisines']) || (!empty($venuedetail['price_per'])) || (!empty($venuedetail['features'])) || !empty($venuedetail['images'][0]['uri'])){ ?>
 		<div class="row service_container">
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
 				<ul class="list">
 					<li class="service_group cuisine">Cuisine</li>
-					<?php $one_dimension = array_map("serialize", $venuedetail['cuisines']);
-							$unique_one_dimension = array_unique($one_dimension);
-							$cuisines = array_map("unserialize", $unique_one_dimension);?>
-					{% for key, cuisine in cuisines %}
-						<li>{{cuisine['name']}}</li>
-					{% endfor %}
+					<?php if(!empty($venuedetail['cuisines'])){ ?>
+						<?php $one_dimension = array_map("serialize", $venuedetail['cuisines']);
+								$unique_one_dimension = array_unique($one_dimension);
+								$cuisines = array_map("unserialize", $unique_one_dimension);?>
+						{% for key, cuisine in cuisines %}
+							<li>{{cuisine['name']}}</li>
+						{% endfor %}
+					<?php }else{ ?>
+						<li>N/A</li>
+					<?php } ?>
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
 				<ul class="list">
 					<li class="service_group cost">Cost</li>
-					<li><i class="fa fa-inr"></i> {{venuedetail['price_per']}} for two people (approx.)</li>
+					<?php if(!empty($venuedetail['price_per'])){ ?>
+						<li><i class="fa fa-inr"></i>{{venuedetail['price_per']}} for two people (approx.)</li>
+					<?php }else{ ?>
+						<li>N/A</li>
+					<?php } ?>
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
 				<ul class="list faceilities_group">
 					<li class="service_group facilities">Facilities</li>
 					<?php $features = $venuedetail['features']; ?>
-					{% for key, feature in features %}
-						<li class="{{elements.remove_space(feature['name']) | lower}}">{{feature['name']}}</li>
-					{% endfor %}
+					<?php if(!empty($features)){ ?>
+						{% for key, feature in features %}
+							<li class="{{elements.remove_space(feature['name']) | lower}}">{{feature['name']}}</li>
+						{% endfor %}
+					<?php }else{ ?>
+						<li>N/A</li>
+					<?php } ?>
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-3">
@@ -75,6 +88,7 @@
 				</div>
 			</div>
 		</div>
+		<?php } ?>
 
 		{% if(venuedetail['reviews'][0] is defined) %}
 		<div class="col-xs-12 no-padding">
