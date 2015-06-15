@@ -1,29 +1,10 @@
 User-agent: Googlebot
-Disallow: /*/*-e-*
-Disallow: /*/*-c-*
-Disallow: /*/*-v-*
-Disallow: /*/*-r-*
-Disallow: /critic-review/
-Disallow: /author/
-Disallow: /*/location/*
 Disallow: /*/tag/*
 
 User-agent: Yahoo! Slurp
-Disallow: /*/*-e-*
-Disallow: /*/*-c-*
-Disallow: /*/*-v-*
-Disallow: /*/*-r-*
-Disallow: /critic-review/
-Disallow: /*/location/*
 Disallow: /*/tag/*
 
 User-agent: bingbot
-Disallow: /*/*-e-*
-Disallow: /*/*-c-*
-Disallow: /*/*-v-*
-Disallow: /*/*-r-*
-Disallow: /critic-review/
-Disallow: /*/location/*
 Disallow: /*/tag/*
 
 User-agent: *
