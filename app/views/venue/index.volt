@@ -45,7 +45,9 @@
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
 				<ul class="list">
 					<li class="service_group cuisine">Cuisine</li>
-					<?php $cuisines = $venuedetail['cuisines']; ?>
+					<?php $one_dimension = array_map("serialize", $venuedetail['cuisines']);
+							$unique_one_dimension = array_unique($one_dimension);
+							$cuisines = array_map("unserialize", $unique_one_dimension);?>
 					{% for key, cuisine in cuisines %}
 						<li>{{cuisine['name']}}</li>
 					{% endfor %}
@@ -122,9 +124,12 @@
 				</div>
 			</div>
 			
-			<h2 class="contenttitle text-left">{{venuedetail['reviews'][0]['estIdData'][0]['text'] | stripslashes}}</h2>			
+			<!--<h2 class="contenttitle text-left">{{venuedetail['reviews'][0]['estIdData'][0]['text'] | stripslashes}}</h2>-->		
 			<div class="detail">
-				{{venuedetail['reviews'][0]['description']}}
+				<?php
+					$review = strip_tags($venuedetail['reviews'][0]['description']);
+					$critic_description = strlen($review) > 800 ? substr($review, 0, 800).' <a href="'.$baseUrl.$venuedetail['reviews'][0]['url'].'">Read More...' : $review; ?>
+					{{critic_description}}
 			</div>
 
 		</div>

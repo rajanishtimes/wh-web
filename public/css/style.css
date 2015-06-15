@@ -553,6 +553,9 @@ hr.small {
 .faceilities_group .smoking-area{
     background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -473px;
 }
+.faceilities_group .air-condition{
+    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -499px;
+}
 .faceilities_group .air-condition1{
     background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -499px;
 }
@@ -589,7 +592,9 @@ hr.small {
 .faceilities_group .rajau{
     background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -871px;
 }
-
+.critic_review_container a {
+    color: #d11a6d;
+}
 .critic_review_container .rating-container{
     width: 100%;
 }
