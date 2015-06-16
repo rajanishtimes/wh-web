@@ -119,7 +119,7 @@ class Feeds extends Component
 							"@type" : "Place",
 							"name" : "<?php echo $feed['venueDetail']['name']; ?>",
 							"address" : "<?php echo $feed['venueDetail']['formatted_address']; ?>",
-							"url" : "<?php echo $url.'/'.$feed['venueDetail']['url']; ?>"
+							"url" : "<?php echo $url.$feed['venueDetail']['url']; ?>"
 						},
 						"startDate": "<?php echo date('Y-m-d', $feed['start_time']); ?>"
 					}

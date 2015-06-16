@@ -27,7 +27,9 @@
 				
 				<?php if(!empty($profilepost)){ ?>
 					{% if(profilepost['meta']['match_count'] > 0) %}
+						{% if(iscritic == 0) %}
 						<h1 class="row autorhead">{{profilepost['meta']['match_count']}} Posts from {{author['title']}}</h1>
+						{% endif %}
 						<div id="authorpost">
 							<div class="row work-content allfeeds">
 								{{feeds.getfeedsforcoverimg(baseUrl, profilepost, start)}}
