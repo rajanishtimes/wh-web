@@ -46,7 +46,7 @@
 		</div>
 	</div>
 </div>
-<style type="text/css">
+<style type="text/css"> 
 	.container-fluid, .container-fluid .section {
 		background: none repeat scroll 0 0 #f9f9f9;
 	}
