@@ -71,7 +71,7 @@ class AuthorController extends BaseController{
 			$authorid = end($ids);
 			$start = 0;
 			$limit = 12;
-			$profilepost = $this->getauthorpost($authorid, $start, $limit);
+			$profilepost = $this->getauthorpost($authorid, $start, $limit, $author['is_critic']);
 			$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($author['title']))) =>''));		
 			$this->view->setVars(array(
 				'authorid' => $authorid,
@@ -79,7 +79,8 @@ class AuthorController extends BaseController{
 				'start'	=> $limit,
 				'limit'	=> $limit,
 				'profilepost'=>$profilepost,
-				'breadcrumbs'=>$breadcrumbs
+				'breadcrumbs'=>$breadcrumbs,
+				'iscritic' => $author['is_critic']
 			));
 		}else{
 			$this->forwardtoerrorpage(404);
@@ -96,7 +97,8 @@ class AuthorController extends BaseController{
 		$limit = $this->request->getPost('limit');
 		$parentid = $this->request->getPost('parentid');
 		$authorid = $this->request->getPost('searchkeyword');
-		$profilepost = $this->getauthorpost($authorid, $start, $limit);
+		$iscritic = $this->request->getPost('bydate');
+		$profilepost = $this->getauthorpost($authorid, $start, $limit, $iscritic);
 		$city = $this->city;
 		
 		$this->view->setVars(array(
@@ -106,18 +108,23 @@ class AuthorController extends BaseController{
 			'start'	=> $start+$limit,
 			'limit'	=> $limit,
 			'parentid'=>$parentid,
-			'city' => $city
+			'city' => $city,
+			'iscritic' => $iscritic
 		));
 		$this->setlogsarray('author_posts');
 		$this->getlogs('author_post', $mainurl.'/start:'.$start.'/limit:'.$limit.'/authorid:'.$authorid);
     }
 	
 	
-	private function getauthorpost($authorid, $start, $limit){
+	private function getauthorpost($authorid, $start, $limit, $iscritic=0){
 		$Profile = new \WH\Model\Author();
         $Profile->setAuthorID($authorid);
         $Profile->setParam('start', $start);
         $Profile->setParam('limit', $limit);
+        if($iscritic == 1){
+        	$Profile->setParam('byType', 'Review');
+        }
+
 		try{
 			$profilepost = $Profile->getPostsResults();
 		}catch(Exception $e){

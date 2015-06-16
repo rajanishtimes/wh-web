@@ -135,8 +135,9 @@ class Feeds extends Component
     }
 	
 	
-	public function getfeedsforcoverimg($url, $data)
-    {		
+	public function getfeedsforcoverimg($url, $data, $start)
+    {	
+    	$i = 1;
 		foreach($data['results'] as $key=>$feed){
 			?>
 				<div class="col-sm-4 col-md-3 col-xs-6">
@@ -146,7 +147,7 @@ class Feeds extends Component
 								<div class="hover-wrap">
 									<i class="glyphicon glyphicon-plus bino"></i>
 								</div>
-								<?php echo $this->getimage($url, $feed['cover_image'], 479, 479, $feed['title'], '', '', $key); ?>
+								<?php echo $this->getimage($url, $feed['cover_image'], 479, 479, $feed['title'], '', '', '', $start+$i); ?>
 							</div>
 						</a>
 						<a href="<?php echo $url. $feed['url']; ?>">
@@ -162,6 +163,7 @@ class Feeds extends Component
 					</div>
 				</div>
 			<?php
+			$i++;
 		}
     }
 	

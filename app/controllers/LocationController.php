@@ -90,9 +90,12 @@ class LocationController extends BaseController{
 	public function locationAction(){
 		$this->view->setLayout('mainLayout');
 		$searchkeyword = '';
-		if($this->dispatcher->getParam('locationname'))
-			$searchkeyword = $this->create_title($this->dispatcher->getParam('locationname'));
+		if($this->dispatcher->getParam('locationname')){
+			$searchkeyword = str_replace("-"," ",$this->dispatcher->getParam('locationname'));
+			$searchkeyword = $this->create_title($searchkeyword);
+		}
 		
+
 		$this->view->entityid = 0;
 		$this->view->entitytype = 'location';
 		
@@ -168,6 +171,7 @@ class LocationController extends BaseController{
 	
 	public function forwardlocationAction(){
 		$searchkeyword = htmlentities($this->request->getPost('location'));
+		$searchkeyword = strtolower(str_replace(" ","-",stripslashes($searchkeyword)));
 		$searchkeyword = str_replace("/"," ",stripslashes($searchkeyword));
 		$searchkeyword = str_replace("*","",$searchkeyword);
 		$searchkeyword = urlencode($searchkeyword);
