@@ -105,7 +105,7 @@
 							{{feeds.getimage(baseUrl, venuedetail['reviews'][0]['author']['images'][0]['uri'], 100, 100, venuedetail['reviews'][0]['author']['title'], venuedetail['reviews'][0]['author']['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
 						</div>
 						<div class="authordetail float-left">
-							<h2 class="reviewtitle text-center"><span class="reviewd">Reviewed by</span><br>{{venuedetail['reviews'][0]['author']['title'] | lower | capitalize}}</h2>
+							<h2 class="reviewtitle text-center"><span class="reviewd">Reviewed by</span><br> <a href="{{baseUrl}}{{venuedetail['reviews'][0]['url']}}">{{venuedetail['reviews'][0]['author']['title'] | lower | capitalize}}</a></h2>
 							{% if(venuedetail['reviews'][0]['author']['twitter_url'] != '') %}
 								<a href="https://twitter.com/{{venuedetail['reviews'][0]['author']['twitter_url']}}" class="twitter-follow-button" data-show-count="true"></a>
 							{% endif %}
