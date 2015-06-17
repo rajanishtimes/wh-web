@@ -23,9 +23,11 @@
 					</div>
 					<div class="sharesmall">
 						<ul class="list-inline text-center">
-							<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="twitter-icon"></div></a></li>
-							<li class="facebook"><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="fb-icon"></div></a></li>
-							<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="google-icon"></div></a></li>
+							<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#">
+								<div class="twitter-icon"><i class="fa fa-twitter"></i>&nbsp;<span>Share</span></div>
+							</a></li>
+							<li class="facebook"><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="fb-icon"><i class="fa fa-facebook"></i>&nbsp;<span>Share</span></div></a></li>
+							<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="google-icon"><i class="fa fa-google-plus"></i>&nbsp;<span>Share</span></div></a></li>
 						</ul><div class="clearfix"></div>
 					</div>
 					
@@ -36,9 +38,11 @@
 					</div>
 						<div class="share">
 							<ul class="list-inline navbar-left">
-								<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="twitter-icon"></div></a></li>
-								<li class="facebook"><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="fb-icon"></div></a></li>
-								<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="google-icon"></div></a></li>
+								<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#">
+									<div class="twitter-icon"><i class="fa fa-twitter"></i>&nbsp;<span>Share</span></div>
+								</a></li>
+								<li class="facebook"><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="fb-icon"><i class="fa fa-facebook"></i>&nbsp;<span>Share</span></div></a></li>
+								<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="google-icon"><i class="fa fa-google-plus"></i>&nbsp;<span>Share</span></div></a></li>
 							</ul><div class="clearfix"></div>
 						</div>
 
