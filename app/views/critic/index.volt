@@ -23,7 +23,7 @@
 					
 					<h1 class="contenttitle text-center">{{criticdetail['title'] | stripslashes}}</h1>
 					<div class="contentdetail text-center">
-						{% if(author['twitter_url'] != '') %}
+						{% if(author['title'] != '') %}
 							<span style="color:gray">Reviewed by</span> <a href="{{baseUrl}}{{author['url']}}">{{author['title'] | lower | capitalize}}</a>
 							
 							{% endif %}
