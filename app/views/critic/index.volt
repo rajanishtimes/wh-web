@@ -85,7 +85,7 @@
 						</ul><div class="clearfix"></div>
 					</div>
 
-					<div class="share sharewithborder">
+					<div class="share sharewithborder" style="margin:10px 0">
 						{% if(criticdetail['tags'] | length > 0) %}
 							<p class="tags">Tags</p>
 							<div class="work-content">
@@ -97,10 +97,9 @@
 										</a></li>
 									{% endfor  %}
 								</ul><div class="clearfix"></div>
-							</div><div class="clearfix"></div>
+							</div>
 						{% endif %}
-					</div>
-					
+					</div><div class="clearfix"></div>
 
 					<div class="authordetailsection">
 						<div class="col-sm-4 col-md-2 float-left author-image">
