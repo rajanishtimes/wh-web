@@ -1369,20 +1369,20 @@ footer .social_icon {
     margin: 52px 0;
 }
 .android_app {
-    background: rgba(0, 0, 0, 0) url("../img/android_playstore_btn.png") no-repeat scroll 0 0;
-    height: 42px;
+    background: rgba(0, 0, 0, 0) url("../img/download_icons.png") no-repeat scroll 0 0;
+    height: 34px;
     width: 126px;
 }
 .android_app:hover {
-    background: rgba(0, 0, 0, 0) url("../img/android_playstore_btn_hover.png") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("../img/download_icons.png") no-repeat scroll 0 -34px;
 }
 .iphone_app {
-    background: rgba(0, 0, 0, 0) url("../img/ios_Appstore_bnt.png") no-repeat scroll 0 0;
-    height: 42px;
+    background: rgba(0, 0, 0, 0) url("../img/download_icons.png") no-repeat scroll 0 -102px;
+    height: 34px;
     width: 130px;
 }
 .iphone_app:hover {
-    /*background: rgba(0, 0, 0, 0) url("../img/ios_Appstore_bnt_hover.png") no-repeat scroll 0 0;*/
+    background: rgba(0, 0, 0, 0) url("../img/download_icons.png") no-repeat scroll 0 -136px;
 }
 .lineheight {
     margin-top: 3px;
@@ -3853,4 +3853,12 @@ iframe {
 .social-group {
     height: 41px;
     overflow: hidden;
+}
+
+.lazy {
+    opacity: 0;
+    -webkit-transition: opacity 0.6s ease-in 0s;
+   -moz-transition: opacity 0.6s ease-in 0s;
+     -o-transition: opacity 0.6s ease-in 0s;
+        transition: opacity 0.6s ease-in 0s;
 }
