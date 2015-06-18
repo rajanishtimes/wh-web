@@ -3858,7 +3858,14 @@ iframe {
 /*.lazy {
     opacity: 0;
     -webkit-transition: opacity 0.6s ease-in 0s;
-   -moz-transition: opacity 0.6s ease-in 0s;
-     -o-transition: opacity 0.6s ease-in 0s;
+    -ms-transition: opacity 0.6s ease-in 0s;
+    -moz-transition: opacity 0.6s ease-in 0s;
+    -o-transition: opacity 0.6s ease-in 0s;
         transition: opacity 0.6s ease-in 0s;
 }*/
+
+.published {
+    color: #969eab;
+    font-family: Lora-Italic;
+    padding: 0 0 4px;
+}
