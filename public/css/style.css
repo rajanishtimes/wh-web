@@ -3855,10 +3855,10 @@ iframe {
     overflow: hidden;
 }
 
-.lazy {
+/*.lazy {
     opacity: 0;
     -webkit-transition: opacity 0.6s ease-in 0s;
    -moz-transition: opacity 0.6s ease-in 0s;
      -o-transition: opacity 0.6s ease-in 0s;
         transition: opacity 0.6s ease-in 0s;
-}
+}*/
