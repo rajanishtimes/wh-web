@@ -21,7 +21,9 @@
 							By <a href="{{baseUrl}}{{author['url']}}" data-ga-cat="Author Link Click on Content Detail - {{cityshown}}" data-ga-action="{{author['title'] | stripslashes | trim}}" data-ga-label="author">{{author['title'] | stripslashes}}</a>
 						{% endif %}
 					</div>
-					<div class="text-center published" title="{{contentdetail['published_date']}}">Published {{elements.friendlyTime(contentdetail['published_date'])}}</div>
+					<?php if(!empty($contentdetail['published_date'])){ ?>
+						<div class="text-center published" title="<?php echo date('j-M-Y H:i:s', strtotime($contentdetail['published_date'])); ?>">Published {{elements.friendlyTime(contentdetail['published_date'])}}</div>
+					<?php } ?>
 					<div class="sharesmall">
 						<ul class="list-inline text-center">
 							<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#">
