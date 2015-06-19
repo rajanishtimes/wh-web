@@ -3869,3 +3869,8 @@ iframe {
     font-family: Lora-Italic;
     padding: 0 0 4px;
 }
+.author_bio p {
+    color: #333;
+    font-family: Lora-Italic;
+    font-size: 16px;
+}
