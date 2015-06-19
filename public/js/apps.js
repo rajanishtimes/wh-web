@@ -112,6 +112,9 @@ function resizefeedimage(){
 		$(this).height(($(this).width()));
 	});
 
+	$(".defaultads img").css('width',width);
+	$(".defaultads img").css('height',height);
+
 	/* $(".withmask").each(function( index ) {
 		$(this).height(width+147);
 	});  */
