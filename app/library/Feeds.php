@@ -289,8 +289,8 @@ class Feeds extends Component
 			$imgurl = $imgurl.$parts;
 			$class = 'lazy '.$class;
 			//$style = 'background-color:#fff;'.$style;
-			//$imgbox = '<img data-original="'.$imgurl.'" src="'.$url.'/img/transparent.png" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
-			$imgbox = '<img data-src="'.$imgurl.'"  data-src-retina="'.$imgurl.'" src="'.$url.'/img/transparent.png" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
+			$imgbox = '<img data-original="'.$imgurl.'" src="'.$url.'/img/transparent.png" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
+			//$imgbox = '<img data-src="'.$imgurl.'"  data-src-retina="'.$imgurl.'" src="'.$url.'/img/transparent.png" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
 		}else{
 			$imgbox = '<img src="'.$url.'/img/img_feed_default.png" alt="'.$alt.'"  style="'.$style.'" class="'.$class.'">';
 		}
