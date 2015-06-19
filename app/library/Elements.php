@@ -119,48 +119,34 @@ class Elements extends Component
 		return preg_replace('{\\.([^./]+)$}', ".$mtime.\$1", $file);
 	}
 
-	public function friendlyTime($time)
+	public function friendlyTime($datetime, $full = false)
     {
-        $second = 1;
-        $minute = 60 * $second;
-        $hour = 60 * $minute;
-        $day = 24 * $hour;
-        $month = 30 * $day;
+        $now = new DateTime;
+        $ago = new DateTime($datetime);
+        $diff = $now->diff($ago);
 
-        $delta = time() - strtotime($time);
+        $diff->w = floor($diff->d / 7);
+        $diff->d -= $diff->w * 7;
 
-        if ($delta < 1 * $minute)
-            return $delta == 1 ? "one second ago" : $delta . " seconds ago";
-        if ($delta < 2 * $minute)
-            return "a minute ago";
-        if ($delta < 45 * $minute)
-            return floor($delta / $minute) . " minutes ago";
-        if ($delta < 90 * $minute)
-            return "an hour ago";
-        if ($delta < 24 * $hour)
-            return floor($delta / $hour) . " hours ago";
-        if ($delta < 2 * $day)
-        	return "a day ago";
-        if($delta < 7 * $day)
-            return floor($delta / $day) . " days ago";
-        if($delta < 14 * $day)
-        	return "a week ago";
-        if($delta < 28 * $day)
-        	return floor($delta / (7*$day)) . " weeks ago";
-        if($delta < 45 * $day)
-        	return "a month ago"; 
-        if($delta < 60 * $day)
-        	return " two months ago";
-        if($delta < 12 * $month)
-        	return floor($delta / $month) . " months ago";
-        
-        if (date('Y') == date('Y',  strtotime($time)))
-        {   
-            return date('jS F', strtotime ($time));
+        $string = array(
+            'y' => 'year',
+            'm' => 'month',
+            'w' => 'week',
+            'd' => 'day',
+            'h' => 'hour',
+            'i' => 'minute',
+            's' => 'second',
+        );
+        foreach ($string as $k => &$v) {
+            if ($diff->$k) {
+                $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+            } else {
+                unset($string[$k]);
+            }
         }
 
-        // for times older than an year return in the format '31st Aug, 2010'
-        return date('F jS, Y', strtotime($time));
+        if (!$full) $string = array_slice($string, 0, 1);
+        return $string ? implode(', ', $string) . ' ago' : 'just now';
     }
 
 }
