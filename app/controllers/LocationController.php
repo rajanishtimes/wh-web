@@ -103,11 +103,11 @@ class LocationController extends BaseController{
 		$limit = 11;
 		
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, '', '', '', '', $searchkeyword, 'location');
+			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, '', '', '', 'Event,Content,Venue,Review', $searchkeyword, 'location');
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
-
+		//echo "<pre>"; print_r($allfeedslist); echo "</pre>"; exit;
 
 		$breadcrumbs = $this->breadcrumbs(array(ucwords(strtolower(trim($searchkeyword))) =>''));
 		$this->view->setVars(
@@ -147,7 +147,7 @@ class LocationController extends BaseController{
 		$fromtype = $this->request->getPost('type');
 
 		try{
-			$allfeedslist = $this->getfeeddata($start, $limit, $cities, $bydate, $tags, '', '', $searchkeyword, $fromtype);
+			$allfeedslist = $this->getfeeddata($start, $limit, $cities, $bydate, $tags, '', 'Event,Content,Venue,Review', $searchkeyword, $fromtype);
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
