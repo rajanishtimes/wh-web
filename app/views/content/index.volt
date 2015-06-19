@@ -22,7 +22,7 @@
 						{% endif %}
 					</div>
 					<?php if(!empty($contentdetail['published_date'])){ ?>
-						<div class="text-center published" data-time="<?php echo date('j-M-Y h:i:s a', strtotime($contentdetail['published_date'])); ?>">Published {{elements.friendlyTime(contentdetail['published_date'])}}</div>
+						<div class="text-center published" data-time="<?php echo date('j-M-Y h:i:s a', strtotime($contentdetail['published_date'])); ?>">Published {{elements.friendlyTime('16-Oct-2014 04:30:00 am')}}</div>
 					<?php } ?>
 					<div class="sharesmall">
 						<ul class="list-inline text-center">
