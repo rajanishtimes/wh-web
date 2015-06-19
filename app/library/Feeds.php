@@ -114,7 +114,7 @@ class Feeds extends Component
 						"name" : "<?php echo $this->process_title($feed['title']); ?>",
 						"image" : "<?php echo $feed['image']['uri']; ?>",
 						"description" : "<?php echo htmlentities(strip_tags($feed['description'])); ?>",
-						"url" : "<?php echo $url.'/'.$feed['url']; ?>",
+						"url" : "<?php echo $url.$feed['url']; ?>",
 						"location": {
 							"@type" : "Place",
 							"name" : "<?php echo $feed['venueDetail']['name']; ?>",
@@ -283,6 +283,7 @@ class Feeds extends Component
 			$class = 'lazy '.$class;
 			//$style = 'background-color:#fff;'.$style;
 			$imgbox = '<img data-original="'.$imgurl.'" src="'.$url.'/img/transparent.png" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
+			//$imgbox = '<img data-src="'.$imgurl.'"  data-src-retina="'.$imgurl.'" src="'.$url.'/img/transparent.png" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
 		}else{
 			$imgbox = '<img src="'.$url.'/img/img_feed_default.png" alt="'.$alt.'"  style="'.$style.'" class="'.$class.'">';
 		}
