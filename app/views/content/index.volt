@@ -37,7 +37,7 @@
 					<hr class="small"> 
 
 					<?php if (!empty($author['description'])) { ?>
-						<div class="author_bio text-center">{{author['description']}}</div>
+						<div class="author_bio detail text-center">{{author['description']}}</div>
 						<hr class="small"> 
 					<?php } ?>
 					<div class="detail">
