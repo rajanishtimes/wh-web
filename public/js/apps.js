@@ -112,8 +112,8 @@ function resizefeedimage(){
 		$(this).height(($(this).width()));
 	});
 
-	$(".defaultads img").css('width',width);
-	$(".defaultads img").css('height',height);
+	//$(".defaultads img").css('width',width);
+	//$(".defaultads img").css('height',height);
 
 	/* $(".withmask").each(function( index ) {
 		$(this).height(width+147);
@@ -148,13 +148,13 @@ function view_feed_with_ajax(city, mainURL, start, limit, parentId, searchval, t
 					$('.seach-overlay-box').height($(document).height());
 				}
 				feed_with_ajax_running = false;
-				// $("img.lazy").unveil(200, function() {
-				//   $(this).load(function() {
-				//     this.style.opacity = 1;
-				//   });
-				// });
+				$("img.lazy").unveil(200, function() {
+				  $(this).load(function() {
+				    this.style.opacity = 1;
+				  });
+				});
 
-				$("img.lazy").lazyload({effect : "fadeIn"});
+				//$("img.lazy").lazyload({effect : "fadeIn"});
 				//console.log("request complete ....");
 			}
 		});
@@ -194,14 +194,12 @@ function DOMReady(){
 		}
 	});
 	manageCityCookie();
-
-	// $("img.lazy").unveil(200, function() {
-	//   $(this).load(function() {
-	//     this.style.opacity = 1;
-	//   });
-	// });
-	 $("img.lazy").lazyload({effect : "fadeIn"});
-
+	$("img.lazy").unveil(200, function() {
+	  $(this).load(function() {
+	    this.style.opacity = 1;
+	  });
+	});
+	
 	$('.swipebox').swipebox();
 	
 	$("select").each(function(){
@@ -305,7 +303,6 @@ function DOMReady(){
 
 
 
-	
 }
 
 

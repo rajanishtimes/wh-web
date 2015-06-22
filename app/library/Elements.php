@@ -88,6 +88,7 @@ class Elements extends Component
 	
 	public function create_slug($string){
 		//$slug=str_replace(' ', '-', trim($string));
+		$string = preg_replace('/\s+/', ' ',$string);
 		$slug2=urlencode(trim($string));
 		return $slug2;
 	}

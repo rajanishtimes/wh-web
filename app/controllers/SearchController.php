@@ -171,8 +171,9 @@ class SearchController extends BaseController{
 			);
     }
 	
-	public function forwardsearchAction(){
+	public function forwardsearchAction(){		
 		$searchkeyword = htmlentities($this->request->getPost('search'));
+		$searchkeyword = preg_replace('/\s+/', ' ',$searchkeyword);
 		$searchkeyword = str_replace("/"," ",stripslashes($searchkeyword));
 		$searchkeyword = str_replace("*","",$searchkeyword);
 		$searchkeyword = urlencode($searchkeyword);

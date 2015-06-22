@@ -34,12 +34,7 @@
 						</ul><div class="clearfix"></div>
 					</div>
 					
-					<hr class="small"> 
-
-					<?php if (!empty($author['description'])) { ?>
-						<div class="author_bio detail text-center">{{author['description']}}</div>
-						<hr class="small"> 
-					<?php } ?>
+					<hr class="small">
 					<div class="detail">
 						<?php //$description = str_replace(array('<p><strong>', '</strong></p>'), array('<h4>', '</h4>'), $contentdetail['description']); ?>
 						{{contentdetail['description']}}

@@ -77,7 +77,6 @@ class BaseController extends Controller{
 		
 		//echo $this->dispatcher->getControllerName();exit;
 		//echo $this->dispatcher->getActionName();exit;
-		
 
 		if ((strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile/') !== false) && (strpos($_SERVER['HTTP_USER_AGENT'], 'Safari/') == false)) {
 			$this->iswebview = true;
@@ -194,6 +193,7 @@ class BaseController extends Controller{
 	
 	protected function create_slug($string){
 		//$slug=str_replace(' ', '-', trim($string));
+		$string = preg_replace('/\s+/', ' ',$string);
 		$slug2=urlencode(trim($string));
 		return $slug2;
 	}

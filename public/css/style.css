@@ -1,4 +1,6 @@
-@import "http://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italic|Open+Sans:400normal|Lato:400normal|Oswald:400normal|Source+Sans+Pro:400normal|Raleway:400normal|PT+Sans:400normal|Open+Sans+Condensed:300normal|Roboto+Condensed:400normal|Droid+Sans:400normal|Roboto+Slab:400normal&subset=all";
+@import "http://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italic|Rosario:400normal,400italic,700normal,700italic|Open+Sans:400normal|Lato:400normal|Oswald:400normal|Source+Sans+Pro:400normal|Raleway:400normal|PT+Sans:400normal|Open+Sans+Condensed:300normal|Roboto+Condensed:400normal|Droid+Sans:400normal|Roboto+Slab:400normal&subset=all";
+
+
 @font-face {
     font-family: "Lora-Bold";
     font-style: normal;
@@ -3855,14 +3857,14 @@ iframe {
     overflow: hidden;
 }
 
-/*.lazy {
+.lazy {
     opacity: 0;
     -webkit-transition: opacity 0.6s ease-in 0s;
     -ms-transition: opacity 0.6s ease-in 0s;
     -moz-transition: opacity 0.6s ease-in 0s;
     -o-transition: opacity 0.6s ease-in 0s;
         transition: opacity 0.6s ease-in 0s;
-}*/
+}
 
 .published {
     color: #969eab;
