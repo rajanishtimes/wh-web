@@ -22,8 +22,14 @@ class Feeds extends Component
 			}
 			?>
 			<?php if($i%9 != 0){ ?>
-				
-				<?php if(!isset($feed['is_sponsored'])){ ?>
+				<?php if(($start+$i) == 4 && $type=='feed' && $this->config->adtech->enableadtech == 1){ ?>
+					<div class="col-sm-4 col-md-3 col-xs-6">
+						<div class="feeds-data defaultads">
+							<img src="<?php echo $url; ?>/img/wh-ads.png">
+							<?php echo $this->getadtech($city); ?>
+						</div>
+					</div>	
+				<?php }elseif(!isset($feed['is_sponsored'])){ ?>
 					<div class="col-sm-4 col-md-3 col-xs-6">
 						<div class="work-item feeds-data">
 							<a href="<?php echo $url . $feed['url']; ?>" <?php echo $gaattr;?>>
@@ -245,6 +251,41 @@ class Feeds extends Component
 		<?php }}
     }
 	
+	public function getcontest($url, $datas, $start, $city='', $type='', $isvoted){
+		$i = 0;
+		foreach($datas as $data){
+			$imgclass = $class = '';
+			$json_data = json_decode($data['data']);
+			if($isvoted == $data['id']){
+				$class = 'votedone';
+				$imgclass = 'grayscale';
+			}
+			$i++;
+			?>
+				<div class="col-sm-4 col-md-3 col-xs-6">
+					<div class="work-item feeds-data">
+						<a href="<?php echo $url . $data['url']; ?>">
+							<div class="hover-container">
+								<div class="thanks_msg dnone">Thank you<br>for your vote</div>
+								<div class="hover-wrap">
+									<i class="glyphicon glyphicon-plus bino"></i>
+								</div>
+								<?php echo $this->getimage($url, $json_data->img, 479, 479, $data['title'], '', '', $imgclass, $start+$i); ?>
+							</div>
+						</a>
+						<a href="<?php echo $url . $data['url']; ?>">
+							<div class="the-box no-margin no-border">
+								<div class="feed-title"><?php echo $data['title']; ?></div>
+								<div class="feed-short-desc"><?php $desc = strip_tags($json_data->description);
+								$description = strlen($desc) > 100 ? substr($desc, 0, 100).'...' : $desc; echo $description; ?></div>
+								<div class="btn btn-primary voted <?php echo $class; ?>" rel="<?php echo $data['id']; ?>">VOTE NOW</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			<?php
+		}
+	}
 	
 	public function getimageendpoint(){
 		$i = rand(0,5);
@@ -337,7 +378,7 @@ class Feeds extends Component
 	}
 
 	public function getadtech($city){
-		if($city == 'delhi-ncr')
+		if($city == 'delhi-ncr' || $city == 'delhi ncr' || $city == 'Delhi NCR')
 			$getcityadtech = 'delhincr';
 		else
 			$getcityadtech = strtolower($city);
