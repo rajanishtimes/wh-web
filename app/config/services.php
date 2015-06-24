@@ -40,6 +40,25 @@ $di = new FactoryDefault();
 	return $dispatcher;
 });
  */
+
+$adtech['enableadtech'] = $config->enableadtech->enableadtech;
+$adtech['delhincr']['id'] = $config->delhincradtech->id;
+$adtech['delhincr']['url'] = $config->delhincradtech->url;
+$adtech['chennai']['id'] = $config->chennaiadtech->id;
+$adtech['chennai']['url'] = $config->chennaiadtech->url;
+$adtech['hyderabad']['id'] = $config->hyderabadadtech->id;
+$adtech['hyderabad']['url'] = $config->hyderabadadtech->url;
+$adtech['jaipur']['id'] = $config->jaipuradtech->id;
+$adtech['jaipur']['url'] = $config->jaipuradtech->url;
+$adtech['kolkata']['id'] = $config->kolkataadtech->id;
+$adtech['kolkata']['url'] = $config->kolkataadtech->url;
+$adtech['mumbai']['id'] = $config->mumbaiadtech->id;
+$adtech['mumbai']['url'] = $config->mumbaiadtech->url;
+$adtech['pune']['id'] = $config->puneadtech->id;
+$adtech['pune']['url'] = $config->puneadtech->url;
+$adtech['goa']['id'] = $config->goaadtech->id;
+$adtech['goa']['url'] = $config->goaadtech->url;
+$config['adtech'] = $adtech;
 $di->set('config', $config);
 
 /**
