@@ -8,10 +8,15 @@ class QuizController extends BaseController{
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
         $this->view->setLayout('quizLayout');
-		parent::initialize();
+        parent::initialize();
     }
 
 	public function indexAction(){
+		$city = $this->currentCity;
+        if($city != 'hyderabad'){
+        	$this->forwardtoerrorpage(404);
+        }
+
 		$isvoted = 0;
 		if ($this->cookies->has("isvoted")){
 			$isvoted = (int)$this->cookies->get("isvoted");

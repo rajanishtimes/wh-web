@@ -92,6 +92,10 @@ $router->add("/{city}/events", array(
     'action' => 'eventlist',
 ));
 
+$router->add("/{city}/biryanihaleem", array(
+    'controller' => 'quiz',
+    'action' => 'index',
+)); 
 
 $router->add("/search/autosuggestion", array(
     'controller' => 'search',
@@ -174,10 +178,6 @@ $router->add("/homepage", array(
     'action' => 'homepage',
 )); 
 
-$router->add("/hyderabad/biryanihaleem", array(
-    'controller' => 'quiz',
-    'action' => 'index',
-)); 
 
 $router->add("/", array(
     'controller' => 'index',
