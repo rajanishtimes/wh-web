@@ -36,7 +36,13 @@ class IndexController extends BaseController{
 			$this->view->meta_keywords = 'things to do in '.$cityshown.', what to do in '.$cityshown.', '.$cityshown.' events';
 		}
 		$this->tag->setTitle($title);
-		$this->view->canonical_url = $this->baseUrl.'/'.$city;
+
+		if($_SERVER['REQUEST_URI'] == '/'){
+			$this->view->canonical_url = $this->baseUrl;	
+		}else{
+			$this->view->canonical_url = $this->baseUrl.'/'.$city;
+		}
+		
 		$this->view->deep_link = 'timescity://';
 		/* ======= Seo Update ============= */
 		

@@ -174,7 +174,7 @@ $router->add("/homepage", array(
     'action' => 'homepage',
 )); 
 
-$router->add("/quiz", array(
+$router->add("/hyderabad/biryanihaleem", array(
     'controller' => 'quiz',
     'action' => 'index',
 )); 
