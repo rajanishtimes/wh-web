@@ -6,7 +6,7 @@
 		<!--<script type="text/javascript" src="{{baseUrl}}/js/jquery.lazyload.js"></script>-->
         <script type="text/javascript" src="{{baseUrl}}/js/jquery.unveil.js"></script>
         <script type="text/javascript" src="{{baseUrl}}/js/cookies.js?v=1.0"></script>
-        <!--<script type="text/javascript" src="{{baseUrl}}/js/jQuery_mousewheel_plugin.js"></script>-->
+        <script type="text/javascript" src="{{baseUrl}}/js/jQuery_mousewheel_plugin.js"></script>
 		<script type="text/javascript" src="{{baseUrl}}{{elements.auto_version('/js/apps.js')}}"></script>
         <!-- Place this tag in your head or just before your close body tag. -->
         <script src="https://apis.google.com/js/platform.js" async defer></script>

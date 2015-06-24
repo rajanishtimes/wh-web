@@ -1,0 +1,239 @@
+/* Biryani and halim quiz */
+.hp {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 90
+}
+.hp .desc {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    color: #fff;
+}
+.hp h1 {
+    font-size: 100px;
+    font-size: 10rem;
+    line-height: 1.3em;
+    text-transform: uppercase
+}
+.hp h2 {
+    font-weight: 400;
+    text-transform: uppercase
+}
+.hp .item {
+    position: fixed;
+    height: 100%;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-color: #2c2e35;
+    overflow: hidden;
+    z-index: 1
+}
+.hp .item-left {
+    left: 0;
+    background: rgba(0, 0, 0, 0) url("../img/biryani-bg1.jpg") repeat scroll 0 bottom;
+    background-size: 100% auto;
+}
+.hp .item-left .desc {
+    margin: 0 -160px 0 0;
+    right: 0;
+    text-align: center;
+    top: 136px;
+    z-index: 1;
+}
+.hp .item-right {
+    right: 0;
+    background: rgba(0, 0, 0, 0) url("../img/haleem-image.png") repeat scroll 0 bottom;
+    background-size: 100% auto;
+}
+.hp .item-right .desc {
+    margin: 0 -160px 0;
+    left: 0;
+    text-align: center;
+    top: 136px;
+    z-index: 1;
+}
+.hp .overlay {
+    background: #151718 none repeat scroll 0 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 0.5;
+    filter: alpha(opacity=0.5)
+}
+.hp .scroll-down {
+    border: 1px solid;
+    bottom: 50px;
+    color: #fff;
+    font-size: 35px;
+    height: 33px;
+    left: 50%;
+    line-height: 0;
+    margin: 0 0 0 -17px;
+    outline: medium none;
+    padding: 0 5px;
+    position: fixed;
+    width: 33px;
+    z-index: 100;
+}
+.hp-placeholder {
+    width: 100%;
+    height: 100%
+}
+.hp .presents, .hp .contestlogo, .hp .wh_logo {
+    margin-top: 24px;
+}
+.quiz_data .head {
+    font-family: Rosario;
+    font-style: italic;
+    font-size: 18px;
+    margin-top: 31px;
+    color:#b79a52;
+}
+.quiz_data .content {
+    font-family: Rosario;
+    font-style: italic;
+    font-size: 18px;
+    color:#b79a52;
+}
+.hp .overlay:hover{
+    opacity:0;
+}
+.dnone{
+    display: none;
+}
+.contentarea p {color:#b79a52}
+.tabbed_group > div {
+    border: 1px solid #b79a52;
+    color: #b79a52;
+    cursor: pointer;
+    float: left;
+    font-family: Rosario;
+    font-size: 17px;
+    font-style: italic;
+    margin-top: 21px;
+    padding: 17px 38px;
+}
+.tabbed_group {
+    height: 85px;
+    left: 47%;
+    margin: 9px 0 60px -217px;
+    position: relative;
+}
+.biryani_nomination{
+    border-radius: 8px 0px 0px 8px;
+}
+.biryani_nomination.active {
+    background: #b79a52 none repeat scroll 0 0;
+    color: #fff;
+}
+.Haleem_nomination{
+    border-radius: 0 8px 8px 0px;
+}
+.Haleem_nomination.active {
+    background: #b79a52 none repeat scroll 0 0;
+    color: #fff;
+}
+.voted, .voted:hover {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #b79a52;
+    border-radius: 0;
+    color: #b79a52;
+    font-size: 20px;
+    margin: 17px 0 0;
+    padding: 10px;
+    width: 100%;
+}
+.voted.votedone {
+    background: #48be2c none repeat scroll 0 0;
+    border: 1px solid #48be2c;
+    color: #fff;
+}
+
+.thanks_msg {
+    background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
+    bottom: 100%;
+    color: #fff;
+    font-family: Rosario;
+    font-size: 18px;
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    padding-top: 46%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.2s ease 0s;
+    width: 100%;
+    z-index: 2;
+}
+
+
+img.grayscale{
+    -webkit-filter: grayscale(1);
+    -moz-filter: grayscale(1);
+    -ms-filter: grayscale(1);
+    filter: grayscale(1);
+}
+
+.past_result .contentarea p, .past_result .contentarea strong, .past_result .contentarea a{
+    color: #686868;
+    font-size: 14px;
+    margin-top: 18px;
+    margin-bottom: 0;
+}
+.past_result .contentarea strong{
+    margin-top: 0;
+}
+.past_result .contentarea a{
+    color: #b79a52;
+}
+.past_results > p {
+    margin: 2px 0 10px 4px !important;
+}
+.content p {
+    padding: 0 54px;
+}
+.contest .feed-short-desc{
+    font-size: 14px;line-height: 18px;
+}
+
+.contest .feed-title{
+    font-size: 22px;   
+}
+.past_result .content p{
+    padding: 0;
+}
+.hp-mobile{
+    display: none;
+}
+.hp-mobile{
+    width: 100%;
+}
+.hp-mobile .desc{
+    width: 100%;
+}
+.hp-mobile .item{
+    width: 100%;
+}
+.hp-mobile .presents, .hp-mobile .contestlogo, .hp-mobile .wh_logo {
+    margin-top: 24px;
+}
+.hp-mobile .item-left .desc{
+    left:0;
+}
+.hp-mobile .item-left .desc{
+    margin: 0;
+    top: 50px;
+}
+.hp-mobile .scroll-down{
+    bottom: 20px;
+}
+.hp-mobile .item-left{
+    background-image: url("../img/haleem-responsive.jpg"); background-size: 100% auto;
+}

@@ -174,6 +174,11 @@ $router->add("/homepage", array(
     'action' => 'homepage',
 )); 
 
+$router->add("/quiz", array(
+    'controller' => 'quiz',
+    'action' => 'index',
+)); 
+
 $router->add("/", array(
     'controller' => 'index',
     'action' => 'index',

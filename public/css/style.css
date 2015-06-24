@@ -3877,9 +3877,12 @@ iframe {
     font-size: 16px;
     text-align: center;`    
 }
-.defaultads {
-    margin-bottom: 30px;
-}
 .feeds-data > img{
     width: 100%;
+}
+.defaultads{
+    margin-top: -1px;
+    margin-bottom: 30px;
+    width: 279px;
+    height: 427px;
 }
