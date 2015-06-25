@@ -12,16 +12,14 @@ class Feeds extends Component
 {	
     public function getfeeds($url, $data, $start, $city='', $type=''){
     	$i = 1;
-    	$start = 20;
 		foreach($data['results'] as $feed){
 			if($i < 12){
 			$gaval = $start + $i;
 			if(isset($feed['filter_type']) && $feed['filter_type'] == 'tags'){
-				echo $gaattr = 'data-ga-cat="Entity Link Click on Tag Pages - '.$city.'" data-ga-action="Title | '.$feed['title'].'" data-ga-label="tag_results_pos_'. $gaval .'"';
+				$gaattr = 'data-ga-cat="Entity Link Click on Tag Pages - '.$city.'" data-ga-action="Title | '.$feed['title'].'" data-ga-label="tag_results_pos_'. $gaval .'"';
 			}else{
-				echo $gaattr = 'data-ga-cat="Your Feed - '.$city.'" data-ga-action="Entity Type | '.$feed['title'].'" data-ga-label="feed_pos_'. $gaval .'"';
+				$gaattr = 'data-ga-cat="Your Feed - '.$city.'" data-ga-action="Entity Type | '.$feed['title'].'" data-ga-label="feed_pos_'. $gaval .'"';
 			}
-			exit;
 			?>
 
 			<?php if($i%9 != 0){ ?>
@@ -35,6 +33,7 @@ class Feeds extends Component
 				<?php if(!isset($feed['is_sponsored'])){ ?>
 					<div class="col-sm-4 col-md-3 col-xs-6">
 						<div class="work-item feeds-data">
+							<?php echo $start+$i; ?>
 							<a href="<?php echo $url . $feed['url']; ?>" <?php echo $gaattr;?>>
 								<div class="hover-container">
 									<div class="hover-wrap">
@@ -62,6 +61,7 @@ class Feeds extends Component
 					<?php if($type == 'feed' || strtolower($feed['type']) == 'event'){ ?>
 						<div class="col-sm-4 col-md-3 col-xs-6">
 							<div class="work-item feeds-data">
+								<?php echo $start+$i; ?>
 								<a href="<?php echo $url . $feed['url']; ?>" <?php echo $gaattr;?>>
 									<div class="hover-container">
 										<div class="hover-wrap">
