@@ -169,7 +169,7 @@
 					</div>
 					<div class="row work-content">
 						<div id="getupcomingevents">
-							{{feeds.getfeeds(baseUrl, events, 0, cityshown, 'feed')}}
+							{{feeds.getfeeds(baseUrl, events, 0, cityshown, 'venue')}}
 						</div><div class="clearfix"></div>
 					</div>
 				</div>
@@ -186,7 +186,7 @@
 					</div>
 					<div class="row work-content">
 						<div id="getupcomingevents">
-								{{feeds.getfeeds(baseUrl, pastevents, 0, cityshown, 'feed')}}
+								{{feeds.getfeeds(baseUrl, pastevents, 0, cityshown, 'venue')}}
 						</div><div class="clearfix"></div>
 					</div>
 				</div>
