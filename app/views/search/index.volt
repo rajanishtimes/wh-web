@@ -1,6 +1,6 @@
 <?php if(!empty($allfeedslist['results'])){ ?>
 	<?php //echo "<pre>"; print_r($allfeedslist);?>
-	{{feeds.getfeeds(baseUrl, allfeedslist, start, cityshown, fromtype)}}
+	{{feeds.getfeeds(baseUrl, allfeedslist, start+spstart, cityshown, fromtype)}}
 <-!-###@###->
 
 <?php
