@@ -65,7 +65,7 @@ class IndexController extends BaseController{
 		$this->setlogsarray('popular_tags');
 		
 		$start = 0;
-		$limit = 11;
+		$limit = 10;
 		
 		try{
 			$allfeedslist = $this->getfeeddata($start, $limit, $city, 'all', '', '', 'Event,Content', '', 'feed', $start, $limit);
@@ -77,7 +77,7 @@ class IndexController extends BaseController{
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,
-				'start'=> $limit - $sponsors_count,
+				'start'=> $start + $limit - $sponsors_count,
 				'limit'=>$limit,
 				'populartags'=>$populartags,
 				'topfeeds'=>$topfeeds,

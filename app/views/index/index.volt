@@ -58,7 +58,7 @@
 			
 				<div class="row work-content allfeeds">
 					<div id="getallfeeds">					
-						{{feeds.getfeeds(baseUrl, allfeedslist, 0, cityshown, 'feed')}}
+						{{feeds.getfeeds(baseUrl, allfeedslist, start, cityshown, 'feed')}}
 					</div><div class="clearfix"></div>
 					<div class="loadmore">
 						<?php if($allfeedslist['meta']['match_count'] > ($limit)){ ?>
