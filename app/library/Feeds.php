@@ -438,8 +438,9 @@ class Feeds extends Component
 		addSize([736, 200], [329, 477]).
 		addSize([768, 200], [220, 367]).
 		addSize([1024, 200], [230, 377]).
-		addSize([1280, 200], [274, 427]).
-		addSize([1366, 200], [274, 427]).
+		addSize([1280, 200], [230, 377]).
+		addSize([1366, 200], [230, 377]).
+		addSize([1920, 200], [230, 377]).
 		build();
 
 		var slot1 = googletag.defineSlot('".$url."', [[310, 457], [350, 497],[274, 427],[230, 377],[220, 367],[350, 497], [470, 617],[329, 477],[295, 442],[290, 437],[365, 513],[365, 513]], '".$id."').defineSizeMapping(mappingLeaderboard).addService(googletag.pubads());

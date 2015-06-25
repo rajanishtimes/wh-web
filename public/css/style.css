@@ -3886,3 +3886,8 @@ iframe {
     width: 279px;
     height: 427px;
 }
+
+.defaultads > div > div > iframe {
+    width: 277px;
+    height: 425px;
+}
