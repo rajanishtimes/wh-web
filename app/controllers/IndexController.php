@@ -66,10 +66,16 @@ class IndexController extends BaseController{
 		
 		$start = 0;
 		$limit = 11;
+
+		if($this->config->adtech->enableadtech == 1){
+			$llimit = $limit-1;
+		}else{
+			$llimit = $limit;
+		}
 		
 		try{
-			$allfeedslist = $this->getfeeddata($start, 10, $city, 'all', '', '', 'Event,Content', '', 'feed', $start, 10);
-			$sponsors_count = count($allfeedslist['results']) - $limit;
+			$allfeedslist = $this->getfeeddata($start, $llimit, $city, 'all', '', '', 'Event,Content', '', 'feed', $start, $llimit);
+			$sponsors_count = count($allfeedslist['results']) - $llimit;
 		}catch(Exception $e){
 			$allfeedslist = array();
 		}
@@ -77,11 +83,11 @@ class IndexController extends BaseController{
 		$this->view->setVars(
 			array(
 				'allfeedslist' => $allfeedslist,
-				'start'=> $limit - $sponsors_count,
+				'start'=> $llimit - $sponsors_count,
 				'limit'=>$limit,
 				'populartags'=>$populartags,
 				'topfeeds'=>$topfeeds,
-				'spstart' => $limit,
+				'spstart' => $llimit,
 				'splimit' => $limit
 				)
 			);
