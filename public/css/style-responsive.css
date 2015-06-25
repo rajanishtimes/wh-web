@@ -10,6 +10,9 @@ LARGE DESKTOP > 1200px
 	.contentarea .detail {
 		padding: 0 147px;
 	}
+	.defaultads > div > div > iframe {
+		width: 279px; height: 427px;
+	}
 }
 
 
@@ -86,6 +89,7 @@ STANDARD DESKTOP < 1024px
 	.notfound {
 		padding: 0px;
 	}
+
 }
 
 
@@ -137,7 +141,9 @@ SMALL DESKTOP 768px <> 991px
 	.rating-container{
 		width: 100%;
 	}
-
+	.defaultads > div > div > iframe {
+		width: 230px; height: 378px;
+	}
 
 	/* =========== Biryani and haleem ========== */
 	
@@ -234,6 +240,7 @@ TABLET < 767px
 	.hp-mobile{
 		display: block;
 	}
+
 	/* =========== Biryani and haleem ========== */
 	.desc > div {
 		display: table-cell;
@@ -298,7 +305,9 @@ PHONE < 640px
 		width: 72% !important;
 	}
 	
-
+	.defaultads > div > div > iframe {
+		width: 290px; height: 438px !important;
+	}
 	/* =========== Biryani and haleem ========== */
 	.desc > div {
 		display: table-cell;
@@ -434,6 +443,9 @@ PHONE < 480px
 	.hp-mobile .item-left .desc{
 		top:100px;
 	}
+	.defaultads > div > div > iframe {
+		width: 470px; height: 618px;
+	}
 }
 
 /**
@@ -500,6 +512,9 @@ PHONE < 420px
 		display: block;
 	    width: 100%;
 	}
+	.defaultads > div > div > iframe {
+		width: 410px; height: 392px;
+	}
 }
 
 /**
@@ -528,6 +543,9 @@ IPHONE 6 PLUS
 	}
 	.hp-mobile .item-left .desc{
 		top:100px;
+	}
+	.defaultads > div > div > iframe {
+		width: 330px; height: 478px !important;
 	}
 }
 
@@ -558,6 +576,9 @@ IPHONE 6 PLUS
 		display: block;
 	    width: 100%;
 	}
+	.defaultads > div > div > iframe {
+		width: 404px; height: 618px;
+	}
 }
 
 /**
@@ -582,6 +603,9 @@ IPHONE 6
 	}
 	.hp-mobile .item-left .desc{
 		top:100px;
+	}
+	.defaultads > div > div > iframe {
+		width: 295px; height: 443px;
 	}
 }
 
@@ -629,6 +653,9 @@ IPHONE 6
 		display: block;
 	    width: 100%;
 	}
+	.defaultads > div > div > iframe {
+		width: 365px; height: 558px;
+	}
 }
 
 
@@ -673,7 +700,9 @@ PHONE < 360px
 		display: block;
 	    width: 100%;
 	}
-	
+	.defaultads > div > div > iframe {
+		width: 350px; height: 498px;
+	}
 }
 
 /**
@@ -730,5 +759,9 @@ PHONE < 320px
 	.desc > div {
 		display: block;
 	    width: 100%;
+	}
+	.defaultads > div > div > iframe {
+		width: 310px;
+		height: 458px;
 	}
 }

@@ -100,7 +100,7 @@ class SearchController extends BaseController{
 		$this->view->entitytype = 'search';
 		
 		$start = 0;
-		$limit = 1;
+		$limit = 12;
 		
 		try{
 			$allfeedslist = $this->getfeeddata($start, $limit, $this->currentCity, '', '', $searchkeyword, '', '', 'search');
