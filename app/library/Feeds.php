@@ -21,6 +21,7 @@ class Feeds extends Component
 				$gaattr = 'data-ga-cat="Your Feed - '.$city.'" data-ga-action="Entity Type | '.$feed['title'].'" data-ga-label="feed_pos_'. $i .'"';
 			}
 			?>
+
 			<?php if($i%9 != 0){ ?>
 				<?php if(($start+$i) == 4 && $type=='feed' && $this->config->adtech->enableadtech == 1){ ?>
 					<div class="col-sm-4 col-md-3 col-xs-6">
@@ -28,7 +29,7 @@ class Feeds extends Component
 							<?php echo $this->getadtech($city); ?>
 						</div>
 					</div>	
-				<?php } ?>
+				<?php $i++; } ?>
 				<?php if(!isset($feed['is_sponsored'])){ ?>
 					<div class="col-sm-4 col-md-3 col-xs-6">
 						<div class="work-item feeds-data">
