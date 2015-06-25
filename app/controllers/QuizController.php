@@ -32,14 +32,17 @@ class QuizController extends BaseController{
 		$biryaninominations->setCityID($this->cityId);
 		$biryaninominations->setStart($start);
 		$biryaninominations->setLimit($limit);
-		$biryaninominations->setContestName('biryani');
+		$biryaninominations->setContest('biryani');
+		$biryaninominations->setContestName('biryani and haleem');
         $biryaninomination = $biryaninominations->nominations();
+         
 
         $haleemnominations = new \WH\Model\BNH();
 		$haleemnominations->setCityID($this->cityId);
 		$haleemnominations->setStart($start);
 		$haleemnominations->setLimit($limit);
-		$haleemnominations->setContestName('haleem');
+		$haleemnominations->setContest('haleem');
+		$haleemnominations->setContestName('biryani and haleem');
         $haleemnomination = $haleemnominations->nominations();
 
         $this->view->setVars(array(
