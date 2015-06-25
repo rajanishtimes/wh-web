@@ -12,14 +12,16 @@ class Feeds extends Component
 {	
     public function getfeeds($url, $data, $start, $city='', $type=''){
     	$i = 1;
+    	$start = 20;
 		foreach($data['results'] as $feed){
 			if($i < 12){
-
+			$gaval = $start + $i;
 			if(isset($feed['filter_type']) && $feed['filter_type'] == 'tags'){
-				$gaattr = 'data-ga-cat="Entity Link Click on Tag Pages - '.$city.'" data-ga-action="Title | '.$feed['title'].'" data-ga-label="tag_results_pos_'. $i .'"';
+				echo $gaattr = 'data-ga-cat="Entity Link Click on Tag Pages - '.$city.'" data-ga-action="Title | '.$feed['title'].'" data-ga-label="tag_results_pos_'. $gaval .'"';
 			}else{
-				$gaattr = 'data-ga-cat="Your Feed - '.$city.'" data-ga-action="Entity Type | '.$feed['title'].'" data-ga-label="feed_pos_'. $i .'"';
+				echo $gaattr = 'data-ga-cat="Your Feed - '.$city.'" data-ga-action="Entity Type | '.$feed['title'].'" data-ga-label="feed_pos_'. $gaval .'"';
 			}
+			exit;
 			?>
 
 			<?php if($i%9 != 0){ ?>
