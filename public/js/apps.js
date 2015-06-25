@@ -106,8 +106,8 @@ function resizefeedimage(){
 	var height = 0;
 	$(".work-item img").each(function( index ) {
 		if($(this).parent().parent().find('.make-up').length == 0){
-			width = $(this).parent().parent().parent().width();
-			height = $(this).parent().parent().parent().height();
+			width = $(this).parent().parent().parent().parent().width();
+			height = $(this).parent().parent().parent().parent().height();
 		}
 		$(this).height(($(this).width()));
 	});
