@@ -33,7 +33,6 @@ class Feeds extends Component
 				<?php if(!isset($feed['is_sponsored'])){ ?>
 					<div class="col-sm-4 col-md-3 col-xs-6">
 						<div class="work-item feeds-data">
-							<?php echo $start+$i; ?>
 							<a href="<?php echo $url . $feed['url']; ?>" <?php echo $gaattr;?>>
 								<div class="hover-container">
 									<div class="hover-wrap">
@@ -61,7 +60,6 @@ class Feeds extends Component
 					<?php if($type == 'feed' || strtolower($feed['type']) == 'event'){ ?>
 						<div class="col-sm-4 col-md-3 col-xs-6">
 							<div class="work-item feeds-data">
-								<?php echo $start+$i; ?>
 								<a href="<?php echo $url . $feed['url']; ?>" <?php echo $gaattr;?>>
 									<div class="hover-container">
 										<div class="hover-wrap">
