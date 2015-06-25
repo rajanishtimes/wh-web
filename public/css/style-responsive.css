@@ -306,7 +306,7 @@ PHONE < 640px
 	}
 	
 	.defaultads > div > div > iframe {
-		width: 290px; height: 438px !important;
+		width: 290px; height: 438px;
 	}
 	/* =========== Biryani and haleem ========== */
 	.desc > div {
@@ -545,7 +545,7 @@ IPHONE 6 PLUS
 		top:100px;
 	}
 	.defaultads > div > div > iframe {
-		width: 330px; height: 478px !important;
+		width: 330px; height: 478px;
 	}
 }
 
