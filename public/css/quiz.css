@@ -107,7 +107,7 @@
 .dnone{
     display: none;
 }
-.contentarea p {color:#b79a52}
+.quiz_data .contentarea p {color:#b79a52}
 .tabbed_group > div {
     border: 1px solid #b79a52;
     color: #b79a52;
