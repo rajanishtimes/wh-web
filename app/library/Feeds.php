@@ -28,7 +28,8 @@ class Feeds extends Component
 							<?php echo $this->getadtech($city); ?>
 						</div>
 					</div>	
-				<?php }elseif(!isset($feed['is_sponsored'])){ ?>
+				<?php } ?>
+				<?php if(!isset($feed['is_sponsored'])){ ?>
 					<div class="col-sm-4 col-md-3 col-xs-6">
 						<div class="work-item feeds-data">
 							<a href="<?php echo $url . $feed['url']; ?>" <?php echo $gaattr;?>>
