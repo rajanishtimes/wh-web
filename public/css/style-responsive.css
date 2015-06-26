@@ -152,10 +152,6 @@ SMALL DESKTOP 768px <> 991px
 	}
 
 	/* =========== Biryani and haleem ========== */
-	
-	.hp .desc{
-		width: 50%;
-	}
 	.hp .item-left .desc{
 		margin: 0px -95px 0 0;
 	}

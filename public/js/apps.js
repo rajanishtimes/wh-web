@@ -65,8 +65,11 @@ $(window).load(function() {
 	});
 	
 	resizefeedimage();
+
+	setquizheight();
 	$( window ).resize(function() {
 	  resizefeedimage();
+	  setquizheight();
 	});
 	
 	//fbandtwitter();
@@ -304,7 +307,6 @@ function DOMReady(){
 	}
 
 
-
 	var intOverallDelta = 0;
 	var opened = true;
 	var belowscreen = 0;
@@ -350,7 +352,7 @@ function DOMReady(){
 	});
 	*/
 
-	$('.addscroll').click(function(){
+	/*$('.addscroll').click(function(){
 		var screenWidth = $(window).width()/2;
 		$(".item-left").css('left', 0);
 		$(".item-right").css('right', 0);
@@ -377,6 +379,13 @@ function DOMReady(){
 			$(".hp-mobile").addClass('dnone');
 			$(".addscrollmobile").addClass('dnone');
 		});
+	});*/
+
+	$('.addscroll').click(function(){
+		$('body,html').animate({
+			scrollTop: $('.hp .item').height()
+		}, 800);
+		return false;
 	});
 
 	$('.tabbed_group > div').click(function(){
@@ -410,6 +419,14 @@ function DOMReady(){
 		$('.past_results').slideToggle();
 		return false;
 	});
+}
+
+
+function setquizheight(){
+	if($('.hp .item').length > 0){
+		var height = $(window).height() - $('.navbar-fixed-top').height();
+		$('.hp .item').height(height);
+	}
 }
 
 function slideframeclosed(){

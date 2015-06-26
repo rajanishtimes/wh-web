@@ -43,8 +43,11 @@
 		{% if canonical_url != '' %}
 		<link rel="canonical" href="{{canonical_url}}" />
 		{% endif  %}
-		{% if deep_link != '' %}
-		<link rel="alternate" href="{{deep_link}}" />
+
+		{% if (deep_link != '') %}
+			{% if(controllername != 'venue' AND controllername != 'location' AND controllername != 'critic') %}
+				<link rel="alternate" href="{{deep_link}}" />
+			{% endif  %}
 		{% endif  %}
 		
 		{% if(tagsfeedscount is defined) %}

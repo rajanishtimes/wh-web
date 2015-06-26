@@ -6,7 +6,7 @@
 			<div class="col-sm-12 col-md-12">
 				<div class="contentarea">
 					<div class="author-image text-center">
-						{{feeds.getimage(baseUrl, author['images'][0]['uri'], 100, 100, author['title'], author['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
+						{{feeds.getimage(baseUrl, author['images'][0]['uri'], 100, 100, author['title'], author['images'], 'width:100px; height:100px; border-radius: 50%; margin: 0px auto;', 'img-detail icon-circle')}}
 					</div>
 					<div class="clearfix"></div>
 					<h2 class="contenttitle text-center">{{author['title']}}</h2>

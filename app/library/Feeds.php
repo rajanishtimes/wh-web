@@ -182,7 +182,7 @@ class Feeds extends Component
 			if(!isset($feed['is_sponsored'])){ ?>
 			<li class="media searchlist">
 				<a class="pull-left" href="<?php echo $baseUrl . $feed['url']; ?>" data-ga-cat="Entity Link Click on Search Pages - <?php echo $city;?>" data-ga-action="Title | <?php echo $feed['title']; ?>" data-ga-label="search_results_pos_<?php echo $i+1; ?>">
-					<?php echo $this->getimage($baseUrl, $feed['image']['uri'], 80, 80, $feed['title'], $feed['image'], '', '', $i); ?>
+					<?php echo $this->getimage($baseUrl, $feed['image']['uri'], 80, 80, $feed['title'], $feed['image'], 'width:100%', '', $i); ?>
 				</a>
 				<a class="pull-left width100" href="<?php echo $baseUrl . $feed['url']; ?>" data-ga-cat="Entity Link Click on Search Pages - <?php echo $city;?>" data-ga-action="Title | <?php echo $feed['title']; ?>" data-ga-label="search_results_pos_<?php echo $i+1; ?>">
 					<div class="media-body">
@@ -346,9 +346,9 @@ class Feeds extends Component
 			$class = 'lazy '.$class;
 			//$style = 'background-color:#fff;'.$style;
 			//$imgbox = '<img data-original="'.$imgurl.'" src="'.$url.'/img/transparent.png" alt="'.$alt.'" style="'.$style.'" class="'.$class.'">';
-			$imgbox = '<div style="background-color:'.$color[$select_color].'"><img data-src="'.$imgurl.'"  data-src-retina="'.$imgurl.'" src="'.$url.'/img/transparent.png" alt="'.$alt.'" style="'.$style.'" class="'.$class.'"></div>';
+			$imgbox = '<div style="'.$style.'"><img data-src="'.$imgurl.'"  data-src-retina="'.$imgurl.'" src="'.$url.'/img/transparent.png" alt="'.$alt.'" style="'.$style.'" class="'.$class.'"></div>';
 		}else{
-			$imgbox = '<div style="background-color:'.$color[$select_color].'"><img src="'.$url.'/img/img_feed_default.png" alt="'.$alt.'"  style="'.$style.'" class="'.$class.'"></div>';
+			$imgbox = '<div style="'.$style.'"><img src="'.$url.'/img/img_feed_default.png" alt="'.$alt.'"  style="'.$style.'" class="'.$class.'"></div>';
 		}
 		return $imgbox;
 	}

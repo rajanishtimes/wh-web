@@ -1,36 +1,28 @@
 <section class="hp">
-	<a href="#" class="scroll-down img-circle addscroll"><i class="fa fa-angle-down"></i></a>
-	<div class="item item-left">
-		<div class="desc">
-			<div class="contestlogo"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>
-			<div class="presents"><img src="{{baseUrl}}/img/presents.png"></div>
-			<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>		
-		</div>
-		<i class="overlay"></i>
-	</div>
-	<div class="item item-right">
-		<div class="desc">
-			<div class="contestlogo"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>
-			<div class="presents"><img src="{{baseUrl}}/img/presents.png"></div>
-			<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
-		</div>
-		<i class="overlay"></i>
+	<div class="item item-left"><i class="overlay"></i></div>
+	<div class="item item-right"><i class="overlay"></i></div>
+
+	<div class="desc">
+		<div class="contestlogo"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>
+		<div class="presents"><img src="{{baseUrl}}/img/presents.png"></div>
+		<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
+		<a href="#" class="scroll-down img-circle addscroll"><i class="fa fa-angle-down"></i></a>
 	</div>
 </section>
 
 <section class="hp hp-mobile">
-	<a href="#" class="scroll-down img-circle addscrollmobile"><i class="fa fa-angle-down"></i></a>
 	<div class="item item-left">
 		<div class="desc">
 			<div class="contestlogo"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>
 			<div class="presents"><img src="{{baseUrl}}/img/presents.png"></div>
 			<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
+			<a href="#" class="scroll-down img-circle addscrollmobile"><i class="fa fa-angle-down"></i></a>
 		</div>
 		<i class="overlay"></i>
 	</div>
 </section>
-
-<section class="quiz_data">
+<div class="clearfix"></div>
+<section id="quizdata" class="quiz_data">
 	<div class="section">
 		<div class="container">
 			<div class="row">
