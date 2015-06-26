@@ -233,7 +233,7 @@
 		<?php } ?>
 
 		
-		<div class="col-sm-12 col-md-12">
+		<!--<div class="col-sm-12 col-md-12">
 			<div class="row">
 				{% if(venuedetail['tags'] | length > 0) %}
 					<p class="tags">Tags</p>
@@ -249,7 +249,7 @@
 					</div><div class="clearfix"></div>
 				{% endif %}
 			</div>
-		</div>
+		</div>-->
 
 	</div>
 </div>
