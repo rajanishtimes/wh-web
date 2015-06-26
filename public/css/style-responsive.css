@@ -612,6 +612,12 @@ IPHONE 6
 	footer, .footer{
 		width: 667px;
 	}
+	.width100{
+		 width: 73% !important;
+	}
+	.feed-list .searchlist p{
+		width: 100%;
+	}
 	.desc > div {
 		display: table-cell;
 	    vertical-align: middle;
