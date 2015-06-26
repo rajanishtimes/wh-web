@@ -72,7 +72,7 @@ $(window).load(function() {
 	  setquizheight();
 	});
 	
-	//fbandtwitter();
+	fbandtwitter();
 });
 
 function searchValid(){
