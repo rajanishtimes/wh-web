@@ -165,7 +165,7 @@
 				<div class="col-sm-12 col-md-12">
 				<div class="row">
 					<div class="col-xs-12 no-padding">
-						<h2 class="yfeeds">Upcoming Events</h2>
+						<h2 class="yfeeds">Ongoing and Upcoming Events</h2>
 					</div>
 					<div class="row work-content">
 						<div id="getupcomingevents">
