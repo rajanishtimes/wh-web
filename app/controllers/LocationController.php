@@ -170,7 +170,7 @@ class LocationController extends BaseController{
     }
 	
 	public function forwardlocationAction(){
-		$searchkeyword = htmlentities($this->request->getPost('location'));
+		$searchkeyword = htmlentities(trim($this->request->getPost('location')));
 		$searchkeyword = strtolower(str_replace(" ","-",stripslashes($searchkeyword)));
 		$searchkeyword = str_replace("/"," ",stripslashes($searchkeyword));
 		$searchkeyword = str_replace("*","",$searchkeyword);
