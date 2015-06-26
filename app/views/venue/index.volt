@@ -102,7 +102,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-4">
 					<div class="authordata">
 						<div class="author-image float-left">
-							{{feeds.getimage(baseUrl, venuedetail['reviews'][0]['author']['images'][0]['uri'], 100, 100, venuedetail['reviews'][0]['author']['title'], venuedetail['reviews'][0]['author']['images'], 'width:100px; height:100px', 'img-detail icon-circle')}}
+							{{feeds.getimage(baseUrl, venuedetail['reviews'][0]['author']['images'][0]['uri'], 100, 100, venuedetail['reviews'][0]['author']['title'], venuedetail['reviews'][0]['author']['images'], 'width:100px; height:100px; border-radius: 50%; margin: 0px auto;', 'img-detail icon-circle')}}
 						</div>
 						<div class="authordetail float-left">
 							<h2 class="reviewtitle text-center"><span class="reviewd">Reviewed by</span><br> <a href="{{baseUrl}}{{venuedetail['reviews'][0]['url']}}">{{venuedetail['reviews'][0]['author']['title'] | lower | capitalize}}</a></h2>
@@ -231,26 +231,6 @@
 				</div>
 			</div>
 		<?php } ?>
-
-		
-		<!--<div class="col-sm-12 col-md-12">
-			<div class="row">
-				{% if(venuedetail['tags'] | length > 0) %}
-					<p class="tags">Tags</p>
-					<div class="work-content">
-						<ul class="work-category-wrap tagsblack">
-							<?php $populartags =$venuedetail['tags'];?>
-							{% for populartag in populartags %}
-								<li class="filter" ><a href="{{baseUrl}}/{{currentCity}}/tag/{{elements.create_slug(populartag['name'])}}">
-								{{populartag['name']}}
-								</a></li>
-							{% endfor  %}
-						</ul><div class="clearfix"></div>
-					</div><div class="clearfix"></div>
-				{% endif %}
-			</div>
-		</div>-->
-
 	</div>
 </div>
 
