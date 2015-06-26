@@ -312,6 +312,12 @@ PHONE < 640px
 	.defaultads > div > div > iframe {
 		width: 290px; height: 438px;
 	}
+	.width100{
+		 width: 73% !important;
+	}
+	.feed-list .searchlist p{
+		width: 100%;
+	}
 	/* =========== Biryani and haleem ========== */
 	.desc > div {
 		display: table-cell;
@@ -627,7 +633,7 @@ IPHONE 6
 		width: 295px; height: 443px;
 	}
 	.width100{
-		 width: 70% !important;
+		 width: 73% !important;
 	}
 	.feed-list .searchlist p{
 		width: 100%;
