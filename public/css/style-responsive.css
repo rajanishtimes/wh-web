@@ -242,6 +242,12 @@ TABLET < 767px
 	.hp-mobile{
 		display: block;
 	}
+	.width100{
+		 width: 70% !important;
+	}
+	.feed-list .searchlist p{
+		width: 100%;
+	}
 
 	/* =========== Biryani and haleem ========== */
 	.desc > div {
@@ -367,6 +373,12 @@ PHONE < 548px
 	}
 	#authorpost .row.work-content{
 		margin: 0;
+	}
+	.width100{
+		 width: 66% !important;
+	}
+	.feed-list .searchlist p{
+		width: 100%;
 	}
 }
 
