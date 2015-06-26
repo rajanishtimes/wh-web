@@ -241,8 +241,8 @@
 						<ul class="work-category-wrap tagsblack">
 							<?php $populartags =$venuedetail['tags'];?>
 							{% for populartag in populartags %}
-								<li class="filter" ><a href="{{baseUrl}}/{{currentCity}}/tag/{{elements.create_slug(populartag)}}">
-								{{populartag}}
+								<li class="filter" ><a href="{{baseUrl}}/{{currentCity}}/tag/{{elements.create_slug(populartag['name'])}}">
+								{{populartag['name']}}
 								</a></li>
 							{% endfor  %}
 						</ul><div class="clearfix"></div>
