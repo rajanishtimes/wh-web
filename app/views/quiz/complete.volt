@@ -30,11 +30,10 @@
 					<div class="head">Contest Details</div><br>
 					<div class="contentarea">
 						<div class="detail content">
-							<p class="text-center">Calling Hyderabad foodies... it's that time of the year again, when you get to vote your favourite Biryani and Haleem Eatery to the Top 10 list of Times Biryani & Haleem Contest.</p><p class="text-center"><strong class="text-center">What are you waiting for. Vote Now!</strong></p>
+							<p class="text-center">Calling Hyderabad foodies... it's that time of the year again, when you get to vote your favourite Biryani and Haleem joints to the Top 10 list of Times Biryani & Haleem Contest.</p><p class="text-center"><strong class="text-center">Voting is Over see the result below</strong></p>
 						</div>
 					</div>
 				</div><div class="clearfix"></div>
-
 				<div class="tabbed_group">
 					<div class="biryani_nomination active" data-for="#biryaninomination">
 						Biryani Nominations 2015

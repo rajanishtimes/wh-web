@@ -279,7 +279,7 @@ class Feeds extends Component
 								<div class="feed-title"><?php echo $data['title']; ?></div>
 								<div class="feed-short-desc"><?php $desc = strip_tags($json_data->description);
 								$description = strlen($desc) > 100 ? substr($desc, 0, 100).'...' : $desc; echo $description; ?></div>
-								<div class="btn btn-primary voted <?php echo $class; ?>" rel="<?php echo $data['id']; ?>">VOTE NOW</div>
+								<div class="btn btn-primary voted <?php echo $class; ?>" rel="<?php echo $data['id']; ?>" data-for="<?php echo $type; ?>">VOTE NOW</div>
 							</div>
 						</a>
 					</div>

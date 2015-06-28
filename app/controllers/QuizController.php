@@ -8,10 +8,12 @@ class QuizController extends BaseController{
 		$this->view->searchform = new SearchForm;
 		$this->view->newsletterform = new NewsletterForm;
         $this->view->setLayout('quizLayout');
+        $this->view->iscontestrunning = $this->config->biryaniandhaleem->isrunning;
         parent::initialize();
     }
 
 	public function indexAction(){
+
 		$city = $this->currentCity;
         if($city != 'hyderabad'){
         	$this->forwardtoerrorpage(404);
@@ -45,6 +47,11 @@ class QuizController extends BaseController{
 		$haleemnominations->setContestName('biryani and haleem');
         $haleemnomination = $haleemnominations->nominations();
 
+        if($this->config->biryaniandhaleem->isrunning == 0){
+        	$this->view->setLayout('quizLayout');
+        	$this->view->pick(['quiz/complete']);
+        }
+
         $this->view->setVars(array(
 			'biryaninominations' => $biryaninomination,
 			'haleemnominations' => $haleemnomination,
@@ -53,6 +60,20 @@ class QuizController extends BaseController{
 			'limit'	=> $limit,
 			'isvoted' => $isvoted
 		));
-        
+    }
+
+
+    public function votingAction(){
+    	$nominationid = $this->request->getPost('nominationid');
+    	$category = $this->request->getPost('category');
+
+    	$voting = new \WH\Model\BNH();
+    	$voting->setContestName('biryani and haleem');
+    	$voting->setNominationID($nominationid);
+    	$voting->setBrowserID($_SERVER['HTTP_USER_AGENT']);
+    	$voting->setCategoryName($category);
+    	$voting->setIP($_SERVER['REMOTE_ADDR']);
+		$result = $voting->voting();
+		exit;
     }
 }

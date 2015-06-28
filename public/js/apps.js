@@ -400,16 +400,26 @@ function DOMReady(){
 
 	$('.voted').click(function(){
 		if(!$(this).hasClass('votedone')){
-			if(cookies.get('isvoted') == null){
-				expOn = new Date();
-				expOn.setTime(new Date().getTime() + 3600 * 3600 * 24 * 15);
-				cookies.set('isvoted', $(this).attr('rel'), {path: '/',expires:expOn});
-				$(this).addClass('votedone');
-				$(this).html('VOTED');
-				var thanks_msg = $(this).parent().parent().parent().find('.thanks_msg');
-				thanks_msg.removeClass('dnone');
-				$(this).parent().parent().parent().find('.lazy').addClass('grayscale');
-				setTimeout(function(){ thanks_msg.addClass('dnone'); }, 2000);
+			if(iscontestruning == 1){
+				if(cookies.get('isvoted') == null){
+					var elem = $(this);
+					$.ajax({
+						url:baseUrl+'/quiz/voting',
+						type:'POST',
+						data:'nominationid='+elem.attr('rel')+'&category='+elem.attr('data-for'),
+						success:function(data) {
+							expOn = new Date();
+							expOn.setTime(new Date().getTime() + 3600 * 3600 * 24 * 15);
+							cookies.set('isvoted', elem.attr('rel'), {path: '/',expires:expOn});
+							elem.addClass('votedone');
+							elem.html('VOTED');
+							var thanks_msg = elem.parent().parent().parent().find('.thanks_msg');
+							thanks_msg.removeClass('dnone');
+							elem.parent().parent().parent().find('.lazy').addClass('grayscale');
+							setTimeout(function(){ thanks_msg.addClass('dnone'); }, 2000);
+						}
+					});
+				}
 			}
 		}
 		return false;
