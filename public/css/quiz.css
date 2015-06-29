@@ -90,6 +90,7 @@
     font-size: 18px;
     margin-top: 31px;
     color:#b79a52;
+    font-weight: bold;
 }
 .quiz_data .content {
     font-family: Rosario;
@@ -202,8 +203,13 @@ img.grayscale{
 .contest .feed-title{
     font-size: 22px;   
 }
-.past_result .content p{
+.past_result .content p, .past_result .content strong, .past_result .content a{
     padding: 0;
+    font-size: 14px;
+    color: #969eab;
+}
+.past_result .content a{
+    color: #b79a52;
 }
 .hp-mobile{
     display: none;

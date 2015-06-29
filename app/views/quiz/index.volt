@@ -63,25 +63,23 @@
 		<div class="container">
 			<div class="row">
 				<div class="past_result">
-					<div class="contentarea">
-						<div class="content">
-							<div class="col-sm-4 col-md-3 col-xs-12 text-center">
-								<img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png">						
-							</div>
-							<div class="col-sm-8 col-md-9 col-xs-12">
-								<p>Times Biryani and Haleem contest has been on since last 7 years and it started as an initiative to honor best Biryani and Haleem which are unique only to the Hyderabadi culture. </p>
-								<strong>To check past winners of Biryani and Haleem Contest</strong><br>
-								<a href="#" class="show_past">View past winners</a>
-								<div class="past_results" style="display:none">
-									<strong>Past winners under Biryani  Category are as follow</strong>
-									<p>2011 Winner Hotel Golkonda,  1st Runner up Paradise, 2nd Runner Four Seasons<br>
-									2012 Winner Kebabs N Kurries, 1st Runner up ITC Kakatiya Jewel of Nizam, Golconda, 2nd RunnerShah house<br>
-									2014 Winner Bawarchi, 1st Runner up Shadab, 2nd Runner Paradise</p>
-									<strong>Past winners under Haleem Category are as follow</strong>
-									<p>2011 Winner Shah Ghouse, 1st Runner Sarvi,  2nd Runner Pista House<br>
-									2012 Winner Paradise, 1st Runner Kholani's, 2nd Runner Sarvi<br>
-									2014 Winner Shah Ghouse, 1st Runner Sarvi, 2nd Runner Pista House</p>
-								</div>
+					<div class="content">
+						<div class="col-sm-4 col-md-3 col-xs-12 text-center">
+							<img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png">						
+						</div>
+						<div class="col-sm-8 col-md-9 col-xs-12">
+							<p>Times Biryani and Haleem contest has been on since last 7 years and it started as an initiative to honor best Biryani and Haleem which are unique only to the Hyderabadi culture. </p>
+							<strong>To check past winners of Biryani and Haleem Contest</strong><br>
+							<a href="#" class="show_past">View past winners</a>
+							<div class="past_results" style="display:none">
+								<strong>Past winners under Biryani  Category are as follow</strong>
+								<p>2011 Winner Hotel Golkonda,  1st Runner up Paradise, 2nd Runner Four Seasons<br>
+								2012 Winner Kebabs N Kurries, 1st Runner up ITC Kakatiya Jewel of Nizam, Golconda, 2nd RunnerShah house<br>
+								2014 Winner Bawarchi, 1st Runner up Shadab, 2nd Runner Paradise</p>
+								<strong>Past winners under Haleem Category are as follow</strong>
+								<p>2011 Winner Shah Ghouse, 1st Runner Sarvi,  2nd Runner Pista House<br>
+								2012 Winner Paradise, 1st Runner Kholani's, 2nd Runner Sarvi<br>
+								2014 Winner Shah Ghouse, 1st Runner Sarvi, 2nd Runner Pista House</p>
 							</div>
 						</div>
 					</div>
