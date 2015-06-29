@@ -171,6 +171,10 @@ function manageCityCookie(){
     expOn = new Date();
     expOn.setTime(new Date().getTime() + 3600000 * 24 * 365);
 	
+	if(cookies.get('uniquekey') == null){
+		cookies.set('uniquekey', 'uuqid'+new Date().getTime() + 3600000 * 24 * 365, {path: '/',expires:expOn});
+	}
+
 	if(HomeCityName != "" && HomeCityName != undefined){
         cookies.set('city',_city, {path: '/',expires:expOn});
     }
@@ -199,6 +203,7 @@ function DOMReady(){
 		}
 	});
 	manageCityCookie();
+
 	$("img.lazy").unveil(200, function() {
 	  $(this).load(function() {
 	    this.style.opacity = 1;
@@ -400,27 +405,19 @@ function DOMReady(){
 
 	$('.voted').click(function(){
 		if(!$(this).hasClass('votedone')){
-			if($('#iscontestruning').val() == 1){
-				if(cookies.get('isvoted') == null){
-					var elem = $(this);
-					elem.html('VOTING...');
-					$.ajax({
-						url:baseUrl+'/quiz/voting',
-						type:'POST',
-						data:'nominationid='+elem.attr('rel')+'&category='+elem.attr('data-for'),
-						success:function(data) {
-							expOn = new Date();
-							expOn.setTime(new Date().getTime() + 3600 * 3600 * 24 * 15);
-							elem.attr('rel')
-							cookies.set('isvoted', elem.attr('rel'), {path: '/',expires:expOn});
-							elem.addClass('votedone');
-							elem.html('VOTED');
-							var thanks_msg = elem.parent().parent().parent().find('.thanks_msg');
-							thanks_msg.removeClass('dnone');
-							elem.parent().parent().parent().find('.lazy').addClass('grayscale');
-							setTimeout(function(){ thanks_msg.addClass('dnone'); }, 2000);
-						}
-					});
+			var elem = $(this);
+			var id = elem.attr('rel');
+			if($('#iscontestruning').val() == 1){				
+				if(cookies.get('isvotedbiryani') == null && elem.attr('data-for') == 'biryani'){
+					voting(elem, 'isvotedbiryani');
+				}else if(cookies.get('isvotedhaleem') == null && elem.attr('data-for') == 'haleem'){
+					voting(elem, 'isvotedhaleem');
+				}else{
+					if(cookies.get('isvotedbiryani') != null && cookies.get('isvotedbiryani') != id && elem.attr('data-for') == 'biryani'){
+						voting(elem, 'isvotedbiryani');	
+					}else if(cookies.get('isvotedhaleem') != null && cookies.get('isvotedhaleem') != id && elem.attr('data-for') == 'haleem'){
+						voting(elem, 'isvotedhaleem');	
+					}
 				}
 			}
 		}
@@ -433,6 +430,31 @@ function DOMReady(){
 	});
 }
 
+function voting(elem, cookiesname){
+	$('.'+elem.attr('data-for') + ' .lazy').removeClass('grayscale');
+	$('.'+elem.attr('data-for') + ' .voted').html('VOTE NOW');
+	$('.'+elem.attr('data-for') + ' .voted').removeClass('votedone');
+
+	elem.html('VOTING...');
+	$.ajax({
+		url:baseUrl+'/quiz/voting',
+		type:'POST',
+		data:'nominationid='+elem.attr('rel')+'&category='+elem.attr('data-for'),
+		success:function(data) {
+			expOn = new Date();
+			expOn.setTime(new Date().getTime() + 3600 * 3600 * 24 * 15);
+			elem.attr('rel')
+			cookies.set(cookiesname, elem.attr('rel'), {path: '/',expires:expOn});
+			elem.addClass('votedone');
+			elem.html('VOTED');
+			var thanks_msg = elem.parent().parent().parent().find('.thanks_msg');
+			thanks_msg.removeClass('dnone');
+			elem.parent().parent().parent().find('.lazy').addClass('grayscale');
+			setTimeout(function(){ thanks_msg.addClass('dnone'); }, 2000);
+		}
+	});
+
+}
 
 function setquizheight(){
 	if($('.hp .item').length > 0){

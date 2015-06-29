@@ -257,3 +257,9 @@ img.grayscale{
 .winner p {
     padding: 20px 0;
 }
+.contest .feed-title{
+    min-height: 47px;
+}
+.contest .feed-short-desc{
+    height: 55px;
+}

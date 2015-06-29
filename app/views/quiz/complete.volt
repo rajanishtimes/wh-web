@@ -45,10 +45,10 @@
 				<input type='hidden' value="{{iscontestrunning}}" id="iscontestruning">
 				<div class="work-content contest">
 					<div id="biryaninomination">
-						{{feeds.getcontest(baseUrl, biryaninominations, start, cityshown, 'biryani', isvoted)}}
+						{{feeds.getcontest(baseUrl, biryaninominations, start, cityshown, 'biryani', isvotedbiryani)}}
 					</div>
 					<div id="haleemnomination" style="display:none">
-						{{feeds.getcontest(baseUrl, haleemnominations, start, cityshown, 'haleem', isvoted)}}
+						{{feeds.getcontest(baseUrl, haleemnominations, start, cityshown, 'haleem', isvotedhaleem)}}
 					</div>
 				</div>
 			</div>

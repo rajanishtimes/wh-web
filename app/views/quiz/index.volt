@@ -45,11 +45,12 @@
 				</div><div class="clearfix"></div>
 				<input type='hidden' value="{{iscontestrunning}}" id="iscontestruning">
 				<div class="work-content contest">
-					<div id="biryaninomination">
-						{{feeds.getcontest(baseUrl, biryaninominations, start, cityshown, 'biryani', isvoted)}}
+					<div id="biryaninomination" class="biryani">
+						<?php $isvotebir = $isvotedbiryani; ?>
+						{{feeds.getcontest(baseUrl, biryaninominations, start, cityshown, 'biryani', isvotebir)}}
 					</div>
-					<div id="haleemnomination" style="display:none">
-						{{feeds.getcontest(baseUrl, haleemnominations, start, cityshown, 'haleem', isvoted)}}
+					<div id="haleemnomination" class="haleem" style="display:none">
+						{{feeds.getcontest(baseUrl, haleemnominations, start, cityshown, 'haleem', isvotedhaleem)}}
 					</div>
 				</div>
 			</div>

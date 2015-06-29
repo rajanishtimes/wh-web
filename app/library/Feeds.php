@@ -254,10 +254,10 @@ class Feeds extends Component
 	
 	public function getcontest($url, $datas, $start, $city='', $type='', $isvoted){
 		$i = 0;
-		foreach($datas as $data){
+		foreach($datas as $data){			 
 			$imgclass = $class = '';
 			$json_data = json_decode($data['data']);
-			$text = 'VOTE NOW';
+			$text = 'VOTE NOW'; 
 			if($isvoted == $data['id']){
 				$class = 'votedone';
 				$imgclass = 'grayscale';
@@ -276,14 +276,14 @@ class Feeds extends Component
 								<?php echo $this->getimage($url, $json_data->img, 479, 479, $data['title'], '', '', $imgclass, $start+$i); ?>
 							</div>
 						</a>
-						<a href="<?php echo $url . $data['url']; ?>">
-							<div class="the-box no-margin no-border">
+						<div class="the-box no-margin no-border">
+							<a href="<?php echo $url . $data['url']; ?>">
 								<div class="feed-title"><?php echo $data['title']; ?></div>
 								<div class="feed-short-desc"><?php $desc = strip_tags($json_data->description);
-								$description = strlen($desc) > 100 ? substr($desc, 0, 100).'...' : $desc; echo $description; ?></div>
-								<div class="btn btn-primary voted <?php echo $class; ?>" rel="<?php echo $data['id']; ?>" data-for="<?php echo $type; ?>"><?php echo $text; ?></div>
-							</div>
-						</a>
+								$description = strlen($desc) > 80 ? substr($desc, 0, 80).'...' : $desc; echo $description; ?></div>
+							</a>
+							<div class="btn btn-primary voted <?php echo $class; ?>" rel="<?php echo $data['id']; ?>" data-for="<?php echo $type; ?>"><?php echo $text; ?></div>
+						</div>
 					</div>
 				</div>
 			<?php
@@ -305,13 +305,14 @@ class Feeds extends Component
 								<?php echo $this->getimage($url, 'http://img.cms.whatshot.in/event/2015/May/1431594363-tumblr-mkfgqwvzlc1r146zvo1-1280.jpg', 479, 479, 'Spice Art', '', '', '', $start+$i); ?>
 							</div>
 						</a>
-						<a href="<?php echo $url . $data['url']; ?>">
-							<div class="the-box no-margin no-border">
+						<div class="the-box no-margin no-border">
+							<a href="<?php echo $url . $data['url']; ?>">
 								<div class="feed-title">Spice Art</div>
 								<div class="feed-short-desc">Crowne Plaza, 1st Floor, Twin District Centre, Sector 10, Rohini, Delhi NCR, 110085</div>
-								<div class="btn btn-primary voted">Winner</div>
-							</div>
-						</a>
+							</a>
+							<div class="btn btn-primary voted">Winner</div>
+						</div>
+						
 					</div>
 					<div class="winners">(Winner)<br>861 Users voted</div><div class="triangle"></div>
 				</div>

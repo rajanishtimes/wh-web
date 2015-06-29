@@ -19,9 +19,14 @@ class QuizController extends BaseController{
         	$this->forwardtoerrorpage(404);
         }
 
-		$isvoted = 0;
-		if ($this->cookies->has("isvoted")){
-			$isvoted = (int)$this->cookies->get("isvoted");
+		$isvotedbiryani = 0;
+		$isvotedhaleem = 0;
+		if ($this->cookies->has("isvotedbiryani")){
+			$isvotedbiryani = (string)$this->cookies->get("isvotedbiryani");
+		}
+
+		if ($this->cookies->has("isvotedhaleem")){
+			$isvotedhaleem = (string)$this->cookies->get("isvotedhaleem");
 		}
 
 		$cityshown = $this->cityshown($city);
@@ -57,7 +62,8 @@ class QuizController extends BaseController{
 			'cityshown' => $cityshown,
 			'start'	=> $start,
 			'limit'	=> $limit,
-			'isvoted' => $isvoted
+			'isvotedbiryani' => $isvotedbiryani,
+			'isvotedhaleem' => $isvotedhaleem
 		));
     }
 
@@ -76,11 +82,15 @@ class QuizController extends BaseController{
     public function votingAction(){
     	$nominationid = $this->request->getPost('nominationid');
     	$category = $this->request->getPost('category');
+    	
+    	if ($this->cookies->has("uniquekey")){
+			$uniquekey = (string)$this->cookies->get("uniquekey");
+		}
 
     	$voting = new \WH\Model\BNH();
     	$voting->setContestName('biryani and haleem');
     	$voting->setNominationID($nominationid);
-    	$voting->setBrowserID($_SERVER['HTTP_USER_AGENT']);
+    	$voting->setBrowserID($uniquekey);
     	$voting->setCategoryName($category);
     	$voting->setIP($_SERVER['REMOTE_ADDR']);
 		$result = $voting->voting();
