@@ -400,9 +400,10 @@ function DOMReady(){
 
 	$('.voted').click(function(){
 		if(!$(this).hasClass('votedone')){
-			if(iscontestruning == 1){
+			if($('#iscontestruning').val() == 1){
 				if(cookies.get('isvoted') == null){
 					var elem = $(this);
+					elem.html('VOTING...');
 					$.ajax({
 						url:baseUrl+'/quiz/voting',
 						type:'POST',
@@ -410,6 +411,7 @@ function DOMReady(){
 						success:function(data) {
 							expOn = new Date();
 							expOn.setTime(new Date().getTime() + 3600 * 3600 * 24 * 15);
+							elem.attr('rel')
 							cookies.set('isvoted', elem.attr('rel'), {path: '/',expires:expOn});
 							elem.addClass('votedone');
 							elem.html('VOTED');
