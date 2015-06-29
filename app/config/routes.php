@@ -97,6 +97,11 @@ $router->add("/{city}/biryanihaleem", array(
     'action' => 'index',
 )); 
 
+$router->add("/{city}/biryanihaleem/winners", array(
+    'controller' => 'quiz',
+    'action' => 'winners',
+)); 
+
 $router->add("/search/autosuggestion", array(
     'controller' => 'search',
     'action' => 'autosuggestion',
