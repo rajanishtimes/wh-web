@@ -24,7 +24,6 @@ class QuizController extends BaseController{
 			$isvoted = (int)$this->cookies->get("isvoted");
 		}
 
-		$city = $this->currentCity;
 		$cityshown = $this->cityshown($city);
 
 		$start = 0;
@@ -62,6 +61,17 @@ class QuizController extends BaseController{
 		));
     }
 
+    public function winnersAction(){
+    	$city = $this->currentCity;
+		$cityshown = $this->cityshown($city);
+		$start = 0;
+    	$this->view->setVars(array(
+			'cityshown' => $cityshown,
+			'start'	=> $start
+		));
+		$this->view->setLayout('quizLayout');
+        $this->view->pick(['quiz/winners']);
+    }
 
     public function votingAction(){
     	$nominationid = $this->request->getPost('nominationid');

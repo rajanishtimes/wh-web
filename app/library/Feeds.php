@@ -289,6 +289,35 @@ class Feeds extends Component
 			<?php
 		}
 	}
+
+	public function getcontestwinner($url, $datas=array(), $start, $city='', $type=''){
+		$i = 0;
+		for($i = 1; $i<=3; $i++){
+			?>
+				<div class="col-sm-4 col-md-4 col-xs-6">
+					<div class="work-item feeds-data">
+						<a href="<?php echo $url; ?>">
+							<div class="hover-container">
+								<div class="thanks_msg dnone">Thank you<br>for your vote</div>
+								<div class="hover-wrap">
+									<i class="glyphicon glyphicon-plus bino"></i>
+								</div>
+								<?php echo $this->getimage($url, 'http://img.cms.whatshot.in/event/2015/May/1431594363-tumblr-mkfgqwvzlc1r146zvo1-1280.jpg', 479, 479, 'Spice Art', '', '', '', $start+$i); ?>
+							</div>
+						</a>
+						<a href="<?php echo $url . $data['url']; ?>">
+							<div class="the-box no-margin no-border">
+								<div class="feed-title">Spice Art</div>
+								<div class="feed-short-desc">Crowne Plaza, 1st Floor, Twin District Centre, Sector 10, Rohini, Delhi NCR, 110085</div>
+								<div class="btn btn-primary voted">Winner</div>
+							</div>
+						</a>
+					</div>
+					<div class="winners">(Winner)<br>861 Users voted</div><div class="triangle"></div>
+				</div>
+			<?php
+		}
+	}
 	
 	public function getimageendpoint(){
 		$i = rand(0,5);

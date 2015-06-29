@@ -21,34 +21,25 @@
 		<i class="overlay"></i>
 	</div>
 </section>
+
 <div class="clearfix"></div>
 <section id="quizdata" class="quiz_data">
 	<div class="section">
 		<div class="container">
 			<div class="row">
 				<div class="quiz_su text-center">
-					<div class="head">Contest Details</div><br>
-					<div class="contentarea">
+					<div class="contentarea winner">
 						<div class="detail content">
-							<p class="text-center">Calling Hyderabad foodies... it's that time of the year again, when you get to vote your favourite Biryani and Haleem joints to the Top 10 list of Times Biryani & Haleem Contest.</p><p class="text-center"><strong class="text-center">Voting is Over see the result below</strong></p>
+							<p class="text-center">The Nominations which have won the best Biryani and Haleem contest are as follow</p>
 						</div>
 					</div>
 				</div><div class="clearfix"></div>
-				<div class="tabbed_group">
-					<div class="biryani_nomination active" data-for="#biryaninomination">
-						Biryani Nominations 2015
-					</div>
-					<div class="Haleem_nomination" data-for="#haleemnomination">
-						Haleem Nominations 2015
-					</div>
-				</div><div class="clearfix"></div>
 				<input type='hidden' value="{{iscontestrunning}}" id="iscontestruning">
-				<div class="work-content contest">
-					<div id="biryaninomination">
-						{{feeds.getcontest(baseUrl, biryaninominations, start, cityshown, 'biryani', isvoted)}}
-					</div>
-					<div id="haleemnomination" style="display:none">
-						{{feeds.getcontest(baseUrl, haleemnominations, start, cityshown, 'haleem', isvoted)}}
+				<div class="work-content contest winner contentarea text-center">
+						<p class="text-center"><strong class="text-center">Best Biryani Winners 2015</strong></p>
+						{{feeds.getcontestwinner(baseUrl, '', start, cityshown, 'biryani')}}
+						<p class="text-center"><strong class="text-center">Best Haleem Winners 2015</strong></p>
+						{{feeds.getcontestwinner(baseUrl, '', start, cityshown, 'haleem')}}
 					</div>
 				</div>
 			</div>

@@ -238,5 +238,22 @@ img.grayscale{
 }
 .hp-mobile .item-left{
     background-image: url("../img/haleem-responsive.jpg"); background-size: 100% 100%;
-
+}
+.winners {
+    background: #d4178b none repeat scroll 0 0;
+    color: #fff;
+    margin: -30px 13px 0px;
+    text-align: center;
+    padding: 10px;
+}
+.triangle{
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-top: 30px solid #d4178b;
+    height: 0;
+    width: 0;
+    margin: 0 auto 30px;
+}
+.winner p {
+    padding: 20px 0;
 }
