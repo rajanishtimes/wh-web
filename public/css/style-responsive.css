@@ -275,7 +275,7 @@ TABLET < 767px
 	}
 	
 	.hp .scroll-down{
-		bottom: 20px;
+		bottom: -15px;
 	}
 	.tabbed_group{
 		margin: 9px 0 19px -147px;
