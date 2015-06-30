@@ -263,7 +263,9 @@ TABLET < 767px
 	.feed-list .searchlist p{
 		width: 100%;
 	}
-
+	.past_result .content p, .past_result .content strong, .past_result .content a{
+		padding: 27px 0 0 0;
+	}
 	/* =========== Biryani and haleem ========== */
 	.desc > div {
 		display: table-cell;
@@ -278,10 +280,10 @@ TABLET < 767px
 		bottom: -15px;
 	}
 	.tabbed_group{
-		margin: 9px 0 19px -147px;
+		margin: 9px 0 19px -138px;
 	}
 	.tabbed_group > div{
-		font-size: 13px;
+		font-size: 12px;
 		padding: 7px 11px;
 	}
 	.content p{
@@ -345,7 +347,7 @@ PHONE < 640px
 	.desc > div {
 		display: table-cell;
 	    vertical-align: middle;
-	    width: 25%;
+	    width: 20%;
 	}
 	.hp-mobile .item-left .desc{
 		top: 50px;
@@ -477,7 +479,7 @@ PHONE < 480px
 	.desc > div {
 		display: table-cell;
 	    vertical-align: middle;
-	    width: 25%;
+	    width: 20%;
 	}
 	.hp-mobile .item-left .desc{
 		top:25px;
@@ -614,7 +616,7 @@ IPHONE 6 PLUS
 	.desc > div {
 		display: table-cell;
 	    vertical-align: middle;
-	    width: 25%;
+	    width: 20%;
 	}
 	.hp-mobile .item-left .desc{
 		top:0px;
