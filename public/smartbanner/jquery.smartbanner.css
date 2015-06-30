@@ -3,9 +3,9 @@
 #smartbanner .sb-container { margin: 0 auto; }
 #smartbanner .sb-close { position:absolute; left:5px; top:5px; display:block; border:2px solid #fff; width:14px; height:14px; font-family:'ArialRoundedMTBold',Arial; font-size:15px; line-height:15px; text-align:center; color:#fff; background:#070707; text-decoration:none; text-shadow:none; border-radius:14px; box-shadow:0 2px 3px rgba(0,0,0,0.4); -webkit-font-smoothing:subpixel-antialiased; }
 #smartbanner .sb-close:active { font-size:13px; color:#aaa; }
-#smartbanner .sb-icon { position:absolute; left:30px; top:30px; display:block; width:57px; height:57px; background:rgba(0,0,0,0.6); background-size:cover; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.3); }
+#smartbanner .sb-icon { position:absolute; left:30px; top:20px; display:block; width:57px; height:57px; background:rgba(0,0,0,0.6); background-size:cover; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.3); }
 #smartbanner.no-icon .sb-icon { display:none; }
-#smartbanner .sb-info { position:absolute; left:98px; top:30px; width:44%; font-size:11px; line-height:1.2em; font-weight:bold; color:#6a6a6a; text-shadow:0 1px 0 rgba(255,255,255,0.8); }
+#smartbanner .sb-info { position:absolute; left:98px; top:20px; width:44%; font-size:11px; line-height:1.2em; font-weight:bold; color:#6a6a6a; text-shadow:0 1px 0 rgba(255,255,255,0.8); }
 #smartbanner #smartbanner.no-icon .sb-info { left:34px; }
 #smartbanner .sb-info strong { display:block; font-size:13px; color:#4d4d4d; line-height: 18px; }
 #smartbanner .sb-info > span { display:block; }
