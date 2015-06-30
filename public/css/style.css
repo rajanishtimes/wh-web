@@ -3894,6 +3894,7 @@ iframe {
 .summary > p {
     color: rgb(84, 84, 84);
     text-align: center;
+    font-family: Lora-Italic;
 }
 .contestimg > img {
     width: 50px;
