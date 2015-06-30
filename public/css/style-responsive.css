@@ -150,7 +150,9 @@ SMALL DESKTOP 768px <> 991px
 	.defaultads > div > div > iframe {
 		width: 230px; height: 378px;
 	}
-
+	.navbar-fixed-top{
+		position:absolute;
+	}
 	/* =========== Biryani and haleem ========== */
 	.hp .item-left .desc{
 		margin: 0px -95px 0 0;
