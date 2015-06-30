@@ -263,7 +263,9 @@ TABLET < 767px
 	.feed-list .searchlist p{
 		width: 100%;
 	}
-
+	.past_result .content p, .past_result .content strong, .past_result .content a{
+		padding: 27px 0 0 0;
+	}
 	/* =========== Biryani and haleem ========== */
 	.desc > div {
 		display: table-cell;
