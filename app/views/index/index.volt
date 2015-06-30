@@ -1,3 +1,16 @@
+{% if(currentCity == 'hyderabad') %}
+<div class="section topbiryanistrip">
+	<div class="container">
+		<div class="row contestdata">
+			<a href="{{baseUrl}}/hyderabad/biryanihaleem">
+				<div class="contestimg"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>
+				<div class="contestdesc">Times Biryani & Haleem Contest. (Click Here) to Vote Now!</div>
+			</a>
+		</div>
+	</div>
+</div>
+{% endif %}
+
 {% if((topfeeds is defined AND topfeeds | length > 0) OR (populartags['popular_tags'] is defined AND populartags['popular_tags'] | length > 0) OR (allfeedslist is defined AND allfeedslist | length > 0)) %}
 <div class="section">
 	<div class="container">

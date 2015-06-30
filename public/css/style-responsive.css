@@ -236,6 +236,19 @@ TABLET < 767px
     	margin-right: -15px;
 	}
 
+	.nav-search.navbar-right li.dropdown > a{
+		padding: 25px 10px;
+	}
+	.makeheaderintera .nav-search.navbar-right li.dropdown > a{
+		padding: 31px 10px;
+	}
+	.searchbtn a > div{
+		padding: 24px 25px;
+	}
+	.makeheaderintera .searchbtn a > div{
+		padding: 7px 25px;
+	}
+
 	.hp{
 		display: none;
 	}
@@ -256,7 +269,7 @@ TABLET < 767px
 	    width: 25%;
 	}
 	.hp-mobile .item-left .desc{
-		top:100px;
+		top:0px;
 	}
 	
 	.hp .scroll-down{
@@ -272,7 +285,9 @@ TABLET < 767px
 	.content p{
 		padding: 0 15px;
 	}
-
+	.contesttext{
+		display: none;
+	}
 	/* =========== Biryani and haleem ========== */	
 	
 }
@@ -331,7 +346,7 @@ PHONE < 640px
 	    width: 25%;
 	}
 	.hp-mobile .item-left .desc{
-		top:100px;
+		top: 50px;
 	}
 
 	/* =========== Biryani and haleem ========== */	
@@ -463,13 +478,28 @@ PHONE < 480px
 	    width: 25%;
 	}
 	.hp-mobile .item-left .desc{
-		top:100px;
+		top:50px;
 	}
 	.defaultads{
 		width: 472px; height: 620px;
 	}
 	.defaultads > div > div > iframe {
 		width: 470px; height: 618px;
+	}
+	.nav-search.navbar-right li.dropdown > a{
+		padding: 25px 10px;
+	}
+	.makeheaderintera .nav-search.navbar-right li.dropdown > a{
+		padding: 23px 10px;
+	}
+	.searchbtn a > div{
+		padding: 29px 25px;
+	}
+	.makeheaderintera .searchbtn a > div{
+		padding: 7px 25px;
+	}
+	.nav-search.navbar-right li.dropdown > a{
+		padding: 31px 10px;
 	}
 }
 
@@ -503,7 +533,7 @@ PHONE < 420px
 	}
 	
 	.nav-search.navbar-right li.dropdown > a {
-		padding: 20px 4px;
+		padding: 27px 4px;
 	}
 	
 	
@@ -530,8 +560,17 @@ PHONE < 420px
 	{
 		width:100px; height:auto;
 	}
-	.makeheaderintera .nav-search.navbar-right, .nav-search.navbar-right{
-		padding: 21px 11px;
+	.nav-search.navbar-right{
+		padding: 25px 11px;
+	}
+	.makeheaderintera .nav-search.navbar-right{
+		padding: 25px 11px;
+	}
+	.searchbtn a > div{
+		padding: 24px 25px;
+	}
+	.makeheaderintera .searchbtn a > div{
+		padding: 24px 25px;
 	}
 	.desc > div {
 		display: block;
@@ -564,19 +603,28 @@ IPHONE 6 PLUS
 	body {
 		width: 736px;
 	}
+	.searchbtn a > div{
+		padding: 29px 25px;
+	}
+	.makeheaderintera .searchbtn a > div {
+	    padding: 12px 25px;
+	}
 	.desc > div {
 		display: table-cell;
 	    vertical-align: middle;
 	    width: 25%;
 	}
 	.hp-mobile .item-left .desc{
-		top:100px;
+		top:0px;
 	}
 	.defaultads{
 		width: 332px; height: 480px;
 	}
 	.defaultads > div > div > iframe {
 		width: 330px; height: 478px;
+	}
+	.hp-mobile .item-left .desc{
+		top: 100px;
 	}
 }
 
@@ -591,8 +639,20 @@ IPHONE 6 PLUS
 	.navbar-default{
 		height:61px;
 	}
+	.nav-search.navbar-right {
+	    padding: 21px 11px;
+	}
 	.searchbtn a > div{
 		padding: 19px 25px;
+	}
+	.nav-search.navbar-right li.dropdown > a {
+	    padding: 21px 4px;
+	}
+	.makeheaderintera .nav-search.navbar-right {
+	    padding: 20px 11px;
+	}
+	.makeheaderintera .searchbtn a > div {
+	    padding: 2px 25px;
 	}
 	.container-fluid {
 	    margin-top: 60px;
@@ -613,6 +673,9 @@ IPHONE 6 PLUS
 	.defaultads > div > div > iframe {
 		width: 404px; height: 618px;
 	}
+	.hp-mobile .item-left .desc{
+		top: 10px;
+	}
 }
 
 /**
@@ -626,6 +689,15 @@ IPHONE 6
 	}
 	.container-fluid .container{
 		width: 650px;
+	}
+	.nav-search.navbar-right li.dropdown > a {
+	    padding: 32px 10px;
+	}
+		.searchbtn a > div {
+	    padding: 29px 25px;
+	}
+	.makeheaderintera .searchbtn a > div{
+	    padding: 12px 25px;
 	}
 	footer, .footer{
 		width: 667px;
@@ -667,6 +739,9 @@ IPHONE 6
 	.container-fluid .container{
 		overflow: hidden;
 	}
+	.makeheaderintera .nav-search.navbar-right{
+		padding: 20px 11px;
+	}
 	.navbar-default{
 		height:61px;
 	}
@@ -702,6 +777,12 @@ IPHONE 6
 	.defaultads > div > div > iframe {
 		width: 365px; height: 558px;
 	}
+	.hp-mobile .item-left .desc{
+		top: 10px;
+	}
+	.hp .scroll-down {
+	    bottom: -68px;
+	}
 }
 
 
@@ -735,11 +816,14 @@ PHONE < 360px
 	{
 		width:130px; height:auto;
 	}
-	.makeheaderintera .searchbtn a > div, .searchbtn a > div{
-		padding: 19px 25px;
+	.searchbtn a > div{
+		padding: 24px 25px;
+	}
+	.makeheaderintera .searchbtn a > div{
+		padding: 7px 25px;
 	}
 	.container-fluid{
-		margin-top: 50px;		
+		margin-top: 70px;
 	}
 
 	.desc > div {
@@ -763,6 +847,9 @@ PHONE < 320px
 	body{
 		width:320px !important;
 		overflow-x:hidden;
+	}
+	.container-fluid{
+		margin-top: 69px;
 	}
 	.h1{display: none;}
 	.dropdown-menu.with-triangle::before, .dropdown-menu.with-triangle::after{
@@ -799,8 +886,11 @@ PHONE < 320px
 	.youarehere{
 		display:none;
 	}
-	.makeheaderintera .searchbtn a > div, .searchbtn a > div{
-		padding: 20px 15px;
+	.searchbtn a > div{
+		padding: 24px 15px;
+	}
+	.makeheaderintera .searchbtn a > div{
+		padding: 3px 15px;
 	}
 	.critic_review_container .authordetail{
 		width: 155px;
@@ -815,5 +905,12 @@ PHONE < 320px
 	.defaultads > div > div > iframe {
 		width: 310px;
 		height: 458px;
+	}
+
+	.hp .scroll-down{
+		bottom: -72px;
+	}
+	.hp-mobile .item-left .desc{
+		top: 0px;
 	}
 }

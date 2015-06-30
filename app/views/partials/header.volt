@@ -86,6 +86,13 @@
 			</ul> 
 		<!-- End City Nav -->
 		
+		<!--<div class="headercontest float-right">
+			<a href="{{baseUrl}}/hyderabad/biryanihaleem">
+				<div class="contestimg float-left"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>			
+				<div class="contesttext float-left">(Biryani and Haleem contest, Vote Now)</div>
+			</a>
+		</div>-->
+
 	</div><!-- /.top-navbar -->
 	</div>
 </div><!-- /.container -->
