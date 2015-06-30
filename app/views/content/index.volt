@@ -35,8 +35,7 @@
 							<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="google-icon"><i class="fa fa-google-plus"></i>&nbsp;<span>Share</span></div></a></li>
 						</ul><div class="clearfix"></div>
 					</div>
-					
-					<hr class="small">
+					<br>
 					<?php if(!empty($contentdetail['summary'])){ ?>
 						<div class="summary detail text-center"><p>{{contentdetail['summary']}}</p></div>
 					<?php } ?>

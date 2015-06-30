@@ -3895,3 +3895,21 @@ iframe {
     color: rgb(84, 84, 84);
     text-align: center;
 }
+.contestimg > img {
+    width: 50px;
+}
+.headercontest {
+    margin: 17px 0;
+}
+.contestimg {
+    padding: 0 5px;
+}
+.topbiryanistrip {
+    background: #f6f6f6 none repeat scroll 0 0;
+}
+.contestdata > a > div{
+    display: table-cell;
+    color: #b79a52;
+    font-family: Rosario;
+    font-style: italic;
+}
