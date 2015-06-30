@@ -1,6 +1,7 @@
 <section class="hp">
-	<div class="item item-left"><i class="overlay"></i></div>
-	<div class="item item-right"><i class="overlay"></i></div>
+	<div class="item item-left"></div>
+	<div class="item item-right"></div>
+	<i class="overlay"></i>
 
 	<div class="desc">
 		<div class="contestlogo"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>

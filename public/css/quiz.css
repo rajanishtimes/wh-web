@@ -263,3 +263,68 @@ img.grayscale{
 .contest .feed-short-desc{
     height: 55px;
 }
+
+.contestimg > img {
+    width: 50px;
+}
+.headercontest {
+    margin: 17px 0;
+}
+
+.contesttext:after
+{
+    border-color: transparent #fff;
+    border-style: solid;
+    border-width: 7px 11px 7px 0;
+    content: "";
+    display: block;
+    left: -10px;
+    position: absolute;
+    top: 6px;
+    width: 0;
+    z-index: 1;
+}
+
+.makeheaderintera .contesttext:after{
+    border-color: transparent #d11a6d;
+}
+
+.contesttext:before{
+    border-color: transparent #d11a6d;
+    border-style: solid;
+    border-width: 8px 11px 8px 0;
+    content: "";
+    display: block;
+    left: -12px;
+    position: absolute;
+    top: 5px;
+    z-index: 0
+}
+.makeheaderintera .contesttext:before{
+    border-color: transparent #fff;
+}
+
+.contesttext{
+    border: 1px solid #d11a6d;
+    color: #d11a6d;
+    padding: 3px;
+    margin-top: 8px;
+    position: relative;
+    margin-left: 10px;
+}
+.makeheaderintera .contesttext{
+    color:#fff;
+    border: 1px solid #fff;
+}
+.contestimg {
+    padding: 0 5px;
+}
+.topbiryanistrip {
+    background: #f6f6f6 none repeat scroll 0 0;
+}
+.contestdata > a > div{
+    display: table-cell;
+    color: #b79a52;
+    font-family: Rosario;
+    font-style: italic;
+}

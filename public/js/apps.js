@@ -393,6 +393,13 @@ function DOMReady(){
 		return false;
 	});
 
+	$('.addscrollmobile').click(function(){
+		$('body,html').animate({
+			scrollTop: $('.hp-mobile .item').height() + $('.navbar').height()
+		}, 800);
+		return false;
+	});
+
 	$('.tabbed_group > div').click(function(){
 		var elem = $(this);
 		var id = elem.attr('data-for');
@@ -442,7 +449,7 @@ function voting(elem, cookiesname){
 		data:'nominationid='+elem.attr('rel')+'&category='+elem.attr('data-for'),
 		success:function(data) {
 			expOn = new Date();
-			expOn.setTime(new Date().getTime() + 3600 * 3600 * 24 * 15);
+			expOn.setTime(new Date().getTime() + 3600 * 3600 * 24 * 45);
 			elem.attr('rel')
 			cookies.set(cookiesname, elem.attr('rel'), {path: '/',expires:expOn});
 			elem.addClass('votedone');
@@ -458,7 +465,7 @@ function voting(elem, cookiesname){
 
 function setquizheight(){
 	if($('.hp .item').length > 0){
-		var height = $(window).height() - $('.navbar-fixed-top').height();
+		var height = $(window).height() - $('.navbar').height();
 		$('.hp .item').height(height);
 	}
 }
