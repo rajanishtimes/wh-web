@@ -341,9 +341,16 @@ img.grayscale{
 .past_results{
     margin-top: 20px;
 }
-.past_results strong{
-    margin-top: 30px;
-}
 .past_results p, .past_results strong, .past_results a{
-    padding: 0 !important;
+    padding: 0 !important;margin: 0 !important;
+}
+.haleemoverlay {
+    background: #fff none repeat scroll 0 0;
+    height: 100%;
+    padding-left: 50%;
+    padding-top: 20%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }

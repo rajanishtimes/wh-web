@@ -4,7 +4,7 @@
 		<div class="row contestdata">
 			<a href="{{baseUrl}}/hyderabad/biryanihaleem">
 				<div class="contestimg"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>
-				<div class="contestdesc">Times Biryani & Haleem Contest. (Click Here) to Vote Now!</div>
+				<div class="contestdesc">Times Biryani & Haleem Contest. Vote Now!</div>
 			</a>
 		</div>
 	</div>
@@ -99,3 +99,4 @@
 	</div>
 </div>
 {% endif %}
+

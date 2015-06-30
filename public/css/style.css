@@ -1516,10 +1516,10 @@ footer .social_icon {
 .icon-vimeo:hover, .icon-vimeo:focus, a .icon-vimeo:hover, a .icon-vimeo:focus {
     background-color: #0d9dd1;
 }
-a {
+a, a:focus {
     color: #000;
 }
-a:hover, a:focus {
+a:hover {
     color: #d11a6d;
     text-decoration: none;
 }

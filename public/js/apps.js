@@ -473,6 +473,7 @@ function setquizheight(){
 	if($('.hp .item').length > 0){
 		var height = $(window).height() - $('.navbar').height();
 		$('.hp .item').height(height);
+		$('.haleemoverlay').addClass('dnone');
 	}
 }
 
@@ -497,9 +498,7 @@ function fbandtwitter(){
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 	
-	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-
-	
+	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');	
 }
 
 function closebanner(){
