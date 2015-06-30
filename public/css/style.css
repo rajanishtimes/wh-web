@@ -3891,3 +3891,7 @@ iframe {
     width: 277px;
     height: 425px;
 }
+.summary > p {
+    color: rgb(84, 84, 84);
+    text-align: center;
+}

@@ -21,9 +21,11 @@
 							By <a href="{{baseUrl}}{{author['url']}}" data-ga-cat="Author Link Click on Content Detail - {{cityshown}}" data-ga-action="{{author['title'] | stripslashes | trim}}" data-ga-label="author">{{author['title'] | stripslashes}}</a>
 						{% endif %}
 					</div>
+
 					<?php if(!empty($contentdetail['published_date'])){ ?>
 						<div class="text-center published" data-time="<?php echo date('j-M-Y h:i:s a', strtotime($contentdetail['published_date'])); ?>">Published {{elements.friendlyTime(contentdetail['published_date'])}}</div>
 					<?php } ?>
+
 					<div class="sharesmall">
 						<ul class="list-inline text-center">
 							<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#">
@@ -35,6 +37,11 @@
 					</div>
 					
 					<hr class="small">
+					<?php if(!empty($contentdetail['summary'])){ ?>
+						<div class="summary detail text-center"><p>{{contentdetail['summary']}}</p></div>
+					<?php } ?>
+					<hr class="small">
+
 					<div class="detail">
 						<?php //$description = str_replace(array('<p><strong>', '</strong></p>'), array('<h4>', '</h4>'), $contentdetail['description']); ?>
 						{{contentdetail['description']}}

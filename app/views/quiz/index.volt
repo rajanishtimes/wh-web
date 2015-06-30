@@ -1,7 +1,7 @@
 <section class="hp">
 	<div class="item item-left"></div>
 	<div class="item item-right"></div>
-	<i class="overlay"></i>
+	<!--<i class="overlay"></i>-->
 
 	<div class="desc">
 		<div class="contestlogo"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>
@@ -19,7 +19,7 @@
 			<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
 			<a href="#" class="scroll-down img-circle addscrollmobile"><i class="fa fa-angle-down"></i></a>
 		</div>
-		<i class="overlay"></i>
+		<!--<i class="overlay"></i>-->
 	</div>
 </section>
 <div class="clearfix"></div>

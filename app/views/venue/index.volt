@@ -145,7 +145,7 @@
 			<div class="detail">
 				<?php
 					$review = strip_tags($venuedetail['reviews'][0]['description']);
-					$critic_description = strlen($review) > 800 ? substr($review, 0, 800).' <a href="'.$baseUrl.$venuedetail['reviews'][0]['url'].'">Read More...' : $review; ?>
+					$critic_description = strlen($review) > 800 ? substr($review, 0, 800).' <a href="'.$baseUrl.$venuedetail['reviews'][0]['url'].'">Read More...</a>' : $review; ?>
 					{{critic_description}}
 			</div>
 

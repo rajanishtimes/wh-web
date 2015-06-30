@@ -46,8 +46,10 @@ class IndexController extends BaseController{
 		$this->view->deep_link = 'timescity://';
 		/* ======= Seo Update ============= */
 		
+		$top3event = new \WH\Model\Event();
+		$top3event->setCityID($this->cityId);
 		try{
-			$topfeeds = $this->getfeeddata(0, 3, $city, '', '', '', 'Event', '', 'feed', 0, 3);
+			$topfeeds = $top3event->webTop3List(0, 3, $city, '', '', '', 'Event', '', 'feed', 0, 3);
 		}catch(Exception $e){
 			$topfeeds = array();
 		}

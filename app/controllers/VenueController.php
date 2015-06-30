@@ -122,80 +122,13 @@ class VenueController extends BaseController{
 
 				/* Rating Progress Bar End*/
 				$venuedetail['reviews'][$key]['ratings'] = $ratings;
-
 			}
-			try{
-				$Venue = new \WH\Model\Venue();
-				$idwov = substr($id, 2);
-				$Venue->setId($idwov);
-				$events = $Venue->getResults();
-			}catch(Exception $e){
-				$events = array();
-			}
-
-
-			try{
-				$Venue = new \WH\Model\Venue();
-				$idwov = substr($id, 2);
-				$Venue->setId($idwov);
-				$pastevents = $Venue->allPastEvents();
-			}catch(Exception $e){
-				$pastevents = array();
-			}
-
-			try{
-				$Venue = new \WH\Model\Venue();
-				$idwov = substr($id, 2);
-				$Venue->setLatitude($venuedetail['latitude']);
-				$Venue->setLongitude($venuedetail['longitude']);
-				$Venue->setId($idwov);
-				$Venue->setCity($this->cityshown($this->currentCity));
-				$nearbyevents = $Venue->allNearByEvents();
-				foreach ($nearbyevents['results'] as $key => $nearbyevent) {
-					$formatted_addresss = '';
-					$address_arrs = array();
-					if(isSet($nearbyevent['address']) && trim($nearbyevent['address'])!=''){
-						$address_arrs[] = $nearbyevent['address'];
-					}
-					if(isSet($nearbyevent['landmark']) && trim($nearbyevent['landmark'])!=''){
-						$address_arrs[] = $nearbyevent['landmark'];
-					}
-					if(isSet($nearbyevent['locality']) && trim($nearbyevent['locality'])!=''){
-						$address_arrs[] = $nearbyevent['locality'];
-					}
-					if(isSet($nearbyevent['zonename']) && trim($nearbyevent['zonename'])!=''){
-						$address_arrs[] = $nearbyevent['zonename'];
-					}
-					if(isSet($nearbyevent['cities']) && trim($nearbyevent['cities'])!=''){
-						$address_arrs[] = $nearbyevent['cities'];
-					}	
-					$formatted_addresss = implode(', ', $address_arrs);
-					$nearbyevents['results'][$key]['formatted_address'] = str_replace(', ,', ',', $formatted_addresss);
-				}
-			}catch(Exception $e){
-				$nearbyevents = array();
-			}
-
-			$formatted_address = '';
-			if(isSet($venuedetail['address']) && trim($venuedetail['address'])!=''){
-				$address_arr[] = $venuedetail['address'];
-			}
-			if(isSet($venuedetail['landmark']) && trim($venuedetail['landmark'])!=''){
-				$address_arr[] = $venuedetail['landmark'];
-			}
-			if(isSet($venuedetail['locality']) && trim($venuedetail['locality'])!=''){
-				$address_arr[] = $venuedetail['locality'];
-			}
-			if(isSet($venuedetail['zonename']) && trim($venuedetail['zonename'])!=''){
-				$address_arr[] = $venuedetail['zonename'];
-			}
-			if(isSet($venuedetail['city']) && trim($venuedetail['city'])!=''){
-				$address_arr[] = $venuedetail['city'];
-			}
+			//echo "<pre>"; print_r($venuedetail); echo "</pre>"; exit;
 			
-			$formatted_address = implode(', ', $address_arr);
-			$venuedetail['formatted_address'] = $formatted_address;
-			
+			$events['results'] = $venuedetail['upcoming_events'];
+			$pastevents['results'] = $venuedetail['past_events'];
+			$nearbyevents['results'] = $venuedetail['nearby_places'];
+
 			
 			if($venuedetail['website']){
 				$pos = strpos($venuedetail['website'], 'http');

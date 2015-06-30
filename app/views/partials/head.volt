@@ -85,7 +85,9 @@
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/font-awesome/css/font-awesome.min.css" />
 
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}{{elements.auto_version('/css/style.css')}}" />
-		<link rel="stylesheet" type="text/css" href="{{baseUrl}}{{elements.auto_version('/css/quiz.css')}}" />
+		{% if(controllername == 'quiz') %}
+			<link rel="stylesheet" type="text/css" href="{{baseUrl}}{{elements.auto_version('/css/quiz.css')}}" />
+		{% endif %}
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}{{elements.auto_version('/css/style-responsive.css')}}" />
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/owl-carousel/owl.carousel.css" />
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/owl-carousel/owl.theme.css" />

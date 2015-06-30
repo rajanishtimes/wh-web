@@ -19,20 +19,17 @@
 			{% if(topfeeds | length > 0) %}
 				<h1>Discover {{cityshown}} with our curated features, events and guides</h1>
 				<div class="row work-content resize">
-					{% for key, topfeed in topfeeds['results'] %}
-						{% if(topfeed['is_sponsored'] is defined AND topfeed['is_sponsored'] == 1) %}
-						{% else %}
-							<div class="col-sm-6 col-md-4 col-xs-6">
-									<div class="work-item topthing">
-										<a href="{{baseUrl}}{{topfeed['url']}}" data-ga-cat="Top 3 Events {{cityshown}} Home" data-ga-action="{{topfeed['title'] | stripslashes}}" data-ga-label="top_3_eve_pos_{{key+1}}">
-										<div class="the-box full no-border transparent no-margin make-up">
-											<p class="feed-name">{{topfeed['title'] | stripslashes}}</p>
-										</div>
-										{{feeds.getimage(baseUrl, topfeed['image']['uri'], 480, 480, topfeed['title'], topfeed['image'], '', '', key+1)}}
-										</a>
+					{% for key, topfeed in topfeeds %}
+						<div class="col-sm-6 col-md-4 col-xs-6">
+								<div class="work-item topthing">
+									<a href="{{baseUrl}}{{topfeed['url']}}" data-ga-cat="Top 3 Events {{cityshown}} Home" data-ga-action="{{topfeed['title'] | stripslashes}}" data-ga-label="top_3_eve_pos_{{key+1}}">
+									<div class="the-box full no-border transparent no-margin make-up">
+										<p class="feed-name">{{topfeed['title'] | stripslashes}}</p>
 									</div>
-							</div>
-						{% endif %}
+									{{feeds.getimage(baseUrl, topfeed['image']['uri'], 480, 480, topfeed['title'], topfeed['image'], '', '', key+1)}}
+									</a>
+								</div>
+						</div>
 					{% endfor  %}
 				</div>
 				<div class="clearfix"></div>
