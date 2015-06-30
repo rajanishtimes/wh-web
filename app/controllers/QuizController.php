@@ -13,7 +13,11 @@ class QuizController extends BaseController{
     }
 
 	public function indexAction(){
+		$title = 'Biryani and Haleem Contest 2015 | '.$this->config->application->SiteName;
+		$this->view->meta_description = 'Times Biryani and Haleem contest has been on since last 7 years and it started as an initiative to honor best Biryani and Haleem which are unique only to the Hyderabadi culture.';
+		$this->view->meta_keywords = 'Biryani, Haleem, Biryani and Haleem, Hyderabadi culture';
 
+		$this->tag->setTitle($title);
 		$city = $this->currentCity;
         if($city != 'hyderabad'){
         	$this->forwardtoerrorpage(404);
@@ -82,7 +86,7 @@ class QuizController extends BaseController{
     public function votingAction(){
     	$nominationid = $this->request->getPost('nominationid');
     	$category = $this->request->getPost('category');
-    	
+
     	if ($this->cookies->has("uniquekey")){
 			$uniquekey = (string)$this->cookies->get("uniquekey");
 		}

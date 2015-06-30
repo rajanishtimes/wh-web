@@ -5,7 +5,7 @@
     margin: 0 0 0 -91px;
     position: absolute;
     text-align: center;
-    top: 90px;
+    top: 106px;
     z-index: 99;
     height: 77%;
 }
@@ -204,9 +204,10 @@ img.grayscale{
     font-size: 22px;   
 }
 .past_result .content p, .past_result .content strong, .past_result .content a{
-    padding: 0;
     font-size: 14px;
     color: #969eab;
+    font-size: 16px;
+    padding: 27px 0 0;
 }
 .past_result .content a{
     color: #b79a52;
@@ -327,4 +328,7 @@ img.grayscale{
     color: #b79a52;
     font-family: Rosario;
     font-style: italic;
+}
+.past_result {
+    padding: 35px 20px;
 }

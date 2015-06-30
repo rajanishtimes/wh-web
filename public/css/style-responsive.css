@@ -150,7 +150,9 @@ SMALL DESKTOP 768px <> 991px
 	.defaultads > div > div > iframe {
 		width: 230px; height: 378px;
 	}
-
+	.navbar-fixed-top{
+		position:absolute;
+	}
 	/* =========== Biryani and haleem ========== */
 	.hp .item-left .desc{
 		margin: 0px -95px 0 0;
@@ -273,7 +275,7 @@ TABLET < 767px
 	}
 	
 	.hp .scroll-down{
-		bottom: 20px;
+		bottom: -15px;
 	}
 	.tabbed_group{
 		margin: 9px 0 19px -147px;
@@ -705,7 +707,7 @@ IPHONE 6
 	.desc > div {
 		display: table-cell;
 	    vertical-align: middle;
-	    width: 25%;
+	    width: 20%;
 	}
 	.hp-mobile .item-left .desc{
 		top:75px;
