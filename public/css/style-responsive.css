@@ -478,7 +478,7 @@ PHONE < 480px
 	    width: 25%;
 	}
 	.hp-mobile .item-left .desc{
-		top:50px;
+		top:25px;
 	}
 	.defaultads{
 		width: 472px; height: 620px;
@@ -708,7 +708,10 @@ IPHONE 6
 	    width: 25%;
 	}
 	.hp-mobile .item-left .desc{
-		top:100px;
+		top:75px;
+	}
+	.hp .desc{
+		height: 50%;
 	}
 	.defaultads{
 		width: 297px; height: 445px;
