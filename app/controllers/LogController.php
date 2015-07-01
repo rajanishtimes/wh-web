@@ -45,21 +45,21 @@ class LogController extends BaseController{
 			$data['img'] = $venuedetail['images'][0]['uri'];
 			$data['description'] = $venuedetail['formatted_address'];
 
-			$query = "INSERT INTO bnh_nominations
+			echo $query = "INSERT INTO bnh_nominations
 						SET contest_name = 'biryani and haleem',
-						SET contest = 'haleem',
-						SET title = ".$venuedetail['title'].",
-						SET entity_id = ".$haleemdata.",
-						SET entity_type_id = 200,
-						SET url = ".$venuedetail['url'].",
-						SET data = ".json_encode($data).",
-						SET year = '2015',
-						SET city = 'Hyderabad',
-						SET city_id  = 12,
-						SET time_added = ".date('Y-m-d h:i:s', time()).",
-						SET last_modified = ".date('Y-m-d h:i:s', time()).",
-						SET status = 1";
-
+						contest = 'haleem',
+						title = '".$venuedetail['title']."',
+						entity_id = ".$haleemdata.",
+						entity_type_id = 200,
+						url = '".$venuedetail['url']."',
+						data = '".json_encode($data)."',
+						year = '2015',
+						city = 'Hyderabad',
+						city_id  = 12,
+						time_added = '".date('Y-m-d h:i:s', time())."',
+						last_modified = '".date('Y-m-d h:i:s', time())."',
+						status = 1";
+					echo "<br>";
 			mysql_query($query); 
 		}
 
@@ -75,21 +75,21 @@ class LogController extends BaseController{
 			$data['img'] = $venuedetail['images'][0]['uri'];
 			$data['description'] = $venuedetail['formatted_address'];
 
-			$query = "INSERT INTO bnh_nominations
+			echo $query = "INSERT INTO bnh_nominations
 						SET contest_name = 'biryani and haleem',
-						SET contest = 'biryani',
-						SET title = ".$venuedetail['title'].",
-						SET entity_id = ".$haleemdata.",
-						SET entity_type_id = 200,
-						SET url = ".$venuedetail['url'].",
-						SET data = ".json_encode($data).",
-						SET year = '2015',
-						SET city = 'Hyderabad',
-						SET city_id  = 12,
-						SET time_added = ".date('Y-m-d h:i:s', time()).",
-						SET last_modified = ".date('Y-m-d h:i:s', time()).",
-						SET status = 1";
-
+						contest = 'biryani',
+						title = '".$venuedetail['title']."',
+						entity_id = ".$haleemdata.",
+						entity_type_id = 200,
+						url = '".$venuedetail['url']."',
+						data = '".json_encode($data)."',
+						year = '2015',
+						city = 'Hyderabad',
+						city_id  = 12,
+						time_added = '".date('Y-m-d h:i:s', time())."',
+						last_modified = '".date('Y-m-d h:i:s', time())."',
+						status = 1";
+			echo "<br>";
 			mysql_query($query); 
 		}
 
