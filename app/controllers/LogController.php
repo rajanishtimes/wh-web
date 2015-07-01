@@ -23,7 +23,7 @@ class LogController extends BaseController{
 		exit;
     }
 
-48762
+
     public function nominationAction(){
     	$connection = mysql_connect('192.169.34.185', 'fireBird', 'FHW%aw1') or die('Could not connect to server.');
 		mysql_select_db('whweb', $connection) or die('Could not select database.');
@@ -43,12 +43,12 @@ class LogController extends BaseController{
 
 			$data = array();
 			$data['img'] = $venuedetail['images'][0]['uri'];
-			$data['description'] = $venuedetail['formatted_address'];
+			$data['description'] = str_replace('\'s', '', $venuedetail['formatted_address']);
 
 			echo $query = "INSERT INTO bnh_nominations
 						SET contest_name = 'biryani and haleem',
 						contest = 'haleem',
-						title = '".stripcslashes($venuedetail['title'])."',
+						title = '".addslashes($venuedetail['title'])."',
 						entity_id = ".$haleemdata.",
 						entity_type_id = 200,
 						url = '".$venuedetail['url']."',
@@ -73,12 +73,12 @@ class LogController extends BaseController{
 
 			$data = array();
 			$data['img'] = $venuedetail['images'][0]['uri'];
-			$data['description'] = $venuedetail['formatted_address'];
+			$data['description'] = str_replace('\'s', '', $venuedetail['formatted_address']);
 
 			echo $query = "INSERT INTO bnh_nominations
 						SET contest_name = 'biryani and haleem',
 						contest = 'biryani',
-						title = '".stripcslashes($venuedetail['title'])."',
+						title = '".stripslashes($venuedetail['title'])."',
 						entity_id = ".$haleemdata.",
 						entity_type_id = 200,
 						url = '".$venuedetail['url']."',
