@@ -45,7 +45,6 @@ class IndexController extends BaseController{
 		
 		$this->view->deep_link = 'timescity://';
 		/* ======= Seo Update ============= */
-		 
 		$top3event = new \WH\Model\Event();
 		$top3event->setCityID($this->cityId);
 		try{
