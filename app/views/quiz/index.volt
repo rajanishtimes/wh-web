@@ -90,5 +90,4 @@
 		</div>
 	</div>
 </section>
-
 <div class="haleemoverlay"><img src="{{baseUrl}}/img/ajax-loader.gif"></div>
