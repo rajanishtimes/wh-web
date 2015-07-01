@@ -47,12 +47,13 @@ class IndexController extends BaseController{
 		/* ======= Seo Update ============= */
 		$top3event = new \WH\Model\Event();
 		$top3event->setCityID($this->cityId);
+		$top3event->setParam('byType', 'Event,Content,Review');
+
 		try{
-			$topfeeds = $top3event->webTop3List(0, 3, $city, '', '', '', 'Event, Content, Review', '', 'feed', 0, 3);
+			$topfeeds = $top3event->webTop3List();
 		}catch(Exception $e){
 			$topfeeds = array();
 		}
-		
 		$this->setlogsarray('top_feeds');
 		
 		$core = new \WH\Model\Core();
