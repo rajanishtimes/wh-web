@@ -22,4 +22,77 @@ class LogController extends BaseController{
 		}
 		exit;
     }
+
+
+    public function nominationAction(){
+    	$connection = mysql_connect('192.169.34.185', 'fireBird', 'FHW%aw1') or die('Could not connect to server.');
+		mysql_select_db('whweb', $connection) or die('Could not select database.');
+
+		mysql_query("delete from bnh_nominations");
+
+    	$haleem = array(19300, 30026, 139121, 50139, 48828, 48762, 42112, 47856, 38909, 36813, 45224, 50926, 44694, 46527, 33138, 43159, 27295, 7150, 42359);
+		$biryani = array(19300, 50926, 48828, 33487, 42112, 50139, 38909, 36813, 41605, 139120, 50970, 46968, 46527, 44694, 32052, 43159, 5778, 6121, 22636, 34289);
+
+		foreach($haleem as $haleemdata){
+			$Solr = new \WH\Model\Solr();
+			$Solr->setParam('ids','v_'.$haleemdata);
+			$Solr->setParam('fl','detail');
+			$Solr->setSolrType('detail');
+			$Solr->setEntityDetails();
+			$venuedetail = $Solr->getDetailResults();
+
+			$data = array();
+			$data['img'] = $venuedetail['images'][0]['uri'];
+			$data['description'] = $venuedetail['formatted_address'];
+
+			$query = "INSERT INTO bnh_nominations
+						SET contest_name = 'biryani and haleem',
+						SET contest = 'haleem',
+						SET title = ".$venuedetail['title'].",
+						SET entity_id = ".$haleemdata.",
+						SET entity_type_id = 200,
+						SET url = ".$venuedetail['url'].",
+						SET data = ".json_encode($data).",
+						SET year = '2015',
+						SET city = 'Hyderabad',
+						SET city_id  = 12,
+						SET time_added = ".date('Y-m-d h:i:s', time()).",
+						SET last_modified = ".date('Y-m-d h:i:s', time()).",
+						SET status = 1";
+
+			mysql_query($query); 
+		}
+
+		foreach($biryani as $biryanidata){
+			$Solr = new \WH\Model\Solr();
+			$Solr->setParam('ids','v_'.$biryanidata);
+			$Solr->setParam('fl','detail');
+			$Solr->setSolrType('detail');
+			$Solr->setEntityDetails();
+			$venuedetail = $Solr->getDetailResults();
+
+			$data = array();
+			$data['img'] = $venuedetail['images'][0]['uri'];
+			$data['description'] = $venuedetail['formatted_address'];
+
+			$query = "INSERT INTO bnh_nominations
+						SET contest_name = 'biryani and haleem',
+						SET contest = 'biryani',
+						SET title = ".$venuedetail['title'].",
+						SET entity_id = ".$haleemdata.",
+						SET entity_type_id = 200,
+						SET url = ".$venuedetail['url'].",
+						SET data = ".json_encode($data).",
+						SET year = '2015',
+						SET city = 'Hyderabad',
+						SET city_id  = 12,
+						SET time_added = ".date('Y-m-d h:i:s', time()).",
+						SET last_modified = ".date('Y-m-d h:i:s', time()).",
+						SET status = 1";
+
+			mysql_query($query); 
+		}
+
+		mysql_close($connection);
+    }
 }
