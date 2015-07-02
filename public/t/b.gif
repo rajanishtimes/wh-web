@@ -1,0 +1,75 @@
+<?php
+
+$mongo = array(
+	'mongo_server' => '192.169.31.161:27018', //mongo server
+	'mongo_db' => 'wh_main',          //Mongo db
+	'mongo_collection' => 'emails'        //mongo collection
+); 
+
+ function dispose($flag=true) { //flag used for post rendering processing
+	header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP/1.1
+    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+    header( 'Content-type: image/jpg' );
+    # The transparent, beacon image
+    echo chr(71).chr(73).chr(70).chr(56).chr(57).chr(97).
+         chr(1).chr(0).chr(1).chr(0).chr(128).chr(0).
+         chr(0).chr(0).chr(0).chr(0).chr(0).chr(0).chr(0).
+         chr(33).chr(249).chr(4).chr(1).chr(0).chr(0).
+         chr(0).chr(0).chr(44).chr(0).chr(0).chr(0).chr(0).
+         chr(1).chr(0).chr(1).chr(0).chr(0).chr(2).chr(2).
+         chr(68).chr(1).chr(0).chr(59);
+    
+    if ($flag) { 
+        exit();
+    } else {
+        return true;
+    }
+    
+ }
+
+/**
+ *
+ * Store collected params in log - mongo
+ * Could be extended to use other queue based system in future
+ *
+ */
+  function store($mongo) {
+    try
+	{
+		if(isset($_GET['token'])){
+			$data=getOpenedEmail($_GET['token'],$mongo);
+			$data=updateOpenedEmail($data,$_GET['token'],$mongo);
+		}
+    } catch (MongoException $e) {
+        error_log('Error: ' . $e->getMessage());
+    }
+  }
+   function getOpenedEmail($token,$mongo){
+		$m = new Mongo($mongo['mongo_server']);
+        $db = $m->selectDB( $mongo['mongo_db'] );
+        $collection = new MongoCollection( $db, $mongo['mongo_collection'] );
+	    $data= $collection->findOne(array('token' => $token));
+	    return $data;
+	}
+	
+  function updateOpenedEmail($data,$token,$mongo){
+		$count=$data['open_count'];
+		$count =$count+1;
+		$data['open_count']=$count;
+		$data['opened_time']=time();
+		$id=$data['_id'];
+		unset($data['_id']);
+		$m = new Mongo( $mongo['mongo_server'] );
+        $db = $m->selectDB( $mongo['mongo_db'] );
+        $collection = new MongoCollection( $db, $mongo['mongo_collection'] );
+		if ( !empty($data) ) {
+           $data= $collection->update(array("_id" => new MongoId($id)),$data);
+		   return $data;
+        }
+		return;
+  }
+  store($mongo);
+  dispose(1);
+
+?>
+
