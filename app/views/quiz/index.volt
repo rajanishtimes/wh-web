@@ -71,7 +71,7 @@
 						</div>
 						<div class="col-sm-8 col-md-9 col-xs-12">
 							<p>Times Biryani and Haleem contest has been on since last 7 years and it started as an initiative to honor best Biryani and Haleem which are unique only to the Hyderabadi culture. </p>
-							<div class="show_past"><a href="#">View check past winners of Biryani and Haleem Contest</a></div>
+							<div class="show_past"><a href="#">View past winners of Biryani and Haleem Contest</a></div>
 							<div class="past_results" style="display:none">
 								<strong>Past winners under Biryani  Category are as follow</strong>
 								<p>2011 Winner Hotel Golkonda,  1st Runner up Paradise, 2nd Runner Four Seasons<br>
