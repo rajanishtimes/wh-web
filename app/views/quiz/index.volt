@@ -84,7 +84,7 @@
 							</div>
 						</div>
 						<div class="col-sm-3 col-md-3 col-xs-12">
-							<div class="float-right freedomlogo">
+							<div class="freedomlogo">
 								Times Biryani & Haleem<br>contest 2015 Presented by<br><br>
 								<img src="{{baseUrl}}/img/freedom.png">
 							</div>
