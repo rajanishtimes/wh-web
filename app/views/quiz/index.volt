@@ -66,10 +66,10 @@
 			<div class="row">
 				<div class="past_result">
 					<div class="content">
-						<div class="col-sm-4 col-md-3 col-xs-12 text-center">
+						<div class="col-sm-3 col-md-3 col-xs-12 text-center">
 							<img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png">						
 						</div>
-						<div class="col-sm-8 col-md-9 col-xs-12">
+						<div class="col-sm-6 col-md-6 col-xs-12">
 							<p>Times Biryani and Haleem contest has been on since last 7 years and it started as an initiative to honor best Biryani and Haleem which are unique only to the Hyderabadi culture. </p>
 							<div class="show_past"><a href="#">View past winners of Biryani and Haleem Contest</a></div>
 							<div class="past_results" style="display:none">
@@ -81,6 +81,12 @@
 								<p>2011 Winner Shah Ghouse, 1st Runner Sarvi,  2nd Runner Pista House<br>
 								2012 Winner Paradise, 1st Runner Kholani's, 2nd Runner Sarvi<br>
 								2014 Winner Shah Ghouse, 1st Runner Sarvi, 2nd Runner Pista House</p>
+							</div>
+						</div>
+						<div class="col-sm-3 col-md-3 col-xs-12">
+							<div class="text-center freedomlogo">
+								Times Biryani & Haleem<br>contest 2015 Presented by<br><br>
+								<img src="{{baseUrl}}/img/freedom.png">
 							</div>
 						</div>
 					</div>

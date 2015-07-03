@@ -207,7 +207,7 @@ img.grayscale{
     font-size: 14px;
     color: #969eab;
     font-size: 16px;
-    padding: 27px 186px 0 0;
+    padding: 27px 53px 0 0;
 }
 .past_result .content a{
     color: #b79a52;
@@ -353,4 +353,8 @@ img.grayscale{
     top: 0;
     width: 100%;
     z-index: 1000;
+}
+
+.freedomlogo{
+padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: left; font-size: 16px; line-height: 18px;
 }
