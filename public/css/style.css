@@ -502,20 +502,20 @@ hr.small {
 }
 .service_container .list li.service_group{
     font-size: 18px;
-    padding: 5px 0 5px 45px;
+    padding: 5px 0;
 }
 .critic_review_container {
     border: 1px solid #d3d3d3;
     padding: 15px;
 }
 .service_group.cuisine{
-    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -1px;
+    
 }
 .service_group.cost{
-    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -34px;
+    
 }
 .service_group.facilities{
-    background: rgba(0, 0, 0, 0) url("../img/venue_service.png") no-repeat scroll 0 -70px;
+    padding: 5px 0 !important;
 }
 
 .faceilities_group .sunday-brunch{
@@ -602,10 +602,12 @@ hr.small {
 }
 .service_container .list li{
     list-style: outside none none;
-    padding: 0 0 0 45px;
 }
 .faceilities_group li{
     padding: 5px 0 5px 45px !important;
+}
+.faceilities_group li.facility-na{
+    padding: 5px 0 !important;
 }
 .view_gallery {
     max-height: 200px;

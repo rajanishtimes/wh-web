@@ -58,7 +58,18 @@
                 });
             </script>
         {% endif %}
-        
+        <script type="text/javascript">
+            var wizrocket = {event:[], profile:[], account:[], enum:function(e){return '$E_' + e}};
+            wizrocket.account.push({"id": "4W7-84R-6K4Z"});
+            (function () {
+                var wzrk = document.createElement('script');
+                wzrk.type = 'text/javascript';
+                wzrk.async = true;
+                wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.wizrocket.com') + '/js/a.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(wzrk, s);
+            })();
+        </script>
 
 
     </body>

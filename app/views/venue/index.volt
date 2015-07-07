@@ -77,7 +77,7 @@
 							<li class="{{elements.remove_space(feature['name']) | lower}}">{{feature['name']}}</li>
 						{% endfor %}
 					<?php }else{ ?>
-						<li>N/A</li>
+						<li class="facility-na">N/A</li>
 					<?php } ?>
 				</ul>
 			</div>
