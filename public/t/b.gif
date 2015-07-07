@@ -1,31 +1,176 @@
 <?php
 
-$mongo = array(
-	'mongo_server' => '192.169.31.161:27018', //mongo server
-	'mongo_db' => 'wh_main',          //Mongo db
-	'mongo_collection' => 'emails'        //mongo collection
-); 
+/*
+ * Params collected and stored
+ * pd => DNS lookup time,
+ * pc => Connection TIme, 
+ * pt => Time to First Byte, 
+ * pb => Server response time, 
+ * pf => Load time, 
+ * r => referrer, 
+ * u => URL, 
+ * m => web/mobile were web = 0 and mobile =1
+ * ip => IP address
+ * user_agent => User Agent
+ * cityid
+ * cityname
+ * TCITYSESS
+ * FBLOGINID
+ * USERNAME
+ * USERSCREENNAME
+ * LOGINID
+ * TCID
+ * SSOID
+ * t => timestamp UTC 
+ */
+include_once __DIR__.'/Process.php';
+include_once __DIR__.'/Connection.php';
 
- function dispose($flag=true) { //flag used for post rendering processing
-	header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP/1.1
+error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+error_reporting(0);
+//Mongo
+$mongo = Connection::setMongoCollection('web_clicks');
+
+/**
+ *
+ * Render an 1x1 gif pixel
+ *
+ */
+function dispose($flag = true) { //flag used for post rendering processing 
+    header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP/1.1
     header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
-    header( 'Content-type: image/jpg' );
+    header('Content-type: image/gif');
     # The transparent, beacon image
-    echo chr(71).chr(73).chr(70).chr(56).chr(57).chr(97).
-         chr(1).chr(0).chr(1).chr(0).chr(128).chr(0).
-         chr(0).chr(0).chr(0).chr(0).chr(0).chr(0).chr(0).
-         chr(33).chr(249).chr(4).chr(1).chr(0).chr(0).
-         chr(0).chr(0).chr(44).chr(0).chr(0).chr(0).chr(0).
-         chr(1).chr(0).chr(1).chr(0).chr(0).chr(2).chr(2).
-         chr(68).chr(1).chr(0).chr(59);
-    
-    if ($flag) { 
+    echo chr(71) . chr(73) . chr(70) . chr(56) . chr(57) . chr(97) .
+    chr(1) . chr(0) . chr(1) . chr(0) . chr(128) . chr(0) .
+    chr(0) . chr(0) . chr(0) . chr(0) . chr(0) . chr(0) . chr(0) .
+    chr(33) . chr(249) . chr(4) . chr(1) . chr(0) . chr(0) .
+    chr(0) . chr(0) . chr(44) . chr(0) . chr(0) . chr(0) . chr(0) .
+    chr(1) . chr(0) . chr(1) . chr(0) . chr(0) . chr(2) . chr(2) .
+    chr(68) . chr(1) . chr(0) . chr(59);
+
+    if ($flag) {
         exit();
     } else {
         return true;
     }
-    
- }
+}
+
+/**
+ * Generate a random UUID
+ *
+ * @see http://www.ietf.org/rfc/rfc4122.txt
+ * @return RFC 4122 UUID
+ */
+function uuid() {
+    $node = $_SERVER['SERVER_ADDR'];
+
+    if (strpos($node, ':') !== false) {
+        if (substr_count($node, '::')) {
+            $node = str_replace(
+                    '::', str_repeat(':0000', 8 - substr_count($node, ':')) . ':', $node
+            );
+        }
+        $node = explode(':', $node);
+        $ipSix = '';
+
+        foreach ($node as $id) {
+            $ipSix .= str_pad(base_convert($id, 16, 2), 16, 0, STR_PAD_LEFT);
+        }
+        $node = base_convert($ipSix, 2, 10);
+
+        if (strlen($node) < 38) {
+            $node = null;
+        } else {
+            $node = crc32($node);
+        }
+    } elseif (empty($node)) {
+        $host = $_ENV['HOSTNAME'];
+
+        if (empty($host)) {
+            $host = $_ENV['HOST'];
+        }
+
+        if (!empty($host)) {
+            $ip = gethostbyname($host);
+
+            if ($ip === $host) {
+                $node = crc32($host);
+            } else {
+                $node = ip2long($ip);
+            }
+        }
+    } elseif ($node !== '127.0.0.1') {
+        $node = ip2long($node);
+    } else {
+        $node = null;
+    }
+
+    if (empty($node)) {
+        $node = crc32('Uju987uukj&78gy^^8BUHB^vslja20unxau7');
+    }
+
+    if (function_exists('hphp_get_thread_id')) {
+        $pid = hphp_get_thread_id();
+    } elseif (function_exists('zend_thread_id')) {
+        $pid = zend_thread_id();
+    } else {
+        $pid = getmypid();
+    }
+
+    if (!$pid || $pid > 65535) {
+        $pid = mt_rand(0, 0xfff) | 0x4000;
+    }
+
+    list($timeMid, $timeLow) = explode(' ', microtime());
+    return sprintf(
+            "%08x-%04x-%04x-%02x%02x-%04x%08x", (int) $timeLow, (int) substr($timeMid, 2) & 0xffff, mt_rand(0, 0xfff) | 0x4000, mt_rand(0, 0x3f) | 0x80, mt_rand(0, 0xff), $pid, $node
+    );
+}
+
+/**
+ *
+ * Sanitize GET input
+ *
+ */
+function filter() {
+
+    //GET params
+    $params = array('pd', 'pc', 'pt', 'pb', 'pf', 'r', 'u', 'm');
+    $filters = array(
+        'pd' => FILTER_SANITIZE_NUMBER_INT,
+        'pc' => FILTER_SANITIZE_NUMBER_INT,
+        'pt' => FILTER_SANITIZE_NUMBER_INT,
+        'pb' => FILTER_SANITIZE_NUMBER_INT,
+        'pf' => FILTER_SANITIZE_NUMBER_INT,
+        'r' => FILTER_SANITIZE_ENCODED,
+        'u' => FILTER_SANITIZE_ENCODED,
+        'm' => FILTER_SANITIZE_NUMBER_INT
+    );
+
+    return filter_input_array(INPUT_GET, $filters);
+}
+
+function filter_events() {
+
+    //GET params
+    $params = array('x', 'y', 'w', 'h', 'l', 'd', 't', 'p', 'lag', 'r', 'text');
+    $filters = array(
+        'x' => FILTER_SANITIZE_NUMBER_INT,
+        'y' => FILTER_SANITIZE_NUMBER_INT,
+        'w' => FILTER_SANITIZE_NUMBER_INT,
+        'h' => FILTER_SANITIZE_NUMBER_INT,
+        'l' => FILTER_SANITIZE_NUMBER_INT,
+        'd' => FILTER_SANITIZE_ENCODED,
+        'r' => FILTER_SANITIZE_ENCODED,
+        't' => FILTER_SANITIZE_NUMBER_INT,
+        'p' => FILTER_SANITIZE_STRING,
+        'lag' => FILTER_SANITIZE_NUMBER_FLOAT,
+        'text' => FILTER_SANITIZE_STRING
+    );
+
+    return filter_input_array(INPUT_GET, $filters);
+}
 
 /**
  *
@@ -33,43 +178,232 @@ $mongo = array(
  * Could be extended to use other queue based system in future
  *
  */
-  function store($mongo) {
-    try
-	{
-		if(isset($_GET['token'])){
-			$data=getOpenedEmail($_GET['token'],$mongo);
-			$data=updateOpenedEmail($data,$_GET['token'],$mongo);
-		}
-    } catch (MongoException $e) {
-        error_log('Error: ' . $e->getMessage());
-    }
-  }
-   function getOpenedEmail($token,$mongo){
-		$m = new Mongo($mongo['mongo_server']);
-        $db = $m->selectDB( $mongo['mongo_db'] );
-        $collection = new MongoCollection( $db, $mongo['mongo_collection'] );
-	    $data= $collection->findOne(array('token' => $token));
-	    return $data;
-	}
-	
-  function updateOpenedEmail($data,$token,$mongo){
-		$count=$data['open_count'];
-		$count =$count+1;
-		$data['open_count']=$count;
-		$data['opened_time']=time();
-		$id=$data['_id'];
-		unset($data['_id']);
-		$m = new Mongo( $mongo['mongo_server'] );
-        $db = $m->selectDB( $mongo['mongo_db'] );
-        $collection = new MongoCollection( $db, $mongo['mongo_collection'] );
-		if ( !empty($data) ) {
-           $data= $collection->update(array("_id" => new MongoId($id)),$data);
-		   return $data;
+function store($params, $mongo) {
+
+    try {
+
+        if ($params != null) {
+
+            $params['t'] = new MongoDate();
+
+            $mongo->insert($params);
+            return $params['_id'];
         }
-		return;
+
+        //$m->close();
+    } catch (MongoConnectionException $e) {
+        echo('Error connecting to MongoDB server');
+    } catch (MongoException $e) {
+        echo('Error: ' . $e->getMessage());
+    }
+}
+
+/**
+ *
+ * Set Cookie - user unique identifier
+ *
+ */
+function setUserCookie() {
+
+    $uuid = false;
+    $wasSetHere = false;
+    //
+    if (!isset($_COOKIE['tc_uid'])) {
+        $uuid = uuid();
+        $_COOKIE['tc_uid'] = $uuid;
+        $wasSetHere = true;
+    } else {
+        $uuid = filter_var($_COOKIE['tc_uid'], FILTER_SANITIZE_STRING);
+    }
+    setcookie('tc_uid', $uuid, time() + 94608000, 'whatshot.in', false);
+
+    return $wasSetHere;
+}
+
+/**
+ * Retrieves the best guess of the client's actual IP address.
+ * Takes into account numerous HTTP proxy headers due to variations
+ * in how different ISPs handle IP addresses in headers between hops.
+ */
+function get_ip_address() {
+    // check for shared internet/ISP IP
+    if (!empty($_SERVER['HTTP_CLIENT_IP']) && validate_ip($_SERVER['HTTP_CLIENT_IP'])) {
+        return $_SERVER['HTTP_CLIENT_IP'];
+    }
+
+    // check for IPs passing through proxies
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        // check if multiple ips exist in var
+        if (strpos($_SERVER['HTTP_X_FORWARDED_FOR'], ',') !== false) {
+            $iplist = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+            foreach ($iplist as $ip) {
+                if (validate_ip($ip))
+                    return $ip;
+            }
+        } else {
+            if (validate_ip($_SERVER['HTTP_X_FORWARDED_FOR']))
+                return $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+    }
+    if (!empty($_SERVER['HTTP_X_FORWARDED']) && validate_ip($_SERVER['HTTP_X_FORWARDED']))
+        return $_SERVER['HTTP_X_FORWARDED'];
+    if (!empty($_SERVER['HTTP_X_CLUSTER_CLIENT_IP']) && validate_ip($_SERVER['HTTP_X_CLUSTER_CLIENT_IP']))
+        return $_SERVER['HTTP_X_CLUSTER_CLIENT_IP'];
+    if (!empty($_SERVER['HTTP_FORWARDED_FOR']) && validate_ip($_SERVER['HTTP_FORWARDED_FOR']))
+        return $_SERVER['HTTP_FORWARDED_FOR'];
+    if (!empty($_SERVER['HTTP_FORWARDED']) && validate_ip($_SERVER['HTTP_FORWARDED']))
+        return $_SERVER['HTTP_FORWARDED'];
+
+    // return unreliable ip since all else failed
+    return $_SERVER['REMOTE_ADDR'];
+}
+
+/**
+ * Ensures an ip address is both a valid IP and does not fall within
+ * a private network range.
+ */
+function validate_ip($ip) {
+    if (strtolower($ip) === 'unknown')
+        return false;
+
+    // generate ipv4 network address
+    $ip = ip2long($ip);
+
+    // if the ip is set and not equivalent to 255.255.255.255
+    if ($ip !== false && $ip !== -1) {
+        // make sure to get unsigned long representation of ip
+        // due to discrepancies between 32 and 64 bit OSes and
+        // signed numbers (ints default to signed in PHP)
+        $ip = sprintf('%u', $ip);
+        // do private network range checking
+        if ($ip >= 0 && $ip <= 50331647)
+            return false;
+        if ($ip >= 167772160 && $ip <= 184549375)
+            return false;
+        if ($ip >= 2130706432 && $ip <= 2147483647)
+            return false;
+        if ($ip >= 2851995648 && $ip <= 2852061183)
+            return false;
+        if ($ip >= 2886729728 && $ip <= 2887778303)
+            return false;
+        if ($ip >= 3221225984 && $ip <= 3221226239)
+            return false;
+        if ($ip >= 3232235520 && $ip <= 3232301055)
+            return false;
+        if ($ip >= 4294967040)
+            return false;
+    }
+    return true;
+}
+
+function getAdditionalParams($params, $uuid) {
+    $params['tc_uid'] = $uuid;
+    $params['ip'] = get_ip_address();
+    $params['user_agent'] = filter_var($_SERVER['HTTP_USER_AGENT'], FILTER_SANITIZE_STRING);
+    if ($env = getenv('MODE')) {
+        $params['env'] = $env;
+    }
+    session_start();
+    $params['session_id'] = session_id();
+
+    $cookies_array = array('cityid', 'cityname', 'TCITYSESS', 'FBLOGINID', 'USERNAME', 'USERSCREENNAME', 'LOGINID', 'TCID', 'TSSOID');
+    $cookie_filter = array(
+        'cityid' => FILTER_SANITIZE_NUMBER_INT,
+        'cityname' => FILTER_SANITIZE_STRING,
+        'TCITYSESS' => FILTER_SANITIZE_STRING,
+        'FBLOGINID' => FILTER_SANITIZE_STRING,
+        'USERNAME' => FILTER_SANITIZE_STRING,
+        'USERSCREENNAME' => FILTER_SANITIZE_STRING,
+        'LOGINID' => FILTER_SANITIZE_STRING,
+        'TCID' => FILTER_SANITIZE_NUMBER_INT,
+        'TSSOID' => FILTER_SANITIZE_STRING
+    );
+    foreach ($cookies_array AS $key => $value) {
+        if (isset($_COOKIE[$value])) {
+            $params[$value] = filter_var($_COOKIE[$value], $cookie_filter[$value]);
+        }
+    }
+    if (isSet($params['TSSOID'])) {
+        $params['TCID'] = extractTCID($params['TSSOID']);
+    }
+
+    return $params;
+}
+
+function extractTCID($str) {
+    $str = un_obfuscate_data($str);
+    $parts = explode('-', $str);
+    if (isSet($parts[1])) {
+        return $parts[1];
+    }
+}
+
+function un_obfuscate_data($str) {
+    $o_str = strtr($str, "uvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-abcdefghijklmnopqrst", "1234567890-abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    );
+    return $o_str;
+}
+
+function checkReferrerUrl($params) {
+
+    if (( isset($_SERVER['HTTP_REFERER']) && !preg_match('/whatshot\.in/', parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST)))) {
+        return false;
+    }
+    if (!isSet($params['u'])) {
+        return $params;
+    }
+    $url = urldecode($params['u']);
+    $url_path = parse_url($url, PHP_URL_PATH);
+    $url_path .= parse_url($url, PHP_URL_QUERY);
+    $url_path .= parse_url($url, PHP_URL_FRAGMENT);
+
+    $params['u'] = $url_path;
+
+    return $params;
+}
+
+# __main__ 
+
+
+/*
+  if ($wasSetHere = setUserCookie()) {
+  //echo('Cant set tracking code');
+  //dispose(1);
+  $params['new_user'] = 1;
   }
-  store($mongo);
-  dispose(1);
+ */
+//if (isSet($_GET['_'])) {
+   
+    $mongo['collection'] = 'click_events';
+    $params['event_flag'] = 1;
+    if (!$params = filter_events()) {
+        echo('Filtering GET params failed for events');
+        dispose(1);
+    }
+//} else {
+//   
+//    if (!$params = filter()) {
+//        echo('Filtering GET params failed');
+//        dispose(1);
+//    }
+//}
 
+if ($wasSetHere = setUserCookie()) {
+    $params['new_user'] = 1;
+}
+
+//if (!$params = checkReferrerUrl($params)) {
+//    if (isset($_SERVER['HTTP_REFERER']) && preg_match('/google/', parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST))) {
+//        // do something useful 
+//    } else {
+//        echo('request not from whatshot.in');
+//    }
+//    dispose(1);
+//}
+
+$params = getAdditionalParams($params, $uuid);
+
+$mongoID = store($params, $mongo);
+Process::processClick($mongoID);
+dispose(1);
 ?>
-
