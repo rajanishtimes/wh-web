@@ -377,7 +377,10 @@ PHONE < 640px
 	.hp-mobile .item-left .desc{
 		top: 50px;
 	}
-
+	.triangle {
+		border-left: 80px solid transparent;
+		border-right: 80px solid transparent;
+	}
 	/* =========== Biryani and haleem ========== */	
 }
 
@@ -529,6 +532,10 @@ PHONE < 480px
 	}
 	.nav-search.navbar-right li.dropdown > a{
 		padding: 31px 10px;
+	}
+	.triangle {
+		border-left: 120px solid transparent;
+		border-right: 120px solid transparent;
 	}
 }
 
