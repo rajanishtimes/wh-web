@@ -72,6 +72,12 @@ class QuizController extends BaseController{
     }
 
     public function winnersAction(){
+    	$title = 'Biryani and Haleem Contest 2015 | '.$this->config->application->SiteName;
+		$this->view->meta_description = 'Times Biryani and Haleem contest has been on since last 7 years and it started as an initiative to honor best Biryani and Haleem which are unique only to the Hyderabadi culture.';
+		$this->view->meta_keywords = 'Biryani, Haleem, Biryani and Haleem, Hyderabadi culture';
+
+		$this->tag->setTitle($title);
+		
     	$city = $this->currentCity;
 		$cityshown = $this->cityshown($city);
 
