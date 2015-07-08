@@ -69,6 +69,10 @@ STANDARD DESKTOP 992px <> 1200px
 	.freedomlogo{
 		float: right;
 	}
+	.triangle {
+		border-left: 80px solid transparent;
+		border-right: 80px solid transparent;
+	}
 }
 
 
