@@ -30,7 +30,7 @@
 				<div class="quiz_su text-center">
 					<div class="contentarea winner">
 						<div class="detail content">
-							<p class="text-center">The nominations which have won the best Biryani and Haleem contest are as follow</p>
+							<p class="text-center">Check out the winners of  Biryani and Haleem Contest</p>
 						</div>
 					</div>
 				</div><div class="clearfix"></div>
