@@ -23,22 +23,23 @@
 	</div>
 </section>
 <div class="clearfix"></div>
-<section id="quizdata" class="quiz_data">
+<section id="quizdata" class="quiz_data winnerspage">
 	<div class="section">
 		<div class="container">
 			<div class="row">
 				<div class="quiz_su text-center">
 					<div class="contentarea winner">
 						<div class="detail content">
-							<p class="text-center">The Nominations which have won the best Biryani and Haleem contest are as follow</p>
+							<p class="text-center">The nominations which have won the best Biryani and Haleem contest are as follow</p>
 						</div>
 					</div>
 				</div><div class="clearfix"></div>
 				<input type='hidden' value="{{iscontestrunning}}" id="iscontestruning">
 				<div class="work-content contest winner contentarea text-center">
-						<p class="text-center"><strong class="text-center">Best Biryani Winners 2015</strong></p>
+						<p class="text-center">Winners in Biryani Category - 2015</p>
 						{{feeds.getcontestwinner(baseUrl, biryaniwinners, start, cityshown, 'biryani')}}
-						<p class="text-center"><strong class="text-center">Best Haleem Winners 2015</strong></p>
+						<div class="clearfix"></div>
+						<p class="text-center">Winners in Haleem Category - 2015</p>
 						{{feeds.getcontestwinner(baseUrl, haleemwinners, start, cityshown, 'haleem')}}
 					</div>
 				</div>

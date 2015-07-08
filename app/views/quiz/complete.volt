@@ -29,7 +29,7 @@
 			<div class="row">
 				<div class="quiz_su text-center">
 					<br><br>
-					<div class="head" style="font-size:21px; padding:0 20px;">Voting is Closed, Winner to be announced on 17<sup>th</sup> July</div><br><br><br>
+					<div class="head" style="font-size:21px; padding:0 20px;">Voting is Closed, Winners to be announced on 11<sup>th</sup> July</div><br><br><br>
 					<div class="contentarea">
 						<div class="detail content" style="padding:0 10px;">
 							<p class="text-center"><small>Check Out nominations this year for Biryani and Haleem</small></p>

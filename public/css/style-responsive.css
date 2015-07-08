@@ -19,6 +19,9 @@ LARGE DESKTOP > 1200px
 	.freedomlogo{
 		float: right;
 	}
+	.winnerspage .content {
+		padding: 0 251px !important;
+	}
 }
 
 

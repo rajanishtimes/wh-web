@@ -297,6 +297,11 @@ class Feeds extends Component
 		foreach($datas as $data){
 			$json_data = json_decode($data['data']);
 			$imgclass = $class = '';
+			$winnertext = '(Winner)';
+			if($i == 1)
+				$winnertext = '(1<sup>st</sup> Runner up)';
+			else if($i == 2)
+				$winnertext = '(2<sup>nd</sup> Runner up)';
 			?>
 				<div class="col-sm-4 col-md-4 col-xs-6">
 					<div class="work-item feeds-data">
@@ -315,13 +320,16 @@ class Feeds extends Component
 								<div class="feed-short-desc"><?php $desc = strip_tags($json_data->description);
 								$description = strlen($desc) > 80 ? substr($desc, 0, 80).'...' : $desc; echo $description; ?></div>
 							</a>
-							<div class="btn btn-primary voted">Winner</div>
+							<!--<div class="btn btn-primary voted">Winner</div>-->
 						</div>
 						
 					</div>
-					<div class="winners">(Winner)<br><?php echo $data['votes']; ?> Users voted</div><div class="triangle"></div>
+					<div class="winners"><?php echo $winnertext; ?>
+						<!--<br><?php echo $data['votes']; ?> Users voted-->
+					</div><div class="triangle"></div>
 				</div>
 			<?php
+			$i++;
 		}
 	}
 	
