@@ -37,9 +37,9 @@
 				<input type='hidden' value="{{iscontestrunning}}" id="iscontestruning">
 				<div class="work-content contest winner contentarea text-center">
 						<p class="text-center"><strong class="text-center">Best Biryani Winners 2015</strong></p>
-						{{feeds.getcontestwinner(baseUrl, '', start, cityshown, 'biryani')}}
+						{{feeds.getcontestwinner(baseUrl, biryaniwinners, start, cityshown, 'biryani')}}
 						<p class="text-center"><strong class="text-center">Best Haleem Winners 2015</strong></p>
-						{{feeds.getcontestwinner(baseUrl, '', start, cityshown, 'haleem')}}
+						{{feeds.getcontestwinner(baseUrl, haleemwinners, start, cityshown, 'haleem')}}
 					</div>
 				</div>
 			</div>

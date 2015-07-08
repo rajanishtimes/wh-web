@@ -292,31 +292,34 @@ class Feeds extends Component
 		}
 	}
 
-	public function getcontestwinner($url, $datas=array(), $start, $city='', $type=''){
+	public function getcontestwinner($url, $datas, $start, $city='', $type=''){
 		$i = 0;
-		for($i = 1; $i<=3; $i++){
+		foreach($datas as $data){
+			$json_data = json_decode($data['data']);
+			$imgclass = $class = '';
 			?>
 				<div class="col-sm-4 col-md-4 col-xs-6">
 					<div class="work-item feeds-data">
-						<a href="<?php echo $url; ?>">
+						<a href="<?php echo $url.$data['url']; ?>">
 							<div class="hover-container">
 								<div class="thanks_msg dnone">Thank you<br>for your vote</div>
 								<div class="hover-wrap">
 									<i class="glyphicon glyphicon-plus bino"></i>
 								</div>
-								<?php echo $this->getimage($url, 'http://img.cms.whatshot.in/event/2015/May/1431594363-tumblr-mkfgqwvzlc1r146zvo1-1280.jpg', 479, 479, 'Spice Art', '', '', '', $start+$i); ?>
+								<?php echo $this->getimage($url, $json_data->img, 479, 479, $data['title'], '', '', $imgclass, $start+$i); ?>
 							</div>
 						</a>
 						<div class="the-box no-margin no-border">
 							<a href="<?php echo $url . $data['url']; ?>">
-								<div class="feed-title">Spice Art</div>
-								<div class="feed-short-desc">Crowne Plaza, 1st Floor, Twin District Centre, Sector 10, Rohini, Delhi NCR, 110085</div>
+								<div class="feed-title"><?php echo $data['title']; ?></div>
+								<div class="feed-short-desc"><?php $desc = strip_tags($json_data->description);
+								$description = strlen($desc) > 80 ? substr($desc, 0, 80).'...' : $desc; echo $description; ?></div>
 							</a>
 							<div class="btn btn-primary voted">Winner</div>
 						</div>
 						
 					</div>
-					<div class="winners">(Winner)<br>861 Users voted</div><div class="triangle"></div>
+					<div class="winners">(Winner)<br><?php echo $data['votes']; ?> Users voted</div><div class="triangle"></div>
 				</div>
 			<?php
 		}

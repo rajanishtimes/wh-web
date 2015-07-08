@@ -239,7 +239,7 @@
 function eventimages(){
 	$.swipebox([
 		{% for key, images in venuedetail['images'] %}
-			{ href:'{{feeds.makeurl(baseUrl, images["uri"])}}', title:'{{venuedetail["title"]}}' },
+			{ href:'{{feeds.makeurl(baseUrl, images["uri"])}}', title:'{{venuedetail["title"] | slashes}}' },
 		{% endfor  %}
 	]);
 }

@@ -74,10 +74,35 @@ class QuizController extends BaseController{
     public function winnersAction(){
     	$city = $this->currentCity;
 		$cityshown = $this->cityshown($city);
+
+		$bwinnerid = $this->config->biryaniwinner->bwinner;
+		$hwinnerid = $this->config->haleemwinner->hwinner;
+
+		$biryaniwinner = new \WH\Model\BNH();
+		$biryaniwinners = $biryaniwinner->nominationDetail($bwinnerid);
+
+		foreach($biryaniwinners as $key=>$biryaniwinner){
+			$votes = new \WH\Model\BNH();
+			$votes->setNominationID($biryaniwinner['id']);
+			$votecount = $votes->votingCount();
+			$biryaniwinners[$key]['votes'] = $votecount;
+		}
+
+		$haleemwinner = new \WH\Model\BNH();
+		$haleemwinners = $haleemwinner->nominationDetail($hwinnerid);
+		foreach($haleemwinners as $key=>$haleemwinner){
+			$votes = new \WH\Model\BNH();
+			$votes->setNominationID($haleemwinner['id']);
+			$votecount = $votes->votingCount();
+			$haleemwinners[$key]['votes'] = $votecount;
+		}
+
 		$start = 0;
     	$this->view->setVars(array(
 			'cityshown' => $cityshown,
-			'start'	=> $start
+			'start'	=> $start,
+			'biryaniwinners' => $biryaniwinners,
+			'haleemwinners' => $haleemwinners,
 		));
 		$this->view->setLayout('quizLayout');
         $this->view->pick(['quiz/winners']);
