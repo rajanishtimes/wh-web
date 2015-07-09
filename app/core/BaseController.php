@@ -2,6 +2,7 @@
 
 namespace WH\Core;
 use Phalcon\Mvc\Controller;
+use Phalcon\Filter;
 use WH\Api\Params;
 use WH\Model\Util\WhMongo;
 use WH\Model\Core\Constants as C;
@@ -35,11 +36,11 @@ class BaseController extends Controller{
 		$GLOBALS["time_start"] = microtime(true);
 		$this->request = new \Phalcon\Http\Request();
 
-		if ((strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile/') !== false) && (strpos($_SERVER['HTTP_USER_AGENT'], 'Safari/') == false)) {
+		if ((strpos($this->request->getServer('HTTP_USER_AGENT'), 'Mobile/') !== false) && (strpos($this->request->getServer('HTTP_USER_AGENT'), 'Safari/') == false)) {
 			$this->iswebview = true;
 		}		
-		if(isSet($_SERVER['HTTP_X_REQUESTED_WITH'])){
-			if($_SERVER['HTTP_X_REQUESTED_WITH'] == "com.phdmobi.timescity") {
+		if($this->request->getServer('HTTP_X_REQUESTED_WITH') !== null) {
+			if($this->request->getServer('HTTP_X_REQUESTED_WITH') == "com.phdmobi.timescity") {
 				$this->iswebview = true;
 			}
 		}
@@ -62,7 +63,14 @@ class BaseController extends Controller{
 		$this->view->constants=$this->getConstants();
 		
 		$this->view->host = $this->config->application->baseUri;
-		$this->baseUrl = 'http://'.$this->config->application->baseUri;
+
+		if ($this->request->getServer('HTTPS') !== null && ($this->request->getServer('HTTPS') == 'on' || $this->request->getServer('HTTPS') == 1) || $this->request->getServer('HTTP_X_FORWARDED_PROTO') !== null && $this->request->getServer('HTTP_X_FORWARDED_PROTO') == 'https') {
+			$protocol = 'https://';
+		}	else {
+			$protocol = 'http://';
+		}
+
+		$this->baseUrl = $protocol.$this->config->application->baseUri;
 		$this->view->baseUrl = $this->baseUrl;
 
 		$this->view->isdebug = $this->config->application->mode;
@@ -71,19 +79,19 @@ class BaseController extends Controller{
 		//$this->setcookie();
 		$this->view->controllername = $this->dispatcher->getControllerName();
 		$this->view->actionname = $this->dispatcher->getActionName();
-		$this->view->request_uri = $this->baseUrl.'/'.trim($_SERVER['REQUEST_URI'], '/');
+		$this->view->request_uri = $this->baseUrl.'/'.trim($this->request->getServer('REQUEST_URI'), '/');
 		$this->view->entityid = $this->entityid;
 		$this->view->entitytype = $this->entitytype;
 		
 		//echo $this->dispatcher->getControllerName();exit;
 		//echo $this->dispatcher->getActionName();exit;
-
-		if ((strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile/') !== false) && (strpos($_SERVER['HTTP_USER_AGENT'], 'Safari/') == false)) {
+		
+		if ((strpos($this->request->getServer('HTTP_USER_AGENT'), 'Mobile/') !== false) && (strpos($this->request->getServer('HTTP_USER_AGENT'), 'Safari/') == false)) {
 			$this->iswebview = true;
 		}
 		
-		if(isSet($_SERVER['HTTP_X_REQUESTED_WITH'])){
-			if($_SERVER['HTTP_X_REQUESTED_WITH'] == "com.phdmobi.timescity") {
+		if($this->request->getServer('HTTP_X_REQUESTED_WITH') !== null){
+			if($this->request->getServer('HTTP_X_REQUESTED_WITH') == "com.phdmobi.timescity") {
 				$this->iswebview = true;
 			}	
 		}
@@ -92,12 +100,12 @@ class BaseController extends Controller{
 		
 		/* ============= Set cookie for city =============== */
 		if($this->dispatcher->getParam('city') == 'delhi'){
-			$request_uri = trim($_SERVER['REQUEST_URI'], '/');
+			$request_uri = trim($this->request->getServer('REQUEST_URI'), '/');
 			$url = str_replace("delhi","delhi-ncr",$request_uri);
-			
+			$urls = explode('?', $url);
 			header("HTTP/1.1 301 Moved Permanently");
-			header("Location: ".$this->baseUrl.'/'.$url);
-            exit;
+			header("Location: ".$this->baseUrl.'/'.urldecode($urls[0]));
+			exit;
         }
 		
 		$this->view->defaultCity = $this->defaultCity;
@@ -125,6 +133,48 @@ class BaseController extends Controller{
 			//$this->cookies->get("city")->delete();
 			//$this->forwardtoerrorpage(404);
 		//}
+
+		$this->assets
+			->collection('header')
+			->setPrefix($this->baseUrl)
+			->setLocal(false)
+			->setTargetPath(APP_PATH.'public/css/header.css')
+			->setTargetUri('/css/header.css')
+            ->addCss($this->baseUrl.'/css/bootstrap.min.css', false)
+            ->addCss($this->baseUrl.'/plugins/owl-carousel/owl.carousel.css', false)
+            ->addCss($this->baseUrl.'/plugins/owl-carousel/owl.theme.css', false)
+            ->addCss($this->baseUrl.'/plugins/swipebox/src/css/swipebox.css', false)
+            ->join(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Cssmin());
+
+        $this->assets
+			->collection('main')
+			->setLocal(false)
+			->setTargetPath(APP_PATH.'public/css/main.css')
+			->setTargetUri('/css/main.css')
+            ->addCss($this->baseUrl.'/css/style.css', false)
+            ->addCss($this->baseUrl.'/css/style-responsive.css', false)
+            ->join(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Cssmin());
+
+		
+
+
+        $this->assets
+			->collection('js')
+			->setLocal(false)
+			->setTargetPath(APP_PATH.'public/js/main.js')
+			->setTargetUri('/js/main.js')
+            ->addCss($this->baseUrl.'/js/bootstrap.min.js', false)
+            ->addCss($this->baseUrl.'/js/typeahead.min.js', false)
+            ->addCss($this->baseUrl.'/plugins/owl-carousel/owl.carousel.min.js', false)
+            ->addCss($this->baseUrl.'/plugins/swipebox/src/js/jquery.swipebox.min.js', false)
+            ->addCss($this->baseUrl.'/js/jquery.unveil.js', false)
+            ->addCss($this->baseUrl.'/js/cookies.js', false)
+            ->join(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Jsmin());
+
+        //echo "<pre>"; print_r($this->assets); echo "</pre>"; exit;
 		
     }
 
@@ -146,7 +196,7 @@ class BaseController extends Controller{
             $Logger->setCode('404');
             $Logger->setMessage('Page not found');
             $Logger->setOrigin('web');
-            $Logger->setParamsValue($_SERVER['REQUEST_URI']);
+            $Logger->setParamsValue($this->request->getServer('REQUEST_URI'));
             $Logger->allLogs();
 			$this->tag->setTitle('Page Not Found | '.$this->config->application->SiteName);
 			$this->response->setStatusCode(404, 'Not Found');
@@ -160,7 +210,7 @@ class BaseController extends Controller{
             $Logger->setCode('401');
             $Logger->setMessage('Unauthorized Access');
             $Logger->setOrigin('web');
-            $Logger->setParamsValue($_SERVER['REQUEST_URI']);
+            $Logger->setParamsValue($this->request->getServer('REQUEST_URI'));
             $Logger->allLogs();
 			$this->response->setStatusCode(401, 'Unauthorized Access');
 			$this->view->pick('errors/show401');
@@ -171,7 +221,7 @@ class BaseController extends Controller{
             $Logger->setCode('500');
             $Logger->setMessage('Internal Server Error');
             $Logger->setOrigin('web');
-            $Logger->setParamsValue($_SERVER['REQUEST_URI']);
+            $Logger->setParamsValue($this->request->getServer('REQUEST_URI'));
             $Logger->allLogs();
 			$this->response->setStatusCode(500, 'Internal Server Error');
 			$this->view->pick('errors/show500');
@@ -297,22 +347,23 @@ class BaseController extends Controller{
 	
 	private function setcookie(){
 		if ($this->cookies->has('uniquekey')) {
-			$uniquekey = $this->cookies->get('uniquekey');
+			$uniquekey = $this->sanitizedata($this->cookies->get('uniquekey'));
         }else{
-			$uniquekey = md5(microtime().$_SERVER['REMOTE_ADDR']);
+			$uniquekey = md5(microtime().$this->request->getServer('REMOTE_ADDR'));
 			$this->cookies->set("uniquekey", $uniquekey, time() + 15 * 86400, '/', false, $this->config->application->baseUri);
 		}
 	}
 	
 	protected function setHomeCity(){
 		//echo __FUNCTION__ . '<br/>';
+		$filter_city = $this->sanitizedata($this->cookies->get("city"));
 		if ($this->cookies->has("city")){
-			if( strlen($this->cookies->get("city")) > 15 ){
+			if( strlen($filter_city) > 15 ){
 				$this->city = strtolower('delhi-ncr');
-			}else if( $this->cookies->get("city") == 'delhi' ){
+			}else if( $filter_city == 'delhi' ){
 				$this->city = strtolower('delhi-ncr');
 			}else{
-				$this->city = strtolower($this->cookies->get("city"));
+				$this->city = strtolower($filter_city);
 			}
 		}else if($this->dispatcher->getParam('city')){
 			if(trim($this->dispatcher->getParam('city')) == 'cities'){
@@ -331,7 +382,7 @@ class BaseController extends Controller{
 		$this->setHomeCity();
 		if(trim($this->dispatcher->getParam('city')) == 'cities'){			
 			if ($this->cookies->has("currentCity") && empty($cityname)){
-				$cityformulti = strtolower($this->cookies->get("currentCity"));
+				$cityformulti = strtolower($this->sanitizedata($this->cookies->get("currentCity")));
 			}else{
 				if(!empty($cityname)){
 					$cityformulti = $cityname;
@@ -343,10 +394,10 @@ class BaseController extends Controller{
 		}else if($this->dispatcher->getParam('city')){
 			$this->currentCity = strtolower($this->dispatcher->getParam('city'));
 		}else if ($this->cookies->has("city")){
-			if( $this->cookies->get("city") == 'delhi-ncr' ){
+			if( $this->sanitizedata($this->cookies->get("city")) == 'delhi-ncr' ){
 				$this->currentCity = strtolower($this->defaultCity);
 			}else{
-				$this->currentCity = strtolower($this->cookies->get("city"));
+				$this->currentCity = strtolower($this->sanitizedata($this->cookies->get("city")));
 			}
 		}
 		$this->view->currentCity = $this->currentCity;
@@ -415,7 +466,7 @@ class BaseController extends Controller{
 	}
 	
 	public function validateRequest($url){
-		$request_uri = trim($_SERVER['REQUEST_URI'], '/');
+		$request_uri = trim($this->request->getServer('REQUEST_URI'), '/');
 		$arr = explode('?', $request_uri);
 		$request_uri = urldecode($arr[0]);
 		$uri = urldecode(trim($url, '/'));
@@ -465,5 +516,14 @@ class BaseController extends Controller{
 			$cityshown = ucwords($city);
 		
 		return $cityshown;
+	}
+
+	public function sanitizedata($data){
+		$filter = new Filter();
+		$filter->add('md5', function($value) {
+			return preg_replace("/[^0-9a-zA-Z_~\-!@#\$%\^&*\(\) ]/", "", $value);
+		});
+		$filtered = $filter->sanitize($data, "md5");
+		return $filtered;
 	}
 }

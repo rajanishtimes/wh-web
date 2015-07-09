@@ -5,6 +5,7 @@
 		<link rel="shortcut icon" type="image/png" href="{{baseUrl}}/favicon.png"/>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<meta http-equiv="X-Frame-Options" content="sameorigin">
 		{% if meta_description != '' %}
 			<meta name="description" content="{{ meta_description }}" />
 		{% endif  %}
@@ -46,7 +47,9 @@
 
 		{% if (deep_link != '') %}
 			{% if(controllername != 'venue' AND controllername != 'location' AND controllername != 'critic') %}
-				<link rel="alternate" href="{{deep_link}}" />
+				<?php $deepl = explode('://', $deep_link); ?>
+				<link rel="alternate" href="android-app://com.phdmobi.timescity/{{deepl[0]}}/{{deepl[1]}}" />
+				<!--<link rel="alternate" href="{{deep_link}}" />-->
 			{% endif  %}
 		{% endif  %}
 		
@@ -79,19 +82,21 @@
 		{{ get_title() }}
 		
 		
-		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
-		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/bootstrap.min.css" />
-		<!-- MAIN CSS (REQUIRED ALL PAGE)-->
-		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/font-awesome/css/font-awesome.min.css" />
+		
+		{{ assets.outputCss('header') }}
+		{{ assets.outputCss('main') }}
 
-		<link rel="stylesheet" type="text/css" href="{{baseUrl}}{{elements.auto_version('/css/style.css')}}" />
+		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
+		
+		
+		<!-- MAIN CSS (REQUIRED ALL PAGE)-->
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/header.css" />
 		{% if(controllername == 'quiz') %}
 			<link rel="stylesheet" type="text/css" href="{{baseUrl}}{{elements.auto_version('/css/quiz.css')}}" />
 		{% endif %}
-		<link rel="stylesheet" type="text/css" href="{{baseUrl}}{{elements.auto_version('/css/style-responsive.css')}}" />
-		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/owl-carousel/owl.carousel.css" />
-		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/owl-carousel/owl.theme.css" />
-		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/plugins/swipebox/src/css/swipebox.css" />
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}{{elements.auto_version('/css/main.css')}}" />
+
+		
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		

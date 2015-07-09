@@ -146,7 +146,7 @@ class IndexController extends BaseController{
 	
 	public function whytimescityAction(){
         $this->tag->setTitle('What is What&apos; Hot?');
-		$this->view->entitytype = 'What is What&apos; Hot?';
+		$this->view->entitytype = 'story';
 		$this->view->meta_description = '';
 		$this->view->meta_keywords = '';
 		$this->view->og_title = 'What is What&apos; Hot?';
