@@ -358,14 +358,13 @@ class BaseController extends Controller{
 	
 	protected function setHomeCity(){
 		//echo __FUNCTION__ . '<br/>';
-		$filter_city = $this->sanitizedata($this->cookies->get("city"));
 		if ($this->cookies->has("city")){
-			if( strlen($filter_city) > 15 ){
+			if( strlen($this->sanitizedata($this->cookies->get("city"))) > 15 ){
 				$this->city = strtolower('delhi-ncr');
-			}else if( $filter_city == 'delhi' ){
+			}else if( $this->sanitizedata($this->cookies->get("city")) == 'delhi' ){
 				$this->city = strtolower('delhi-ncr');
 			}else{
-				$this->city = strtolower($filter_city);
+				$this->city = strtolower($this->sanitizedata($this->cookies->get("city")));
 			}
 		}else if($this->dispatcher->getParam('city')){
 			if(trim($this->dispatcher->getParam('city')) == 'cities'){

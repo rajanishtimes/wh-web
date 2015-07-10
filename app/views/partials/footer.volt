@@ -88,17 +88,17 @@
 		<div class="row">
 			<div class="col-sm-6 col-xs-12 text-left social-group">
 				<div class="social-share-widget">
-					<div class="fb-like" data-href="https://www.whatshot.com" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+					<div class="fb-like" data-href="https://www.facebook.com/whatshot?fref=ts" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 				</div>
 				
 				<div class="social-share-widget">
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.whatshot.in">Tweet</a>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://twitter.com/WhatsHot_IN">Tweet</a>
 				</div>
 				
 
 				<!-- Place this tag where you want the share button to render. -->
 				<div class="social-share-widget">
-					<div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://www.whatshot.in"></div>
+					<div class="g-plus" data-action="share" data-annotation="bubble" data-href="https://plus.google.com/u/0/+timescity/posts"></div>
 				</div>
 				
 			</div>
