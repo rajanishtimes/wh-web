@@ -149,6 +149,7 @@ class BaseController extends Controller{
 
         $this->assets
 			->collection('main')
+			->setPrefix($this->baseUrl)
 			->setLocal(false)
 			->setTargetPath(APP_PATH.'public/css/main.css')
 			->setTargetUri('/css/main.css')
@@ -162,6 +163,7 @@ class BaseController extends Controller{
 
         $this->assets
 			->collection('js')
+			->setPrefix($this->baseUrl)
 			->setLocal(false)
 			->setTargetPath(APP_PATH.'public/js/main.js')
 			->setTargetUri('/js/main.js')

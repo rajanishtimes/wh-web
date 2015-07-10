@@ -24,7 +24,7 @@ class LogController extends BaseController{
     }
 
 
-    public function nominationAction(){
+    /*public function nominationAction(){
     	$connection = mysql_connect('192.169.34.185', 'fireBird', 'FHW%aw1') or die('Could not connect to server.');
 		mysql_select_db('whweb', $connection) or die('Could not select database.');
 
@@ -94,5 +94,5 @@ class LogController extends BaseController{
 		}
 
 		mysql_close($connection);
-    }
+    }*/
 }
