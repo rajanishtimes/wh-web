@@ -1304,6 +1304,9 @@ footer .icon-social-footer {
     margin-top: 5px;
     padding-top: 13px;
 }
+a.makeaactive {
+    color: #d11a6d !important;
+}
 .footer {
     background: #f5f5f5 none repeat scroll 0 0;
     border-top: 1px solid #cccccc;

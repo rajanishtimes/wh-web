@@ -42,7 +42,7 @@ class LocationController extends BaseController{
 		$this->tag->setTitle('Events in ' .$searchkeyword.', '.$city.' | '.$this->config->application->SiteName);
 		$this->view->meta_description = 'Check out the top upcoming events and current events happening in '.$searchkeyword.', '.$city.' along with date, time, map and contact details.';
 		$this->view->meta_keywords = 'events in '.$searchkeyword.', events in '.$searchkeyword.' '.$city.', upcoming events in '.$searchkeyword;
-		$this->view->deep_link = 'timescity://ty=s&qu'.$searchkeyword;
+		$this->view->deep_link = 'timescity://ty=s&qu='.$searchkeyword;
 		/* ======= Seo Update ============= */
 		
 		$this->view->setVars(
@@ -130,7 +130,7 @@ class LocationController extends BaseController{
 		}
 		$this->view->meta_description = 'Check out the top upcoming events and current events happening in '.$searchkeyword.', '.$this->cityshown($this->currentCity).' along with date, time, map and contact details.';
 		$this->view->meta_keywords = 'events in '.$searchkeyword.', events in '.$searchkeyword.' '.$this->cityshown($this->currentCity).', upcoming events in '.$searchkeyword;
-		$this->view->deep_link = 'timescity://ty=s&qu'.$searchkeyword;
+		$this->view->deep_link = 'timescity://ty=s&qu='.$searchkeyword;
 		/* ======= Seo Update ============= */
 		
     }

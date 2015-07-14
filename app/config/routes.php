@@ -94,7 +94,7 @@ $router->add("/{city}/events", array(
 
 $router->add("/{city}/biryanihaleem", array(
     'controller' => 'quiz',
-    'action' => 'index',
+    'action' => 'winners',
 )); 
 
 $router->add("/{city}/biryanihaleem/winners", array(

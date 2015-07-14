@@ -31,6 +31,10 @@ class Elements extends Component
 			'caption' => 'About Us',
 			'action' => 'about-us'
 		),
+		'advertise' => array(
+			'caption' => 'Advertise on What\'s Hot',
+			'action' => 'advertise'
+		),
 		'terms' => array(
 			'caption' => 'Terms and Conditions',
 			'action' => 'terms'
@@ -67,15 +71,20 @@ class Elements extends Component
 		$actionName = $this->view->getActionName();
 		echo "<ul class='list'>";
 		foreach ($this->_navmenu as $action => $option) {
-			if ($actionName == $action) {
-				echo '<li class="active">';
-			} else {
-				echo '<li>';
+			if($action == 'advertise'){
+				echo '<li><a href="mailto:advertise@whatshot.in?subject=Advertise on What\'s Hot" target="_blank" class="makeaactive">'.$option['caption'].'</a></li>';
+			}else {
+				if ($actionName == $action) {
+					echo '<li class="active">';
+				} else {
+					echo '<li>';
+				}
+				echo '<a href="'.$url.'/'.$option['action'].'">'.$option['caption'].'</a>';
+				echo '</li>';
 			}
-			echo '<a href="'.$url.'/'.$option['action'].'">'.$option['caption'].'</a>';
-			echo '</li>';
 		}
 		echo '<li><a href="'.$url.'/'.$city.'/feed">RSS</a></li>';
+		echo '<li><a href="mailto:pingsocial@whatshot.in?subject=Promote my event on What\'s Hot" target="_blank">Promote your Event</a></li>';
 		echo '</ul>';
 
     }

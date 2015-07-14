@@ -67,11 +67,24 @@ class ContentController extends BaseController{
 			/* ======= Seo Update ============= */
 			if($contentdetail['page_title'])
 				$this->tag->setTitle($contentdetail['page_title']);
-			$this->view->meta_description = $contentdetail['meta_description'];
+			//$this->view->meta_description = $contentdetail['meta_description'];
+			
+			if(strlen($contentdetail['summary']) > 158){
+				if (preg_match('/^.{1,155}\b/s', $contentdetail['summary'], $match)){
+					$summary=$match[0];
+				}
+			}else{
+				$summary_len = 155-strlen($contentdetail['summary']);
+				if (preg_match('/^.{1,'.$summary_len.'}\b/s', strip_tags($contentdetail['description']), $match)){
+					$summary= $contentdetail['summary'] .' '. $match[0];
+				}
+				
+			}
+			$this->view->meta_description = $summary;
 			$this->view->meta_keywords = $contentdetail['meta_keywords'];
 			$this->view->og_title = $contentdetail['og_title'];
 			$this->view->og_type = 'website';
-			$this->view->og_description = $contentdetail['og_description'];
+			$this->view->og_description = $summary; //$contentdetail['og_description'];
 			
 			if($contentdetail['og_image'] == '/img/wh_default.png'){
 				$this->view->og_image = $this->makeurl($this->baseUrl, $contentdetail['images'][0]['uri']).'?w=500';

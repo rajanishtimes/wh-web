@@ -44,7 +44,7 @@ class SearchController extends BaseController{
 		$this->tag->setTitle($searchkeyword.' | '.$this->config->application->SiteName);
 		$this->view->meta_description = 'Find all information related to '.$searchkeyword.' at '.$this->config->application->SiteName;
 		$this->view->meta_keywords = $searchkeyword;
-		$this->view->deep_link = 'timescity://ty=s&qu'.$searchkeyword;
+		$this->view->deep_link = 'timescity://ty=s&qu='.$searchkeyword;
 		/* ======= Seo Update ============= */
 		
 		$this->view->setVars(
@@ -132,7 +132,7 @@ class SearchController extends BaseController{
 		}
 		$this->view->meta_description = 'Find all information related to '.$searchkeyword.' at '.$this->config->application->SiteName;
 		$this->view->meta_keywords = $searchkeyword;
-		$this->view->deep_link = 'timescity://ty=s&qu'.$searchkeyword;
+		$this->view->deep_link = 'timescity://ty=s&qu='.$searchkeyword;
 		/* ======= Seo Update ============= */
 		
     }
