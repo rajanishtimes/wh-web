@@ -144,6 +144,7 @@ class BaseController extends Controller{
             ->addCss($this->baseUrl.'/plugins/owl-carousel/owl.carousel.css', false)
             ->addCss($this->baseUrl.'/plugins/owl-carousel/owl.theme.css', false)
             ->addCss($this->baseUrl.'/plugins/swipebox/src/css/swipebox.css', false)
+            ->addCss($this->baseUrl.'/css/jquery.smartbanner.css', false)
             ->join(true)
             ->addFilter(new \Phalcon\Assets\Filters\Cssmin());
 
@@ -173,6 +174,7 @@ class BaseController extends Controller{
             ->addCss($this->baseUrl.'/plugins/swipebox/src/js/jquery.swipebox.min.js', false)
             ->addCss($this->baseUrl.'/js/jquery.unveil.js', false)
             ->addCss($this->baseUrl.'/js/cookies.js', false)
+            ->addCss($this->baseUrl.'/js/jquery.smartbanner.js', false)
             ->join(true)
             ->addFilter(new \Phalcon\Assets\Filters\Jsmin());
 
