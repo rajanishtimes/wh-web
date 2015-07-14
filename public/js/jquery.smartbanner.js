@@ -8,7 +8,6 @@
  
         this.origHtmlMargin = parseFloat($('html').css('margin-top')) // Get the original margin-top of the HTML element so we can take that into account
         this.options = $.extend({}, $.smartbanner.defaults, options)
-
         var standalone = navigator.standalone // Check if it's already a standalone web app or running within a webui view of an app (not mobile safari)
           , UA = navigator.userAgent
 
@@ -81,7 +80,7 @@
               link = link + '&referrer=' + this.options.GooglePlayParams;
             }
 
-            var banner = '<div id="smartbanner" class="'+this.type+'"><div class="sb-container"><a href="#" class="sb-close">&times;</a><span class="sb-icon"></span><div class="sb-info"><strong>'+this.title+'</strong><span>'+this.author+'</span><span>'+inStore+'</span></div><a href="'+link+'" class="sb-button"><span>'+this.options.button+'</span></a></div></div>';
+            var banner = '<div id="smartbanner" class="'+this.type+'"><div class="sb-container"><a href="#" class="sb-close">&times;</a><span class="sb-icon"><img class="float-left setmargin" src="/img/smartbannericon.png"></span><div class="sb-info"><strong>What\'s Hot App</strong><span>'+this.author+'</span><span>'+inStore+'</span></div><a href="'+link+'" class="sb-button"><span>'+this.options.button+'</span></a></div></div>';
             (this.options.layer) ? $(this.options.appendToSelector).append(banner) : $(this.options.appendToSelector).prepend(banner);
 
             if (this.options.icon) {
@@ -119,7 +118,7 @@
                     .css('-moz-transform', 'scale('+this.scale+')')
                     .css('width', $(window).width() / this.scale)
             }
-            $('#smartbanner').css('position', (this.options.layer) ? 'absolute' : 'static')
+            $('#smartbanner').css('position', (this.options.layer) ? 'absolute' : 'absolute')
         }
 
       , listen: function () {

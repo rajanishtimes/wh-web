@@ -78,6 +78,9 @@
 		{% endif  %}
 
 		<link rel='alternate' type='application/rss+xml' title='RSS' href='{{baseUrl}}/{{city}}/feed'>
+		<meta name="author" content="What's Hot">
+	    <meta name="apple-itunes-app" content="app-id=636515332">
+		<meta name="google-play-app" content="app-id=com.phdmobi.timescity">
 		
 		{{ get_title() }}
 		

@@ -194,6 +194,7 @@ function manageCityCookie(){
 	}
 }
 function DOMReady(){
+	$(function () { $.smartbanner() })
 	var milliseconds = new Date().getTime();
 	$.ajax({
 		url:baseUrl+'/log/index/'+milliseconds,
