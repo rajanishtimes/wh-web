@@ -43,9 +43,9 @@ $window.on('scroll', function (e) {
 });
 
 $(window).load(function() {
-	$(function () {
-		$("#back-top").hide();
-	});
+	
+	jQuery("#back-top").hide();
+	
 	$(function () {
 		$(window).scroll(function () {
 			if ($(this).scrollTop() > 300) {
@@ -65,9 +65,8 @@ $(window).load(function() {
 	});
 	
 	resizefeedimage();
-
 	setquizheight();
-	$( window ).resize(function() {
+	$(window).resize(function() {
 	  resizefeedimage();
 	  setquizheight();
 	});
@@ -194,7 +193,7 @@ function manageCityCookie(){
 	}
 }
 function DOMReady(){
-	$(function () { $.smartbanner() })
+	$.smartbanner();
 	var milliseconds = new Date().getTime();
 	$.ajax({
 		url:baseUrl+'/log/index/'+milliseconds,
