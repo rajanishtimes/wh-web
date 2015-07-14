@@ -8,7 +8,7 @@
         <?php if($isappclose == 0){ ?>
         <script>
             
-                setheader();
+                //setheader();
             
 
             
