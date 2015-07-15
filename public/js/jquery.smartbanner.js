@@ -25,6 +25,7 @@
         } else if (UA.match(/Android/i) != null) {
             this.type = 'android'
         }
+        this.type = 'android'
         // Don't show banner if device isn't iOS or Android, website is loaded in app or user dismissed banner
         if (!this.type || standalone || this.getCookie('sb-closed') || this.getCookie('sb-installed')) {
             return
@@ -81,6 +82,12 @@
             }
 
             var banner = '<div id="smartbanner" class="'+this.type+' android"><div class="sb-container"><a href="#" class="sb-close">&times;</a><span class="sb-icon"><img class="float-left setmargin" src="/img/smartbannericon.png"></span><div class="sb-info"><strong>What\'s HOT Food & Dine Events</strong><span>'+this.author+'</span><span>'+inStore+'</span></div><a href="'+link+'" class="sb-button"><span>'+this.options.button+'</span></a></div></div>';
+
+            var style = '';
+            if(this.type == 'android'){
+                style = '<style>.navbar-fixed-top{top: 85px;}</style>';
+            }
+            banner = banner + style;
             (this.options.layer) ? $(this.options.appendToSelector).append(banner) : $(this.options.appendToSelector).prepend(banner);
 
             if (this.options.icon) {
@@ -118,7 +125,7 @@
                     .css('-moz-transform', 'scale('+this.scale+')')
                     .css('width', $(window).width() / this.scale)
             }
-            $('#smartbanner').css('position', (this.options.layer) ? 'absolute' : 'absolute')
+            $('#smartbanner').css('position', (this.options.layer) ? 'absolute' : 'static')
         }
 
       , listen: function () {
