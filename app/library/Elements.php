@@ -72,7 +72,7 @@ class Elements extends Component
 		echo "<ul class='list'>";
 		foreach ($this->_navmenu as $action => $option) {
 			if($action == 'advertise'){
-				echo '<li><a href="mailto:advertise@whatshot.in?subject=Advertise on What\'s Hot" target="_blank" class="makeaactive">'.$option['caption'].'</a></li>';
+				echo '<li><a href="mailto:advertise@whatshot.in?subject=Advertise on What\'s Hot" class="makeaactive">'.$option['caption'].'</a></li>';
 			}else {
 				if ($actionName == $action) {
 					echo '<li class="active">';
@@ -84,7 +84,7 @@ class Elements extends Component
 			}
 		}
 		echo '<li><a href="'.$url.'/'.$city.'/feed">RSS</a></li>';
-		echo '<li><a href="mailto:pingsocial@whatshot.in?subject=Promote my event on What\'s Hot" target="_blank">Promote your Event</a></li>';
+		echo '<li><a href="mailto:pingsocial@whatshot.in?subject=Promote my event on What\'s Hot">Promote your Event</a></li>';
 		echo '</ul>';
 
     }

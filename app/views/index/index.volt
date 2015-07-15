@@ -1,5 +1,5 @@
 {% if(currentCity == 'hyderabad') %}
-<div class="section topbiryanistrip">
+<!--<div class="section topbiryanistrip">
 	<div class="container">
 		<div class="row contestdata">
 			<a href="{{baseUrl}}/hyderabad/biryanihaleem">
@@ -9,7 +9,7 @@
 		</div>
 	</div>
 	<div class="clearfix"></div>
-</div>
+</div>-->
 {% endif %}
 
 {% if((topfeeds is defined AND topfeeds | length > 0) OR (populartags['popular_tags'] is defined AND populartags['popular_tags'] | length > 0) OR (allfeedslist is defined AND allfeedslist | length > 0)) %}

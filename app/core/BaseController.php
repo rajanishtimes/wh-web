@@ -376,7 +376,22 @@ class BaseController extends Controller{
 			}else if( $this->sanitizedata($this->cookies->get("city")) == 'delhi' ){
 				$this->city = strtolower('delhi-ncr');
 			}else{
-				$this->city = strtolower($this->sanitizedata($this->cookies->get("city")));
+				$cities = new \WH\Model\Cities();
+				$getallcities = $cities->getResults();
+				$getcitiesarray = array();
+				foreach ($getallcities['cities'] as $key => $value) {
+					if($value['name'] == 'Delhi NCR'){
+						$getcitiesarray[$key] = 'delhi-ncr';	
+					}else{
+						$getcitiesarray[$key] = strtolower($value['name']);
+					}
+				}
+				$sanitize_city = strtolower($this->sanitizedata($this->cookies->get("city")));
+				if(in_array($sanitize_city, $getcitiesarray)){
+					$this->city = strtolower($this->sanitizedata($this->cookies->get("city")));	
+				}else{
+					$this->city = $this->defaultCity;
+				}
 			}
 		}else if($this->dispatcher->getParam('city')){
 			if(trim($this->dispatcher->getParam('city')) == 'cities'){
@@ -410,7 +425,22 @@ class BaseController extends Controller{
 			if( $this->sanitizedata($this->cookies->get("city")) == 'delhi-ncr' ){
 				$this->currentCity = strtolower($this->defaultCity);
 			}else{
-				$this->currentCity = strtolower($this->sanitizedata($this->cookies->get("city")));
+				$cities = new \WH\Model\Cities();
+				$getallcities = $cities->getResults();
+				$getcitiesarray = array();
+				foreach ($getallcities['cities'] as $key => $value) {
+					if($value['name'] == 'Delhi NCR'){
+						$getcitiesarray[$key] = 'delhi-ncr';	
+					}else{
+						$getcitiesarray[$key] = strtolower($value['name']);
+					}
+				}
+				$sanitize_city = strtolower($this->sanitizedata($this->cookies->get("city")));
+				if(in_array($sanitize_city, $getcitiesarray)){
+					$this->currentCity = strtolower($this->sanitizedata($this->cookies->get("city")));	
+				}else{
+					$this->currentCity = $this->defaultCity;
+				}
 			}
 		}
 		$this->view->currentCity = $this->currentCity;
@@ -533,11 +563,10 @@ class BaseController extends Controller{
 
 	public function sanitizedata($data){
 		$filter = new Filter();
-		echo $data;
 		$filter->add('md5', function($value) {
 			return preg_replace("/[^0-9a-zA-Z_~\-!@#\$%\^&*\(\) ]/", "", $value);
 		});
-		echo $filtered = $filter->sanitize($data, "md5");
+		$filtered = $filter->sanitize($data, "md5");
 		return $filtered;
 	}
 }
