@@ -25,7 +25,6 @@
         } else if (UA.match(/Android/i) != null) {
             this.type = 'android'
         }
-        this.type = 'android'
         // Don't show banner if device isn't iOS or Android, website is loaded in app or user dismissed banner
         if (!this.type || standalone || this.getCookie('sb-closed') || this.getCookie('sb-installed')) {
             return
