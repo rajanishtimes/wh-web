@@ -180,6 +180,7 @@
                     banner.slideUp(this.options.speedOut).removeClass('shown');
                 }
             }
+            $('.navbar-fixed-top').css('top', '0');
         }
 
       , close: function(e) {
