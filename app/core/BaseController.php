@@ -168,13 +168,23 @@ class BaseController extends Controller{
 			->setLocal(false)
 			->setTargetPath(APP_PATH.'public/js/main.js')
 			->setTargetUri('/js/main.js')
-            ->addCss($this->baseUrl.'/js/bootstrap.min.js', false)
-            ->addCss($this->baseUrl.'/js/typeahead.min.js', false)
-            ->addCss($this->baseUrl.'/plugins/owl-carousel/owl.carousel.min.js', false)
-            ->addCss($this->baseUrl.'/plugins/swipebox/src/js/jquery.swipebox.min.js', false)
-            ->addCss($this->baseUrl.'/js/jquery.unveil.js', false)
-            ->addCss($this->baseUrl.'/js/cookies.js', false)
-            ->addCss($this->baseUrl.'/js/jquery.smartbanner.js', false)
+            ->addJs($this->baseUrl.'/js/bootstrap.min.js', false)
+            ->addJs($this->baseUrl.'/js/typeahead.min.js', false)
+            ->addJs($this->baseUrl.'/plugins/owl-carousel/owl.carousel.min.js', false)
+            ->addJs($this->baseUrl.'/plugins/swipebox/src/js/jquery.swipebox.min.js', false)
+            ->addJs($this->baseUrl.'/js/jquery.unveil.js', false)
+            ->addJs($this->baseUrl.'/js/cookies.js', false)
+            ->addJs($this->baseUrl.'/js/jquery.smartbanner.js', false)
+            ->join(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Jsmin());
+
+        $this->assets
+			->collection('appsjs')
+			->setPrefix($this->baseUrl)
+			->setLocal(false)
+			->setTargetPath(APP_PATH.'public/js/app.js')
+			->setTargetUri('/js/app.js')
+            ->addJs($this->baseUrl.'/js/apps.js', false)
             ->join(true)
             ->addFilter(new \Phalcon\Assets\Filters\Jsmin());
 
@@ -523,10 +533,11 @@ class BaseController extends Controller{
 
 	public function sanitizedata($data){
 		$filter = new Filter();
+		echo $data;
 		$filter->add('md5', function($value) {
 			return preg_replace("/[^0-9a-zA-Z_~\-!@#\$%\^&*\(\) ]/", "", $value);
 		});
-		$filtered = $filter->sanitize($data, "md5");
+		echo $filtered = $filter->sanitize($data, "md5");
 		return $filtered;
 	}
 }
