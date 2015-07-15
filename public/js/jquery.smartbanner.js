@@ -118,7 +118,7 @@
                     .css('-moz-transform', 'scale('+this.scale+')')
                     .css('width', $(window).width() / this.scale)
             }
-            $('#smartbanner').css('position', (this.options.layer) ? 'absolute' : 'static')
+            $('#smartbanner').css('position', (this.options.layer) ? 'absolute' : 'absolute')
         }
 
       , listen: function () {
