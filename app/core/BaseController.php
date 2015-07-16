@@ -291,8 +291,11 @@ class BaseController extends Controller{
 		
 		if($filter_type=='tags')
 			$Search->setParam('byTags',strtolower($keyword));
-		else
+		else{
 			$Search->setParam('searchname',$keyword);
+			$Search->setParam('spellcheck','true');
+		}
+			
 		
 		if($keyword==''){
 			if($spstart == ''){
@@ -324,7 +327,8 @@ class BaseController extends Controller{
 		//echo "<pre>"; print_r($Search); exit;
 		$Search->setSearchEntity();
 		$entityresult = $Search->getSearchResults();
-			
+		
+
 		if($entityresult){
 			foreach($entityresult['results'] as $key=>$entity){
 				if(!empty($entity['image']['uri'])){

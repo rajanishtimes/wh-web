@@ -21,9 +21,9 @@
 							{% if(searchkeyword is empty) %}
 							{% else %}
 								{% if(allfeedslist['meta']['searched_for'] != allfeedslist['meta']['results_for']) %}
-								<h1 class="searchheading">Did you Mean <strong>{{allfeedslist['meta']['results_for']}}</strong>? Found no result for <strong>{{allfeedslist['meta']['search_for']}}</strong></h1>
+									<h1 class="searchheading">Found {{allfeedslist['meta']['match_count']}} results for "{{allfeedslist['meta']['results_for']}}" instead of "{{allfeedslist['meta']['searched_for']}}"</h1>
 								{% else %}
-								<h1 class="searchheading">{{allfeedslist['meta']['match_count']}} results found for &#8220;<strong>{{searchkeyword | trim}}</strong>&#8221;</h1>
+									<h1 class="searchheading">{{allfeedslist['meta']['match_count']}} results found for &#8220;<strong>{{searchkeyword | trim}}</strong>&#8221;</h1>
 								{% endif %}
 							{% endif %}
 							
