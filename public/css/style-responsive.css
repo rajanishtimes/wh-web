@@ -319,6 +319,9 @@ TABLET < 767px
 	.freedomlogo{
 		float: left;
 	}
+	.tag_desc {
+	    padding-right: 0%;
+	}
 }
 
 

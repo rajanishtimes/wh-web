@@ -44,6 +44,40 @@ class VenueController extends BaseController{
 		}
 
 		if($venuedetail){
+			 //echo "<pre>"; print_r($venuedetail); echo "</pre>";
+
+			$address_arr = array();
+			$formatted_address = '';
+			if (isSet($venuedetail['address']) && trim($venuedetail['address']) != '') {
+                $address_arr[] = $venuedetail['address'];
+            }
+            if (isSet($venuedetail['landmark']) && trim($venuedetail['landmark']) != '') {
+                $address_arr[] = $venuedetail['landmark'];
+            }
+            if (isSet($venuedetail['locality']) && trim($venuedetail['locality']) != '') {
+            	$searchkeyword = htmlentities(trim($venuedetail['locality']));
+				$searchkeyword = strtolower(str_replace(" ","-",stripslashes($searchkeyword)));
+				$searchkeyword = str_replace("/"," ",stripslashes($searchkeyword));
+				$searchkeyword = str_replace("*","",$searchkeyword);
+				$searchkeyword = urlencode($searchkeyword);
+
+                $address_arr[] = '<a href="'.$this->baseUrl.'/'.$this->currentCity.'/location/'.$searchkeyword.'" class="makeaactive">'.$venuedetail['locality'].'</a>';
+            }
+            if (isSet($venuedetail['zonename']) && trim($venuedetail['zonename']) != '') {
+                $address_arr[] = $venuedetail['zonename'];
+            }
+            if (isSet($venuedetail['city']) && trim($venuedetail['city']) != '') {
+                $address_arr[] = $venuedetail['city'];
+            }else  if (isSet($venuedetail['cities']) && trim($venuedetail['cities']) != '') {
+                $address_arr[] = $venuedetail['cities'];
+            }
+            if(!empty($address_arr)){
+                $formatted_address = implode(', ', $address_arr);
+            }
+			$venuedetail['formatted_address'] = $formatted_address;
+
+
+
 			$this->validateRequest($venuedetail['url']);
 
 			$Author = new \WH\Model\Solr();

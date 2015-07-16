@@ -20,7 +20,6 @@
 						<ul id="getallfeedssearch" class="media-list feed-list">
 							{% if(searchkeyword is empty) %}
 							{% else %}
-							
 								{% if(allfeedslist['meta']['searched_for'] != allfeedslist['meta']['results_for']) %}
 								<h1 class="searchheading">Did you Mean <strong>{{allfeedslist['meta']['results_for']}}</strong>? Found no result for <strong>{{allfeedslist['meta']['search_for']}}</strong></h1>
 								{% else %}

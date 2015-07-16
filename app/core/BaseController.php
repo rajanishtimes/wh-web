@@ -421,7 +421,7 @@ class BaseController extends Controller{
 			$this->currentCity = $cityformulti;
 		}else if($this->dispatcher->getParam('city')){
 			$this->currentCity = strtolower($this->dispatcher->getParam('city'));
-		}else if ($this->cookies->has("city")){
+		}else if ($this->cookies->has("currentCity")){
 			if( $this->sanitizedata($this->cookies->get("city")) == 'delhi-ncr' ){
 				$this->currentCity = strtolower($this->defaultCity);
 			}else{

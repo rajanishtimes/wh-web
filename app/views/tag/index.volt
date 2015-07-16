@@ -1,6 +1,21 @@
 <?php $this->partial('partials/breadcrumbs', array('breadcrumbs' => $breadcrumbs)); ?>
 <div class="section">
 	<div class="container">
+		
+		<?php if(isset($tagsfeeds['results']['tags']) && !empty($tagsfeeds['results']['tags'])){ ?>
+			<div class="row margin-bottom-30 margin-top-20">
+				<div class="col-sm-12 col-md-12 no-padding">
+					<div class="col-sm-2 col-md-2 text-center">
+						{{feeds.getimage(baseUrl, tagsfeeds['results']['tags']['uri'], 100, 100, tags, '', '', 'img-circle', 1)}} 
+					</div>
+					<div class="col-sm-10 col-md-10 tag_desc">
+						{{tagsfeeds['results']['tags']['description']}}
+					</div>		
+				</div>
+			</div>
+			<hr class="row">
+		<?php } ?>
+
 		<div class="row">
 			<div class="col-sm-12 col-md-12 no-padding">
 				{% if(tagsfeeds | length > 0) %}

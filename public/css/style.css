@@ -871,7 +871,7 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     width: 100%;
 }
 .topthing img, .withmask img {
-    transition: all 0.3s ease-in-out 0s;
+    /*transition: all 0.3s ease-in-out 0s;*/
 }
 .work-content.allfeeds .work-item img {
 }
@@ -879,7 +879,7 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     width: 100%;
 }
 .topthing:hover img, .withmask:hover img {
-    transform: scale(1.05);
+    /*transform: scale(1.05);*/
 }
 .feeds-data:hover {
     border: 1px solid #d31a6b;
@@ -887,6 +887,47 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
 .work-content .mix {
     display: none;
     opacity: 0;
+}
+.top_feed{
+    bottom: 0;
+}
+.top_feed.feed-name > p {
+    color: #fff;
+}
+.top_feed > div{
+    color: #fff;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+}
+.top_calender {
+    background: rgba(0, 0, 0, 0) url("../img/calender.png") no-repeat scroll 0 4px;
+    float: left;
+    margin: 0 5px 0 0;
+    padding: 12px;
+}
+.top_times{
+    background: rgba(0, 0, 0, 0) url("../img/timee.png") no-repeat scroll 0 4px;
+    float: left;
+    margin: 0 5px 0 0;
+    padding: 12px;
+}
+.top_location{
+    background: rgba(0, 0, 0, 0) url("../img/location.png") no-repeat scroll 0 4px;   
+    float: left;
+    margin: 0 5px 0 0;
+    padding: 12px;
+}
+.overlay_top {
+    background: red none repeat scroll 0 0;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+}
+.overlay_top:hover {
+    opacity: .2;
 }
 .similar-work {
     padding: 0 0 50px;
@@ -1060,7 +1101,6 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     position: relative;
 }
 .feed-name {
-    bottom: 0;
     color: #fff;
     font-family: "Lora-Bold",Calibri,Arial,sans-serif;
     font-size: 25px;
@@ -3918,4 +3958,8 @@ iframe {
     color: #b79a52;
     font-family: Rosario;
     font-style: italic;
+}
+.tag_desc {
+    font-size: 18px;
+    padding-right: 20%;
 }

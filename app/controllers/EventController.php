@@ -56,6 +56,7 @@ class EventController extends BaseController{
 					}
 				}
 			} */
+			
 			$eventdetail['venue']['slug'] = $this->create_slug($eventdetail['venue']['name']).'-v-'.str_replace('_', '-', strtolower($eventdetail['venue']['id']));
 			/* ======= Seo Update ============= */
 			if($eventdetail['page_title']){
