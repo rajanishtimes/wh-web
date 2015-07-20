@@ -32,8 +32,8 @@
 
 											{% if(topfeed['type'] == 'EVENT') %}
 												<?php  $timees = explode(', ', $topfeed['time']) ?>
-												<div class="col-sm-6 col-md-6 col-xs-6 no-padding"><div class="top_calender"></div> {{timees['0']}}</div>
-												<div class="col-sm-6 col-md-6 col-xs-6 no-padding"><div class="top_times"></div> {{timees['1']}}</div>
+												<div class="col-sm-6 col-md-6 col-xs-12 no-padding"><div class="top_calender"></div> {{timees['0']}}</div>
+												<div class="col-sm-6 col-md-6 col-xs-12 no-padding"><div class="top_times"></div> {{timees['1']}}</div>
 												<div class="col-sm-12 col-md-12 col-xs-12 no-padding"><div class="top_location"></div>{{topfeed['venueDetail']['zone']}}, {{topfeed['venueDetail']['city']}}</div>
 											{% else %}
 												<div class="col-sm-12 col-md-12 col-xs-12 no-padding">{{topfeed['description']}}</div>
