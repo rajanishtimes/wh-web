@@ -293,7 +293,9 @@ class BaseController extends Controller{
 			$Search->setParam('byTags',strtolower($keyword));
 		else{
 			$Search->setParam('searchname',$keyword);
-			$Search->setParam('spellcheck','true');
+			if($this->config->spellcheck->istrue == 1){
+				$Search->setParam('spellcheck','true');
+			}
 		}
 			
 		

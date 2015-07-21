@@ -80,7 +80,7 @@
               link = link + '&referrer=' + this.options.GooglePlayParams;
             }
 
-            var banner = '<div id="smartbanner" class="'+this.type+' android"><div class="sb-container"><a href="#" class="sb-close">&times;</a><span class="sb-icon"><img class="float-left setmargin" src="/img/smartbannericon.png"></span><div class="sb-info"><strong>What\'s HOT Food & Dine Events</strong><span>'+this.author+'</span><span>'+inStore+'</span></div><a href="'+link+'" class="sb-button"><span>'+this.options.button+'</span></a></div></div>';
+            var banner = '<div id="smartbanner" class="'+this.type+' android"><div class="sb-container"><a href="#" class="sb-close">&times;</a><span class="sb-icon"><img class="float-left setmargin" src="/img/smartbannericon.png"></span><div class="sb-info"><strong>What\'s HOT Food & Dine Events</strong><span>'+inStore+'</span></div><a href="'+link+'" class="sb-button"><span>'+this.options.button+'</span></a></div></div>';
 
             var style = '';
             if(this.type == 'android'){
@@ -246,7 +246,7 @@
         price: 'FREE', // Price of the app
         appStoreLanguage: 'us', // Language code for App Store
         inAppStore: 'On the App Store', // Text of price for iOS
-        inGooglePlay: 'In Google Play', // Text of price for Android
+        inGooglePlay: 'Android App', // Text of price for Android
         inAmazonAppStore: 'In the Amazon Appstore',
         inWindowsStore: 'In the Windows Store', //Text of price for Windows
         GooglePlayParams: null, // Aditional parameters for the market

@@ -1110,6 +1110,10 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     position: absolute;
     text-align: left;
 }
+.work-item.withmask .feed-name {
+    bottom: 0;
+}
+
 .the-box.more-padding {
     padding: 20px;
 }
