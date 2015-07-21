@@ -92,7 +92,7 @@
 				</div>
 				
 				<div class="social-share-widget">
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://twitter.com/WhatsHot_IN">Tweet</a>
+					<a href="https://twitter.com/WhatsHot_IN" class="twitter-follow-button" data-show-count="false">Follow @WhatsHot_IN</a>
 				</div>
 				
 
