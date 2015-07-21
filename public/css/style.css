@@ -901,6 +901,9 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     font-weight: normal;
     text-align: left;
 }
+.top_feed .topdesc{
+    line-height: 18px;
+}
 .top_calender {
     background: rgba(0, 0, 0, 0) url("../img/calender.png") no-repeat scroll 0 4px;
     float: left;
@@ -920,14 +923,14 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     padding: 12px;
 }
 .overlay_top {
-    background: red none repeat scroll 0 0;
+    background: #d2186a none repeat scroll 0 0;
     height: 100%;
     opacity: 0;
     position: absolute;
     width: 100%;
 }
 .overlay_top:hover {
-    opacity: .2;
+    opacity: .5;
 }
 .similar-work {
     padding: 0 0 50px;

@@ -36,7 +36,7 @@
 												<div class="col-sm-6 col-md-6 col-xs-12 no-padding"><div class="top_times"></div> {{timees['1']}}</div>
 												<div class="col-sm-12 col-md-12 col-xs-12 no-padding"><div class="top_location"></div>{{topfeed['venueDetail']['zone']}}, {{topfeed['venueDetail']['city']}}</div>
 											{% else %}
-												<div class="col-sm-12 col-md-12 col-xs-12 no-padding">{{topfeed['description']}}</div>
+												<div class="col-sm-12 col-md-12 col-xs-12 no-padding topdesc">{{topfeed['description']}}</div>
 											{% endif %}
 										</div>
 									</div>
