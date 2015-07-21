@@ -136,10 +136,10 @@ class BaseController extends Controller{
 
 		$this->assets
 			->collection('header')
-			//->setPrefix($this->baseUrl)
+			->setPrefix($this->baseUrl)
 			->setLocal(false)
-			->setTargetPath(APP_PATH.'public/local.whatshot.in/header.css')
-			->setTargetUri('/header.css')
+			->setTargetPath(APP_PATH.'public/css/header.css')
+			->setTargetUri('/css/header.css')
             ->addCss($this->baseUrl.'/css/bootstrap.min.css', false)
             ->addCss($this->baseUrl.'/plugins/owl-carousel/owl.carousel.css', false)
             ->addCss($this->baseUrl.'/plugins/owl-carousel/owl.theme.css', false)
@@ -150,21 +150,24 @@ class BaseController extends Controller{
 
         $this->assets
 			->collection('main')
-			//->setPrefix($this->baseUrl)
+			->setPrefix($this->baseUrl)
 			->setLocal(false)
-			->setTargetPath(APP_PATH.'public/local.whatshot.in/main.css')
-			->setTargetUri('/main.css')
+			->setTargetPath(APP_PATH.'public/css/main.css')
+			->setTargetUri('/css/main.css')
             ->addCss($this->baseUrl.'/css/style.css', false)
             ->addCss($this->baseUrl.'/css/style-responsive.css', false)
             ->join(true)
             ->addFilter(new \Phalcon\Assets\Filters\Cssmin());
 
+		
+
+
         $this->assets
 			->collection('js')
-			//->setPrefix($this->baseUrl)
+			->setPrefix($this->baseUrl)
 			->setLocal(false)
-			->setTargetPath(APP_PATH.'public/local.whatshot.in/main.js')
-			->setTargetUri('/main.js')
+			->setTargetPath(APP_PATH.'public/js/main.js')
+			->setTargetUri('/js/main.js')
             ->addJs($this->baseUrl.'/js/bootstrap.min.js', false)
             ->addJs($this->baseUrl.'/js/typeahead.min.js', false)
             ->addJs($this->baseUrl.'/plugins/owl-carousel/owl.carousel.min.js', false)
@@ -177,10 +180,10 @@ class BaseController extends Controller{
 
         $this->assets
 			->collection('appsjs')
-			//->setPrefix($this->baseUrl)
+			->setPrefix($this->baseUrl)
 			->setLocal(false)
-			->setTargetPath(APP_PATH.'public/local.whatshot.in/app.js')
-			->setTargetUri('/app.js')
+			->setTargetPath(APP_PATH.'public/js/app.js')
+			->setTargetUri('/js/app.js')
             ->addJs($this->baseUrl.'/js/apps.js', false)
             ->join(true)
             ->addFilter(new \Phalcon\Assets\Filters\Jsmin());

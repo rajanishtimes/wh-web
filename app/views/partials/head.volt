@@ -94,11 +94,11 @@
 		
 		
 		<!-- MAIN CSS (REQUIRED ALL PAGE)-->
-		<!--<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/header.css" />
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/header.css" />
 		{% if(controllername == 'quiz') %}
 			<link rel="stylesheet" type="text/css" href="{{baseUrl}}{{elements.auto_version('/css/quiz.css')}}" />
 		{% endif %}
-		<link rel="stylesheet" type="text/css" href="{{baseUrl}}{{elements.auto_version('/css/main.css')}}" />-->
+		<link rel="stylesheet" type="text/css" href="{{baseUrl}}{{elements.auto_version('/css/main.css')}}" />
 
 		
 		
