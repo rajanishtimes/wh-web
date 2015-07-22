@@ -74,7 +74,7 @@ class SearchController extends BaseController{
 			$Suggestion = new \WH\Model\Solr();
 			$searchkeyword = $this->request->get("search");
 			$Suggestion->setParam('searchname',$searchkeyword);
-			$Suggestion->setParam('bycity',$this->currentCity);
+			$Suggestion->setParam('bycity', strtolower($this->sanitizedata($this->cookies->get("currentCity"))));
 			$Suggestion->setAutoSuggest();
 			try{
 				$autosuggestresult = $Suggestion->getSuggestResults();
