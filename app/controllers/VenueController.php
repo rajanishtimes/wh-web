@@ -95,7 +95,7 @@ class VenueController extends BaseController{
 				$venuedetail['reviews'][$key]['author'] = $author;
 
 
-				$rwidth = round((($reviews['food_rate'] + $reviews['service_rate'] + $reviews['decor_rate'])/3), 1);
+				$rwidth = round((($reviews['rating'][0]['rating'] + $reviews['rating'][1]['rating'] + $reviews['rating'][2]['rating'])/3), 1);
 				$reviewwidth = $rwidth*33;
 				$venuedetail['reviews'][$key]['rwidth'] = $rwidth;
 				$venuedetail['reviews'][$key]['reviewwidth'] = $reviewwidth;
@@ -104,60 +104,30 @@ class VenueController extends BaseController{
 					$ratings = array();
 					$background_color = array('#e74c3c', '#f7c912', '#2ecc71');
 					$border_color = array('#b51707', '#be9f0e', '#0f9a4a');
-					$food_rate = ($reviews['food_rate']/5)*100;
-					$service_rate = ($reviews['service_rate']/5)*100;
-					$decor_rate = ($reviews['decor_rate']/5)*100;
-
-					$ratings['food']['rating'] = $reviews['food_rate'];
-					if($food_rate < 33){
-						$ratings['food']['background_color'] = $background_color[0];
-						$ratings['food']['border_color'] = $border_color[0];
-						$ratings['food']['width'] = $food_rate;
-					}else if($food_rate > 33 && $food_rate < 66){
-						$ratings['food']['background_color'] = $background_color[1];
-						$ratings['food']['border_color'] = $border_color[1];
-						$ratings['food']['width'] = $food_rate;
-					}else{
-						$ratings['food']['background_color'] = $background_color[2];
-						$ratings['food']['border_color'] = $border_color[2];
-						$ratings['food']['width'] = $food_rate;
+					
+					 
+					foreach($reviews['rating'] as $key2=>$ratingg){
+						$food_rate = ($ratingg['rating']/5)*100;
+						if($food_rate < 33){
+							$venuedetail['reviews'][$key]['rating'][$key2]['background_color'] = $background_color[0];
+							$venuedetail['reviews'][$key]['rating'][$key2]['border_color'] = $border_color[0];
+							$venuedetail['reviews'][$key][$key2]['width'] = $food_rate;
+						}else if($food_rate > 33 && $food_rate < 66){
+							$venuedetail['reviews'][$key]['rating'][$key2]['background_color'] = $background_color[1];
+							$venuedetail['reviews'][$key]['rating'][$key2]['border_color'] = $border_color[1];
+							$venuedetail['reviews'][$key]['rating'][$key2]['width'] = $food_rate;
+						}else{
+							$venuedetail['reviews'][$key]['rating'][$key2]['background_color'] = $background_color[2];
+							$venuedetail['reviews'][$key]['rating'][$key2]['border_color'] = $border_color[2];
+							$venuedetail['reviews'][$key]['rating'][$key2]['width'] = $food_rate;
+						}
 					}
 					
 
-					$ratings['service']['rating'] = $reviews['service_rate'];
-					if($service_rate < 33){
-						$ratings['service']['background_color'] = $background_color[0];
-						$ratings['service']['border_color'] = $border_color[0];
-						$ratings['service']['width'] = $service_rate;
-					}else if($service_rate > 33 && $service_rate < 66){
-						$ratings['service']['background_color'] = $background_color[1];
-						$ratings['service']['border_color'] = $border_color[1];
-						$ratings['service']['width'] = $service_rate;
-					}else{
-						$ratings['service']['background_color'] = $background_color[2];
-						$ratings['service']['border_color'] = $border_color[2];
-						$ratings['service']['width'] = $service_rate;
-					}
-
-					$ratings['decor']['rating'] = $reviews['decor_rate'];
-					if($decor_rate < 33){
-						$ratings['decor']['background_color'] = $background_color[0];
-						$ratings['decor']['border_color'] = $border_color[0];
-						$ratings['decor']['width'] = $decor_rate;
-					}else if($decor_rate > 33 && $decor_rate < 66){
-						$ratings['decor']['background_color'] = $background_color[1];
-						$ratings['decor']['border_color'] = $border_color[1];
-						$ratings['decor']['width'] = $decor_rate;
-					}else{
-						$ratings['decor']['background_color'] = $background_color[2];
-						$ratings['decor']['border_color'] = $border_color[2];
-						$ratings['decor']['width'] = $decor_rate;
-					}
-
 				/* Rating Progress Bar End*/
-				$venuedetail['reviews'][$key]['ratings'] = $ratings;
+			
 			}
-			//echo "<pre>"; print_r($venuedetail); echo "</pre>"; exit;
+			//echo "<pre>"; print_r($venuedetail); echo "</ pre>"; exit;
 			
 			$events['results'] = $venuedetail['upcoming_events'];
 			$pastevents['results'] = $venuedetail['past_events'];

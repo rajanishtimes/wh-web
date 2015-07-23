@@ -123,9 +123,9 @@
 							</div>
 						</div>-->
 						<div class="progressbar float-left">
-							{% for key, rating in venuedetail['reviews'][0]['ratings'] %}
+							{% for key, rating in venuedetail['reviews'][0]['rating'] %}
 							<div class="progres-bar">
-								<div class="text-color float-left"><div class="rate-text float-left">{{key}}</div></div>
+								<div class="text-color float-left"><div class="rate-text float-left">{{rating['title']}}</div></div>
 								<div class="progress-container">
 									<div class="single-color"></div>
 									<div class="multi-color" style="background-color:{{rating['background_color']}}; border-color:{{rating['border_color']}}; width:{{rating['width']}}%"></div>

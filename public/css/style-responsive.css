@@ -187,6 +187,9 @@ SMALL DESKTOP 768px <> 991px
 		border-right: 80px solid transparent;
 	}
 	/* =========== Biryani and haleem ========== */	
+	.feed-short-desc{
+		padding-top: 3px;
+	}
 }
 
 

@@ -43,15 +43,17 @@ class Feeds extends Component
 							</a>
 							<a href="<?php echo $url . $feed['url']; ?>" <?php echo $gaattr;?>>
 								<div class="the-box no-margin no-border">
-									<div class="feed-title"><?php echo $this->process_title($feed['title']); ?></div>
-									<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
-										<div class="homepagevenue">
-											<div class="time"><?php echo $feed['time']; ?></div>
-											<div class="landmark"><?php echo $feed['venue']; ?></div>
-										</div>
-									<?php }else{ ?>
-										<div class="feed-short-desc"><?php echo strip_tags($feed['description'], '<a>'); ?></div>
-									<?php }?>
+									<div class="boundarea">
+										<div class="feed-title" title="<?php echo $feed['title']; ?>"><?php echo $feed['title']; ?></div>
+										<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
+											<div class="homepagevenue">
+												<div class="time"><?php echo $feed['time']; ?></div>
+												<div class="landmark"><?php echo $feed['venue']; ?></div>
+											</div>
+										<?php }else{ ?>
+											<div class="feed-short-desc"><?php echo strip_tags($feed['description'], '<a>'); ?></div>
+										<?php }?>
+									</div>
 								</div>
 							</a>
 						</div>
@@ -73,15 +75,17 @@ class Feeds extends Component
 								</a>
 								<a href="<?php echo $url . $feed['url']; ?>"  <?php echo $gaattr;?>>
 									<div class="the-box no-margin no-border">
-										<div class="feed-title"><?php echo $this->process_title($feed['title']); ?></div>
-										<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
-											<div class="homepagevenue">
-												<div class="time"><?php echo $feed['time']; ?></div>
-												<div class="landmark"><?php echo $feed['venue']; ?></div>
-											</div>
-										<?php }else{ ?>
-											<div class="feed-short-desc"><?php echo strip_tags($feed['description'], '<a>'); ?></div>
-										<?php }?>
+										<div class="boundarea">
+											<div class="feed-title" title="<?php echo $feed['title']; ?>"><?php echo $feed['title']; ?></div>
+											<?php if(strtoupper($feed['type']) == 'EVENT'){ ?>
+												<div class="homepagevenue">
+													<div class="time"><?php echo $feed['time']; ?></div>
+													<div class="landmark"><?php echo $feed['venue']; ?></div>
+												</div>
+											<?php }else{ ?>
+												<div class="feed-short-desc"><?php echo strip_tags($feed['description'], '<a>'); ?></div>
+											<?php }?>
+										</div>
 									</div>
 								</a>
 							</div>
@@ -107,7 +111,7 @@ class Feeds extends Component
 					<a href="<?php echo $url . $feed['url']; ?>"  <?php echo $gaattr;?>>
 						<div class="work-item withmask">
 							<div class="the-box full no-border transparent no-margin make-up">
-								<p class="feed-name"><?php echo stripslashes($feed['title']); ?></p>
+								<p class="feed-name" title="<?php echo $feed['title']; ?>"><?php echo stripslashes($feed['title']); ?></p>
 							</div>
 							<?php echo $this->getimage($url, $feed['image']['uri'], 479, 479, $feed['title'], $feed['image'], '', '', $start+$i); ?>
 						</div>
@@ -121,7 +125,7 @@ class Feeds extends Component
 					{
 						"@context": "http://schema.org",
 						"@type" : "Event",
-						"name" : "<?php echo $this->process_title($feed['title']); ?>",
+						"name" : "<?php echo $feed['title']; ?>",
 						"image" : "<?php echo $feed['image']['uri']; ?>",
 						"description" : "<?php echo htmlentities(strip_tags($feed['description'])); ?>",
 						"url" : "<?php echo $url.$feed['url']; ?>",
@@ -162,7 +166,7 @@ class Feeds extends Component
 						</a>
 						<a href="<?php echo $url. $feed['url']; ?>">
 						<div class="the-box no-margin no-border">
-							<div class="feed-title"><?php echo $this->process_title($feed['title']); ?></div>
+							<div class="feed-title" title="<?php echo $feed['title']; ?>"><?php echo $feed['title']; ?></div>
 							<?php
 								$desc = strip_tags($feed['description']);
 								$description = strlen($desc) > 100 ? substr($desc, 0, 100).'...' : $desc;
@@ -235,7 +239,7 @@ class Feeds extends Component
 					{
 						"@context": "http://schema.org",
 						"@type" : "Event",
-						"name" : "<?php echo $this->process_title($feed['title']); ?>",
+						"name" : "<?php echo $feed['title']; ?>",
 						"image" : "<?php echo $feed['image']['uri']; ?>",
 						"description" : "<?php echo htmlentities(strip_tags($feed['description'])); ?>",
 						"url" : "<?php echo $baseUrl.$feed['url']; ?>",

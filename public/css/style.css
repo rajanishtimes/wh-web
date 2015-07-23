@@ -929,7 +929,7 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     position: absolute;
     width: 100%;
 }
-.overlay_top:hover {
+.overlay_top:hover, .topthing a:hover .overlay_top {
     opacity: .5;
 }
 .similar-work {
@@ -982,8 +982,6 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     font-size: 20px;
     line-height: 22px;
     margin-bottom: 10px;
-    max-height: 47px;
-    min-height: 24px;
     overflow: hidden;
     padding-bottom: 3px;
     text-align: left;
@@ -1002,10 +1000,6 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     color: #6a6a6a;
     font-family: Roboto;
     font-size: 12px;
-    line-height: 16px;
-    margin: 0;
-    max-height: 65px;
-    overflow: hidden;
     text-align: left;
 }
 .feeds-data:hover .feed-short-desc {
@@ -1021,6 +1015,10 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     background: rgba(0, 0, 0, 0) url("../img/icon_binocular.png") no-repeat scroll 0 0;
     height: 31px;
     width: 71px;
+}
+.boundarea {
+    height: 100%;
+    overflow: hidden;
 }
 .section {
     background: #fff none repeat scroll 0 0;
