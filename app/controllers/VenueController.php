@@ -44,7 +44,7 @@ class VenueController extends BaseController{
 		}
 
 		if($venuedetail){
-			 //echo "<pre>"; print_r($venuedetail); echo "</pre>";
+			//echo "<pre>"; print_r($venuedetail); echo "</pre>";
 
 			$address_arr = array();
 			$formatted_address = '';

@@ -41,6 +41,7 @@
 			</div><div class="clearfix"></div><div style="height:20px"></div>
 		</div>
 
+		<?php if(strtolower($venuedetail['reviews'][0]['venuetype']) == 'restaurant' || strtolower($venuedetail['reviews'][0]['venuetype']) == 'nightlife'){ ?>
 		<?php if(!empty($venuedetail['cuisines']) || (!empty($venuedetail['price_per'])) || (!empty($venuedetail['features'])) || !empty($venuedetail['images'][0]['uri'])){ ?>
 		<div class="row service_container">
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
@@ -91,7 +92,7 @@
 				
 			</div>
 		</div>
-		<?php } ?>
+		<?php }} ?>
 
 		{% if(venuedetail['reviews'][0] is defined) %}
 		<div class="col-xs-12 no-padding">

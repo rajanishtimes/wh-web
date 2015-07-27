@@ -137,6 +137,7 @@
 				deep_link: '{{deep_link}}',
 			};
 		</script>
+
 		<?php
 			/*$ua = $_SERVER["HTTP_USER_AGENT"];
 			$issafari = strpos($ua, 'Safari') ? true : false;
@@ -152,6 +153,21 @@
 		{% endblock %}
 	</head>
 	<body class="tooltips no-padding">
+		<!-- Begin comScore Tag -->
+		<script>
+		  var _comscore = _comscore || [];
+		  _comscore.push({ c1: "2", c2: "6036484" });
+		  (function() {
+		    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+		    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+		    el.parentNode.insertBefore(s, el);
+		  })();
+		</script>
+		<noscript>
+		  <img src="http://b.scorecardresearch.com/p?c1=2&c2=6036484&cv=2.0&cj=1" />
+		</noscript>
+		<!-- End comScore Tag -->
+
 		<?php //echo $ua = $_SERVER["HTTP_USER_AGENT"]; exit;?>
 		<!-- iframe used for attempting to load a custom protocol -->
 		<iframe style="display:none" height="0" width="0" id="loader"></iframe>
