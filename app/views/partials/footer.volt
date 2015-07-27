@@ -103,7 +103,7 @@
 				
 			</div>
 			<div class="col-sm-6 col-xs-12 text-right lineheight">
-				&copy; 2015 <a href="{{baseUrl}}">WhatsHot.in | Indiatimes Lifestyle Network.</a> &ndash; All rights reserved  
+				&copy; 2015 <a href="{{baseUrl}}">WhatsHot.in</a> | Indiatimes Lifestyle Network. &ndash; All rights reserved  
 			</div><!-- /.col-sm-5 -->
 		</div><!-- /.row -->
 	</div><!-- /.container -->
