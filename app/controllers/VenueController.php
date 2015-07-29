@@ -111,7 +111,7 @@ class VenueController extends BaseController{
 						if($food_rate < 33){
 							$venuedetail['reviews'][$key]['rating'][$key2]['background_color'] = $background_color[0];
 							$venuedetail['reviews'][$key]['rating'][$key2]['border_color'] = $border_color[0];
-							$venuedetail['reviews'][$key][$key2]['width'] = $food_rate;
+							$venuedetail['reviews'][$key]['rating'][$key2]['width'] = $food_rate;
 						}else if($food_rate > 33 && $food_rate < 66){
 							$venuedetail['reviews'][$key]['rating'][$key2]['background_color'] = $background_color[1];
 							$venuedetail['reviews'][$key]['rating'][$key2]['border_color'] = $border_color[1];
