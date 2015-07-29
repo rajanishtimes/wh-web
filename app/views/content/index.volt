@@ -41,10 +41,16 @@
 					<?php } ?>
 					<hr class="small">
 
-					<div class="detail">
-						<?php //$description = str_replace(array('<p><strong>', '</strong></p>'), array('<h4>', '</h4>'), $contentdetail['description']); ?>
-						{{contentdetail['description']}}
-					</div>
+						<div class="detail">
+							<?php //$description = str_replace(array('<p><strong>', '</strong></p>'), array('<h4>', '</h4>'), $contentdetail['description']); ?>
+							{{contentdetail['description']}}
+						</div>
+
+						<div class="detail">
+							<script class="lockerdome-js-lite" src="//cdn2.lockerdome.com/_js/widget_interest_1_0.js" data-owner="7850612108835329" data-style="text" data-width="full-width" data-size="custom-large" data-size_specifics="40" data-box="box-on" data-follow_up="7891395776104219" data-follow_up_specifics="2"></script>
+						</div>
+											
+
 						<div class="share">
 							<ul class="list-inline navbar-left">
 								<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#">
@@ -54,6 +60,7 @@
 								<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="google-icon"><i class="fa fa-google-plus"></i>&nbsp;<span>Share</span></div></a></li>
 							</ul><div class="clearfix"></div>
 						</div>
+
 
 						<div class="share sharewithborder">
 							{% if(contentdetail['tags'] | length > 0) %}
@@ -83,7 +90,6 @@
 									<div class="col-xs-12 col-sm-8 col-md-10 author-detail">
 											<h2><a href="{{baseUrl}}{{author['url']}}">{{author['title']}}</a></h2>
 											<p>{{author['description']}}</p>
-											
 											{% if(author['twitter_url'] != '') %}
 											<ul class="list-inline navbar-left authortwitter">
 												<li class="no-padding">
