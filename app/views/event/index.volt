@@ -6,13 +6,15 @@
 				<div class="contentarea">
 					<div class="owl-slider-set">
 						<ul id="owl-work-detail" class="owl-carousel work-detail">
-						{% for key, images in eventdetail['images'] %}
-							<li class="item">
-								<a href="{{feeds.makeurl(baseUrl, images['uri'])}}" class="swipebox" title="{{eventdetail['title']}}">
-									{{feeds.getimage(baseUrl, images['uri'], 880, 520, eventdetail['title'], '', '', 'img-detail', key+1, 'banner')}} 
-								</a>
-							</li>
-						{% endfor  %}
+						<?php if(!empty($eventdetail['images'])){ ?>
+							{% for key, images in eventdetail['images'] %}
+								<li class="item">
+									<a href="{{feeds.makeurl(baseUrl, images['uri'])}}" class="swipebox" title="{{eventdetail['title']}}">
+										{{feeds.getimage(baseUrl, images['uri'], 880, 520, eventdetail['title'], '', '', 'img-detail', key+1, 'banner')}} 
+									</a>
+								</li>
+							{% endfor  %}
+						<?php } ?>
 						</ul>
 					</div><div class="clearfix"></div>
 					<h1 class="contenttitle text-center">{{eventdetail['title'] | stripslashes}}</h1>
