@@ -85,11 +85,13 @@ class EventController extends BaseController{
 				ucwords(strtolower(trim($eventdetail['title']))) =>''
 			));
 			$this->view->setVars(array('eventdetail' => $eventdetail, 'breadcrumbs'=>$breadcrumbs, 'cityshown'=>$cityshown));
+			$this->setlogsarray('event_end');
+			$this->getlogs('event', $this->baseUrl.$eventdetail['url']);
+
 		}else{
 			$this->forwardtoerrorpage(404);
 		}
-		$this->setlogsarray('event_end');
-		$this->getlogs('event', $this->baseUrl.$eventdetail['url']);
+		
     }
 	
 	
