@@ -237,6 +237,7 @@
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
+<?php if(!empty($venuedetail['images'])){ ?>
 function eventimages(){
 	$.swipebox([
 		{% for key, images in venuedetail['images'] %}
@@ -244,6 +245,7 @@ function eventimages(){
 		{% endfor  %}
 	]);
 }
+<?php } ?>
 
 //<![CDATA[
 var map;
