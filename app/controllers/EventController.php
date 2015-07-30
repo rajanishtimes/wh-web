@@ -29,6 +29,7 @@ class EventController extends BaseController{
     public function indexAction(){
 		$this->response->setHeader('Cache-Control', 'max-age=86400');
 		preg_match('/\be-[0-9]{1,}\b/i', $this->eventtitle, $match);
+		$id = '';
 		if(isset($match[0])){
 			$id = str_replace('-', '_', $match[0]);
 		}else{
