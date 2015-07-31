@@ -29,7 +29,12 @@ class EventController extends BaseController{
     public function indexAction(){
 		$this->response->setHeader('Cache-Control', 'max-age=86400');
 		preg_match('/\be-[0-9]{1,}\b/i', $this->eventtitle, $match);
-		$id = str_replace('-', '_', $match[0]);
+		$id = 0;
+		if(isset($match[0])){
+			$id = str_replace('-', '_', $match[0]);
+		}else{
+			$this->forwardtoerrorpage(404);	
+		}
 		
 		$Solr = new \WH\Model\Solr();
 		$Solr->setParam('ids',$id);
@@ -85,11 +90,13 @@ class EventController extends BaseController{
 				ucwords(strtolower(trim($eventdetail['title']))) =>''
 			));
 			$this->view->setVars(array('eventdetail' => $eventdetail, 'breadcrumbs'=>$breadcrumbs, 'cityshown'=>$cityshown));
+			$this->setlogsarray('event_end');
+			$this->getlogs('event', $this->baseUrl.$eventdetail['url']);
+
 		}else{
 			$this->forwardtoerrorpage(404);
 		}
-		$this->setlogsarray('event_end');
-		$this->getlogs('event', $this->baseUrl.$eventdetail['url']);
+		
     }
 	
 	

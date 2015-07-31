@@ -29,7 +29,13 @@ class ContentController extends BaseController{
 		$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
 		//$this->response->setHeader('Cache-Control', 'max-age=86400');
 		preg_match('/\bc-[0-9]{1,}\b/i', $this->contenttitle, $match);
-		$id = str_replace('-', '_', $match[0]);
+		$id = 0;
+		if(isset($match[0])){
+			$id = str_replace('-', '_', $match[0]);
+		}else{
+			$this->forwardtoerrorpage(404);	
+		}
+
 		$Solr = new \WH\Model\Solr();
 		$Solr->setParam('ids',$id);
 		$Solr->setParam('fl','detail');
@@ -117,11 +123,13 @@ class ContentController extends BaseController{
 				'author'	=> $author,
 				'cityshown' => $cityshown
 			));
-			
+		
+			$this->setlogsarray('content_end');
+			$this->getlogs('content', $this->baseUrl.$contentdetail['url']);
+
 		}else{
 			$this->forwardtoerrorpage(404);
 		}
-		$this->setlogsarray('content_end');
-		$this->getlogs('content', $this->baseUrl.$contentdetail['url']);
+		
     }
 }
