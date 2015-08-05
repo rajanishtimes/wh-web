@@ -71,6 +71,13 @@
 					<?php } ?>
 				</ul>
 			</div>
+			<?php }else{ ?>
+			<div class="col-xs-12 col-sm-6 col-md-3 ">
+				&nbsp;
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-3 ">
+				&nbsp;
+			</div>
 			<?php } ?>
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
 				<ul class="list faceilities_group">
