@@ -87,7 +87,7 @@
 				</ul>
 			</div>
 
-			<?php if(strtolower($venuedetail['venuetype']) == 'restaurant' || strtolower($venuedetail['venuetype']) == 'night life'){ ?>
+			<?php if(strtolower($venuedetail['venuetype']) != 'restaurant' || strtolower($venuedetail['venuetype']) != 'night life'){ ?>
 				<div class="col-xs-12 col-sm-6 col-md-3 ">
 					&nbsp;
 				</div>
