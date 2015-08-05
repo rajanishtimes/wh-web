@@ -41,10 +41,11 @@
 			</div><div class="clearfix"></div><div style="height:20px"></div>
 		</div>
 
-		<?php if(!empty($venuedetail['reviews'])){ 
-			if(strtolower($venuedetail['reviews'][0]['venuetype']) == 'restaurant' || strtolower($venuedetail['reviews'][0]['venuetype']) == 'night life'){ ?>
+		
 		<?php if(!empty($venuedetail['cuisines']) || (!empty($venuedetail['price_per'])) || (!empty($venuedetail['features'])) || !empty($venuedetail['images'][0]['uri'])){ ?>
+
 		<div class="row service_container">
+			<?php if(strtolower($venuedetail['venuetype']) == 'restaurant' || strtolower($venuedetail['venuetype']) == 'night life'){ ?>
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
 				<ul class="list">
 					<li class="service_group cuisine">Cuisine</li>
@@ -70,6 +71,8 @@
 					<?php } ?>
 				</ul>
 			</div>
+			<?php } ?>
+
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
 				<ul class="list faceilities_group">
 					<li class="service_group facilities">Facilities</li>
@@ -83,6 +86,16 @@
 					<?php } ?>
 				</ul>
 			</div>
+
+			<?php if(strtolower($venuedetail['venuetype']) != 'restaurant' || strtolower($venuedetail['venuetype']) != 'night life'){ ?>
+				<div class="col-xs-12 col-sm-6 col-md-3 ">
+					&nbsp;
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3 ">
+					&nbsp;
+				</div>
+			<?php } ?>
+			
 			<div class="col-xs-12 col-sm-6 col-md-3">
 				<?php if (!empty($venuedetail['images'][0]['uri'])) { ?>
 					<div class="view_gallery" title="Click to see Full Gallery">
@@ -93,7 +106,7 @@
 				
 			</div>
 		</div>
-		<?php }}} ?>
+		<?php } ?>
 
 		{% if(venuedetail['reviews'][0] is defined) %}
 		<div class="col-xs-12 no-padding">
