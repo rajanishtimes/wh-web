@@ -42,7 +42,7 @@
 		</div>
 
 		<?php if(!empty($venuedetail['reviews'])){ 
-			if(strtolower($venuedetail['reviews'][0]['venuetype']) == 'restaurant' || strtolower($venuedetail['reviews'][0]['venuetype']) == 'night life'){ ?>
+			if(strtolower($venuedetail['venuetype']) == 'restaurant' || strtolower($venuedetail['venuetype']) == 'night life'){ ?>
 		<?php if(!empty($venuedetail['cuisines']) || (!empty($venuedetail['price_per'])) || (!empty($venuedetail['features'])) || !empty($venuedetail['images'][0]['uri'])){ ?>
 		<div class="row service_container">
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
