@@ -35,7 +35,7 @@
 					</div>
 					
 					<div class="detail">
-						<script class="lockerdome-js-lite" src="//cdn2.lockerdome.com/_js/widget_interest_1_0.js" data-owner="7850612108835329" data-style="text" data-width="full-width" data-size="custom-large" data-size_specifics="40" data-box="box-on" data-follow_up="share"></script>
+						<script class="lockerdome-js-lite" src="//cdn2.lockerdome.com/_js/widget_interest_1_0.js" data-owner="7850612108835329" data-style="text" data-width="fixed-width" data-size="custom-small" data-size_specifics="23" data-box="box-off" data-follow_up="share" data-follow_up_specifics="2"data-custom="bttns-no-border-radius"></script>
 					</div>
 						
 					<div class="share">

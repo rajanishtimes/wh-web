@@ -28,6 +28,7 @@ class BaseController extends Controller{
 	public $entityid = 0;
 	public $entitytype = '';
 	public $iswebview = false;
+	public $logged_user = array();
 	
     protected function initialize()
     {
@@ -133,7 +134,6 @@ class BaseController extends Controller{
 			//$this->cookies->get("city")->delete();
 			//$this->forwardtoerrorpage(404);
 		//}
-
 		$this->assets
 			->collection('header')
 			->setPrefix($this->baseUrl)
@@ -189,7 +189,9 @@ class BaseController extends Controller{
             ->addFilter(new \Phalcon\Assets\Filters\Jsmin());
 
         //echo "<pre>"; print_r($this->assets); echo "</pre>"; exit;
-		
+
+        $this->logged_user = $this->setlogin();
+		$this->view->logged_user = $this->logged_user;
     }
 
     /* protected function forward($uri){
@@ -203,6 +205,19 @@ class BaseController extends Controller{
     		)
     	);
     } */
+
+    protected function setlogin(){
+    	$loggeduser = array();
+    	$userloggedin = $this->cookies->get('whatshotuserkey');
+    	if(isset($userloggedin) && !empty($userloggedin)){
+    		$userarray = json_decode($this->redis->get($userloggedin));
+    		if(!empty($userarray)){
+    			$userarray->image = '//graph.facebook.com/'.$userarray->facebook_user_id.'/picture?type=large';
+    			$loggeduser = $userarray;
+    		}
+    	}
+    	return $loggeduser;
+    }
 	
 	protected function forwardtoerrorpage($errorcode){
         if($errorcode == 404){

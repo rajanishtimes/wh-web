@@ -138,6 +138,12 @@ $di->set('session', function() {
 	return $session;
 });
 
+$di->set('redis', function(){
+	$redis = new Redis();
+	$redis->connect('192.169.31.167', 6379);
+	return $redis;
+});
+
 
 /**
  * Start the cookie the first time some component request the session service

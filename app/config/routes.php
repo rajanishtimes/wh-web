@@ -183,6 +183,10 @@ $router->add("/homepage", array(
     'action' => 'homepage',
 )); 
 
+$router->add("/profile", array(
+    'controller' => 'profile',
+    'action' => 'index',
+));
 
 $router->add("/", array(
     'controller' => 'index',

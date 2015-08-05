@@ -7,7 +7,7 @@
 		<div class="row">
 			<!--<div class="col-xs-12 col-sm-6 col-md-3 extrapaddright">
 				<p>We deliver. Get the best of What's HOT Today in your inbox.</p>
-				{{ partial('partials/newsletter')}}
+				{partial('partials/newsletter')}
 				<p><small>You can opt-out at any time. Please refer to our privacy policy for contact information.</small></p>
 				<hr style="border-color: #ccc;">
 				<div class="social-icon">
