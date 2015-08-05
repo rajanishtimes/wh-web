@@ -71,14 +71,8 @@
 					<?php } ?>
 				</ul>
 			</div>
-			<?php }else{ ?>
-			<div class="col-xs-12 col-sm-6 col-md-3 ">
-				&nbsp;
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-3 ">
-				&nbsp;
-			</div>
 			<?php } ?>
+
 			<div class="col-xs-12 col-sm-6 col-md-3 ">
 				<ul class="list faceilities_group">
 					<li class="service_group facilities">Facilities</li>
@@ -92,6 +86,16 @@
 					<?php } ?>
 				</ul>
 			</div>
+
+			<?php if(strtolower($venuedetail['venuetype']) == 'restaurant' || strtolower($venuedetail['venuetype']) == 'night life'){ ?>
+				<div class="col-xs-12 col-sm-6 col-md-3 ">
+					&nbsp;
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3 ">
+					&nbsp;
+				</div>
+			<?php } ?>
+			
 			<div class="col-xs-12 col-sm-6 col-md-3">
 				<?php if (!empty($venuedetail['images'][0]['uri'])) { ?>
 					<div class="view_gallery" title="Click to see Full Gallery">
