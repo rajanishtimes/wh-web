@@ -196,13 +196,16 @@ function DOMReady(){
 	$.smartbanner();
 
 	var milliseconds = new Date().getTime();
-	$.ajax({
-		url:baseUrl+'/log/index/'+milliseconds,
-		type:'GET',
-		data:'entitytype='+server_variables.entitytype+'&entityid='+server_variables.entityid+'&request_uri='+server_variables.request_uri,
-		success:function(data) {
-		}
-	});
+
+	if (baseUrl == 'http://www.whatshot.in') {
+		$.ajax({
+			url:baseUrl+'/log/index/'+milliseconds,
+			type:'GET',
+			data:'entitytype='+server_variables.entitytype+'&entityid='+server_variables.entityid+'&request_uri='+server_variables.request_uri,
+			success:function(data) {
+			}
+		});
+	}
 	manageCityCookie();
 
 	$("img.lazy").unveil(200, function() {
@@ -381,6 +384,55 @@ function DOMReady(){
 	});
 }
 
+
+( function( $, window, document, undefined ){
+	'use strict';
+
+	var elSelector		= '#navbar-fixed-top',
+		$element		= $( elSelector );
+
+	if( !$element.length ) return true;
+
+	var elHeight		= 0,
+		elTop			= 0,
+		$document		= $( document ),
+		dHeight			= 0,
+		$window			= $( window ),
+		wHeight			= 0,
+		wScrollCurrent	= 0,
+		wScrollBefore	= 0,
+		wScrollDiff		= 0;
+
+	$window.on( 'scroll', function()
+	{
+		elHeight		= $element.outerHeight();
+		dHeight			= $document.height();
+		wHeight			= $window.height();
+		wScrollCurrent	= $window.scrollTop();
+		wScrollDiff		= wScrollBefore - wScrollCurrent;
+		elTop			= parseInt( $element.css( 'top' ) ) + wScrollDiff;
+
+		if( wScrollCurrent <= 0 ) // scrolled to the very top; element sticks to the top
+			$element.css( 'top', 0 );
+
+		else if( wScrollDiff > 0 ) // scrolled up; element slides in
+			$element.css( 'top', elTop > 0 ? 0 : elTop );
+
+		else if( wScrollDiff < 0 ) // scrolled down
+		{
+			if( wScrollCurrent + wHeight >= dHeight - elHeight )  // scrolled to the very bottom; element slides in
+				$element.css( 'top', ( elTop = wScrollCurrent + wHeight - dHeight ) < 0 ? elTop : 0 );
+
+			else // scrolled down; element slides out
+				$element.css( 'top', Math.abs( elTop ) > elHeight ? -elHeight : elTop );
+		}
+
+		wScrollBefore = wScrollCurrent;
+	});
+
+})( jQuery, window, document );
+
+
 var votesend = 0;
 function voting(elem, cookiesname){
 	if(votesend == 0){
@@ -523,4 +575,17 @@ function ResetAnimate()
 {
     $("#LoginButton").show();
     $("#results").html('');
+}
+
+function ajaxlogout(){
+	var whkey = cookies.get('whatshotuserkey');
+	cookies.del('whatshotuserkey', { path: '/' });
+	$.ajax( {
+		url:baseUrl+'/profile/facebooklogout',
+		type:'POST',
+		data: 'whatshotuserkey='+whkey,
+		success:function(data) {
+			document.location.reload();
+		}
+	});
 }

@@ -4109,4 +4109,27 @@ iframe {
     cursor: pointer;
 }
 /* ================ Profile Page End =============== */
+.wishlist-wrapper.add-wishlist {
+    border-left: 3px solid #e22379;
+}
 
+.wishlist-wrapper.added-wishlist{
+    border-left: 3px solid #27ae60;
+}
+.added-wishlist .btn.btn-primary {
+    background: #27ae60 none repeat scroll 0 0;
+    font-size: 16px;
+    padding: 2px 26px;
+}
+
+.wishlist-wrapper > div {
+    display: inline-table;
+    vertical-align: middle;
+}
+.wishlist-wrapper {
+    background: #f1f1f1 none repeat scroll 0 0;
+    margin: 15px auto;
+    padding: 15px;
+    width: 90%;
+    font-family: roboto;
+}
