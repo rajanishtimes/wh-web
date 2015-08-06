@@ -205,7 +205,7 @@ blockquote {
     transition: all 0.2s ease 0s;
 }
 .top-navbar .logo img {
-    height: 45px;
+    height: 40px;
 }
 
 .top-navbar .container {
@@ -216,22 +216,43 @@ blockquote {
 .top-navbar.primary-color .btn-collapse-nav{
     color: #fff;
 }
-
+.container-fluid{
+    margin-top: 58px;
+}
 .sidebar-right{
     position: fixed;
     top: 0px;
     right: -250px;
     bottom: 0;
     width: 250px;
-    background: #313940;
-    color: #AAB2BD;
+    background: #fff;
+    color: #333;
     z-index: 1;
+    box-shadow: 2px 3px 5px #000;
     -webkit-transition:All 0.3s ease;
     -moz-transition:All 0.3s ease;
     -o-transition:All 0.3s ease;
 }
 .sidebar-right.toggle-left{right: 0;}
-
+ul.sidebar-menu{ padding:0px; }
+.sidebar-menu li{
+    list-style: none;
+}
+.sidebar-menu > li.header {
+    background: #d31a6b none repeat scroll 0 0;
+    color: #fff;
+    padding: 12px 15px;
+    border: none;
+}
+.sidebar-menu > li.header a{
+    color: #fff;
+    font-family: Roboto;
+    font-size: 16px;
+}
+.sidebar-menu > li {
+    border-bottom: 1px solid #333;
+    padding: 15px 20px;
+}
 .top-navbar.toggle-left{
     left: -250px;
     right: 250px;
@@ -257,11 +278,11 @@ blockquote {
 .btn-collapse-sidebar-right{
     cursor: pointer;
     text-align: center;
-    font-size: 18px;
+    font-size: 30px;
     color: #fff;
+    line-height: 58px;
 }
 .nav-search.navbar-right.right-responsive-menu {
-    line-height: 26px;
     padding: 0 5px;
 }
 .resposive-menu {
@@ -271,6 +292,9 @@ blockquote {
     transition: background-color 0.5s ease;
     background-color: #fff;
     transition: height 0.6s ease 0s;
+    border-radius: 0px;
+    border: none;
+    margin-bottom: 0px;
 }
 .makeheaderintera {
     transition: background-color 0.5s ease;
@@ -285,10 +309,10 @@ blockquote {
 }
 .makeheaderintera .logo2 {
     display: block;
-    padding: 17px 0;
+    padding: 9px 0;
 }
 .makeheaderintera #search2{
-    padding: 27px 0;
+    padding: 17px 0;
 }
 .whresposive-menu{
     display: block;
@@ -331,10 +355,10 @@ blockquote {
     transition: all 0.2s ease 0s;
 }
 .img-circle.user-profile-img {
-    width: 50px;
+    width: 38px;
 }
 .user-profile-menu{
-    padding: 14px 14px 0;
+    padding: 8px 14px 0;
 }
 .makeheaderintera .nav-search.navbar-right {
     float: right;
@@ -345,7 +369,7 @@ blockquote {
     float: right;
     list-style: outside none none;
     margin: 0 10px 0 0;
-    padding: 29px;
+    padding: 18px;
 }
 .searchpage a > div {
     padding: 30px 25px;
@@ -367,6 +391,69 @@ blockquote {
     font-weight: 300;
     text-decoration: none;
 }
+.nav-search.navbar-right li.dropdown.whresposive-menu > a{
+    padding: 0;
+}
+
+
+.open .fancy-dropdown.dropdown-menu {
+    box-shadow: 0 0 1px rgba(76, 86, 103, 0.25), 0 2px 18px rgba(31, 37, 50, 0.32);
+    display: block !important;
+    max-height: 500px;
+    opacity: 1;
+}
+.open .fancy-dropdown.dropdown-menu li {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+}
+.fancy-dropdown.dropdown-menu {
+    background: #fff none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 0;
+    box-shadow: none;
+    max-height: 0;
+    opacity: 0;
+    display: block;
+    overflow: hidden;
+    padding: 0 33px;
+    position: absolute;
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0s;
+    z-index: 1000;
+}
+.fancy-dropdown.dropdown-menu::before {
+    color: #babec5;
+    font-size: 13px;
+    letter-spacing: 0.6px;
+    margin: 22px 0 0 5px;
+    position: absolute;
+    text-transform: uppercase;
+}
+.fancy-dropdown.dropdown-menu li {
+    margin: 0;
+    opacity: 0;
+    transform: translate3d(0px, -20px, 0px);
+    transition-delay: 0s, 0s;
+    transition-duration: 300ms, 300ms;
+    transition-property: opacity, transform;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    width: 100%;
+}
+.fancy-dropdown.dropdown-menu a {
+    color: #6f7685;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+}
+.fancy-dropdown.dropdown-menu a.active, .fancy-dropdown.dropdown-menu a.active:hover {
+    color: #f36;
+}
+.fancy-dropdown.dropdown-menu a:hover {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: #585d69;
+}
+
+
+
+
 .dropdown-toggle.makeactive > span {
     font-weight: normal;
     padding: 0 10px 6px;
@@ -382,7 +469,7 @@ blockquote {
 }
 .nav-search.navbar-right li.dropdown > a {
     color: #fff;
-    padding: 5px 10px;
+    padding: 5px;
 }
 .cities-dd > a{
     border: 1px solid #b40252;
@@ -443,7 +530,7 @@ blockquote {
     border-radius: 0;
     font-size: 12px;
     margin: 0 0 10px;
-    padding: 6px 0;
+    padding: 15px 0;
 }
 .page-title-wrap .breadcrumb a {
     color: #676b74;
@@ -2409,7 +2496,7 @@ textarea.no-resize {
 
 .dropdown-menu.square {
     border-radius: 0;
-    padding: 5px 0;
+    padding: 0;
 }
 .dropdown-menu.no-border {
     border: medium none;
@@ -2420,16 +2507,17 @@ textarea.no-resize {
 }
 .dropdown-menu.margin-list-rounded > li > a {
     color: #696969;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: normal;
     margin: 5px 0;
+    font-family: "Open Sans",open-sans,sans-serif;
 }
 .navbar-right .dropdown-menu {
-    right: -15px;
+    right: -30px;
 }
 .dropdown-menu {
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
-    margin: -40px 0 0;
+    margin: -25px 0 0;
 }
 .navbar-right .dropdown-menu.with-triangle::before, .pull-right .dropdown-menu.with-triangle::before, .dropdown-menu.pull-right.with-triangle::before {
     left: auto;
@@ -3758,9 +3846,6 @@ a .icon-primary, a .icon-success, a .icon-info, a .icon-danger, a .icon-warning,
 #OwlprogressBar {
     background: #ededed none repeat scroll 0 0;
     width: 100%;
-}
-.container-fluid {
-    margin-top:79px;   
 }
 .social_icon a {
     color: #fff;

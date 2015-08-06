@@ -1,8 +1,16 @@
 <div class="left-profile-section text-center">
     <div class="profile-img">
-        <img src="{{baseUrl}}/img/avatar-12.jpg" class="profile-img img-circle">
+    	{% if(logged_user is empty) %}
+			<img src="{{baseUrl}}/img/looksy.jpg" alt="user" class="profile-img img-circle">
+		{% else %}
+			<img src="{{logged_user.image}}" alt="{{logged_user.first_name}}" class="profile-img img-circle">
+		{% endif %}
     </div>
     <div class="profile-name">
-        <span>You</span>
+    	{% if(logged_user is empty) %}
+			<span>You</span>
+		{% else %}
+			<span>{{logged_user.firstname}} {{logged_user.lastname}}</span>
+		{% endif %}
     </div>
 </div>

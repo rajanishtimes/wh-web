@@ -53,7 +53,7 @@
 						{% endif %}
 						&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-down down-icon"></i>
 					</a>
-					<ul class="dropdown-menu square primary margin-list-rounded with-triangle" id="citieslist">
+					<ul class="dropdown-menu square primary margin-list-rounded fancy-dropdown" id="citieslist">
 						{% for cities in allcities['cities'] %}
 							{% if(cities['name'] | trim | lower == 'delhi') %}
 								<li data-name="delhi"><a href="{{baseUrl}}/delhi" <?php echo (($currentCity == 'delhi') ? 'class="active"' : ''); ?>>Delhi NCR</a></li>
@@ -72,13 +72,19 @@
 				<li class="dropdown whresposive-menu">
 					<a href="#" class="dropdown-toggle makeactive ellipses" data-toggle="dropdown">
 						<div class="btn-collapse-sidebar-right">
-							&#8226;&nbsp;&#8226;&nbsp;&#8226;
+							&#8226;&#8226;&#8226;
 						</div>
 					</a>
-					<ul class="dropdown-menu square primary margin-list-rounded with-triangle" id="citieslist">
-						<li>
-							Account Setting
-						</li>
+					<ul class="dropdown-menu square primary margin-list-rounded fancy-dropdown" id="citieslist">
+						<li><a href="{{baseUrl}}/about-us">About us</a></li>
+						<li><a href="{{baseUrl}}/policy">Privacy</a></li>
+						<li><a href="{{baseUrl}}/terms">Terms</a></li>
+						{% if(logged_user is empty) %}
+							
+						{% else %}
+							<li><a href="javascript:void(0)" onclick="ajaxlogout()">Logout</a></li>
+						{% endif %}
+
 					</ul>
 				</li>
 				<li class="resposive-menu">
@@ -90,14 +96,20 @@
 
 			<ul class="nav-search navbar-right right-responsive-menu">
 				<li class="whresposive-menu user-profile-menu">
-					<a href="#"><img src="{{baseUrl}}/img/avatar-12.jpg" alt="user" class="img-circle user-profile-img"></a>
+					<a href="{{baseUrl}}/profile">
+					{% if(logged_user is empty) %}
+						<img src="{{baseUrl}}/img/looksy.jpg" alt="user" class="img-circle user-profile-img">
+					{% else %}
+						<img src="{{logged_user.image}}" alt="user" class="img-circle user-profile-img">
+					{% endif %}
+					</a>
 				</li>
 			</ul>
 
 			{% if(controllername == 'search') %}
-				<div class="searchbtn searchpage float-right active">
+				<!--<div class="searchbtn searchpage float-right active">
 					<a href="{{baseUrl}}/{{currentCity}}"><div class="madewidth active"><div class="searchclose"></div></div></a>
-				</div>
+				</div>-->
 			{% else %}
 					<div class="searchbtn  float-right">
 						<a href="{{baseUrl}}/{{currentCity}}/search/search"><div class="madewidth">
@@ -109,82 +121,26 @@
 
 		
 		<!-- BEGIN SIDEBAR RIGHT -->
-			<div class="sidebar-right sidebar-nicescroller">
+			<div class="sidebar-right">
 				<div class="tab-pane" id="setting-sidebar">
 					<ul class="sidebar-menu">
-						<li class="static">ACCOUNT SETTING</li>
-						<li class="text-content">
-							<div class="switch">
-								<div class="onoffswitch blank">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onlinestatus" checked>
-									<label class="onoffswitch-label" for="onlinestatus">
-										<span class="onoffswitch-inner"></span>
-										<span class="onoffswitch-switch"></span>
-									</label>
-								</div>
-							</div>
-							Online status
+						<li class="header">
+							<a href="{{baseUrl}}/profile">
+							{% if(logged_user is empty) %}
+								<img src="{{baseUrl}}/img/looksy.jpg" alt="user" class="img-circle user-profile-img">&nbsp; You
+							{% else %}
+								<img src="{{logged_user.image}}" alt="user" class="img-circle user-profile-img">&nbsp; {{logged_user.firstname}} {{logged_user.lastname}}
+							{% endif %}
+							</a>
 						</li>
-						<li class="text-content">
-							<div class="switch">
-								<div class="onoffswitch blank">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="offlinecontact" checked>
-									<label class="onoffswitch-label" for="offlinecontact">
-										<span class="onoffswitch-inner"></span>
-										<span class="onoffswitch-switch"></span>
-									</label>
-								</div>
-							</div>
-							Show offline contact
-						</li>
-						<li class="text-content">
-							<div class="switch">
-								<div class="onoffswitch blank">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="invisiblemode">
-									<label class="onoffswitch-label" for="invisiblemode">
-										<span class="onoffswitch-inner"></span>
-										<span class="onoffswitch-switch"></span>
-									</label>
-								</div>
-							</div>
-							Invisible mode
-						</li>
-						<li class="text-content">
-							<div class="switch">
-								<div class="onoffswitch blank">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="personalstatus" checked>
-									<label class="onoffswitch-label" for="personalstatus">
-										<span class="onoffswitch-inner"></span>
-										<span class="onoffswitch-switch"></span>
-									</label>
-								</div>
-							</div>
-							Show my personal status
-						</li>
-						<li class="text-content">
-							<div class="switch">
-								<div class="onoffswitch blank">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="deviceicon">
-									<label class="onoffswitch-label" for="deviceicon">
-										<span class="onoffswitch-inner"></span>
-										<span class="onoffswitch-switch"></span>
-									</label>
-								</div>
-							</div>
-							Show my device icon
-						</li>
-						<li class="text-content">
-							<div class="switch">
-								<div class="onoffswitch blank">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="logmessages">
-									<label class="onoffswitch-label" for="logmessages">
-										<span class="onoffswitch-inner"></span>
-										<span class="onoffswitch-switch"></span>
-									</label>
-								</div>
-							</div>
-							Log all message
-						</li>
+						<li><a href="{{baseUrl}}/about-us">About us</a></li>
+						<li><a href="{{baseUrl}}/policy">Privacy</a></li>
+						<li><a href="{{baseUrl}}/terms">Terms</a></li>
+						{% if(logged_user is empty) %}
+							
+						{% else %}
+							<li><a href="javascript:void(0)" onclick="ajaxlogout()">Logout</a></li>
+						{% endif %}
 					</ul>
 				</div>
 			</div>

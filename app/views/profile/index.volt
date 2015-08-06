@@ -9,14 +9,25 @@
 			<div class="col-xs-12 col-sm-6 col-md-6">
 				<div class="middle-profile-column">
 					<div class="profile-main-container">
-						<div class="sign-in-block text-center">
-							<div class="sign-in-text">Create your profile and easily check <br> your Wishlist here!</div>
-							<div id="results"></div>
-							<div id="LoginButton" class="facebook-sign-in" onClick="javascript:CallAfterLogin();return false;">
-								<img src="{{baseUrl}}/img/facebook-login.png">
+						{% if(logged_user is empty) %}
+							<div class="sign-in-block text-center">
+								<div class="sign-in-text">Create your profile and easily check <br> your Wishlist here!</div>
+								<div id="results"></div>
+								<div id="LoginButton" class="facebook-sign-in" onClick="javascript:CallAfterLogin();return false;">
+									<img src="{{baseUrl}}/img/facebook-login.png">
+								</div>
+								<span class="small-login">we wouldn't post anything without your permission</span>
 							</div>
-							<span class="small-login">we wouldn't post anything without your permission</span>
-						</div>
+						{% else %}
+							<div class="sign-in-block text-center">
+								<div class="wishlist-default">
+									<img src="{{baseUrl}}/img/wishlist_default.png">
+								</div>
+								<div class="wishlist-default-text">Your Wishlist</div>
+								<span class="small-login">Go ahead, Add your first wishlist.</span>
+							</div>
+						{% endif %}
+						
 					</div>
 				</div>
 			</div>

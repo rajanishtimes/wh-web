@@ -66,4 +66,11 @@ class ProfileController extends BaseController{
 		echo $rediskey;
 		exit;
     }
+
+    public function facebooklogoutAction(){
+    	$whatshotuserkey = $this->request->getPost('whatshotuserkey');
+    	$rediskey = 'WH_user_'.$whatshotuserkey;
+    	$this->redis->delete($rediskey, '');
+    	exit;
+    }
 }
