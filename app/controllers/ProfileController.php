@@ -43,8 +43,10 @@ class ProfileController extends BaseController{
 			header('Location: '.$loginUrl);
 		}
 
+		// echo "<pre>"; print_r($facebook_response); echo "</pre>"; 
+
 		$Login = new \WH\Model\User();
-		$Login->setParam('oauthid', $this->config->facebook->appId);
+		$Login->setParam('oauthid', $facebook_response['id']);
 		$Login->setParam('oauthsiteid', 'facebook'); //facebook or googleplus
 		$Login->setParam('securitykey', $access_token);
 		$Login->setParam('email', $facebook_response['email']);
@@ -60,6 +62,8 @@ class ProfileController extends BaseController{
 		$Login->setSSOParams();
 		$ssoresponse = $Login->loginSocialUser();
 		$ssoresponse['user']['facebook_user_id'] = $facebook_response['id'];
+
+		//echo "<pre>"; print_r($ssoresponse); echo "</pre>"; 
 
 		$rediskey = 'WH_user_'.$ssoresponse['user']['sso_id'];
 		$this->redis->set($rediskey, json_encode($ssoresponse['user']));

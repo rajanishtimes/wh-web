@@ -119,7 +119,6 @@
 				</div>
 			{% endif %}
 
-		
 		<!-- BEGIN SIDEBAR RIGHT -->
 			<div class="sidebar-right">
 				<div class="tab-pane" id="setting-sidebar">

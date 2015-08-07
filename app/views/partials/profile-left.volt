@@ -3,7 +3,7 @@
     	{% if(logged_user is empty) %}
 			<img src="{{baseUrl}}/img/looksy.jpg" alt="user" class="profile-img img-circle">
 		{% else %}
-			<img src="{{logged_user.image}}" alt="{{logged_user.first_name}}" class="profile-img img-circle">
+			<img src="{{logged_user.image}}" alt="{{logged_user.firstname}}" class="profile-img img-circle">
 		{% endif %}
     </div>
     <div class="profile-name">
