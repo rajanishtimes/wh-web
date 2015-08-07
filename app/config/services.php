@@ -9,7 +9,8 @@ use Phalcon\Mvc\Model\Metadata\Memory as MetaData;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Session as FlashSession;
 use Phalcon\Events\Manager as EventsManager;
-include APP_PATH .'public/predis/autoload.php';
+include APP_PATH .'app/models/wh-appapi/Lib/predis/autoload.php';
+Predis\Autoloader::register();
 
 /**
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
@@ -142,7 +143,7 @@ $di->set('session', function() {
 $di->set('redis', function(){
 
 	$redis = null;
-    $redis = new \Predis\Client(array(
+    $redis = new Predis\Client(array(
         'scheme' => 'tcp',
         'host' => '192.169.31.167',
         'port' => 6379,
