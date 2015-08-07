@@ -140,8 +140,16 @@ $di->set('session', function() {
 });
 
 $di->set('redis', function(){
-	$redis = new Redis();
-	$redis->connect('192.169.31.167', 6379);
+
+	$redis = null;
+    $redis = new \Predis\Client(array(
+        'scheme' => 'tcp',
+        'host' => '192.169.31.167',
+        'port' => 6379,
+        'read_write_timeout'=>-1,
+    ));
+    
+    $redis->ping();
 	return $redis;
 });
 
