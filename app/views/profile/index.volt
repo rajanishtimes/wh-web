@@ -54,32 +54,4 @@ window.fbAsyncInit = function() {
     var e = document.createElement('script');
     e.async = true;e.src = document.location.protocol +'//connect.facebook.net/en_US/all.js';
     document.getElementById('fb-root').appendChild(e);}());
-
-function CallAfterLogin(){
-    FB.login(function(response) {      
-        if (response.status === "connected")
-        {
-            LodingAnimate();
-            var access_token = FB.getAuthResponse()['accessToken'];
-            FB.api('/me', function(data) {
-	            if(data.email == null){
-	                alert("You must allow us to access your email id!");
-	                ResetAnimate();
-	            }else{
-	            	var hometown = '';
-	            	if(data.hometown != undefined){
-	            		hometown = data.hometown.name;
-	            	}
-
-	            	var location = '';
-	            	if(data.location != undefined){
-	            		location = data.location.name;
-	            	}
-	                AjaxResponse(access_token, hometown, location);
-	            }
-			});
-        }
-    },
-    {scope:'<?php echo $this->config->facebook->fbPermissions; ?>'});
-}
 </script>

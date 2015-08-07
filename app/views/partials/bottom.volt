@@ -3,6 +3,8 @@
         {{ assets.outputJs('appsjs') }}
         <script type="text/javascript" src="{{baseUrl}}/js/main.js"></script>
         <script type="text/javascript" src="{{baseUrl}}{{elements.auto_version('/js/app.js')}}"></script>
+        <script src="http://tags.crwdcntrl.net/c/6939/cc_af.js"></script>
+        
         <!-- Place this tag in your head or just before your close body tag. -->
         <script src="https://apis.google.com/js/platform.js" async defer></script>
 		

@@ -9,6 +9,7 @@ use Phalcon\Mvc\Model\Metadata\Memory as MetaData;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Session as FlashSession;
 use Phalcon\Events\Manager as EventsManager;
+include APP_PATH .'public/predis/autoload.php';
 
 /**
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework

@@ -135,6 +135,8 @@
 				entityid: '{{entityid}}',
 				entitytype: '{{entitytype}}',
 				deep_link: '{{deep_link}}',
+				facebook_app_id: '<?php echo $this->config->facebook->appId; ?>',
+				fbPermissions: '<?php echo $this->config->facebook->fbPermissions; ?>',
 			};
 		</script>
 
