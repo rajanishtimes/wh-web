@@ -19,6 +19,7 @@
 								<span class="small-login">we wouldn't post anything without your permission</span>
 							</div>
 						{% else %}
+							{% if(allwishlistlist is empty) %}
 							<div class="sign-in-block text-center">
 								<div class="wishlist-default">
 									<img src="{{baseUrl}}/img/wishlist_default.png">
@@ -26,6 +27,49 @@
 								<div class="wishlist-default-text">Your Wishlist</div>
 								<span class="small-login">Go ahead, Add your first wishlist.</span>
 							</div>
+							{% else %}
+							<div class="wishlist text-left">
+								<div class="work-content allfeeds">
+										<h1 class="searchheading">My Wishlist</h1>
+										<?php //echo "<pre>"; print_r($allwishlistlist); echo "</pre>"; ?>
+
+										{% for key, list in allwishlistlist %}
+											<h2 class="cityheader">{{list['total_count']}} Item(s) in Wishlist <strong>{{list['city']}}</strong></h2>
+											<ul id="getwishlist{{key}}" class="media-list feed-list">
+											{% for wishlist in list['list'] %}
+												<li id="wishlist_{{wishlist['id']}}" class="media searchlist">
+													<a href="{{baseUrl}}{{wishlist['url']}}" class="pull-left">
+														<div style="background-color:#ffdddd;width:100%">
+															{{feeds.getimage(baseUrl, wishlist['image']['uri'], 80, 80, wishlist['title'], '', '', 'img-detail', key+1)}} 
+														</div>
+													</a>
+													<div class="media-body">
+														<a href="{{baseUrl}}{{wishlist['url']}}"><h4 class="media-heading">{{wishlist['title']}}</h4></a>
+														<?php if(!empty($wishlist['tip'])){ ?>
+															<div class="tiphead">TIP:</div>
+															<p class="feed-short-desc">{{wishlist['tip']}}</p>
+														<?php } ?>
+														<div class="date_added float-left">
+															On {{wishlist['added_on']}}
+														</div>
+														<div class="options float-left">
+															<a href="javascript:void(0)" onclick="archievewishlist('{{wishlist['id']}}')"><div class="option-archive"><i class="fa fa-trash"></i> Remove</div></a>
+														</div>
+													</div>
+												</li>
+											{% endfor  %}
+											</ul><div class="clearfix"></div>
+											<?php if($list['total_count'] > ($limit)){ ?>
+												<div class="loadmore">												
+													<div class="btn btn-primary" onclick="view_feed_with_ajax('{{list['city_id']}}', '{{baseUrl}}/profile/wishlistbycity', '{{start}}', '{{limit}}', 'getwishlist{{key}}', '', '', '{{logged_user.sso_id}}', 'wishlist')">Load More</div>
+												</div>
+											<?php }?>
+										{% endfor  %}
+								</div>
+							</div>
+							<style>.middle-profile-column{padding: 1px 0px}</style>
+
+							{% endif %}
 						{% endif %}
 						
 					</div>
@@ -39,6 +83,7 @@
 		</div>
 	</div>
 </div>
+<style>.wrapper{background: #eaeced none repeat scroll 0 0;}</style>
 
 <div id="fb-root"></div>
 <script type="text/javascript">

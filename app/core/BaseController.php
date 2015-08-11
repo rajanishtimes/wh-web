@@ -208,9 +208,13 @@ class BaseController extends Controller{
 
     protected function setlogin(){
     	$loggeduser = array();
-    	$userloggedin = $this->cookies->get('whatshotuserkey');
-    	if(isset($userloggedin) && !empty($userloggedin)){
-    		$userarray = json_decode($this->redis->get($userloggedin));
+    	$userloggedin =  array();
+    	//$_SESSION['users'] = 'asdf'; exit;	
+    	//$this->redis->write("users", 'asdfsdf'); exit;
+    	//echo $this->redis->read("users"); exit;
+    	if(!empty($this->redis->read("users"))){
+			$userloggedin = $this->redis->read("users");
+			$userarray = json_decode($userloggedin);
     		if(!empty($userarray)){
     			$userarray->image = '//graph.facebook.com/'.$userarray->facebook_user_id.'/picture?type=large';
     			$loggeduser = $userarray;
@@ -589,5 +593,73 @@ class BaseController extends Controller{
 		});
 		$filtered = $filter->sanitize($data, "md5");
 		return $filtered;
+	}
+
+	public function htmlwishlistwidget($description, $ctitle){
+		$result = '';
+		preg_match("<!--<WishlistWidget (.*?)></WishlistWidget>-->", $description, $match);
+
+		//echo "<pre>"; print_r($match); echo "</pre>";
+
+		if(!empty($match[1])){
+			preg_match_all('/(entity_type|entity_id|city_id|title|entity_title)=("[^"]*")/i', trim($match[1]), $result);
+		}
+
+		if(!empty($result)){
+			foreach ($result[1] as $key => $value) {
+				$$value = trim($result[2][$key], '"');
+			}
+			if(isset($entity_title) && !empty($entity_title)){
+				$entity_title = trim($ctitle);
+			}
+
+			if(isset($title) && !empty($title)){
+				$title = 'Want to add '.trim($ctitle).' to your wishlist';
+			}	
+		
+			//$title = trim($ctitle);
+
+			$class = 'add-wishlist';
+			$class2 = '';
+			$class3 = 'dnone';
+			if(isset($this->logged_user->sso_id) && !empty($this->logged_user->sso_id)){
+				$onclick = "showishlist('".$this->logged_user->sso_id."', '".$entity_id."', '".$city_id."', '".$entity_type."', '".$title."', '".$entity_title."')";
+				$Wishlist = new \WH\Model\Wishlist();
+				$Wishlist->setUserId($this->logged_user->sso_id);
+				$Wishlist->setEntityId($entity_id);
+				$Wishlist->setEntityTypeID($entity_type);
+				$Wishlist->setVersion($this->config->application->version);
+				$Wishlist->setPackage($this->config->application->package);
+				$Wishlist->setEnv($this->config->application->environment);
+				$wishliststatus = $Wishlist->status();	
+				
+				//echo "<pre>"; print_r($Wishlist); echo "</pre>"; exit;
+
+				if($wishliststatus['status'] != 1){
+					$class = 'add-wishlist';
+				}else{
+					$class = 'added-wishlist';
+					$class2 = 'dnone';
+					$class3 = '';
+				}
+
+			}else{
+				$onclick = "addtowishlistwithlogin('".$entity_id."', '".$city_id."', '".$entity_type."', '".$title."', '".$entity_title."')";
+			}
+
+			$html = 'div class="wishlist-container">
+						<div class="wishlist-wrapper '.$class.'">
+							<div class="wishlist-text float-left">'.$title.'</div>
+							<div class="resetdimenstion dnone"><img src="'.$this->baseUrl.'/img/ajax-loader.gif"></div>
+							<div class="resetdimenstion dnone float-right"><img src="'.$this->baseUrl.'/img/ajax-loader.gif"></div>
+							<div id="wishlist_add_btn" class="btn btn-primary float-right '.$class2.'" onclick="'.$onclick.'">ADD</div>
+							<div id="wishlist_added_btn" class="btn btn-primary float-right '.$class3.'">&#10003;</div>
+							<div class="clearfix"></div>
+						</div>
+					</div';
+			$description = preg_replace("<!--<WishlistWidget (.*?)></WishlistWidget>-->", $html, $description);
+		}
+		//echo "<pre>"; print_r($description); echo "</pre>"; exit;
+		return $description;
 	}
 }

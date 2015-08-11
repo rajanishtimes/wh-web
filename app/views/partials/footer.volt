@@ -117,4 +117,22 @@
 	<i class="fa fa-angle-up fa-stack-1x fa-inverse"></i>
 </div>
 <!-- END BACK TO TOP -->
+
+
+<div id="fb-root"></div>
+<script type="text/javascript">
+window.fbAsyncInit = function() {
+    FB.init({
+        appId: '<?php echo $this->config->facebook->appId; ?>',
+        cookie: true,xfbml: true,
+        oauth: true,
+        version: 'v2.4'
+        });
+    };
+(function() {
+    var e = document.createElement('script');
+    e.async = true;e.src = document.location.protocol +'//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);}());
+</script>
+
 {% endblock %}

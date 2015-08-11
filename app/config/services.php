@@ -139,9 +139,16 @@ $di->set('session', function() {
 	return $session;
 });
 
-$di->set('redis', function(){
-	$redis = Redis::getRedisCon('webredis');
-	return $redis;
+$di->set('redis', function() use ($config){
+	$single_server = array(
+	    'host'     => $config->redis->host,
+	    'port'     => $config->redis->port,
+	    'database' => 15
+	);
+	$client = new Predis\Client($single_server, array('prefix' => 'sessions:'));
+	$session = new Predis\Session\Handler($client, array('gc_maxlifetime' => (60*24*5)));
+	$session->register();
+	return $session;
 });
 
 

@@ -49,7 +49,6 @@ class ContentController extends BaseController{
 		}catch(Exception $e){
 			$contentdetail = array();
 		}
-		
 		if($contentdetail){
 			if($this->dispatcher->getParam('city') == 'cities'){
 				$this->setreferrelcities($contentdetail['cities']);
@@ -110,13 +109,16 @@ class ContentController extends BaseController{
 					}
 				}
 			} */
-			
+
 			$cityshown = $this->cityshown($this->currentCity);
 			$breadcrumbs = $this->breadcrumbs(array(
 				$cityshown => $this->baseUrl.'/'.$this->currentCity,
 				ucwords(strtolower(trim($contentdetail['title']))) =>''
 			));
-			
+
+			$contentdetail['description'] = $this->htmlwishlistwidget($contentdetail['description'], $contentdetail['title']);
+
+
 			$this->view->setVars(array(
 				'contentdetail' => $contentdetail,
 				'breadcrumbs' => $breadcrumbs,

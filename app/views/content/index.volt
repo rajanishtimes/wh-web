@@ -40,19 +40,8 @@
 						<div class="summary detail text-center"><p>{{contentdetail['summary']}}</p></div>
 					<?php } ?>
 					<hr class="small">
-
 						<div class="detail">
-							<div class="wishlist-container">
-								<div class="wishlist-wrapper add-wishlist">
-									<div class="wishlist-text float-left">
-										Want to add Kebab Express into your Wishlist?
-									</div>
-									<div class="btn btn-primary float-right" onclick="addtowishlistwithlogin()">ADD</div>
-									<div class="btn btn-primary float-right">&#10003;</div>
-
-									<div class="clearfix"></div>
-								</div>
-							</div>
+							
 							<?php //$description = str_replace(array('<p><strong>', '</strong></p>'), array('<h4>', '</h4>'), $contentdetail['description']); ?>
 							{{contentdetail['description']}}
 						</div>
@@ -117,9 +106,3 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-function addtowishlistwithlogin(){
-	
-}
-</script>

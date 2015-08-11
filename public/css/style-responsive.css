@@ -247,9 +247,6 @@ TABLET < 767px
 	.rating {
 		left: 39%;
 	}
-	.navbar-fixed-top{
-		position:absolute;
-	}
 	.row.work-content {
 	    margin: 0;
 	}
@@ -313,6 +310,9 @@ TABLET < 767px
 	}
 	.searchbtn a > div{
 	     padding: 0px 15px !important;
+	}
+	.img-circle.user-profile-img {
+	    width: 90px;
 	}
 }
 
@@ -790,7 +790,7 @@ PHONE < 360px
 		width:130px; height:auto;
 	}
 	.container-fluid{
-		margin-top: 70px;
+		margin-top: 60px;
 	}
 
 	.desc > div {
@@ -816,7 +816,7 @@ PHONE < 320px
 		overflow-x:hidden;
 	}
 	.container-fluid{
-		margin-top: 69px;
+		margin-top: 60px;
 	}
 	.h1{display: none;}
 	.dropdown-menu.with-triangle::before, .dropdown-menu.with-triangle::after{

@@ -80,9 +80,9 @@
 						<li><a href="{{baseUrl}}/policy">Privacy</a></li>
 						<li><a href="{{baseUrl}}/terms">Terms</a></li>
 						{% if(logged_user is empty) %}
-							
+							<li><a href="{{baseUrl}}/profile">LogIn</a></li>
 						{% else %}
-							<li><a href="javascript:void(0)" onclick="ajaxlogout()">Logout</a></li>
+							<li><a href="{{baseUrl}}/profile/logout">Logout</a></li>
 						{% endif %}
 
 					</ul>

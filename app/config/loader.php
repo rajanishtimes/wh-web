@@ -21,6 +21,7 @@ $loader->registerNamespaces(
 		'WH\Forms'    => APP_PATH."app/forms/",
 		'WH\Core'    => APP_PATH."app/core/",
 		'WH'    => APP_PATH."app/models/wh-appapi/",
+		'Predis'    => APP_PATH."app/models/wh-appapi/Lib/predis/src",
     )
 );
 

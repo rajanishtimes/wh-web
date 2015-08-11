@@ -20,15 +20,17 @@ $window.on('scroll', function (e) {
 $window.on('scroll', function (e) {
 	var elem = $('.loadmore .btn.btn-primary');
 	if(elem.length > 0){
-		if ($(window).scrollTop() + $(window).height() > $('.loadmore').position().top){
-			var attr = elem.attr('rel');
-			if (typeof attr !== typeof undefined && attr !== false) {
-				if(attr < 3){
+		if($('.profile-container').length == 0){
+			if ($(window).scrollTop() + $(window).height() > $('.loadmore').position().top){
+				var attr = elem.attr('rel');
+				if (typeof attr !== typeof undefined && attr !== false) {
+					if(attr < 3){
+						elem.trigger('click');
+					}
+				}else{
 					elem.trigger('click');
-				}
-			}else{
-				elem.trigger('click');
-			} 
+				} 
+			}	
 		}
 	}
 	
@@ -71,7 +73,7 @@ $(window).load(function() {
 	  setquizheight();
 	});
 	
-	fbandtwitter();
+	//fbandtwitter();
 });
 
 function searchValid(){
@@ -382,6 +384,24 @@ function DOMReady(){
 		$('.past_results').slideToggle();
 		return false;
 	});
+
+	$(document.body).one('focus.textarea', '.tiptext', function(){
+        var savedValue = this.value;
+        this.value = '';
+        this.baseScrollHeight = this.scrollHeight;
+        this.value = savedValue;
+    })
+    .on('input.textarea', '.tiptext', function(){
+        var minRows = this.getAttribute('data-min-rows')|0,
+            rows;
+        this.rows = minRows;
+        rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 16);
+        this.rows = minRows + rows;
+    });
+
+    $(document.body).on('keyup', '.tiptext', function(e){
+		$(".char-remain").text((140 - $(this).val().length));
+	});
 }
 
 
@@ -412,20 +432,23 @@ function DOMReady(){
 		wScrollDiff		= wScrollBefore - wScrollCurrent;
 		elTop			= parseInt( $element.css( 'top' ) ) + wScrollDiff;
 
-		if( wScrollCurrent <= 0 ) // scrolled to the very top; element sticks to the top
-			$element.css( 'top', 0 );
+		if($('.page-content').hasClass('toggle-left') == false){
+			if( wScrollCurrent <= 0 ) // scrolled to the very top; element sticks to the top
+				$element.css( 'top', 0 );
 
-		else if( wScrollDiff > 0 ) // scrolled up; element slides in
-			$element.css( 'top', elTop > 0 ? 0 : elTop );
+			else if( wScrollDiff > 0 ) // scrolled up; element slides in
+				$element.css( 'top', elTop > 0 ? 0 : elTop );
 
-		else if( wScrollDiff < 0 ) // scrolled down
-		{
-			if( wScrollCurrent + wHeight >= dHeight - elHeight )  // scrolled to the very bottom; element slides in
-				$element.css( 'top', ( elTop = wScrollCurrent + wHeight - dHeight ) < 0 ? elTop : 0 );
+			else if( wScrollDiff < 0 ) // scrolled down
+			{
+				if( wScrollCurrent + wHeight >= dHeight - elHeight )  // scrolled to the very bottom; element slides in
+					$element.css( 'top', ( elTop = wScrollCurrent + wHeight - dHeight ) < 0 ? elTop : 0 );
 
-			else // scrolled down; element slides out
-				$element.css( 'top', Math.abs( elTop ) > elHeight ? -elHeight : elTop );
+				else // scrolled down; element slides out
+					$element.css( 'top', Math.abs( elTop ) > elHeight ? -elHeight : elTop );
+			}	
 		}
+		
 
 		wScrollBefore = wScrollCurrent;
 	});
@@ -560,8 +583,13 @@ function AjaxResponse(access_token, hometown, location){
 		type:'POST',
 		data: 'access_token='+access_token+'&hometown='+hometown+'&location='+location,
 		success:function(data) {
-			cookies.set('whatshotuserkey', data, {path: '/',expires:exptime});
-			document.location.reload();
+			var results = eval( '(' + data + ')' );
+			if(results.status == 'sucess'){
+				//cookies.set('whatshotuserkey', results.userkey, {path: '/',expires:exptime});
+				document.location.reload();
+			}else{
+				ResetAnimate();
+			}
 		}
 	});
 }
@@ -578,10 +606,10 @@ function ResetAnimate()
 }
 
 function ajaxlogout(){
-	var whkey = cookies.get('whatshotuserkey');
-	cookies.del('whatshotuserkey', { path: '/' });
+	
 	$.ajax( {
 		url:baseUrl+'/profile/facebooklogout',
+		async : false,
 		type:'POST',
 		data: 'whatshotuserkey='+whkey,
 		success:function(data) {
@@ -616,4 +644,105 @@ function CallAfterLogin(){
         }
     },
     {scope: server_variables.fbPermissions});
+}
+
+
+function addtowishlistwithlogin(entityid, city, entitytype, title, entity_title){
+	FB.login(function(response) {      
+        if (response.status === "connected")
+        {
+        	$(".resetdimenstion").removeClass('dnone');
+            var access_token = FB.getAuthResponse()['accessToken'];
+            FB.api('/me', function(data) {
+	            if(data.email == null){
+	                alert("You must allow us to access your email id!");
+	                ResetAnimate();
+	            }else{
+	            	var hometown = '';
+	            	if(data.hometown != undefined){
+	            		hometown = data.hometown.name;
+	            	}
+
+	            	var location = '';
+	            	if(data.location != undefined){
+	            		location = data.location.name;
+	            	}
+	                wishlistAjaxResponse(access_token, hometown, location, entityid, city, entitytype, title);
+	            }
+			});
+        }
+    },
+    {scope: server_variables.fbPermissions});
+}
+
+function wishlistAjaxResponse(access_token, hometown, location, entityid, city, entitytype, title, entity_title){
+    exptime = new Date();
+    exptime.setTime(new Date().getTime() + 3600000 * 24 * 365);
+	$.ajax({
+		url:baseUrl+'/profile/facebooklogin',
+		type:'POST',
+		data: 'access_token='+access_token+'&hometown='+hometown+'&location='+location,
+		success:function(data) {
+			var results = eval( '(' + data + ')' );
+			if(results.status == 'sucess'){
+				//cookies.set('whatshotuserkey', results.userkey, {path: '/',expires:exptime});
+				showishlist(results.userkey, entityid, city, entitytype, title);
+			}else{
+			}
+			$(".resetdimenstion").addClass('dnone');
+		}
+	});
+}
+
+function showishlist(userid, entityid, city, entitytype, title, entity_title){
+	var html = '<div class="wishlist-lightbox lightbox"><div class="wishlist-add"><div class="tiphead">TIP:</div><div class="wihlist-title">Add '+entity_title+' to my wishlist.<br><textarea class="tiptext border-bottom" rows="1" data-min-rows="1" maxlength="140" placeholder="Because I Like"></textarea><div class="char-remain">140</div></div><div class="btn-group float-right"><div class="btn btn-primary cancel" onclick="cancelwishlist()">CANCEL</div><div class="btn btn-primary add" onclick="addwishlist(\''+userid+'\', \''+entityid+'\', \''+city+'\', \''+entitytype+'\', \''+title+'\', \''+entity_title+'\')">ADD</div></div></div><div class="overlay"></div></div>';
+
+	$('.wishlist-container').append(html);
+	$('.wishlist-add').center();
+	$("html, body").animate({scrollTop: $(".wishlist-lightbox").offset().top-100}, 1000); 
+}
+
+
+function cancelwishlist(){
+	$('.wishlist-container .wishlist-lightbox').remove();
+}
+
+function addwishlist(userid, entityid, city, entitytype, title, entity_title){
+	$(".resetdimenstion").removeClass('dnone');
+	$.ajax({
+		url:baseUrl+'/profile/addwishlist',
+		type:'POST',
+		data: 'userid='+userid+'&entityid='+entityid+'&city='+city+'&entitytype='+entitytype+'&tip='+$(".tiptext").val(),
+		success:function(data) {
+			var results = eval( '(' + data + ')' );
+			if(results.status == 1){
+				$('.wishlist-container .wishlist-add').html('<div class="successmsg"><div class="successarea"><img src="'+baseUrl+'/img/tip-success.png"></div><div class="sucess-msg"><strong>Awesome!</strong><br><br>'+title+' is added in your wishlist. You can find all items of your wishlist on your profile.</div><div class="btn-group makecenter"><div class="btn btn-primary cancel" onclick="cancelwishlist()">OK</div></div></div>');
+				
+			}else{
+				$('.wishlist-container .wishlist-add').html('<div class="successmsg"><div class="successarea"><img src="'+baseUrl+'/img/tip-success.png"></div><div class="sucess-msg"><strong>oops!</strong><br><br>'+title+' is already added in your wishlist. You can find all items of your wishlist on your profile.</div><div class="btn-group makecenter"><div class="btn btn-primary cancel" onclick="cancelwishlist()">CANCEL</div></div></div>');
+			}
+			$('.wishlist-wrapper').removeClass('add-wishlist');
+			$('.wishlist-wrapper').addClass('added-wishlist');
+			$('#wishlist_add_btn').addClass('dnone');
+			$('#wishlist_added_btn').removeClass('dnone');
+			$('.wishlist-add').center();
+			$(".resetdimenstion").addClass('dnone');
+		}
+	});
+}
+
+function archievewishlist(id){
+	$.ajax({
+		url:baseUrl+'/profile/removewishlist',
+		type:'POST',
+		data: 'id='+id,
+		success:function(data) {
+			var results = eval( '(' + data + ')' );
+			if(results.status == 1){
+				$("#wishlist_"+id).slideUp();	
+			}else{
+				alert('There is some problem to removing from wishlist. Please try again');
+			}
+		}
+	});	
 }

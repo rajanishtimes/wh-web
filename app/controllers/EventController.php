@@ -89,6 +89,8 @@ class EventController extends BaseController{
 				'Events' => $this->baseUrl.'/'.$this->currentCity.'/events',
 				ucwords(strtolower(trim($eventdetail['title']))) =>''
 			));
+			$eventdetail['description'] = $this->htmlwishlistwidget($eventdetail['description'], $eventdetail['title']);
+
 			$this->view->setVars(array('eventdetail' => $eventdetail, 'breadcrumbs'=>$breadcrumbs, 'cityshown'=>$cityshown));
 			$this->setlogsarray('event_end');
 			$this->getlogs('event', $this->baseUrl.$eventdetail['url']);
