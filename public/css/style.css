@@ -4287,3 +4287,6 @@ iframe {
 .profile-container .feed-list {
     margin: 0 auto;
 }
+.profile-container .media .pull-left img.img-detail {
+    width: 80px;
+}

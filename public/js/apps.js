@@ -673,7 +673,7 @@ function addtowishlistwithlogin(entityid, city, entitytype, title, entity_title)
 	            	if(data.location != undefined){
 	            		location = data.location.name;
 	            	}
-	                wishlistAjaxResponse(access_token, hometown, location, entityid, city, entitytype, title);
+	                wishlistAjaxResponse(access_token, hometown, location, entityid, city, entitytype, title, entity_title);
 	            }
 			});
         }
@@ -692,7 +692,7 @@ function wishlistAjaxResponse(access_token, hometown, location, entityid, city, 
 			var results = eval( '(' + data + ')' );
 			if(results.status == 'sucess'){
 				//cookies.set('whatshotuserkey', results.userkey, {path: '/',expires:exptime});
-				showishlist(results.userkey, entityid, city, entitytype, title);
+				showishlist(results.ssoid, entityid, city, entitytype, title, entity_title);
 			}else{
 			}
 			$(".resetdimenstion").addClass('dnone');
@@ -701,7 +701,7 @@ function wishlistAjaxResponse(access_token, hometown, location, entityid, city, 
 }
 
 function showishlist(userid, entityid, city, entitytype, title, entity_title){
-	var html = '<div class="wishlist-lightbox lightbox"><div class="wishlist-add"><div class="tiphead">TIP:</div><div class="wihlist-title">Add '+entity_title+' to my wishlist.<br><textarea class="tiptext border-bottom" rows="1" data-min-rows="1" maxlength="140" placeholder="Because I Like"></textarea><div class="char-remain">140</div></div><div class="btn-group float-right"><div class="btn btn-primary cancel" onclick="cancelwishlist()">CANCEL</div><div class="btn btn-primary add" onclick="addwishlist(\''+userid+'\', \''+entityid+'\', \''+city+'\', \''+entitytype+'\', \''+title+'\', \''+entity_title+'\')">ADD</div></div></div><div class="overlay"></div></div>';
+	var html = '<div class="wishlist-lightbox lightbox"><div class="wishlist-add"><div class="tiphead">TIP:</div><div class="wihlist-title">Add '+entity_title+' to my wishlist.<br><textarea class="tiptext border-bottom" rows="1" data-min-rows="1" maxlength="140" placeholder="Because I Like"></textarea><div class="char-remain">140</div></div><div class="btn-group float-right"><div class="btn btn-primary cancel" onclick="cancelwishlist()">CANCEL</div><div class="resetdimenstion dnone float-right"><img src="'+ baseUrl +'/img/ajax-loader.gif"></div><div class="btn btn-primary add" onclick="addwishlist(\''+userid+'\', \''+entityid+'\', \''+city+'\', \''+entitytype+'\', \''+title+'\', \''+entity_title+'\')">ADD</div></div></div><div class="overlay"></div></div>';
 
 	$('.wishlist-container').append(html);
 	$('.wishlist-add').center();

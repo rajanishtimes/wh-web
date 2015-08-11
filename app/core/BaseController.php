@@ -652,7 +652,6 @@ class BaseController extends Controller{
 						<div class="wishlist-wrapper '.$class.'">
 							<div class="wishlist-text float-left">'.$title.'</div>
 							<div class="resetdimenstion dnone"><img src="'.$this->baseUrl.'/img/ajax-loader.gif"></div>
-							<div class="resetdimenstion dnone float-right"><img src="'.$this->baseUrl.'/img/ajax-loader.gif"></div>
 							<div id="wishlist_add_btn" class="btn btn-primary float-right '.$class2.'" onclick="'.$onclick.'">ADD</div>
 							<div id="wishlist_added_btn" class="btn btn-primary float-right '.$class3.'">&#10003;</div>
 							<div class="clearfix"></div>
