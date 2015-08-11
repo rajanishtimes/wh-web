@@ -25,6 +25,7 @@
         } else if (UA.match(/Android/i) != null) {
             this.type = 'android'
         }
+        this.type = 'android'
         // Don't show banner if device isn't iOS or Android, website is loaded in app or user dismissed banner
         if (!this.type || standalone || this.getCookie('sb-closed') || this.getCookie('sb-installed')) {
             return
@@ -84,7 +85,7 @@
 
             var style = '';
             if(this.type == 'android'){
-                style = '<style>.navbar-fixed-top{top: 85px;}</style>';
+                style = '<style>.navbar-fixed-top{top: 77px;}</style>';
             }
             banner = banner + style;
             (this.options.layer) ? $(this.options.appendToSelector).append(banner) : $(this.options.appendToSelector).prepend(banner);

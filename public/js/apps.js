@@ -430,11 +430,17 @@ function DOMReady(){
 		wHeight			= $window.height();
 		wScrollCurrent	= $window.scrollTop();
 		wScrollDiff		= wScrollBefore - wScrollCurrent;
-		elTop			= parseInt( $element.css( 'top' ) ) + wScrollDiff;
 
+		elTop			= parseInt( $element.css( 'top' ) ) + wScrollDiff;
+		var top = 0;
+		if($('.android.shown').length > 0){
+			top = 77;
+		}
+		
 		if($('.page-content').hasClass('toggle-left') == false){
+
 			if( wScrollCurrent <= 0 ) // scrolled to the very top; element sticks to the top
-				$element.css( 'top', 0 );
+				$element.css( 'top', top );
 
 			else if( wScrollDiff > 0 ) // scrolled up; element slides in
 				$element.css( 'top', elTop > 0 ? 0 : elTop );
