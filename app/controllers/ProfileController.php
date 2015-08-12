@@ -90,7 +90,7 @@ class ProfileController extends BaseController{
 
 		if(isset($ssoresponse['user']['sso_id'])){
 			$rediskey = "WH_user_".$ssoresponse['user']['sso_id'];
-			$this->redis->write("users", json_encode($ssoresponse['user']));
+			$this->redis->write(session_id(), json_encode($ssoresponse['user']));
 			echo json_encode(array('userkey'=>$rediskey, 'ssoid'=>$ssoresponse['user']['sso_id'], 'status'=>'sucess'));
 		}else{
 			echo json_encode(array('status'=>'error'));
@@ -125,7 +125,7 @@ class ProfileController extends BaseController{
     }
 
     public function logoutAction(){
-    	$this->redis->destroy("users");
+    	$this->redis->destroy(session_id());
     	return $this->response->redirect($this->baseUrl);
     }
 

@@ -212,7 +212,7 @@ class BaseController extends Controller{
     	//$_SESSION['users'] = 'asdf'; exit;	
     	//$this->redis->write("users", 'asdfsdf'); exit;
     	//echo $this->redis->read("users"); exit;
-    	$value = $this->redis->read("users");
+    	$value = $this->redis->read(session_id());
     	if(!empty($value)){
 			$userloggedin = $this->redis->read("users");
 			$userarray = json_decode($userloggedin);
