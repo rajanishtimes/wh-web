@@ -597,69 +597,94 @@ class BaseController extends Controller{
 	}
 
 	public function htmlwishlistwidget($description, $ctitle){
+		 echo "<pre>"; print_r($description); echo "</pre>"; exit;
 		$result = '';
-		preg_match("<!--<WishlistWidget (.*?)></WishlistWidget>-->", $description, $match);
+		$pattern = '/(\<!--\<wishlistwidget(.*?)\>\<\/wishlistwidget\>--\>)/i';
+		preg_match_all($pattern,$description,$matches);
+		$replace_array = array();
 
-		//echo "<pre>"; print_r($match); echo "</pre>";
+		if(!empty($matches[0])){
+			$i = 0;
+			foreach($matches[0] as $key=>$match){
+				$replace_array[$i]['widget'] = $matches[0][$key];
+				$attribute = $this->parse_attrib($matches[2][$key]);
+				if(isset($attribute['entity_title']) && !empty($attribute['entity_title'])){
+					$attribute['entity_title'] = trim($ctitle);
+				}
+				if(isset($attribute['title']) && !empty($attribute['title'])){
+					$attribute['title'] = 'Want to add '.trim($ctitle).' to your wishlist?';
+				}
+				$replace_array[$i]['attribute'] = $attribute;
 
-		if(!empty($match[1])){
-			preg_match_all('/(entity_type|entity_id|city_id|title|entity_title)=("[^"]*")/i', trim($match[1]), $result);
-		}
-
-		if(!empty($result)){
-			foreach ($result[1] as $key => $value) {
-				$$value = trim($result[2][$key], '"');
-			}
-			if(isset($entity_title) && !empty($entity_title)){
-				$entity_title = trim($ctitle);
-			}
-
-			if(isset($title) && !empty($title)){
-				$title = 'Want to add '.trim($ctitle).' to your wishlist';
-			}	
-		
-			//$title = trim($ctitle);
-
-			$class = 'add-wishlist';
-			$class2 = '';
-			$class3 = 'dnone';
-			if(isset($this->logged_user->sso_id) && !empty($this->logged_user->sso_id)){
-				$onclick = "showishlist('".$this->logged_user->sso_id."', '".$entity_id."', '".$city_id."', '".$entity_type."', '".$title."', '".$entity_title."')";
-				$Wishlist = new \WH\Model\Wishlist();
-				$Wishlist->setUserId($this->logged_user->sso_id);
-				$Wishlist->setEntityId($entity_id);
-				$Wishlist->setEntityTypeID($entity_type);
-				$Wishlist->setVersion($this->config->application->version);
-				$Wishlist->setPackage($this->config->application->package);
-				$Wishlist->setEnv($this->config->application->environment);
-				$wishliststatus = $Wishlist->status();	
-				
-				//echo "<pre>"; print_r($Wishlist); echo "</pre>"; exit;
-
-				if($wishliststatus['status'] != 1){
-					$class = 'add-wishlist';
+				$class = 'add-wishlist';
+				$class2 = '';
+				$class3 = 'dnone';
+				if(isset($this->logged_user->sso_id) && !empty($this->logged_user->sso_id)){
+					$onclick = "showishlist('".$this->logged_user->sso_id."', '".$attribute['entity_id']."', '".$attribute['city_id']."', '".$attribute['entity_type']."', '".$attribute['title']."', '".$attribute['entity_title']."')";
+					$Wishlist = new \WH\Model\Wishlist();
+					$Wishlist->setUserId($this->logged_user->sso_id);
+					$Wishlist->setEntityId($attribute['entity_id']);
+					$Wishlist->setEntityTypeID($attribute['entity_type']);
+					$Wishlist->setVersion($this->config->application->version);
+					$Wishlist->setPackage($this->config->application->package);
+					$Wishlist->setEnv($this->config->application->environment);
+					$wishliststatus = $Wishlist->status();	
+					if($wishliststatus['status'] != 1){
+						$class = 'add-wishlist';
+					}else{
+						$class = 'added-wishlist';
+						$class2 = 'dnone';
+						$class3 = '';
+					}
 				}else{
-					$class = 'added-wishlist';
-					$class2 = 'dnone';
-					$class3 = '';
+					$onclick = "addtowishlistwithlogin('".$attribute['entity_id']."', '".$attribute['city_id']."', '".$attribute['entity_type']."', '".$attribute['title']."', '".$attribute['entity_title']."')";
 				}
 
-			}else{
-				$onclick = "addtowishlistwithlogin('".$entity_id."', '".$city_id."', '".$entity_type."', '".$title."', '".$entity_title."')";
-			}
+				$html = '<div id="wishlist'.$attribute['entity_id'].'" class="wishlist-container">
+							<div class="wishlist-wrapper '.$class.'">
+								<div class="wishlist-text float-left">'.$attribute['title'].'</div>
+								<div class="resetdimenstion dnone"><img src="'.$this->baseUrl.'/img/ajax-loader.gif"></div>
+								<div id="wishlist_add_btn" class="btn btn-primary float-right wishlist_add_btn '.$class2.'" onclick="'.$onclick.'">ADD</div>
+								<div id="wishlist_added_btn" class="btn btn-primary float-right wishlist_added_btn '.$class3.'">&#10003;</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>';
 
-			$html = 'div class="wishlist-container">
-						<div class="wishlist-wrapper '.$class.'">
-							<div class="wishlist-text float-left">'.$title.'</div>
-							<div class="resetdimenstion dnone"><img src="'.$this->baseUrl.'/img/ajax-loader.gif"></div>
-							<div id="wishlist_add_btn" class="btn btn-primary float-right '.$class2.'" onclick="'.$onclick.'">ADD</div>
-							<div id="wishlist_added_btn" class="btn btn-primary float-right '.$class3.'">&#10003;</div>
-							<div class="clearfix"></div>
-						</div>
-					</div';
-			$description = preg_replace("<!--<WishlistWidget (.*?)></WishlistWidget>-->", $html, $description);
+				$replace_array[$i]['html'] = $html;
+				$i++;
+			}	
 		}
-		//echo "<pre>"; print_r($description); echo "</pre>"; exit;
+		
+		
+
+		if(!empty($replace_array)){
+			foreach($replace_array as $replace){
+				$description = str_replace($replace['widget'], $replace['html'], $description);
+			}
+		}
 		return $description;
 	}
+
+	protected function parse_attrib($text) {
+        $atts = array();
+        $pattern = '/(\w+)\s*=\s*"([^"]*)"(?:\s|$)|(\w+)\s*=\s*\'([^\']*)\'(?:\s|$)|(\w+)\s*=\s*([^\s\'"]+)(?:\s|$)|"([^"]*)"(?:\s|$)|(\S+)(?:\s|$)/';
+        $text = preg_replace("/[\x{00a0}\x{200b}]+/u", " ", $text);
+        if ( preg_match_all($pattern, $text, $match, PREG_SET_ORDER) ) {
+                foreach ($match as $m) {                    
+                        if (!empty($m[1]))
+                                $atts[strtolower($m[1])] = trim(stripcslashes($m[2]),'\"');
+                        elseif (!empty($m[3]))
+                                $atts[strtolower($m[3])] = trim(stripcslashes($m[4]),'\"');
+                        elseif (!empty($m[5]))
+                                $atts[strtolower($m[5])] = trim(stripcslashes($m[6]),'\"');
+                        elseif (isset($m[7]) && strlen($m[7]))
+                                $atts[] = trim(stripcslashes($m[7]),'\"');
+                        elseif (isset($m[8]))
+                                $atts[] = trim(stripcslashes($m[8]),'\"');
+                }
+        } else {
+                $atts = ltrim($text);
+        }
+        return $atts;
+    }
 }
