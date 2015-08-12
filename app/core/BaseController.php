@@ -217,7 +217,8 @@ class BaseController extends Controller{
 			$userloggedin = $this->redis->read("users");
 			$userarray = json_decode($userloggedin);
     		if(!empty($userarray)){
-    			$userarray->image = '//graph.facebook.com/'.$userarray->facebook_user_id.'/picture?type=large';
+    			$userarray->image = "https://graph.facebook.com/".$userarray->facebook_user_id."/picture?width=150&height=150";
+    			//$userarray->image = '//graph.facebook.com/'.$userarray->facebook_user_id.'/picture?type=large';
     			$loggeduser = $userarray;
     		}
     	}
@@ -597,7 +598,6 @@ class BaseController extends Controller{
 	}
 
 	public function htmlwishlistwidget($description, $ctitle){
-		 echo "<pre>"; print_r($description); echo "</pre>"; exit;
 		$result = '';
 		$pattern = '/(\<!--\<wishlistwidget(.*?)\>\<\/wishlistwidget\>--\>)/i';
 		preg_match_all($pattern,$description,$matches);

@@ -34,10 +34,10 @@
 										<?php //echo "<pre>"; print_r($allwishlistlist); echo "</pre>"; ?>
 
 										{% for key, list in allwishlistlist %}
-											<h2 class="cityheader">{{list['total_count']}} Item(s) in Wishlist <strong>{{list['city']}}</strong></h2>
 											<ul id="getwishlist{{key}}" class="media-list feed-list">
+											<h2 class="cityheader"><span id="count{{key}}">{{list['total_count']}}</span> Item(s) in Wishlist <strong>{{list['city']}}</strong></h2>
 											{% for wishlist in list['list'] %}
-												<li id="wishlist_{{wishlist['id']}}" class="media searchlist">
+												<li id="wishlist_{{wishlist['id']}}" class="media searchlist" data-rel="{{key}}">
 													<a href="{{baseUrl}}{{wishlist['url']}}" class="pull-left">
 														<div style="background-color:#ffdddd;width:100%">
 															{{feeds.getimage(baseUrl, wishlist['image']['uri'], 80, 80, wishlist['title'], '', '', 'img-detail', key+1)}} 

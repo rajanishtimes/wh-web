@@ -453,13 +453,8 @@ ul.sidebar-menu{ padding:0px; }
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     color: #585d69;
 }
-
-
-
-
 .dropdown-toggle.makeactive > span {
     font-weight: normal;
-    padding: 0 10px 6px;
 }
 .makeheaderintera .dropdown-toggle.makeactive > span.youarehere, .dropdown-toggle.makeactive > span.youarehere {
     border: medium none;
@@ -4161,7 +4156,7 @@ iframe {
 .wishlist h1.searchheading {
     font-family: roboto;
     font-size: 22px;
-    margin: 23px 0 5px;
+    margin: 23px 0 16px;
     padding: 0 30px;
 }
 .tiphead {
@@ -4239,6 +4234,8 @@ iframe {
 }
 .wishlist .feed-list .media .media-heading{
     font-size: 20px;
+    color: #333;
+    font-family: Roboto;
 }
 .feed-list .tiphead{
     font-size: 16px;
@@ -4247,6 +4244,7 @@ iframe {
 .date_added {
     font-size: 12px;
     margin: 10px 0;
+    color: #7b7b7d;
 }
 .options {
     font-size: 12px;
@@ -4254,10 +4252,7 @@ iframe {
     line-height: 16px;
 }
 .option-archive {
-    
-}
-.profile-container .panel-heading{
-    padding: 10px 0px;
+    color: #7b7b7d;
 }
 .profile-container .feed-list .media{
     padding: 15px 30px;
@@ -4272,21 +4267,29 @@ iframe {
     border-top-right-radius: 3px;
     font-family: roboto;
     font-size: 18px;
-    padding: 0 0 10px;
+    padding: 0 0 25px;
 }
 .profile-container p{
     line-height: 18px;
+    font-family: Roboto;
 }
 .cityheader {
     background: #dedede none repeat scroll 0 0;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: normal;
     margin: 0;
-    padding: 9px 30px;
+    padding: 11px 30px;
 }
 .profile-container .feed-list {
     margin: 0 auto;
 }
 .profile-container .media .pull-left img.img-detail {
-    width: 80px;
+    width: 70px;
+}
+.profile-container .media-object{
+    width: 58px;
+}
+.profile-container .media{
+     padding-bottom: 5px;
+     border-bottom: 1px solid #eaeaec;
 }

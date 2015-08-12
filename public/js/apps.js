@@ -713,6 +713,12 @@ function cancelwishlist(){
 	$('.wishlist-container .wishlist-lightbox').remove();
 }
 
+
+function cancelwishlist2(){
+	$('.wishlist-container .wishlist-lightbox').remove();
+	document.location.reload();
+}
+
 function addwishlist(userid, entityid, city, entitytype, title, entity_title){
 	$("#wishlist"+entityid+" .resetdimenstion").removeClass('dnone');
 	$.ajax({
@@ -738,17 +744,27 @@ function addwishlist(userid, entityid, city, entitytype, title, entity_title){
 }
 
 function archievewishlist(id){
-	$.ajax({
-		url:baseUrl+'/profile/removewishlist',
-		type:'POST',
-		data: 'id='+id,
-		success:function(data) {
-			var results = eval( '(' + data + ')' );
-			if(results.status == 1){
-				$("#wishlist_"+id).slideUp();	
-			}else{
-				alert('There is some problem to removing from wishlist. Please try again');
+
+	if(confirm('Are you sure you want to remove this item from your wishlist?')){
+		var upperparentid = $("#wishlist_"+id).attr('data-rel');
+		var countvalue = $('#count'+upperparentid).html();
+		$.ajax({
+			url:baseUrl+'/profile/removewishlist',
+			type:'POST',
+			data: 'id='+id,
+			success:function(data) {
+				var results = eval( '(' + data + ')' );
+				if(results.status == 1){
+					if(countvalue > 1){
+						$('#count'+upperparentid).html(countvalue-1)		
+						$("#wishlist_"+id).slideUp();	
+					}else{
+						$('#getwishlist'+upperparentid).slideUp();
+					}
+				}else{
+					alert('There is some problem to removing from wishlist. Please try again');
+				}
 			}
-		}
-	});	
+		});
+	}
 }
