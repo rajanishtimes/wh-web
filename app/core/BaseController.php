@@ -211,11 +211,11 @@ class BaseController extends Controller{
     	$userloggedin =  array();
     	//$_SESSION['users'] = 'asdf'; exit;	
     	//$this->redis->write("users", 'asdfsdf'); exit;
-    	//echo $this->redis->read("users"); exit;
+    	//echo session_id();
+    	//echo $this->redis->read(session_id()); exit;
     	$value = $this->redis->read(session_id());
     	if(!empty($value)){
-			$userloggedin = $this->redis->read("users");
-			$userarray = json_decode($userloggedin);
+			$userarray = json_decode($value);
     		if(!empty($userarray)){
     			$userarray->image = "https://graph.facebook.com/".$userarray->facebook_user_id."/picture?width=150&height=150";
     			//$userarray->image = '//graph.facebook.com/'.$userarray->facebook_user_id.'/picture?type=large';
