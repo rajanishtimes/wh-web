@@ -190,11 +190,13 @@ class BaseController extends Controller{
 
         //echo "<pre>"; print_r($this->assets); echo "</pre>"; exit;
 
+
 		if($this->dispatcher->getControllerName() != 'profile' && $this->dispatcher->getActionName() != 'logout'){
 			$this->logged_user = $this->setlogin();
 			$this->view->logged_user = $this->logged_user;	
 		}
     }
+
 
     /* protected function forward($uri){
         $uriParts = explode('/', $uri);
@@ -217,7 +219,7 @@ class BaseController extends Controller{
     	//echo $this->redis->read(session_id()); exit;
     	$userloggedin = $this->redis->read(session_id());
     	if(!empty($userloggedin)){
-			$userarray = json_decode($value);
+			$userarray = json_decode($userloggedin);
     		if(!empty($userarray)){
     			$userarray->image = "https://graph.facebook.com/".$userarray->facebook_user_id."/picture?width=150&height=150";
     			//$userarray->image = '//graph.facebook.com/'.$userarray->facebook_user_id.'/picture?type=large';
