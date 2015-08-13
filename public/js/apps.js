@@ -714,10 +714,7 @@ function cancelwishlist(){
 }
 
 
-function cancelwishlist2(){
-	$('.wishlist-container .wishlist-lightbox').remove();
-	document.location.reload();
-}
+
 
 function addwishlist(userid, entityid, city, entitytype, title, entity_title){
 	$("#wishlist"+entityid+" .resetdimenstion").removeClass('dnone');
@@ -733,8 +730,8 @@ function addwishlist(userid, entityid, city, entitytype, title, entity_title){
 			}else{
 				$('.wishlist-container .wishlist-add').html('<div class="successmsg"><div class="successarea"><img src="'+baseUrl+'/img/tip-success.png"></div><div class="sucess-msg"><strong>oops!</strong><br><br>'+title+' is already added in your wishlist. You can find all items of your wishlist on your profile.</div><div class="btn-group makecenter"><div class="btn btn-primary cancel" onclick="cancelwishlist()">CANCEL</div></div></div>');
 			}
-			$('.wishlist-wrapper').removeClass('add-wishlist');
-			$('.wishlist-wrapper').addClass('added-wishlist');
+			$("#wishlist"+entityid+" .wishlist-wrapper").removeClass('add-wishlist');
+			$("#wishlist"+entityid+" .wishlist-wrapper").addClass('added-wishlist');
 			$("#wishlist"+entityid+" .wishlist_add_btn").addClass('dnone');
 			$("#wishlist"+entityid+" .wishlist_added_btn").removeClass('dnone');
 			$('.wishlist-add').center();

@@ -125,8 +125,10 @@ class ProfileController extends BaseController{
     }
 
     public function logoutAction(){
+    	$this->redis->write(session_id(), '');
     	$this->redis->destroy(session_id());
-    	return $this->response->redirect($this->baseUrl);
+    	header("Location: ".$this->baseUrl);
+    	//return $this->response->redirect($this->baseUrl);
     }
 
     public function wishlistbycityAction(){

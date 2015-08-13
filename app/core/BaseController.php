@@ -190,8 +190,10 @@ class BaseController extends Controller{
 
         //echo "<pre>"; print_r($this->assets); echo "</pre>"; exit;
 
-        $this->logged_user = $this->setlogin();
-		$this->view->logged_user = $this->logged_user;
+		if($this->dispatcher->getControllerName() != 'profile' && $this->dispatcher->getActionName() != 'logout'){
+			$this->logged_user = $this->setlogin();
+			$this->view->logged_user = $this->logged_user;	
+		}
     }
 
     /* protected function forward($uri){
@@ -213,8 +215,8 @@ class BaseController extends Controller{
     	//$this->redis->write("users", 'asdfsdf'); exit;
     	//echo session_id();
     	//echo $this->redis->read(session_id()); exit;
-    	$value = $this->redis->read(session_id());
-    	if(!empty($value)){
+    	$userloggedin = $this->redis->read(session_id());
+    	if(!empty($userloggedin)){
 			$userarray = json_decode($value);
     		if(!empty($userarray)){
     			$userarray->image = "https://graph.facebook.com/".$userarray->facebook_user_id."/picture?width=150&height=150";
