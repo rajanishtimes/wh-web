@@ -138,7 +138,7 @@
 						{% if(logged_user is empty) %}
 							
 						{% else %}
-							<li><a href="javascript:void(0)" onclick="ajaxlogout()">Logout</a></li>
+							<li><a href="{{baseUrl}}/profile/logout">Logout</a></li>
 						{% endif %}
 					</ul>
 				</div>
