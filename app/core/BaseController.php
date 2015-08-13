@@ -36,6 +36,7 @@ class BaseController extends Controller{
 		$GLOBALS["logs"]['base_initialize'] = $GLOBALS["time_end"] - $GLOBALS["time_start"];
 		$GLOBALS["time_start"] = microtime(true);
 		$this->request = new \Phalcon\Http\Request();
+		$userInfo = $this->session->get('userInfo');
 
 		if ((strpos($this->request->getServer('HTTP_USER_AGENT'), 'Mobile/') !== false) && (strpos($this->request->getServer('HTTP_USER_AGENT'), 'Safari/') == false)) {
 			$this->iswebview = true;
@@ -189,12 +190,11 @@ class BaseController extends Controller{
             ->addFilter(new \Phalcon\Assets\Filters\Jsmin());
 
         //echo "<pre>"; print_r($this->assets); echo "</pre>"; exit;
-
-
-		if($this->dispatcher->getControllerName() != 'profile' && $this->dispatcher->getActionName() != 'logout'){
+//echo "<pre>"; print_r(session_id()); echo "</pre>"; exit;
+		//if($this->dispatcher->getControllerName() != 'profile' && $this->dispatcher->getActionName() != 'logout'){
 			$this->logged_user = $this->setlogin();
 			$this->view->logged_user = $this->logged_user;	
-		}
+		//}
     }
 
 
@@ -211,13 +211,22 @@ class BaseController extends Controller{
     } */
 
     protected function setlogin(){
+
     	$loggeduser = array();
     	$userloggedin =  array();
     	//$_SESSION['users'] = 'asdf'; exit;	
-    	//$this->redis->write("users", 'asdfsdf'); exit;
+    	//echo session_id();
+    	//$_SESSION[session_id()] = 'asdf'; exit;
+		//$this->redis->write(session_id(), 'asdfsdf'); exit;
     	//echo session_id();
     	//echo $this->redis->read(session_id()); exit;
+    	//echo $_SESSION[session_id()]; exit;
+    	//echo "<pre>"; print_r($this->redis->read(session_id())); echo "</pre>"; exit;
+    	//echo "<pre>"; print_r(); echo "</pre>";
+		//echo session_id();exit;
     	$userloggedin = $this->redis->read(session_id());
+    	//echo "<pre>"; print_r($userloggedin); echo "</pre>"; exit;
+
     	if(!empty($userloggedin)){
 			$userarray = json_decode($userloggedin);
     		if(!empty($userarray)){

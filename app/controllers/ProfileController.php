@@ -38,6 +38,7 @@ class ProfileController extends BaseController{
     }
 
     public function facebookloginAction(){
+    	//echo "sadsdas";die;
     	$access_token = $this->request->getPost('access_token');
     	$hometown = $this->request->getPost('hometown');
     	$location = $this->request->getPost('location');
@@ -90,6 +91,7 @@ class ProfileController extends BaseController{
 
 		if(isset($ssoresponse['user']['sso_id'])){
 			$rediskey = "WH_user_".$ssoresponse['user']['sso_id'];
+			$this->session->set('userInfo', json_encode($ssoresponse['user']));
 			$this->redis->write(session_id(), json_encode($ssoresponse['user']));
 			echo json_encode(array('userkey'=>$rediskey, 'ssoid'=>$ssoresponse['user']['sso_id'], 'status'=>'sucess'));
 		}else{
@@ -125,6 +127,7 @@ class ProfileController extends BaseController{
     }
 
     public function logoutAction(){
+    	//echo session_id();die;
     	$this->redis->write(session_id(), '');
     	$this->redis->destroy(session_id());
     	//header("Location: ".$this->baseUrl);
