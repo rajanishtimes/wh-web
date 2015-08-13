@@ -33,10 +33,10 @@
 		<div class="top-navbar">
 		<!-- Begin logo -->
 		<div class="logo">
-			<a href="{{baseUrl}}/{{city}}"><img src="{{baseUrl}}/img/logo03072015.png" alt="WhatsHot"></a>
+			<a href="{{baseUrl}}/{{city}}"><img src="{{baseUrl}}/img/logo13082015.png" alt="WhatsHot"></a>
 		</div>
 		<div class="logo logo2">
-			<a href="{{baseUrl}}/{{city}}"><img src="{{baseUrl}}/img/logo_white03072015.png" alt="WhatsHot"></a>
+			<a href="{{baseUrl}}/{{city}}"><img src="{{baseUrl}}/img/logo_white13082015.png" alt="WhatsHot"></a>
 		</div>
 		<!-- /.logo -->
 		<!-- End logo -->
