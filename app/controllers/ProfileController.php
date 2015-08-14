@@ -178,4 +178,22 @@ class ProfileController extends BaseController{
         echo json_encode($remove);
         exit;
     }
+
+    public function getwishliststatusAction(){
+    	$userid = $this->request->getPost('userid');
+    	$entityid = $this->request->getPost('entityid');
+    	$entitytype = $this->request->getPost('entitytype');
+
+    	$Wishlist = new \WH\Model\Wishlist();
+        $Wishlist->setUserId($userid);
+        $Wishlist->setEntityId($entityid);
+        $Wishlist->setEntityTypeID($entitytype);
+
+        $Wishlist->setVersion($this->config->application->version);
+		$Wishlist->setPackage($this->config->application->package);
+		$Wishlist->setEnv($this->config->application->environment);
+        $wishlistadd = $Wishlist->status();
+        echo json_encode($wishlistadd);
+        exit;
+    }
 }

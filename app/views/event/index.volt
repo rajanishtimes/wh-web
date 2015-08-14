@@ -34,9 +34,9 @@
 						{{eventdetail['description']}}
 					</div>
 					
-					<div class="detail">
+					<!--<div class="detail">
 						<script class="lockerdome-js-lite" src="//cdn2.lockerdome.com/_js/widget_interest_1_0.js" data-owner="7850612108835329" data-style="text" data-width="full-width" data-size="custom-large" data-size_specifics="40" data-box="box-on" data-follow_up="7891395776104219" data-follow_up_specifics="2"></script>
-					</div>
+					</div>-->
 						
 					<div class="share">
 						<ul class="list-inline navbar-left">

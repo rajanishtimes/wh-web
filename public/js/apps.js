@@ -692,29 +692,53 @@ function wishlistAjaxResponse(access_token, hometown, location, entityid, city, 
 			var results = eval( '(' + data + ')' );
 			if(results.status == 'sucess'){
 				//cookies.set('whatshotuserkey', results.userkey, {path: '/',expires:exptime});
-				showishlist(results.ssoid, entityid, city, entitytype, title, entity_title);
+				showishlist(results.ssoid, entityid, city, entitytype, title, entity_title, 1);
 			}else{
 			}
-			$(".resetdimenstion").addClass('dnone');
+			//$(".resetdimenstion").addClass('dnone');
 		}
 	});
 }
 
-function showishlist(userid, entityid, city, entitytype, title, entity_title){
+function showishlist(userid, entityid, city, entitytype, title, entity_title, islogin){
+	var islogin = islogin || 0;
+	if(islogin == 1){
+		//$("#wishlist"+entityid+" .resetdimenstion").removeClass('dnone');
+		$.ajax({
+			url:baseUrl+'/profile/getwishliststatus',
+			type:'POST',
+			data: 'userid='+userid+'&entityid='+entityid+'&entitytype='+entitytype,
+			success:function(data) {
+				var results = eval( '(' + data + ')' );
+				if(results.status != 1){
+					generatewishlistpopup(userid, entityid, city, entitytype, title, entity_title);
+				}else{
+					$("#wishlist"+entityid+" .wishlist-wrapper").removeClass('add-wishlist');
+					$("#wishlist"+entityid+" .wishlist-wrapper").addClass('added-wishlist');
+					$("#wishlist"+entityid+" .wishlist_add_btn").addClass('dnone');
+					$("#wishlist"+entityid+" .wishlist_added_btn").removeClass('dnone');
+					$("#wishlist"+entityid+" .resetdimenstion").addClass('dnone');
+					document.location.reload();
+				}
+			}
+		});
+	}else{
+		generatewishlistpopup(userid, entityid, city, entitytype, title, entity_title);
+	}
+}
+
+function generatewishlistpopup(userid, entityid, city, entitytype, title, entity_title){
 	var html = '<div class="wishlist-lightbox lightbox"><div class="wishlist-add"><div class="tiphead">TIP:</div><div class="wihlist-title">Add '+entity_title+' to my wishlist.<br><textarea class="tiptext border-bottom" rows="1" data-min-rows="1" maxlength="140" placeholder="Because I Like"></textarea><div class="char-remain">140</div></div><div class="btn-group float-right"><div class="btn btn-primary cancel" onclick="cancelwishlist()">CANCEL</div><div class="resetdimenstion dnone float-right"><img src="'+ baseUrl +'/img/ajax-loader.gif"></div><div class="btn btn-primary add" onclick="addwishlist(\''+userid+'\', \''+entityid+'\', \''+city+'\', \''+entitytype+'\', \''+title+'\', \''+entity_title+'\')">ADD</div></div></div><div class="overlay"></div></div>';
 
 	$('#wishlist'+entityid).append(html);
 	$('.wishlist-add').center();
-	$("html, body").animate({scrollTop: $(".wishlist-lightbox").offset().top-100}, 1000); 	
+	$("html, body").animate({scrollTop: $(".wishlist-lightbox").offset().top-100}, 1000); 
 }
 
 
 function cancelwishlist(){
 	$('.wishlist-container .wishlist-lightbox').remove();
 }
-
-
-
 
 function addwishlist(userid, entityid, city, entitytype, title, entity_title){
 	$("#wishlist"+entityid+" .resetdimenstion").removeClass('dnone');
