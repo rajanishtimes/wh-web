@@ -257,6 +257,63 @@ class Feeds extends Component
 			</li>										
 		<?php }}
     }
+
+
+    public function getwishlist($url, $data, $start, $type){
+    	$i=0;
+    	foreach($data as $key=>$wishlist){
+    	?>
+
+    	<li id="wishlist_<?php echo $wishlist['id'];?>" class="media searchlist">
+			<a href="<?php echo $url.$wishlist['url'];?>" class="pull-left">
+				<div style="background-color:#ffdddd;width:100%">
+					<?php echo $this->getimage($url, $wishlist['image']['uri'], 80, 80, $wishlist['title'], $wishlist['image'], '', 'img-detail', $key+1); ?>
+				</div>
+			</a>
+			<div class="media-body">
+				<a href="<?php echo $url.$wishlist['url'];?>"><h4 class="media-heading"><?php echo $wishlist['title']?></h4></a>
+
+				<?php if(strtolower($wishlist['entity_type']) == 'event'){ ?>
+					<div class="homepagevenue">
+						<div class="time"><?php echo $wishlist['time']; ?></div>
+						<div class="landmark"><?php echo $wishlist['venue']; ?></div>
+					</div>
+				<?php } ?>
+
+				<?php if(!empty($wishlist['tip'])){ ?>
+					<div class="tiphead">Note:</div>
+					<p class="feed-short-desc"><?php echo $wishlist['tip']?></p>
+				<?php } ?>
+				<div class="date_added float-left">
+					On <?php echo $wishlist['added_on']?>
+				</div>
+				<div class="options float-left">
+					<a href="javascript:void(0)" onclick="archievewishlist('<?php echo $wishlist['id']?>')">
+						<div class="option-archive float-left"><i class="fa fa-trash"></i> Remove</div>
+						<div class="resetdimenstion dnone float-left"><img src="<?php echo $url?>/img/ajax-loader.gif"></div>
+					</a>
+				</div>
+				<div class="options share-option float-left">
+					<ul class="nav-search">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<div class="option-archive float-left"><i class="fa fa-share"></i> Share</div>
+							</a>
+							<ul class="dropdown-menu square primary margin-list-rounded fancy-dropdown">
+								<li class="head">Share On</li>
+								<li><a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('<?php echo $url.$wishlist['url'];?>'),'facebook-share-dialog','width=626,height=436');return false;" class="facebook">Facebook</a></li>
+								<li><a href="#" onclick="window.open('https://plus.google.com/share?url=<?php echo $url.$wishlist['url'];?>','facebook-share-dialog','width=626,height=436');return false;" class="google-plus">Google +</a></li>
+								<li><a href="#" onclick="window.open('http://twitter.com/share?url=<?php echo $url.$wishlist['url'];?>','facebook-share-dialog','width=626,height=436');return false;" class="twitter">Twitter</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+    	<?php
+    	$i++;
+    	}
+    }
 	
 	public function getcontest($url, $datas, $start, $city='', $type='', $isvoted){
 		$i = 0;

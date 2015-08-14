@@ -36,28 +36,9 @@
 										{% for key, list in allwishlistlist %}
 											<ul id="getwishlist{{key}}" class="media-list feed-list">
 											<h2 class="cityheader"><span id="count{{key}}">{{list['total_count']}}</span> Item(s) in Wishlist <strong>{{list['city']}}</strong></h2>
-											{% for wishlist in list['list'] %}
-												<li id="wishlist_{{wishlist['id']}}" class="media searchlist" data-rel="{{key}}">
-													<a href="{{baseUrl}}{{wishlist['url']}}" class="pull-left">
-														<div style="background-color:#ffdddd;width:100%">
-															{{feeds.getimage(baseUrl, wishlist['image']['uri'], 80, 80, wishlist['title'], '', '', 'img-detail', key+1)}} 
-														</div>
-													</a>
-													<div class="media-body">
-														<a href="{{baseUrl}}{{wishlist['url']}}"><h4 class="media-heading">{{wishlist['title']}}</h4></a>
-														<?php if(!empty($wishlist['tip'])){ ?>
-															<div class="tiphead">TIP:</div>
-															<p class="feed-short-desc">{{wishlist['tip']}}</p>
-														<?php } ?>
-														<div class="date_added float-left">
-															On {{wishlist['added_on']}}
-														</div>
-														<div class="options float-left">
-															<a href="javascript:void(0)" onclick="archievewishlist('{{wishlist['id']}}')"><div class="option-archive"><i class="fa fa-trash"></i> Remove</div></a>
-														</div>
-													</div>
-												</li>
-											{% endfor  %}
+
+											{{feeds.getwishlist(baseUrl, list['list'], start, 'wishlist')}}
+											
 											</ul><div class="clearfix"></div>
 											<?php if($list['total_count'] > ($limit)){ ?>
 												<div class="loadmore">												

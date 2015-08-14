@@ -1983,6 +1983,7 @@ a.bg-dark:hover {
 }
 .media-left, .media > .pull-left {
     padding-right: 20px;
+    outline: none;
 }
 .feed-list .media .img-post {
     margin-right: 20px;
@@ -4292,4 +4293,33 @@ iframe {
 .profile-container .media{
      padding-bottom: 5px;
      border-bottom: 1px solid #eaeaec;
+}
+.profile-main-container .media-body, .profile-main-container .media.searchlist{
+    overflow: visible;
+}
+.share-option .nav-search{
+    list-style: none; padding: 0;
+}
+.profile-main-container .feed-list .media a{
+    width:auto;
+}
+.options .dropdown-menu.square.primary.margin-list-rounded.fancy-dropdown {
+    padding: 0 20px;
+}
+.nav-search .head {
+    padding: 10px 0px;
+}
+.options .dropdown-menu.margin-list-rounded > li > a{
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+}
+.options .dropdown-menu.margin-list-rounded > li > a.facebook {
+    background: #3b5998 none repeat scroll 0 0;
+}
+.options .dropdown-menu.margin-list-rounded > li > a.google-plus {
+    background: #d34836 none repeat scroll 0 0;
+}
+.options .dropdown-menu.margin-list-rounded > li > a.twitter {
+    background: #55acee none repeat scroll 0 0;
 }
