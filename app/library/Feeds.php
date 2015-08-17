@@ -291,26 +291,29 @@ class Feeds extends Component
 				<div class="date_added float-left">
 					On <?php echo $wishlist['added_on']?>
 				</div>
-				<div class="options float-left">
-					<a href="javascript:void(0)" onclick="archievewishlist('<?php echo $wishlist['id']?>')">
-						<div class="option-archive float-left"><i class="fa fa-trash"></i> Remove</div>
-						<div class="resetdimenstion dnone float-left"><img src="<?php echo $url?>/img/ajax-loader.gif"></div>
-					</a>
-				</div>
-				<div class="options share-option float-left">
-					<ul class="nav-search">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<div class="option-archive float-left"><i class="fa fa-share"></i> Share</div>
-							</a>
-							<ul class="dropdown-menu square primary margin-list-rounded fancy-dropdown">
-								<li class="head">Share On</li>
-								<li><a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('<?php echo $url.$wishlist['url'];?>'),'facebook-share-dialog','width=626,height=436');return false;" class="facebook">Facebook</a></li>
-								<li><a href="#" onclick="window.open('https://plus.google.com/share?url=<?php echo $url.$wishlist['url'];?>','facebook-share-dialog','width=626,height=436');return false;" class="google-plus">Google +</a></li>
-								<li><a href="#" onclick="window.open('http://twitter.com/share?url=<?php echo $url.$wishlist['url'];?>','facebook-share-dialog','width=626,height=436');return false;" class="twitter">Twitter</a></li>
-							</ul>
-						</li>
-					</ul>
+
+				<div class="col-sm-12 col-md-6 col-xs-12">
+					<div class="options float-left">
+						<a href="javascript:void(0)" onclick="archievewishlist('<?php echo $wishlist['id']?>')">
+							<div class="option-archive float-left"><i class="fa fa-trash"></i> Remove</div>
+							<div class="resetdimenstion dnone float-left"><img src="<?php echo $url?>/img/ajax-loader.gif"></div>
+						</a>
+					</div>
+					<div class="options share-option float-left">
+						<ul class="nav-search">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<div class="option-archive float-left"><i class="fa fa-share"></i> Share</div>
+								</a>
+								<ul class="dropdown-menu square primary margin-list-rounded fancy-dropdown">
+									<li class="head">Share On</li>
+									<li><a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('<?php echo $url.$wishlist['url'];?>'),'facebook-share-dialog','width=626,height=436');return false;" class="facebook">Facebook</a></li>
+									<li><a href="#" onclick="window.open('https://plus.google.com/share?url=<?php echo $url.$wishlist['url'];?>','facebook-share-dialog','width=626,height=436');return false;" class="google-plus">Google +</a></li>
+									<li><a href="#" onclick="window.open('http://twitter.com/share?url=<?php echo $url.$wishlist['url'];?>','facebook-share-dialog','width=626,height=436');return false;" class="twitter">Twitter</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</li>

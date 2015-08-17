@@ -378,6 +378,17 @@ function DOMReady(){
 		return false;
 	});
 
+	$("#ac-gn-menustate").change(function() {
+		if($('#smartbanner').length > 0){
+			if(this.checked) {
+				$('#smartbanner').css('position', 'fixed');
+			}else{
+				$('#smartbanner').css('position', 'static');
+			}
+		}
+	});
+
+
 	$(document.body).one('focus.textarea', '.tiptext', function(){
         var savedValue = this.value;
         this.value = '';
