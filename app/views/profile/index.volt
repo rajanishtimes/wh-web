@@ -37,7 +37,7 @@
 											<ul id="getwishlist{{key}}" class="media-list feed-list">
 											<h2 class="cityheader"><span id="count{{key}}">{{list['total_count']}}</span> Item(s) in Wishlist <strong>{{list['city']}}</strong></h2>
 
-											{{feeds.getwishlist(baseUrl, list['list'], start, 'wishlist')}}
+											{{feeds.getwishlist(baseUrl, list['list'], start, 'wishlist', key)}}
 											
 											</ul><div class="clearfix"></div>
 											<?php if($list['total_count'] > ($limit)){ ?>

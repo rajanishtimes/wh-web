@@ -259,12 +259,12 @@ class Feeds extends Component
     }
 
 
-    public function getwishlist($url, $data, $start, $type){
+    public function getwishlist($url, $data, $start, $type, $denot){
     	$i=0;
     	foreach($data as $key=>$wishlist){
     	?>
 
-    	<li id="wishlist_<?php echo $wishlist['id'];?>" class="media searchlist">
+    	<li id="wishlist_<?php echo $wishlist['id'];?>" class="media searchlist" data-rel="<?php echo $denot; ?>">
 			<a href="<?php echo $url.$wishlist['url'];?>" class="pull-left">
 				<div style="background-color:#ffdddd;width:100%">
 					<?php echo $this->getimage($url, $wishlist['image']['uri'], 80, 80, $wishlist['title'], $wishlist['image'], '', 'img-detail', $key+1); ?>
