@@ -85,7 +85,7 @@
 
             var style = '';
             if(this.type == 'android'){
-                style = '<style>.navbar-fixed-top{top: 77px;}</style>';
+                style = '<style>#navbar-fixed-top{top: 77px;}</style>';
             }
             banner = banner + style;
             (this.options.layer) ? $(this.options.appendToSelector).append(banner) : $(this.options.appendToSelector).prepend(banner);
