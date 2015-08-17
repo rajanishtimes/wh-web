@@ -271,7 +271,11 @@ class Feeds extends Component
 				</div>
 			</a>
 			<div class="media-body">
-				<a href="<?php echo $url.$wishlist['url'];?>"><h4 class="media-heading"><?php echo $wishlist['title']?></h4></a>
+				<a href="<?php echo $url.$wishlist['url'];?>"><h4 class="media-heading"><?php echo $wishlist['title']?>
+					<?php if(isSet($wishlist['past']) && $wishlist['past'] == 1){ ?>
+						<span class="makered">(Passed Event)</span>
+					<?php } ?>
+				</h4></a>
 
 				<?php if(strtolower($wishlist['entity_type']) == 'event'){ ?>
 					<div class="homepagevenue">

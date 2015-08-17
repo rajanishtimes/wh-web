@@ -328,13 +328,6 @@ function DOMReady(){
 		});
 	}
 
-	$(".resposive-menu .btn-collapse-sidebar-right").click(function(){
-		"use strict";
-		$(".top-navbar").toggleClass("toggle-left");
-		$(".sidebar-right").toggleClass("toggle-left");
-		$(".page-content").toggleClass("toggle-left");
-	});
-
 	$('.addscroll').click(function(){
 		$('body,html').animate({
 			scrollTop: $('.hp .item').height()
@@ -437,7 +430,7 @@ function DOMReady(){
 			top = 77;
 		}
 		
-		if($('.page-content').hasClass('toggle-left') == false){
+		if($(window).width() > 767){
 
 			if( wScrollCurrent <= 0 ) // scrolled to the very top; element sticks to the top
 				$element.css( 'top', top );

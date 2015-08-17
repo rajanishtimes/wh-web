@@ -27,6 +27,7 @@
 </div>
 <?php } ?>
 <!-- BEGIN TOP NAVBAR -->
+<input id="ac-gn-menustate" class="ac-gn-menustate" type="checkbox">
 <nav id="navbar-fixed-top" class="navbar navbar-default navbar-fixed-top makeheaderintera">
 <div class="container">
 	<div class="row">
@@ -87,12 +88,22 @@
 
 					</ul>
 				</li>
-				<li class="resposive-menu">
+				<!--<li class="resposive-menu">
 					<div class="btn-collapse-sidebar-right">
 						<i class="fa fa-bars"></i>
 					</div>
+				</li>-->
+				<li class="resposive-menu ac-gn-item ac-gn-menuicon">
+					<label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true"> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top">
+							<span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span> </span> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom">
+							<span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span> </span>
+					</label>
 				</li>
 			</ul>
+
+
+			
+			
 
 			<ul class="nav-search navbar-right right-responsive-menu">
 				<li class="whresposive-menu user-profile-menu">
@@ -120,29 +131,24 @@
 			{% endif %}
 
 		<!-- BEGIN SIDEBAR RIGHT -->
-			<div class="sidebar-right">
-				<div class="tab-pane" id="setting-sidebar">
-					<ul class="sidebar-menu">
-						<li class="header">
-							<a href="{{baseUrl}}/profile">
-							{% if(logged_user is empty) %}
-								<img src="{{baseUrl}}/img/looksy.jpg" alt="user" class="img-circle user-profile-img">&nbsp; You
-							{% else %}
-								<img src="{{logged_user.image}}" alt="user" class="img-circle user-profile-img">&nbsp; {{logged_user.firstname}} {{logged_user.lastname}}
-							{% endif %}
-							</a>
-						</li>
-						<li><a href="{{baseUrl}}/about-us">About us</a></li>
-						<li><a href="{{baseUrl}}/policy">Privacy</a></li>
-						<li><a href="{{baseUrl}}/terms">Terms</a></li>
-						{% if(logged_user is empty) %}
-							
-						{% else %}
-							<li><a href="{{baseUrl}}/profile/logout">Logout</a></li>
-						{% endif %}
-					</ul>
-				</div>
-			</div>
+		<ul class="ac-gn-list">
+			<li class="ac-gn-item ac-gn-item-menu header">
+				<a href="{{baseUrl}}/profile">
+				{% if(logged_user is empty) %}
+					<img src="{{baseUrl}}/img/looksy.jpg" alt="user" class="img-circle user-profile-img">&nbsp; <span class="ac-gn-link-text">You</span>
+				{% else %}
+					<img src="{{logged_user.image}}" alt="user" class="img-circle user-profile-img">&nbsp; <span class="ac-gn-link-text">{{logged_user.firstname}} {{logged_user.lastname}}</span>
+				{% endif %}
+				</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu"><a href="{{baseUrl}}/about-us"><span class="ac-gn-link-text">About us</span></a></li>
+			<li class="ac-gn-item ac-gn-item-menu"><a href="{{baseUrl}}/policy"><span class="ac-gn-link-text">Privacy</span></a></li>
+			<li class="ac-gn-item ac-gn-item-menu"><a href="{{baseUrl}}/terms"><span class="ac-gn-link-text">Terms</span></a></li>
+			{% if(logged_user is empty) %}
+			{% else %}
+				<li class="ac-gn-item ac-gn-item-menu"><a href="{{baseUrl}}/profile/logout">Logout</a></li>
+			{% endif %}
+		</ul>
 		<!-- END SIDEBAR RIGHT -->
 	</div><!-- /.top-navbar -->
 	</div>

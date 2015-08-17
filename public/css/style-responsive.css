@@ -295,6 +295,9 @@ TABLET < 767px
 	.contesttext{
 		display: none;
 	}
+	.navbar-fixed-top{
+		position: absolute;
+	}
 	/* =========== Biryani and haleem ========== */	
 	.freedomlogo{
 		float: left;
@@ -305,15 +308,173 @@ TABLET < 767px
 	.whresposive-menu{
 	    display: none;
 	}
-	.resposive-menu{
-	    display: block;
-	}
 	.searchbtn a > div{
 	     padding: 0px 15px !important;
 	}
-	.img-circle.user-profile-img {
-	    width: 90px;
+	.ac-gn-list{
+        display: block;
+    }
+    #navbar-fixed-top {
+    	position: absolute;
 	}
+    #navbar-fixed-top .ac-gn-item {
+	    display: inline-block;
+	    *display: inline;
+	    *zoom: 1;
+	    position: relative;
+	    height: 44px;
+	    z-index: 1;
+	    vertical-align: top
+	}
+    #navbar-fixed-top {
+        max-height: none;
+        -webkit-transition: background 0.35s linear 0.25s, height 0.35s ease-in 0.25s, min-height 0.35s ease-in 0.25s;
+        transition: background 0.35s linear 0.25s, height 0.35s ease-in 0.25s, min-height 0.35s ease-in 0.25s
+    }
+    #ac-gn-menustate:checked ~ #navbar-fixed-top,
+    #ac-gn-menustate:target ~ #navbar-fixed-top {
+        height: 100%;
+        background: #000;
+        position: fixed;
+        -webkit-transition: background 0.35s linear, height 0.35s ease-in, min-height 0.35s ease-in;
+        transition: background 0.35s linear, height 0.35s ease-in, min-height 0.35s ease-in
+    }
+    #ac-gn-placeholder {
+        height: 48px
+    }
+    #ac-gn-curtain.with-search {
+        display: none
+    }
+    #navbar-fixed-top .ac-gn-header {
+        display: block
+    }
+    #navbar-fixed-top .ac-gn-header .ac-gn-apple {
+        display: block
+    }
+    #navbar-fixed-top .ac-gn-header .ac-gn-bag-small {
+        display: block
+    }
+    #navbar-fixed-top .ac-gn-list {
+        z-index: 2;
+        top: 48px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        padding: 0 10px;
+        height: auto;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+        visibility: hidden;
+        -webkit-transition: height 0.35s linear, visibility 0s linear .5s;
+        transition: height 0.35s linear, visibility 0s linear .5s
+    }
+    #ac-gn-menustate:checked ~ #navbar-fixed-top .ac-gn-list,
+    #ac-gn-menustate:target ~ #navbar-fixed-top .ac-gn-list {
+        visibility: visible;
+        -webkit-transition-delay: 0s;
+        transition-delay: 0s
+    }
+    #navbar-fixed-top .ac-gn-list:after,
+    #navbar-fixed-top .ac-gn-list .after {
+        display: none
+    }
+    #navbar-fixed-top .ac-gn-item {
+        width: 100%;
+        height: 48px
+    }
+    #navbar-fixed-top .ac-gn-item-menu {
+    	border-bottom: 1px solid #fff;
+	    height: 30px;
+		margin: 0 0 23px;
+		opacity: 0;
+        pointer-events: none;
+        -webkit-transform: scale(1.1) translateY(-24px);
+        -ms-transform: scale(1.1) translateY(-24px);
+        transform: scale(1.1) translateY(-24px);
+        -webkit-transition: opacity 0.35s ease-out, -webkit-transform 0.35s ease-out;
+        transition: opacity 0.35s ease-out, transform 0.35s ease-out
+    }
+    #ac-gn-menustate:checked ~ #navbar-fixed-top .ac-gn-item-menu,
+    #ac-gn-menustate:target ~ #navbar-fixed-top .ac-gn-item-menu {
+        opacity: 1;
+        pointer-events: auto;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none
+    }
+    #navbar-fixed-top .ac-gn-item-menu:nth-child(1) {
+        -webkit-transition-delay: 700ms, 700ms;
+        transition-delay: 700ms, 700ms
+    }
+    #ac-gn-menustate:checked ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(1),
+    #ac-gn-menustate:target ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(1) {
+        -webkit-transition-delay: 0ms, 0ms;
+        transition-delay: 0ms, 0ms
+    }
+    #navbar-fixed-top .ac-gn-item-menu:nth-child(2) {
+        -webkit-transition-delay: 700ms, 700ms;
+        transition-delay: 700ms, 700ms
+    }
+    #ac-gn-menustate:checked ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(2),
+    #ac-gn-menustate:target ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(2) {
+        -webkit-transition-delay: 0ms, 0ms;
+        transition-delay: 0ms, 0ms
+    }
+    #navbar-fixed-top .ac-gn-item-menu:nth-child(3) {
+        -webkit-transition-delay: 600ms, 600ms;
+        transition-delay: 600ms, 600ms
+    }
+    #ac-gn-menustate:checked ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(3),
+    #ac-gn-menustate:target ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(3) {
+        -webkit-transition-delay: 100ms, 100ms;
+        transition-delay: 100ms, 100ms
+    }
+    #navbar-fixed-top .ac-gn-item-menu:nth-child(4) {
+        -webkit-transition-delay: 500ms, 500ms;
+        transition-delay: 500ms, 500ms
+    }
+    #ac-gn-menustate:checked ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(4),
+    #ac-gn-menustate:target ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(4) {
+        -webkit-transition-delay: 200ms, 200ms;
+        transition-delay: 200ms, 200ms
+    }
+    #navbar-fixed-top .ac-gn-item-menu:nth-child(5) {
+        -webkit-transition-delay: 400ms, 400ms;
+        transition-delay: 400ms, 400ms
+    }
+    #ac-gn-menustate:checked ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(5),
+    #ac-gn-menustate:target ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(5) {
+        -webkit-transition-delay: 300ms, 300ms;
+        transition-delay: 300ms, 300ms
+    }
+    #navbar-fixed-top .ac-gn-item-menu:nth-child(6) {
+        -webkit-transition-delay: 300ms, 300ms;
+        transition-delay: 300ms, 300ms
+    }
+    #ac-gn-menustate:checked ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(6),
+    #ac-gn-menustate:target ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(6) {
+        -webkit-transition-delay: 400ms, 400ms;
+        transition-delay: 400ms, 400ms
+    }
+    #navbar-fixed-top .ac-gn-item-menu:nth-child(7) {
+        -webkit-transition-delay: 200ms, 200ms;
+        transition-delay: 200ms, 200ms
+    }
+    #ac-gn-menustate:checked ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(7),
+    #ac-gn-menustate:target ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(7) {
+        -webkit-transition-delay: 500ms, 500ms;
+        transition-delay: 500ms, 500ms
+    }
+    #navbar-fixed-top .ac-gn-item-menu:nth-child(8) {
+        -webkit-transition-delay: 100ms, 100ms;
+        transition-delay: 100ms, 100ms
+    }
+    #ac-gn-menustate:checked ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(8),
+    #ac-gn-menustate:target ~ #navbar-fixed-top .ac-gn-item-menu:nth-child(8) {
+        -webkit-transition-delay: 600ms, 600ms;
+        transition-delay: 600ms, 600ms
+    }
 }
 
 
@@ -407,7 +568,7 @@ PHONE < 548px
 	.nav-search.navbar-right {
 		float: right;
 		margin: 0;
-		padding: 20px 11px;
+		padding: 16px 11px;
 	}
 	.row.work-content {
 	    margin-left: -15px;
@@ -471,7 +632,7 @@ PHONE < 480px
 		display:none;
 	}
 	.nav-search.navbar-right{
-		padding: 20px 5px;
+		padding: 16px 5px;
 	}
 	.resize {
 		padding: 0 10px;
@@ -571,7 +732,7 @@ PHONE < 420px
 		width:100px; height:auto;
 	}
 	.nav-search.navbar-right{
-		padding: 20px 5px;
+		padding: 16px 5px;
 	}
 	.desc > div {
 		display: block;
@@ -644,10 +805,10 @@ IPHONE 6 PLUS
 		height:61px;
 	}
 	.nav-search.navbar-right {
-	    padding: 20px 5px;
+	    padding: 16px 5px;
 	}
 	.container-fluid {
-	    margin-top: 60px;
+	    margin-top: 38px;
 	}
 	footer, .footer{
 		width: 414px;
@@ -729,7 +890,7 @@ IPHONE 6
 		height:61px;
 	}
 	.container-fluid {
-	    margin-top: 60px;
+	    margin-top: 38px;
 	}
 	.social-share-widget{
 		margin-top: 19px;
@@ -790,7 +951,7 @@ PHONE < 360px
 		width:130px; height:auto;
 	}
 	.container-fluid{
-		margin-top: 60px;
+		margin-top: 38px;
 	}
 
 	.desc > div {
@@ -816,7 +977,7 @@ PHONE < 320px
 		overflow-x:hidden;
 	}
 	.container-fluid{
-		margin-top: 60px;
+		margin-top: 38px;
 	}
 	.h1{display: none;}
 	.dropdown-menu.with-triangle::before, .dropdown-menu.with-triangle::after{
