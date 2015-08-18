@@ -4528,6 +4528,7 @@ iframe {
     padding: 12px 15px;
     border: none;
     border-bottom: medium none !important;
+    height: 63px !important;
 }
 .ac-gn-list > li.header a{
     color: #fff;
