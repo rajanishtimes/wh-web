@@ -30,7 +30,7 @@ class ProfileController extends BaseController{
 			array(
 				'allwishlistlist' => $allwishlistlist,
 				'total_count' => $total_count,
-				'start'=>11,
+				'start'=>10,
 				'limit'=>10
 				)
 			);

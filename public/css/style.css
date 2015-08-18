@@ -4525,10 +4525,11 @@ iframe {
 .ac-gn-list > li.header {
     background: #d31a6b none repeat scroll 0 0;
     color: #fff;
-    padding: 12px 15px;
     border: none;
     border-bottom: medium none !important;
     height: 63px !important;
+    margin-bottom: 0 !important;
+    padding: 12px 2px;
 }
 .ac-gn-list > li.header a{
     color: #fff;

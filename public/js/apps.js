@@ -386,6 +386,13 @@ function DOMReady(){
 				$('#smartbanner').css('position', 'static');
 			}
 		}
+		if(this.checked) {
+			$('html, body').css('overflow', 'hidden');
+			$('html, body').css('height', '100%');
+		}else{
+			$('html, body').css('overflow', 'auto');
+			$('html, body').css('height', 'auto');
+		}
 	});
 
 

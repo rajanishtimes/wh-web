@@ -289,7 +289,7 @@ class Feeds extends Component
 					<p class="feed-short-desc"><?php echo $wishlist['tip']?></p>
 				<?php } ?>
 				<div class="date_added float-left">
-					On <?php echo $wishlist['added_on']?>
+					Added on <?php echo $wishlist['added_on']?>
 				</div>
 
 				<div class="col-sm-12 col-md-6 col-xs-12">

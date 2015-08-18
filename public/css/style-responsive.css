@@ -355,14 +355,19 @@ TABLET < 767px
         display: block
     }
     #navbar-fixed-top .ac-gn-list {
+        position: absolute;
         z-index: 2;
-        top: 48px;
+        top: 62px;
         right: 0;
         bottom: 0;
         left: 0;
         margin: 0;
         padding: 0 10px;
         height: auto;
+
+        overflow: hidden;
+        overflow-y: auto;
+        
         box-sizing: border-box;
         -webkit-overflow-scrolling: touch;
         visibility: hidden;
@@ -972,7 +977,7 @@ PHONE < 320px
 =================================
 **/
 @media (max-width: 320px){
-	body{
+	html, body{
 		width:320px !important;
 		overflow-x:hidden;
 	}

@@ -129,7 +129,7 @@
 					</div></a>
 				</div>
 			{% endif %}
-
+	</div><!-- /.top-navbar -->
 		<!-- BEGIN SIDEBAR RIGHT -->
 		<ul class="ac-gn-list">
 			<li class="ac-gn-item ac-gn-item-menu header">
@@ -150,7 +150,7 @@
 			{% endif %}
 		</ul>
 		<!-- END SIDEBAR RIGHT -->
-	</div><!-- /.top-navbar -->
+		
 	</div>
 </div><!-- /.container -->
 </nav>

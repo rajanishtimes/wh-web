@@ -7,6 +7,7 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 		<meta http-equiv="X-Frame-Options" content="sameorigin">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
 		{% if meta_description != '' %}
 			<meta name="description" content="{{ meta_description }}" />
 		{% endif  %}
