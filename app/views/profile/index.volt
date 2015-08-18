@@ -1,6 +1,6 @@
 <div class="section grayed">
 	<div class="container profile-container">
-		<div class="row">
+		<div class="">
 			<div class="col-xs-12 col-sm-3 col-md-3">
 				<div class="left-profile-column">
 					{{ partial('partials/profile-left')}}

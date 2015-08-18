@@ -220,7 +220,7 @@ blockquote {
     color: #fff;
 }
 .container-fluid{
-    margin-top: 38px;
+    margin-top: 58px;
 }
 .sidebar-right{
     position: fixed;
@@ -4543,4 +4543,7 @@ iframe {
     font-family: Roboto;
     font-size: 16px;
     font-weight: 100;
+}
+.facebook-sign-in > img {
+    max-width: 100%;
 }
