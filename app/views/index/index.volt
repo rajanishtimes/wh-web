@@ -20,7 +20,7 @@
 			<!--<h1>Hey! Top Things to do today</h1>-->
 			{% if(topfeeds | length > 0) %}
 				<h1>Discover {{cityshown}} with our curated features, events and guides</h1>
-				<div class="row work-content resize">
+				<div class="row work-content resize no-padding">
 					{% for key, topfeed in topfeeds %}
 						<div class="col-sm-6 col-md-4 col-xs-6">
 								<div class="work-item topthing">

@@ -575,10 +575,6 @@ PHONE < 548px
 		margin: 0;
 		padding: 16px 11px;
 	}
-	.row.work-content {
-	    margin-left: -15px;
-    	margin-right: -15px;
-	}
 	#authorpost .row.work-content{
 		margin: 0;
 	}
