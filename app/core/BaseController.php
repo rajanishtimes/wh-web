@@ -135,59 +135,59 @@ class BaseController extends Controller{
 			//$this->cookies->get("city")->delete();
 			//$this->forwardtoerrorpage(404);
 		//}
-		$this->assets
-			->collection('header')
-			->setPrefix($this->baseUrl)
-			->setLocal(false)
-			->setTargetPath(APP_PATH.'public/css/header.css')
-			->setTargetUri('/css/header.css')
-            ->addCss($this->baseUrl.'/css/bootstrap.min.css', false)
-            ->addCss($this->baseUrl.'/plugins/owl-carousel/owl.carousel.css', false)
-            ->addCss($this->baseUrl.'/plugins/owl-carousel/owl.theme.css', false)
-            ->addCss($this->baseUrl.'/plugins/swipebox/src/css/swipebox.css', false)
-            ->addCss($this->baseUrl.'/css/jquery.smartbanner.css', false)
-            ->join(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Cssmin());
 
-        $this->assets
-			->collection('main')
-			->setPrefix($this->baseUrl)
-			->setLocal(false)
-			->setTargetPath(APP_PATH.'public/css/main.css')
-			->setTargetUri('/css/main.css')
-            ->addCss($this->baseUrl.'/css/style.css', false)
-            ->addCss($this->baseUrl.'/css/style-responsive.css', false)
-            ->join(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Cssmin());
+		if($this->config->application->environment == 'local'){
+			$this->assets
+				->collection('header')
+				->setPrefix($this->baseUrl)
+				->setLocal(false)
+				->setTargetPath(APP_PATH.'public/css/header.css')
+				->setTargetUri('/css/header.css')
+	            ->addCss($this->baseUrl.'/css/bootstrap.min.css', false)
+	            ->addCss($this->baseUrl.'/plugins/owl-carousel/owl.carousel.css', false)
+	            ->addCss($this->baseUrl.'/plugins/owl-carousel/owl.theme.css', false)
+	            ->addCss($this->baseUrl.'/plugins/swipebox/src/css/swipebox.css', false)
+	            ->addCss($this->baseUrl.'/css/jquery.smartbanner.css', false)
+	            ->join(true)
+	            ->addFilter(new \Phalcon\Assets\Filters\Cssmin());
 
-		
+	        $this->assets
+				->collection('main')
+				->setPrefix($this->baseUrl)
+				->setLocal(false)
+				->setTargetPath(APP_PATH.'public/css/main.css')
+				->setTargetUri('/css/main.css')
+	            ->addCss($this->baseUrl.'/css/style.css', false)
+	            ->addCss($this->baseUrl.'/css/style-responsive.css', false)
+	            ->join(true)
+	            ->addFilter(new \Phalcon\Assets\Filters\Cssmin());
 
+	        $this->assets
+				->collection('js')
+				->setPrefix($this->baseUrl)
+				->setLocal(false)
+				->setTargetPath(APP_PATH.'public/js/main.js')
+				->setTargetUri('/js/main.js')
+	            ->addJs($this->baseUrl.'/js/bootstrap.min.js', false)
+	            ->addJs($this->baseUrl.'/js/typeahead.min.js', false)
+	            ->addJs($this->baseUrl.'/plugins/owl-carousel/owl.carousel.min.js', false)
+	            ->addJs($this->baseUrl.'/plugins/swipebox/src/js/jquery.swipebox.min.js', false)
+	            ->addJs($this->baseUrl.'/js/jquery.unveil.js', false)
+	            ->addJs($this->baseUrl.'/js/cookies.js', false)
+	            ->addJs($this->baseUrl.'/js/jquery.smartbanner.js', false)
+	            ->join(true)
+	            ->addFilter(new \Phalcon\Assets\Filters\Jsmin());
 
-        $this->assets
-			->collection('js')
-			->setPrefix($this->baseUrl)
-			->setLocal(false)
-			->setTargetPath(APP_PATH.'public/js/main.js')
-			->setTargetUri('/js/main.js')
-            ->addJs($this->baseUrl.'/js/bootstrap.min.js', false)
-            ->addJs($this->baseUrl.'/js/typeahead.min.js', false)
-            ->addJs($this->baseUrl.'/plugins/owl-carousel/owl.carousel.min.js', false)
-            ->addJs($this->baseUrl.'/plugins/swipebox/src/js/jquery.swipebox.min.js', false)
-            ->addJs($this->baseUrl.'/js/jquery.unveil.js', false)
-            ->addJs($this->baseUrl.'/js/cookies.js', false)
-            ->addJs($this->baseUrl.'/js/jquery.smartbanner.js', false)
-            ->join(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin());
-
-        $this->assets
-			->collection('appsjs')
-			->setPrefix($this->baseUrl)
-			->setLocal(false)
-			->setTargetPath(APP_PATH.'public/js/app.js')
-			->setTargetUri('/js/app.js')
-            ->addJs($this->baseUrl.'/js/apps.js', false)
-            ->join(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin());
+	        $this->assets
+				->collection('appsjs')
+				->setPrefix($this->baseUrl)
+				->setLocal(false)
+				->setTargetPath(APP_PATH.'public/js/app.js')
+				->setTargetUri('/js/app.js')
+	            ->addJs($this->baseUrl.'/js/apps.js', false)
+	            ->join(true)
+	            ->addFilter(new \Phalcon\Assets\Filters\Jsmin());
+        }
 
         //echo "<pre>"; print_r($this->assets); echo "</pre>"; exit;
 //echo "<pre>"; print_r(session_id()); echo "</pre>"; exit;

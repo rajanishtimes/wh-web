@@ -1,6 +1,10 @@
 		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-		{{ assets.outputJs('js') }}
-        {{ assets.outputJs('appsjs') }}
+
+        <?php if($this->config->application->environment == 'local'){?>
+            {{ assets.outputJs('js') }}
+            {{ assets.outputJs('appsjs') }}
+        <?php } ?>
+        		
         <script type="text/javascript" src="{{baseUrl}}/js/main.js"></script>
         <script type="text/javascript" src="{{baseUrl}}{{elements.auto_version('/js/app.js')}}"></script>
         <script src="http://tags.crwdcntrl.net/c/6939/cc_af.js"></script>

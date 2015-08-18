@@ -87,9 +87,10 @@
 		{{ get_title() }}
 		
 		
-		
-		{{ assets.outputCss('header') }}
-		{{ assets.outputCss('main') }}
+		<?php if($this->config->application->environment == 'local'){?>
+			{{ assets.outputCss('header') }}
+			{{ assets.outputCss('main') }}
+		<?php } ?>
 
 		<!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
 		
