@@ -387,13 +387,13 @@ function DOMReady(){
 			}
 		}
 		if(this.checked) {
-			$('body').css('overflow-x', 'hidden');
-			$('body').css('overflow-y', 'hidden');
-			$('body').css('height', '100%');
+			$('html, body').css('overflow-x', 'hidden');
+			$('html, body').css('overflow-y', 'hidden');
+			$('html, body').css('height', '100%');
 		}else{
-			$('body').css('overflow-x', 'hidden');
-			$('body').css('overflow-y', 'auto');
-			$('body').css('height', 'auto');
+			$('html, body').css('overflow-x', 'hidden');
+			$('html, body').css('overflow-y', 'auto');
+			$('html, body').css('height', 'auto');
 		}
 	});
 
