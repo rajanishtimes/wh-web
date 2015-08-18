@@ -813,7 +813,7 @@ IPHONE 6 PLUS
 	    padding: 16px 5px;
 	}
 	.container-fluid {
-	    margin-top: 38px;
+	    margin-top: 58px;
 	}
 	footer, .footer{
 		width: 414px;
@@ -895,7 +895,7 @@ IPHONE 6
 		height:61px;
 	}
 	.container-fluid {
-	    margin-top: 38px;
+	    margin-top: 58px;
 	}
 	.social-share-widget{
 		margin-top: 19px;
@@ -956,7 +956,7 @@ PHONE < 360px
 		width:130px; height:auto;
 	}
 	.container-fluid{
-		margin-top: 38px;
+		margin-top: 58px;
 	}
 
 	.desc > div {
@@ -982,7 +982,7 @@ PHONE < 320px
 		overflow-x:hidden;
 	}
 	.container-fluid{
-		margin-top: 38px;
+		margin-top: 58px;
 	}
 	.h1{display: none;}
 	.dropdown-menu.with-triangle::before, .dropdown-menu.with-triangle::after{

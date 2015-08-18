@@ -4337,7 +4337,9 @@ iframe {
 
 
 
-
+#ac-gn-menustate {
+    display: none
+}
 #navbar-fixed-top ul {
     list-style: none
 }
