@@ -387,11 +387,13 @@ function DOMReady(){
 			}
 		}
 		if(this.checked) {
-			$('html, body').css('overflow', 'hidden');
-			$('html, body').css('height', '100%');
+			$('body').css('overflow-x', 'hidden');
+			$('body').css('overflow-y', 'hidden');
+			$('body').css('height', '100%');
 		}else{
-			$('html, body').css('overflow', 'auto');
-			$('html, body').css('height', 'auto');
+			$('body').css('overflow-x', 'hidden');
+			$('body').css('overflow-y', 'auto');
+			$('body').css('height', 'auto');
 		}
 	});
 
