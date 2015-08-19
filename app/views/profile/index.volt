@@ -41,7 +41,7 @@
 											
 											</ul><div class="clearfix"></div>
 											<?php if($list['total_count'] > ($limit)){ ?>
-												<div class="loadmore">												
+												<div class="loadmore margin-top-20">												
 													<div class="btn btn-primary" onclick="view_feed_with_ajax('{{list['city_id']}}', '{{baseUrl}}/profile/wishlistbycity', '{{start}}', '{{limit}}', 'getwishlist{{key}}', '', '', '{{logged_user.sso_id}}', 'wishlist')">Load More</div>
 												</div>
 											<?php }?>
