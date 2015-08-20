@@ -292,7 +292,7 @@ class Feeds extends Component
 					Added on <?php echo $wishlist['added_on']?>
 				</div>
 
-				<div class="col-sm-12 col-md-6 col-xs-12">
+				<div class="col-sm-12 col-md-6 col-xs-12 no-padding">
 					<div class="options float-left">
 						<a href="javascript:void(0)" onclick="archievewishlist('<?php echo $wishlist['id']?>')">
 							<div class="option-archive float-left"><i class="fa fa-trash"></i> Remove</div>
