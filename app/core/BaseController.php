@@ -621,10 +621,11 @@ class BaseController extends Controller{
 			foreach($matches[0] as $key=>$match){
 				$replace_array[$i]['widget'] = $matches[0][$key];
 				$attribute = $this->parse_attrib($matches[2][$key]);
-				if(isset($attribute['entity_title']) && !empty($attribute['entity_title'])){
+				
+				if(!isset($attribute['entity_title']) && empty($attribute['entity_title'])){
 					$attribute['entity_title'] = trim($ctitle);
 				}
-				if(isset($attribute['title']) && !empty($attribute['title'])){
+				if(!isset($attribute['title']) && empty($attribute['title'])){
 					$attribute['title'] = 'Want to add '.trim($ctitle).' to your wishlist?';
 				}
 				$replace_array[$i]['attribute'] = $attribute;
@@ -668,13 +669,12 @@ class BaseController extends Controller{
 			}	
 		}
 		
-		
-
 		if(!empty($replace_array)){
 			foreach($replace_array as $replace){
 				$description = str_replace($replace['widget'], $replace['html'], $description);
 			}
 		}
+
 		return $description;
 	}
 
