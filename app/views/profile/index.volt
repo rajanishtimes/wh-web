@@ -1,7 +1,7 @@
 <div class="section grayed">
 	<div class="container profile-container">
 		<div class="">
-			<div class="col-xs-12 col-sm-3 col-md-3">
+			<div class="col-xs-12 col-sm-3 col-md-3 no-padding">
 				<div class="left-profile-column">
 					{{ partial('partials/profile-left')}}
 				</div>
@@ -56,7 +56,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-3 col-md-3">
+			<div class="col-xs-12 col-sm-3 col-md-3 no-padding">
 				<div class="right-profile-column">
 					{{ partial('partials/profile-right')}}
 				</div>
