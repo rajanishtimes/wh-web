@@ -273,7 +273,7 @@ class Feeds extends Component
 			<div class="media-body">
 				<a href="<?php echo $url.$wishlist['url'];?>"><h4 class="media-heading"><?php echo $wishlist['title']?>
 					<?php if(isSet($wishlist['past']) && $wishlist['past'] == 1){ ?>
-						<span class="makered">(Past Event)</span>
+						<span class="passedevent">(Past Event)</span>
 					<?php } ?>
 				</h4></a>
 
@@ -285,7 +285,7 @@ class Feeds extends Component
 				<?php } ?>
 
 				<?php if(!empty($wishlist['tip'])){ ?>
-					<div class="tiphead">Note:</div>
+					<div class="tiphead">NOTE:</div>
 					<p class="feed-short-desc"><?php echo $wishlist['tip']?></p>
 				<?php } ?>
 				<div class="date_added float-left">

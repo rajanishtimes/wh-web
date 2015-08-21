@@ -670,7 +670,7 @@ function addtowishlistwithlogin(entityid, city, entitytype, title, entity_title)
 	FB.login(function(response) {      
         if (response.status === "connected")
         {
-        	$(".resetdimenstion").removeClass('dnone');
+        	$("#wishlist"+entityid+" .resetdimenstion").removeClass('dnone');
             var access_token = FB.getAuthResponse()['accessToken'];
             FB.api('/me', function(data) {
 	            if(data.email == null){
@@ -724,7 +724,7 @@ function showishlist(userid, entityid, city, entitytype, title, entity_title, is
 			success:function(data) {
 				var results = eval( '(' + data + ')' );
 				if(results.status != 1){
-					generatewishlistpopup(userid, entityid, city, entitytype, title, entity_title);
+					generatewishlistpopup(userid, entityid, city, entitytype, title, entity_title, islogin);
 				}else{
 					$("#wishlist"+entityid+" .wishlist-wrapper").removeClass('add-wishlist');
 					$("#wishlist"+entityid+" .wishlist-wrapper").addClass('added-wishlist');
@@ -736,25 +736,29 @@ function showishlist(userid, entityid, city, entitytype, title, entity_title, is
 			}
 		});
 	}else{
-		generatewishlistpopup(userid, entityid, city, entitytype, title, entity_title);
+		generatewishlistpopup(userid, entityid, city, entitytype, title, entity_title, islogin);
 	}
 }
 
-function generatewishlistpopup(userid, entityid, city, entitytype, title, entity_title){
-	var html = '<div class="wishlist-lightbox lightbox"><div class="wishlist-add"><div class="tiphead">NOTE:</div><div class="wihlist-title">Add <span>'+entity_title+'</span> to my wishlist.<br><textarea class="tiptext border-bottom" rows="1" data-min-rows="1" maxlength="140" placeholder="Because I Like"></textarea><div class="char-remain">140</div></div><div class="btn-group float-right"><div class="btn btn-primary cancel" onclick="cancelwishlist()">CANCEL</div><div class="resetdimenstion dnone float-right"><img src="'+ baseUrl +'/img/ajax-loader.gif"></div><div class="btn btn-primary add" onclick="addwishlist(\''+userid+'\', \''+entityid+'\', \''+city+'\', \''+entitytype+'\', \''+title+'\', \''+entity_title+'\')">ADD</div></div></div><div class="overlay"></div></div>';
+function generatewishlistpopup(userid, entityid, city, entitytype, title, entity_title, islogin){
+	var html = '<div class="wishlist-lightbox lightbox"><div class="wishlist-add"><div class="tiphead">NOTE:</div><div class="wihlist-title">Add <span>'+entity_title+'</span> to my wishlist.<br><textarea class="tiptext border-bottom" rows="1" data-min-rows="1" maxlength="140" placeholder="Because I Like"></textarea><div class="char-remain">140</div></div><div class="btn-group float-right"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')">CANCEL</div><div class="resetdimenstion dnone float-right"><img src="'+ baseUrl +'/img/ajax-loader.gif"></div><div class="btn btn-primary add" onclick="addwishlist(\''+userid+'\', \''+entityid+'\', \''+city+'\', \''+entitytype+'\', \''+title+'\', \''+entity_title+'\', \''+islogin+'\')">ADD</div></div></div><div class="overlay"></div></div>';
 
 	$('#wishlist'+entityid).append(html);
 	$("html, body").animate({scrollTop: $(".wishlist-lightbox").offset().top-100}, 1000); 
 }
 
 
-function cancelwishlist(){
+function cancelwishlist(islogin){
 	$(".resetdimenstion").addClass('dnone');
 	$('.wishlist-container .wishlist-lightbox').remove();
+	if(islogin == 1){
+		document.location.reload();
+	}
 }
 
-function addwishlist(userid, entityid, city, entitytype, title, entity_title){
-	$("#wishlist"+entityid+" .resetdimenstion").removeClass('dnone');
+function addwishlist(userid, entityid, city, entitytype, title, entity_title, islogin){
+	$(".resetdimenstion").addClass('dnone');
+	$("#wishlist"+entityid+" .wishlist-lightbox .resetdimenstion").removeClass('dnone');
 	$.ajax({
 		url:baseUrl+'/profile/addwishlist',
 		type:'POST',
@@ -762,16 +766,16 @@ function addwishlist(userid, entityid, city, entitytype, title, entity_title){
 		success:function(data) {
 			var results = eval( '(' + data + ')' );
 			if(results.status == 1){
-				$('.wishlist-container .wishlist-add').html('<div class="successmsg"><div class="successarea"><img src="'+baseUrl+'/img/tip-success.png"></div><div class="sucess-msg"><strong>Awesome!</strong><br><br><span>'+entity_title+'</span> is added in your wishlist. You can find all items of your wishlist on your profile.</div><div class="btn-group makecenter"><div class="btn btn-primary cancel" onclick="cancelwishlist()">OK</div></div></div>');
+				$('.wishlist-container .wishlist-add').html('<div class="successmsg"><div class="successarea"><img src="'+baseUrl+'/img/tip-success.png"></div><div class="sucess-msg"><strong>Awesome!</strong><br><span>'+entity_title+'</span> is added to your wishlist. You can find all items of your wishlist on your profile.</div><div class="btn-group makecenter"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')">OK</div></div></div>');
 				
 			}else{
-				$('.wishlist-container .wishlist-add').html('<div class="successmsg"><div class="successarea"><img src="'+baseUrl+'/img/tip-success.png"></div><div class="sucess-msg"><strong>oops!</strong><br><br><span>'+entity_title+'</span> is already added in your wishlist. You can find all items of your wishlist on your profile.</div><div class="btn-group makecenter"><div class="btn btn-primary cancel" onclick="cancelwishlist()">CANCEL</div></div></div>');
+				$('.wishlist-container .wishlist-add').html('<div class="successmsg"><div class="successarea"><img src="'+baseUrl+'/img/tip-success.png"></div><div class="sucess-msg"><strong>Oops!</strong><br><span>'+entity_title+'</span> is already added to your wishlist. You can find all items of your wishlist on your profile.</div><div class="btn-group makecenter"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')">CANCEL</div></div></div>');
 			}
 			$("#wishlist"+entityid+" .wishlist-wrapper").removeClass('add-wishlist');
 			$("#wishlist"+entityid+" .wishlist-wrapper").addClass('added-wishlist');
 			$("#wishlist"+entityid+" .wishlist_add_btn").addClass('dnone');
 			$("#wishlist"+entityid+" .wishlist_added_btn").removeClass('dnone');
-			$(".resetdimenstion").addClass('dnone');
+			$("#wishlist"+entityid+" .resetdimenstion").addClass('dnone');
 		}
 	});
 }

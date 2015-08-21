@@ -4251,11 +4251,12 @@ iframe {
     font-size: 14px;
     margin: 10px 0;
     padding: 5px 20px;
+    font-weight: bold;
 }
 .contentarea .detail .resetdimenstion > img {
     float: right;
     height: auto !important;
-    margin: 9px 0 0 4px;
+    margin: 4px 0 0 4px;
     width: auto !important;
 }
 .wishlist .feed-list .media .media-heading{
@@ -4572,4 +4573,7 @@ iframe {
 }
 .facebook-sign-in > img {
     max-width: 100%;
+}
+.passedevent{
+    color:#d11a6d;
 }

@@ -716,7 +716,7 @@ class BaseController extends Controller{
 								<div class="wishlist-text float-left">'.$attribute['title'].'</div>
 								<div class="resetdimenstion dnone"><img src="'.$this->baseUrl.'/img/ajax-loader.gif"></div>
 								<div id="wishlist_add_btn" class="btn btn-primary float-right wishlist_add_btn '.$class2.'" onclick="'.$onclick.'">ADD</div>
-								<div id="wishlist_added_btn" class="btn btn-primary float-right wishlist_added_btn '.$class3.'">&#10003;</div>
+								<div id="wishlist_added_btn" class="btn btn-primary float-right wishlist_added_btn '.$class3.'"><img src="'.$this->baseUrl.'/img/tick.png"></div>
 								<div class="clearfix"></div>
 							</div>
 						</div>';

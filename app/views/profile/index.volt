@@ -35,8 +35,7 @@
 
 										{% for key, list in allwishlistlist %}
 											<ul id="getwishlist{{key}}" class="media-list feed-list">
-											<h2 class="cityheader"><span id="count{{key}}">{{list['total_count']}}</span> Item(s) in Wishlist <strong>{{list['city']}}</strong></h2>
-
+											<h2 class="cityheader"><span id="count{{key}}">{{list['total_count']}}</span> Item(s) in your <strong>{{list['city']}}</strong> Go-Do list</h2>
 											{{feeds.getwishlist(baseUrl, list['list'], start, 'wishlist', key)}}
 											
 											</ul><div class="clearfix"></div>
