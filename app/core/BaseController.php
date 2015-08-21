@@ -306,9 +306,15 @@ class BaseController extends Controller{
 			if($splimit == ''){
 				$splimit = $limit;
 			}
-			$Search->setParam('sponsored','true');
-			$Search->setParam('spstart',$spstart);
-			$Search->setParam('splimit',$splimit);
+
+			if($type == 'feed'){
+				$Search->setParam('sponsored','true');
+				$Search->setParam('spstart',$spstart);
+				$Search->setParam('splimit',$splimit);	
+			}else{
+				$Search->setParam('sponsored','false');
+			}
+			
 		}
 		
 		
