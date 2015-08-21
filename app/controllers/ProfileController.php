@@ -92,7 +92,8 @@ class ProfileController extends BaseController{
 		if(isset($ssoresponse['user']['sso_id'])){
 			$rediskey = "WH_user_".$ssoresponse['user']['sso_id'];
 			$this->session->set('userInfo', json_encode($ssoresponse['user']));
-			$this->redis->write(session_id(), json_encode($ssoresponse['user']));
+			$this->write_key_to_server(session_id(), json_encode($ssoresponse['user']));
+			//$this->redis->write(session_id(), json_encode($ssoresponse['user']));
 			echo json_encode(array('userkey'=>$rediskey, 'ssoid'=>$ssoresponse['user']['sso_id'], 'status'=>'sucess'));
 		}else{
 			echo json_encode(array('status'=>'error'));

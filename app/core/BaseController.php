@@ -214,6 +214,23 @@ class BaseController extends Controller{
 
     	$loggeduser = array();
     	$userloggedin =  array();
+
+    	//$this->redis->write('testing', 'asdfsdf');
+    	//echo "done"; exit;
+
+    	// Read operation.
+
+
+    	//$this->redis->write('foo', 'bar');
+    	//$this->write_key_to_server('foo', 'bar2');
+    	//$redis_result = array();
+    	//$redis_result = $this->read_key_from_server('foodf');
+    	//echo "<pre>"; print_r($redis_result); echo "</pre>";
+
+
+		//$this->redis2->write('foo', 'bar');
+    	//exit;
+
     	//$_SESSION['users'] = 'asdf'; exit;	
     	//echo session_id();
     	//$_SESSION[session_id()] = 'asdf'; exit;
@@ -224,7 +241,8 @@ class BaseController extends Controller{
     	//echo "<pre>"; print_r($this->redis->read(session_id())); echo "</pre>"; exit;
     	//echo "<pre>"; print_r(); echo "</pre>";
 		//echo session_id();exit;
-    	$userloggedin = $this->redis->read(session_id());
+    	//$userloggedin = $this->redis->read(session_id());
+    	$userloggedin = $this->read_key_from_server(session_id());
     	//echo "<pre>"; print_r($userloggedin); echo "</pre>"; exit;
 
     	if(!empty($userloggedin)){
@@ -237,7 +255,40 @@ class BaseController extends Controller{
     	}
     	return $loggeduser;
     }
+
+    public function write_key_to_server($key, $value){
+    	if(isset($this->redis->responsecode) && $this->redis->responsecode==61){
+
+    	}else{
+    		$this->redis->write($key, $value);
+    	}
+
+    	// if(isset($this->redis2->responsecode) && $this->redis2->responsecode==61){
+
+    	// }else{
+    	// 	$this->redis2->write($key, $value);
+    	// }
+	}
 	
+	public function read_key_from_server($key){
+		if(isset($this->redis2->responsecode) && $this->redis2->responsecode==61){
+			if(isset($this->redis->responsecode) && $this->redis->responsecode==61){
+	    	}else{
+	    		$key_result = $this->redis->read($key);
+	    	}
+    	}else{
+    		if($this->redis2->read($key) == null){
+    			if(isset($this->redis->responsecode) && $this->redis->responsecode==61){
+		    	}else{
+		    		$key_result = $this->redis->read($key);
+		    	}
+    		}else{
+    			$key_result = $this->redis2->read($key);	
+    		}
+    	}
+    	return $key_result;
+	}
+
 	protected function forwardtoerrorpage($errorcode){
         if($errorcode == 404){
 			$Logger = new \WH\Model\Logger();

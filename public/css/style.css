@@ -44,6 +44,9 @@ body {
 body.no-padding {
     padding-top: 0;
 }
+img, textarea{
+    outline: none;
+}
 hr {
     margin: 0;
 }
@@ -253,7 +256,7 @@ ul.sidebar-menu{ padding:0px; }
 }
 .sidebar-menu > li.header a{
     color: #fff;
-    font-family: Roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 16px;
 }
 .sidebar-menu > li a{
@@ -828,7 +831,7 @@ hr.small {
 }
 .homepagevenue {
     color: #6a6a6a;
-    font-family: Roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 12px;
 }
 .feeds-data:hover .homepagevenue {
@@ -902,7 +905,7 @@ ul.tagsblack li {
 }
 ul.tagsblack li a {
     color: #fc3768;
-    font-family: roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     line-height: 27px;
     padding: 7px 18px;
 }
@@ -1042,7 +1045,7 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
 }
 .top_feed > div{
     color: #fff;
-    font-family: Roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 14px;
     font-weight: normal;
     text-align: left;
@@ -1144,7 +1147,7 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
 }
 .feed-short-desc {
     color: #6a6a6a;
-    font-family: Roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 12px;
     text-align: left;
 }
@@ -2292,7 +2295,7 @@ h3.tags {
     text-transform: uppercase;
 }
 .authordetailsection .author-detail > p {
-    font-family: Roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 14px;
     font-weight: normal;
     line-height: 18px;
@@ -2516,7 +2519,7 @@ textarea.no-resize {
     font-size: 12px;
     font-weight: normal;
     margin: 5px 0;
-    font-family: "Open Sans",open-sans,sans-serif;
+    font-family: Roboto,Arial,Calibri,sans-serif;
 }
 .navbar-right .dropdown-menu {
     right: -30px;
@@ -3861,7 +3864,7 @@ a .icon-primary, a .icon-success, a .icon-info, a .icon-danger, a .icon-warning,
 }
 .tags {
     color: #1e1e1e;
-    font-family: Roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 18px;
     font-weight: bold;
     margin: 0 0 8px !important;
@@ -3869,7 +3872,7 @@ a .icon-primary, a .icon-success, a .icon-info, a .icon-danger, a .icon-warning,
 }
 .share .sharek {
     color: #000;
-    font-family: Roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 18px;
     padding: 0;
 }
@@ -3942,7 +3945,7 @@ iframe {
 }
 .notfound h1 {
     color: #6b6b6b;
-    font-family: roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -4107,7 +4110,7 @@ iframe {
 }
 .sign-in-block .small-login {
     color: #999999;
-    font-family: Roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 11px;
     font-weight: normal;
 }
@@ -4136,7 +4139,7 @@ iframe {
     margin: 15px auto;
     padding: 15px;
     width: 90%;
-    font-family: roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
 }
 .overlay {
     background: #000 none repeat scroll 0 0;
@@ -4157,12 +4160,14 @@ iframe {
     min-width: 310px;
     border-radius: 5px;
     overflow: hidden;
+    left:50%;
+    margin-left: -17%;
 }
 .wishlist .feed-list{
     width: 100%;
 }
 .wishlist h1.searchheading {
-    font-family: roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 22px;
     margin: 23px 0 16px;
     padding: 0 30px;
@@ -4170,7 +4175,7 @@ iframe {
 .tiphead {
     background: rgba(0, 0, 0, 0) url("../img/tip.png") no-repeat scroll 0 0;
     color: #d11a6c;
-    font-family: Roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 23px;
     font-weight: bold;
     line-height: 26px;
@@ -4184,7 +4189,7 @@ iframe {
     border-right: none;
     border-bottom: 2px solid #999999;
     color: #333;
-    font-family: roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 14px;
     margin: 10px 0;
     padding: 5px;
@@ -4192,16 +4197,19 @@ iframe {
     width: 100%;
 }
 .char-remain {
-    color: #ff1f1f;
+    color: #7b7b7d;
     font-size: 12px;
     margin: -10px 0 10px;
     text-align: right;
+    font-family: Roboto;
 }
 .wishlist-add .btn-primary {
     background-color: #fff;
     color: #7b7b7d;
-    font-family: roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 14px;
+    margin-left: 20px;
+    padding: 0;
 }
 .wishlist-add .btn-primary:hover {
     color: #d1196c;
@@ -4211,6 +4219,14 @@ iframe {
     margin: -20px 0 20px -20px;
     width: 111%;
 }
+.sucess-msg {
+    font-family: Roboto;
+    color:#7b7b7d;
+}
+.sucess-msg strong, .sucess-msg span{
+    color:#000;
+}
+
 .contentarea .detail .successarea > img {
     width: auto !important;
 }
@@ -4230,9 +4246,10 @@ iframe {
     background-color: #ececec;
     color: #d11a6d;
     float: none;
-    font-family: roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 14px;
     margin: 10px 0;
+    padding: 5px 20px;
 }
 .contentarea .detail .resetdimenstion > img {
     float: right;
@@ -4243,7 +4260,7 @@ iframe {
 .wishlist .feed-list .media .media-heading{
     font-size: 20px;
     color: #333;
-    font-family: Roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
 }
 .feed-list .tiphead{
     font-size: 16px;
@@ -4273,13 +4290,13 @@ iframe {
     border-bottom: 1px solid transparent;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    font-family: roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 18px;
     padding: 0 0 25px;
 }
 .profile-container p{
     line-height: 18px;
-    font-family: Roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
 }
 .cityheader {
     background: #dedede none repeat scroll 0 0;
@@ -4330,8 +4347,16 @@ iframe {
 .options .dropdown-menu.margin-list-rounded > li > a.twitter {
     background: #55acee none repeat scroll 0 0;
 }
-
-
+.wihlist-title {
+    color: #7b7b7d;
+    font-family: Roboto;
+}
+.wihlist-title > span {
+    color: #000;
+}
+.wishlist-add .btn-primary.add{
+    color: #d1196c;
+}
 
 
 
@@ -4535,12 +4560,12 @@ iframe {
 }
 .ac-gn-list > li.header a{
     color: #fff;
-    font-family: Roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 16px;
 }
 .ac-gn-list > li a{
     color: #fff;
-    font-family: Roboto;
+    font-family: Roboto,Arial,Calibri,sans-serif;
     font-size: 16px;
     font-weight: 100;
 }

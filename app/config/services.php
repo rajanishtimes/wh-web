@@ -146,11 +146,33 @@ $di->set('redis', function() use ($config){
 	    'database' => 15
 	);
 	$client = new Predis\Client($single_server, array('prefix' => 'sessions:'));
-	$session = new Predis\Session\Handler($client, array('gc_maxlifetime' => (60*24*5)));
-	$session->register();
+
+	try {
+        $client->ping();
+        $session = new Predis\Session\Handler($client, array('gc_maxlifetime' => (60*24*5)));
+		$session->register();
+    } catch (Exception $e) {
+    	$session = (object)array('message'=>'Connection Refused', 'responsecode'=>61);
+    }
 	return $session;
 });
 
+$di->set('redis2', function() use ($config){
+	$redis_server2 = array(
+	    'host'     => $config->redis2->host,
+	    'port'     => $config->redis2->port,
+	    'database' => 15
+	);
+	$client2 = new Predis\Client($redis_server2, array('prefix' => 'sessions:'));
+	try {
+        $client2->ping();
+        $session2 = new Predis\Session\Handler($client2, array('gc_maxlifetime' => (60*24*5)));
+		$session2->register();
+    } catch (Exception $e) {
+    	$session2 = (object)array('message'=>'Connection Refused', 'responsecode'=>61);
+    }
+	return $session2;
+});
 
 /**
  * Start the cookie the first time some component request the session service
