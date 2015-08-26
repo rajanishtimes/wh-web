@@ -13,6 +13,37 @@ class IndexController extends BaseController{
     }
 
 	public function indexAction(){
+		if(!empty($this->profileid)){
+			$this->profilepage();
+		}else{
+			$this->homepage();
+		}
+    }
+
+    protected function profilepage(){
+    	$allfeedslists = $this->getfeeddata(0, 4, $this->city, 'all', '', '', 'Content', '', 'feed', 0, 4);
+		$this->view->allfeedslists = $allfeedslists;
+
+		$Wishlist = new \WH\Model\Wishlist();
+        $Wishlist->setUserId($this->profileid);
+        $Wishlist->setVersion($this->config->application->version);
+		$Wishlist->setPackage($this->config->application->package);
+		$Wishlist->setEnv($this->config->application->environment);
+        $allwishlistlist = $Wishlist->getAll();
+		
+		$this->view->setVars(
+			array(
+				'allwishlistlist' => $allwishlistlist,
+				'total_count' => $total_count,
+				'start'=>10,
+				'limit'=>10
+				)
+			);
+
+    	$this->view->pick(["index/profile"]);
+    }
+	
+	protected function homepage(){
 		/* $this->setcities();
 		$this->setcityid();*/
 		$this->setlogsarray('homepage_start');
@@ -96,8 +127,8 @@ class IndexController extends BaseController{
 		
 		$this->setlogsarray('all_feeds');
 		$this->getlogs('homepage', $this->baseUrl.'/homepage');
-    }
-	
+	}
+
 	public function newsletterAction(){
 		$ermessage = array();
 		$form = new NewsletterForm();

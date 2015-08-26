@@ -155,6 +155,11 @@ $router->add("/about-us", array(
     'action' => 'aboutus',
 ));
 
+$router->add("/unsubscribe", array(
+    'controller' => 'index',
+    'action' => 'unsubscribe',
+));
+
 $router->add("/story", array(
     'controller' => 'index',
     'action' => 'whytimescity',

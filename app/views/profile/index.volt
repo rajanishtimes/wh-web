@@ -11,7 +11,7 @@
 					<div class="profile-main-container">
 						{% if(logged_user is empty) %}
 							<div class="sign-in-block text-center">
-								<div class="sign-in-text">Create your profile and easily check <br> your Wishlist here!</div>
+								<div class="sign-in-text">Create your profile and easily check <br> your {{config.application.wishlistname}} here!</div>
 								<div id="results"></div>
 								<div id="LoginButton" class="facebook-sign-in" onClick="javascript:CallAfterLogin();return false;">
 									<img src="{{baseUrl}}/img/facebook-login.png">
@@ -24,18 +24,18 @@
 								<div class="wishlist-default">
 									<img src="{{baseUrl}}/img/wishlist_default.png">
 								</div>
-								<div class="wishlist-default-text">Your Wishlist</div>
+								<div class="wishlist-default-text">Your {{config.application.wishlistname}}</div>
 								<span class="small-login">Go ahead, Add your first wishlist.</span>
 							</div>
 							{% else %}
 							<div class="wishlist text-left">
 								<div class="work-content allfeeds">
-										<h1 class="searchheading">My Wishlist</h1>
+										<h1 class="searchheading">My {{config.application.wishlistname}}</h1>
 										<?php //echo "<pre>"; print_r($allwishlistlist); echo "</pre>"; ?>
 
 										{% for key, list in allwishlistlist %}
 											<ul id="getwishlist{{key}}" class="media-list feed-list">
-											<h2 class="cityheader"><span id="count{{key}}">{{list['total_count']}}</span> Item(s) in your <strong>{{list['city']}}</strong> Go-Do list</h2>
+											<h2 class="cityheader"><span id="count{{key}}">{{list['total_count']}}</span> Item(s) in your <strong>{{list['city']}}</strong> {{config.application.wishlistname}}</h2>
 											{{feeds.getwishlist(baseUrl, list['list'], start, 'wishlist', key)}}
 											
 											</ul><div class="clearfix"></div>

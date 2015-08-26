@@ -139,6 +139,7 @@
 				deep_link: '{{deep_link}}',
 				facebook_app_id: '<?php echo $this->config->facebook->appId; ?>',
 				fbPermissions: '<?php echo $this->config->facebook->fbPermissions; ?>',
+				wishlistname : '<?php echo $this->config->application->wishlistname; ?>',
 			};
 		</script>
 

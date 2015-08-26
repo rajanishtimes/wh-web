@@ -122,7 +122,7 @@ class ProfileController extends BaseController{
 		try{
 			$result = $Wishlist->add();	
 		}catch(Exception $e){
-			$result = array('status'=>0, 'message'=>'Already added in wishlist.');
+			$result = array('status'=>0, 'message'=>'Already added in '.$this->config->application->wishlistname.'.');
 		}
         echo json_encode($result);
     }

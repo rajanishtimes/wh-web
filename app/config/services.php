@@ -149,7 +149,7 @@ $di->set('redis', function() use ($config){
 
 	try {
         $client->ping();
-        $session = new Predis\Session\Handler($client, array('gc_maxlifetime' => (60*24*5)));
+        $session = new Predis\Session\Handler($client, array('gc_maxlifetime' => 7500));
 		$session->register();
     } catch (Exception $e) {
     	$session = (object)array('message'=>'Connection Refused', 'responsecode'=>61);
@@ -166,7 +166,7 @@ $di->set('redis2', function() use ($config){
 	$client2 = new Predis\Client($redis_server2, array('prefix' => 'sessions:'));
 	try {
         $client2->ping();
-        $session2 = new Predis\Session\Handler($client2, array('gc_maxlifetime' => (60*24*5)));
+        $session2 = new Predis\Session\Handler($client2, array('gc_maxlifetime' => 7500));
 		$session2->register();
     } catch (Exception $e) {
     	$session2 = (object)array('message'=>'Connection Refused', 'responsecode'=>61);

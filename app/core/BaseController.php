@@ -29,6 +29,7 @@ class BaseController extends Controller{
 	public $entitytype = '';
 	public $iswebview = false;
 	public $logged_user = array();
+	public $profileid = '';
 	
     protected function initialize()
     {
@@ -110,6 +111,9 @@ class BaseController extends Controller{
 			exit;
         }
 		
+		$this->profileid = $this->getprofileid($this->dispatcher->getParam('city'));
+		$this->view->profileid = $this->profileid;
+
 		$this->view->defaultCity = $this->defaultCity;
 		$this->setcities();
 		$this->setcityid();
@@ -124,19 +128,26 @@ class BaseController extends Controller{
 			$isappclose = (int)$this->cookies->get("isappclose");
 		}
 		$this->view->isappclose = $isappclose;
-		
-		//
-		//echo $this->cityId; exit;
-		//if($this->cityId == 0){
-			//$this->cookies->set("city", 'delhi', time() + 15 * 86400, '/', false, $this->config->application->baseUri);
-		//	$this->city = 'delhi';
-		//	$this->view->city = 'delhi';
-		//	$this->setcityid();
-			//$this->cookies->get("city")->delete();
-			//$this->forwardtoerrorpage(404);
-		//}
+		$this->compressfiles();
+		$this->logged_user = $this->setlogin();
+		$this->view->logged_user = $this->logged_user;	
+    }
 
-		if($this->config->application->environment == 'local'){
+    protected function getprofileid($username){
+    	$reserved = explode(',', $this->config->application->reservedkeyword);
+    	if(in_array($username, $reserved)){
+    		return '';
+    	}else{
+    		return '8sugn4aimbo8ifbndbuxolzhl';
+    		return '';	
+    	}
+    	//return 'cxah7jfirziyen1bbxume2eus';
+    	//return '8sugn4aimbo8ifbndbuxolzhl';
+    }
+
+
+    protected function compressfiles(){
+    	if($this->config->application->environment == 'local'){
 			$this->assets
 				->collection('header')
 				->setPrefix($this->baseUrl)
@@ -188,27 +199,7 @@ class BaseController extends Controller{
 	            ->join(true)
 	            ->addFilter(new \Phalcon\Assets\Filters\Jsmin());
         }
-
-        //echo "<pre>"; print_r($this->assets); echo "</pre>"; exit;
-//echo "<pre>"; print_r(session_id()); echo "</pre>"; exit;
-		//if($this->dispatcher->getControllerName() != 'profile' && $this->dispatcher->getActionName() != 'logout'){
-			$this->logged_user = $this->setlogin();
-			$this->view->logged_user = $this->logged_user;	
-		//}
     }
-
-
-    /* protected function forward($uri){
-        $uriParts = explode('/', $uri);
-        $params = array_slice($uriParts, 2);
-    	return $this->dispatcher->forward(
-    		array(
-    			'controller' => $uriParts[0],
-    			'action' => $uriParts[1],
-                'params' => $params
-    		)
-    	);
-    } */
 
     protected function setlogin(){
 
@@ -493,12 +484,13 @@ class BaseController extends Controller{
 		}else if($this->dispatcher->getParam('city')){
 			if(trim($this->dispatcher->getParam('city')) == 'cities'){
 				$ccityformulti = $this->defaultCity;
+			}else if(!empty($this->profileid)){
+				$ccityformulti = $this->defaultCity;
 			}else{
 				$ccityformulti = strtolower($this->dispatcher->getParam('city'));
 			}
 			$this->city = $ccityformulti;
 		}
-
 		$this->view->city = $this->city;
 	}
 
@@ -516,6 +508,12 @@ class BaseController extends Controller{
 				}
 			}
 			$this->currentCity = $cityformulti;
+		}else if(!empty($this->profileid)){
+			if($this->cookies->has("currentCity")){
+				$this->currentCity = strtolower($this->sanitizedata($this->cookies->get("currentCity")));	
+			}else{
+				$this->currentCity = $this->defaultCity;
+			}
 		}else if($this->dispatcher->getParam('city')){
 			$this->currentCity = strtolower($this->dispatcher->getParam('city'));
 		}else if ($this->cookies->has("currentCity")){
@@ -683,7 +681,7 @@ class BaseController extends Controller{
 					$attribute['entity_title'] = trim($ctitle);
 				}
 				if(!isset($attribute['title']) && empty($attribute['title'])){
-					$attribute['title'] = 'Want to add '.trim($ctitle).' to your wishlist?';
+					$attribute['title'] = 'Want to add '.trim($ctitle).' to your '.$this->config->application->wishlistname.'?';
 				}
 				$replace_array[$i]['attribute'] = $attribute;
 
@@ -715,8 +713,8 @@ class BaseController extends Controller{
 							<div class="wishlist-wrapper '.$class.'">
 								<div class="wishlist-text float-left">'.$attribute['title'].'</div>
 								<div class="resetdimenstion dnone"><img src="'.$this->baseUrl.'/img/ajax-loader.gif"></div>
-								<div id="wishlist_add_btn" class="btn btn-primary float-right wishlist_add_btn '.$class2.'" onclick="'.$onclick.'">ADD</div>
-								<div id="wishlist_added_btn" class="btn btn-primary float-right wishlist_added_btn '.$class3.'"><img src="'.$this->baseUrl.'/img/tick.png"></div>
+								<div id="wishlist_add_btn" class="float-right '.$class2.'" onclick="'.$onclick.'"><div class="btn btn-primary wishlist_add_btn">ADD</div></div>
+								<div id="wishlist_added_btn" class="float-right '.$class3.'"><div class="btn btn-primary wishlist_added_btn"><img src="'.$this->baseUrl.'/img/tick.png"></div></div>
 								<div class="clearfix"></div>
 							</div>
 						</div>';

@@ -493,6 +493,13 @@ TABLET < 767px
 	.options:first-child {
 	    margin: 10px 0;
 	}
+	.wishlist-wrapper{
+		width: 100%;
+	}
+	.wishlist-text{
+		font-size: 14px;
+	}
+
 }
 
 
@@ -556,6 +563,11 @@ PHONE < 640px
 		border-right: 80px solid transparent;
 	}
 	/* =========== Biryani and haleem ========== */	
+	.wishlist-add{
+		left:1%;
+		margin-left: 1%;
+		width: 95%;
+	}	
 }
 
 
@@ -931,6 +943,7 @@ IPHONE 6
 	.hp .scroll-down {
 	    bottom: -68px;
 	}
+
 }
 
 
@@ -978,6 +991,7 @@ PHONE < 360px
 	.defaultads > div > div > iframe {
 		width: 350px; height: 498px;
 	}
+	
 }
 
 /**
@@ -1043,4 +1057,5 @@ PHONE < 320px
 	.hp-mobile .item-left .desc{
 		top: 0px;
 	}
+	
 }

@@ -4070,13 +4070,20 @@ iframe {
     font-size: 18px;
     padding-right: 20%;
 }
+#wishlist_added_btn {
+    right: 0;
+    width: 55px;
+}
+.wishlist_add_btn {
+    float: right;
+}
 /* ================ Profile Page =============== */
 .grayed{
     background:#eaeced;
 }
 .left-profile-section{
     background: #4d46b4;
-    padding: 25px;
+    padding: 33px 25px 25px;
     border-radius: 5px;
 }
 .right-profile-section{
@@ -4129,10 +4136,12 @@ iframe {
 .added-wishlist .btn.btn-primary {
     background: #27ae60 none repeat scroll 0 0;
     font-size: 16px;
-    padding: 2px 26px;
+    padding: 0 20px 3px;
 }
 
 .wishlist-wrapper > div {
+    display: table-cell;
+    float: none;
     vertical-align: middle;
 }
 .wishlist-wrapper {
@@ -4141,6 +4150,7 @@ iframe {
     padding: 15px;
     width: 90%;
     font-family: Roboto,Arial,Calibri,sans-serif;
+    display: table;
 }
 .overlay {
     background: #000 none repeat scroll 0 0;
@@ -4260,9 +4270,9 @@ iframe {
     width: auto !important;
 }
 .wishlist .feed-list .media .media-heading{
-    font-size: 20px;
+    font-size: 18px;
     color: #333;
-    font-family: Roboto,Arial,Calibri,sans-serif;
+    font-family: Lora,Arial,Calibri,sans-serif;
 }
 .feed-list .tiphead{
     font-size: 16px;
@@ -4277,6 +4287,9 @@ iframe {
     font-size: 12px;
     margin: 10px 0 10px 10px;
     line-height: 16px;
+}
+.options:first-child {
+    margin: 10px 0 10px 40px;
 }
 .option-archive {
     color: #7b7b7d;
@@ -4317,7 +4330,7 @@ iframe {
     width: 58px;
 }
 .profile-container .media{
-     padding-bottom: 5px;
+     padding-bottom: 15px;
      border-bottom: 1px solid #eaeaec;
 }
 .profile-main-container .media-body, .profile-main-container .media.searchlist{
@@ -4359,10 +4372,12 @@ iframe {
 .wishlist-add .btn-primary.add{
     color: #d1196c;
 }
-
-
-
-
+.profile-container .media-body > p{
+    margin-bottom: 5px;
+}
+.profile-container .media-body > p.text-info{
+    margin: 0;
+}
 
 #ac-gn-menustate {
     display: none
