@@ -259,7 +259,7 @@ class Feeds extends Component
     }
 
 
-    public function getwishlist($url, $data, $start, $type, $denot){
+    public function getwishlist($url, $data, $start, $type, $denot, $profiledata, $loggeduser){
     	$i=0;
     	foreach($data as $key=>$wishlist){
     	?>
@@ -293,12 +293,14 @@ class Feeds extends Component
 				</div>
 
 				<div class="col-sm-12 col-md-6 col-xs-12 no-padding">
-					<div class="options float-left">
-						<a href="javascript:void(0)" onclick="archievewishlist('<?php echo $wishlist['id']?>')">
-							<div class="option-archive float-left"><i class="fa fa-trash"></i> Remove</div>
-							<div class="resetdimenstion dnone float-left"><img src="<?php echo $url?>/img/ajax-loader.gif"></div>
-						</a>
-					</div>
+					<?php if($profiledata == $loggeduser){ ?>
+						<div class="options float-left">
+							<a href="javascript:void(0)" onclick="archievewishlist('<?php echo $wishlist['id']?>')">
+								<div class="option-archive float-left"><i class="fa fa-trash"></i> Remove</div>
+								<div class="resetdimenstion dnone float-left"><img src="<?php echo $url?>/img/ajax-loader.gif"></div>
+							</a>
+						</div>
+					<?php } ?>
 					<div class="options share-option float-left">
 						<ul class="nav-search">
 							<li class="dropdown">

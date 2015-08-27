@@ -24,8 +24,13 @@ class IndexController extends BaseController{
     	$allfeedslists = $this->getfeeddata(0, 4, $this->city, 'all', '', '', 'Content', '', 'feed', 0, 4);
 		$this->view->allfeedslists = $allfeedslists;
 
+		$addprofile = new \WH\Model\UserProfile();
+		$addprofile->setUsername($this->profileid);
+		$profiledata = $addprofile->getProfile();
+		$profiledata['imagepath'] = "https://graph.facebook.com/".$profiledata['facebook_id']."/picture?width=150&height=150";
+
 		$Wishlist = new \WH\Model\Wishlist();
-        $Wishlist->setUserId($this->profileid);
+        $Wishlist->setUserId($profiledata['sso_id']);
         $Wishlist->setVersion($this->config->application->version);
 		$Wishlist->setPackage($this->config->application->package);
 		$Wishlist->setEnv($this->config->application->environment);
@@ -35,6 +40,7 @@ class IndexController extends BaseController{
 			array(
 				'allwishlistlist' => $allwishlistlist,
 				'total_count' => $total_count,
+				'profiledata' => $profiledata,
 				'start'=>10,
 				'limit'=>10
 				)

@@ -605,7 +605,7 @@ function AjaxResponse(access_token, hometown, location){
 			var results = eval( '(' + data + ')' );
 			if(results.status == 'sucess'){
 				//cookies.set('whatshotuserkey', results.userkey, {path: '/',expires:exptime});
-				document.location.reload();
+				window.location.replace(baseUrl+"/"+results.username);
 			}else{
 				ResetAnimate();
 			}

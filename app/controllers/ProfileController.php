@@ -88,13 +88,22 @@ class ProfileController extends BaseController{
 		$ssoresponse['user']['facebook_user_id'] = $facebook_response['id'];
 
 		//echo "<pre>"; print_r($ssoresponse); echo "</pre>"; 
+		$addprofile = new \WH\Model\UserProfile();
+		$addprofile->setFirstname($facebook_response['first_name']);
+		$addprofile->setLastname($facebook_response['last_name']);
+		$addprofile->setFacebookID($facebook_response['id']);
+		$addprofile->setSSOid($ssoresponse['user']['sso_id']);
+		$addprofile->setCity($this->city);
+		$getdata = $addprofile->updateProfile();
+		//echo "<pre>"; print_r($getdata); echo "</pre>"; exit;
 
 		if(isset($ssoresponse['user']['sso_id'])){
+			$ssoresponse['user']['username'] = $getdata['results']['username'];
 			$rediskey = "WH_user_".$ssoresponse['user']['sso_id'];
 			$this->session->set('userInfo', json_encode($ssoresponse['user']));
 			$this->write_key_to_server(session_id(), json_encode($ssoresponse['user']));
 			//$this->redis->write(session_id(), json_encode($ssoresponse['user']));
-			echo json_encode(array('userkey'=>$rediskey, 'ssoid'=>$ssoresponse['user']['sso_id'], 'status'=>'sucess'));
+			echo json_encode(array('userkey'=>$rediskey, 'ssoid'=>$ssoresponse['user']['sso_id'], 'username'=>$getdata['results']['username'], 'status'=>'sucess'));
 		}else{
 			echo json_encode(array('status'=>'error'));
 		}
@@ -138,6 +147,7 @@ class ProfileController extends BaseController{
     public function wishlistbycityAction(){
     	$this->view->setLayout('ajaxLayout');
     	$userid = $this->request->getPost('bydate');
+    	$publicuserid = $this->request->getPost('tags');
     	$city = $this->request->getPost('city');
     	$limit = $this->request->getPost('limit');
     	$start = $this->request->getPost('start');
@@ -145,7 +155,11 @@ class ProfileController extends BaseController{
     	$parentid = $this->request->getPost('parentid');
 
     	$Wishlist = new \WH\Model\Wishlist();
-        $Wishlist->setUserId($userid);
+    	if(!empty($publicuserid)){
+    		$Wishlist->setUserId($publicuserid);
+    	}else{
+    		$Wishlist->setUserId($userid);
+    	}
         $Wishlist->setCityId($city);
         $Wishlist->setStart($start);
         $Wishlist->setLimit($limit);
@@ -162,7 +176,8 @@ class ProfileController extends BaseController{
 				'limit'=>$limit,
 				'city'=>$city,
 				'mainurl'=>$mainurl,
-				'parentid'=>$parentid
+				'parentid'=>$parentid,
+				'publicuserid' => $publicuserid
 				)
 			);
     }

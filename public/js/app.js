@@ -40,7 +40,7 @@ function send_deeplink(){var isiOS=false;var isAndroid=navigator.userAgent.match
 if(isiOS||isAndroid){fallbackLink=isAndroid?'https://play.google.com/store/apps/details?id=com.phdmobi.timescity':'https://itunes.apple.com/in/app/timescity-food-restaurant/id636515332?mt=8';window.setTimeout(function(){},1);}}
 function setheader(){var isiOS=false,isAndroid=navigator.userAgent.match('Android');if(isiOS){$('#iphone').css('display','block');$('#android').css('display','none');}else if(isAndroid){$('#iphone').css('display','none');$('#android').css('display','block');}
 if(isiOS||isAndroid){$('#installer').css('display','block');$('#navbar-fixed-top').css('top',60);if($('.view_on_app').length>0){$('.view_on_app').show();}}}
-function AjaxResponse(access_token,hometown,location){exptime=new Date();exptime.setTime(new Date().getTime()+3600000*24*365);$.ajax({url:baseUrl+'/profile/facebooklogin',type:'POST',data:'access_token='+access_token+'&hometown='+hometown+'&location='+location,success:function(data){var results=eval('('+data+')');if(results.status=='sucess'){document.location.reload();}else{ResetAnimate();}}});}
+function AjaxResponse(access_token,hometown,location){exptime=new Date();exptime.setTime(new Date().getTime()+3600000*24*365);$.ajax({url:baseUrl+'/profile/facebooklogin',type:'POST',data:'access_token='+access_token+'&hometown='+hometown+'&location='+location,success:function(data){var results=eval('('+data+')');if(results.status=='sucess'){window.location.replace(baseUrl+"/"+results.username);}else{ResetAnimate();}}});}
 function LodingAnimate(){$("#LoginButton").hide();$("#results").html('<img src="img/ajax-loader.gif" /> Please Wait Connecting...');}
 function ResetAnimate()
 {$("#LoginButton").show();$("#results").html('');}

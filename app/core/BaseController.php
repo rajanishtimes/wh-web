@@ -134,13 +134,24 @@ class BaseController extends Controller{
     }
 
     protected function getprofileid($username){
-    	$reserved = explode(',', $this->config->application->reservedkeyword);
-    	if(in_array($username, $reserved)){
-    		return '';
+    	if(!empty($username)){
+    		$reserved = explode(',', $this->config->application->reservedkeyword);
+	    	if(in_array($username, $reserved)){
+	    		return '';
+	    	}else{
+	    		$addprofile = new \WH\Model\UserProfile();
+				$addprofile->setUsername($username);
+				$profiledata = $addprofile->getProfile();
+				if(isSet($profiledata['username']) && !empty($profiledata['username'])){
+					return $profiledata['username'];
+				}else{
+					return '';
+				}
+	    	}	
     	}else{
-    		return '8sugn4aimbo8ifbndbuxolzhl';
-    		return '';	
+    		return '';
     	}
+    	
     	//return 'cxah7jfirziyen1bbxume2eus';
     	//return '8sugn4aimbo8ifbndbuxolzhl';
     }

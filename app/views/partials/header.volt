@@ -107,11 +107,10 @@
 
 			<ul class="nav-search navbar-right right-responsive-menu">
 				<li class="whresposive-menu user-profile-menu">
-					<a href="{{baseUrl}}/profile">
 					{% if(logged_user is empty) %}
-						<img src="{{baseUrl}}/img/looksy.jpg" alt="user" class="img-circle user-profile-img">
+						<a href="{{baseUrl}}/profile"><img src="{{baseUrl}}/img/looksy.jpg" alt="user" class="img-circle user-profile-img">
 					{% else %}
-						<img src="{{logged_user.image}}" alt="user" class="img-circle user-profile-img">
+						<a href="{{baseUrl}}/{{logged_user.username}}"><img src="{{logged_user.image}}" alt="user" class="img-circle user-profile-img">
 					{% endif %}
 					</a>
 				</li>
@@ -133,11 +132,10 @@
 		<!-- BEGIN SIDEBAR RIGHT -->
 		<ul class="ac-gn-list">
 			<li class="ac-gn-item ac-gn-item-menu header">
-				<a href="{{baseUrl}}/profile">
 				{% if(logged_user is empty) %}
-					<img src="{{baseUrl}}/img/looksy.jpg" alt="user" class="img-circle user-profile-img">&nbsp; <span class="ac-gn-link-text">You</span>
+					<a href="{{baseUrl}}/profile"><img src="{{baseUrl}}/img/looksy.jpg" alt="user" class="img-circle user-profile-img">&nbsp; <span class="ac-gn-link-text">You</span>
 				{% else %}
-					<img src="{{logged_user.image}}" alt="user" class="img-circle user-profile-img">&nbsp; <span class="ac-gn-link-text">{{logged_user.firstname}} {{logged_user.lastname}}</span>
+					<a href="{{baseUrl}}/{{logged_user.username}}"><img src="{{logged_user.image}}" alt="user" class="img-circle user-profile-img">&nbsp; <span class="ac-gn-link-text">{{logged_user.firstname}} {{logged_user.lastname}}</span>
 				{% endif %}
 				</a>
 			</li>
