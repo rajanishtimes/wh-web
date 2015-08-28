@@ -2,6 +2,7 @@
 
 use WH\Core\BaseController as BaseController;
 use WH\Api\Params;
+use \WH\Model\Util\Sendpal;
 
 class IndexController extends BaseController{
 	
@@ -35,6 +36,12 @@ class IndexController extends BaseController{
 		$Wishlist->setPackage($this->config->application->package);
 		$Wishlist->setEnv($this->config->application->environment);
         $allwishlistlist = $Wishlist->getAll();
+
+        $title = 'Go-do List Events and Places by '.$profiledata['firstname'].' '.$profiledata['lastname'].' | '.$this->config->application->SiteName;
+        $this->tag->setTitle($title);
+		$this->view->meta_description = 'Check out the Go-do List events and places that were submitted by '.$profiledata['firstname'].' '.$profiledata['lastname'].' on '.$this->config->application->SiteName;
+		
+ 
 		
 		$this->view->setVars(
 			array(
@@ -214,5 +221,239 @@ class IndexController extends BaseController{
 		$Newsletter->setNewsletter();
         $Newsletter->setEmail($email);
 		$Newsletter->getUnsubNewsletterResults();
+	}
+
+
+	public function sendmailhtmlAction(){
+		echo $html = '<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Responsive Email Template</title>
+
+<style type="text/css">
+    /*@import "http://fonts.googleapis.com/css?family=arial, Times, serif:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italic|Times, serif:400normal,400italic,700normal,700italic|Raleway:400normal|arial, Times, serif+Condensed:400normal|arial, Times, serif+Slab:400normal&subset=all";*/
+
+    a{text-decoration: none;}
+  body   {width: 100%; background-color: #f0f0f0; margin:0; padding:0; -webkit-font-smoothing: antialiased;font-family: Georgia, Times, serif}
+  table {border-collapse: collapse;}
+
+  @media only screen and (max-width: 640px)  {
+
+        body[yahoo] .deviceWidth {width:440px!important; padding:0;}
+        body[yahoo] .center {text-align: center!important;}
+        body[yahoo] .border-bottom{border-bottom: 1px solid #ccc; margin-bottom: 20px;}
+        body[yahoo] .left{padding-right: 0 !important;}
+        body[yahoo] .paddingtop0{padding-top: 0 !important;}
+      }
+
+  @media only screen and (max-width: 479px) {
+        body[yahoo] .deviceWidth {width:280px!important; padding:0;}
+        body[yahoo] .center {text-align: center!important;}
+        body[yahoo] .border-bottom{border-bottom: 1px solid #ccc; margin-bottom: 20px;}
+        body[yahoo] .left{padding-right: 0 !important;}
+        body[yahoo] .paddingtop0{padding-top: 0 !important;}
+      }
+
+</style>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" yahoo="fix" style="font-family: Georgia, Times, serif; width:100%; background:#f0f0f0;">
+
+<!-- Wrapper -->
+<table class="deviceWidth" width="580" border="0" cellpadding="0" cellspacing="0" align="center">
+  <tr>
+    <td width="100%" valign="top" bgcolor="#f0f0f0" style="padding-top:36px" class="paddingtop0">
+
+      <!-- Logo Header -->
+         <table width="580" border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" bgcolor="#ffffff">
+                <tr>
+                    <td style="padding:20px;font-size: 13px; color: #000; font-weight: normal; text-align: left; font-family: Georgia, Times, serif; line-height: 24px; vertical-align: top; background:#fff; ">
+                        <table align="left" width="100%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth">
+                            <tr>
+
+                                <td valign="middle" width="50%" align="right" style="border-right: 1px solid #ccc; padding: 5px 20px;">
+                                    <a href="#"><img  class="deviceWidth" src="http://local.whatshot.in/img/logo-email.png" alt="" border="0" style="display: block; width: 130px !important;" /></a>
+                                </td>
+                                <td valign="middle" width="50%" align="left" style="padding: 5px 20px;">
+                                    <a href="#" style="text-decoration: none; color: #000; font-size: 16px; color: #000;font-family:Arial, sans-serif ">Delhi NCR</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table><!-- Logo Header End -->
+            <div style="clear:both"></div>
+            <div style="min-height:0px;height:0px;margin:0 auto;background:#fff">&nbsp;</div><!-- spacer -->
+
+      <!-- User Detail -->
+     <table width="580" border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" bgcolor="#ffffff">
+                <tr>
+                    <td style="padding:20px; font-size: 21px; color: #000000; font-weight: normal; text-align: left; font-family: Raleway, sans-serif; line-height: 24px; vertical-align: top;  background:#fff;">
+                        <table align="left" width="100%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth">
+                            <tr>
+                                <td valign="top" align="center" style="">
+                                    Hi <strong>Chandra</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="center" style="color:#717171">
+                                    Top Activities this weekend
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="center">
+                                    <div style="background: #000 none repeat scroll 0 0; min-height: 2px; margin: 16px 0px 0px; width: 38px;"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+      </table><!-- User Detail -->
+      <div style="clear:both"></div>
+            <div style="min-height:0px;height:0px;margin:0 auto;background:#fff">&nbsp;</div><!-- spacer -->
+
+
+            <!-- 2 Column Images & Text Side by SIde -->
+            <table width="580" border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" bgcolor="#ffffff">
+                <tr>
+                    <td style="padding:20px">
+                        <table align="left" width="41%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth border-bottom">
+                            <tr>
+                                <td valign="top" class="left" style="padding-right:20px; padding-bottom: 20px;">
+                                    <div style="font-size: 14px; font-family: arial, Times, serif; margin-bottom: 8px;">8th Aug, 09:00pm - 01:00am</div>
+                                    <div style="padding-bottom: 7px;"><a href="" style="color: #000;font-family: Times, serif;font-size: 26px;font-weight: 500;text-decoration: none;">Gig Alert: Ramiro Lopez + Kohra</a></div>
+                                    <a href="#"><img width="267" src="http://www.whatshot.in/imge/img1.jpg" alt="" border="0" style="width: 100%; display: block;" class="deviceWidth" /></a>
+                                    <div style="font-family: arial, Times, serif; font-size: 14px; line-height: 18px; padding-top: 10px;">Summer House Cafe, 1st Floor, DDA Shopping Complex, Aurobindo Market, Near Pyare Lal and Sons Jewellers, Hauz Khas, South, Delhi NCR</div>
+                                </td>
+                            </tr>
+                        </table>
+                        <table align="left" width="59%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth">
+                            <tr>
+                                <td valign="top" style="padding-right:0px;">
+                                    <div style="font-size: 14px; font-family: arial, Times, serif; margin-bottom: 8px;">6th Aug, 08:00pm - 11:00pm</div>
+                                    <div style="padding-bottom: 7px;"><a href="" style="color: #000;font-family: Times, serif;font-size: 26px;font-weight: 500;text-decoration: none;">Acappella Music With Vocal Rasta</a></div>
+                                    <a href="#"><img width="267" src="http://www.whatshot.in/imge/img2.jpg" alt="" border="0" style="width: 100%; display: block;" class="deviceWidth" /></a>
+                                    <div style="font-family: arial, Times, serif; font-size: 14px; line-height: 18px; padding-top: 10px;">Raasta, 30A, 1st Floor, Hauz Khas Village, Near Shri Hanuman  Mandir, Hauz Khas, South, Delhi NCR</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:0 20px;"><div style="background:#ccc; min-height:1px;max-height:1px;">&nbsp;</div></td>
+                </tr>
+            </table><!-- End 2 Column Images & Text Side by SIde -->
+            <div style="height:15px;margin:0 auto;background:#fff">&nbsp;</div><!-- spacer -->
+
+            <table width="580" border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" bgcolor="#ffffff">
+                <tr>
+                    <td style="padding:20px">
+                        <table align="left" width="59%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth border-bottom">
+                            <tr>
+                                <td valign="top" class="left" style="padding-right:20px; padding-bottom: 20px;">
+                                    <div style="font-size: 14px; font-family: arial, Times, serif; margin-bottom: 8px;">By Pritisha Borthakur</div>
+                                    <div style="padding-bottom: 7px;"><a href="" style="color: #000;font-family: Times, serif;font-size: 26px;font-weight: 500;text-decoration: none;">City Guide: Regional Flavours Of The West</a></div>
+                                    <a href="#"><img width="267" src="http://www.whatshot.in/imge/img3.jpg" alt="" border="0" style="width: 100%; display: block;" class="deviceWidth" /></a>
+                                    <div style="font-family: arial, Times, serif; font-size: 14px; line-height: 18px; padding-top: 10px;">Explore local regional fare with our new series covering restaurants, delivery outlets and stores across Delhi NCR.</div>
+                                </td>
+                            </tr>
+                        </table>
+                        <table align="left" width="41%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth">
+                            <tr>
+                                <td valign="top" style="padding-right:0px;">
+                                    <div style="font-size: 14px; font-family: arial, Times, serif; margin-bottom: 8px;">6th Aug, 08:45pm - 12:00am</div>
+                                    <div style="padding-bottom: 7px;"><a href="" style="color: #000;font-family: Times, serif;font-size: 26px;font-weight: 500;text-decoration: none;">Acoustic Music With Bhrigu Sahni</a></div>
+                                    <a href="#"><img width="267" src="http://www.whatshot.in/imge/img4.jpg" alt="" border="0" style="width: 100%; display: block;" class="deviceWidth" /></a>
+                                    <div style="font-family: arial, Times, serif; font-size: 14px; line-height: 18px; padding-top: 10px;">Depot 29, B-6/2, Level 2/3, Commercial Complex, Safdarjang Enclave, Opposite Deer Park, Safdarjang, South, Delhi NCR</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" align="center">
+                        <div style="background: #000 none repeat scroll 0 0; min-height: 2px; margin: 16px 0; width: 38px;"></div>
+                    </td>
+                </tr>
+            </table><!-- End 2 Column Images & Text Side by SIde -->
+            <div style="min-height:15px;margin:0 auto;background:#fff;">&nbsp;</div><!-- spacer -->
+
+            <!-- Checkout detail btn -->
+            <table width="580" border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" bgcolor="#ffffff">
+                <tr>
+                    <td style="padding:20px;font-size: 21px; color: #000000; font-weight: normal; text-align: left; font-family: Raleway, sans-serif; line-height: 24px; vertical-align: top; ">
+                        <table align="left" width="100%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth">
+                            <tr>
+                                <td valign="top" align="center" style="padding:10px 0">
+                                    <span>Find Interesting? huh !</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="center" style="padding:10px 0 45px 0">
+                                    <a href="#" style="text-decoration:none"><div style="background: #fc3768 none repeat scroll 0 0; color: #fff; font-size: 12px; padding: 15px 20px; text-decoration: none; width: 115px;">CHECK OUT MORE</div></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table><!-- Checkout detail btn -->
+            <div style="clear:both"></div>
+            <div style="min-height:0px;margin:0 auto;">&nbsp;</div><!-- spacer -->
+
+            <!-- Footer -->
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f0f0f0" style="margin:0 auto;">
+                <tr>
+                    <td style="font-family: Raleway,sans-serif; color: rgb(173, 173, 173);" bgcolor="#f0f0f0">
+                        <table width="100%">
+                            <tr>
+                                <td valign="top" align="center" style="padding: 20px 0px 10px;">
+                                    <img src="http://www.whatshot.in/imge/wh_grey.jpg">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="center" style="padding:5px 0">
+                                    <span>Explore whats popular & new in your city.</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="center" style="padding:5px 0">
+                                    <a href="http://www.whatshot.in" style="color:#fc3768"><span>www.whatshot.in</span></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="center" style="padding: 5px 0px; font-size: 12px;">
+                                    <span>Unable to see this message? <a href="" style="color:#4e4e4e; text-decoration: underline;">View here</a></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="center" style="padding:5px 0; font-size: 11px;">
+                                    <span>Not interested? <a href="" style="color:#4e4e4e; text-decoration: underline;">Unsubscribe</a></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table><!-- Footer -->
+            <div style="height:0px;margin:0 auto;">&nbsp;</div><!-- spacer -->
+
+    </td>
+  </tr>
+</table> <!-- End Wrapper -->
+
+</body>
+</html>';
+		$subject = 'Test mail newsletter';
+		//$to = array('rishabh.trivedi08@gmail.com', 'rishabh.trivedi@timesinternet.in');
+		$to = array('rishabh.trivedi08@gmail.com');
+		if(Sendpal::sendEmail($html, $subject, $to)){
+			echo "done";	
+		}else{
+			echo 'error';
+		}
+		exit;
 	}
 }

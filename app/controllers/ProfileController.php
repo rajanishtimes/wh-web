@@ -26,6 +26,17 @@ class ProfileController extends BaseController{
         // 	$total_count += $counts['total_count'];
         // }
  		//echo "<pre>"; print_r($allwishlistlist); echo "</pre>"; exit;
+
+        if(!empty($this->logged_user)){
+        	$title = 'Go-do List Events and Places by '.$this->logged_user->firstname.' '.$this->logged_user->lastname.' | '.$this->config->application->SiteName;
+			$this->view->meta_description = 'Check out the Go-do List events and places that were submitted by '.$this->logged_user->firstname.' '.$this->logged_user->lastname.' on '.$this->config->application->SiteName;	
+        }else{
+        	$title = 'Go-do List Events and Places | '.$this->config->application->SiteName;
+			$this->view->meta_description = 'Check out the Go-do List events and places that were submitted by on '.$this->config->application->SiteName;	
+        }
+ 		$this->tag->setTitle($title);
+
+
         $this->view->setVars(
 			array(
 				'allwishlistlist' => $allwishlistlist,
