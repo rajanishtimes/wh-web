@@ -246,15 +246,13 @@ class IndexController extends BaseController{
 <title>Responsive Email Template</title>
 
 <style type="text/css">
-    /*@import "http://fonts.googleapis.com/css?family=arial, Times, serif:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italic|Times, serif:400normal,400italic,700normal,700italic|Raleway:400normal|arial, Times, serif+Condensed:400normal|arial, Times, serif+Slab:400normal&subset=all";*/
-
     a{text-decoration: none;}
   body   {width: 100%; background-color: #f0f0f0; margin:0; padding:0; -webkit-font-smoothing: antialiased;font-family: Georgia, Times, serif}
   table {border-collapse: collapse;}
 
   @media only screen and (max-width: 640px)  {
 
-        body[yahoo] .deviceWidth {width:440px!important; padding:0;}
+        body[yahoo] .deviceWidth {width:440px!important; padding:0 !important;}
         body[yahoo] .center {text-align: center!important;}
         body[yahoo] .border-bottom{border-bottom: 1px solid #ccc; margin-bottom: 20px;}
         body[yahoo] .left{padding-right: 0 !important;}
@@ -262,7 +260,7 @@ class IndexController extends BaseController{
       }
 
   @media only screen and (max-width: 479px) {
-        body[yahoo] .deviceWidth {width:280px!important; padding:0;}
+        body[yahoo] .deviceWidth {width:280px!important; padding:0 !important;}
         body[yahoo] .center {text-align: center!important;}
         body[yahoo] .border-bottom{border-bottom: 1px solid #ccc; margin-bottom: 20px;}
         body[yahoo] .left{padding-right: 0 !important;}
@@ -277,19 +275,20 @@ class IndexController extends BaseController{
 <!-- Wrapper -->
 <table class="deviceWidth" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="background:#ffffff">
   <tr>
-    <td width="100%" valign="top" bgcolor="#f0f0f0" style="padding-top:36px" class="paddingtop0">
-
+    <td width="100%" valign="top" bgcolor="#f0f0f0" style="padding-top:36px; min-width:100%" class="paddingtop0">
+        <table width="580" border="0" cellpadding="0" cellspacing="0" align="center" class="deviceWidth" bgcolor="#ffffff">
+            <tr>
+                <td width="100%" valign="top" bgcolor="#ffffff" style="min-width:100%">
       <!-- Logo Header -->
-         <table width="580" border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" bgcolor="#ffffff">
+        <table width="580" border="0" cellpadding="0" cellspacing="0" align="center" class="deviceWidth" bgcolor="#ffffff">
                 <tr>
-                    <td style="padding:20px;font-size: 13px; color: #000; font-weight: normal; text-align: left; font-family: Georgia, Times, serif; line-height: 24px; vertical-align: top; background:#fff; ">
-                        <table align="left" width="100%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth">
+                    <td style="padding:20px">
+                        <table align="center" width="100%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth" style="text-align:center;">
                             <tr>
-
                                 <td valign="middle" width="50%" align="right" style="border-right: 1px solid #ccc; padding: 5px 20px;">
                                     <a href="#"><img  class="deviceWidth" src="http://www.whatshot.in/img/logo03072015.png" alt="" border="0" style="display: block; width: 130px !important;" /></a>
                                 </td>
-                                <td valign="middle" width="50%" align="left" style="padding: 5px 20px;">
+                                <td valign="middle" width="50%" align="left" style="padding: 5px 10px;">
                                     <a href="#" style="text-decoration: none; color: #000; font-size: 16px; color: #000;font-family:Arial, sans-serif ">Delhi NCR</a>
                                 </td>
                             </tr>
@@ -300,14 +299,14 @@ class IndexController extends BaseController{
             <div style="clear:both"></div>
             <div style="min-height:0px;height:0px;margin:0 auto;background:#fff">&nbsp;</div><!-- spacer -->
 
-      <!-- User Detail -->
-     <table width="580" border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" bgcolor="#ffffff">
+          <!-- User Detail -->
+            <table width="580" border="0" cellpadding="0" cellspacing="0" align="center" class="deviceWidth" bgcolor="#ffffff">
                 <tr>
-                    <td style="padding:20px; font-size: 21px; color: #000000; font-weight: normal; text-align: left; font-family: Raleway, sans-serif; line-height: 24px; vertical-align: top;  background:#fff;">
-                        <table align="left" width="100%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth">
+                    <td style="padding:20px">
+                        <table align="left" width="100%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth" style="font-size: 21px;font-family: Raleway, sans-serif; line-height: 24px; ">
                             <tr>
-                                <td valign="top" align="center" style="">
-                                    Hi <strong>Chandra</strong>
+                                <td valign="top" class="center" style="text-align:center;">
+                                        Hi <strong>Rishabh T</strong>
                                 </td>
                             </tr>
                             <tr>
@@ -323,11 +322,9 @@ class IndexController extends BaseController{
                         </table>
                     </td>
                 </tr>
-      </table><!-- User Detail -->
-      <div style="clear:both"></div>
+          </table><!-- User Detail -->
+          <div style="clear:both"></div>
             <div style="min-height:0px;height:0px;margin:0 auto;background:#fff">&nbsp;</div><!-- spacer -->
-
-
             <!-- 2 Column Images & Text Side by SIde -->
             <table width="580" border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" bgcolor="#ffffff">
                 <tr>
@@ -394,12 +391,12 @@ class IndexController extends BaseController{
             <div style="min-height:15px;margin:0 auto;background:#fff;">&nbsp;</div><!-- spacer -->
 
             <!-- Checkout detail btn -->
-            <table width="580" border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth" bgcolor="#ffffff">
+            <table width="580" border="0" cellpadding="0" cellspacing="0" align="center" class="deviceWidth" bgcolor="#ffffff">
                 <tr>
-                    <td style="padding:20px;font-size: 21px; color: #000000; font-weight: normal; text-align: left; font-family: Raleway, sans-serif; line-height: 24px; vertical-align: top; ">
-                        <table align="left" width="100%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth">
+                    <td style="padding:0 20px">
+                        <table align="center" width="100%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth">
                             <tr>
-                                <td valign="top" align="center" style="padding:10px 0">
+                                <td valign="top" class="center" style="padding:10px 0; text-align:center">
                                     <span>Find Interesting? huh !</span>
                                 </td>
                             </tr>
@@ -412,15 +409,15 @@ class IndexController extends BaseController{
                     </td>
                 </tr>
             </table><!-- Checkout detail btn -->
+            </td></tr></table>
             <div style="clear:both"></div>
             <div style="min-height:0px;margin:0 auto;">&nbsp;</div><!-- spacer -->
 
             <!-- Footer -->
-
-            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f0f0f0" style="margin:0 auto;">
+            <table width="580" class="deviceWidth" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f0f0f0">
                 <tr>
-                    <td style="font-family: Raleway,sans-serif; color: rgb(173, 173, 173);" bgcolor="#f0f0f0">
-                        <table width="100%">
+                    <td style="font-family: Raleway,sans-serif; color: rgb(173, 173, 173); padding:20px" bgcolor="#f0f0f0">
+                        <table align="center" width="100%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth">
                             <tr>
                                 <td valign="top" align="center" style="padding: 20px 0px 10px;">
                                     <img src="http://www.whatshot.in/imge/wh_grey.jpg">
@@ -459,8 +456,8 @@ class IndexController extends BaseController{
 </body>
 </html>';
 		$subject = 'Test mail newsletter';
-		//$to = array('rishabh.trivedi08@gmail.com', 'rishabh.trivedi@timesinternet.in');
-		$to = array('rishabh.trivedi08@gmail.com', 'skm1907@gmail.com');
+		//$to = array('rishabh.trivedi08@gmail.com', 'rishabh.trivedi@timesinternet.in','sudhanshu@timescity.com','rishabh.trivedi@timesinternet.in');
+		$to = array('rishabh.trivedi@timescity.com','sudhanshu@timescity.com','rishabh.trivedi@timesinternet.in', 'sandeeppanwar7@gmail.com');
 		if(Sendpal::sendEmail($html, $subject, $to)){
 			echo "done";	
 		}else{
