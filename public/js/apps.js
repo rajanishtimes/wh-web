@@ -292,7 +292,22 @@ function DOMReady(){
 		expOn.setTime(new Date().getTime() + 3600 * 24 * 365);
 		cookies.set('city', C.attr('data-name'), {path: '/',expires:expOn});
 		cookies.set('currentCity', C.attr('data-name'), {path: '/',expires:expOn});
-		window.location.href = C.find('a').attr('href');
+
+		var city;
+		if(C.attr('data-name') == 'delhi-ncr'){
+			 city = 'Delhi NCR';
+		}else{
+			city = C.attr('data-name');
+		}
+
+		$.ajax( {
+			url:baseUrl+'/index/updatecity',
+			type:'POST',
+			data:'city='+city,
+			success:function(data) {
+				window.location.href = C.find('a').attr('href');		
+			}
+		});
 		return false;
 	});
 	
@@ -741,7 +756,7 @@ function showishlist(userid, entityid, city, entitytype, title, entity_title, is
 }
 
 function generatewishlistpopup(userid, entityid, city, entitytype, title, entity_title, islogin){
-	var html = '<div class="wishlist-lightbox lightbox"><div class="wishlist-add"><div class="tiphead">NOTE:</div><div class="wihlist-title">Add <span>'+entity_title+'</span> to my '+server_variables.wishlistname+'.<br><textarea class="tiptext border-bottom" rows="1" data-min-rows="1" maxlength="140" placeholder="Because I Like"></textarea><div class="char-remain">140</div></div><div class="btn-group float-right"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')">CANCEL</div><div class="resetdimenstion dnone float-right"><img src="'+ baseUrl +'/img/ajax-loader.gif"></div><div class="btn btn-primary add" onclick="addwishlist(\''+userid+'\', \''+entityid+'\', \''+city+'\', \''+entitytype+'\', \''+title+'\', \''+entity_title+'\', \''+islogin+'\')">ADD</div></div></div><div class="overlay"></div></div>';
+	var html = '<div class="wishlist-lightbox lightbox"><div class="wishlist-add"><div class="tiphead">NOTE:</div><div class="wihlist-title">Add <span>'+entity_title+'</span> to my '+server_variables.wishlistname+'.<br><textarea class="tiptext border-bottom" rows="1" data-min-rows="1" maxlength="140" placeholder="Because I Like"></textarea><div class="char-remain">140</div></div><div class="btn-group float-right"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')" data-ga-cat = "WishList" data-ga-action="Cancel Button PopUp" data-ga-label="'+entitytype+' - '+entity_title+'">CANCEL</div><div class="resetdimenstion dnone float-right"><img src="'+ baseUrl +'/img/ajax-loader.gif"></div><div class="btn btn-primary add" onclick="addwishlist(\''+userid+'\', \''+entityid+'\', \''+city+'\', \''+entitytype+'\', \''+title+'\', \''+entity_title+'\', \''+islogin+'\')" data-ga-cat = "WishList" data-ga-action="Add Button PopUp" data-ga-label="'+entitytype+' - '+entity_title+'">ADD</div></div></div><div class="overlay"></div></div>';
 
 	$('#wishlist'+entityid).append(html);
 	$("html, body").animate({scrollTop: $(".wishlist-lightbox").offset().top-100}, 1000); 

@@ -223,6 +223,17 @@ class IndexController extends BaseController{
 		$Newsletter->getUnsubNewsletterResults();
 	}
 
+	public function updatecityAction(){
+		$city = $this->request->getPost('city');
+		if(!empty($this->logged_user)){
+			$addprofile = new \WH\Model\UserProfile();
+			$addprofile->setSSOid($this->logged_user->sso_id);
+			$addprofile->setCity($city);
+			$getdata = $addprofile->updateProfile();
+		}
+		exit;
+	}
+
 
 	public function sendmailhtmlAction(){
 		echo $html = '<!doctype html>
@@ -230,6 +241,7 @@ class IndexController extends BaseController{
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width" />
 
 <title>Responsive Email Template</title>
 
@@ -263,7 +275,7 @@ class IndexController extends BaseController{
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" yahoo="fix" style="font-family: Georgia, Times, serif; width:100%; background:#f0f0f0;">
 
 <!-- Wrapper -->
-<table class="deviceWidth" width="580" border="0" cellpadding="0" cellspacing="0" align="center">
+<table class="deviceWidth" width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="background:#ffffff">
   <tr>
     <td width="100%" valign="top" bgcolor="#f0f0f0" style="padding-top:36px" class="paddingtop0">
 
@@ -275,7 +287,7 @@ class IndexController extends BaseController{
                             <tr>
 
                                 <td valign="middle" width="50%" align="right" style="border-right: 1px solid #ccc; padding: 5px 20px;">
-                                    <a href="#"><img  class="deviceWidth" src="http://local.whatshot.in/img/logo-email.png" alt="" border="0" style="display: block; width: 130px !important;" /></a>
+                                    <a href="#"><img  class="deviceWidth" src="http://www.whatshot.in/img/logo03072015.png" alt="" border="0" style="display: block; width: 130px !important;" /></a>
                                 </td>
                                 <td valign="middle" width="50%" align="left" style="padding: 5px 20px;">
                                     <a href="#" style="text-decoration: none; color: #000; font-size: 16px; color: #000;font-family:Arial, sans-serif ">Delhi NCR</a>
@@ -448,7 +460,7 @@ class IndexController extends BaseController{
 </html>';
 		$subject = 'Test mail newsletter';
 		//$to = array('rishabh.trivedi08@gmail.com', 'rishabh.trivedi@timesinternet.in');
-		$to = array('rishabh.trivedi08@gmail.com');
+		$to = array('rishabh.trivedi08@gmail.com', 'skm1907@gmail.com');
 		if(Sendpal::sendEmail($html, $subject, $to)){
 			echo "done";	
 		}else{

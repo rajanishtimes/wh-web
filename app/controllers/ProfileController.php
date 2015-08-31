@@ -90,7 +90,7 @@ class ProfileController extends BaseController{
 		$Login->setParam('gender', $facebook_response['gender']);
 		$Login->setParam('hometown', $hometown);
 		$Login->setParam('location', $location);
-		$Login->setParam('imagepath', '//graph.facebook.com/'.$facebook_response['id'].'/picture?type=large');
+		$Login->setParam('imagepath', '//graph.facebook.com/'.$facebook_response['id'].'/picture?width=150&height=150');
 		$Login->setVersion($this->config->application->version);
 		$Login->setPackage($this->config->application->package);
 		$Login->setEnv($this->config->application->environment);
@@ -98,13 +98,18 @@ class ProfileController extends BaseController{
 		$ssoresponse = $Login->loginSocialUser();
 		$ssoresponse['user']['facebook_user_id'] = $facebook_response['id'];
 
-		//echo "<pre>"; print_r($ssoresponse); echo "</pre>"; 
+		//echo "<pre>"; print_r($ssoresponse); echo "</pre>"; exit;
 		$addprofile = new \WH\Model\UserProfile();
 		$addprofile->setFirstname($facebook_response['first_name']);
 		$addprofile->setLastname($facebook_response['last_name']);
 		$addprofile->setFacebookID($facebook_response['id']);
 		$addprofile->setSSOid($ssoresponse['user']['sso_id']);
-		$addprofile->setCity($this->city);
+		if($this->city == 'delhi-ncr'){
+			$addprofile->setCity('Delhi NCR');
+		}else{
+			$addprofile->setCity($this->city);	
+		}
+		
 		$getdata = $addprofile->updateProfile();
 		//echo "<pre>"; print_r($getdata); echo "</pre>"; exit;
 
@@ -152,7 +157,7 @@ class ProfileController extends BaseController{
     	$this->redis->write(session_id(), '');
     	$this->redis->destroy(session_id());
     	//header("Location: ".$this->baseUrl);
-    	return $this->response->redirect($this->baseUrl);
+    	return $this->response->redirect($this->baseUrl.'/profile');
     }
 
     public function wishlistbycityAction(){

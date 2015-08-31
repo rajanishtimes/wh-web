@@ -30,6 +30,9 @@ html,body{
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
 }
+*{
+    outline:none;
+}
 
 body {
     background: #fff none repeat scroll 0 0;

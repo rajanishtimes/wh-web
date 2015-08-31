@@ -13,7 +13,7 @@
 							<div class="sign-in-block text-center">
 								<div class="sign-in-text">Create your profile and easily check <br> your {{config.application.wishlistname}} here!</div>
 								<div id="results"></div>
-								<div id="LoginButton" class="facebook-sign-in" onClick="javascript:CallAfterLogin();return false;">
+								<div id="LoginButton" class="facebook-sign-in" onClick="javascript:CallAfterLogin();return false;" data-ga-cat = "Profile" data-ga-action="SignIn with FB" data-ga-label="Facebook Sign In">
 									<img src="{{baseUrl}}/img/facebook-login.png">
 								</div>
 								<span class="small-login">we wouldn't post anything without your permission</span>

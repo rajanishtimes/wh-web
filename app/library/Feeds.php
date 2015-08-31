@@ -266,12 +266,12 @@ class Feeds extends Component
 
     	<li id="wishlist_<?php echo $wishlist['id'];?>" class="media searchlist" data-rel="<?php echo $denot; ?>">
 			<a href="<?php echo $url.$wishlist['url'];?>" class="pull-left">
-				<div style="background-color:#ffdddd;width:100%">
+				<div style="background-color:#ffdddd;width:100%" data-ga-cat = "Profile" data-ga-action="Detail From Wish List" data-ga-label="<?php echo $wishlist['entity_type'];?> - <?php echo $wishlist['title'];?>">
 					<?php echo $this->getimage($url, $wishlist['image']['uri'], 80, 80, $wishlist['title'], $wishlist['image'], '', 'img-detail', $key+1); ?>
 				</div>
 			</a>
 			<div class="media-body">
-				<a href="<?php echo $url.$wishlist['url'];?>"><h4 class="media-heading"><?php echo $wishlist['title']?>
+				<a href="<?php echo $url.$wishlist['url'];?>" data-ga-cat = "Profile" data-ga-action="Detail From Wish List" data-ga-label="<?php echo $wishlist['entity_type'];?> - <?php echo $wishlist['title'];?>"><h4 class="media-heading"><?php echo $wishlist['title']?>
 					<?php if(isSet($wishlist['past']) && $wishlist['past'] == 1){ ?>
 						<span class="passedevent">(Past Event)</span>
 					<?php } ?>
@@ -296,7 +296,7 @@ class Feeds extends Component
 					<?php if($profiledata == $loggeduser){ ?>
 						<div class="options float-left">
 							<a href="javascript:void(0)" onclick="archievewishlist('<?php echo $wishlist['id']?>')">
-								<div class="option-archive float-left"><i class="fa fa-trash"></i> Remove</div>
+								<div class="option-archive float-left" data-ga-cat = "Profile" data-ga-action="Remove From Wish List" data-ga-label="<?php echo $wishlist['entity_type'];?> - <?php echo $wishlist['title'];?>"><i class="fa fa-trash"></i> Remove</div>
 								<div class="resetdimenstion dnone float-left"><img src="<?php echo $url?>/img/ajax-loader.gif"></div>
 							</a>
 						</div>
@@ -308,7 +308,7 @@ class Feeds extends Component
 									<div class="option-archive float-left"><i class="fa fa-share"></i> Share</div>
 								</a>
 								<ul class="dropdown-menu square primary margin-list-rounded fancy-dropdown">
-									<li class="head">Share On</li>
+									<li class="head" data-ga-cat = "Profile" data-ga-action="Share From Wish List" data-ga-label="<?php echo $wishlist['entity_type'];?> - <?php echo $wishlist['title'];?>">Share On</li>
 									<li><a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('<?php echo $url.$wishlist['url'];?>'),'facebook-share-dialog','width=626,height=436');return false;" class="facebook">Facebook</a></li>
 									<li><a href="#" onclick="window.open('https://plus.google.com/share?url=<?php echo $url.$wishlist['url'];?>','facebook-share-dialog','width=626,height=436');return false;" class="google-plus">Google +</a></li>
 									<li><a href="#" onclick="window.open('http://twitter.com/share?url=<?php echo $url.$wishlist['url'];?>','facebook-share-dialog','width=626,height=436');return false;" class="twitter">Twitter</a></li>
