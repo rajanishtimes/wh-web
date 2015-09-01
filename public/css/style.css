@@ -4078,7 +4078,16 @@ iframe {
     width: 55px;
 }
 .wishlist_add_btn {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 2px solid #d11a6d;
+    color: #d11a6d;
     float: right;
+    font-size: 24px;
+    line-height: 30px;
+    padding: 0 20px;
+}
+.wishlist_add_btn:hover {
+    border: 2px solid #d11a6d;
 }
 /* ================ Profile Page =============== */
 .grayed{
@@ -4137,9 +4146,10 @@ iframe {
     border-left: 3px solid #27ae60;
 }
 .added-wishlist .btn.btn-primary {
-    background: #27ae60 none repeat scroll 0 0;
+    background: none;
     font-size: 16px;
     padding: 0 20px 3px;
+    border: 2px solid #27ae60;
 }
 
 .wishlist-wrapper > div {
@@ -4187,15 +4197,15 @@ iframe {
     padding: 0 30px;
 }
 .tiphead {
-    background: rgba(0, 0, 0, 0) url("../img/tip.png") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("../img/tip.png") no-repeat scroll 0 0 / 21px auto;
     color: #d11a6c;
     font-family: Roboto,Arial,Calibri,sans-serif;
-    font-size: 23px;
+    font-size: 18px;
     font-weight: bold;
-    line-height: 26px;
-    padding: 2px 6px 2px 33px;
+    line-height: 20px;
     margin-bottom: 5px;
     overflow: hidden;
+    padding: 2px 6px 2px 33px;
 }
 .tiptext {
     border-top: none;
@@ -4288,7 +4298,7 @@ iframe {
 }
 .options {
     font-size: 12px;
-    margin: 10px 0 10px 10px;
+    margin: 10px 0 10px 20px;
     line-height: 16px;
 }
 .options:first-child {
@@ -4375,11 +4385,21 @@ iframe {
 .wishlist-add .btn-primary.add{
     color: #d1196c;
 }
+.profile-container .tiphead {
+    line-height: 27px;
+    margin-top: 18px;
+}
 .profile-container .media-body > p{
     margin-bottom: 5px;
 }
 .profile-container .media-body > p.text-info{
     margin: 0;
+}
+.profile-container p.feed-short-desc {
+    margin-top: 0;
+}
+.wishlist .homepagevenue .time, .wishlist .homepagevenue .landmark {
+    font-size: 12px;
 }
 
 #ac-gn-menustate {

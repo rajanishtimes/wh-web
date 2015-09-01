@@ -756,7 +756,7 @@ function showishlist(userid, entityid, city, entitytype, title, entity_title, is
 }
 
 function generatewishlistpopup(userid, entityid, city, entitytype, title, entity_title, islogin){
-	var html = '<div class="wishlist-lightbox lightbox"><div class="wishlist-add"><div class="tiphead">NOTE:</div><div class="wihlist-title">Add <span>'+entity_title+'</span> to my '+server_variables.wishlistname+'.<br><textarea class="tiptext border-bottom" rows="1" data-min-rows="1" maxlength="140" placeholder="Because I Like"></textarea><div class="char-remain">140</div></div><div class="btn-group float-right"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')" data-ga-cat = "WishList" data-ga-action="Cancel Button PopUp" data-ga-label="'+entitytype+' - '+entity_title+'">CANCEL</div><div class="resetdimenstion dnone float-right"><img src="'+ baseUrl +'/img/ajax-loader.gif"></div><div class="btn btn-primary add" onclick="addwishlist(\''+userid+'\', \''+entityid+'\', \''+city+'\', \''+entitytype+'\', \''+title+'\', \''+entity_title+'\', \''+islogin+'\')" data-ga-cat = "WishList" data-ga-action="Add Button PopUp" data-ga-label="'+entitytype+' - '+entity_title+'">ADD</div></div></div><div class="overlay"></div></div>';
+	var html = '<div class="wishlist-lightbox lightbox"><div class="wishlist-add"><div class="tiphead">NOTE:</div><div class="wihlist-title">Yay! Let\'s add <span>'+entity_title+'</span> to your '+server_variables.wishlistname+'.<br><textarea class="tiptext border-bottom" rows="1" data-min-rows="1" maxlength="140" placeholder="Adding to Go-Do because..."></textarea><div class="char-remain">140</div></div><div class="btn-group float-right"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')" data-ga-cat = "WishList" data-ga-action="Cancel Button PopUp" data-ga-label="'+entitytype+' - '+entity_title+'">CANCEL</div><div class="resetdimenstion dnone float-right"><img src="'+ baseUrl +'/img/ajax-loader.gif"></div><div class="btn btn-primary add" onclick="addwishlist(\''+userid+'\', \''+entityid+'\', \''+city+'\', \''+entitytype+'\', \''+title+'\', \''+entity_title+'\', \''+islogin+'\')" data-ga-cat = "WishList" data-ga-action="Add Button PopUp" data-ga-label="'+entitytype+' - '+entity_title+'">ADD</div></div></div><div class="overlay"></div></div>';
 
 	$('#wishlist'+entityid).append(html);
 	$("html, body").animate({scrollTop: $(".wishlist-lightbox").offset().top-100}, 1000); 
@@ -781,22 +781,23 @@ function addwishlist(userid, entityid, city, entitytype, title, entity_title, is
 		success:function(data) {
 			var results = eval( '(' + data + ')' );
 			if(results.status == 1){
-				$('.wishlist-container .wishlist-add').html('<div class="successmsg"><div class="successarea"><img src="'+baseUrl+'/img/tip-success.png"></div><div class="sucess-msg"><strong>Awesome!</strong><br><span>'+entity_title+'</span> is added to your '+server_variables.wishlistname+'. You can find all items of your '+server_variables.wishlistname+' on your profile.</div><div class="btn-group makecenter"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')">OK</div></div></div>');
+				$('.wishlist-container .wishlist-add').html('<div class="successmsg"><div class="successarea"><img src="'+baseUrl+'/img/tip-success.png"></div><div class="sucess-msg"><strong>Awesome!</strong><br><span>'+entity_title+'</span> successfully added to your '+server_variables.wishlistname+'. Check your profile page!</div><div class="btn-group makecenter"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')">OK</div></div></div>');
 				
 			}else{
-				$('.wishlist-container .wishlist-add').html('<div class="successmsg"><div class="successarea"><img src="'+baseUrl+'/img/tip-success.png"></div><div class="sucess-msg"><strong>Oops!</strong><br><span>'+entity_title+'</span> is already added to your '+server_variables.wishlistname+'. You can find all items of your '+server_variables.wishlistname+' on your profile.</div><div class="btn-group makecenter"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')">CANCEL</div></div></div>');
+				$('.wishlist-container .wishlist-add').html('<div class="successmsg"><div class="successarea"><img src="'+baseUrl+'/img/tip-success.png"></div><div class="sucess-msg"><strong>Awesome!</strong><br><span>'+entity_title+'</span> successfully added to your '+server_variables.wishlistname+'.</div><div class="btn-group makecenter"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')">CANCEL</div></div></div>');
 			}
 			$("#wishlist"+entityid+" .wishlist-wrapper").removeClass('add-wishlist');
 			$("#wishlist"+entityid+" .wishlist-wrapper").addClass('added-wishlist');
 			$("#wishlist"+entityid+" .wishlist_add_btn").parent().addClass('dnone');
 			$("#wishlist"+entityid+" .wishlist_added_btn").parent().removeClass('dnone');
 			$("#wishlist"+entityid+" .resetdimenstion").addClass('dnone');
+			setTimeout('cancelwishlist(\''+islogin+'\')', 3000);
 		}
 	});
 }
 
-function archievewishlist(id){
-	if(confirm('Are you sure you want to remove this item from your '+server_variables.wishlistname+'?')){
+function archievewishlist(id, title){
+	if(confirm('Do you want to remove "'+title+'" from your '+server_variables.wishlistname+'?')){
 		var upperparentid = $("#wishlist_"+id).attr('data-rel');
 		var countvalue = $('#count'+upperparentid).html();
 		$("#wishlist_"+id+" .resetdimenstion").removeClass('dnone');

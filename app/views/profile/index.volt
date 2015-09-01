@@ -11,12 +11,12 @@
 					<div class="profile-main-container">
 						{% if(logged_user is empty) %}
 							<div class="sign-in-block text-center">
-								<div class="sign-in-text">Create your profile and easily check <br> your {{config.application.wishlistname}} here!</div>
+								<div class="sign-in-text">Your {{config.application.wishlistname}} awaits you. Click on 'Connect with Facebook' so that you can access your list.</div>
 								<div id="results"></div>
 								<div id="LoginButton" class="facebook-sign-in" onClick="javascript:CallAfterLogin();return false;" data-ga-cat = "Profile" data-ga-action="SignIn with FB" data-ga-label="Facebook Sign In">
 									<img src="{{baseUrl}}/img/facebook-login.png">
 								</div>
-								<span class="small-login">we wouldn't post anything without your permission</span>
+								<span class="small-login">we will never post anything without your permission</span>
 							</div>
 						{% else %}
 							{% if(allwishlistlist is empty) %}
@@ -24,8 +24,8 @@
 								<div class="wishlist-default">
 									<img src="{{baseUrl}}/img/wishlist_default.png">
 								</div>
-								<div class="wishlist-default-text">Your {{config.application.wishlistname}}</div>
-								<span class="small-login">Go ahead, Add your first wishlist.</span>
+								<div class="wishlist-default-text">Duh!</div>
+								<span class="small-login">Your Go-Do list is still empty! Check some content or event that you would like to add to your list and simply tap the + sign to have it added here.</span>
 							</div>
 							{% else %}
 							<div class="wishlist text-left">
