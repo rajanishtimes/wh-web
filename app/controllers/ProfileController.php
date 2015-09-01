@@ -228,4 +228,8 @@ class ProfileController extends BaseController{
         echo json_encode($wishlistadd);
         exit;
     }
+
+    public function unsubscribeAction(){
+    	
+    }
 }

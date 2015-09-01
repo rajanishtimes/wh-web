@@ -412,6 +412,15 @@ function DOMReady(){
 		}
 	});
 
+	$('#unsubscribe').click(function(){
+		var elem = $(this);
+		var email = elem.attr('rel');
+		elem.addClass('dnone');
+		alert(email);
+		elem.find('img').removeClass('dnone');
+		elem.next().removeClass('dnone');
+		elem.find('img').addClass('dnone');
+	});
 
 	$(document.body).one('focus.textarea', '.tiptext', function(){
         var savedValue = this.value;
@@ -430,6 +439,8 @@ function DOMReady(){
     $(document.body).on('keyup', '.tiptext', function(e){
 		$(".char-remain").text((140 - $(this).val().length));
 	});
+
+
 }
 
 

@@ -187,6 +187,9 @@ SMALL DESKTOP 768px <> 991px
 	.feed-short-desc{
 		padding-top: 3px;
 	}
+	.unsubscribe p{
+		padding: 0 0px 26px 0;
+	}
 }
 
 
@@ -499,7 +502,29 @@ TABLET < 767px
 	.wishlist-text{
 		font-size: 14px;
 	}
-
+	.unsubscribe-html{
+		padding: 80px 0;
+	}
+	.unsubscribe p{
+		padding: 0;
+	}
+	.unsubscribe .main-head{
+		font-size: 33px;
+		padding: 20px 0;
+	}
+	.left-profile-column .btn.btn-primary{
+		 margin-top: 20px;
+	}
+	.tick.float-right {
+		float: left;
+		left: 50%;
+		margin-left: -90px;
+		position: relative;
+		width: auto;
+	}
+	.left-profile-column {
+	    text-align: center;
+	}
 }
 
 

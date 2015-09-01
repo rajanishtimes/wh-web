@@ -1378,6 +1378,7 @@ h4.small-title {
     text-align: left;
     word-spacing: -2px;
 }
+
 .btn.btn-primary.errorbtn {
     border-color: #fff;
     border-radius: 17px;
@@ -4138,6 +4139,60 @@ iframe {
     cursor: pointer;
 }
 /* ================ Profile Page End =============== */
+.unsubscribe{
+    background: #4d46b4; padding: 0;
+}
+.ufoot {
+    background: #4d46b4 none repeat scroll 0 0;
+    height: 120px;
+    opacity: 0.6;
+    position: absolute;
+    width: 100%;
+}
+.unsubscribe-html{
+
+}
+.unsubscribe .buildings {
+    background: rgba(0, 0, 0, 0) url("../img/unsubscribe-foot.png") repeat scroll 0 0;
+    height: 120px;
+    width: 100%;
+}
+.unsubscribe-html {
+    padding: 100px 224px 125px 165px;
+}
+.unsubscribe .main-head {
+    color: #fff;
+    font-family: Lora-Bold;
+    font-size: 47px;
+    letter-spacing: 3px;
+}
+.unsubscribe p {
+    color: #fff;
+    font-family: Lora;
+    margin: -3px 0 0;
+    padding: 0 77px 26px 0;
+}
+.left-profile-column {
+
+}
+.left-profile-column .btn.btn-primary {
+    border-radius: 0;
+    font-size: 14px;
+    padding: 6px 15px;
+}
+.unsubscribe .tick {
+    background: #388e3c none repeat scroll 0 0;
+    border-radius: 50%;
+    margin: 23px 13px 0 0;
+    padding: 64px 57px 65px;
+}
+.makesubscribe {
+    border: 1px dashed #fff1b8;
+    color: #fff1b8;
+    padding: 10px;
+    text-align: center;
+}
+/* ================ unsubscribe Page End =============== */
 .wishlist-wrapper.add-wishlist {
     border-left: 3px solid #e22379;
 }

@@ -165,6 +165,10 @@ $router->add("/story", array(
     'action' => 'whytimescity',
 ));
 
+$router->add("/unsubscribe", array(
+    'controller' => 'profile',
+    'action' => 'unsubscribe',
+));
 
 $router->add("/storyraw", array(
     'controller' => 'index',
