@@ -14,8 +14,9 @@
 								<div class="wishlist-default">
 									<img src="{{baseUrl}}/img/wishlist_default.png">
 								</div>
-								<div class="wishlist-default-text">Your {{config.application.wishlistname}}</div>
-								<span class="small-login">Go ahead, Add your first wishlist.</span>
+								<div class="wishlist-default-text">Duh!</div>
+								<span class="small-login">Your Go-Do list is still empty! Check some content or event that you would like to add to your list and simply tap the + sign to have it added here.</span>
+
 							</div>
 						{% else %}
 							<div class="wishlist text-left">
