@@ -310,12 +310,12 @@ class Feeds extends Component
 					<div class="options share-option float-left">
 						<ul class="nav-search">
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-									<div class="option-archive float-left"><i class="fa fa-share"></i> Share</div>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+									<div class="option-archive float-left" data-ga-cat = "Profile" data-ga-action="Share From Wish List" data-ga-label="<?php echo $wishlist['entity_type'];?> - <?php echo $wishlist['title'];?>"><i class="fa fa-share"></i> Share</div>
 								</a>
 
 								<ul class="dropdown-menu square primary margin-list-rounded fancy-dropdown">
-									<li class="head" data-ga-cat = "Profile" data-ga-action="Share From Wish List" data-ga-label="<?php echo $wishlist['entity_type'];?> - <?php echo $wishlist['title'];?>">Share On</li>
+									<li class="head">Share On</li>
 
 									<li><a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('<?php echo $url.$wishlist['url'];?>'),'facebook-share-dialog','width=626,height=436');return false;" class="facebook">Facebook</a></li>
 
