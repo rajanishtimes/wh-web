@@ -24,7 +24,7 @@
 										<?php //echo "<pre>"; print_r($allwishlistlist); echo "</pre>"; ?>
 										{% for key, list in allwishlistlist %}
 											<ul id="getwishlist{{key}}" class="media-list feed-list">
-											<h2 class="cityheader"><span id="count{{key}}">{{list['total_count']}}</span> Item(s) in your <strong>{{list['city']}}</strong> {{config.application.wishlistname}}</h2>
+											<h2 class="cityheader"><span id="count{{key}}">{{list['total_count']}}</span> Items in your <strong>{{list['city']}}</strong> {{config.application.wishlistname}}</h2>
 
 											{% if(logged_user is empty) %}
 												<?php $log_user = ''; ?>
