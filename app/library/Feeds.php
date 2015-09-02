@@ -284,6 +284,12 @@ class Feeds extends Component
 					</div>
 				<?php } ?>
 
+				<?php if(strtolower($wishlist['entity_type']) == 'venue'){ ?>
+					<div class="homepagevenue">
+						<?php echo $wishlist['formatted_address']; ?>
+					</div>
+				<?php } ?>
+
 				<?php if(!empty($wishlist['tip'])){ ?>
 					<div class="tiphead">NOTE:</div>
 					<p class="feed-short-desc"><?php echo $wishlist['tip']?></p>
