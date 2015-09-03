@@ -80,6 +80,7 @@
 						<li><a href="{{baseUrl}}/about-us">About us</a></li>
 						<li><a href="{{baseUrl}}/policy">Privacy</a></li>
 						<li><a href="{{baseUrl}}/terms">Terms</a></li>
+						<li><a href="mailto:reach@whatshot.in">Feedback</a></li>
 						{% if(logged_user is empty) %}
 							
 						{% else %}
@@ -142,6 +143,7 @@
 			<li class="ac-gn-item ac-gn-item-menu"><a href="{{baseUrl}}/about-us"><span class="ac-gn-link-text">About us</span></a></li>
 			<li class="ac-gn-item ac-gn-item-menu"><a href="{{baseUrl}}/policy"><span class="ac-gn-link-text">Privacy</span></a></li>
 			<li class="ac-gn-item ac-gn-item-menu"><a href="{{baseUrl}}/terms"><span class="ac-gn-link-text">Terms</span></a></li>
+			<li class="ac-gn-item ac-gn-item-menu"><a href="mailto:reach@whatshot.in"><span class="ac-gn-link-text">Feedback</span></a></li>
 			{% if(logged_user is empty) %}
 			{% else %}
 				<li class="ac-gn-item ac-gn-item-menu"><a href="{{baseUrl}}/profile/logout">Logout</a></li>

@@ -525,6 +525,12 @@ TABLET < 767px
 	.left-profile-column {
 	    text-align: center;
 	}
+	.authordetailsection .author-image{
+		margin-top: 20px;
+	}
+	.wishlist .feed-list .media .media-heading{
+		word-break: break-all;
+	}
 }
 
 

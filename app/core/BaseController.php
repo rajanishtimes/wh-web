@@ -356,74 +356,9 @@ class BaseController extends Controller{
 	}
 	
 	protected function getfeeddata($start, $limit, $city, $bydays, $filter_type='', $keyword='', $bytype='', $location='', $type='', $spstart='', $splimit=''){
-		
-		$Search = new \WH\Model\Solr();
-		$Search->setParam('bycity',$this->cityshown($city));
-		$Search->setParam('start',$start);
-		$Search->setParam('limit',$limit);
-		$Search->setParam('byType',$bytype);
-		$Search->setParam('byLocation',$location);
 
-		/*if($keyword == ''){
-			$Search->setRealTime(C::getWHConfig('realtime'));
-			
-		}*/
+		$entityresult = $this->getallfeedsarray($start, $limit, $city, $bydays, $filter_type, $keyword, $bytype, $location, $type, $spstart, $splimit);
 		
-		
-		$Search->setParam('mm',3);
-		$Search->setSolrType('search');
-		
-		if(strtolower($bydays)!='all')
-			$Search->setParam('byDays',ucwords(strtolower($bydays)));
-		
-		if($filter_type=='tags')
-			$Search->setParam('byTags',strtolower($keyword));
-		else{
-			$Search->setParam('searchname',$keyword);
-			if($this->config->spellcheck->istrue == 1){
-				$Search->setParam('spellcheck','true');
-			}
-		}
-			
-		
-		if($keyword==''){
-			if($spstart == ''){
-				$spstart = $start;
-			}
-			if($splimit == ''){
-				$splimit = $limit;
-			}
-
-			if($type == 'feed'){
-				$Search->setParam('sponsored','true');
-				$Search->setParam('spstart',$spstart);
-				$Search->setParam('splimit',$splimit);	
-			}else{
-				$Search->setParam('sponsored','false');
-			}
-			
-		}
-		
-		
-		if(isSet($keyword) && $keyword!='')
-			$sort_by=1;
-		else{
-			if(isSet($bydays) && strtolower($bydays) != 'all' )
-				$sort_by=4;
-			else
-				$sort_by=2;
-		}
-
-		if($filter_type=='tags')
-			$sort_by=2;
-
-		
-		$Search->setParam('bysort',$sort_by);
-		//echo "<pre>"; print_r($Search); exit;
-		$Search->setSearchEntity();
-		$entityresult = $Search->getSearchResults();
-		
-
 		if($entityresult){
 			foreach($entityresult['results'] as $key=>$entity){
 				if(!empty($entity['image']['uri'])){
@@ -445,6 +380,60 @@ class BaseController extends Controller{
 		return $entityresult;
 	}
 	
+
+	protected function getallfeedsarray($start, $limit, $city, $bydays, $filter_type='', $keyword='', $bytype='', $location='', $type='', $spstart='', $splimit=''){
+		$Searches = new \WH\Model\Solr();
+		$Searches->setParam('bycity',$this->cityshown($city));
+		$Searches->setParam('start',$start);
+		$Searches->setParam('limit',$limit);
+		$Searches->setParam('byType',$bytype);
+		$Searches->setParam('byLocation',$location);
+		$Searches->setParam('mm',3);
+		$Searches->setSolrType('search');
+		if(strtolower($bydays)!='all')
+			$Searches->setParam('byDays',ucwords(strtolower($bydays)));
+		if($filter_type=='tags')
+			$Searches->setParam('byTags',strtolower($keyword));
+		else{
+			$Searches->setParam('searchname',$keyword);
+			if($this->config->spellcheck->istrue == 1){
+				$Searches->setParam('spellcheck','true');
+			}
+		}
+		if($keyword==''){
+			if($spstart == ''){
+				$spstart = $start;
+			}
+			if($splimit == ''){
+				$splimit = $limit;
+			}
+
+			if($type == 'feed'){
+				$Searches->setParam('sponsored','true');
+				$Searches->setParam('spstart',$spstart);
+				$Searches->setParam('splimit',$splimit);	
+			}else{
+				$Searches->setParam('sponsored','false');
+			}
+		}
+		if(isSet($keyword) && $keyword!='')
+			$sort_by=1;
+		else{
+			if(isSet($bydays) && strtolower($bydays) != 'all' )
+				$sort_by=4;
+			else
+				$sort_by=2;
+		}
+		if($filter_type=='tags')
+			$sort_by=2;
+		$Searches->setParam('bysort',$sort_by);
+
+		//echo "<pre>"; print_r($Searches); exit;
+		$Searches->setSearchEntity();
+		$entityresult = $Searches->getSearchResults();
+		return $entityresult;
+	}
+
 	protected function breadcrumbs($arr){
 		$bdc = array('What&apos;s Hot'=>$this->baseUrl);
 		$breadcrumbs = array_merge($bdc, $arr);

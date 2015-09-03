@@ -4233,7 +4233,7 @@ iframe {
 .wishlist-add {
     background: #fff none repeat scroll 0 0;
     padding: 20px;
-    position: absolute;
+    position: fixed;
     z-index: 100;
     width: 35%;
     min-width: 310px;
@@ -4241,6 +4241,7 @@ iframe {
     overflow: hidden;
     left:50%;
     margin-left: -17%;
+    top:30%;
 }
 .wishlist .feed-list{
     width: 100%;

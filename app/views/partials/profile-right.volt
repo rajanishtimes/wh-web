@@ -2,7 +2,7 @@
 	<div class="section sidebar">
 		<div class="panel panel-no-border panel-sidebar text-left">
 			<div class="panel-heading">
-				<h3 class="panel-title">Article for you</h3>
+				<h3 class="panel-title">Articles for you</h3>
 			</div>
 			<ul class="media-list">
 				<?php $i = 0; ?>
