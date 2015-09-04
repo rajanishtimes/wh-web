@@ -827,7 +827,8 @@ function archievewishlist(id, title){
 						$('#getwishlist'+upperparentid).slideUp(function(){
 							$('#getwishlist'+upperparentid).remove();
 							if($('.feed-list').length == 0){
-								document.location.reload();
+								var html = '<div class="sign-in-block text-center"><div class="wishlist-default"><img src="'+baseUrl+'/img/wishlist_default.png"></div><div class="wishlist-default-text">Duh!</div><span class="small-login">Your Go-Do list is still empty! Check some content or event that you would like to add to your list and simply tap the + sign to have it added here.</span></div>';
+								$('.profile-main-container').html(html);
 							}
 						});
 					}
