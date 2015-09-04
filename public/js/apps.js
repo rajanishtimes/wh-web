@@ -826,13 +826,13 @@ function archievewishlist(id, title){
 					}else{
 						$('#getwishlist'+upperparentid).slideUp(function(){
 							$('#getwishlist'+upperparentid).remove();
+							if($('.feed-list').length == 0){
+								document.location.reload();
+							}
 						});
 					}
 				}else{
 					alert('There is some problem to removing from '+server_variables.wishlistname+'. Please try again');
-				}
-				if($('.feed-list').length == 0){
-					document.location.reload();
 				}
 			}
 		});
