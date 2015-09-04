@@ -300,14 +300,18 @@ function DOMReady(){
 			city = C.attr('data-name');
 		}
 
-		$.ajax( {
-			url:baseUrl+'/index/updatecity',
-			type:'POST',
-			data:'city='+city,
-			success:function(data) {
-				window.location.href = C.find('a').attr('href');		
-			}
-		});
+		if(server_variables.islogin == 1){
+			$.ajax( {
+				url:baseUrl+'/index/updatecity',
+				type:'POST',
+				data:'city='+city,
+				success:function(data) {
+					window.location.href = C.find('a').attr('href');
+				}
+			});
+		}else{
+			window.location.href = C.find('a').attr('href');
+		}
 		return false;
 	});
 	
@@ -416,7 +420,6 @@ function DOMReady(){
 		var elem = $(this);
 		var email = elem.attr('rel');
 		elem.addClass('dnone');
-		alert(email);
 		elem.find('img').removeClass('dnone');
 		elem.next().removeClass('dnone');
 		elem.find('img').addClass('dnone');
@@ -796,7 +799,7 @@ function addwishlist(userid, entityid, city, entitytype, title, entity_title, is
 				$('.wishlist-container .wishlist-add').html('<div class="successmsg"><div class="successarea"><img src="'+baseUrl+'/img/tip-success.png"></div><div class="sucess-msg"><strong>Awesome!</strong><br><span>'+entity_title+'</span> successfully added to your '+server_variables.wishlistname+'. Check your profile page!</div><div class="btn-group makecenter"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')">OK</div></div></div>');
 				
 			}else{
-				$('.wishlist-container .wishlist-add').html('<div class="successmsg"><div class="successarea"><img src="'+baseUrl+'/img/tip-success.png"></div><div class="sucess-msg"><strong>Awesome!</strong><br><span>'+entity_title+'</span> successfully added to your '+server_variables.wishlistname+'.</div><div class="btn-group makecenter"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')">CANCEL</div></div></div>');
+				$('.wishlist-container .wishlist-add').html('<div class="successmsg"><div class="sucess-msg"><span>'+entity_title+'</span> is already added into your '+server_variables.wishlistname+'.</div><div class="btn-group makecenter"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')">CANCEL</div></div></div>');
 			}
 			$("#wishlist"+entityid+" .wishlist-wrapper").removeClass('add-wishlist');
 			$("#wishlist"+entityid+" .wishlist-wrapper").addClass('added-wishlist');

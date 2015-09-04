@@ -4633,7 +4633,8 @@ iframe {
     user-select: none;
     text-align: justify;
     -ms-text-justify: distribute-all-lines;
-    text-justify: distribute-all-lines
+    text-justify: distribute-all-lines;
+    background: #000 none repeat scroll 0 0;
 }
 #navbar-fixed-top .ac-gn-list:after {
     content: '';
@@ -4646,7 +4647,7 @@ iframe {
     display: none;
 }
 .ac-gn-list > li.header {
-    background: #d31a6b none repeat scroll 0 0;
+    background: #000 none repeat scroll 0 0;
     color: #fff;
     border: none;
     border-bottom: medium none !important;
@@ -4662,7 +4663,7 @@ iframe {
 .ac-gn-list > li a{
     color: #fff;
     font-family: Roboto,Arial,Calibri,sans-serif;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 100;
 }
 .facebook-sign-in > img {

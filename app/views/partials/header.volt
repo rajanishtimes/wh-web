@@ -54,6 +54,8 @@
 						{% endif %}
 						&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-down down-icon"></i>
 					</a>
+
+
 					<ul class="dropdown-menu square primary margin-list-rounded fancy-dropdown" id="citieslist">
 						{% for cities in allcities['cities'] %}
 							{% if(cities['name'] | trim | lower == 'delhi') %}
@@ -76,7 +78,7 @@
 							&#8226;&#8226;&#8226;
 						</div>
 					</a>
-					<ul class="dropdown-menu square primary margin-list-rounded fancy-dropdown" id="citieslist">
+					<ul class="dropdown-menu square primary margin-list-rounded fancy-dropdown">
 						<li><a href="{{baseUrl}}/about-us">About us</a></li>
 						<li><a href="{{baseUrl}}/policy">Privacy</a></li>
 						<li><a href="{{baseUrl}}/terms">Terms</a></li>

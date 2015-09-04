@@ -124,7 +124,15 @@
 			}
 			</script>
 		{% endif  %}
-		
+	
+		<?php
+			if(empty($logged_user)){
+				$islogin = 0;
+			}else{
+				$islogin = 1;
+			}
+		?>
+
 		<script type="text/javascript">
 			var baseUrl = '{{baseUrl}}',_city = '{{city}}',_crrentCity = '{{currentCity}}';
 			var server_variables = {
@@ -140,6 +148,7 @@
 				facebook_app_id: '<?php echo $this->config->facebook->appId; ?>',
 				fbPermissions: '<?php echo $this->config->facebook->fbPermissions; ?>',
 				wishlistname : '<?php echo $this->config->application->wishlistname; ?>',
+				islogin: '<?php echo $islogin; ?>'
 			};
 		</script>
 

@@ -224,19 +224,22 @@ class IndexController extends BaseController{
 	}
 
 	public function updatecityAction(){
-		$city = $this->request->getPost('city');
 		if(!empty($this->logged_user)){
+			$city = $this->request->getPost('city');
 			$addprofile = new \WH\Model\UserProfile();
 			$addprofile->setSSOid($this->logged_user->sso_id);
 			$addprofile->setCity($city);
 			$getdata = $addprofile->updateProfile();
+			echo json_encode($getdata);
+		}else{
+			echo "not logged in";
 		}
 		exit;
 	}
 
 
 	public function sendmailhtmlAction(){
-		echo $html = '<!doctype html>
+		$html = '<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
@@ -249,7 +252,7 @@ class IndexController extends BaseController{
     a{text-decoration: none;}
   body   {width: 100%; background-color: #f0f0f0; margin:0; padding:0; -webkit-font-smoothing: antialiased;font-family: Georgia, Times, serif}
   table {border-collapse: collapse;}
-
+  
   @media only screen and (max-width: 640px)  {
 
         body[yahoo] .deviceWidth {width:440px!important; padding:0 !important;}
@@ -257,6 +260,8 @@ class IndexController extends BaseController{
         body[yahoo] .border-bottom{border-bottom: 1px solid #ccc; margin-bottom: 20px;}
         body[yahoo] .left{padding-right: 0 !important;}
         body[yahoo] .paddingtop0{padding-top: 0 !important;}
+        body[yahoo] *[class="share-responsive"]{display: block !important;}
+        body[yahoo] *[class="share"]{display: none !important;}
       }
 
   @media only screen and (max-width: 479px) {
@@ -265,6 +270,8 @@ class IndexController extends BaseController{
         body[yahoo] .border-bottom{border-bottom: 1px solid #ccc; margin-bottom: 20px;}
         body[yahoo] .left{padding-right: 0 !important;}
         body[yahoo] .paddingtop0{padding-top: 0 !important;}
+        body[yahoo] *[class="share-responsive"]{display: block !important;}
+        body[yahoo] *[class="share"]{display: none !important;}
       }
 
 </style>
@@ -286,7 +293,7 @@ class IndexController extends BaseController{
                         <table align="center" width="100%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth" style="text-align:center;">
                             <tr>
                                 <td valign="middle" width="50%" align="right" style="border-right: 1px solid #ccc; padding: 5px 20px;">
-                                    <a href="#"><img  class="deviceWidth" src="http://www.whatshot.in/imge/logo-email.png" alt="" border="0" style="display: block; width: 130px !important;" /></a>
+                                    <a href="#"><img  class="deviceWidth" src="http://www.whatshot.in/imge/iimg/logo-email.png" alt="" border="0" style="display: block; width: 130px !important;" /></a>
                                 </td>
                                 <td valign="middle" width="50%" align="left" style="padding: 5px 10px;">
                                     <a href="#" style="text-decoration: none; color: #000; font-size: 16px; color: #000;font-family:Arial, sans-serif ">Delhi NCR</a>
@@ -416,8 +423,25 @@ class IndexController extends BaseController{
             <!-- Footer -->
             <table width="580" class="deviceWidth" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#f0f0f0">
                 <tr>
-                    <td style="font-family: Raleway,sans-serif; color: rgb(173, 173, 173); padding:20px" bgcolor="#f0f0f0">
+                    <td style="font-family: Raleway,sans-serif; color: rgb(173, 173, 173); padding:0 20px 20px" bgcolor="#f0f0f0">
                         <table align="center" width="100%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth">
+                            <tr>
+                                <td valign="top" align="center">
+                                    <table align="center" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                        <tr>
+                                            <td valign="top" align="right" width="33%">
+                                                <a href="#"><img src="http://www.whatshot.in/imge/iimg/facebook-share.jpg"></a>
+                                            </td>
+                                            <td valign="top" align="center" width="33%">
+                                                <a href="#"><img src="http://www.whatshot.in/imge/iimg/twitter-share.jpg"></a>
+                                            </td>
+                                            <td valign="top" align="left" width="33%">
+                                                <a href="#"><img src="http://www.whatshot.in/imge/iimg/instagram-share.jpg"></a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
                             <tr>
                                 <td valign="top" align="center" style="padding: 20px 0px 10px;">
                                     <img src="http://www.whatshot.in/imge/wh_grey.jpg">
@@ -455,14 +479,18 @@ class IndexController extends BaseController{
 
 </body>
 </html>';
-		$subject = 'Test mail newsletter';
-		//$to = array('rishabh.trivedi08@gmail.com', 'rishabh.trivedi@timesinternet.in','sudhanshu@timescity.com','rishabh.trivedi@timesinternet.in');
-		$to = array('rishabh.trivedi@timescity.com','rishabh.trivedi@timesinternet.in');
-		if(Sendpal::sendEmail($html, $subject, $to)){
-			echo "done";	
-		}else{
-			echo 'error';
+		
+		if(!empty($this->request->getPost('email'))){
+			$subject = 'Test e-mail newsletter';
+			//$to = array('rishabh.trivedi08@gmail.com', 'rishabh.trivedi@timesinternet.in','sudhanshu@timescity.com','rishabh.trivedi@timesinternet.in');
+			echo $html;
+			$to = array($this->request->getPost('email'));
+			if(Sendpal::sendEmail($html, $subject, $to)){
+				echo "mail Sent";	
+			}else{
+				echo 'error';
+			}
+			exit;
 		}
-		exit;
 	}
 }
