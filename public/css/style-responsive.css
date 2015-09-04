@@ -528,7 +528,7 @@ TABLET < 767px
 	.authordetailsection .author-image{
 		margin-top: 20px;
 	}
-	.wishlist .feed-list .media .media-heading{
+	.wishlist .feed-list .media .media-heading, .profile-container p{
 		word-break: break-all;
 	}
 }
@@ -809,6 +809,9 @@ PHONE < 420px
 	}
 	.resposive-menu {
 	    line-height: 61px;
+	}
+	.options .dropdown-menu.square.primary.margin-list-rounded.fancy-dropdown{
+		margin-left: -67px;
 	}
 }
 

@@ -286,7 +286,7 @@ class IndexController extends BaseController{
                         <table align="center" width="100%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth" style="text-align:center;">
                             <tr>
                                 <td valign="middle" width="50%" align="right" style="border-right: 1px solid #ccc; padding: 5px 20px;">
-                                    <a href="#"><img  class="deviceWidth" src="http://www.whatshot.in/img/logo03072015.png" alt="" border="0" style="display: block; width: 130px !important;" /></a>
+                                    <a href="#"><img  class="deviceWidth" src="http://www.whatshot.in/imge/logo-email.png" alt="" border="0" style="display: block; width: 130px !important;" /></a>
                                 </td>
                                 <td valign="middle" width="50%" align="left" style="padding: 5px 10px;">
                                     <a href="#" style="text-decoration: none; color: #000; font-size: 16px; color: #000;font-family:Arial, sans-serif ">Delhi NCR</a>
@@ -457,7 +457,7 @@ class IndexController extends BaseController{
 </html>';
 		$subject = 'Test mail newsletter';
 		//$to = array('rishabh.trivedi08@gmail.com', 'rishabh.trivedi@timesinternet.in','sudhanshu@timescity.com','rishabh.trivedi@timesinternet.in');
-		$to = array('rishabh.trivedi@timescity.com','sudhanshu@timescity.com','rishabh.trivedi@timesinternet.in', 'sandeeppanwar7@gmail.com');
+		$to = array('rishabh.trivedi@timescity.com','rishabh.trivedi@timesinternet.in');
 		if(Sendpal::sendEmail($html, $subject, $to)){
 			echo "done";	
 		}else{
