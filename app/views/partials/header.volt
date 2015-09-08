@@ -134,11 +134,11 @@
 	</div><!-- /.top-navbar -->
 		<!-- BEGIN SIDEBAR RIGHT -->
 		<ul class="ac-gn-list">
-			<li class="ac-gn-item ac-gn-item-menu header">
+			<li class="ac-gn-item ac-gn-item-menu">
 				{% if(logged_user is empty) %}
-					<a href="{{baseUrl}}/profile"><img src="{{baseUrl}}/img/looksy.jpg" alt="user" class="img-circle user-profile-img">&nbsp; <span class="ac-gn-link-text">You</span>
+					<a href="{{baseUrl}}/profile"><span class="ac-gn-link-text">Profile</span>
 				{% else %}
-					<a href="{{baseUrl}}/{{logged_user.username}}"><img src="{{logged_user.image}}" alt="user" class="img-circle user-profile-img">&nbsp; <span class="ac-gn-link-text">{{logged_user.firstname}} {{logged_user.lastname}}</span>
+					<a href="{{baseUrl}}/{{logged_user.username}}"><span class="ac-gn-link-text">Profile</span>
 				{% endif %}
 				</a>
 			</li>

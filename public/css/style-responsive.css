@@ -365,7 +365,7 @@ TABLET < 767px
         bottom: 0;
         left: 0;
         margin: 0;
-        padding: 0 10px;
+        padding: 10px 30px;
         height: auto;
 
         overflow: hidden;
@@ -392,8 +392,8 @@ TABLET < 767px
         height: 48px
     }
     #navbar-fixed-top .ac-gn-item-menu {
-    	border-bottom: 1px solid #fff;
-	    height: 30px;
+    	border-bottom: 1px solid #4d4d4d;
+	    height: 40px;
 		margin: 0 0 23px;
 		opacity: 0;
         pointer-events: none;
@@ -484,8 +484,8 @@ TABLET < 767px
         transition-delay: 600ms, 600ms
     }
     .left-profile-section {
-	    border-radius: 0;
-	    margin-top: -41px;
+	    border-radius: 5px;
+	    margin: -26px 15px 0;
 	}
 	.middle-profile-column {
 	    margin: 15px 0;
@@ -528,9 +528,23 @@ TABLET < 767px
 	.authordetailsection .author-image{
 		margin-top: 20px;
 	}
-	.wishlist .feed-list .media .media-heading, .profile-container p{
-		word-break: break-all;
+	.wishlist h1.searchheading{
+		font-size: 18px;
+		padding: 0 15px;
 	}
+	.cityheader{
+		padding: 11px 15px;
+	}
+	.profile-container .feed-list .media{
+		padding: 15px;
+	}
+	.ac-gn-list > li a{
+		font-size: 24px;
+	}
+	#navbar-fixed-top .ac-gn-item-menu:first-child{
+		margin-top: 20px;
+	}
+
 }
 
 
@@ -599,6 +613,7 @@ PHONE < 640px
 		margin-left: 1%;
 		width: 95%;
 	}	
+
 }
 
 
@@ -734,6 +749,13 @@ PHONE < 480px
 	.triangle {
 		border-left: 120px solid transparent;
 		border-right: 120px solid transparent;
+	}
+
+	#navbar-fixed-top .ac-gn-item-menu{
+		height: 30px;
+	}
+	.ac-gn-list > li a{
+		font-size: 17px;
 	}
 }
 
