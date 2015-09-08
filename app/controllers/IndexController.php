@@ -479,8 +479,8 @@ class IndexController extends BaseController{
 
 </body>
 </html>';
-		
-		if(!empty($this->request->getPost('email'))){
+		$err = $this->request->getPost('email');
+		if(!empty($err)){
 			$subject = 'Test e-mail newsletter';
 			//$to = array('rishabh.trivedi08@gmail.com', 'rishabh.trivedi@timesinternet.in','sudhanshu@timescity.com','rishabh.trivedi@timesinternet.in');
 			echo $html;
