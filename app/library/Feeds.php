@@ -309,7 +309,7 @@ class Feeds extends Component
 					<?php } ?>
 					<div class="options share-option float-left">
 						<ul class="nav-search">
-							<li class="dropdown">
+							<li class="dropdown float-left">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" >
 									<div class="option-archive float-left" data-ga-cat = "Profile" data-ga-action="Share From Wish List" data-ga-label="<?php echo $wishlist['entity_type'];?> - <?php echo $wishlist['title'];?>"><i class="fa fa-share"></i> Share</div>
 								</a>
