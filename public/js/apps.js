@@ -770,8 +770,12 @@ function showishlist(userid, entityid, city, entitytype, title, entity_title, is
 }
 
 function generatewishlistpopup(userid, entityid, city, entitytype, title, entity_title, islogin){
+	var maintitle = entity_title;
+	title = title.replace(/'/g, "\\'");
+	entity_title = entity_title.replace(/'/g, "\\'");
+
 	$("#wishlist"+entityid+" .resetdimenstion").addClass('dnone');
-	var html = '<div class="wishlist-lightbox lightbox"><div class="wishlist-add"><div class="tiphead">Leave a quick NOTE:</div><div class="wihlist-title">Yay! Let\'s add <span>'+entity_title+'</span> to your '+server_variables.wishlistname+'.<br><textarea class="tiptext border-bottom" rows="1" data-min-rows="1" maxlength="140" placeholder="Adding to Go-Do because..."></textarea><div class="char-remain">140</div></div><div class="btn-group float-right"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')" data-ga-cat = "WishList" data-ga-action="Cancel Button PopUp" data-ga-label="'+entitytype+' - '+entity_title+'">CANCEL</div><div class="resetdimenstion dnone float-right"><img src="'+ baseUrl +'/img/ajax-loader.gif"></div><div class="btn btn-primary add" onclick="addwishlist(\''+userid+'\', \''+entityid+'\', \''+city+'\', \''+entitytype+'\', \''+title+'\', \''+entity_title+'\', \''+islogin+'\')" data-ga-cat = "WishList" data-ga-action="Add Button PopUp" data-ga-label="'+entitytype+' - '+entity_title+'">ADD</div></div></div><div class="overlay"></div></div>';
+	var html = '<div class="wishlist-lightbox lightbox"><div class="wishlist-add"><div class="tiphead">Leave a quick NOTE:</div><div class="wihlist-title">Yay! Let\'s add <span>'+maintitle+'</span> to your '+server_variables.wishlistname+'.<br><textarea class="tiptext border-bottom" rows="1" data-min-rows="1" maxlength="140" placeholder="Adding to Go-Do because..."></textarea><div class="char-remain">140</div></div><div class="btn-group float-right"><div class="btn btn-primary cancel" onclick="cancelwishlist(\''+islogin+'\')" data-ga-cat = "WishList" data-ga-action="Cancel Button PopUp" data-ga-label="'+entitytype+' - '+entity_title+'">CANCEL</div><div class="resetdimenstion dnone float-right"><img src="'+ baseUrl +'/img/ajax-loader.gif"></div><div class="btn btn-primary add" onclick="addwishlist(\''+userid+'\', \''+entityid+'\', \''+city+'\', \''+entitytype+'\', \''+title+'\', \''+entity_title+'\', \''+islogin+'\')" data-ga-cat = "WishList" data-ga-action="Add Button PopUp" data-ga-label="'+entitytype+' - '+entity_title+'">ADD</div></div></div><div class="overlay"></div></div>';
 
 	$('#wishlist'+entityid).append(html);
 	//$("html, body").animate({scrollTop: $(".wishlist-lightbox").offset().top-100}, 1000); 

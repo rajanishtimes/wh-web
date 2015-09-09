@@ -689,7 +689,7 @@ class BaseController extends Controller{
 				$class2 = '';
 				$class3 = 'dnone';
 				if(isset($this->logged_user->sso_id) && !empty($this->logged_user->sso_id)){
-					$onclick = "showishlist('".$this->logged_user->sso_id."', '".$attribute['entity_id']."', '".$attribute['city_id']."', '".$attribute['entity_type']."', '".$attribute['title']."', '".$attribute['entity_title']."')";
+					$onclick = "showishlist('".$this->logged_user->sso_id."', '".$attribute['entity_id']."', '".$attribute['city_id']."', '".$attribute['entity_type']."', '".addslashes($attribute['title'])."', '".addslashes($attribute['entity_title'])."')";
 					$Wishlist = new \WH\Model\Wishlist();
 					$Wishlist->setUserId($this->logged_user->sso_id);
 					$Wishlist->setEntityId($attribute['entity_id']);
@@ -706,14 +706,14 @@ class BaseController extends Controller{
 						$class3 = '';
 					}
 				}else{
-					$onclick = "addtowishlistwithlogin('".$attribute['entity_id']."', '".$attribute['city_id']."', '".$attribute['entity_type']."', '".$attribute['title']."', '".$attribute['entity_title']."')";
+					$onclick = "addtowishlistwithlogin('".$attribute['entity_id']."', '".$attribute['city_id']."', '".$attribute['entity_type']."', '".addslashes($attribute['title'])."', '".addslashes($attribute['entity_title'])."')";
 				}
 
 				$html = '<div id="wishlist'.$attribute['entity_id'].'" class="wishlist-container">
 							<div class="wishlist-wrapper '.$class.'">
 								<div class="wishlist-text float-left">'.$attribute['title'].'</div>
 								<div class="resetdimenstion dnone"><img src="'.$this->baseUrl.'/img/ajax-loader.gif"></div>
-								<div id="wishlist_add_btn" class="float-right '.$class2.'" onclick="'.$onclick.'" data-ga-cat = "WishList" data-ga-action="Add Button Widget" data-ga-label="'.$attribute['entity_type'].' - '.$attribute['title'].'"><div class="btn btn-primary wishlist_add_btn">+</div></div>
+								<div id="wishlist_add_btn" class="float-right '.$class2.'" onclick="'.$onclick.'" data-ga-cat = "WishList" data-ga-action="Add Button Widget" data-ga-label="'.$attribute['entity_type'].' - '.addslashes($attribute['title']).'"><div class="btn btn-primary wishlist_add_btn">+</div></div>
 								<div id="wishlist_added_btn" class="float-right '.$class3.'"><div class="btn btn-primary wishlist_added_btn"><img src="'.$this->baseUrl.'/img/tick.png"></div></div>
 								<div class="clearfix"></div>
 							</div>

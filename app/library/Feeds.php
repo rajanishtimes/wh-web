@@ -301,7 +301,7 @@ class Feeds extends Component
 				<div class="col-sm-12 col-md-6 col-xs-12 no-padding">
 					<?php if($profiledata == $loggeduser){ ?>
 						<div class="options float-left">
-							<a href="javascript:void(0)" onclick="archievewishlist('<?php echo $wishlist['id']?>', '<?php echo $wishlist['title']?>')">
+							<a href="javascript:void(0)" onclick="archievewishlist('<?php echo $wishlist['id']?>', '<?php echo addslashes($wishlist['title'])?>')">
 								<div class="option-archive float-left" data-ga-cat = "Profile" data-ga-action="Remove From Wish List" data-ga-label="<?php echo $wishlist['entity_type'];?> - <?php echo $wishlist['title'];?>"><i class="fa fa-trash"></i> Remove</div>
 								<div class="resetdimenstion dnone float-left"><img src="<?php echo $url?>/img/ajax-loader.gif"></div>
 							</a>
