@@ -64,7 +64,7 @@ class IndexController extends BaseController{
 		$city = $this->currentCity;
 		$cityshown = $this->cityshown($city);
 		$this->view->cityshown = $cityshown;
-		$this->response->setHeader('Cache-Control', 'max-age=900');
+		//$this->response->setHeader('Cache-Control', 'max-age=900');
 		//$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
 		
 		

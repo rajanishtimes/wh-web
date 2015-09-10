@@ -130,6 +130,7 @@ class BaseController extends Controller{
 		$this->view->isappclose = $isappclose;
 		$this->compressfiles();
 		$this->logged_user = $this->setlogin();
+		$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');	
 		$this->view->logged_user = $this->logged_user;	
     }
 

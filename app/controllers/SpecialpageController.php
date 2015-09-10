@@ -26,7 +26,7 @@ class SpecialpageController extends BaseController{
     }
 
     public function indexAction(){
-		$this->response->setHeader('Cache-Control', 'max-age=86400');
+		//$this->response->setHeader('Cache-Control', 'max-age=86400');
 		preg_match('/\bs-[a-zA-Z0-9\- ]+/i', $this->specialpagetitle, $match);
 		$id = str_replace('-', '_', $match[0]);
 		

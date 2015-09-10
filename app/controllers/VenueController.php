@@ -23,7 +23,7 @@ class VenueController extends BaseController{
     }
 
     public function indexAction(){
-		$this->response->setHeader('Cache-Control', 'max-age=86400');
+		//$this->response->setHeader('Cache-Control', 'max-age=86400');
 		preg_match('/\bv-[0-9]{1,}\b/i', $this->venue, $match);
 		if(isset($match[0])){
 			$id = str_replace('-', '_', $match[0]);

@@ -26,7 +26,7 @@ class ContentController extends BaseController{
     }
 
     public function indexAction(){
-		$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
+		//$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
 		//$this->response->setHeader('Cache-Control', 'max-age=86400');
 		preg_match('/\bc-[0-9]{1,}\b/i', $this->contenttitle, $match);
 		$id = 0;
