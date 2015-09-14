@@ -725,7 +725,8 @@ class BaseController extends Controller{
 
     protected function setdataforfooter(){
     	$dataforfooter = array();
-    	if(empty($this->storagemaster->get('_'.$this->currentCity))){
+    	$datafromcity = $this->storagemaster->get('_'.$this->currentCity);
+    	if(empty($datafromcity)){
     		$getdataforfooter = array();
 			$cities = new \WH\Model\Cities();
 			$getallcities = $cities->getResults();
