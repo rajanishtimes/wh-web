@@ -1535,11 +1535,12 @@ a.makeaactive {
     padding: 0;
 }
 .list-inline.makebullet > li {
-    font: 300 12px roboto;
+    font: 300 11px roboto;
 }
 .footer li::before {
-    content: ".";
+    content: "/";
     padding: 0 9px 0 5px;
+    color: #bbc3cf;
 }
 
 .footer .footer-list li::before {

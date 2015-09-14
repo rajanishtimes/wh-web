@@ -100,7 +100,7 @@
 			</div>
 			<div class="makeblock">
 				<div class="col-sm-2 col-xs-12 text-left">
-					<div class="footer_list_head">TOP EVENTS</div>
+					<div class="footer_list_head">Top Events</div>
 				</div>
 				<div class="col-sm-10 col-xs-12 text-left">
 					<ul class="list-inline makebullet">
