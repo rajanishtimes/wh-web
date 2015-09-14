@@ -25,7 +25,7 @@ $window.on('scroll', function (e) {
 			if ($(window).scrollTop() + $(window).height() > $('.loadmore').position().top){
 				var attr = elem.attr('rel');
 				if (typeof attr !== typeof undefined && attr !== false) {
-					if(attr < 3){
+					if(attr > 1){
 						elem.trigger('click');
 					}
 				}else{

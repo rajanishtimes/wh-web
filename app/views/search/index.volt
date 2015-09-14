@@ -16,6 +16,7 @@ if($limit < 1){
 }else{
 	$relval = $start/$limit;
 }
+$relval = 1;
 
 if($allfeedslist['meta']['match_count'] > $check){ ?>
 	<div class="btn btn-primary" onclick="view_feed_with_ajax('{{city}}','{{mainurl}}', '{{start}}', '{{limit}}', '{{parentid}}', '{{elements.create_slug(searchkeyword)}}', '{{tags | trim}}', '{{bydate}}', '{{fromtype}}', '{{spstart}}', '{{splimit}}')" rel="{{relval}}">Load More</div>

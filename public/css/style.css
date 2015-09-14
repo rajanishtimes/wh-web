@@ -3960,15 +3960,30 @@ a .icon-primary, a .icon-success, a .icon-info, a .icon-danger, a .icon-warning,
 }
 .sponsors {
     background: #000 none repeat scroll 0 0;
-    bottom: 0;
+    bottom: 6px;
     color: #fff;
     font-size: 12px;
     margin: 0;
     opacity: 0.6;
     padding: 5px 10px;
     position: absolute;
-    right: 0;
+    left: 6px;
+    border-radius: 12px;
 }
+
+.maintag {
+    background: #000 none repeat scroll 0 0;
+    bottom: 6px;
+    color: #fff;
+    font-size: 12px;
+    margin: 0;
+    opacity: 0.6;
+    padding: 5px 10px;
+    position: absolute;
+    right: 6px;
+    border-radius: 12px;
+}
+
 .share ul a span, .sharesmall ul a span {
     color: #fff;
     font-size: 12px;
