@@ -139,6 +139,36 @@ $di->set('session', function() {
 	return $session;
 });
 
+$di->set('storagemaster', function() use ($config){
+	$single_server = array(
+	    'host'     => $config->redis->host,
+	    'port'     => $config->redis->port,
+	    'database' => 15
+	);
+	$client = new Predis\Client($single_server, array('prefix' => 'storage:'));
+	try {
+        $client->ping();
+    } catch (Exception $e) {
+    	$client = (object)array('message'=>'Connection Refused', 'responsecode'=>61);
+    }
+	return $client;
+});
+
+$di->set('storageslave', function() use ($config){
+	$single_server = array(
+	    'host'     => $config->redis2->host,
+	    'port'     => $config->redis2->port,
+	    'database' => 15
+	);
+	$client2 = new Predis\Client($single_server, array('prefix' => 'storage:'));
+	try {
+        $client2->ping();
+    } catch (Exception $e) {
+    	$client2 = (object)array('message'=>'Connection Refused', 'responsecode'=>61);
+    }
+	return $client2;
+});
+
 $di->set('redis', function() use ($config){
 	$single_server = array(
 	    'host'     => $config->redis->host,

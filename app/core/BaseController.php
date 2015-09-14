@@ -133,10 +133,7 @@ class BaseController extends Controller{
 		$this->view->logged_user = $this->logged_user;	
 
 		/* ============= Set data for footer =============== */
-		$todaysfeeds = $this->getfeeddata(0, 11, $this->city, 'Today', '', '', 'Event,Content', '', 'feed', 0, 11);
-		$upcomingfeeds = $this->getfeeddata(0, 11, $this->city, 'Month', '', '', 'Event,Content', '', 'feed', 0, 11);
-		$this->view->todaysfeeds = $todaysfeeds;
-		$this->view->upcomingfeeds = $upcomingfeeds;
+		$this->setdataforfooter();
 		/* ============= Set data for footer =============== */
 
     }
@@ -725,4 +722,40 @@ class BaseController extends Controller{
         }
         return $atts;
     }
+
+    protected function setdataforfooter(){
+    	$dataforfooter = array();
+    	if(empty($this->storagemaster->get('_'.$this->currentCity))){
+    		$getdataforfooter = array();
+			$cities = new \WH\Model\Cities();
+			$getallcities = $cities->getResults();
+			foreach ($getallcities['cities'] as $key => $value) {
+				if($value['name'] == 'Delhi NCR'){
+					$cityforset = 'delhi-ncr';
+				}else{
+					$cityforset = strtolower($value['name']);
+				}
+
+				$getdataforfooter['lateststoriesfeeds'] = $this->getfeeddata(0, 11, $cityforset, 'all', '', '', 'Content', '', 'footer', 0, 11);
+				$getdataforfooter['todaysfeeds'] = $this->getfeeddata(0, 11, $cityforset, 'Today', '', '', 'Event', '', 'footer', 0, 11);
+
+				$todaysfeeds = array();
+				foreach ($getdataforfooter['todaysfeeds']['results'] as $key => $todaysfeed) {
+					$todaysfeeds[] = $todaysfeed['id'];
+				}
+				$upcomingfeeds = $this->getfeeddata(0, 22, $cityforset, 'Month', '', '', 'Event', '', 'footer', 0, 22);
+				foreach ($upcomingfeeds['results'] as $key => $upcomingfeed) {
+					if(in_array($upcomingfeed['id'], $todaysfeeds)){
+			    		unset($upcomingfeeds['results'][$key]);
+			    	}
+				}
+				$getdataforfooter['upcomingfeeds'] = $upcomingfeeds;
+				$this->storagemaster->set('_'.$cityforset, json_encode($getdataforfooter));
+			}
+    	}
+    	$dataforfooter = $this->storagemaster->get('_'.$this->currentCity);
+    	$this->view->dataforfooter = json_decode($dataforfooter);
+    	//echo "<pre>"; print_r($dataforfooter); echo "</pre>"; exit;
+    }
+
 }

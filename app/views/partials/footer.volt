@@ -67,19 +67,31 @@
 		<img src="{{baseUrl}}/img/footer_app.png">
 	</div>
 </div><!-- /.col-sm-2 -->
-
-
+<?php  //echo "<pre>"; print_r($dataforfooter); echo "</pre>"; exit;?>
 <div class="footer">
 	<div class="container">
 		<div class="row">
+			<div class="makeblock">
+				<div class="col-sm-2 col-xs-12 text-left">
+					<div class="footer_list_head">Latest Stories</div>
+				</div>
+				<div class="col-sm-10 col-xs-12 text-left">
+					<ul class="list-inline makebullet">
+						{% for lateststoriesfeeds in dataforfooter.lateststoriesfeeds.results %}
+							<li><a href="{{baseUrl}}/{{lateststoriesfeeds.url}}">{{lateststoriesfeeds.title}}</a></li>
+						{% endfor  %}
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
 			<div class="makeblock">
 				<div class="col-sm-2 col-xs-12 text-left">
 					<div class="footer_list_head">Event Today</div>
 				</div>
 				<div class="col-sm-10 col-xs-12 text-left">
 					<ul class="list-inline makebullet">
-						{% for todaysfeed in todaysfeeds['results'] %}
-							<li><a href="{{baseUrl}}/{{todaysfeed['url']}}">{{todaysfeed['title']}}</a></li>
+						{% for todaysfeed in dataforfooter.todaysfeeds.results %}
+							<li><a href="{{baseUrl}}/{{todaysfeed.url}}">{{todaysfeed.title}}</a></li>
 						{% endfor  %}
 					</ul>
 				</div>
@@ -91,8 +103,8 @@
 				</div>
 				<div class="col-sm-10 col-xs-12 text-left">
 					<ul class="list-inline makebullet">
-						{% for upcomingfeed in upcomingfeeds['results'] %}
-							<li><a href="{{baseUrl}}/{{upcomingfeed['url']}}">{{upcomingfeed['title']}}</a></li>
+						{% for upcomingfeed in dataforfooter.upcomingfeeds.results %}
+							<li><a href="{{baseUrl}}/{{upcomingfeed.url}}">{{upcomingfeed.title}}</a></li>
 						{% endfor  %}
 					</ul>
 				</div>
