@@ -2,6 +2,7 @@ var feed_with_ajax_running = false;
 var $sidebar = $('.sidebar'),HomeCityName = _city, CurrentCity = _crrentCity,
 $window = $(window),
 previousScroll = 0;
+var milliseconds = new Date().getTime();
 
 $window.on('scroll', function (e) {
 	if ($window.scrollTop() - previousScroll > 0) {
@@ -33,21 +34,10 @@ $window.on('scroll', function (e) {
 			}	
 		}
 	}
-	
-	/*if($(window).width() > 640){
-		if($(window).scrollTop() > 100){
-			$('.navbar.navbar-default').addClass('makeheaderintera');
-		}else{
-			$('.navbar.navbar-default').removeClass('makeheaderintera');
-		}
-	}*/
-	
 });
 
 $(window).load(function() {
-	
 	jQuery("#back-top").hide();
-	
 	$(function () {
 		$(window).scroll(function () {
 			if ($(this).scrollTop() > 300) {
@@ -56,7 +46,6 @@ $(window).load(function() {
 				$('#back-top').fadeOut();
 			}
 		});
-		
 		$(document.body).on('click', '#back-top', function(){
 		"use strict";
 			$('body,html').animate({
@@ -65,7 +54,6 @@ $(window).load(function() {
 			return false;
 		});
 	});
-	
 	resizefeedimage();
 	setquizheight();
 	$(window).resize(function() {
@@ -73,7 +61,7 @@ $(window).load(function() {
 	  setquizheight();
 	});
 	
-	//fbandtwitter();
+	fbandtwitter();
 });
 
 function searchValid(){
@@ -133,7 +121,7 @@ function view_feed_with_ajax(city, mainURL, start, limit, parentId, searchval, t
 	if(feed_with_ajax_running === false){
 		//console.log("starting ....");
 		$.ajax( {
-			url:mainURL,
+			url:mainURL+'/'+milliseconds,
 			type:'POST',
 			//async:false,
 			data: 'city='+city+'&searchkeyword='+searchval+'&start='+start+'&limit='+limit+'&tags='+tags+'&bydate='+bydate+'&mainurl='+mainURL+'&parentid='+parentId+'&type='+type+'&spstart='+spstart+'&splimit='+splimit,
@@ -196,9 +184,6 @@ function manageCityCookie(){
 }
 function DOMReady(){
 	$.smartbanner();
-
-	var milliseconds = new Date().getTime();
-
 	if (baseUrl == 'http://www.whatshot.in') {
 		$.ajax({
 			url:baseUrl+'/log/index/'+milliseconds,
@@ -302,7 +287,7 @@ function DOMReady(){
 
 		if(server_variables.islogin == 1){
 			$.ajax( {
-				url:baseUrl+'/index/updatecity',
+				url:baseUrl+'/index/updatecity/'+milliseconds,
 				type:'POST',
 				data:'city='+city,
 				success:function(data) {
@@ -443,7 +428,8 @@ function DOMReady(){
 		$(".char-remain").text((140 - $(this).val().length));
 	});
 
-
+    loadprofile();
+    loadwishlist();
 }
 
 
@@ -513,7 +499,7 @@ function voting(elem, cookiesname){
 
 		elem.html('VOTING...');
 		$.ajax({
-			url:baseUrl+'/quiz/voting',
+			url:baseUrl+'/quiz/voting/'+milliseconds,
 			type:'POST',
 			data:'nominationid='+elem.attr('rel')+'&category='+elem.attr('data-for'),
 			beforeSend: function(){
@@ -542,18 +528,6 @@ function setquizheight(){
 		$('.hp .item').height(height);
 		$('.haleemoverlay').addClass('dnone');
 	}
-}
-
-function slideframeclosed(){
-	$(".item-left").css('left', -50+'%');
-	$(".item-right").css('right', -50+'%');
-	$(".item-left").parent().addClass('dnone');
-	$('.item-left').animate({
-		left: 0
-	}, 1000);
-	$('.item-right').animate({
-		right: 0
-	}, 1000);	
 }
 
 function fbandtwitter(){
@@ -627,7 +601,7 @@ function AjaxResponse(access_token, hometown, location){
     exptime.setTime(new Date().getTime() + 3600000 * 24 * 365);
 
 	$.ajax( {
-		url:baseUrl+'/profile/facebooklogin',
+		url:baseUrl+'/profile/facebooklogin/'+milliseconds,
 		type:'POST',
 		data: 'access_token='+access_token+'&hometown='+hometown+'&location='+location,
 		success:function(data) {
@@ -647,23 +621,9 @@ function LodingAnimate(){
     $("#results").html('<img src="img/ajax-loader.gif" /> Please Wait Connecting...');
 }
 
-function ResetAnimate()
-{
+function ResetAnimate(){
     $("#LoginButton").show();
     $("#results").html('');
-}
-
-function ajaxlogout(){
-	
-	$.ajax( {
-		url:baseUrl+'/profile/facebooklogout',
-		async : false,
-		type:'POST',
-		data: 'whatshotuserkey='+whkey,
-		success:function(data) {
-			document.location.reload();
-		}
-	});
 }
 
 function CallAfterLogin(){
@@ -727,7 +687,7 @@ function wishlistAjaxResponse(access_token, hometown, location, entityid, city, 
     exptime = new Date();
     exptime.setTime(new Date().getTime() + 3600000 * 24 * 365);
 	$.ajax({
-		url:baseUrl+'/profile/facebooklogin',
+		url:baseUrl+'/profile/facebooklogin/'+milliseconds,
 		type:'POST',
 		data: 'access_token='+access_token+'&hometown='+hometown+'&location='+location,
 		success:function(data) {
@@ -747,7 +707,7 @@ function showishlist(userid, entityid, city, entitytype, title, entity_title, is
 	if(islogin == 1){
 		//$("#wishlist"+entityid+" .resetdimenstion").removeClass('dnone');
 		$.ajax({
-			url:baseUrl+'/profile/getwishliststatus',
+			url:baseUrl+'/profile/getwishliststatus/'+milliseconds,
 			type:'POST',
 			data: 'userid='+userid+'&entityid='+entityid+'&entitytype='+entitytype,
 			success:function(data) {
@@ -794,7 +754,7 @@ function addwishlist(userid, entityid, city, entitytype, title, entity_title, is
 	$(".resetdimenstion").addClass('dnone');
 	$("#wishlist"+entityid+" .wishlist-lightbox .resetdimenstion").removeClass('dnone');
 	$.ajax({
-		url:baseUrl+'/profile/addwishlist',
+		url:baseUrl+'/profile/addwishlist/'+milliseconds,
 		type:'POST',
 		data: 'userid='+userid+'&entityid='+entityid+'&city='+city+'&entitytype='+entitytype+'&tip='+$(".tiptext").val(),
 		success:function(data) {
@@ -821,7 +781,7 @@ function archievewishlist(id, title){
 		var countvalue = $('#count'+upperparentid).html();
 		$("#wishlist_"+id+" .resetdimenstion").removeClass('dnone');
 		$.ajax({
-			url:baseUrl+'/profile/removewishlist',
+			url:baseUrl+'/profile/removewishlist/'+milliseconds,
 			type:'POST',
 			data: 'id='+id,
 			success:function(data) {
@@ -842,6 +802,43 @@ function archievewishlist(id, title){
 				}else{
 					alert('There is some problem to removing from '+server_variables.wishlistname+'. Please try again');
 				}
+			}
+		});
+	}
+}
+
+function loadprofile(){
+	$.ajax({
+		url:baseUrl+'/profile/imgprofile/'+milliseconds,
+		success:function(data) {
+			var results = eval( '(' + data + ')' );
+			if(results.status == 'success'){
+				$('.user-profile-img').attr('src', results.message.image);
+				$('.user-profile-img').attr('alt', results.message.firstname+' '+results.message.lastname);
+			}
+		}
+	});
+}
+
+function loadwishlist(){
+	if($(".wishlist-container").length > 0){
+		$(".wishlist-container").each(function(index){
+			var elem = $(this);
+			var entitytype = elem.attr('data-entitytype');
+			var entityid = elem.attr('data-entityid');
+			var entitytitle = elem.attr('data-entitytitle');
+			var cityid = elem.attr('data-cityid');
+			var title = elem.attr('data-title');
+			var ctitle = elem.attr('data-ctitle');
+			if(entityid != ''){
+				$.ajax({
+					url:baseUrl+'/content/getwishlistwidget/'+milliseconds,
+					type:'POST',
+					data: 'entitytype='+entitytype+'&entityid='+entityid+'&entitytitle='+entitytitle+'&cityid='+cityid+'&title='+title+'&ctitle='+ctitle,
+					success:function(data) {
+						elem.html(data);
+					}
+				});
 			}
 		});
 	}

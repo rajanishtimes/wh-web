@@ -130,8 +130,15 @@ class BaseController extends Controller{
 		$this->view->isappclose = $isappclose;
 		$this->compressfiles();
 		$this->logged_user = $this->setlogin();
-		$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');	
 		$this->view->logged_user = $this->logged_user;	
+
+		/* ============= Set data for footer =============== */
+		$todaysfeeds = $this->getfeeddata(0, 11, $this->city, 'Today', '', '', 'Event,Content', '', 'feed', 0, 11);
+		$upcomingfeeds = $this->getfeeddata(0, 11, $this->city, 'Month', '', '', 'Event,Content', '', 'feed', 0, 11);
+		$this->view->todaysfeeds = $todaysfeeds;
+		$this->view->upcomingfeeds = $upcomingfeeds;
+		/* ============= Set data for footer =============== */
+
     }
 
     protected function getprofileid($username){
@@ -677,52 +684,14 @@ class BaseController extends Controller{
 			foreach($matches[0] as $key=>$match){
 				$replace_array[$i]['widget'] = $matches[0][$key];
 				$attribute = $this->parse_attrib($matches[2][$key]);
-				
-				if(!isset($attribute['entity_title']) && empty($attribute['entity_title'])){
-					$attribute['entity_title'] = trim($ctitle);
-				}
-				if(!isset($attribute['title']) && empty($attribute['title'])){
-					$attribute['title'] = 'Want to add '.trim($ctitle).' to your '.$this->config->application->wishlistname.'?';
-				}
-				$replace_array[$i]['attribute'] = $attribute;
 
-				$class = 'add-wishlist';
-				$class2 = '';
-				$class3 = 'dnone';
-				if(isset($this->logged_user->sso_id) && !empty($this->logged_user->sso_id)){
-					$onclick = "showishlist('".$this->logged_user->sso_id."', '".$attribute['entity_id']."', '".$attribute['city_id']."', '".$attribute['entity_type']."', '".addslashes($attribute['title'])."', '".addslashes($attribute['entity_title'])."')";
-					$Wishlist = new \WH\Model\Wishlist();
-					$Wishlist->setUserId($this->logged_user->sso_id);
-					$Wishlist->setEntityId($attribute['entity_id']);
-					$Wishlist->setEntityTypeID($attribute['entity_type']);
-					$Wishlist->setVersion($this->config->application->version);
-					$Wishlist->setPackage($this->config->application->package);
-					$Wishlist->setEnv($this->config->application->environment);
-					$wishliststatus = $Wishlist->status();	
-					if($wishliststatus['status'] != 1){
-						$class = 'add-wishlist';
-					}else{
-						$class = 'added-wishlist';
-						$class2 = 'dnone';
-						$class3 = '';
-					}
-				}else{
-					$onclick = "addtowishlistwithlogin('".$attribute['entity_id']."', '".$attribute['city_id']."', '".$attribute['entity_type']."', '".addslashes($attribute['title'])."', '".addslashes($attribute['entity_title'])."')";
-				}
-
-				$html = '<div id="wishlist'.$attribute['entity_id'].'" class="wishlist-container">
-							<div class="wishlist-wrapper '.$class.'">
-								<div class="wishlist-text float-left">'.$attribute['title'].'</div>
-								<div class="resetdimenstion dnone"><img src="'.$this->baseUrl.'/img/ajax-loader.gif"></div>
-								<div id="wishlist_add_btn" class="float-right '.$class2.'" onclick="'.$onclick.'" data-ga-cat = "WishList" data-ga-action="Add Button Widget" data-ga-label="'.$attribute['entity_type'].' - '.addslashes($attribute['title']).'"><div class="btn btn-primary wishlist_add_btn">+</div></div>
-								<div id="wishlist_added_btn" class="float-right '.$class3.'"><div class="btn btn-primary wishlist_added_btn"><img src="'.$this->baseUrl.'/img/tick.png"></div></div>
-								<div class="clearfix"></div>
-							</div>
+				$html = '<div id="wishlist'.$attribute['entity_id'].'" class="wishlist-container" data-entitytype="'.$attribute['entity_type'].'" data-entityid="'.$attribute['entity_id'].'" data-entitytitle="'.$attribute['entity_title'].'"  data-cityid="'.$attribute['city_id'].'" data-title="'.$attribute['title'].'" data-ctitle="'.$ctitle.'">
+							<img src="'.$baseUrl.'/img/ajax-loader.gif">
 						</div>';
 
 				$replace_array[$i]['html'] = $html;
 				$i++;
-			}	
+			}
 		}
 		
 		if(!empty($replace_array)){

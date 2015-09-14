@@ -39,7 +39,7 @@ COMMON DESKTOP > 992px
 		padding: 0 62px;
 	}
 	.authordetailsection {
-		padding: 14px 62px 65px 62px;
+		padding: 14px 62px 0px 62px;
 	}
 	.width100 {
 		width: 82% !important;
@@ -107,6 +107,9 @@ STANDARD DESKTOP < 1024px
 	}
 	.notfound {
 		padding: 0px;
+	}
+	.foot_head{
+		padding: 0px
 	}
 
 }
@@ -612,7 +615,7 @@ PHONE < 640px
 		left:1%;
 		margin-left: 1%;
 		width: 95%;
-	}	
+	}
 
 }
 
@@ -757,6 +760,13 @@ PHONE < 480px
 	.ac-gn-list > li a{
 		font-size: 17px;
 	}
+	.app_option.large > a > div {
+	    background-size: 284px auto;
+	    width: 135px;
+	}
+	.iphone_app_large {
+    	background: rgba(0, 0, 0, 0) url("../img/app-icon-large.png") no-repeat scroll -150px 0;
+	}
 }
 
 /**
@@ -780,7 +790,6 @@ PHONE < 420px
 	}
 	
 	footer .row > div {
-		border-bottom: 1px solid #c9c9c9;
 		margin: 0 0 23px;
 		padding: 0 0 9px;
 	}
@@ -834,6 +843,12 @@ PHONE < 420px
 	}
 	.options .dropdown-menu.square.primary.margin-list-rounded.fancy-dropdown{
 		margin-left: -67px;
+	}
+	
+	.social-group{
+		width: 320px;
+		left: auto;
+    	margin-left: 8px;
 	}
 }
 

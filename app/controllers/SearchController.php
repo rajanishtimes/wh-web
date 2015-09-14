@@ -92,6 +92,7 @@ class SearchController extends BaseController{
 	
 	public function searchAction(){
 		$this->view->setLayout('mainLayout');
+		$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');	
 		$searchkeyword = '';
 		if($this->dispatcher->getParam('searchquery'))
 			$searchkeyword = $this->create_title($this->dispatcher->getParam('searchquery'));

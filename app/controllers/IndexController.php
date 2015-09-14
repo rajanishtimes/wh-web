@@ -22,6 +22,7 @@ class IndexController extends BaseController{
     }
 
     protected function profilepage(){
+    	$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');	
     	$allfeedslists = $this->getfeeddata(0, 4, $this->city, 'all', '', '', 'Content', '', 'feed', 0, 4);
 		$this->view->allfeedslists = $allfeedslists;
 
@@ -64,7 +65,7 @@ class IndexController extends BaseController{
 		$city = $this->currentCity;
 		$cityshown = $this->cityshown($city);
 		$this->view->cityshown = $cityshown;
-		//$this->response->setHeader('Cache-Control', 'max-age=900');
+		$this->response->setHeader('Cache-Control', 'max-age=900');
 		//$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
 		
 		

@@ -88,6 +88,7 @@ class LocationController extends BaseController{
 	
 	
 	public function locationAction(){
+		$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');	
 		$this->view->setLayout('mainLayout');
 		$searchkeyword = '';
 		if($this->dispatcher->getParam('locationname')){

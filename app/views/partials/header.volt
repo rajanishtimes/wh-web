@@ -110,11 +110,8 @@
 
 			<ul class="nav-search navbar-right right-responsive-menu">
 				<li class="whresposive-menu user-profile-menu">
-					{% if(logged_user is empty) %}
 						<a href="{{baseUrl}}/profile"><img src="{{baseUrl}}/img/looksy.jpg" alt="user" class="img-circle user-profile-img">
-					{% else %}
-						<a href="{{baseUrl}}/{{logged_user.username}}"><img src="{{logged_user.image}}" alt="user" class="img-circle user-profile-img">
-					{% endif %}
+					
 					</a>
 				</li>
 			</ul>

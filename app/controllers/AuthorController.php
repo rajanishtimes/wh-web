@@ -19,7 +19,7 @@ class AuthorController extends BaseController{
     }
 
     public function indexAction(){
-		//$this->response->setHeader('Cache-Control', 'max-age=86400');
+		$this->response->setHeader('Cache-Control', 'max-age=86400');
 		//$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
 		$this->setlogsarray('author_start');
 		

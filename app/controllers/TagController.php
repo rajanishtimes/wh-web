@@ -20,7 +20,7 @@ class TagController extends BaseController{
     }
 
     public function indexAction(){
-		//$this->response->setHeader('Cache-Control', 'max-age=900');
+		$this->response->setHeader('Cache-Control', 'max-age=900');
 		$start = 0;
 		$limit = 11;
 		$this->tags = $this->create_title($this->tags);

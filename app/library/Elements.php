@@ -69,7 +69,7 @@ class Elements extends Component
 	public function getStaticpages($url, $city)
     {
 		$actionName = $this->view->getActionName();
-		echo "<ul class='list'>";
+		echo "<ul class='list-inline footer-list'>";
 		foreach ($this->_navmenu as $action => $option) {
 			if($action == 'advertise'){
 				echo '<li><a href="mailto:advertise@whatshot.in?subject=Advertise on What\'s Hot" class="makeaactive">'.$option['caption'].'</a></li>';

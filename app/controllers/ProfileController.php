@@ -10,6 +10,7 @@ class ProfileController extends BaseController{
 		$this->view->setLayout('mainLayout');
 		$allfeedslists = $this->getfeeddata(0, 4, $this->city, 'all', '', '', 'Content', '', 'feed', 0, 4);
 		$this->view->allfeedslists = $allfeedslists;
+		$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');	
 		//echo "<pre>"; print_r($allfeedslists); echo "</pre>"; exit;
     }
 
@@ -231,5 +232,15 @@ class ProfileController extends BaseController{
 
     public function unsubscribeAction(){
     	
+    }
+
+    public function imgprofileAction(){
+ 		if(empty($this->logged_user)){
+ 			$result = array('status'=>'error', 'message'=>'');
+ 		}else{
+ 			$result = array('status'=>'success', 'message'=>(array)$this->logged_user);
+		}
+        echo json_encode($result); 
+        exit;
     }
 }

@@ -27,7 +27,7 @@ class ContentController extends BaseController{
 
     public function indexAction(){
 		//$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
-		//$this->response->setHeader('Cache-Control', 'max-age=86400');
+		$this->response->setHeader('Cache-Control', 'max-age=86400');
 		preg_match('/\bc-[0-9]{1,}\b/i', $this->contenttitle, $match);
 		$id = 0;
 		if(isset($match[0])){
@@ -115,9 +115,7 @@ class ContentController extends BaseController{
 				$cityshown => $this->baseUrl.'/'.$this->currentCity,
 				ucwords(strtolower(trim($contentdetail['title']))) =>''
 			));
-
 			$contentdetail['description'] = $this->htmlwishlistwidget($contentdetail['description'], $contentdetail['title']);
-
 
 			$this->view->setVars(array(
 				'contentdetail' => $contentdetail,
@@ -125,13 +123,64 @@ class ContentController extends BaseController{
 				'author'	=> $author,
 				'cityshown' => $cityshown
 			));
-		
 			$this->setlogsarray('content_end');
 			$this->getlogs('content', $this->baseUrl.$contentdetail['url']);
-
 		}else{
 			$this->forwardtoerrorpage(404);
 		}
 		
+    }
+
+    public function getwishlistwidgetAction(){
+    	$title = $this->request->getPost('title');
+		$cityid = $this->request->getPost('cityid');
+		$entitytitle = $this->request->getPost('entitytitle');
+		$entityid = $this->request->getPost('entityid');
+		$entitytype = $this->request->getPost('entitytype');
+		$ctitle = $this->request->getPost('ctitle');
+		$html = '';
+
+		if(!isset($entitytitle) && empty($entitytitle)){
+			$entitytitle = trim($ctitle);
+		}
+		if(!isset($entitytitle) && empty($entitytitle)){
+			$entitytitle = 'Want to add '.trim($ctitle).' to your '.$this->config->application->wishlistname.'?';
+		}
+
+		$class = 'add-wishlist';
+		$class2 = '';
+		$class3 = 'dnone';
+		if(isset($this->logged_user->sso_id) && !empty($this->logged_user->sso_id)){
+			$onclick = "showishlist('".$this->logged_user->sso_id."', '".$entityid."', '".$cityid."', '".$entitytype."', '".addslashes($title)."', '".addslashes($entitytitle)."')";
+			$Wishlist = new \WH\Model\Wishlist();
+			$Wishlist->setUserId($this->logged_user->sso_id);
+			$Wishlist->setEntityId($entityid);
+			$Wishlist->setEntityTypeID($entitytype);
+			$Wishlist->setVersion($this->config->application->version);
+			$Wishlist->setPackage($this->config->application->package);
+			$Wishlist->setEnv($this->config->application->environment);
+			$wishliststatus = $Wishlist->status();	
+			if($wishliststatus['status'] != 1){
+				$class = 'add-wishlist';
+			}else{
+				$class = 'added-wishlist';
+				$class2 = 'dnone';
+				$class3 = '';
+			}
+		}else{
+			$onclick = "addtowishlistwithlogin('".$entityid."', '".$cityid."', '".$entitytype."', '".addslashes($title)."', '".addslashes($entitytitle)."')";
+		}
+
+		$html = '<div id="wishlist'.$entityid.'" class="wishlist-container">
+					<div class="wishlist-wrapper '.$class.'">
+						<div class="wishlist-text float-left">'.$title.'</div>
+						<div class="resetdimenstion dnone"><img src="'.$this->baseUrl.'/img/ajax-loader.gif"></div>
+						<div id="wishlist_add_btn" class="float-right '.$class2.'" onclick="'.$onclick.'" data-ga-cat = "WishList" data-ga-action="Add Button Widget" data-ga-label="'.$entitytype.' - '.addslashes($title).'"><div class="btn btn-primary wishlist_add_btn">+</div></div>
+						<div id="wishlist_added_btn" class="float-right '.$class3.'"><div class="btn btn-primary wishlist_added_btn"><img src="'.$this->baseUrl.'/img/tick.png"></div></div>
+						<div class="clearfix"></div>
+					</div>
+				</div>';
+		echo $html;
+		exit;
     }
 }
