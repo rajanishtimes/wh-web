@@ -38,6 +38,9 @@ COMMON DESKTOP > 992px
 	.contentarea .detail {
 		padding: 0 62px;
 	}
+	.content-container .authordetailsection {
+		padding: 14px 0px 0px 0;
+	}
 	.authordetailsection {
 		padding: 14px 0px 0px 62px;
 	}
