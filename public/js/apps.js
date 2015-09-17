@@ -847,9 +847,10 @@ function loadwishlist(){
 
 var prevScroll = 0;
 function stickyshareicon(parentclass, stickyclass){
-    var contPos  = $("."+parentclass).offset();
-    var sticky = $('.'+stickyclass);    
-    contPos.bottom = contPos.top + $("."+parentclass).outerHeight();
+	var contPos;
+    contPos  = $("."+parentclass).offset();
+   	contPos.bottom = contPos.top + $("."+parentclass).outerHeight();
+   	var sticky = $('.'+stickyclass);    
     //console.log('contPos',contPos);
 
     $(window).resize(function() {
