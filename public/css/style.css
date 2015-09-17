@@ -588,20 +588,27 @@ ul.sidebar-menu{ padding:0px; }
 .contentarea .no-padding {
     padding: 0;
 }
+.fd {
+    margin-bottom: 15px;
+}
 .section .contenttitle {
     font-family: "Lora-Bold",times new roman,times,sans-serif;
     font-size: 35px;
     line-height: 49px;
-    margin: 14px 0 0 10px;
+    margin: 14px 0 7px 10px;
+}
+.content-container {
+    margin-top: 35px;
 }
 .atwitter.text-center {
     height: 25px;
 }
 .contentdetail {
-    color: #d11a6d;
+    color: #969eab;
     font-family: Lora-Italic;
-    font-size: 18px;
+    font-size: 15px;
     padding: 3px 0 0;
+    display: inline-block;
 }
 .contentdetail a {
     color: #d11a6d;
@@ -1106,7 +1113,7 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     position: relative;
 }
 .owl-carousel.work-detail .item {
-    height: 280px;
+    height: 366px;
     margin: 0;
     overflow: hidden;
     padding: 0;
@@ -2288,7 +2295,7 @@ h3.tags {
 }
 .share {
     color: #ababab;
-    padding: 11px 62px;
+    padding: 11px 0px;
 }
 .venue_share{
     padding: 11px 0;
@@ -2354,6 +2361,59 @@ h3.tags {
     height: 20px;
     overflow: hidden;
 }
+
+.sticky {
+    margin: 0;
+}
+.stickyheader .sharesmall .head {
+    font-size: 17px;
+    margin: 0 0 5px 0;
+}
+
+.stickyheader .sharesmall li > a > div{
+    font-size: 21px;
+    line-height: 24px;
+    margin: 0 auto 11px;
+    padding: 6px 0 7px 24px;
+    text-align: left;
+    width: 144px;
+    height: auto;
+    background: none;
+}
+.stickyheader  .sharesmall .twitter-icon{
+    border: 1px solid #1b95cb;
+}
+.stickyheader  .sharesmall .fb-icon{
+    border: 1px solid #314C88;
+}
+.stickyheader .sharesmall .google-icon{
+    border: 1px solid #CA3D2C;
+}
+.stickyheader .twitter i{
+    color: #1b95cb;
+}
+.stickyheader .facebook i{
+    color: #314C88;
+}
+.stickyheader .google i {
+    color: #CA3D2C;
+}
+.stickyheader .sharesmall ul a .fb-icon span {
+    color: #314C88;
+    font-size: 14px;
+    margin: 0 0 0 15px;
+}
+.stickyheader .sharesmall ul a .twitter-icon span {
+    color: #1b95cb;
+    font-size: 14px;
+    margin: 0 0 0 15px;
+}
+.stickyheader  .sharesmall ul a .google-icon span {
+    color: #CA3D2C;
+    font-size: 14px;
+    margin: 0 0 0 15px;
+}
+
 .share .sharek {
     font-size: 18px;
     font-weight: bold;
@@ -4120,6 +4180,7 @@ iframe {
     color: #969eab;
     font-family: Lora-Italic;
     padding: 0 0 4px;
+    display: inline-block;
 }
 .author_bio p {
     color: #333;
@@ -4142,9 +4203,12 @@ iframe {
     height: 425px;
 }
 .summary > p {
-    color: rgb(84, 84, 84);
-    text-align: center;
-    font-family: Lora-Italic;
+    color: #000;
+    font: 23px Lora-italic;
+}
+.sticky .list{
+    list-style: none;
+    padding: 0;
 }
 .contestimg > img {
     width: 50px;
@@ -4184,6 +4248,38 @@ iframe {
 .wishlist_add_btn:hover {
     border: 2px solid #d11a6d;
 }
+.sidebar .media-object {
+    width: 58px;
+}
+.articles .panel{
+    border:1px solid #eaeaec;
+    padding: 20px;
+}
+.articles .panel-title{
+    font-family: Lora;
+    font-size: 23px;
+    margin-bottom: 25px;
+}
+.articles .media-body > p {
+    margin-bottom: 5px;
+}
+.articles p {
+    font-family: Roboto,Arial,Calibri,sans-serif;
+    line-height: 18px;
+}
+.articles li.media {
+    border-bottom: 1px solid #eaeaec;
+    padding-bottom: 15px;
+}
+
+.articles li.media:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.sticky{
+    position: absolute;
+}
+
 /* ================ Profile Page =============== */
 .grayed{
     background:#eaeced;

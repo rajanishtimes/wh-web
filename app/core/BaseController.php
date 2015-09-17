@@ -133,7 +133,9 @@ class BaseController extends Controller{
 		$this->view->logged_user = $this->logged_user;	
 
 		/* ============= Set data for footer =============== */
-		$this->setdataforfooter();
+		if ($this->request->isAjax() == false) {
+			$this->setdataforfooter();
+		}
 		/* ============= Set data for footer =============== */
 
     }
@@ -725,7 +727,7 @@ class BaseController extends Controller{
 
     protected function setdataforfooter(){
     	$dataforfooter = array();
-    	$datafromcity = $this->storagemaster->get('_'.$this->currentCity);
+    	$datafromcity = $this->storageslave->get('_'.$this->currentCity);
     	if(empty($datafromcity)){
     		$getdataforfooter = array();
 			$cities = new \WH\Model\Cities();
@@ -752,9 +754,10 @@ class BaseController extends Controller{
 				}
 				$getdataforfooter['upcomingfeeds'] = $upcomingfeeds;
 				$this->storagemaster->set('_'.$cityforset, json_encode($getdataforfooter));
+				$this->storagemaster->expire('_'.$cityforset, 86400);
 			}
     	}
-    	$dataforfooter = $this->storagemaster->get('_'.$this->currentCity);
+    	$dataforfooter = $this->storageslave->get('_'.$this->currentCity);
     	$this->view->dataforfooter = json_decode($dataforfooter);
     	//echo "<pre>"; print_r($dataforfooter); echo "</pre>"; exit;
     }

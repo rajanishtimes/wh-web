@@ -5,7 +5,7 @@ LARGE DESKTOP > 1200px
 **/
 @media (min-width: 1200px) {
 	.contentarea {
-		padding: 0 148px;
+		padding: 0 114px;
 	}
 	.contentarea .detail {
 		padding: 0 147px;
@@ -39,7 +39,7 @@ COMMON DESKTOP > 992px
 		padding: 0 62px;
 	}
 	.authordetailsection {
-		padding: 14px 62px 0px 62px;
+		padding: 14px 0px 0px 62px;
 	}
 	.width100 {
 		width: 82% !important;

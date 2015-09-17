@@ -78,7 +78,7 @@
 				<div class="col-sm-10 col-xs-12 text-left">
 					<ul class="list-inline makebullet">
 						{% for lateststoriesfeeds in dataforfooter.lateststoriesfeeds.results %}
-							<li><a href="{{baseUrl}}/{{lateststoriesfeeds.url}}">{{lateststoriesfeeds.title}}</a></li>
+							<li><a href="{{baseUrl}}{{lateststoriesfeeds.url}}">{{lateststoriesfeeds.title}}</a></li>
 						{% endfor  %}
 					</ul>
 				</div>
@@ -91,7 +91,7 @@
 				<div class="col-sm-10 col-xs-12 text-left">
 					<ul class="list-inline makebullet">
 						{% for todaysfeed in dataforfooter.todaysfeeds.results %}
-							<li><a href="{{baseUrl}}/{{todaysfeed.url}}">{{todaysfeed.title}}</a></li>
+							<li><a href="{{baseUrl}}{{todaysfeed.url}}">{{todaysfeed.title}}</a></li>
 						{% endfor  %}
 					</ul>
 				</div>
@@ -104,7 +104,7 @@
 				<div class="col-sm-10 col-xs-12 text-left">
 					<ul class="list-inline makebullet">
 						{% for upcomingfeed in dataforfooter.upcomingfeeds.results %}
-							<li><a href="{{baseUrl}}/{{upcomingfeed.url}}">{{upcomingfeed.title}}</a></li>
+							<li><a href="{{baseUrl}}{{upcomingfeed.url}}">{{upcomingfeed.title}}</a></li>
 						{% endfor  %}
 					</ul>
 				</div>
