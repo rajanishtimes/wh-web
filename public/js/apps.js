@@ -845,61 +845,62 @@ function loadwishlist(){
 	}
 }
 
-var prevScroll = 0;
 function stickyshareicon(parentclass, stickyclass){
-	var contPos;
-    contPos  = $("."+parentclass).offset();
-   	contPos.bottom = contPos.top + $("."+parentclass).outerHeight();
-   	var sticky = $('.'+stickyclass);    
-    //console.log('contPos',contPos);
+    if($('.'+parentclass).length > 0 && $('.'+stickyclass).length > 0){
+    	var contPos  = $("."+parentclass).offset();
+	   	contPos.bottom = contPos.top + $("."+parentclass).outerHeight();
+	   	var sticky = $('.'+stickyclass);    
+	    //console.log('contPos',contPos);
 
-    $(window).resize(function() {
-	  contPos  = $("."+parentclass).offset();
-	  sticky.css({left  : contPos.left + 'px'});
-	});
+	    $(window).resize(function() {
+		  contPos  = $("."+parentclass).offset();
+		  sticky.css({left  : contPos.left + 'px'});
+		});
 
-    $(window).scroll(function (event) {
-        var     scroll = $(window).scrollTop()
-            ,   y = scroll
-            ,   pos = sticky.offset()
-        ;
-        pos.bottom = sticky.outerHeight();
-        if ( scroll > prevScroll) {
-            //down
-        } else {
-            //up
-        }
-        prevScroll = scroll;
-        // whether that's below the form
-        //console.log(pos.bottom + scroll ,":", contPos.bottom);
-        if (contPos.top > scroll) {
-            // if so, ad the fixed class
-            sticky.css({
-            	display:'block',
-                position: 'absolute',
-                top  : '0px',
-                left    : '0px'
-            });
-            //console.log("Too High");
-        } else if ( pos.bottom + scroll > contPos.bottom) {
-            //comment.removeClass('fixed');
-            sticky.css({
-            	display:'none'
-                // position: 'absolute',
-                // top      : (contPos.bottom - sticky.outerHeight())+'px',
-                // left  : contPos.left + 'px'
-            });
-            
-            //console.log("Too Low");
-        } else {
-            // middle area
-            //console.log("Perfect");
-            sticky.css({
-            	display:'block',
-                position: 'fixed',
-                top   : '80px',
-                left  : contPos.left + 'px'
-            });
-        }
-    });
+	    $(window).scroll(function (event) {
+	        var     scroll = $(window).scrollTop()
+	            ,   y = scroll
+	            ,   pos = sticky.offset()
+	        ;
+	        pos.bottom = sticky.outerHeight();
+	        if ( scroll > previousScroll) {
+	            //down
+	        } else {
+	            //up
+	        }
+	        previousScroll = scroll;
+	        // whether that's below the form
+	        //console.log(pos.bottom + scroll ,":", contPos.bottom);
+	        if (contPos.top > scroll) {
+	            // if so, ad the fixed class
+	            sticky.css({
+	            	display:'block',
+	                position: 'absolute',
+	                top  : '0px',
+	                left    : '0px'
+	            });
+	            //console.log("Too High");
+	        } else if ( pos.bottom + scroll > contPos.bottom) {
+	            //comment.removeClass('fixed');
+	            sticky.css({
+	            	display:'none'
+	                // position: 'absolute',
+	                // top      : (contPos.bottom - sticky.outerHeight())+'px',
+	                // left  : contPos.left + 'px'
+	            });
+	            
+	            //console.log("Too Low");
+	        } else {
+	            // middle area
+	            //console.log("Perfect");
+	            sticky.css({
+	            	display:'block',
+	                position: 'fixed',
+	                top   : '80px',
+	                left  : contPos.left + 'px'
+	            });
+	        }
+	    });
+    }
 }
+
