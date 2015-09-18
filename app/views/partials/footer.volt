@@ -8,7 +8,7 @@
 			<div class="col-xs-12 col-sm-6 col-md-6">
 				<div class="foot_head">
 					<div class="foot_head1">What's Hot on the go!</div>
-					<div class="foot_head2">Discover new reataurants, events & cool articles.</div>
+					<div class="foot_head2">Discover new Events, Restaurents & curated Articles in your city.</div>
 					<div class="app_option large">
 						<a href="https://play.google.com/store/apps/details?id=com.phdmobi.timescity" target="_blank"><div class="android_app_large float-left"></div></a>&nbsp;&nbsp;
 						<a href="https://itunes.apple.com/in/app/timescity-food-restaurant/id636515332?mt=8" target="_blank"><div class="iphone_app_large float-left"></div></a>

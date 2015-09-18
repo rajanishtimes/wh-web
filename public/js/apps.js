@@ -241,17 +241,6 @@ function DOMReady(){
 		autoPlay : true,
 		stopOnHover : true,
 	});
-	
-	$("#similar_content_slider").owlCarousel({
-		items : 3,
-		navigation : true,
-		slideSpeed : 400,
-		paginationSpeed : 400,
-		autoPlay : false,
-		stopOnHover : true,
-		singleItem: false,
-	});
-	
 
 	$('#searchinputform').click(function(){
 		$('#expandable').animate({ width: 320 }, 'slow');
@@ -431,6 +420,7 @@ function DOMReady(){
     loadprofile();
     loadwishlist();
     stickyshareicon('content-container', 'sticky');
+    similar_content_load('similar_content_load', 'content');
 }
 
 
@@ -854,53 +844,83 @@ function stickyshareicon(parentclass, stickyclass){
 
 	    $(window).resize(function() {
 		  contPos  = $("."+parentclass).offset();
+		  contPos.bottom = contPos.top + $("."+parentclass).outerHeight();
 		  sticky.css({left  : contPos.left + 'px'});
 		});
 
 	    $(window).scroll(function (event) {
-	        var     scroll = $(window).scrollTop()
-	            ,   y = scroll
-	            ,   pos = sticky.offset()
-	        ;
-	        pos.bottom = sticky.outerHeight();
-	        if ( scroll > previousScroll) {
-	            //down
-	        } else {
-	            //up
-	        }
-	        previousScroll = scroll;
-	        // whether that's below the form
-	        //console.log(pos.bottom + scroll ,":", contPos.bottom);
-	        if (contPos.top > scroll) {
-	            // if so, ad the fixed class
-	            sticky.css({
+	    	if($(window).width() > 767){
+		        var     scroll = $(window).scrollTop()
+		            ,   y = scroll
+		            ,   pos = sticky.offset()
+		        ;
+		        pos.bottom = sticky.outerHeight();
+		        if ( scroll > previousScroll) {
+		            //down
+		        } else {
+		            //up
+		        }
+		        previousScroll = scroll;
+		        // whether that's below the form
+		        //console.log(pos.bottom + scroll ,":", contPos.bottom);
+		        if (contPos.top > scroll) {
+		            // if so, ad the fixed class
+		            sticky.css({
+		            	display:'block',
+		                position: 'absolute',
+		                top  : '0px',
+		                left    : '0px'
+		            });
+		            //console.log("Too High");
+		        } else if ( pos.bottom + scroll > contPos.bottom - 70) {
+		            //comment.removeClass('fixed');
+		            sticky.css({
+		            	display:'none'
+		                // position: 'absolute',
+		                // top      : (contPos.bottom - sticky.outerHeight())+'px',
+		                // left  : contPos.left + 'px'
+		            });
+		            
+		            //console.log("Too Low");
+		        } else {
+		            // middle area
+		            //console.log("Perfect");
+		            sticky.css({
+		            	display:'block',
+		                position: 'fixed',
+		                top   : '80px',
+		                left  : contPos.left + 'px'
+		            });
+		        }
+	        }else{
+	        	sticky.css({
 	            	display:'block',
-	                position: 'absolute',
+	                position: 'relative',
 	                top  : '0px',
 	                left    : '0px'
-	            });
-	            //console.log("Too High");
-	        } else if ( pos.bottom + scroll > contPos.bottom) {
-	            //comment.removeClass('fixed');
-	            sticky.css({
-	            	display:'none'
-	                // position: 'absolute',
-	                // top      : (contPos.bottom - sticky.outerHeight())+'px',
-	                // left  : contPos.left + 'px'
-	            });
-	            
-	            //console.log("Too Low");
-	        } else {
-	            // middle area
-	            //console.log("Perfect");
-	            sticky.css({
-	            	display:'block',
-	                position: 'fixed',
-	                top   : '80px',
-	                left  : contPos.left + 'px'
 	            });
 	        }
 	    });
     }
+}
+
+function similar_content_load(id, type){
+	if($('#'+id).length > 0){
+		var entityid = $('#'+id).attr('data-entityid');
+		var city = $('#'+id).attr('data-city');
+		$.ajax({
+			url:baseUrl+'/content/loadsimilarcontent/'+milliseconds,
+			type:'POST',
+			data: 'entityid='+entityid+'&city='+city,
+			success:function(data) {
+				$('#'+id).html(data);
+				$("img.lazy").unveil(200, function() {
+				  $(this).load(function() {
+				    this.style.opacity = 1;
+				  });
+				});
+			}
+		});
+	}
 }
 

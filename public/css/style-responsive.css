@@ -550,7 +550,15 @@ TABLET < 767px
 	#navbar-fixed-top .ac-gn-item-menu:first-child{
 		margin-top: 20px;
 	}
-
+	.sticky{
+		position: relative;
+	}
+	.sticky .list{
+		text-align: center;
+	}
+	.stickyheader .list li{
+		display: inline-block;
+	}
 }
 
 

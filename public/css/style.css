@@ -1174,6 +1174,12 @@ ul.work-category-wrap li:hover, ul.work-category-wrap li.active, ul.work-categor
     font-size: 12px;
     text-align: left;
 }
+.similar-work .feed-short-desc{
+    line-height: 16px;
+}
+.similar-work .owl-controls{
+    display: none !important;
+}
 .feeds-data:hover .feed-short-desc {
     color: #d31a6b;
 }
@@ -2371,7 +2377,7 @@ h3.tags {
     overflow: hidden;
 }
 
-.sticky {
+.sticky.sharesmall {
     margin: 0;
 }
 .stickyheader .sharesmall .head {
@@ -2383,9 +2389,9 @@ h3.tags {
     font-size: 21px;
     line-height: 24px;
     margin: 0 auto 11px;
-    padding: 6px 0 7px 24px;
+    padding: 7px 0 6px 17px;
     text-align: left;
-    width: 144px;
+    width: 130px;
     height: auto;
     background: none;
 }
@@ -2400,12 +2406,15 @@ h3.tags {
 }
 .stickyheader .twitter i{
     color: #1b95cb;
+    line-height: 24px;
 }
 .stickyheader .facebook i{
     color: #314C88;
+    line-height: 24px;
 }
 .stickyheader .google i {
     color: #CA3D2C;
+    line-height: 24px;
 }
 .stickyheader .sharesmall ul a .fb-icon span {
     color: #314C88;
@@ -2430,7 +2439,7 @@ h3.tags {
 .authordetailsection .author-detail {
     min-width: 200px;
     padding-top: 10px;
-    width: 65%;
+    width: 75%;
 }
 .authordetailsection .author-image {
     min-width: 130px;
@@ -4287,6 +4296,8 @@ iframe {
 }
 .sticky{
     position: absolute;
+    left:0;
+    top:0;
 }
 
 /* ================ Profile Page =============== */

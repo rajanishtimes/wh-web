@@ -185,4 +185,20 @@ class ContentController extends BaseController{
 		echo $html;
 		exit;
     }
+
+    public function loadsimilarcontentAction(){
+		$this->view->setLayout('ajaxLayout');
+		$id = $this->request->getPost('entityid');
+		$city = $this->request->getPost('city');
+		$start = 0;
+		$limit = 4;
+		$content = new \WH\Model\Content();
+        $content->setID($id);
+        $content->setCity($city);
+        $content->setStart($start);
+        $content->setLimit($limit);
+        $similarcontent = $content->getSimilar();
+        //echo "<pre>"; print_r($similarcontent); echo "</pre>"; exit;
+		$this->view->similarcontent = $similarcontent;
+    }
 }

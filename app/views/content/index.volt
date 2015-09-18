@@ -1,5 +1,4 @@
 <?php $this->partial('partials/breadcrumbs', array('breadcrumbs' => $breadcrumbs)); ?>
-
 <div class="section">
 	<div class="container">
 		<div class="row">
@@ -38,8 +37,7 @@
 					&nbsp;
 					<div class="sticky sharesmall">
 						<ul class="list text-left">
-							<li class="head">Share</li>
-
+							<!--<li class="head">Share</li>-->
 							<li class="facebook"><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="fb-icon"><i class="fa fa-facebook"></i>&nbsp;<span>Facebook</span></div></a></li>
 
 							<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#">
@@ -49,6 +47,7 @@
 							<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="google-icon"><i class="fa fa-google-plus"></i>&nbsp;<span>Google</span></div></a></li>
 						</ul><div class="clearfix"></div>
 					</div>
+					<div class="clearfix"></div>
 				</div>
 				<div class="col-sm-6 col-md-7">
 					<?php if(!empty($contentdetail['summary'])){ ?>
@@ -150,4 +149,7 @@
 			<!-- ======== Content detail End =========== -->
 		</div>
 	</div>
+</div>
+
+<div id="similar_content_load" data-entityid="{{entityid}}" data-city="{{currentCity}}">
 </div>
