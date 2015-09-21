@@ -55,10 +55,10 @@ $(window).load(function() {
 		});
 	});
 	resizefeedimage();
-	setquizheight();
+	//setquizheight();
 	$(window).resize(function() {
 	  resizefeedimage();
-	  setquizheight();
+	  //setquizheight();
 	});
 	
 	fbandtwitter();
