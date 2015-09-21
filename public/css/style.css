@@ -1550,6 +1550,9 @@ a.makeaactive {
     content: "";
     padding: 0;
 }
+.footer .list-inline{
+    margin-left: 0;
+}
 .footer .list-inline > li {
     padding: 0;
 }

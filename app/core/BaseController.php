@@ -741,11 +741,12 @@ class BaseController extends Controller{
 					$cityfor = 'delhincr';
 					$cityforset = 'delhi-ncr';
 				}else{
-					$cityfor = $cityforset = strtolower($value['name']);
+					$cityfor = strtolower($value['name']);
+					$cityforset = strtolower($value['name']);
 				}
 
 				$getdataforfooter['lateststoriesfeeds'] = $this->getfeeddata(0, 11, $cityforset, 'all', '', '', 'Content', '', 'footer', 0, 11);
-				//echo "<pre>"; print_r($getdataforfooter['lateststoriesfeeds']); echo "</pre>"; exit;
+				
 				$getdataforfooter['todaysfeeds'] = $this->getfeeddata(0, 11, $cityforset, 'Today', '', '', 'Event', '', 'footer', 0, 11);
 				
 

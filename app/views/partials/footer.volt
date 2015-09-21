@@ -79,8 +79,12 @@
 				</div>
 				<div class="col-sm-10 col-xs-12 text-left">
 					<ul class="list-inline makebullet">
+						<?php $i=0; ?>
 						{% for lateststoriesfeeds in dataforfooter.lateststoriesfeeds.results %}
-							<li><a href="{{baseUrl}}{{lateststoriesfeeds.url}}">{{lateststoriesfeeds.title}}</a></li>
+							{% if(i < 10) %}
+								<li><a href="{{baseUrl}}{{lateststoriesfeeds.url}}"><?php echo str_replace('â€“', '-', $lateststoriesfeeds->title);?></a></li>
+							{% endif %}
+							<?php $i++; ?>
 						{% endfor  %}
 					</ul>
 				</div>
@@ -95,8 +99,12 @@
 				</div>
 				<div class="col-sm-10 col-xs-12 text-left">
 					<ul class="list-inline makebullet">
+						<?php $i=0; ?>
 						{% for todaysfeed in dataforfooter.todaysfeeds.results %}
-							<li><a href="{{baseUrl}}{{todaysfeed.url}}">{{todaysfeed.title}}</a></li>
+							{% if(i < 10) %}
+								<li><a href="{{baseUrl}}{{todaysfeed.url}}"><?php echo str_replace('â€“', '-', $todaysfeed->title);?></a></li>
+							{% endif %}
+							<?php $i++; ?>
 						{% endfor  %}
 					</ul>
 				</div>
@@ -111,8 +119,12 @@
 				</div>
 				<div class="col-sm-10 col-xs-12 text-left">
 					<ul class="list-inline makebullet">
+						<?php $i=0; ?>
 						{% for upcomingfeed in dataforfooter.upcomingfeeds.results %}
-							<li><a href="{{baseUrl}}{{upcomingfeed.url}}">{{upcomingfeed.title}}</a></li>
+							{% if(i < 10) %}
+								<li><a href="{{baseUrl}}{{upcomingfeed.url}}"><?php echo str_replace('â€“', '-', $upcomingfeed->title);?></a></li>
+							{% endif %}
+							<?php $i++; ?>
 						{% endfor  %}
 					</ul>
 				</div>
