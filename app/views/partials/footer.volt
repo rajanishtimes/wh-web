@@ -71,6 +71,8 @@
 <div class="footer">
 	<div class="container">
 		<div class="row">
+
+			<?php if(!empty($dataforfooter->lateststoriesfeeds->results)){ ?>
 			<div class="makeblock">
 				<div class="col-sm-2 col-xs-12 text-left">
 					<div class="footer_list_head">Latest Stories</div>
@@ -84,6 +86,9 @@
 				</div>
 				<div class="clearfix"></div>
 			</div>
+			<?php } ?>
+
+			<?php if(!empty($dataforfooter->todaysfeeds->results)){ ?>
 			<div class="makeblock">
 				<div class="col-sm-2 col-xs-12 text-left">
 					<div class="footer_list_head">Event Today</div>
@@ -97,6 +102,9 @@
 				</div>
 				<div class="clearfix"></div>
 			</div>
+			<?php } ?>
+
+			<?php if(!empty($dataforfooter->upcomingfeeds->results)){ ?>
 			<div class="makeblock">
 				<div class="col-sm-2 col-xs-12 text-left">
 					<div class="footer_list_head">Upcoming Events</div>
@@ -110,6 +118,8 @@
 				</div>
 				<div class="clearfix"></div>
 			</div>
+			<?php } ?>
+
 			<div class="makeblock">
 				<div class="col-sm-2 col-xs-12 text-left">
 					<div class="footer_list_head">Top Events</div>

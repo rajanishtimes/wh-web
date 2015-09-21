@@ -415,7 +415,7 @@ class BaseController extends Controller{
 				$splimit = $limit;
 			}
 
-			if($type == 'feed'){
+			if($type == 'feed' || $type == 'footer'){
 				$Searches->setParam('sponsored','true');
 				$Searches->setParam('spstart',$spstart);
 				$Searches->setParam('splimit',$splimit);	
@@ -727,20 +727,27 @@ class BaseController extends Controller{
 
     protected function setdataforfooter(){
     	$dataforfooter = array();
-    	$datafromcity = $this->storageslave->get('_'.$this->currentCity);
+    	if($this->currentCity == 'delhi-ncr'){
+			$datafromcity = $this->storageslave->get('_delhincr');
+		}else{
+			$datafromcity = $this->storageslave->get('_'.$this->currentCity);
+		}
     	if(empty($datafromcity)){
     		$getdataforfooter = array();
 			$cities = new \WH\Model\Cities();
 			$getallcities = $cities->getResults();
 			foreach ($getallcities['cities'] as $key => $value) {
 				if($value['name'] == 'Delhi NCR'){
+					$cityfor = 'delhincr';
 					$cityforset = 'delhi-ncr';
 				}else{
-					$cityforset = strtolower($value['name']);
+					$cityfor = $cityforset = strtolower($value['name']);
 				}
 
 				$getdataforfooter['lateststoriesfeeds'] = $this->getfeeddata(0, 11, $cityforset, 'all', '', '', 'Content', '', 'footer', 0, 11);
+				//echo "<pre>"; print_r($getdataforfooter['lateststoriesfeeds']); echo "</pre>"; exit;
 				$getdataforfooter['todaysfeeds'] = $this->getfeeddata(0, 11, $cityforset, 'Today', '', '', 'Event', '', 'footer', 0, 11);
+				
 
 				$todaysfeeds = array();
 				foreach ($getdataforfooter['todaysfeeds']['results'] as $key => $todaysfeed) {
@@ -752,14 +759,29 @@ class BaseController extends Controller{
 			    		unset($upcomingfeeds['results'][$key]);
 			    	}
 				}
+				$upcomingfeeds['results'] = array_values($upcomingfeeds['results']);
 				$getdataforfooter['upcomingfeeds'] = $upcomingfeeds;
-				$this->storagemaster->set('_'.$cityforset, json_encode($getdataforfooter));
-				$this->storagemaster->expire('_'.$cityforset, 86400);
+				 
+				//$this->storagemaster->set($cityfor, json_encode($getdataforfooter));
+				//$this->storagemaster->expire('_'.$cityfor, 86400);
+
+				array_walk_recursive($getdataforfooter, function(&$value, $key) {
+				    if (is_string($value)) {
+				        $value = iconv('windows-1252', 'utf-8', $value);
+				    }
+				});
+				$this->storagemaster->set('_'.$cityfor, json_encode($getdataforfooter));
+				$this->storagemaster->expire('_'.$cityfor, 86400);
 			}
     	}
-    	$dataforfooter = $this->storageslave->get('_'.$this->currentCity);
+
+		if($this->currentCity == 'delhi-ncr'){
+			$dataforfooter = $this->storageslave->get('_delhincr');
+		}else{
+			$dataforfooter = $this->storageslave->get('_'.$this->currentCity);
+		}
     	$this->view->dataforfooter = json_decode($dataforfooter);
-    	//echo "<pre>"; print_r($dataforfooter); echo "</pre>"; exit;
+    	//echo "<pre>"; print_r(json_decode($dataforfooter)); echo "</pre>"; exit;
     }
 
 }

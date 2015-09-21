@@ -155,12 +155,12 @@ $di->set('storagemaster', function() use ($config){
 });
 
 $di->set('storageslave', function() use ($config){
-	$single_server = array(
+	$single_server2 = array(
 	    'host'     => $config->redis2->host,
 	    'port'     => $config->redis2->port,
 	    'database' => 15
 	);
-	$client2 = new Predis\Client($single_server, array('prefix' => 'storage:'));
+	$client2 = new Predis\Client($single_server2, array('prefix' => 'storage:'));
 	try {
         $client2->ping();
     } catch (Exception $e) {

@@ -97,7 +97,7 @@
 		
 		<!-- MAIN CSS (REQUIRED ALL PAGE)-->
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}/css/header.css" />
-		{% if(controllername == 'quiz') %}
+		{% if(controllername == 'quiz' or controllername == 'tfa') %}
 			<link rel="stylesheet" type="text/css" href="{{baseUrl}}{{elements.auto_version('/css/quiz.css')}}" />
 		{% endif %}
 		<link rel="stylesheet" type="text/css" href="{{baseUrl}}{{elements.auto_version('/css/main.css')}}" />
