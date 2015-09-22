@@ -39,6 +39,9 @@ class Feeds extends Component
 										<i class="glyphicon glyphicon-plus bino"></i>
 									</div>
 									<?php echo $this->getimage($url, $feed['image']['uri'], 479, 479, $feed['title'], $feed['image'], '', '', $start+$i); ?>
+									<?php if(!empty($feed['maintag'])){ ?>
+										<div class="maintag"><?php echo $feed['maintag'];?></div>
+									<?php } ?>
 								</div>
 							</a>
 							<a href="<?php echo $url . $feed['url']; ?>" <?php echo $gaattr;?>>
