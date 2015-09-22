@@ -565,6 +565,10 @@ TABLET < 767px
 	.forl{
 		display: none;
 	}
+	.footer_list_head{
+		font: 400 14px roboto;
+		margin-bottom: 10px;
+	}
 }
 
 

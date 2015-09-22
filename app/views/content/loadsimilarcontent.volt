@@ -1,3 +1,4 @@
+<?php if(!empty($similarcontent['results'])){ ?>
 <div class="section grayed">
 	<div class="container">
 		<div class="row">
@@ -42,3 +43,4 @@ $("#similar_content_slider").owlCarousel({
 		singleItem: false,
 	});
 </script>
+<?php } ?>
