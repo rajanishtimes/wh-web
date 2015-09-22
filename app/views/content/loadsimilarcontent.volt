@@ -1,3 +1,4 @@
+<?php if(!empty($similarcontent['results'])){ ?>
 <div class="section grayed">
 	<div class="container">
 		<div class="row">
@@ -14,6 +15,9 @@
 										<i class="glyphicon glyphicon-plus bino"></i>
 									</div>
 									{{feeds.getimage(baseUrl, scontent['image']['uri'], 479, 479, scontent['title'], scontent['image'], '', '', key)}}
+									<?php if(!empty($feed['maintag'])){ ?>
+										<div class="maintag"><?php echo $feed['maintag'];?></div>
+									<?php } ?>
 								</div>
 							</a>
 							<a href="{{baseUrl}}{{scontent['url']}}">
@@ -42,3 +46,4 @@ $("#similar_content_slider").owlCarousel({
 		singleItem: false,
 	});
 </script>
+<?php } ?>

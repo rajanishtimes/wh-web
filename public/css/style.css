@@ -113,6 +113,8 @@ p {
 .margin-bottom-20 {
     margin-bottom: 20px;
 }
+.padding0{padding: 0 !important;}
+.margin0{margin:0 !important;}
 .heading {
     font-family: "Lora-Bold",times new roman,times,sans-serif;
     font-size: 24px;
@@ -598,7 +600,7 @@ ul.sidebar-menu{ padding:0px; }
     margin: 14px 0 7px 10px;
 }
 .content-container {
-    margin-top: 35px;
+    margin-top: 25px;
 }
 .atwitter.text-center {
     height: 25px;
@@ -630,7 +632,7 @@ hr.small {
     height: auto !important;
     width: 100% !important;
 }
-.content-container .detail .wishlist-container > img {
+.content-container .detail .wishlist-container img {
     height: auto !important;
     width: auto !important;
 }
@@ -1557,7 +1559,7 @@ a.makeaactive {
     padding: 0;
 }
 .list-inline.makebullet > li {
-    font: 300 11px roboto;
+    font: 400 11px roboto;
 }
 .footer li::before {
     content: "/";
@@ -1575,7 +1577,7 @@ a.makeaactive {
 }
 
 .footer_list_head {
-    font: 300 16px roboto;
+    font: 300 14px roboto;
     color:#000;
 }
 .extrapaddright {
@@ -1640,7 +1642,7 @@ footer .social_icon {
     line-height: 36px;
 }
 .makeblock{
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
     padding: 0 0 1px;
     margin: 12px 0;
 }
@@ -2384,8 +2386,10 @@ h3.tags {
     margin: 0;
 }
 .stickyheader .sharesmall .head {
-    font-size: 17px;
     margin: 0 0 5px 0;
+    color: #969eab;
+    font: 14px Lora-Italic;
+    width: 100%;
 }
 
 .stickyheader .sharesmall li > a > div{
@@ -2398,6 +2402,24 @@ h3.tags {
     height: auto;
     background: none;
 }
+.stickyheader .sharesmall li > a{
+    -webkit-transition-delay: 400ms, 400ms;
+            transition-delay: 400ms, 400ms
+}
+.stickyheader .sharesmall li > a:hover > .fb-icon{
+    background: #314c88;
+}
+.stickyheader .sharesmall li > a:hover > .fb-icon i, .stickyheader .sharesmall li > a:hover > .fb-icon span{
+    color: #fff;
+}
+
+.stickyheader .sharesmall li > a:hover > .twitter-icon{
+    background: #1b95cb;
+}
+.stickyheader .sharesmall li > a:hover > .twitter-icon i, .stickyheader .sharesmall li > a:hover > .twitter-icon span{
+    color: #fff;
+}
+
 .stickyheader  .sharesmall .twitter-icon{
     border: 1px solid #1b95cb;
 }
@@ -2461,6 +2483,7 @@ h3.tags {
     line-height: 18px;
     margin: 0 0 10px;
     word-wrap: break-word;
+    color:#333;
 }
 .authordetailsection .author-image img {
     width: 100px !important;
@@ -4085,6 +4108,8 @@ a .icon-primary, a .icon-success, a .icon-info, a .icon-danger, a .icon-warning,
     color: #333;
     margin-bottom: 20px;
     word-wrap: break-word;
+    font-family: Lora;
+    font-size: 15px;
 }
 .authorbio p {
     font-family: Lora-Italic;
@@ -4225,7 +4250,7 @@ iframe {
 }
 .summary > p {
     color: #000;
-    font: 23px Lora-italic;
+    font: 20px Lora-italic;
 }
 .sticky .list{
     list-style: none;
@@ -4278,7 +4303,7 @@ iframe {
 }
 .articles .panel-title{
     font-family: Lora;
-    font-size: 23px;
+    font-size: 20px;
     margin-bottom: 25px;
 }
 .articles .media-body > p {
@@ -4291,6 +4316,9 @@ iframe {
 .articles li.media {
     border-bottom: 1px solid #eaeaec;
     padding-bottom: 15px;
+}
+.articles .media:hover p, .articles .media:hover a{
+    color: #d11a6d;
 }
 
 .articles li.media:last-child {
@@ -4426,7 +4454,7 @@ iframe {
     vertical-align: middle;
 }
 .wishlist-wrapper {
-    background: #f1f1f1 none repeat scroll 0 0;
+    background: #f9f9f9 none repeat scroll 0 0;
     margin: 15px auto;
     padding: 15px;
     width: 90%;
@@ -4886,4 +4914,8 @@ iframe {
 }
 .passedevent{
     color:#7b7b7d;
+}
+#similar_content_load .heading{
+    font-size: 20px;
+    margin-bottom: 15px;
 }

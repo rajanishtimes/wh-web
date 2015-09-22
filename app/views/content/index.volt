@@ -2,10 +2,11 @@
 <div class="section">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12 col-md-12">
-				<div class="contentarea">
-					<h1 class="contenttitle text-center">{{contentdetail['title'] | stripslashes}}</h1>
-					<div class="fd text-center">
+			<div class="col-sm-2 col-md-2">&nbsp;</div>
+			<div class="col-sm-6 col-md-7">
+				<div class="contentarea padding0">
+					<h1 class="contenttitle text-left margin0 padding0">{{contentdetail['title'] | stripslashes}}</h1>
+					<div class="fd text-left">
 						<div class="contentdetail">
 							{% if(author['title'] != '') %}
 								By <a href="{{baseUrl}}{{author['url']}}" data-ga-cat="Author Link Click on Content Detail - {{cityshown}}" data-ga-action="{{author['title'] | stripslashes | trim}}" data-ga-label="author">{{author['title'] | stripslashes}}</a>
@@ -19,7 +20,7 @@
 
 
 					<div class="clearfix"></div>
-					<ul id="owl-work-detail" class="owl-carousel work-detail">
+					<!--<ul id="owl-work-detail" class="owl-carousel work-detail">
 					{% for key, images in contentdetail['images'] %}
 						<li class="item">
 							<a href="{{feeds.makeurl(baseUrl, images['uri'])}}" class="swipebox" title="{{contentdetail['title']}}">
@@ -27,9 +28,10 @@
 							</a>
 						</li>
 					{% endfor  %}
-					</ul><div class="clearfix"></div>
+					</ul><div class="clearfix"></div>-->
 				</div>
 			</div>
+			<div class="col-sm-4 col-md-3 forl">&nbsp;</div>
 			<!-- ======== Content detail Start =========== -->
 			<div class="clearfix"></div>
 			<div class="content-container">
@@ -37,14 +39,14 @@
 					&nbsp;
 					<div class="sticky sharesmall">
 						<ul class="list text-left">
-							<!--<li class="head">Share</li>-->
+							<li class="head">Share with friends</li>
 							<li class="facebook"><a onclick="window.open('http://www.facebook.com/sharer/sharer.php?u={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="fb-icon"><i class="fa fa-facebook"></i>&nbsp;<span>Facebook</span></div></a></li>
 
 							<li class="twitter"><a onclick="window.open('https://twitter.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#">
 								<div class="twitter-icon"><i class="fa fa-twitter"></i>&nbsp;<span>Twitter</span></div>
 							</a></li>
 							
-							<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="google-icon"><i class="fa fa-google-plus"></i>&nbsp;<span>Google</span></div></a></li>
+							<!--<li class="google"><a onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{contentdetail['url']}}','','width=680,height=480,scrollbars=no,resizable=no,location=no,menubar=no,toolbar=no')" href="#"><div class="google-icon"><i class="fa fa-google-plus"></i>&nbsp;<span>Google</span></div></a></li>-->
 						</ul><div class="clearfix"></div>
 					</div>
 					<div class="clearfix"></div>
@@ -117,9 +119,10 @@
 				<div class="col-sm-4 col-md-3">
 					<div class="section sidebar articles">
 						<div class="panel panel-square">
-							<h3 class="panel-title"><strong>Top 5 Articles</strong></h3>
+							<h3 class="panel-title"><strong>Recent Articles:</strong></h3>
 						   <!-- List group -->
 							<ul class="media-list">
+								<?php  //echo "<pre>"; print_r($allfeedslists['results']); echo "</pre>"; ?>
 								<?php $i = 0; ?>
 								{% for key, list in allfeedslists['results'] %}
 								{% if(i <= 4) %}
@@ -130,8 +133,12 @@
 									<div class="media-body">
 										<p><a href="{{baseUrl}}{{list['url']}}">{{list['title']}}</a></p>
 										{% if(list['type'] == 'CONTENT' ) %}
+											<?php
+												$desc = trim(strip_tags($list['description']));
+												$description = strlen($desc) > 50 ? substr($desc, 0, 50).'...' : $desc;
+											?>
 											<?php $date_time = date('j M, Y' ,strtotime($list['published_time'])) ?>
-											<p class="small text-info">{{date_time}}</p>
+											<a href="{{baseUrl}}{{list['url']}}"><p class="small text-info">{{description}}</p></a>
 										{% else %}
 											<p class="small text-info">{{list['time']}}</p>
 										{% endif %}
