@@ -55,10 +55,12 @@ $(window).load(function() {
 		});
 	});
 	resizefeedimage();
-	//setquizheight();
+	setquizheight();
+	settfaheight();
 	$(window).resize(function() {
 	  resizefeedimage();
-	  //setquizheight();
+	  setquizheight();
+	  settfaheight();
 	});
 	
 	fbandtwitter();
@@ -518,6 +520,13 @@ function setquizheight(){
 		var height = $(window).height() - $('.navbar').height();
 		$('.hp .item').height(height);
 		$('.haleemoverlay').addClass('dnone');
+	}
+}
+
+function settfaheight(){
+	if($('.hp .mainback').length > 0){
+		var height = $(window).height() - $('.navbar').height();
+		$('.mainback').height(height);
 	}
 }
 
