@@ -53,11 +53,6 @@
     top: 136px;
     z-index: 1;
 }
-.hp .mainback{
-    background: rgba(0, 0, 0, 0) url("../img/tfa/food-image.jpg") repeat scroll 0 bottom;
-    width: 100%;
-    height: 100%;
-}
 
 .hp .overlay {
     background: #151718 none repeat scroll 0 0;
@@ -380,3 +375,20 @@ img.grayscale{
 .freedomlogo{
 padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: left; font-size: 16px; line-height: 18px;
 }
+
+
+/* TFA */
+.hp .mainback{
+    background: rgba(0, 0, 0, 0) url("../img/tfa/food-image.jpg") repeat scroll 0 bottom;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+.tfa .desc {
+    margin: 0 0 0 -11%;
+    top:70px;
+}
+.tfa .row .contestlogo:first-child {
+    margin-right: 20px;
+}
+/* TFA */

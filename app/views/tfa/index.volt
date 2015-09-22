@@ -1,10 +1,17 @@
-<section class="hp">
-	<div class="mainback"></div>
+<section class="hp tfa">
+	<div class="mainback"><div class="bordered"></div></div>
 	<div class="desc">
-		<div class="contestlogo"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>
-		<div class="presents"><img src="{{baseUrl}}/img/presents.png"></div>
+		<div class="contestlogo"><img src="{{baseUrl}}/img/tfa/groupp.png"></div>
+
+		<div class="row">
+			<div class="contestlogo float-left"><img src="{{baseUrl}}/img/tfa/tfalogo.png"></div>
+			<div class="contestlogo float-left"><img src="{{baseUrl}}/img/tfa/times_nightlife_awards.png"></div>
+		</div>
+
+		<div class="presents">Powered by</div>
 		<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
-		<a href="#" class="scroll-down img-circle addscroll"><i class="fa fa-angle-down"></i></a>
+		<div class="presents">Coming Soon</div>
+		<!--<a href="#" class="scroll-down img-circle addscroll"><i class="fa fa-angle-down"></i></a>-->
 	</div>
 </section>
 
