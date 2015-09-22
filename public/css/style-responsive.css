@@ -551,13 +551,19 @@ TABLET < 767px
 		margin-top: 20px;
 	}
 	.sticky{
-		position: relative;
+		position: relative !important;
 	}
 	.sticky .list{
 		text-align: center;
 	}
 	.stickyheader .list li{
 		display: inline-block;
+	}
+	.content-container{
+		margin-top:0;
+	}
+	.forl{
+		display: none;
 	}
 }
 
