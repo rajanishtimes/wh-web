@@ -72,7 +72,7 @@
 	<div class="container">
 		<div class="row">
 
-			<?php if(!empty($dataforfooter->lateststoriesfeeds->results)){ ?>
+			<?php if(!empty($dataforfooter['lateststoriesfeeds']['results'])){ ?>
 			<div class="makeblock">
 				<div class="col-sm-2 col-xs-12 text-left">
 					<div class="footer_list_head">Latest Stories</div>
@@ -80,9 +80,9 @@
 				<div class="col-sm-10 col-xs-12 text-left">
 					<ul class="list-inline makebullet">
 						<?php $i=0; ?>
-						{% for lateststoriesfeeds in dataforfooter.lateststoriesfeeds.results %}
+						{% for lateststoriesfeeds in dataforfooter['lateststoriesfeeds']['results'] %}
 							{% if(i < 10) %}
-								<li><a href="{{baseUrl}}{{lateststoriesfeeds.url}}"><?php echo str_replace('â€“', '-', $lateststoriesfeeds->title);?></a></li>
+								<li><a href="{{baseUrl}}{{lateststoriesfeeds['url']}}">{{lateststoriesfeeds['title']}}</a></li>
 							{% endif %}
 							<?php $i++; ?>
 						{% endfor  %}
@@ -92,7 +92,7 @@
 			</div>
 			<?php } ?>
 
-			<?php if(!empty($dataforfooter->todaysfeeds->results)){ ?>
+			<?php if(!empty($dataforfooter['todaysfeeds']['results'])){ ?>
 			<div class="makeblock">
 				<div class="col-sm-2 col-xs-12 text-left">
 					<div class="footer_list_head">Event Today</div>
@@ -100,9 +100,9 @@
 				<div class="col-sm-10 col-xs-12 text-left">
 					<ul class="list-inline makebullet">
 						<?php $i=0; ?>
-						{% for todaysfeed in dataforfooter.todaysfeeds.results %}
+						{% for todaysfeed in dataforfooter['todaysfeeds']['results'] %}
 							{% if(i < 10) %}
-								<li><a href="{{baseUrl}}{{todaysfeed.url}}"><?php echo str_replace('â€“', '-', $todaysfeed->title);?></a></li>
+								<li><a href="{{baseUrl}}{{todaysfeed.url}}">{{todaysfeed['title']}}</a></li>
 							{% endif %}
 							<?php $i++; ?>
 						{% endfor  %}
@@ -112,7 +112,7 @@
 			</div>
 			<?php } ?>
 
-			<?php if(!empty($dataforfooter->upcomingfeeds->results)){ ?>
+			<?php if(!empty($dataforfooter['upcomingfeeds']['results'])){ ?>
 			<div class="makeblock">
 				<div class="col-sm-2 col-xs-12 text-left">
 					<div class="footer_list_head">Upcoming Events</div>
@@ -120,9 +120,9 @@
 				<div class="col-sm-10 col-xs-12 text-left">
 					<ul class="list-inline makebullet">
 						<?php $i=0; ?>
-						{% for upcomingfeed in dataforfooter.upcomingfeeds.results %}
+						{% for upcomingfeed in dataforfooter['upcomingfeeds']['results'] %}
 							{% if(i < 10) %}
-								<li><a href="{{baseUrl}}{{upcomingfeed.url}}"><?php echo str_replace('â€“', '-', $upcomingfeed->title);?></a></li>
+								<li><a href="{{baseUrl}}{{upcomingfeed.url}}">{{upcomingfeed['title']}}</a></li>
 							{% endif %}
 							<?php $i++; ?>
 						{% endfor  %}

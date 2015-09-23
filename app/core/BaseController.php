@@ -726,6 +726,32 @@ class BaseController extends Controller{
     }
 
     protected function setdataforfooter(){
+    	$getdataforfooter = array();
+		
+		$getdataforfooter['lateststoriesfeeds'] = $this->getfeeddata(0, 11, $this->city, 'all', '', '', 'Content', '', 'footer', 0, 11);
+		
+		$getdataforfooter['todaysfeeds'] = $this->getfeeddata(0, 11, $this->city, 'Today', '', '', 'Event', '', 'footer', 0, 11);
+		
+
+		$todaysfeeds = array();
+		foreach ($getdataforfooter['todaysfeeds']['results'] as $key => $todaysfeed) {
+			$todaysfeeds[] = $todaysfeed['id'];
+		}
+		$upcomingfeeds = $this->getfeeddata(0, 22, $this->city, 'Month', '', '', 'Event', '', 'footer', 0, 22);
+		foreach ($upcomingfeeds['results'] as $key => $upcomingfeed) {
+			if(in_array($upcomingfeed['id'], $todaysfeeds)){
+	    		unset($upcomingfeeds['results'][$key]);
+	    	}
+		}
+		$upcomingfeeds['results'] = array_values($upcomingfeeds['results']);
+		$getdataforfooter['upcomingfeeds'] = $upcomingfeeds;
+    	
+    	$this->view->dataforfooter = $getdataforfooter;
+    	//echo "<pre>"; print_r($getdataforfooter); echo "</pre>"; exit;
+    }
+
+
+    /*protected function setdataforfooter(){
     	$dataforfooter = array();
     	if($this->currentCity == 'delhi-ncr'){
 			$datafromcity = $this->storageslave->get('_delhincr');
@@ -783,6 +809,6 @@ class BaseController extends Controller{
 		}
     	$this->view->dataforfooter = json_decode($dataforfooter);
     	//echo "<pre>"; print_r(json_decode($dataforfooter)); echo "</pre>"; exit;
-    }
+    }*/
 
 }
