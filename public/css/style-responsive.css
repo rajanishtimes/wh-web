@@ -790,9 +790,16 @@ PHONE < 480px
 	.app_option.large > a > div {
 	    background-size: 284px auto;
 	    width: 135px;
+	    height: 45px;
 	}
 	.iphone_app_large {
     	background: rgba(0, 0, 0, 0) url("../img/app-icon-large.png") no-repeat scroll -150px 0;
+	}
+	.android_app_large:hover {
+	    background: rgba(0, 0, 0, 0) url("../img/app-icon-large.png") no-repeat scroll 0 -46px;
+	}
+	.iphone_app_large:hover {
+    	background: rgba(0, 0, 0, 0) url("../img/app-icon-large.png") no-repeat scroll -149px -46px;
 	}
 	.award-block{
 		padding: 15px;

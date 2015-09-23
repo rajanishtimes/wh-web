@@ -1661,6 +1661,7 @@ footer .social_icon {
 .app_option.large > a > div{
     height: 50px;
     width: 161px;
+
 }
 .android_app {
     background: rgba(0, 0, 0, 0) url("../img/download_icons.png") no-repeat scroll 0 0;
@@ -2392,6 +2393,7 @@ h3.tags {
 
 .sticky.sharesmall {
     margin: 0;
+    max-width: 130px;
 }
 .stickyheader .sharesmall .head {
     margin: 0 0 5px 0;
