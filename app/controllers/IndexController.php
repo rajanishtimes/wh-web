@@ -226,7 +226,12 @@ class IndexController extends BaseController{
 
 	public function updatecityAction(){
 		if(!empty($this->logged_user)){
-			$city = $this->request->getPost('city');
+			if($this->request->getPost('city') == 'delhi-ncr'){
+				$city = 'Delhi NCR';
+			}else{
+				$city = $this->request->getPost('city');
+			}
+			
 			$addprofile = new \WH\Model\UserProfile();
 			$addprofile->setSSOid($this->logged_user->sso_id);
 			$addprofile->setCity($city);

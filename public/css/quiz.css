@@ -383,12 +383,86 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     width: 100%;
     height: 100%;
     padding: 20px;
+    background-size: cover;
+}
+.sponsor {
+    padding: 20px 0;
+}
+.sponsor > img, .timeline > img {
+    max-width: 100%;
+    padding: 0 15px;
 }
 .tfa .desc {
-    margin: 0 0 0 -11%;
-    top:70px;
+    margin: 0;
+    top:0;
+    left:0;
+    position: relative;
 }
 .tfa .row .contestlogo:first-child {
     margin-right: 20px;
+}
+.tfa .bordered {
+    border: 5px solid #76643f;
+}
+.tfa .sponsor{
+    padding: 20px 0;
+}
+.tfa .emailer{
+    background: #232220;
+    padding: 30px;
+}
+.tfa .timeline {
+    padding: 20px 0;
+    background: #f9f9f9 none repeat scroll 0 0;
+}
+.award-block{
+    background: rgba(0, 0, 0, 0) url("../img/tfa/bk.png") repeat scroll 0 bottom;
+    padding: 50px;
+}
+.texting, .shareer {
+    background: #fff none repeat scroll 0 0;
+    padding: 47px;
+}
+.awardimg {
+    background: #fff none repeat scroll 0 0;
+    margin-left: 97px;
+    padding: 46px;
+    text-align: center;
+}
+.award_head {
+    font-family: Times New Roman;
+    font-size: 33px;
+}
+.award_text {
+    font: 300 15px/23px roboto;
+    margin-top: 29px;
+}
+.winnerforawrds{
+    background: #232220;
+    padding: 30px;
+    color: #fff;
+}
+.winnerslist{
+    background: #efeeed;
+    padding: 30px 0;
+}
+.tfa .footerstyle{
+    color: #000;
+}
+.tfa .footerlist .list {
+    margin: 0;
+    padding: 0 0 20px;
+}
+.tfa .footerlist .list > li {
+    width: 100%;
+}
+.tfa .list{
+    margin-bottom: 0;
+}
+.tfa .list.logos > li:first-child{
+    margin-right: 40px;
+}
+.tfa .list.logos > li{
+    margin-bottom: 20px;   
 }
 /* TFA */

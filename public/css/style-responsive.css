@@ -269,6 +269,9 @@ TABLET < 767px
 	.hp-mobile{
 		display: block;
 	}
+	.hp.tfa{
+		display: block;
+	}
 	.width100{
 		 width: 70% !important;
 	}
@@ -569,6 +572,9 @@ TABLET < 767px
 		font: 400 14px roboto;
 		margin-bottom: 10px;
 	}
+	.awardimg{
+		margin-top: 15px;
+	}
 }
 
 
@@ -787,6 +793,15 @@ PHONE < 480px
 	}
 	.iphone_app_large {
     	background: rgba(0, 0, 0, 0) url("../img/app-icon-large.png") no-repeat scroll -150px 0;
+	}
+	.award-block{
+		padding: 15px;
+	}
+	.awardimg{
+		margin-left: 0;
+	}
+	.texting, .shareer{
+		padding: 10px;
 	}
 }
 

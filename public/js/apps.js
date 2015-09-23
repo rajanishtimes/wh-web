@@ -56,11 +56,11 @@ $(window).load(function() {
 	});
 	resizefeedimage();
 	setquizheight();
-	settfaheight();
+	//settfaheight();
 	$(window).resize(function() {
 	  resizefeedimage();
 	  setquizheight();
-	  settfaheight();
+	  //settfaheight();
 	});
 	
 	fbandtwitter();

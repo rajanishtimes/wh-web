@@ -1670,6 +1670,10 @@ footer .social_icon {
 .android_app_large {
     background: rgba(0, 0, 0, 0) url("../img/app-icon-large.png") no-repeat scroll 0 0;
 }
+.android_app_large:hover {
+    background: rgba(0, 0, 0, 0) url("../img/app-icon-large.png") no-repeat scroll 0 -56px;
+}
+
 .android_app:hover {
     background: rgba(0, 0, 0, 0) url("../img/download_icons.png") no-repeat scroll 0 -34px;
 }
@@ -1680,6 +1684,10 @@ footer .social_icon {
 }
 .iphone_app_large {
     background: rgba(0, 0, 0, 0) url("../img/app-icon-large.png") no-repeat scroll -180px 0;
+    margin-left: 16px;
+}
+.iphone_app_large:hover {
+    background: rgba(0, 0, 0, 0) url("../img/app-icon-large.png") no-repeat scroll -180px -56px;
     margin-left: 16px;
 }
 .iphone_app:hover {
@@ -4918,4 +4926,30 @@ iframe {
 #similar_content_load .heading{
     font-size: 20px;
     margin-bottom: 15px;
+}
+.list{
+    margin-top: 27px;
+}
+.list > li {
+    display: inline-block;
+}
+.list > li:first-child {
+    margin-right: 20px;
+}
+.tfa  .hp .contestlogo{
+    margin-top: 31px;
+}
+.tfa .hp .presents{
+    margin-top: 17px;
+}
+.tfa  .hp .wh_logo{
+    margin-top: 10px;   
+}
+.tfa  .hp .wh_logo > img {
+    width: 80px;
+}
+.tfa .coming_text {
+    font-size: 43px;
+    margin-top: 24px;
+    margin-bottom: 43px;
 }
