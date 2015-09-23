@@ -21,7 +21,7 @@
 </section>
 
 <div class="clearfix"></div>
-<div class="section">
+<!--<div class="section">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 col-md-12 sponsor">
@@ -29,7 +29,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div>-->
 <section id="quizdata" class="quiz_data tfa">
 		<!--<div class="col-sm-12 col-md-12 emailer">
 			
@@ -45,12 +45,12 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-md-6 texting">
-							<div class="award_head">Times Food and & Nightlife Awards 2016</div>
+							<div class="award_head">Times Food & Nightlife Awards 2016</div>
 							<div class="award_text">The Times Food & Nightlife Awards 2015. Your votes were tallied along with the selections of a jury and the critics to reach a final decision and now here are your winners.
 							<br><br><strong>12 Dec-2015, ITC Grand Central, New Delhi</strong>
 							<br><strong>Nominations by star Critic Marryam H Reshii</strong></div>
 						</div>
-						<div class="col-xs-12 col-sm-6 col-md-3 awardimg">
+						<div class="col-xs-12 col-sm-4 col-md-3 awardimg">
 							<img src="{{baseUrl}}/img/tfa/times_food_b.png">				
 						</div>
 					</div>
@@ -59,7 +59,7 @@
 		</div>
 		</div>
 
-		<div class="col-sm-12 col-md-12 shareer">
+		<!--<div class="col-sm-12 col-md-12 shareer">
 			
 		</div>
  
@@ -75,7 +75,7 @@
 			</div>
 		</div>
 
-		<div class="row">
+		<!--<div class="row">
 		<div class="col-sm-12 col-md-12">
 			<div class="winnerslist">
 				<div class="container footerlist">
@@ -171,7 +171,7 @@
 				</div>
 			</div>
 		</div>
-		</div>
+		</div>-->
 </section>
 <!--<div class="haleemoverlay"><img src="{{baseUrl}}/img/ajax-loader.gif"></div>-->
 

@@ -1,3 +1,52 @@
+@font-face {
+    font-family: "Gotham-Black";
+    font-style: normal;
+    font-weight: normal;
+    src: local("?"), url("../fonts/Gotham-Black.woff") format("woff"), url("../fonts/Gotham-Black.ttf") format("truetype"), url("../fonts/Gotham-Black.svg") format("svg");
+}
+@font-face {
+    font-family: "Gotham-Bold";
+    font-style: normal;
+    font-weight: normal;
+    src: local("?"), url("../fonts/Gotham-Bold.woff") format("woff"), url("../fonts/Gotham-Bold.ttf") format("truetype"), url("../fonts/Gotham-Bold.svg") format("svg");
+}
+@font-face {
+    font-family: "Gotham-Book";
+    font-style: normal;
+    font-weight: normal;
+    src: local("?"), url("../fonts/Gotham-Book.woff") format("woff"), url("../fonts/Gotham-Book.ttf") format("truetype"), url("../fonts/Gotham-Book.svg") format("svg");
+}
+@font-face {
+    font-family: "Gotham-Light";
+    font-style: normal;
+    font-weight: normal;
+    src: local("?"), url("../fonts/Gotham-Light.woff") format("woff"), url("../fonts/Gotham-Light.ttf") format("truetype"), url("../fonts/Gotham-Light.svg") format("svg");
+}
+@font-face {
+    font-family: "Gotham-Medium";
+    font-style: normal;
+    font-weight: normal;
+    src: local("?"), url("../fonts/Gotham-Medium.woff") format("woff"), url("../fonts/Gotham-Medium.ttf") format("truetype"), url("../fonts/Gotham-Medium.svg") format("svg");
+}
+@font-face {
+    font-family: "Gotham-Thin";
+    font-style: normal;
+    font-weight: normal;
+    src: local("?"), url("../fonts/Gotham-Thin.woff") format("woff"), url("../fonts/Gotham-Thin.ttf") format("truetype"), url("../fonts/Gotham-Thin.svg") format("svg");
+}
+@font-face {
+    font-family: "Gotham-Ultra";
+    font-style: normal;
+    font-weight: normal;
+    src: local("?"), url("../fonts/Gotham-Ultra.woff") format("woff"), url("../fonts/Gotham-Ultra.ttf") format("truetype"), url("../fonts/Gotham-Ultra.svg") format("svg");
+}
+@font-face {
+    font-family: "PlayfairDisplaySC-Regular";
+    font-style: normal;
+    font-weight: normal;
+    src: local("?"), url("../fonts/PlayfairDisplaySC-Regular.woff") format("woff"), url("../fonts/PlayfairDisplaySC-Regular.ttf") format("truetype"), url("../fonts/PlayfairDisplaySC-Regular.svg") format("svg");
+}
+
 /* Biryani and halim quiz */
 .hp .desc {
     color: #fff;
@@ -417,7 +466,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .award-block{
     background: rgba(0, 0, 0, 0) url("../img/tfa/bk.png") repeat scroll 0 bottom;
-    padding: 50px;
+    padding: 120px 50px 160px;
 }
 .texting, .shareer {
     background: #fff none repeat scroll 0 0;
@@ -425,16 +474,16 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .awardimg {
     background: #fff none repeat scroll 0 0;
-    margin-left: 97px;
+    margin-left: 138px;
     padding: 46px;
     text-align: center;
 }
 .award_head {
-    font-family: Times New Roman;
-    font-size: 33px;
+    font: 32px PlayfairDisplaySC-Regular;
+    margin-bottom: 34px;
 }
 .award_text {
-    font: 300 15px/23px roboto;
+    font: 300 14px/23px Gotham-Light;
     margin-top: 29px;
 }
 .winnerforawrds{
@@ -464,5 +513,22 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .tfa .list.logos > li{
     margin-bottom: 20px;   
+}
+.tfa .presents {
+    font: 12px Gotham-Thin;
+}
+.tfa .wh_logo {
+    margin-top: 13px;
+}
+.tfa .wh_logo > img {
+    width: 85px;
+}
+.tfa .coming_text {
+    font: 44px Gotham-Bold;
+    margin-bottom: 43px;
+    margin-top: 24px;
+}
+.texting {
+    margin-left: 68px;
 }
 /* TFA */

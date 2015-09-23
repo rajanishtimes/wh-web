@@ -114,7 +114,16 @@ STANDARD DESKTOP < 1024px
 	.foot_head{
 		padding: 0px
 	}
-
+	.texting, .shareer{
+		padding: 24px;
+	}
+	.awardimg{
+		margin-left: 40px;
+		padding: 46px 20px;
+	}
+	.texting {
+	    margin-left: 0px;
+	}
 }
 
 
@@ -572,9 +581,7 @@ TABLET < 767px
 		font: 400 14px roboto;
 		margin-bottom: 10px;
 	}
-	.awardimg{
-		margin-top: 15px;
-	}
+	
 }
 
 
@@ -643,7 +650,18 @@ PHONE < 640px
 		margin-left: 1%;
 		width: 95%;
 	}
-
+	.hp .mainback{
+		background: #000;
+	}
+	.tfa .list.logos > li:first-child{
+		 margin-right: 0;
+	}
+	.tfa .timeline{
+		display: none;
+	}
+	.award-block {
+	    padding: 64px 15px 64px;
+	}
 }
 
 
@@ -767,6 +785,11 @@ PHONE < 480px
 	    vertical-align: middle;
 	    width: 20%;
 	}
+	.tfa .desc > div {
+		display: block;
+	    vertical-align: middle;
+	    width: auto;
+	}
 	.hp-mobile .item-left .desc{
 		top:25px;
 	}
@@ -801,9 +824,7 @@ PHONE < 480px
 	.iphone_app_large:hover {
     	background: rgba(0, 0, 0, 0) url("../img/app-icon-large.png") no-repeat scroll -149px -46px;
 	}
-	.award-block{
-		padding: 15px;
-	}
+	
 	.awardimg{
 		margin-left: 0;
 	}
@@ -919,6 +940,11 @@ IPHONE 6 PLUS
 	    vertical-align: middle;
 	    width: 20%;
 	}
+	.tfa .desc > div {
+		display: block;
+	    vertical-align: middle;
+	    width: auto;
+	}
 	.hp-mobile .item-left .desc{
 		top:0px;
 	}
@@ -990,6 +1016,11 @@ IPHONE 6
 		display: table-cell;
 	    vertical-align: middle;
 	    width: 20%;
+	}
+	.tfa .desc > div {
+		display: block;
+	    vertical-align: middle;
+	    width: auto;
 	}
 	.hp-mobile .item-left .desc{
 		top:75px;

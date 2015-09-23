@@ -110,7 +110,7 @@
 
 			<ul class="nav-search navbar-right right-responsive-menu">
 				<li class="whresposive-menu user-profile-menu">
-						<a href="{{baseUrl}}/profile"><img src="{{baseUrl}}/img/looksy.jpg" alt="user" class="img-circle user-profile-img">
+						<a href="{{baseUrl}}/profile" class="profile-url"><img src="{{baseUrl}}/img/looksy.jpg" alt="user" class="img-circle user-profile-img">
 					
 					</a>
 				</li>
@@ -133,7 +133,7 @@
 		<ul class="ac-gn-list">
 			<li class="ac-gn-item ac-gn-item-menu">
 				{% if(logged_user is empty) %}
-					<a href="{{baseUrl}}/profile"><span class="ac-gn-link-text">Profile</span>
+					<a href="{{baseUrl}}/profile" class="profile-url"><span class="ac-gn-link-text">Profile</span>
 				{% else %}
 					<a href="{{baseUrl}}/{{logged_user.username}}"><span class="ac-gn-link-text">Profile</span>
 				{% endif %}
