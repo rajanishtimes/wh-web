@@ -815,7 +815,7 @@ function loadprofile(){
 			if(results.status == 'success'){
 				$('.user-profile-img').attr('src', results.message.image);
 				$('.user-profile-img').attr('alt', results.message.firstname+' '+results.message.lastname);
-				$('.profile-url').attr('href', baseurl+'/'+results.message.username);
+				$('.profile-url').attr('href', baseUrl+'/'+results.message.username);
 			}
 		}
 	});

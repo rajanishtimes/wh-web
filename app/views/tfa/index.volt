@@ -5,7 +5,7 @@
 				<div class="contestlogo"><img src="{{baseUrl}}/img/tfa/groupp.png"></div>
 
 				<div class="row">
-					<ul class="list logos">
+					<ul class="list logos padding0">
 						<li><img src="{{baseUrl}}/img/tfa/tfalogo.png"></li>
 						<li><img src="{{baseUrl}}/img/tfa/times_nightlife_awards.png"></li>
 					</ul>

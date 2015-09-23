@@ -581,7 +581,9 @@ TABLET < 767px
 		font: 400 14px roboto;
 		margin-bottom: 10px;
 	}
-	
+	.tfa .list.logos > li{
+		margin-bottom: 45px;
+	}
 }
 
 
@@ -654,7 +656,8 @@ PHONE < 640px
 		background: #000;
 	}
 	.tfa .list.logos > li:first-child{
-		 margin-right: 0;
+		margin-right: 0;
+		width: 100%;
 	}
 	.tfa .timeline{
 		display: none;
