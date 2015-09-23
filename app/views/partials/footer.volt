@@ -102,7 +102,7 @@
 						<?php $i=0; ?>
 						{% for todaysfeed in dataforfooter['todaysfeeds']['results'] %}
 							{% if(i < 10) %}
-								<li><a href="{{baseUrl}}{{todaysfeed.url}}">{{todaysfeed['title']}}</a></li>
+								<li><a href="{{baseUrl}}{{todaysfeed['url']}}">{{todaysfeed['title']}}</a></li>
 							{% endif %}
 							<?php $i++; ?>
 						{% endfor  %}
@@ -122,7 +122,7 @@
 						<?php $i=0; ?>
 						{% for upcomingfeed in dataforfooter['upcomingfeeds']['results'] %}
 							{% if(i < 10) %}
-								<li><a href="{{baseUrl}}{{upcomingfeed.url}}">{{upcomingfeed['title']}}</a></li>
+								<li><a href="{{baseUrl}}{{upcomingfeed['url']}}">{{upcomingfeed['title']}}</a></li>
 							{% endif %}
 							<?php $i++; ?>
 						{% endfor  %}
