@@ -437,6 +437,24 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .sponsor {
     padding: 20px 0;
 }
+
+.tfa  .hp .contestlogo{
+    margin-top: 31px;
+}
+.tfa .hp .presents{
+    margin-top: 17px;
+}
+.tfa  .hp .wh_logo{
+    margin-top: 10px;   
+}
+.tfa  .hp .wh_logo > img {
+    width: 80px;
+}
+.tfa .coming_text {
+    font-size: 43px;
+    margin-top: 24px;
+    margin-bottom: 43px;
+}
 .sponsor > img, .timeline > img {
     max-width: 100%;
     padding: 0 15px;

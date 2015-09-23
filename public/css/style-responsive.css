@@ -584,6 +584,9 @@ TABLET < 767px
 	.tfa .list.logos > li{
 		margin-bottom: 45px;
 	}
+	.sticky.sharesmall {
+		max-width: 100%;
+	}
 }
 
 

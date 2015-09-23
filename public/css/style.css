@@ -4938,20 +4938,3 @@ iframe {
 .list > li:first-child {
     margin-right: 20px;
 }
-.tfa  .hp .contestlogo{
-    margin-top: 31px;
-}
-.tfa .hp .presents{
-    margin-top: 17px;
-}
-.tfa  .hp .wh_logo{
-    margin-top: 10px;   
-}
-.tfa  .hp .wh_logo > img {
-    width: 80px;
-}
-.tfa .coming_text {
-    font-size: 43px;
-    margin-top: 24px;
-    margin-bottom: 43px;
-}
