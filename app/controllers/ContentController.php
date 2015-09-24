@@ -134,12 +134,12 @@ class ContentController extends BaseController{
     }
 
     public function getwishlistwidgetAction(){
-    	$title = $this->request->getPost('title');
+    	$title = urldecode($this->request->getPost('title'));
 		$cityid = $this->request->getPost('cityid');
-		$entitytitle = $this->request->getPost('entitytitle');
+		$entitytitle = urldecode($this->request->getPost('entitytitle'));
 		$entityid = $this->request->getPost('entityid');
 		$entitytype = $this->request->getPost('entitytype');
-		$ctitle = $this->request->getPost('ctitle');
+		$ctitle = urldecode($this->request->getPost('ctitle'));
 		$html = '';
 
 		if(!isset($entitytitle) && empty($entitytitle)){

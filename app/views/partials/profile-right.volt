@@ -2,7 +2,7 @@
 	<div class="section sidebar">
 		<div class="panel panel-no-border panel-sidebar text-left">
 			<div class="panel-heading">
-				<h3 class="panel-title">Articles for you</h3>
+				<h3 class="panel-title">Recent Articles:</h3>
 			</div>
 			<ul class="media-list">
 				<?php $i = 0; ?>
@@ -15,8 +15,12 @@
 					<div class="media-body">
 						<p><a href="{{baseUrl}}{{list['url']}}">{{list['title']}}</a></p>
 						{% if(list['type'] == 'CONTENT' ) %}
+							<?php
+								$desc = trim(strip_tags($list['description']));
+								$description = strlen($desc) > 50 ? substr($desc, 0, 50).'...' : $desc;
+							?>
 							<?php $date_time = date('j M, Y' ,strtotime($list['published_time'])) ?>
-							<p class="small text-info">{{date_time}}</p>
+							<a href="{{baseUrl}}{{list['url']}}"><p class="small text-info">{{description}}</p></a>
 						{% else %}
 							<p class="small text-info">{{list['time']}}</p>
 						{% endif %}

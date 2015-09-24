@@ -728,7 +728,7 @@ class BaseController extends Controller{
     protected function setdataforfooter(){
     	$getdataforfooter = array();
 		
-		$getdataforfooter['lateststoriesfeeds'] = $this->getfeeddata(0, 11, $this->city, 'all', '', '', 'Content', '', 'footer', 0, 11);
+		$getdataforfooter['lateststoriesfeeds'] = $this->getfeeddata(0, 11, $this->city, 'all', '', '', 'Content', '', 'feed', 0, 0);
 		
 		$getdataforfooter['todaysfeeds'] = $this->getfeeddata(0, 11, $this->city, 'Today', '', '', 'Event', '', 'footer', 0, 11);
 		

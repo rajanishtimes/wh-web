@@ -78,17 +78,11 @@
 							&#8226;&#8226;&#8226;
 						</div>
 					</a>
-					<ul class="dropdown-menu square primary margin-list-rounded fancy-dropdown">
+					<ul class="dropdown-menu square primary margin-list-rounded fancy-dropdown pro-menu">
 						<li><a href="{{baseUrl}}/about-us">About us</a></li>
 						<li><a href="{{baseUrl}}/policy">Privacy</a></li>
 						<li><a href="{{baseUrl}}/terms">Terms</a></li>
 						<li><a href="mailto:reach@whatshot.in">Feedback</a></li>
-						{% if(logged_user is empty) %}
-							
-						{% else %}
-							<li><a href="{{baseUrl}}/profile/logout">Logout</a></li>
-						{% endif %}
-
 					</ul>
 				</li>
 				<!--<li class="resposive-menu">
@@ -130,7 +124,7 @@
 			{% endif %}
 	</div><!-- /.top-navbar -->
 		<!-- BEGIN SIDEBAR RIGHT -->
-		<ul class="ac-gn-list">
+		<ul class="ac-gn-list pro-mobile-menu">
 			<li class="ac-gn-item ac-gn-item-menu">
 				{% if(logged_user is empty) %}
 					<a href="{{baseUrl}}/profile" class="profile-url"><span class="ac-gn-link-text">Profile</span>
@@ -143,10 +137,7 @@
 			<li class="ac-gn-item ac-gn-item-menu"><a href="{{baseUrl}}/policy"><span class="ac-gn-link-text">Privacy</span></a></li>
 			<li class="ac-gn-item ac-gn-item-menu"><a href="{{baseUrl}}/terms"><span class="ac-gn-link-text">Terms</span></a></li>
 			<li class="ac-gn-item ac-gn-item-menu"><a href="mailto:reach@whatshot.in"><span class="ac-gn-link-text">Feedback</span></a></li>
-			{% if(logged_user is empty) %}
-			{% else %}
-				<li class="ac-gn-item ac-gn-item-menu"><a href="{{baseUrl}}/profile/logout">Logout</a></li>
-			{% endif %}
+			
 		</ul>
 		<!-- END SIDEBAR RIGHT -->
 

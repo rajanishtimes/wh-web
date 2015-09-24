@@ -816,6 +816,13 @@ function loadprofile(){
 				$('.user-profile-img').attr('src', results.message.image);
 				$('.user-profile-img').attr('alt', results.message.firstname+' '+results.message.lastname);
 				$('.profile-url').attr('href', baseUrl+'/'+results.message.username);
+				$('.pro-menu').append('<li class="logout-url"><a href="'+baseUrl+'/profile/logout">Logout</a></li>');
+				$('.pro-mobile-menu').append('<li class="ac-gn-item ac-gn-item-menu logout-url"><a href="'+baseUrl+'/profile/logout">Logout</a></li>');
+			}else{
+				$('.user-profile-img').attr('src', baseUrl+'/img/looksy.jpg');
+				$('.user-profile-img').attr('alt', 'You');
+				$('.profile-url').attr('href', baseUrl+'/profile');
+				$('.logout-url').remove();
 			}
 		}
 	});
@@ -827,10 +834,10 @@ function loadwishlist(){
 			var elem = $(this);
 			var entitytype = elem.attr('data-entitytype');
 			var entityid = elem.attr('data-entityid');
-			var entitytitle = elem.attr('data-entitytitle');
+			var entitytitle = encodeURIComponent(elem.attr('data-entitytitle'));
 			var cityid = elem.attr('data-cityid');
-			var title = elem.attr('data-title');
-			var ctitle = elem.attr('data-ctitle');
+			var title = encodeURIComponent(elem.attr('data-title'));
+			var ctitle = encodeURIComponent(elem.attr('data-ctitle'));
 			if(entityid != ''){
 				$.ajax({
 					url:baseUrl+'/content/getwishlistwidget/'+milliseconds,
