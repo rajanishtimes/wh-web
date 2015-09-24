@@ -119,7 +119,7 @@
 				<div class="col-sm-4 col-md-3">
 					<div class="section sidebar articles">
 						<div class="panel panel-square">
-							<h3 class="panel-title"><strong>Recent Articles:</strong></h3>
+							<h3 class="panel-title"><strong>Featured:</strong></h3>
 						   <!-- List group -->
 							<ul class="media-list">
 								<?php  //echo "<pre>"; print_r($allfeedslists['results']); echo "</pre>"; ?>

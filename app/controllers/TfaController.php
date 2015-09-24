@@ -10,9 +10,9 @@ class TfaController extends BaseController{
     }
 
 	public function indexAction(){
-		$title = 'Times Food and Nightlife awards 2016 | '.$this->config->application->SiteName;
+		$title = $this->city.' Times Food & Nightlife Awards 2016, Best Restaurants | '.$this->config->application->SiteName;
 		$this->tag->setTitle($title);
-		$this->view->meta_description = 'Times Food and Nightlife awards 2016 '. $this->city;
-		$this->view->meta_keywords = 'Times Food awards, Nightlife awards '. $this->city;
+		$this->view->meta_description = 'Times Food Awards & Times Nightlife Awards 2016 '.$this->city.': Find best restaurants, bars & clubs in '.$this->city.'. Best dining and party places in '.$this->city;
+		$this->view->meta_keywords = 'Times Food Awards, Times Nightlife Awards, Times Food Awards '.$this->city.', Times Nightlife Awards '.$this->city;
     }
 }
