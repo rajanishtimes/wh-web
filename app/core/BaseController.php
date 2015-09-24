@@ -415,7 +415,7 @@ class BaseController extends Controller{
 				$splimit = $limit;
 			}
 
-			if($type == 'feed' || $type == 'footer'){
+			if($type == 'feed'){
 				$Searches->setParam('sponsored','true');
 				$Searches->setParam('spstart',$spstart);
 				$Searches->setParam('splimit',$splimit);	
@@ -431,6 +431,11 @@ class BaseController extends Controller{
 			else
 				$sort_by=2;
 		}
+
+		if($type == 'footer'){
+			$sort_by=10;
+		}
+
 		if($filter_type=='tags')
 			$sort_by=2;
 		$Searches->setParam('bysort',$sort_by);
@@ -728,7 +733,7 @@ class BaseController extends Controller{
     protected function setdataforfooter(){
     	$getdataforfooter = array();
 		
-		$getdataforfooter['lateststoriesfeeds'] = $this->getfeeddata(0, 11, $this->city, 'all', '', '', 'Content', '', 'feed', 0, 0);
+		$getdataforfooter['lateststoriesfeeds'] = $this->getfeeddata(0, 11, $this->city, 'all', '', '', 'Content', '', 'footer', 0, 0);
 		
 		$getdataforfooter['todaysfeeds'] = $this->getfeeddata(0, 11, $this->city, 'Today', '', '', 'Event', '', 'footer', 0, 11);
 		
