@@ -47,7 +47,7 @@
 						<div class="col-xs-12 col-sm-6 col-md-6 texting">
 							<div class="award_head">Times Food & Nightlife Awards 2016</div>
 							<div class="award_text">The country's oldest and most revered food & nightlife awards are back! Keep an eye out for your city's nominations, so you can start voting.
-							<br><br><strong>Nominations by star Critic Marryam H Reshii</strong></div>
+							<!--<br><br><strong>Nominations by star Critic Marryam H Reshii</strong>--></div>
 						</div>
 						<div class="col-xs-12 col-sm-4 col-md-3 awardimg">
 							<img src="{{baseUrl}}/img/tfa/times_food_b.png">				

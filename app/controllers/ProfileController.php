@@ -8,7 +8,7 @@ class ProfileController extends BaseController{
 	public function initialize(){
 		parent::initialize();
 		$this->view->setLayout('mainLayout');
-		$allfeedslists = $this->getfeeddata(0, 4, $this->city, 'all', '', '', 'Content', '', 'feed', 0, 4);
+		$allfeedslists = $this->getfeeddata(0, 5, $this->city, 'all', '', '', 'Content', '', 'footer', 0, 11);
 		$this->view->allfeedslists = $allfeedslists;
 		$this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate');	
 		//echo "<pre>"; print_r($allfeedslists); echo "</pre>"; exit;

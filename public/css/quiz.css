@@ -549,4 +549,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .texting {
     margin-left: 68px;
 }
+.tfa .contestlogo > img {
+    opacity: 0;
+}
 /* TFA */
