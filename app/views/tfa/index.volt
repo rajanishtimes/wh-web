@@ -58,7 +58,7 @@
 			</div>
 
 			<div class="timeline-block">
-				<div class="city">Delhi</div>
+				<div class="city">Delhi NCR</div>
 				<div class="date">03 Mar 2016</div>
 			</div>
 			
