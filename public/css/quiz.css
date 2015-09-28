@@ -453,7 +453,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .tfa .coming_text {
     font-size: 43px;
     margin-top: 24px;
-    margin-bottom: 43px;
+    margin-bottom: 95px;
 }
 .sponsor > img, .timeline > img {
     max-width: 100%;
@@ -541,15 +541,33 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .tfa .wh_logo > img {
     width: 85px;
 }
-.tfa .coming_text {
-    font: 44px Gotham-Bold;
-    margin-bottom: 43px;
-    margin-top: 24px;
-}
 .texting {
     margin-left: 68px;
 }
 .tfa .contestlogo > img {
     opacity: 0;
+}
+.tfa .list{
+    margin-top: 120px;
+}
+.tfa .list > li {
+    display: inline-block;
+}
+.tfa .list > li:first-child {
+    margin-right: 20px;
+}
+.tfa .timeline {
+    background: #f9f9f9 none repeat scroll 0 0;
+    padding: 60px 0 25px;
+}
+.tfa .timeline-block {
+    border-right: 1px solid #c1c1c1;
+    display: inline-block;
+    font: 14px Gotham-Bold;
+    margin: 0 0 35px;
+    padding: 0 29px;
+}
+.tfa .timeline-block:last-child {
+    border: none;
 }
 /* TFA */

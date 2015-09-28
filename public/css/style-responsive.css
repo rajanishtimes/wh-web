@@ -863,8 +863,11 @@ PHONE < 480px
 	.awardimg{
 		margin-left: 0;
 	}
-	.texting, .shareer{
+	.shareer{
 		padding: 10px;
+	}
+	.texting{
+		padding:46px 10px 10px;
 	}
 }
 

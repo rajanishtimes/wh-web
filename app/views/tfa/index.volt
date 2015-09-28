@@ -2,7 +2,7 @@
 	<div class="mainback">
 		<div class="bordered">
 			<div class="desc">
-				<div class="contestlogo"><img src="{{baseUrl}}/img/tfa/groupp.png"></div>
+				<!--<div class="contestlogo"><img src="{{baseUrl}}/img/tfa/groupp.png"></div>-->
 
 				<div class="row">
 					<ul class="list logos padding0">

@@ -4930,26 +4930,3 @@ iframe {
     font-size: 20px;
     margin-bottom: 15px;
 }
-.tfa .list{
-    margin-top: 27px;
-}
-.tfa .list > li {
-    display: inline-block;
-}
-.tfa .list > li:first-child {
-    margin-right: 20px;
-}
-.tfa .timeline {
-    background: #f9f9f9 none repeat scroll 0 0;
-    padding: 60px 0 25px;
-}
-.tfa .timeline-block {
-    border-right: 1px solid #c1c1c1;
-    display: inline-block;
-    font: 14px Gotham-Bold;
-    margin: 0 0 35px;
-    padding: 0 29px;
-}
-.tfa .timeline-block:last-child {
-    border: none;
-}
