@@ -592,6 +592,9 @@ TABLET < 767px
 	.sticky.sharesmall {
 		max-width: 100%;
 	}
+	.texting {
+		height: auto;
+	}
 }
 
 

@@ -454,6 +454,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     font-size: 43px;
     margin-top: 24px;
     margin-bottom: 95px;
+    font-family: Gotham-Bold;
 }
 .sponsor > img, .timeline > img {
     max-width: 100%;
@@ -543,6 +544,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .texting {
     margin-left: 68px;
+    height: 354px;
 }
 .tfa .contestlogo > img {
     opacity: 0;
