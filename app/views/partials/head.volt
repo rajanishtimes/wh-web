@@ -80,7 +80,11 @@
 		{% endif  %}
 
 		<link rel='alternate' type='application/rss+xml' title='RSS' href='{{baseUrl}}/{{city}}/feed'>
-		<meta name="author" content="What's Hot">
+
+		{% if meta_og_author != '' %}
+			<meta name="author" content="{{meta_og_author}}">
+		{% endif  %}
+
 	    <meta name="apple-itunes-app" content="app-id=636515332">
 		<meta name="google-play-app" content="app-id=com.phdmobi.timescity">
 		

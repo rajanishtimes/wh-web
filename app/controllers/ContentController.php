@@ -100,6 +100,7 @@ class ContentController extends BaseController{
 			}
 			
 			$this->view->og_url = $this->baseUrl.$contentdetail['url'];
+			$this->view->meta_og_author = $contentdetail['author']['name'];
 			$this->view->canonical_url = $this->baseUrl.$contentdetail['url'];
 			$this->view->deep_link = $contentdetail['deep_link'];
 			/* ======= Seo Update ============= */

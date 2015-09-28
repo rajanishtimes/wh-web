@@ -75,6 +75,7 @@ class CriticController extends BaseController{
 				$this->view->og_image = $this->makeurl($this->baseUrl, $criticdetail['og_image']).'?w=500';
 			}
 			
+			$this->view->meta_og_author = $author['title'];
 			$this->view->og_url = $this->baseUrl.$criticdetail['url'];
 			$this->view->canonical_url = $this->baseUrl.$criticdetail['url'];
 			$this->view->deep_link = $criticdetail['deep_link'];

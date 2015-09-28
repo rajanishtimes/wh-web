@@ -17,6 +17,7 @@ class BaseController extends Controller{
 	public $og_description = '';
 	public $og_image = '';
 	public $og_url = '';
+	public $meta_og_author = '';
 	public $canonical_url = '';
 	public $deep_link = '';
 	public $city = 'delhi-ncr';
@@ -59,6 +60,7 @@ class BaseController extends Controller{
 		$this->view->og_type = $this->og_type;
 		$this->view->og_description = $this->og_description;
 		$this->view->og_image = $this->og_image;
+		$this->view->meta_og_author = $this->meta_og_author;
 		$this->view->og_url = $this->og_url;
 		$this->view->canonical_url = $this->canonical_url;
 		$this->view->deep_link = $this->deep_link;
