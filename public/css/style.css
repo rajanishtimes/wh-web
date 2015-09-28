@@ -2230,6 +2230,7 @@ a.bg-dark:hover {
     line-height: 24px;
     margin: 0;
     padding: 7px 0 5px 22px;
+    color:#000;
 }
 .tt-suggestion {
     border-bottom: 1px solid #f4f4f4;
@@ -4325,7 +4326,7 @@ iframe {
 }
 .articles li.media {
     border-bottom: 1px solid #eaeaec;
-    padding-bottom: 15px;
+    padding-bottom: 4px;
 }
 .articles .media:hover p, .articles .media:hover a{
     color: #d11a6d;
@@ -4937,4 +4938,18 @@ iframe {
 }
 .tfa .list > li:first-child {
     margin-right: 20px;
+}
+.tfa .timeline {
+    background: #f9f9f9 none repeat scroll 0 0;
+    padding: 60px 0 25px;
+}
+.tfa .timeline-block {
+    border-right: 1px solid #c1c1c1;
+    display: inline-block;
+    font: 14px Gotham-Bold;
+    margin: 0 0 35px;
+    padding: 0 29px;
+}
+.tfa .timeline-block:last-child {
+    border: none;
 }

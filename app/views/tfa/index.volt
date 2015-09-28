@@ -31,12 +31,37 @@
 	</div>
 </div>-->
 <section id="quizdata" class="quiz_data tfa">
-		<!--<div class="col-sm-12 col-md-12 emailer">
-			
-		</div>-->
-
 		<div class="col-sm-12 col-md-12 timeline text-center">
-			<img src="{{baseUrl}}/img/tfa/timeline.png">
+			<div class="timeline-block">
+				<div class="city">Bangalore</div>
+				<div class="date">11 Dec 2015</div>
+			</div>
+
+			<div class="timeline-block">
+				<div class="city">Chennai</div>
+				<div class="date">18 Dec 2015</div>
+			</div>
+
+			<div class="timeline-block">
+				<div class="city">Kolkata</div>
+				<div class="date">23 Dec 2015</div>
+			</div>
+
+			<div class="timeline-block">
+				<div class="city">Pune</div>
+				<div class="date">01 Jan 2016</div>
+			</div>
+
+			<div class="timeline-block">
+				<div class="city">Jaipur</div>
+				<div class="date">18 Jan 2016</div>
+			</div>
+
+			<div class="timeline-block">
+				<div class="city">Delhi</div>
+				<div class="date">03 Mar 2016</div>
+			</div>
+			
 		</div>
 
 		<div class="row">

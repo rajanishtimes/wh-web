@@ -296,6 +296,11 @@ TABLET < 767px
 	    vertical-align: middle;
 	    width: 25%;
 	}
+	.tfa .desc > div {
+		display: block;
+	    vertical-align: middle;
+	    width: auto;
+	}
 	.hp-mobile .item-left .desc{
 		top:0px;
 	}
@@ -650,6 +655,11 @@ PHONE < 640px
 		border-right: 80px solid transparent;
 	}
 	/* =========== Biryani and haleem ========== */	
+	.tfa .desc > div {
+		display: block;
+	    vertical-align: middle;
+	    width: auto;
+	}
 	.wishlist-add{
 		left:1%;
 		margin-left: 1%;
@@ -661,9 +671,6 @@ PHONE < 640px
 	.tfa .list.logos > li:first-child{
 		margin-right: 0;
 		width: 100%;
-	}
-	.tfa .timeline{
-		display: none;
 	}
 	.award-block {
 	    padding: 64px 15px 64px;
@@ -684,6 +691,28 @@ PHONE < 600px
 	}
 	.width100 {
 	    width: 68% !important;
+	}
+	.tfa .timeline {
+	    padding: 39px 15px 31px;
+	    border: none;
+	}
+	.tfa .timeline-block {
+	    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+	    font: 16px gotham-medium;
+	    padding: 10px;
+	    text-align: center;
+	    width: 100%;
+	    margin-bottom: 0;
+	}
+	.city {
+	    float: left;
+	}
+	.city::after {
+	    content: "-";
+	    margin: 0 4px;
+	}
+	.date {
+	    float: left;
 	}
 }
 
