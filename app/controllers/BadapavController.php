@@ -11,7 +11,7 @@ class BadapavController extends BaseController{
     }
 
 	public function indexAction(){
-		$title = 'King of Bhel Contest for Best Bhel Puri in '.$this->cityshown($city).' | '.$this->config->application->SiteName;
+		$title = 'King of Bhel Contest for Best Bhel Puri in '.$this->cityshown($this->currentCity).' | '.$this->config->application->SiteName;
 		$this->view->meta_description = 'Finding best bhel puri in Mumbai - Bombay Times King of Bhel Contest. Vote up the best bhel puri restaurant in Mumbai on What\'s Hot.';
 		$this->view->meta_keywords = 'King of Bhel, King of Bhel Contest, Best Bhel Puri in Mumbai, Best Bhel Puri';
 
@@ -56,7 +56,7 @@ class BadapavController extends BaseController{
     }
 
     public function winnersAction(){
-    	$title = 'King of Bhel Contest for Best Bhel Puri in '.$this->cityshown($this->city).' | '.$this->config->application->SiteName;
+    	$title = 'King of Bhel Contest for Best Bhel Puri in '.$this->cityshown($this->currentCity).' | '.$this->config->application->SiteName;
 		$this->view->meta_description = 'Finding best bhel puri in Mumbai - Bombay Times King of Bhel Contest. Vote up the best bhel puri restaurant in Mumbai on What\'s Hot.';
 		$this->view->meta_keywords = 'King of Bhel, King of Bhel Contest, Best Bhel Puri in Mumbai, Best Bhel Puri';
 
