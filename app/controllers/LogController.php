@@ -32,7 +32,7 @@ class LogController extends BaseController{
 
     	//$haleem = array(19300, 30026, 139121, 50139, 48828, 48762, 42112, 47856, 38909, 36813, 30154, 45224, 50926, 44694, 46527, 33138, 43159, 27295, 7150, 42359);
 		//$biryani = array(19300, 50926, 48828, 33487, 42112, 50139, 38909, 36813, 41605, 139120, 50970, 46968, 46527, 44694, 32052, 43159, 5778, 6121, 22636, 34289);
-		$vadapav = array('140655','140107','140068','19412','139853','50904','44752','133876','51491','19444','46916','139385','139384','139381');
+		$vadapav = array('140655','140107','140068','19412','139853','50904','44752','133876','51491','19444','46916','139385','139384','139381', '139362', '139346', '139226', '137570', '138506', '138505');
 
 		/*foreach($haleem as $haleemdata){
 			$Solr = new \WH\Model\Solr();
@@ -79,7 +79,7 @@ class LogController extends BaseController{
 			echo $query = "INSERT INTO bnh_nominations
 						SET contest_name = 'bhel',
 						contest = 'bhel',
-						title = '".stripslashes($venuedetail['title'])."',
+						title = '".addslashes($venuedetail['title'])."',
 						entity_id = ".$biryanidata.",
 						entity_type_id = 200,
 						url = '".$venuedetail['url']."',

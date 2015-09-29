@@ -11,9 +11,9 @@ class BadapavController extends BaseController{
     }
 
 	public function indexAction(){
-		$title = 'Vadapav Contest 2015 | '.$this->config->application->SiteName;
-		$this->view->meta_description = 'Times Biryani and Haleem contest has been on since last 7 years and it started as an initiative to honor best Biryani and Haleem which are unique only to the Hyderabadi culture.';
-		$this->view->meta_keywords = 'Biryani, Haleem, Biryani and Haleem, Hyderabadi culture';
+		$title = 'King of Bhel Contest for Best Bhel Puri in '.$this->cityshown($city).' | '.$this->config->application->SiteName;
+		$this->view->meta_description = 'Finding best bhel puri in Mumbai - Bombay Times King of Bhel Contest. Vote up the best bhel puri restaurant in Mumbai on What\'s Hot.';
+		$this->view->meta_keywords = 'King of Bhel, King of Bhel Contest, Best Bhel Puri in Mumbai, Best Bhel Puri';
 
 		$this->tag->setTitle($title);
 		$city = $this->currentCity;
