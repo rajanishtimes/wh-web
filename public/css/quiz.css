@@ -69,7 +69,7 @@
     text-transform: uppercase
 }
 .hp .item {
-   float: left;
+    float: left;
     height: 579px;
     overflow: hidden;
     position: relative;
@@ -77,6 +77,9 @@
     width: 50%;
     min-height: 410px;
     z-index: 1;
+}
+.vadapav.hp .item{
+    width: 100%;
 }
 .hp .item-left {
     left: 0;
@@ -201,17 +204,17 @@
     background: #b79a52 none repeat scroll 0 0;
     color: #fff;
 }
-.voted, .voted:hover {
+.work-item.feeds-data .the-box .btn.btn-primary.voted, .work-item.feeds-data .the-box .btn.btn-primary.voted:hover {
     background: #fff none repeat scroll 0 0;
     border: 1px solid #b79a52;
     border-radius: 0;
     color: #b79a52;
     font-size: 20px;
-    margin: 17px 0 0;
-    padding: 10px;
+    margin: 17px 0 0 !important;
+    padding: 10px !important;
     width: 100%;
 }
-.voted.votedone {
+.work-item.feeds-data .the-box .btn.btn-primary.voted.votedone {
     background: #48be2c none repeat scroll 0 0;
     border: 1px solid #48be2c;
     color: #fff;

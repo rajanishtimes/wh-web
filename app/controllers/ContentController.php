@@ -174,11 +174,15 @@ class ContentController extends BaseController{
 			$onclick = "addtowishlistwithlogin('".$entityid."', '".$cityid."', '".$entitytype."', '".addslashes($title)."', '".addslashes($entitytitle)."')";
 		}
 
+		if($class == 'added-wishlist'){
+			$title = "Added ".$ctitle." into your Go-Do list";
+		}
+
 		$html = '<div id="wishlist'.$entityid.'" class="wishlist-container">
 					<div class="wishlist-wrapper '.$class.'">
 						<div class="wishlist-text float-left">'.$title.'</div>
 						<div class="resetdimenstion dnone"><img src="'.$this->baseUrl.'/img/ajax-loader.gif"></div>
-						<div id="wishlist_add_btn" class="float-right '.$class2.'" onclick="'.$onclick.'" data-ga-cat = "WishList" data-ga-action="Add Button Widget" data-ga-label="'.$entitytype.' - '.addslashes($title).'"><div class="btn btn-primary wishlist_add_btn">+</div></div>
+						<div id="wishlist_add_btn" class="float-right '.$class2.'" onclick="'.$onclick.'" data-ga-cat = "WishList" data-ga-action="Add Button Widget" data-ga-label="'.$entitytype.' - '.addslashes($ctitle).'"><div class="btn btn-primary wishlist_add_btn">+</div></div>
 						<div id="wishlist_added_btn" class="float-right '.$class3.'"><div class="btn btn-primary wishlist_added_btn"><img src="'.$this->baseUrl.'/img/tick.png"></div></div>
 						<div class="clearfix"></div>
 					</div>

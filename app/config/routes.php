@@ -102,6 +102,16 @@ $router->add("/{city}/biryanihaleem/winners", array(
     'action' => 'winners',
 )); 
 
+$router->add("/{city}/kingofbhel", array(
+    'controller' => 'badapav',
+    'action' => 'index',
+)); 
+
+$router->add("/{city}/kingofbhel/winners", array(
+    'controller' => 'badapav',
+    'action' => 'winners',
+)); 
+
 $router->add("/{city}/times-food-and-nightlife-awards-2016", array(
     'controller' => 'tfa',
     'action' => 'index',

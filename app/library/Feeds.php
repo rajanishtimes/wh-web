@@ -346,7 +346,7 @@ class Feeds extends Component
 			$imgclass = $class = '';
 			$json_data = json_decode($data['data']);
 			$text = 'VOTE NOW'; 
-			if($isvoted == $data['id']){
+			if($isvoted == $data['entity_id']){
 				$class = 'votedone';
 				$imgclass = 'grayscale';
 				$text = 'VOTED';
@@ -370,7 +370,7 @@ class Feeds extends Component
 								<div class="feed-short-desc"><?php $desc = strip_tags($json_data->description);
 								$description = strlen($desc) > 80 ? substr($desc, 0, 80).'...' : $desc; echo $description; ?></div>
 							</a>
-							<div class="btn btn-primary voted <?php echo $class; ?>" rel="<?php echo $data['id']; ?>" data-for="<?php echo $type; ?>"><?php echo $text; ?></div>
+							<div class="btn btn-primary voted <?php echo $class; ?>" rel="<?php echo $data['entity_id']; ?>" data-for="<?php echo $type; ?>"><?php echo $text; ?></div>
 						</div>
 					</div>
 				</div>

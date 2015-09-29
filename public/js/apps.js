@@ -325,7 +325,7 @@ function DOMReady(){
 
 	$('.addscroll').click(function(){
 		$('body,html').animate({
-			scrollTop: $('.hp .item').height()
+			scrollTop: $('.hp .item').height() +55
 		}, 800);
 		return false;
 	});
@@ -352,12 +352,16 @@ function DOMReady(){
 			var elem = $(this);
 			var id = elem.attr('rel');
 			if($('#iscontestruning').val() == 1){				
-				if(cookies.get('isvotedbiryani') == null && elem.attr('data-for') == 'biryani'){
+				if(cookies.get('isvotedbiryani') == null && elem.attr('data-for') == 'bhel'){
+					voting(elem, 'isvotedbiryani');
+				}else if(cookies.get('isvotedbiryani') == null && elem.attr('data-for') == 'biryani'){
 					voting(elem, 'isvotedbiryani');
 				}else if(cookies.get('isvotedhaleem') == null && elem.attr('data-for') == 'haleem'){
 					voting(elem, 'isvotedhaleem');
 				}else{
-					if(cookies.get('isvotedbiryani') != null && cookies.get('isvotedbiryani') != id && elem.attr('data-for') == 'biryani'){
+					if(cookies.get('isvotedbiryani') != null && cookies.get('isvotedbiryani') != id && elem.attr('data-for') == 'bhel'){
+						voting(elem, 'isvotedbiryani');	
+					}else if(cookies.get('isvotedbiryani') != null && cookies.get('isvotedbiryani') != id && elem.attr('data-for') == 'biryani'){
 						voting(elem, 'isvotedbiryani');	
 					}else if(cookies.get('isvotedhaleem') != null && cookies.get('isvotedhaleem') != id && elem.attr('data-for') == 'haleem'){
 						voting(elem, 'isvotedhaleem');	
