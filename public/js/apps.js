@@ -618,7 +618,7 @@ function AjaxResponse(access_token, hometown, location){
 
 function LodingAnimate(){
     $("#LoginButton").hide();
-    $("#results").html('<img src="img/ajax-loader.gif" /> Please Wait Connecting...');
+    $("#results").html('<img src="img/ajax-loader.gif" /><br><br>Please Wait Connecting...');
 }
 
 function ResetAnimate(){
