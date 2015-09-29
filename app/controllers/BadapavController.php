@@ -107,7 +107,8 @@ class BadapavController extends BaseController{
 		}
 
     	$voting = new \WH\Model\BNH();
-    	$voting->setContestName('biryani and haleem');
+    	//$voting->setContestName('biryani and haleem');
+    	$voting->setContestName('bhel');
     	$voting->setNominationID($nominationid);
     	$voting->setBrowserID($uniquekey);
     	$voting->setCategoryName($category);
