@@ -496,8 +496,8 @@ function voting(elem, cookiesname){
 
 		elem.html('VOTING...');
 		$.ajax({
-			url:baseUrl+'/quiz/voting/'+milliseconds,
-			type:'POST',
+			url:baseUrl+'/badapav/voting/'+milliseconds,
+			type:'POST',	
 			data:'nominationid='+elem.attr('rel')+'&category='+elem.attr('data-for'),
 			beforeSend: function(){
 				votesend = 1;

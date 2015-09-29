@@ -31,7 +31,7 @@
 					<div class="head">Contest Details</div><br>
 					<div class="contentarea">
 						<div class="detail content">
-							<p class="text-center">We have handpicked the best of Bhelpuri joints in Mumbai. Show them some love to help us decide the best out of the bests.</p><p class="text-center"><strong class="text-center">What are you waiting for. Vote Now!</strong></p>
+							<p class="text-center">We have handpicked the best of Bhelpuri joints in Mumbai. Show them some love to help us decide the best out of them.</p><p class="text-center"><strong class="text-center">What are you waiting for. Vote Now!</strong></p>
 						</div>
 					</div>
 				</div><div class="clearfix"></div>

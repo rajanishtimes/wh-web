@@ -56,21 +56,19 @@ class BadapavController extends BaseController{
     }
 
     public function winnersAction(){
-    	$title = 'Biryani and Haleem Contest 2015 | '.$this->config->application->SiteName;
-		$this->view->meta_description = 'Times Biryani and Haleem contest has been on since last 7 years and it started as an initiative to honor best Biryani and Haleem which are unique only to the Hyderabadi culture.';
-		$this->view->meta_keywords = 'Biryani, Haleem, Biryani and Haleem, Hyderabadi culture';
+    	$title = 'King of Bhel Contest for Best Bhel Puri in '.$this->cityshown($this->city).' | '.$this->config->application->SiteName;
+		$this->view->meta_description = 'Finding best bhel puri in Mumbai - Bombay Times King of Bhel Contest. Vote up the best bhel puri restaurant in Mumbai on What\'s Hot.';
+		$this->view->meta_keywords = 'King of Bhel, King of Bhel Contest, Best Bhel Puri in Mumbai, Best Bhel Puri';
 
 		$this->tag->setTitle($title);
 		
     	$city = $this->currentCity;
 		$cityshown = $this->cityshown($city);
 
-		$bwinnerid = $this->config->biryaniwinner->bwinner;
-		$hwinnerid = $this->config->haleemwinner->hwinner;
+		$bwinnerid = $this->config->badapavwinner->bwinner;
 
 		$biryaniwinner = new \WH\Model\BNH();
 		$biryaniwinners = $biryaniwinner->nominationDetail($bwinnerid);
-
 		foreach($biryaniwinners as $key=>$biryaniwinner){
 			$votes = new \WH\Model\BNH();
 			$votes->setNominationID($biryaniwinner['id']);
@@ -78,24 +76,14 @@ class BadapavController extends BaseController{
 			$biryaniwinners[$key]['votes'] = $votecount;
 		}
 
-		$haleemwinner = new \WH\Model\BNH();
-		$haleemwinners = $haleemwinner->nominationDetail($hwinnerid);
-		foreach($haleemwinners as $key=>$haleemwinner){
-			$votes = new \WH\Model\BNH();
-			$votes->setNominationID($haleemwinner['id']);
-			$votecount = $votes->votingCount();
-			$haleemwinners[$key]['votes'] = $votecount;
-		}
-
 		$start = 0;
     	$this->view->setVars(array(
 			'cityshown' => $cityshown,
 			'start'	=> $start,
-			'biryaniwinners' => $biryaniwinners,
-			'haleemwinners' => $haleemwinners,
+			'biryaniwinners' => $biryaniwinners
 		));
-		$this->view->setLayout('quizLayout');
-        $this->view->pick(['quiz/winners']);
+		$this->view->setLayout('badapavLayout');
+        $this->view->pick(['badapav/winners']);
     }
 
     public function votingAction(){

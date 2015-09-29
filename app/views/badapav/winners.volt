@@ -1,6 +1,6 @@
-<section class="hp">
+<section class="hp vadapav">
 	<div class="item item-left"></div>
-	<div class="item item-right"></div>
+	<!--<div class="item item-right"></div>-->
 	<!--<i class="overlay"></i>-->
 
 	<div class="desc">
@@ -11,7 +11,7 @@
 	</div>
 </section>
 
-<section class="hp hp-mobile">
+<section class="hp hp-mobile vadapav">
 	<div class="item item-left">
 		<div class="desc">
 			<div class="contestlogo"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>
@@ -36,11 +36,8 @@
 				</div><div class="clearfix"></div>
 				<input type='hidden' value="{{iscontestrunning}}" id="iscontestruning">
 				<div class="work-content contest winner contentarea text-center">
-						<p class="text-center">Winners in Biryani Category - 2015</p>
-						{{feeds.getcontestwinner(baseUrl, biryaniwinners, start, cityshown, 'biryani')}}
-						<div class="clearfix"></div>
-						<p class="text-center">Winners in Haleem Category - 2015</p>
-						{{feeds.getcontestwinner(baseUrl, haleemwinners, start, cityshown, 'haleem')}}
+						<p class="text-center">Winners in King of Bhel - 2015</p>
+						{{feeds.getcontestwinner(baseUrl, biryaniwinners, start, cityshown, 'bhel')}}
 					</div>
 				</div>
 			</div>
