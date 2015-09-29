@@ -4,8 +4,9 @@
 	<!--<i class="overlay"></i>-->
 
 	<div class="desc">
-		<div class="contestlogo"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>
-		<div class="presents"><img src="{{baseUrl}}/img/presents.png"></div>
+		<div class="contestlogo"><img src="{{baseUrl}}/img/bombaytimes-logo.png"></div>
+		<div class="contestlogo bhel-logo"><img src="{{baseUrl}}/img/bhel-logo.png"></div>
+		<div class="presents">In association with:</div>
 		<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
 		<a href="#" class="scroll-down img-circle addscroll"><i class="fa fa-angle-down"></i></a>
 	</div>
@@ -14,8 +15,9 @@
 <section class="hp hp-mobile vadapav">
 	<div class="item item-left">
 		<div class="desc">
-			<div class="contestlogo"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>
-			<div class="presents"><img src="{{baseUrl}}/img/presents.png"></div>
+			<div class="contestlogo"><img src="{{baseUrl}}/img/bombaytimes-logo.png"></div>
+			<div class="contestlogo  bhel-logo"><img src="{{baseUrl}}/img/bhel-logo.png"></div>
+			<div class="presents">In association with:</div>
 			<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
 			<a href="#" class="scroll-down img-circle addscrollmobile"><i class="fa fa-angle-down"></i></a>
 		</div>
@@ -27,16 +29,9 @@
 	<div class="section">
 		<div class="container">
 			<div class="row">
-				<div class="quiz_su text-center">
-					<div class="contentarea winner">
-						<div class="detail content">
-							<p class="text-center">Check out the winners of  Biryani and Haleem Contest</p>
-						</div>
-					</div>
-				</div><div class="clearfix"></div>
 				<input type='hidden' value="{{iscontestrunning}}" id="iscontestruning">
 				<div class="work-content contest winner contentarea text-center">
-						<p class="text-center">Winners in King of Bhel - 2015</p>
+						<p class="text-center">Winners of King of Bhel - 2015</p>
 						{{feeds.getcontestwinner(baseUrl, biryaniwinners, start, cityshown, 'bhel')}}
 					</div>
 				</div>

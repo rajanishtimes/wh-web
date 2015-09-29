@@ -4,8 +4,9 @@
 	<!--<i class="overlay"></i>-->
 
 	<div class="desc">
-		<div class="contestlogo"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>
-		<div class="presents"><img src="{{baseUrl}}/img/presents.png"></div>
+		<div class="contestlogo"><img src="{{baseUrl}}/img/bombaytimes-logo.png"></div>
+		<div class="contestlogo bhel-logo"><img src="{{baseUrl}}/img/bhel-logo.png"></div>
+		<div class="presents">In association with:</div>
 		<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
 		<a href="#" class="scroll-down img-circle addscroll"><i class="fa fa-angle-down"></i></a>
 	</div>
@@ -14,8 +15,9 @@
 <section class="hp hp-mobile vadapav">
 	<div class="item item-left">
 		<div class="desc">
-			<div class="contestlogo"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>
-			<div class="presents"><img src="{{baseUrl}}/img/presents.png"></div>
+			<div class="contestlogo"><img src="{{baseUrl}}/img/bombaytimes-logo.png"></div>
+			<div class="contestlogo  bhel-logo"><img src="{{baseUrl}}/img/bhel-logo.png"></div>
+			<div class="presents">In association with:</div>
 			<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
 			<a href="#" class="scroll-down img-circle addscrollmobile"><i class="fa fa-angle-down"></i></a>
 		</div>
@@ -23,7 +25,7 @@
 	</div>
 </section>
 <div class="clearfix"></div>
-<section id="quizdata" class="quiz_data">
+<section id="quizdata" class="quiz_data vadapav">
 	<div class="section">
 		<div class="container">
 			<div class="row">
@@ -31,7 +33,7 @@
 					<div class="head">Contest Details</div><br>
 					<div class="contentarea">
 						<div class="detail content">
-							<p class="text-center">We have handpicked the best of Bhelpuri joints in Mumbai. Show them some love to help us decide the best out of them.</p><p class="text-center"><strong class="text-center">What are you waiting for. Vote Now!</strong></p>
+							<p class="text-center">Calling all Mumbaikers to vote for their favourite bhelpuri joint to be crowned as the King of Bhel 2015. What are you waiting for?. Vote Now!</p>
 						</div>
 					</div>
 				</div><div class="clearfix"></div>

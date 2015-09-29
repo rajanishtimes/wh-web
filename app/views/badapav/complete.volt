@@ -1,11 +1,12 @@
 <section class="hp vadapav">
 	<div class="item item-left"></div>
-	<div class="item item-right"></div>
+	<!--<div class="item item-right"></div>-->
 	<!--<i class="overlay"></i>-->
 
 	<div class="desc">
-		<div class="contestlogo"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>
-		<div class="presents"><img src="{{baseUrl}}/img/presents.png"></div>
+		<div class="contestlogo"><img src="{{baseUrl}}/img/bombaytimes-logo.png"></div>
+		<div class="contestlogo bhel-logo"><img src="{{baseUrl}}/img/bhel-logo.png"></div>
+		<div class="presents">In association with:</div>
 		<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
 		<a href="#" class="scroll-down img-circle addscroll"><i class="fa fa-angle-down"></i></a>
 	</div>
@@ -14,8 +15,9 @@
 <section class="hp hp-mobile vadapav">
 	<div class="item item-left">
 		<div class="desc">
-			<div class="contestlogo"><img src="{{baseUrl}}/img/biryani_and_haleem_contest_logo.png"></div>
-			<div class="presents"><img src="{{baseUrl}}/img/presents.png"></div>
+			<div class="contestlogo"><img src="{{baseUrl}}/img/bombaytimes-logo.png"></div>
+			<div class="contestlogo  bhel-logo"><img src="{{baseUrl}}/img/bhel-logo.png"></div>
+			<div class="presents">In association with:</div>
 			<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
 			<a href="#" class="scroll-down img-circle addscrollmobile"><i class="fa fa-angle-down"></i></a>
 		</div>
@@ -23,31 +25,6 @@
 	</div>
 </section>
 <div class="clearfix"></div>
-<section id="quizdata" class="quiz_data">
-	<div class="section">
-		<div class="container">
-			<div class="row">
-				<div class="quiz_su text-center">
-					<br><br>
-					<div class="head" style="font-size:21px; padding:0 20px;">Voting is Closed, Winners to be announced on 11<sup>th</sup> July</div><br><br><br>
-					<div class="contentarea">
-						<div class="detail content" style="padding:0 10px;">
-							<p class="text-center"><small>Check Out nominations this year for Biryani and Haleem</small></p>
-						</div>
-					</div>
-				</div><div class="clearfix"></div>
-
-				<input type='hidden' value="{{iscontestrunning}}" id="iscontestruning">
-				<div class="work-content contest">
-					<div id="biryaninomination" class="biryani">
-						<?php $isvotebir = $isvotedbiryani; ?>
-						{{feeds.getcontest(baseUrl, biryaninominations, start, cityshown, 'bhel', isvotebir)}}
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 <div class="haleemoverlay"><img src="{{baseUrl}}/img/ajax-loader.gif"></div>
 
 <style type="text/css">

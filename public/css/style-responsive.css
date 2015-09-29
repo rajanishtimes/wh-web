@@ -290,6 +290,7 @@ TABLET < 767px
 	.past_result .content p, .past_result .content strong, .past_result .content a{
 		padding: 27px 0 0 0;
 	}
+
 	/* =========== Biryani and haleem ========== */
 	.desc > div {
 		display: table-cell;
@@ -1242,6 +1243,9 @@ PHONE < 320px
 	}
 	.hp-mobile .item-left .desc{
 		top: 0px;
+	}
+	.vadapav.hp-mobile .desc{
+	    height: 100%;
 	}
 	
 }

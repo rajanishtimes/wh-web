@@ -58,6 +58,7 @@
     z-index: 99;
     height: 77%;
 }
+
 .hp h1 {
     font-size: 100px;
     font-size: 10rem;
@@ -78,13 +79,14 @@
     min-height: 410px;
     z-index: 1;
 }
-.vadapav.hp .item{
-    width: 100%;
-}
 .hp .item-left {
     left: 0;
     background: rgba(0, 0, 0, 0) url("../img/biryani-bg1.jpg") repeat scroll 0 bottom;
     background-size: 100% auto;
+}
+.vadapav.hp .item{
+    width: 100%;
+    background: rgba(0, 0, 0, 0) url("../img/bhel-back.png") repeat scroll 0 bottom;
 }
 .hp .item-left .desc {
     margin: 0 -160px 0 0;
@@ -308,6 +310,33 @@ img.grayscale{
 .hp-mobile .item-left{
     background-image: url("../img/haleem-responsive.jpg"); background-size: 100% 100%;
 }
+
+.vadapav.hp .contestlogo{
+    margin-top:0;
+}
+.vadapav .contestlogo.bhel-logo > img {
+    width: 79%;
+}
+.vadapav .presents {
+    margin-top: 11px;
+}
+.vadapav .wh_logo {
+    margin-top: 11px;
+}
+.vadapav.hp .scroll-down{
+    bottom: -5px;
+}
+.vadapav.hp .desc{
+    margin: 0 0 0 -180px;
+    height: 80%;
+}
+.vadapav.quiz_data .contentarea p{
+    font-style: normal;
+}
+.vadapav.hp-mobile .desc{
+    margin:0;
+}
+
 .winners {
     background: #D31A6B none repeat scroll 0 0;
     color: #fff;
