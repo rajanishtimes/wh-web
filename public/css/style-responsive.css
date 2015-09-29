@@ -297,7 +297,7 @@ TABLET < 767px
 	    vertical-align: middle;
 	    width: 25%;
 	}
-	.tfa .desc > div {
+	.tfa .desc > div, .vadapav .desc > div {
 		display: block;
 	    vertical-align: middle;
 	    width: auto;
@@ -659,7 +659,7 @@ PHONE < 640px
 		border-right: 80px solid transparent;
 	}
 	/* =========== Biryani and haleem ========== */	
-	.tfa .desc > div {
+	.tfa .desc > div, .vadapav .desc > div {
 		display: block;
 	    vertical-align: middle;
 	    width: auto;
@@ -824,7 +824,7 @@ PHONE < 480px
 	    vertical-align: middle;
 	    width: 20%;
 	}
-	.tfa .desc > div {
+	.tfa .desc > div, .vadapav .desc > div {
 		display: block;
 	    vertical-align: middle;
 	    width: auto;
@@ -982,7 +982,7 @@ IPHONE 6 PLUS
 	    vertical-align: middle;
 	    width: 20%;
 	}
-	.tfa .desc > div {
+	.tfa .desc > div, .vadapav .desc > div {
 		display: block;
 	    vertical-align: middle;
 	    width: auto;
@@ -1059,7 +1059,7 @@ IPHONE 6
 	    vertical-align: middle;
 	    width: 20%;
 	}
-	.tfa .desc > div {
+	.tfa .desc > div, .vadapav .desc > div {
 		display: block;
 	    vertical-align: middle;
 	    width: auto;
