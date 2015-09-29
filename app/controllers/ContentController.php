@@ -23,7 +23,7 @@ class ContentController extends BaseController{
 		));
 		
 		parent::initialize();
-		$allfeedslists = $this->getfeeddata(0, 11, $this->city, 'all', '', '', 'Content', '', 'footer', 0, 11);
+		$allfeedslists = $this->getfeeddata(0, 11, $this->currentCity, 'all', '', '', 'Content', '', 'footer', 0, 11);
 		$this->view->allfeedslists = $allfeedslists;
     }
 

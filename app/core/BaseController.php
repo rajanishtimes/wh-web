@@ -735,16 +735,16 @@ class BaseController extends Controller{
     protected function setdataforfooter(){
     	$getdataforfooter = array();
 		
-		$getdataforfooter['lateststoriesfeeds'] = $this->getfeeddata(0, 11, $this->city, 'all', '', '', 'Content', '', 'footer', 0, 0);
+		$getdataforfooter['lateststoriesfeeds'] = $this->getfeeddata(0, 11, $this->currentCity, 'all', '', '', 'Content', '', 'footer', 0, 0);
 		
-		$getdataforfooter['todaysfeeds'] = $this->getfeeddata(0, 11, $this->city, 'Today', '', '', 'Event', '', 'footer', 0, 11);
+		$getdataforfooter['todaysfeeds'] = $this->getfeeddata(0, 11, $this->currentCity, 'Today', '', '', 'Event', '', 'footer', 0, 11);
 		
 
 		$todaysfeeds = array();
 		foreach ($getdataforfooter['todaysfeeds']['results'] as $key => $todaysfeed) {
 			$todaysfeeds[] = $todaysfeed['id'];
 		}
-		$upcomingfeeds = $this->getfeeddata(0, 22, $this->city, 'Month', '', '', 'Event', '', 'footer', 0, 22);
+		$upcomingfeeds = $this->getfeeddata(0, 22, $this->currentCity, 'Month', '', '', 'Event', '', 'footer', 0, 22);
 		foreach ($upcomingfeeds['results'] as $key => $upcomingfeed) {
 			if(in_array($upcomingfeed['id'], $todaysfeeds)){
 	    		unset($upcomingfeeds['results'][$key]);
