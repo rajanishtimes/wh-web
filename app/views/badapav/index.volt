@@ -6,7 +6,7 @@
 	<div class="desc">
 		<div class="contestlogo"><img src="{{baseUrl}}/img/bombaytimes-logo.png"></div>
 		<div class="contestlogo bhel-logo"><img src="{{baseUrl}}/img/bhel-logo.png"></div>
-		<div class="presents">In association with :</div>
+		<div class="presents">in association with :</div>
 		<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
 		<a href="#" class="scroll-down img-circle addscroll"><i class="fa fa-angle-down"></i></a>
 	</div>
@@ -17,7 +17,7 @@
 		<div class="desc">
 			<div class="contestlogo"><img src="{{baseUrl}}/img/bombaytimes-logo.png"></div>
 			<div class="contestlogo  bhel-logo"><img src="{{baseUrl}}/img/bhel-logo.png"></div>
-			<div class="presents">In association with :</div>
+			<div class="presents">in association with :</div>
 			<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
 			<a href="#" class="scroll-down img-circle addscrollmobile"><i class="fa fa-angle-down"></i></a>
 		</div>
