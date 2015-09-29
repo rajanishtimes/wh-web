@@ -12,6 +12,20 @@
 </div>-->
 {% endif %}
 
+{% if(currentCity == 'mumbai') %}
+<div class="section topbiryanistrip">
+	<div class="container">
+		<div class="row contestdata">
+			<a href="{{baseUrl}}/mumbai/kingofbhel">
+				<div class="contestimg"><img src="{{baseUrl}}/img/bhel-logo.png"></div>
+				<div class="contestdesc">King of Bhel Contest. Vote Now!</div>
+			</a>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+{% endif %}
+
 {% if((topfeeds is defined AND topfeeds | length > 0) OR (populartags['popular_tags'] is defined AND populartags['popular_tags'] | length > 0) OR (allfeedslist is defined AND allfeedslist | length > 0)) %}
 <div class="section">
 	<div class="container">
