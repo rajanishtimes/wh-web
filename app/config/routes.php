@@ -117,6 +117,11 @@ $router->add("/{city}/times-food-and-nightlife-awards-2016", array(
     'action' => 'index',
 ));
 
+$router->add("/{city}/nomination", array(
+    'controller' => 'tfa',
+    'action' => 'nomination',
+));
+
 $router->add("/search/autosuggestion", array(
     'controller' => 'search',
     'action' => 'autosuggestion',

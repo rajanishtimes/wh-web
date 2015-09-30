@@ -501,7 +501,6 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .sponsor > img, .timeline > img {
     max-width: 100%;
-    padding: 0 15px;
 }
 .tfa .desc {
     margin: 0;
@@ -516,7 +515,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     border: 5px solid #76643f;
 }
 .tfa .sponsor{
-    padding: 20px 0;
+    padding: 21px 0;
 }
 .tfa .emailer{
     background: #232220;
@@ -615,5 +614,76 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .tfa .timeline-block:last-child {
     border: none;
+}
+.tfa .category-data > .section{
+    background: #232220;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 23px 0 15px;
+}
+.tfa .category-head {
+    font-family: gotham-light;
+    font-size: 14px;
+}
+.tfa .category-list-data > .section{
+    background: #010101;
+    text-transform: uppercase;
+    padding: 34px 0 17px;
+}
+.tfa .category-list-data .list-inline li{
+    color: #b7985b; font-family: gotham-medium;
+}
+.tfa .category-list-data .list-inline li:first-child {
+    padding: 0 0 2px;
+}
+.tfa .category-list-data .list-inline li.active, .tfa .category-list-data .list-inline li:hover{
+    color: #fff;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #fff;
+    margin-right: 15px;
+}
+.tfa .nomination-count {
+    background: #fa2d67 none repeat scroll 0 0;
+    border-radius: 5px;
+    color: #fff;
+    padding: 4px 4px 4px 10px;
+    position: relative;
+}
+.tfa .nomination-count:after, .tfa .nomination-count:before {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.tfa .nomination-count:before {
+    border-color: rgba(194, 225, 245, 0);
+    border-left-color: #fa2d67;
+    border-width: 6px;
+    margin-top: -6px;
+}
+.tfa .category-name-block {
+    padding: 0 0 0 19px;
+}
+.tfa .nomination_data{
+    background: rgba(0, 0, 0, 0) url("../img/tfa/bk.png") repeat scroll 0 bottom;
+    padding: 52px 0;
+}
+.tfa .main-block {
+    padding: 23px 0;
+}
+.tfa .category-name {
+    border-bottom: 1px solid #7f7f7f;
+    font-family: gotham-bold;
+    font-size: 21px;
+    line-height: 18px;
+    margin-bottom: 4px;
+}
+.tfa .event-name{
+    color:#fa2d67;
 }
 /* TFA */
