@@ -550,7 +550,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .winnerforawrds{
     background: #232220;
-    padding: 30px;
+    padding: 30px 0;
     color: #fff;
 }
 .winnerslist{
@@ -566,6 +566,13 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .tfa .footerlist .list > li {
     width: 100%;
+}
+.tfa .footerlist .list.make2col > li {
+    float: left;
+    width: 50%;
+}
+.tfa .footerlist .list.make2col > li:first-child {
+    margin-right: 0;
 }
 .tfa .list{
     margin-bottom: 0;
@@ -685,5 +692,52 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .tfa .event-name{
     color:#fa2d67;
+}
+.tfafeeds .ratings > div.popup {
+    width: 10%;
+    border-right: none;
+}
+.tfafeeds .ratings > div.popup > img{
+    width: auto;
+}
+.tfafeeds .ratings > div {
+    width: 30%;
+    border-right: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0;
+}
+.popup.float-left > img {
+    width: auto;
+}
+.tfafeeds .feed-short-desc {
+    font-family: gotham-book;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.allfeeds .tfafeeds .the-box{
+    height: 143px;
+}
+.tfafeeds .calls {
+    font-size: 13px;
+    margin: 15px 0;
+}
+.tfafeeds .votebtn {
+    background: #51c123 none repeat scroll 0 0;
+    border-radius: 20px;
+    color: #fff;
+    font: 18px gotham-bold;
+    margin: 0 20px 20px;
+    padding: 9px;
+    cursor: pointer;
+}
+.tfavotedhover {
+    background: #000 none repeat scroll 0 0;
+    height: 100%;
+    opacity: 0.8;
+    position: absolute;
+    width: 100%;
+    z-index: 9;
 }
 /* TFA */

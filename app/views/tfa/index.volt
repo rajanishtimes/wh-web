@@ -63,117 +63,46 @@
 
 		<!--<div class="col-sm-12 col-md-12 shareer">
 			
-		</div>
+		</div>-->
  
 		<div class="row">
 			<div class="col-sm-12 col-md-12">
 				<div class="winnerforawrds">
 					<div class="container">
-							<div class="col-sm-12 col-md-12">
-								WINNERS FOR TIMES FOOD AND NIGHTLIFE AWARDS 2014
+							<div class="col-sm-12 col-md-12 padding0">
+								WINNERS FOR TIMES FOOD AND NIGHTLIFE AWARDS 2015
 							</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!--<div class="row">
+		<div class="row">
 		<div class="col-sm-12 col-md-12">
 			<div class="winnerslist">
 				<div class="container footerlist">
 					<div class="row">
-						<div class="col-xs-12 col-sm-6 col-md-6">
-							<h2 class="footerstyle">Fine Dine (Food) all cuisines</h2>
-							<ul class="list">
-								<li><a href="#">Best North Indian - Spice Art</a></li>
-								<li><a href="#">Best Modern Indian - Indian Accent</a></li>
-								<li><a href="#">Best Chinese - Ano Tai</a></li>
-								<li><a href="#">Best Japanese - Akira Back</a></li>
-								<li><a href="#">Best European - The Grill Room</a></li>
-								<li><a href="#">Best Italian - Artuisi Restaurant</a></li>
-								<li><a href="#">Best Multi-Cuisine - Threesixty Degrees</a></li>
-								<li><a href="#">Best South Indian - Dakshin</a></li>
-								<li><a href="#">Best Spanish - Sevilla</a></li>
-								<li><a href="#">Best Vietnamese - Blue Giner</a></li>
-								<li><a href="#">Noteworthy Newcomer - Tian Asian</a></li>
-								<li><a href="#">Best Arabian and Lebanese - Rralas Habib</a></li>
-								<li><a href="#">Best Bakery and Confectionary - Sidewalk</a></li>
-								<li><a href="#">Best Pan Asian - Pan Asain</a></li>
-								<li><a href="#">Best Mediterranean - Olive Bar & Kitchen</a></li>
-								<li><a href="#">Best Culinary Heritage - Bukhara</a></li>
-							</ul>
-						</div>
-						<div class="col-xs-12 col-sm-6 col-md-6">
-							<h2 class="footerstyle">Luxurious Nightout (Nightlife) all cuisines</h2>
-							<ul class="list">
-								<li><a href="#">Best North Indian - Spice Art</a></li>
-								<li><a href="#">Best Modern Indian - Indian Accent</a></li>
-								<li><a href="#">Best Chinese - Ano Tai</a></li>
-								<li><a href="#">Best Japanese - Akira Back</a></li>
-								<li><a href="#">Best European - The Grill Room</a></li>
-								<li><a href="#">Best Italian - Artuisi Restaurant</a></li>
-								<li><a href="#">Best Multi-Cuisine - Threesixty Degrees</a></li>
-								<li><a href="#">Best South Indian - Dakshin</a></li>
-								<li><a href="#">Best Spanish - Sevilla</a></li>
-								<li><a href="#">Best Vietnamese - Blue Giner</a></li>
-								<li><a href="#">Noteworthy Newcomer - Tian Asian</a></li>
-								<li><a href="#">Best Arabian and Lebanese - Rralas Habib</a></li>
-								<li><a href="#">Best Bakery and Confectionary - Sidewalk</a></li>
-								<li><a href="#">Best Pan Asian - Pan Asain</a></li>
-								<li><a href="#">Best Mediterranean - Olive Bar & Kitchen</a></li>
-								<li><a href="#">Best Culinary Heritage - Bukhara</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-xs-12 col-sm-6 col-md-6">
-							<h2 class="footerstyle">Casual Dine Food all cuisines</h2>
-							<ul class="list no-padding">
-								<li><a href="#">Best North Indian - Spice Art</a></li>
-								<li><a href="#">Best Modern Indian - Indian Accent</a></li>
-								<li><a href="#">Best Chinese - Ano Tai</a></li>
-								<li><a href="#">Best Japanese - Akira Back</a></li>
-								<li><a href="#">Best European - The Grill Room</a></li>
-								<li><a href="#">Best Italian - Artuisi Restaurant</a></li>
-								<li><a href="#">Best Multi-Cuisine - Threesixty Degrees</a></li>
-								<li><a href="#">Best South Indian - Dakshin</a></li>
-								<li><a href="#">Best Spanish - Sevilla</a></li>
-								<li><a href="#">Best Vietnamese - Blue Giner</a></li>
-								<li><a href="#">Noteworthy Newcomer - Tian Asian</a></li>
-								<li><a href="#">Best Arabian and Lebanese - Rralas Habib</a></li>
-								<li><a href="#">Best Bakery and Confectionary - Sidewalk</a></li>
-								<li><a href="#">Best Pan Asian - Pan Asain</a></li>
-								<li><a href="#">Best Mediterranean - Olive Bar & Kitchen</a></li>
-								<li><a href="#">Best Culinary Heritage - Bukhara</a></li>
-							</ul>
-						</div>
-						<div class="col-xs-12 col-sm-6 col-md-6">
-							<h2 class="footerstyle">Casual Nightout (Nightlife) all cuisines</h2>
-							<ul class="list no-padding">
-								<li><a href="#">Best North Indian - Spice Art</a></li>
-								<li><a href="#">Best Modern Indian - Indian Accent</a></li>
-								<li><a href="#">Best Chinese - Ano Tai</a></li>
-								<li><a href="#">Best Japanese - Akira Back</a></li>
-								<li><a href="#">Best European - The Grill Room</a></li>
-								<li><a href="#">Best Italian - Artuisi Restaurant</a></li>
-								<li><a href="#">Best Multi-Cuisine - Threesixty Degrees</a></li>
-								<li><a href="#">Best South Indian - Dakshin</a></li>
-								<li><a href="#">Best Spanish - Sevilla</a></li>
-								<li><a href="#">Best Vietnamese - Blue Giner</a></li>
-								<li><a href="#">Noteworthy Newcomer - Tian Asian</a></li>
-								<li><a href="#">Best Arabian and Lebanese - Rralas Habib</a></li>
-								<li><a href="#">Best Bakery and Confectionary - Sidewalk</a></li>
-								<li><a href="#">Best Pan Asian - Pan Asain</a></li>
-								<li><a href="#">Best Mediterranean - Olive Bar & Kitchen</a></li>
-								<li><a href="#">Best Culinary Heritage - Bukhara</a></li>
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<!--<h2 class="footerstyle">Fine Dine (Food) all cuisines</h2>-->
+							<ul class="list make2col">
+								{% for key, winners in allpastwinners %}
+									<li>
+										<?php if(!empty($winners['url'])){ ?>
+											<a href="{{baseUrl}}{{winners['url']}}">
+										<?php } ?>
+											{{winners['venue_name']}} - {{winners['category_name']}}
+										<?php if(!empty($winners['url'])){ ?>
+											</a>
+										<?php } ?>
+									</li>
+								{% endfor  %}
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		</div>-->
+		</div>
 </section>
 <!--<div class="haleemoverlay"><img src="{{baseUrl}}/img/ajax-loader.gif"></div>-->
 

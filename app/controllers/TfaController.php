@@ -14,6 +14,13 @@ class TfaController extends BaseController{
 		$this->tag->setTitle($title);
 		$this->view->meta_description = 'Times Food Awards & Times Nightlife Awards 2016 '.$this->cityshown($this->currentCity).': Find best restaurants, bars & clubs in '.$this->currentCity.'. Best dining and party places in '.$this->currentCity;
 		$this->view->meta_keywords = 'Times Food Awards, Times Nightlife Awards, Times Food Awards '.$this->cityshown($this->currentCity).', Times Nightlife Awards '.$this->currentCity;
+
+		$TFA = new \WH\Model\Tfa();
+        $TFA->setCityID($this->cityId);
+        $allpastwinners = $TFA->getpastwinners();
+        $this->view->allpastwinners = $allpastwinners;
+
+        //echo "<pre>"; print_r($allpastwinners); echo "</pre>"; exit;
     }
 
     public function nominationAction(){

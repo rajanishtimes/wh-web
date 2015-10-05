@@ -596,6 +596,9 @@ TABLET < 767px
 	.texting {
 		height: auto;
 	}
+	.tfa .footerlist .list.make2col > li {
+		width: 100%;
+	}
 }
 
 
