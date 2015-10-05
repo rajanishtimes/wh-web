@@ -88,7 +88,7 @@
 								{% for key, winners in allpastwinners %}
 									<li>
 										<?php if(!empty($winners['url'])){ ?>
-											<a href="{{baseUrl}}{{winners['url']}}">
+											<a href="{{baseUrl}}{{winners['url']}}" target="_blank">
 										<?php } ?>
 											{{winners['venue_name']}} - {{winners['category_name']}}
 										<?php if(!empty($winners['url'])){ ?>
