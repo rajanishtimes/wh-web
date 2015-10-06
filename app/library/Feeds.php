@@ -424,11 +424,9 @@ class Feeds extends Component
 						</div>
 						
 					</div>
-					<?php if($i < 3){ ?>
 					<div class="winners"><?php echo $winnertext; ?>
 						<!--<br><?php echo $data['votes']; ?> Users voted-->
 					</div><div class="triangle"></div>
-					<?php } ?>
 				</div>
 			<?php
 			$i++;
