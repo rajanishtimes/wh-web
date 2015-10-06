@@ -102,12 +102,12 @@ $router->add("/{city}/biryanihaleem/winners", array(
     'action' => 'winners',
 )); 
 
-$router->add("/{city}/kingofbhel", array(
+/*$router->add("/{city}/kingofbhel", array(
     'controller' => 'badapav',
     'action' => 'index',
-)); 
+)); */
 
-$router->add("/{city}/kingofbhel/winners", array(
+$router->add("/{city}/kingofbhel", array(
     'controller' => 'badapav',
     'action' => 'winners',
 )); 
@@ -117,9 +117,14 @@ $router->add("/{city}/times-food-and-nightlife-awards-2016", array(
     'action' => 'index',
 ));
 
+$router->add("/{city}/nomination/{tfacity}", array(
+    'controller' => 'tfa',
+    'action' => 'nomination'
+));
+
 $router->add("/{city}/nomination", array(
     'controller' => 'tfa',
-    'action' => 'nomination',
+    'action' => 'nomination'
 ));
 
 $router->add("/search/autosuggestion", array(
