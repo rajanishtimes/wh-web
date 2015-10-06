@@ -31,7 +31,7 @@
 			<div class="row">
 				<input type='hidden' value="{{iscontestrunning}}" id="iscontestruning">
 				<div class="work-content contest winner contentarea text-center">
-						<p class="text-center">Winners of King of Bhel - 2015</p>
+						<p class="text-center">Top 10 Bhelpuri joints in Mumbai - 2015</p>
 						{{feeds.getcontestwinner(baseUrl, biryaniwinners, start, cityshown, 'bhel')}}
 					</div>
 				</div>

@@ -383,25 +383,25 @@ class Feeds extends Component
 		foreach($datas as $data){
 			$json_data = json_decode($data['data']);
 			$imgclass = $class = '';
-			$winnertext = '(Winner)';
+			$winnertext = 'Winner';
 			if($i == 1)
-				$winnertext = '(1<sup>st</sup> Runner up)';
+				$winnertext = '2<sup>nd</sup>';
 			else if($i == 2)
-				$winnertext = '(2<sup>nd</sup> Runner up)';
+				$winnertext = '3<sup>rd</sup>';
 			else if($i == 3)
-				$winnertext = '(3<sup>rd</sup> Runner up)';
+				$winnertext = '4<sup>th</sup>';
 			else if($i == 4)
-				$winnertext = '(4<sup>th</sup> Runner up)';
+				$winnertext = '5<sup>th</sup>';
 			else if($i == 5)
-				$winnertext = '(5<sup>th</sup> Runner up)';
+				$winnertext = '6<sup>th</sup>';
 			else if($i == 6)
-				$winnertext = '(6<sup>th</sup> Runner up)';
+				$winnertext = '7<sup>th</sup>';
 			else if($i == 7)
-				$winnertext = '(7<sup>th</sup> Runner up)';
+				$winnertext = '8<sup>th</sup>';
 			else if($i == 8)
-				$winnertext = '(8<sup>th</sup> Runner up)';
+				$winnertext = '9<sup>th</sup>';
 			else if($i == 9)
-				$winnertext = '(9<sup>th</sup> Runner up)';
+				$winnertext = '10<sup>th</sup>';
 			?>
 				<div class="col-sm-4 col-md-4 col-xs-6">
 					<div class="work-item feeds-data">
