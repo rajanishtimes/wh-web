@@ -124,6 +124,12 @@ STANDARD DESKTOP < 1024px
 	.texting {
 	    margin-left: 0px;
 	}
+	.tfafeeds .ratings > div{
+		font-size: 11px;
+	}
+	.tfavotedhover .promote{
+		height: 202px;
+	}
 }
 
 
@@ -599,6 +605,12 @@ TABLET < 767px
 	.tfa .footerlist .list.make2col > li {
 		width: 100%;
 	}
+	.tfafeeds .ratings > div{
+		font-size: 12px;
+	}
+	.tfavotedhover .promote{
+		height: 220px;
+	}
 }
 
 
@@ -875,6 +887,9 @@ PHONE < 480px
 	}
 	.texting{
 		padding:46px 10px 10px;
+	}
+	.tfa .category-name{
+		font-size: 15px;
 	}
 }
 

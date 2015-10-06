@@ -96,21 +96,22 @@ $.fn.center = function () {
 $(document).ready(DOMReady);
 
 function resizefeedimage(){
-	var width = 0;
-	var height = 0;
-	$(".work-item img").each(function( index ) {
-		if($(this).parent().parent().find('.make-up').length == 0){
-			width = $(this).parent().parent().parent().parent().width();
-			height = $(this).parent().parent().parent().parent().height();
-		}
-		$(this).height(($(this).width()));
-	});
+	if($('.tfafeeds').length < 1){
+		var width = 0;
+		var height = 0;
+		$(".work-item img").each(function( index ) {
+			if($(this).parent().parent().find('.make-up').length == 0){
+				width = $(this).parent().parent().parent().parent().width();
+				height = $(this).parent().parent().parent().parent().height();
+			}
+			$(this).height(($(this).width()));
+		});
 
-	$(".defaultads").css('width',width+2);
-	$(".defaultads").css('height',height+3);
-	$(".defaultads > div > div").find('iframe').css('height', height+1);
-	$(".defaultads > div > div").find('iframe').css('width', width);
-
+		$(".defaultads").css('width',width+2);
+		$(".defaultads").css('height',height+3);
+		$(".defaultads > div > div").find('iframe').css('height', height+1);
+		$(".defaultads > div > div").find('iframe').css('width', width);
+	}
 	/* $(".withmask").each(function( index ) {
 		$(this).height(width+147);
 	});  */

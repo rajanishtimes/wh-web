@@ -638,16 +638,20 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     padding: 34px 0 17px;
 }
 .tfa .category-list-data .list-inline li{
-    color: #b7985b; font-family: gotham-medium;
+    color: #b7985b;
+    font-family: gotham-medium;
+    padding: 0;
+    margin-right: 15px;
+    cursor: pointer;
+    border-bottom: 2px solid #000;
+    margin-bottom: 5px;
 }
 .tfa .category-list-data .list-inline li:first-child {
     padding: 0 0 2px;
 }
 .tfa .category-list-data .list-inline li.active, .tfa .category-list-data .list-inline li:hover{
     color: #fff;
-    padding-bottom: 2px;
     border-bottom: 2px solid #fff;
-    margin-right: 15px;
 }
 .tfa .nomination-count {
     background: #fa2d67 none repeat scroll 0 0;
@@ -706,6 +710,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     padding: 5px 0;
+    font-size: 12px;
 }
 .popup.float-left > img {
     width: auto;
@@ -735,9 +740,65 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .tfavotedhover {
     background: #000 none repeat scroll 0 0;
     height: 100%;
-    opacity: 0.8;
     position: absolute;
     width: 100%;
     z-index: 9;
+    padding: 25px 21px;
+    overflow: hidden;
+}
+.tickimg{
+    background: rgba(0, 0, 0, 0) url("../img/tickcircle.png") no-repeat scroll left center;
+    color: #51c123;
+    font: 18px gotham-bold; 
+    padding: 2px 0 0 37px;
+    text-align: left;  
+    margin-bottom: 14px;
+}
+.promote {
+    color: #fff;
+    font: 17px gotham-light;
+    text-align: left;
+    padding: 30px 0;
+    height: 220px;
+}
+.promote .stro {
+    font: 17px gotham-bold;
+    padding: 4px 0 0;
+}
+.social-icon {
+    color: #b7985b;
+    font-size: 22px;
+    padding: 8px 20px 0 0;
+}
+.social-icon > i{
+    cursor: pointer;
+}
+.share-vote {
+    color: #fff;
+    font: 16px gotham-light;
+    padding: 16px 0 0;
+    text-align: left;
+}
+.sharebtn {
+    background: #b7985b none repeat scroll 0 0;
+    border-radius: 15px;
+    float: left;
+    font: 12px gotham-bold;
+    margin-top: 12px;
+    padding: 3px 8px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.cvote {
+    color: #fff;
+    font: 12px gotham-light;
+    margin: 27px 0 0;
+    cursor: pointer;
+}
+.work-content .feeds-data .work-item a .glyphicon{
+    margin-top: 27%;
+}
+.tfavotedhover > hr {
+    margin: 0 -10%;
 }
 /* TFA */

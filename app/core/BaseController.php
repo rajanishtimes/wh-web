@@ -31,6 +31,7 @@ class BaseController extends Controller{
 	public $iswebview = false;
 	public $logged_user = array();
 	public $profileid = '';
+	public $tfacity = 0;
 	
     protected function initialize()
     {
@@ -105,14 +106,20 @@ class BaseController extends Controller{
 		
 		/* ============= Set cookie for city =============== */
 		if($this->dispatcher->getParam('city') == 'delhi'){
-			$request_uri = trim($this->request->getServer('REQUEST_URI'), '/');
-			$url = str_replace("delhi","delhi-ncr",$request_uri);
-			$urls = explode('?', $url);
-			header("HTTP/1.1 301 Moved Permanently");
-			header("Location: ".$this->baseUrl.'/'.urldecode($urls[0]));
-			exit;
+			if($this->dispatcher->getControllerName() != 'tfa'){
+				$request_uri = trim($this->request->getServer('REQUEST_URI'), '/');
+				$url = str_replace("delhi","delhi-ncr",$request_uri);
+				$urls = explode('?', $url);
+				header("HTTP/1.1 301 Moved Permanently");
+				header("Location: ".$this->baseUrl.'/'.urldecode($urls[0]));
+				exit;
+			}
         }
 		
+		if($this->dispatcher->getParam('city') == 'gurgoan' || $this->dispatcher->getParam('city') == 'noida' || $this->dispatcher->getParam('city') == 'delhi'){
+			$this->tfacity = 1;
+		}
+
 		$this->profileid = $this->getprofileid($this->dispatcher->getParam('city'));
 		$this->view->profileid = $this->profileid;
 
@@ -500,6 +507,8 @@ class BaseController extends Controller{
 				$ccityformulti = $this->defaultCity;
 			}else if(!empty($this->profileid)){
 				$ccityformulti = $this->defaultCity;
+			}else if($this->tfacity != 0){
+				$ccityformulti = $this->defaultCity;
 			}else{
 				$ccityformulti = strtolower($this->dispatcher->getParam('city'));
 			}
@@ -528,6 +537,8 @@ class BaseController extends Controller{
 			}else{
 				$this->currentCity = $this->defaultCity;
 			}
+		}else if($this->tfacity != 0){
+			$this->currentCity = $this->defaultCity;
 		}else if($this->dispatcher->getParam('city')){
 			$this->currentCity = strtolower($this->dispatcher->getParam('city'));
 		}else if ($this->cookies->has("currentCity")){
