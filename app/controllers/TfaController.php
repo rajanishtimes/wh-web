@@ -43,16 +43,20 @@ class TfaController extends BaseController{
     	$city = $this->request->getPost('city');
     	$cityid = $this->request->getPost('cityid');
     	try{
-    		$Newsletter = new \WH\Model\User();
-	        $Newsletter->setNewsletter();
-	        $Newsletter->setEmail($email);
-	        $Newsletter->setCityId($cityid);
-	        $Newsletter->setType('tfa');
-	        $Newsletter->setVersion($this->config->application->version);
-			$Newsletter->setPackage($this->config->application->package);
-			$Newsletter->setEnv($this->config->application->environment);
-	        $newsletter = $Newsletter->getNewsletterResults();
-	        $this->flash->message("debug", "Thanks, we will inform you when the voting starts");
+    		if(!empty($email)){
+    			$Newsletter = new \WH\Model\User();
+		        $Newsletter->setNewsletter();
+		        $Newsletter->setEmail($email);
+		        $Newsletter->setCityId($cityid);
+		        $Newsletter->setType('tfa');
+		        $Newsletter->setVersion($this->config->application->version);
+				$Newsletter->setPackage($this->config->application->package);
+				$Newsletter->setEnv($this->config->application->environment);
+		        $newsletter = $Newsletter->getNewsletterResults();
+		        $this->flash->message("debug", "Thanks, we will inform you when the voting starts");	
+    		}else{
+    			$this->flash->message("debug", "Please enter your email");
+    		}
     	}catch(Exception $e){
     		$this->flash->message("debug", "You are already subscribed with us");
     	}

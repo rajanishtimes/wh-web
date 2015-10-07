@@ -406,6 +406,23 @@ function DOMReady(){
 		elem.find('img').addClass('dnone');
 	});
 
+	$('#newsletterform').submit(function(){
+		var email = $('#emailvalidate').val();
+		$('.alert-debug').remove();
+		if(email == ''){
+			$(this).append('<div class="alert-debug">Please enter email</div>');
+		    return false;
+		}else{
+			var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+			if (testEmail.test(email)){
+			    return true;
+			}else{
+				$(this).append('<div class="alert-debug">Please enter valid email</div>');
+			    return false;
+			}
+		}
+	});
+
 	$(document.body).one('focus.textarea', '.tiptext', function(){
         var savedValue = this.value;
         this.value = '';

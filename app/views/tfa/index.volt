@@ -47,11 +47,11 @@
 		<div class="col-sm-12 col-md-12 emailer">
 			<div class="text">Leave us your email, we'll inform you as voting starts</div>
 			<div class="newsletter-box">
-				<form role="form" method="POST" action="{{baseUrl}}/tfa/newsletter">
+				<form role="form" method="POST" action="{{baseUrl}}/tfa/newsletter" id="newsletterform">
 					<div class="input-group subscribe">
 						<input type="hidden" value="{{currentCity}}" name="city">
 						<input type="hidden" value="{{cityId}}" name="cityid">
-						<input type="text" placeholder="email:" class="form-control" name="email">
+						<input type="text" placeholder="email:" class="form-control" name="email" id="emailvalidate">
 						<span class="input-group-btn">
 							<input type="submit" value="SUBMIT" name="submit" class="btn btn-info">
 						</span>
