@@ -101,22 +101,48 @@
 			<div class="winnerslist">
 				<div class="container footerlist">
 					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-12">
-							<!--<h2 class="footerstyle">Fine Dine (Food) all cuisines</h2>-->
-							<ul class="list make2col">
-								{% for key, winners in allpastwinners %}
-									<li>
-										<?php if(!empty($winners['url'])){ ?>
-											<a href="{{baseUrl}}{{winners['url']}}" target="_blank">
-										<?php } ?>
-											{{winners['venue_name']}} - {{winners['category_name']}}
-										<?php if(!empty($winners['url'])){ ?>
-											</a>
-										<?php } ?>
-									</li>
-								{% endfor  %}
-							</ul>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							{% for key, awards in allpastwinners['Food Awards'] %}
+								<h2 class="footerstyle">(Food) {{key}} Awards<br>all cuisine</h2>
+								<ul class="list">
+									{% for key2, winner in awards %}	
+										{% for key3, venue in winner %}
+										<li>
+											<?php if(!empty($venue['url'])){ ?>
+												<a href="{{baseUrl}}{{venue['url']}}" target="_blank">
+											<?php } ?>
+												{{key2}} - {{venue['venue_name']}}
+											<?php if(!empty($venue['url'])){ ?>
+												</a>
+											<?php } ?>
+										</li>
+										{% endfor  %}
+									{% endfor  %}
+								</ul>
+							{% endfor  %}
 						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							{% for key, awards in allpastwinners['Nightlife Awards'] %}
+								<h2 class="footerstyle">(Nightlife) {{key}} Awards<br>all cuisine</h2>
+								<ul class="list">
+									{% for key2, winner in awards %}	
+										{% for key3, venue in winner %}
+										<li>
+											<?php if(!empty($venue['url'])){ ?>
+												<a href="{{baseUrl}}{{venue['url']}}" target="_blank">
+											<?php } ?>
+												{{key2}} - {{venue['venue_name']}}
+											<?php if(!empty($venue['url'])){ ?>
+												</a>
+											<?php } ?>
+										</li>
+										{% endfor  %}
+									{% endfor  %}
+								</ul>
+							{% endfor  %}
+						</div>
+
 					</div>
 				</div>
 			</div>
