@@ -44,7 +44,7 @@ class TfaController extends BaseController{
     		$Newsletter = new \WH\Model\User();
 	        $Newsletter->setNewsletter();
 	        $Newsletter->setEmail($email);
-	        $Newsletter->setCity($this->currentCity);
+	        $Newsletter->setCityId($this->cityId);
 	        $Newsletter->setType('tfa');
 	        $Newsletter->setVersion($this->config->application->version);
 			$Newsletter->setPackage($this->config->application->package);
