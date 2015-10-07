@@ -977,6 +977,9 @@ PHONE < 420px
 		left: auto;
     	margin-left: 4px;
 	}
+	.emailer .newsletter-box{
+		width: 270px;
+	}
 }
 
 /**

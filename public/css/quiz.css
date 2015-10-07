@@ -492,9 +492,10 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .tfa .coming_text {
     font-size: 43px;
-    margin-top: 24px;
-    margin-bottom: 95px;
+    margin-top: 60px;
+    margin-bottom: 60px;
     font-family: Gotham-Bold;
+    line-height: 45px;
 }
 .sponsor > img, .timeline > img {
     max-width: 100%;
@@ -813,8 +814,10 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .alert-debug {
     color: #b7985b;
     text-align: left;
+    margin-top: 10px;
 }
 .coming_text .voting-start {
     font-size: 14px;
+    font-family: gotham-light;
 }
 /* TFA */

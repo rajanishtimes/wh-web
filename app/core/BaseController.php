@@ -145,17 +145,17 @@ class BaseController extends Controller{
 
 		$date = '';
 		if($this->currentCity == 'delhi-ncr')
-			$date = '03 Mar 2016';
+			$date = '01 Jan 2016';
 		elseif($this->currentCity == 'jaipur')
-			$date = '18 Jan 2016';
+			$date = '27 Nov 2015';
 		elseif($this->currentCity == 'pune')
-			$date = '13 Jan 2016';
+			$date = '24 Nov 2015';
 		elseif($this->currentCity == 'kolkata')
-			$date = '23 Dec 2015';
+			$date = '01 Nov 2015';
 		elseif($this->currentCity == 'chennai')
-			$date = '18 Dec 2015';
+			$date = '26 Oct 2015';
 		elseif($this->currentCity == 'bangalore')
-			$date = '11 Dec 2015';
+			$date = '19 Oct 2015';
 		$this->view->date = $date;
 
 
