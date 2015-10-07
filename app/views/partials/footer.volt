@@ -2,6 +2,23 @@
 </div>
 <!-- BEGIN FOOTER -->
 <div class="clearfix"></div>
+<!--<div class="tfabanner">
+	<div class="tfa">
+		<img src="{{baseUrl}}/img/tfabanner.jpg">
+	</div>
+	<div class="votingtym">
+		<div class="text">
+			<?php if(!empty($date)){ ?>
+				<div class="voting-start">Voting starts on {{date}}</div>
+			<?php }else{ ?>
+				<div class="voting-start">Coming Soon</div>
+			<?php }?>
+		</div>
+		<div class="readmore">
+			<a href="{{baseUrl}}/{{currentCity}}/times-food-and-nightlife-awards-2016">Read More</a>
+		</div>
+	</div>
+</div>-->
 <footer>
 	<div class="container">
 		<div class="row">
@@ -126,6 +143,7 @@
 							{% endif %}
 							<?php $i++; ?>
 						{% endfor  %}
+						<li><a href="{{baseUrl}}/{{currentCity}}/times-food-and-nightlife-awards-2016">Times Food and NightLife Award</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>
@@ -186,7 +204,7 @@
 				</div>
 			</div>
 			<div class="col-xs-12 text-center margin-top-40">
-				{{ elements.getStaticpages(baseUrl, city) }}
+				{{ elements.getStaticpages(baseUrl, city, currentCity) }}
 			</div>
 			<div class="col-xs-12 text-center lineheight">
 				&copy; 2015 <a href="{{baseUrl}}">WhatsHot.in</a> &ndash; Indiatimes Lifestyle Network. All rights reserved.

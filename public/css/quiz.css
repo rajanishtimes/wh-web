@@ -490,9 +490,6 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .tfa  .hp .wh_logo{
     margin-top: 10px;   
 }
-.tfa  .hp .wh_logo > img {
-    width: 80px;
-}
 .tfa .coming_text {
     font-size: 43px;
     margin-top: 24px;
@@ -520,6 +517,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .tfa .emailer{
     background: #232220;
     padding: 30px;
+    text-align: center;
 }
 .tfa .timeline {
     padding: 60px 0 50px;
@@ -577,7 +575,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .tfa .list{
     margin-bottom: 0;
 }
-.tfa .list.logos > li:first-child{
+.tfa .list.logos > li:first-child, .tfa .list.logos > li:nth-child(2){
     margin-right: 40px;
 }
 .tfa .list.logos > li{
@@ -588,9 +586,6 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .tfa .wh_logo {
     margin-top: 13px;
-}
-.tfa .wh_logo > img {
-    width: 85px;
 }
 .texting {
     margin-left: 68px;
@@ -800,5 +795,26 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .tfavotedhover > hr {
     margin: 0 -10%;
+}
+.emailer .text {
+    color: #fff;
+    font: 14px gotham-book;
+    margin-bottom: 20px;
+}
+.emailer .newsletter-box {
+    margin: 0 auto;
+    width: 320px;
+}
+.emailer .btn.btn-info {
+    border-radius: 5px;
+    margin: 0 0 0 10px;
+    padding: 5px 20px;
+}
+.alert-debug {
+    color: #b7985b;
+    text-align: left;
+}
+.coming_text .voting-start {
+    font-size: 14px;
 }
 /* TFA */

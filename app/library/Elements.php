@@ -66,7 +66,7 @@ class Elements extends Component
 
     }
 	
-	public function getStaticpages($url, $city)
+	public function getStaticpages($url, $city, $currentCity)
     {
 		$actionName = $this->view->getActionName();
 		echo "<ul class='list-inline footer-list'>";

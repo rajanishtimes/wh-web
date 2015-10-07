@@ -37,4 +37,22 @@ class TfaController extends BaseController{
         $this->view->tfacategorys = $tfacategorys;
         //echo "<pre>"; print_r($tfacategory); echo "</pre>"; exit;
     }
+
+    public function newsletterAction(){
+    	$email = $this->request->getPost('email');
+    	try{
+    		$Newsletter = new \WH\Model\User();
+	        $Newsletter->setNewsletter();
+	        $Newsletter->setEmail($email);
+	        $Newsletter->setType('tfa');
+	        $Newsletter->setVersion($this->config->application->version);
+			$Newsletter->setPackage($this->config->application->package);
+			$Newsletter->setEnv($this->config->application->environment);
+	        $newsletter = $Newsletter->getNewsletterResults();
+	        $this->flash->message("debug", "Thanks, we will inform you when the voting starts");
+    	}catch(Exception $e){
+    		$this->flash->message("debug", "You are already subscribed with us");
+    	}
+    	$this->response->redirect($this->baseUrl.'/delhi-ncr/times-food-and-nightlife-awards-2016');
+    }
 }

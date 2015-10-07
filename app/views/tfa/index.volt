@@ -8,6 +8,7 @@
 		</div>
 	</div>
 </div>-->
+
 <section id="quizdata" class="quiz_data tfa">
 		<div class="col-sm-12 col-md-12 timeline text-center">
 			<div class="timeline-block">
@@ -27,7 +28,7 @@
 
 			<div class="timeline-block">
 				<div class="city">Pune</div>
-				<div class="date">01 Jan 2016</div>
+				<div class="date">13 Jan 2016</div>
 			</div>
 
 			<div class="timeline-block">
@@ -41,6 +42,24 @@
 			</div>
 			
 		</div>
+
+
+		<div class="col-sm-12 col-md-12 emailer">
+			<div class="text">Leave us your email, we'll inform you as voting starts</div>
+			<div class="newsletter-box">
+				<form role="form" method="POST" action="{{baseUrl}}/tfa/newsletter">
+					<div class="input-group subscribe">
+						<input type="text" placeholder="email:" class="form-control" name="email">
+						<span class="input-group-btn">
+							<input type="submit" value="SUBMIT" name="submit" class="btn btn-info">
+						</span>
+					</div><div class="clearfix"></div>
+					{{ flash.output() }}
+				</form>
+			</div>
+		</div>
+		
+
 
 		<div class="row">
 		<div class="col-sm-12 col-md-12 no-padding">

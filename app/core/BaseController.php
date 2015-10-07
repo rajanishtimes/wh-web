@@ -116,7 +116,7 @@ class BaseController extends Controller{
 			}
         }
 		
-		if($this->dispatcher->getParam('city') == 'gurgoan' || $this->dispatcher->getParam('city') == 'noida' || $this->dispatcher->getParam('city') == 'delhi'){
+		if($this->dispatcher->getParam('city') == 'gurgaon' || $this->dispatcher->getParam('city') == 'noida' || $this->dispatcher->getParam('city') == 'delhi'){
 			$this->tfacity = 1;
 		}
 
@@ -142,10 +142,28 @@ class BaseController extends Controller{
 		$this->view->logged_user = $this->logged_user;	
 
 		/* ============= Set data for footer =============== */
+
+		$date = '';
+		if($this->currentCity == 'delhi-ncr')
+			$date = '03 Mar 2016';
+		elseif($this->currentCity == 'jaipur')
+			$date = '18 Jan 2016';
+		elseif($this->currentCity == 'pune')
+			$date = '13 Jan 2016';
+		elseif($this->currentCity == 'kolkata')
+			$date = '23 Dec 2015';
+		elseif($this->currentCity == 'chennai')
+			$date = '18 Dec 2015';
+		elseif($this->currentCity == 'bangalore')
+			$date = '11 Dec 2015';
+		$this->view->date = $date;
+
+
 		if ($this->request->isAjax() == false) {
 			$this->setdataforfooter();
 		}
 		/* ============= Set data for footer =============== */
+
 
     }
 

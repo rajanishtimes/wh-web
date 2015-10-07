@@ -694,6 +694,9 @@ PHONE < 640px
 	.award-block {
 	    padding: 64px 15px 64px;
 	}
+	.tfa .list.logos > li:first-child, .tfa .list.logos > li:nth-child(2){
+		width: 100%;
+	}
 }
 
 

@@ -12,13 +12,19 @@
 						<div class="row">
 							<ul class="list logos padding0">
 								<li><img src="{{baseUrl}}/img/tfa/tfalogo.png"></li>
+								<li><img src="{{baseUrl}}/img/tfa/and.png"></li>
 								<li><img src="{{baseUrl}}/img/tfa/times_nightlife_awards.png"></li>
 							</ul>
 						</div>
 
 						<div class="presents">Powered by</div>
 						<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
-						<div class="coming_text">COMING SOON</div>
+						<div class="coming_text">COMING SOON
+							<?php if(!empty($date)){ ?>
+								<div class="voting-start">Voting starts on {{date}}</div>
+							<?php } ?>
+						</div>
+
 						<!--<a href="#" class="scroll-down img-circle addscroll"><i class="fa fa-angle-down"></i></a>-->
 					</div>
 				</div>
