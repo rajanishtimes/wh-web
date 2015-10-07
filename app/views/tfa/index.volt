@@ -91,7 +91,7 @@
 							<div class="col-sm-12 col-md-12 padding0">
 								WINNERS FOR TIMES FOOD AND NIGHTLIFE AWARDS 2015
 							</div>
-					</div>
+					</div><div class="clearfix"></div>
 				</div>
 			</div>
 		</div>
@@ -144,7 +144,7 @@
 						</div>
 
 					</div>
-				</div>
+				</div><div class="clearfix"></div>
 			</div>
 		</div>
 		</div>
