@@ -632,6 +632,7 @@ class BaseController extends Controller{
 			
 			if($drawdity == $this->currentCity){
 				$this->cityId = $getallcity['id'];
+				$this->view->cityId = $this->cityId;
 				break;
 			}
 		}

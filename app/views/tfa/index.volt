@@ -49,6 +49,8 @@
 			<div class="newsletter-box">
 				<form role="form" method="POST" action="{{baseUrl}}/tfa/newsletter">
 					<div class="input-group subscribe">
+						<input type="hidden" value="{{currentCity}}" name="city">
+						<input type="hidden" value="{{cityId}}" name="cityid">
 						<input type="text" placeholder="email:" class="form-control" name="email">
 						<span class="input-group-btn">
 							<input type="submit" value="SUBMIT" name="submit" class="btn btn-info">

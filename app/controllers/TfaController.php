@@ -40,11 +40,13 @@ class TfaController extends BaseController{
 
     public function newsletterAction(){
     	$email = $this->request->getPost('email');
+    	$city = $this->request->getPost('city');
+    	$cityid = $this->request->getPost('cityid');
     	try{
     		$Newsletter = new \WH\Model\User();
 	        $Newsletter->setNewsletter();
 	        $Newsletter->setEmail($email);
-	        $Newsletter->setCityId($this->cityId);
+	        $Newsletter->setCityId($cityid);
 	        $Newsletter->setType('tfa');
 	        $Newsletter->setVersion($this->config->application->version);
 			$Newsletter->setPackage($this->config->application->package);
@@ -54,6 +56,6 @@ class TfaController extends BaseController{
     	}catch(Exception $e){
     		$this->flash->message("debug", "You are already subscribed with us");
     	}
-    	$this->response->redirect($this->baseUrl.'/delhi-ncr/times-food-and-nightlife-awards-2016');
+    	$this->response->redirect($this->baseUrl.'/'.$city.'/times-food-and-nightlife-awards-2016');
     }
 }
