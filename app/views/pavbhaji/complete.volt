@@ -15,7 +15,7 @@
 <section class="hp hp-mobile vadapav">
 	<div class="item item-left">
 		<div class="desc">
-			<div class="contestlogo  bhel-logo"><img src="{{baseUrl}}/img/pav-wow.png"></div>
+			<div class="contestlogo bhel-logo"><img src="{{baseUrl}}/img/paw-wow.png"></div>
 			<div class="presents">in association with :</div>
 			<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
 			<a href="#" class="scroll-down img-circle addscrollmobile"><i class="fa fa-angle-down"></i></a>
@@ -39,8 +39,8 @@
 				</div><div class="clearfix"></div>
 
 				<input type='hidden' value="{{iscontestrunning}}" id="iscontestruning">
-				<div class="work-content contest bhel">
-					<div id="biryaninomination" class="bhel">
+				<div class="work-content contest pavbhaji">
+					<div id="biryaninomination" class="pavbhaji">
 						<?php $isvotebir = $isvotedbiryani; ?>
 						{{feeds.getcontest(baseUrl, biryaninominations, start, cityshown, 'pavbhaji', isvotebir)}}
 					</div>
