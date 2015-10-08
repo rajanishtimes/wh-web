@@ -518,7 +518,7 @@ function voting(elem, cookiesname){
 
 		elem.html('VOTING...');
 		$.ajax({
-			url:baseUrl+'/badapav/voting/'+milliseconds,
+			url:baseUrl+'/pavbhaji/voting/'+milliseconds,
 			type:'POST',	
 			data:'nominationid='+elem.attr('rel')+'&category='+elem.attr('data-for'),
 			beforeSend: function(){

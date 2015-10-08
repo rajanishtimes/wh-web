@@ -11,9 +11,9 @@ class PavbhajiController extends BaseController{
     }
 
 	public function indexAction(){
-		$title = 'King of Bhel Contest for Best Bhel Puri in '.$this->cityshown($this->currentCity).' | '.$this->config->application->SiteName;
-		$this->view->meta_description = 'Finding best bhel puri in Mumbai - Bombay Times King of Bhel Contest. Vote up the best bhel puri restaurant in Mumbai on What\'s Hot.';
-		$this->view->meta_keywords = 'King of Bhel, King of Bhel Contest, Best Bhel Puri in Mumbai, Best Bhel Puri';
+		$title = 'Pavwow Contest for best Pav Bhaji in '.$this->cityshown($this->currentCity).' | '.$this->config->application->SiteName;
+		$this->view->meta_description = 'Finding best pav bhaji in Mumbai - Bombay Times Pavwow Contest. Vote up the best pav bhaji restaurant in Mumbai on What\'s Hot.';
+		$this->view->meta_keywords = 'pav bhaji, pavwow Contest, Best pav bhaji in Mumbai, Best pavwow';
 
 		$this->tag->setTitle($title);
 		$city = $this->currentCity;

@@ -11,6 +11,18 @@
 	</div>
 </section>
 
+<section class="hp hp-mobile vadapav">
+	<div class="item item-left">
+		<div class="desc">
+			<div class="contestlogo  bhel-logo"><img src="{{baseUrl}}/img/pav-wow.png"></div>
+			<div class="presents">in association with :</div>
+			<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
+			<a href="#" class="scroll-down img-circle addscrollmobile"><i class="fa fa-angle-down"></i></a>
+		</div>
+		<!--<i class="overlay"></i>-->
+	</div>
+</section>
+
 <div class="clearfix"></div>
 <section id="quizdata" class="quiz_data vadapav">
 	<div class="section">
