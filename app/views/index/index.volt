@@ -16,9 +16,10 @@
 <div class="section topbiryanistrip">
 	<div class="container">
 		<div class="row contestdata">
-			<a href="{{baseUrl}}/mumbai/kingofbhel">
-				<div class="contestimg"><img src="{{baseUrl}}/img/bhel-logo.png"></div>
-				<div class="contestdesc">Winners announced for King of Bhel contest 2015. Checkout top 10 bhelpuri joints in Mumbai.</div>
+			<a href="{{baseUrl}}/mumbai/pavwow">
+				<div class="contestimg"><img src="{{baseUrl}}/img/paw-wow.png"></div>
+				<div class="contestdesc">Times Pav Bhaji Pavwow Contest. Vote Now!</div>
+				<!--<div class="contestdesc">Winners announced for King of Bhel contest 2015. Checkout top 10 bhelpuri joints in Mumbai.</div>-->
 			</a>
 		</div>
 	</div>
