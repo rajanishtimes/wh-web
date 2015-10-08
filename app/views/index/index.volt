@@ -18,7 +18,8 @@
 		<div class="row contestdata">
 			<a href="{{baseUrl}}/mumbai/pavwow">
 				<div class="contestimg"><img src="{{baseUrl}}/img/paw-wow.png"></div>
-				<div class="contestdesc">Times Pav Bhaji Pavwow Contest. Vote Now!</div>
+				<div class="contestdesc">Check the nominations for best Pav Bhaji in Mumbai. Vote now!</div>
+				<!--<div class="contestdesc">Check the winners of the best Pav Bhaji in Mumbai.</div>-->
 				<!--<div class="contestdesc">Winners announced for King of Bhel contest 2015. Checkout top 10 bhelpuri joints in Mumbai.</div>-->
 			</a>
 		</div>
