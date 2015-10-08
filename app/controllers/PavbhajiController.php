@@ -22,8 +22,8 @@ class PavbhajiController extends BaseController{
         }
 
 		$isvotedbiryani = 0;
-		if ($this->cookies->has("isvotedbiryani")){
-			$isvotedbiryani = (string)$this->cookies->get("isvotedbiryani");
+		if ($this->cookies->has("isvotedpav")){
+			$isvotedbiryani = (string)$this->cookies->get("isvotedpav");
 		}
 		
 		$cityshown = $this->cityshown($city);

@@ -355,8 +355,8 @@ function DOMReady(){
 			if($('#iscontestruning').val() == 1){				
 				if(cookies.get('isvotedbiryani') == null && elem.attr('data-for') == 'bhel'){
 					voting(elem, 'isvotedbiryani');
-				}else if(cookies.get('isvotedbiryani') == null && elem.attr('data-for') == 'pavbhaji'){
-					voting(elem, 'isvotedbiryani');
+				}else if(cookies.get('isvotedpav') == null && elem.attr('data-for') == 'pavbhaji'){
+					voting(elem, 'isvotedpav');
 				}else if(cookies.get('isvotedbiryani') == null && elem.attr('data-for') == 'biryani'){
 					voting(elem, 'isvotedbiryani');
 				}else if(cookies.get('isvotedhaleem') == null && elem.attr('data-for') == 'haleem'){
@@ -364,8 +364,8 @@ function DOMReady(){
 				}else{
 					if(cookies.get('isvotedbiryani') != null && cookies.get('isvotedbiryani') != id && elem.attr('data-for') == 'bhel'){
 						voting(elem, 'isvotedbiryani');	
-					}else if(cookies.get('isvotedbiryani') != null && cookies.get('isvotedbiryani') != id && elem.attr('data-for') == 'pavbhaji'){
-						voting(elem, 'isvotedbiryani');	
+					}else if(cookies.get('isvotedpav') != null && cookies.get('isvotedpav') != id && elem.attr('data-for') == 'pavbhaji'){
+						voting(elem, 'isvotedpav');	
 					}else if(cookies.get('isvotedbiryani') != null && cookies.get('isvotedbiryani') != id && elem.attr('data-for') == 'biryani'){
 						voting(elem, 'isvotedbiryani');	
 					}else if(cookies.get('isvotedhaleem') != null && cookies.get('isvotedhaleem') != id && elem.attr('data-for') == 'haleem'){
