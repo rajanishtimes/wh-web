@@ -4278,13 +4278,18 @@ iframe {
     padding: 0 5px;
 }
 .topbiryanistrip {
-    background: #f6f6f6 none repeat scroll 0 0;
+    background: #000 none repeat scroll 0 0;
 }
 .contestdata > a > div{
     display: table-cell;
-    color: #b79a52;
+    color: #fff;
     font-family: Rosario;
     font-style: italic;
+    padding: 0 0 0 20px;
+}
+.contestdesc > span {
+    color: #f58320;
+    margin: 0 0 0 2px;
 }
 .tag_desc {
     font-size: 18px;
