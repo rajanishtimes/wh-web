@@ -633,7 +633,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     text-transform: uppercase;
     padding: 34px 0 17px;
 }
-.tfa .category-list-data .list-inline li{
+.tfa .category-list-data .list-inline li a{
     color: #b7985b;
     font-family: gotham-medium;
     padding: 0;
@@ -645,7 +645,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .tfa .category-list-data .list-inline li:first-child {
     padding: 0 0 2px;
 }
-.tfa .category-list-data .list-inline li.active, .tfa .category-list-data .list-inline li:hover{
+.tfa .category-list-data .list-inline li.active a, .tfa .category-list-data .list-inline li:hover a{
     color: #fff;
     border-bottom: 2px solid #fff;
 }
@@ -678,7 +678,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .tfa .nomination_data{
     background: rgba(0, 0, 0, 0) url("../img/tfa/bk.png") repeat scroll 0 bottom;
-    padding: 52px 0;
+    padding: 52px 0 0 0;
 }
 .tfa .main-block {
     padding: 23px 0;
@@ -708,7 +708,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     padding: 5px 0;
     font-size: 12px;
 }
-.popup.float-left > img {
+.popup.float-left > a > img {
     width: auto;
 }
 .tfafeeds .feed-short-desc {
@@ -819,5 +819,8 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .coming_text .voting-start {
     font-size: 14px;
     font-family: gotham-light;
+}
+.work-content .tfafeeds .work-item a .glyphicon {
+    margin-top: 30%;
 }
 /* TFA */

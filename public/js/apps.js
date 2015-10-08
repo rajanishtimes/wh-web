@@ -355,12 +355,16 @@ function DOMReady(){
 			if($('#iscontestruning').val() == 1){				
 				if(cookies.get('isvotedbiryani') == null && elem.attr('data-for') == 'bhel'){
 					voting(elem, 'isvotedbiryani');
+				}else if(cookies.get('isvotedbiryani') == null && elem.attr('data-for') == 'pavbhaji'){
+					voting(elem, 'isvotedbiryani');
 				}else if(cookies.get('isvotedbiryani') == null && elem.attr('data-for') == 'biryani'){
 					voting(elem, 'isvotedbiryani');
 				}else if(cookies.get('isvotedhaleem') == null && elem.attr('data-for') == 'haleem'){
 					voting(elem, 'isvotedhaleem');
 				}else{
 					if(cookies.get('isvotedbiryani') != null && cookies.get('isvotedbiryani') != id && elem.attr('data-for') == 'bhel'){
+						voting(elem, 'isvotedbiryani');	
+					}else if(cookies.get('isvotedbiryani') != null && cookies.get('isvotedbiryani') != id && elem.attr('data-for') == 'pavbhaji'){
 						voting(elem, 'isvotedbiryani');	
 					}else if(cookies.get('isvotedbiryani') != null && cookies.get('isvotedbiryani') != id && elem.attr('data-for') == 'biryani'){
 						voting(elem, 'isvotedbiryani');	
@@ -963,3 +967,11 @@ function similar_content_load(id, type){
 	}
 }
 
+function copyToClipboard(text) {
+	var $temp = $("<input>");
+	$("body").append($temp);
+	$temp.val(text).select();
+	document.execCommand("copy");
+	$temp.remove();
+	alert('Url copied to clipboard.');
+}

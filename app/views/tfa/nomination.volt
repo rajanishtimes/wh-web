@@ -34,7 +34,7 @@
 						<div class="category-list">
 							<ul class="list-inline text-center">
 								{% for key, tfacategory in tfacategorys['location'] %}
-									<li data-for="{{key}}">{{tfacategory['name']}}</li>
+									<li data-for="{{key}}" {% if(tfacategory['name'] | lower == tfacity) %}class="active"{% endif %}><a href="{{baseUrl}}/{{tfacity}}/nomination">{{tfacategory['name']}}</a></li>
 								{% endfor %}
 							</ul>
 						</div>
@@ -43,14 +43,19 @@
 
 				<div class="col-sm-12 col-md-12 col-xs-12">
 					<div class="category-list">
+						<?php $i = 1; ?>
 						{% for key, tfacategory in tfacategorys['location'] %}
-							<ul class="list-inline list-{{key}}">
-								{% for key1, event in tfacategory['events'][0]['categories'] %}
-									{% for key2, category in event['child_category'] %}
-										<li class="{{key2}}">{{category['name']}}</li>
+							{% if(tfacategory['name'] | lower == tfacity) %}
+								<ul class="list-inline list-{{key}}">
+									{% for key1, event in tfacategory['events'][0]['categories'] %}
+										{% for key2, category in event['child_category'] %}
+											<?php $title = $this->elements->create_slug(strtolower($category['name'])); ?>
+											<li class="{{key2}} {% if(tfasubcat == '' and i == 1) %}active{% elseif(title == tfasubcat) %}active{% endif %}"><a href="{{baseUrl}}/{{tfacity}}/nomination/{{title}}">{{category['name']}}</a></li>
+											<?php $i++; ?>
+										{% endfor %}
 									{% endfor %}
-								{% endfor %}
-							</ul>
+								</ul>
+							{% endif %}
 						{% endfor %}
 					</div>
 				</div>
@@ -61,137 +66,109 @@
 
 
 
+{% for key, nomination in nominations %}
 <section class="nomination_data">
 	<div class="section">
 		<div class="container">
-			<div class="row">
+			<div id="{{nomination['category_name']}}" class="row">
 				<div class="col-sm-12 col-md-12 col-xs-12">
 					<div class="main-block">
 						<div class="accordian-block">
 							<div class="nomination-count float-left">
-								FOUND-03
+								FOUND-{{nomination['count_venue']}}
 							</div>
 							<div class="category-name-block float-left">
 								<div class="category-name">
-									BEST NORTH INDIAN
+									{{nomination['subcategory_name']}}
 								</div>
 								<div class="event-name">
-									FINE DINE
+									{{nomination['category_name']}}
 								</div>
 							</div>
 							<div class="clearfix"></div>
 						</div>
 					</div>
 				</div>			
-			</div><div class="clearfix"></div>	
+			</div><div class="clearfix"></div>
 			<div class="row work-content allfeeds">	
 				<div class="tfafeeds">
 					<!-- Nomination blocks design -->
+					{% for key2, venues in nominations[key]['venue'] %}
 						<div class="col-sm-4 col-md-3 col-xs-6">
 							<div class="work-item feeds-data">
-								<a href="#">
-									<div class="hover-container">
-										<div class="hover-wrap">
-											<i class="glyphicon glyphicon-plus bino"></i>
-										</div>
-										<div style="background-color:#ffdddd;">
-											<img class="lazy " style="background-color: rgb(255, 221, 221); opacity: 1; height: 180px;" alt="6 Ways To Hit That Sweet Spot" src="http://im.whatshot.in/content/2015/Oct/1443696482-desserttrail.jpg?w=479&amp;h=180&amp;cc=1&amp;q=75">
-										</div>
-									</div>
-								</a>
-								<a href="#">
-									<div class="the-box no-margin no-border">
-										<div class="boundarea">
-											<div title="6 Ways To Hit That Sweet Spot" class="feed-title">6 Ways To Hit That Sweet Spot</div>
-											<div class="feed-short-desc">Lazy and obsessively eating everything in sight &ndash; that’s Garfield but that could so easily b...</div>
-											</div>
-									</div>
-									<div class="ratings">
-										<div class="float-left">
-											FOOD <strong>3.5</strong>
-										</div>
-										<div class="float-left">
-											SERVICE <strong>3.5</strong>
-										</div>
-										<div class="float-left">
-											DECOR <strong>3.5</strong>
-										</div>
-										<div class="popup float-left">
-											<img src="{{baseUrl}}/img/popup.png">
-										</div>
-									</div>
-								</a>
-								<div class="clearfix"></div>
-								<div class="calls text-center">VOTE OR MISS CALL - 2340 233 456</div>
-								<div class="votebtn">VOTE</div>
-							</div>
-						</div>
-
-
-						<div class="col-sm-4 col-md-3 col-xs-6">
-							<div class="work-item feeds-data">
-								<div class="tfavotedhover">
+								<div class="tfavotedhover dnone">
 									<div class="tickimg">
 										Your Vote has been counted.
 									</div>
 									<hr>
 									<div class="promote">
 										Promote your favourite restaurant
-										<div class="stro">The Kitchen for Best North Indian</div>
-										<div class="social-icon float-left"><i class="fa fa-facebook"></i></div>
-										<div class="social-icon float-left"><i class="fa fa-twitter"></i></div>
-										<div class="social-icon float-left"><i class="fa fa-google-plus"></i></div>
+										<div class="stro">The Kitchen for {{nominations[key]['subcategory_name']}}</div>
+										<a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('{{baseUrl}}{{venues['url']}}'),'facebook-share-dialog','width=626,height=436');return false;"><div class="social-icon float-left"><i class="fa fa-facebook"></i></div></a>
+										<a href="#" onclick="window.open('http://twitter.com/share?url={{baseUrl}}{{venues['url']}}','facebook-share-dialog','width=626,height=436');return false;"><div class="social-icon float-left"><i class="fa fa-twitter"></i></div></a>
+										<a href="#" onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{venues['url']}}','facebook-share-dialog','width=626,height=436');return false;"><div class="social-icon float-left"><i class="fa fa-google-plus"></i></div></a>
 										<div class="clearfix"></div>
 									</div>
 									<div class="clearfix"></div>
 									<div class="share-vote">
 										Share this direct vote link
-										<div class="clearfix"></div><div class="sharebtn">COPY LINK <i class="fa fa-link"></i></div>
+										<div class="clearfix"></div><div class="sharebtn" onclick="copyToClipboard('{{baseUrl}}{{venues['url']}}')">COPY LINK <i class="fa fa-link"></i></div>
 									</div>
 									<div class="clearfix"></div>
 									<hr>
 									<div class="cvote">CANCEL VOTE</div>
 								</div>
-								<a href="#">
+
+								<a href="{{baseUrl}}{{venues['url']}}">
 									<div class="hover-container">
 										<div class="hover-wrap">
 											<i class="glyphicon glyphicon-plus bino"></i>
 										</div>
-										<div style="background-color:#ffdddd;">
-											<img class="lazy " style="background-color: rgb(255, 221, 221); opacity: 1; height: 180px;" alt="6 Ways To Hit That Sweet Spot" src="http://im.whatshot.in/content/2015/Oct/1443696482-desserttrail.jpg?w=479&amp;h=180&amp;cc=1&amp;q=75">
-										</div>
+										{{feeds.getimage(baseUrl, venues['image']['uri'], 479, 320, venues['title'], venues['image'], '', '', key+1)}}
 									</div>
 								</a>
-								<a href="#">
-									<div class="the-box no-margin no-border">
-										<div class="boundarea">
-											<div title="6 Ways To Hit That Sweet Spot" class="feed-title">6 Ways To</div>
-											<div class="feed-short-desc">Lazy and obsessively eating everything in sight &ndash; that’s b...</div>
-											</div>
+
+								<div class="the-box no-margin no-border">
+									<div class="boundarea">
+										<div title="{{venues['title']}}" class="feed-title">{{venues['title']}}</div>
+										<?php
+											$addresses = array();
+											$addresses[] =  $venues['landmark'];
+											$addresses[] =  $venues['locality'];
+											$addresses[] =  $venues['zonename'];
+											$addresses[] =  $venues['cities'];
+											$address = implode(', ', $addresses)
+										?>
+										<div class="feed-short-desc">{{address}}</div>
 									</div>
-									<div class="ratings">
-										<div class="float-left">
-											FOOD <strong>3.5</strong>
-										</div>
-										<div class="float-left">
-											SERVICE <strong>3.5</strong>
-										</div>
-										<div class="float-left">
-											DECOR <strong>3.5</strong>
-										</div>
-										<div class="popup float-left">
-											<img src="{{baseUrl}}/img/popup.png">
-										</div>
+								</div>
+								<div class="ratings">
+									<div class="float-left">
+										FOOD <strong>3.5</strong>
 									</div>
-								</a>
+									<div class="float-left">
+										SERVICE <strong>3.5</strong>
+									</div>
+									<div class="float-left">
+										DECOR <strong>3.5</strong>
+									</div>
+									<div class="popup float-left">
+										<a href="{{baseUrl}}{{venues['url']}}"><img src="{{baseUrl}}/img/popup.png"></a>
+									</div>
+								</div>
+
 								<div class="clearfix"></div>
 								<div class="calls text-center">VOTE OR MISS CALL - 2340 233 456</div>
 								<div class="votebtn">VOTE</div>
 							</div>
 						</div>
+					{% endfor %}
 					<!-- Nomination blocks design end -->
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+{% endfor %}
+
+
