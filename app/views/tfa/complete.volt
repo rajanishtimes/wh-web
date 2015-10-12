@@ -15,22 +15,11 @@
 				<div class="presents">Powered by</div>
 				<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
 				<!--<a href="#" class="scroll-down img-circle addscroll"><i class="fa fa-angle-down"></i></a>-->
+				<div class="coming_text"></div>
 			</div>
 		</div>
 	</div>
 </section><div class="clearfix"></div>
-
-<section class="share_data">
-	<div class="section">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-md-12 sponsor">
-					<img src="{{baseUrl}}/img/tfa/sponsor.png">
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 
 <div class="clearfix"></div>
 <section class="category-data">
@@ -184,4 +173,123 @@
 </section>
 {% endfor %}
 
+
+
+<div class="clearfix"></div>
+<section class="category-list-data">
+	<div class="section ocat">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-12 col-xs-12">
+					<div class="category-list">
+						<ul class="list-inline text-center bocat">
+							<li>BROWSE OTHER CATEGORIES</li>
+						</ul>
+					</div>
+				</div>
+				<?php if(count($tfacategorys['location']) > 1){ ?>
+					<div class="col-sm-12 col-md-12 col-xs-12">
+						<div class="category-list">
+							<ul class="list-inline text-center">
+								{% for key, tfacategory in tfacategorys['location'] %}
+									<li data-for="{{key}}" {% if(tfacategory['name'] | lower == tfacity) %}class="active"{% endif %}><a href="{{baseUrl}}/{{tfacity}}/times-food-and-nightlife-awards-2016">{{tfacategory['name']}}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				<?php } ?>
+
+				<div class="col-sm-12 col-md-12 col-xs-12">
+					<div class="category-list">
+						<?php $i = 1; ?>
+						{% for key, tfacategory in tfacategorys['location'] %}
+							{% if(tfacategory['name'] | lower == tfacity) %}
+								<ul class="list-inline list-{{key}} text-center">
+									{% for key1, event in tfacategory['events'][0]['categories'] %}
+										{% for key2, category in event['child_category'] %}
+											<?php $title = $this->elements->toslug($category['name']); ?>
+
+											{% if(tfasubcat == '' and i == 1) %}
+
+											{% elseif(title == tfasubcat) %}
+
+											{% else %}
+												<li class="{{key2}}"><a href="{{baseUrl}}/{{tfacity}}/times-food-and-nightlife-awards-2016/{{title}}">{{category['name']}}</a></li>
+											{% endif %}
+											<?php $i++; ?>
+										{% endfor %}
+									{% endfor %}
+								</ul>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div><div class="clearfix"></div>
+	</div>
+</section>
+
+
+<div class="clearfix"></div>
+<section class="category-list-data award-block">
+	<div class="row">
+		<div class="col-sm-12 col-md-12 no-padding">
+			<div class="col-xs-12 col-sm-6 col-md-6 texting">
+				<div class="award_head">Times Food & Nightlife Awards 2016</div>
+				<div class="award_text">The country's oldest and most revered food & nightlife awards are back! Keep an eye out for your city's nominations, so you can start voting.
+				<!--<br><br><strong>Nominations by star Critic Marryam H Reshii</strong>--></div>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-3 awardimg">
+				<img src="{{baseUrl}}/img/tfa/times_food_b.png">				
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="clearfix"></div>
+<section class="category-list-data">
+	<div class="section ocat">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-12 col-xs-12">
+					<div class="category-list">
+						<ul class="list-inline text-center bocat">
+							<li>Times Food and Nightlife Awards - 2016 in other cities</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div><div class="clearfix"></div>
+	</div>
+</section>
+
+
+<div class="clearfix"></div>
+<section class="winnerslist">
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<div class="container footerlist othercities">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 text-center">
+						<ul class="list">
+							<li><a href="{{baseUrl}}/delhi/times-food-and-nightlife-awards-2016">Delhi</a></li>
+							<li><a href="{{baseUrl}}/noida/times-food-and-nightlife-awards-2016">Noida</a></li>
+							<li><a href="{{baseUrl}}/gurgaon/times-food-and-nightlife-awards-2016">Gurgaon</a></li>
+							<li><a href="{{baseUrl}}/ahmedabad/times-food-and-nightlife-awards-2016">Ahmedabad</a></li>
+							<li><a href="{{baseUrl}}/banglore/times-food-and-nightlife-awards-2016">Banglore</a></li>
+							<li><a href="{{baseUrl}}/chandigarh/times-food-and-nightlife-awards-2016">Chandigarh</a></li>
+							<li><a href="{{baseUrl}}/chennai/times-food-and-nightlife-awards-2016">Chennai</a></li>
+							<li><a href="{{baseUrl}}/goa/times-food-and-nightlife-awards-2016">Goa</a></li>
+							<li><a href="{{baseUrl}}/hyderabad/times-food-and-nightlife-awards-2016">Hyderabad</a></li>
+							<li><a href="{{baseUrl}}/jaipur/times-food-and-nightlife-awards-2016">Jaipur</a></li>
+							<li><a href="{{baseUrl}}/kolkata/times-food-and-nightlife-awards-2016">Kolkata</a></li>
+							<li><a href="{{baseUrl}}/mumbai/times-food-and-nightlife-awards-2016">Mumbai</a></li>
+							<li><a href="{{baseUrl}}/pune/times-food-and-nightlife-awards-2016">Pune</a></li>
+						</ul>
+					</div>
+				</div>
+			</div><div class="clearfix"></div>
+		</div>
+	</div>
+</section>
 

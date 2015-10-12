@@ -26,7 +26,9 @@ class TfaController extends BaseController{
         $this->response->setHeader('Cache-Control', 'max-age=86400');
 		$title = $this->cityshown($this->currentCity).' Times Food & Nightlife Awards 2016, Best Restaurants | '.$this->config->application->SiteName;
 		$this->tag->setTitle($title);
-		$this->view->meta_description = 'Times Food Awards & Times Nightlife Awards 2016 '.$this->cityshown($this->currentCity).': Find best restaurants, bars & clubs in '.$this->currentCity.'. Best dining and party places in '.$this->currentCity;
+
+        $summary =  'Times Food Awards & Times Nightlife Awards 2016 '.$this->cityshown($this->currentCity).': Find best restaurants, bars & clubs in '.$this->currentCity.'. Best dining and party places in '.$this->currentCity;
+		$this->view->meta_description = $summary;
 		$this->view->meta_keywords = 'Times Food Awards, Times Nightlife Awards, Times Food Awards '.$this->cityshown($this->currentCity).', Times Nightlife Awards '.$this->currentCity;
 
 		$TFA = new \WH\Model\Tfa();
@@ -34,6 +36,11 @@ class TfaController extends BaseController{
         $allpastwinners = $TFA->getpastwinners();
         $this->view->allpastwinners = $allpastwinners;
 
+        $this->view->og_title = $title;
+        $this->view->og_type = 'website';
+        $this->view->og_description = $summary;
+        $this->view->og_image = $this->baseUrl.'/img/tfa/food-image.jpg';
+            
 
         $this->nomination();
 
@@ -57,6 +64,9 @@ class TfaController extends BaseController{
                 $votestart = $tfacategorys['location'][$key]['events'][0]['voting_start'];
                 $voteend = $tfacategorys['location'][$key]['events'][0]['voting_end'];
                 $result_date = $tfacategorys['location'][$key]['events'][0]['result_date'];
+                $venue_place = $tfacategorys['location'][$key]['events'][0]['venue_name'];
+                $this->view->result_date = $result_date;
+                $this->view->venue_place = $venue_place;
             }
         }
 
@@ -75,10 +85,12 @@ class TfaController extends BaseController{
                                 $catid = $key2;
                                 $catname = $category['name'];
                                 $child_category = $category['child_category'];
+                                $toslugname = $toslug;
                             }else if($toslug == $this->tfasubcat){
                                 $catid = $key2;
                                 $catname = $category['name'];
                                 $child_category = $category['child_category'];
+                                $toslugname = $toslug;
                             }
                             $i++;
                         }
@@ -122,6 +134,7 @@ class TfaController extends BaseController{
                     $nominations[$i]['subcategory_name'] = $child_cat['name'];
                     $nominations[$i]['count_venue'] = count($nomination_vanue);
                     $nominations[$i]['venue'] = $nomination_vanue;
+                    $nominations[$i]['slug'] = $toslugname;
                     $i++;
                 }
             }

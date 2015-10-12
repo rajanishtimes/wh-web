@@ -15,7 +15,11 @@
 				<div class="presents">Powered by</div>
 				<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
 				<div class="coming_text">
-					<div class="voting-start">Scroll Down and Vote</div>
+					{% if(iscontestrunning == 1) %}
+						<div class="voting-start">Scroll Down and Vote</div>
+					{% else %}
+						<div class="voting-start voteend">Voting Closed <br> Winners to be announced on <?php echo date('d M Y', strtotime($result_date)) ?><br>({{venue_place}})</div>
+					{% endif %}
 				</div>
 
 				<!--<a href="#" class="scroll-down img-circle addscroll"><i class="fa fa-angle-down"></i></a>-->
@@ -94,7 +98,7 @@
 							<div class="category-name">
 								<div class="accordian-block" data-rel="{{nomination['id']}}">
 									{{nomination['subcategory_name']}}
-									<div class="arrow-up">&#9650;</div>
+									<div class="arrow-up">&#9658;</div>
 	    							<div class="arrow-down">&#9660;</div>
     							</div>
 							</div>
@@ -110,7 +114,10 @@
 				<div class="tfafeeds {{nomination['id']}}">
 					<!-- Nomination blocks design -->
 					{% for key2, venues in nominations[key]['venue'] %}
-						<?php $id = explode('_', $venues['id']); $vid = $id[1]; ?>
+						<?php
+						$id = explode('_', $venues['id']); $vid = $id[1];
+						$caturl = $baseUrl.'/'.$currentCity.'/times-food-and-nightlife-awards-2016/'.$nominations[$key]['slug'].'#'.$nomination['nominationcatid'];
+						?>
 						<div id="{{venues['id']}}" class="col-sm-4 col-md-3 col-xs-6">
 							<div class="work-item feeds-data">
 								<div class="tfavotedhover {% if(venues['isvoted'] == 0) %}dnone{% endif %}" {% if(venues['isvoted'] == 1) %}style="opacity:1"{% endif %}>
@@ -119,24 +126,30 @@
 									</div>
 									<hr>
 									<div class="promote">
-										Promote your favourite restaurant
-										<div class="stro">The Kitchen for {{nominations[key]['subcategory_name']}}</div>
-										<a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('{{baseUrl}}{{venues['url']}}'),'facebook-share-dialog','width=626,height=436');return false;"><div class="social-icon float-left"><i class="fa fa-facebook"></i></div></a>
-										<a href="#" onclick="window.open('http://twitter.com/share?url={{baseUrl}}{{venues['url']}}','facebook-share-dialog','width=626,height=436');return false;"><div class="social-icon float-left"><i class="fa fa-twitter"></i></div></a>
-										<a href="#" onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{venues['url']}}','facebook-share-dialog','width=626,height=436');return false;"><div class="social-icon float-left"><i class="fa fa-google-plus"></i></div></a>
+										{% if(iscontestrunning == 1) %}
+											Promote your favourite restaurant
+										{% else %}
+											Share your favourite restaurant
+										{% endif %}
+										<div class="stro">{{venues['name']}} for {{nominations[key]['subcategory_name']}}</div>
+										<a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('{{caturl}}'),'facebook-share-dialog','width=626,height=436');return false;"><div class="social-icon float-left"><i class="fa fa-facebook"></i></div></a>
+										<a href="#" onclick="window.open('http://twitter.com/share?url={{caturl}}','facebook-share-dialog','width=626,height=436');return false;"><div class="social-icon float-left"><i class="fa fa-twitter"></i></div></a>
+										<a href="#" onclick="window.open('https://plus.google.com/share?url={{caturl}}','facebook-share-dialog','width=626,height=436');return false;"><div class="social-icon float-left"><i class="fa fa-google-plus"></i></div></a>
 										<div class="clearfix"></div>
 									</div>
 									<div class="clearfix"></div>
 									<div class="share-vote">
-										Share this direct vote link
-										<div class="clearfix"></div><div class="sharebtn" onclick="copyToClipboard('{{baseUrl}}{{venues['url']}}')">COPY LINK <i class="fa fa-link"></i></div>
+										Share this nomination category link
+										<div class="clearfix"></div>
+										<div class="sharebtn" onclick="copyToClipboard('{{caturl}}', this)">COPY LINK <i class="fa fa-link"></i></div>
+										<div class="textcopy">Copied</div>
 									</div>
 									<div class="clearfix"></div>
 									<hr>
 									{% if(iscontestrunning == 1) %}
 										<div class="cvote cancelvote" data-for="tfa" data-entityid="{{vid}}"  data-city="{{currentCity}}" data-categoryid="{{nominations[key]['id']}}" data-eventid="{{nominations[key]['event_id']}}">CANCEL VOTE</div>
 									{% else %}
-										<div class="cvote">CANCEL VOTE</div>
+										<div class="cvote">YOUR VOTE</div>
 									{% endif %}
 								</div>
 
@@ -152,7 +165,7 @@
 
 								<div class="the-box no-margin no-border">
 									<div class="boundarea">
-										<div title="{{venues['title']}}" class="feed-title">{{venues['name']}}</div>
+										<div title="{{venues['title']}}" class="feed-title"><a href="{{baseUrl}}{{venues['url']}}">{{venues['name']}}</a></div>
 										<?php
 											$addresses = array();
 											$addresses[] =  $venues['landmark'];
@@ -166,9 +179,9 @@
 								</div>
 								<?php
 								if($venues['rating'][0]['title'] == 'buzz'){
-									$ratingclass = 'restaurent';
-								}else{
 									$ratingclass = 'nightlife';
+								}else{
+									$ratingclass = 'restaurent';
 								} ?>
 								<div class="ratings {{ratingclass}}">
 									<div class="float-left">
@@ -216,7 +229,7 @@
 				<div class="col-sm-12 col-md-12 col-xs-12">
 					<div class="category-list">
 						<ul class="list-inline text-center bocat">
-							<li>BROWSE OTHER CATEGORY</li>
+							<li>BROWSE OTHER CATEGORIES</li>
 						</ul>
 					</div>
 				</div>
@@ -275,6 +288,54 @@
 			<div class="col-xs-12 col-sm-4 col-md-3 awardimg">
 				<img src="{{baseUrl}}/img/tfa/times_food_b.png">				
 			</div>
+		</div>
+	</div>
+</section>
+
+
+<div class="clearfix"></div>
+<section class="category-list-data">
+	<div class="section ocat">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-12 col-xs-12">
+					<div class="category-list">
+						<ul class="list-inline text-center bocat">
+							<li>Times Food and Nightlife Awards - 2016 in other cities</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div><div class="clearfix"></div>
+	</div>
+</section>
+
+
+<div class="clearfix"></div>
+<section class="winnerslist">
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<div class="container footerlist othercities">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 text-center">
+						<ul class="list">
+							<li><a href="{{baseUrl}}/delhi/times-food-and-nightlife-awards-2016">Delhi</a></li>
+							<li><a href="{{baseUrl}}/noida/times-food-and-nightlife-awards-2016">Noida</a></li>
+							<li><a href="{{baseUrl}}/gurgaon/times-food-and-nightlife-awards-2016">Gurgaon</a></li>
+							<li><a href="{{baseUrl}}/ahmedabad/times-food-and-nightlife-awards-2016">Ahmedabad</a></li>
+							<li><a href="{{baseUrl}}/banglore/times-food-and-nightlife-awards-2016">Banglore</a></li>
+							<li><a href="{{baseUrl}}/chandigarh/times-food-and-nightlife-awards-2016">Chandigarh</a></li>
+							<li><a href="{{baseUrl}}/chennai/times-food-and-nightlife-awards-2016">Chennai</a></li>
+							<li><a href="{{baseUrl}}/goa/times-food-and-nightlife-awards-2016">Goa</a></li>
+							<li><a href="{{baseUrl}}/hyderabad/times-food-and-nightlife-awards-2016">Hyderabad</a></li>
+							<li><a href="{{baseUrl}}/jaipur/times-food-and-nightlife-awards-2016">Jaipur</a></li>
+							<li><a href="{{baseUrl}}/kolkata/times-food-and-nightlife-awards-2016">Kolkata</a></li>
+							<li><a href="{{baseUrl}}/mumbai/times-food-and-nightlife-awards-2016">Mumbai</a></li>
+							<li><a href="{{baseUrl}}/pune/times-food-and-nightlife-awards-2016">Pune</a></li>
+						</ul>
+					</div>
+				</div>
+			</div><div class="clearfix"></div>
 		</div>
 	</div>
 </section>

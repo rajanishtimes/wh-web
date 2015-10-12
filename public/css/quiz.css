@@ -790,7 +790,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .cvote {
     color: #fff;
     font: 12px gotham-light;
-    margin: 27px 0 0;
+    margin: 14px 0 0;
     cursor: pointer;
 }
 .work-content .feeds-data .work-item a .glyphicon{
@@ -831,6 +831,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     color: #000;
     font-family: gotham-medium;
     margin-top: 33px;
+    cursor: text;
 }
 .complete.feeds-data:hover{
     border:1px solid #c7c7c7;
@@ -838,7 +839,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .complete.feeds-data .feed-title, .complete.feeds-data:hover .feed-title, .complete.feeds-data .feed-short-desc, .complete.feeds-data:hover .feed-short-desc, .tfafeeds .complete .ratings > div{
     color:#9b9b9b;
 }
-.work-item.feeds-data.winner {
+.work-item.feeds-data.winner, .work-item.feeds-data.winner:hover {
     border: 2px solid #b7985b;
 }
 .winnerl {
@@ -871,6 +872,43 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .accordian-block{
     cursor: pointer;
 }
-.arrow-up{float: right;width:25px;display:inline-block; font-size: 14px; margin-left: 6px;}
-.arrow-down{float: right;width:25px;display:inline-block; display: none; font-size: 14px; margin-left: 6px;}
+.arrow-up{float: right;display:inline-block; font-size: 14px; margin-left: 6px;}
+.arrow-down{float: right;display:inline-block; display: none; font-size: 14px; margin-left: 6px;}
+.textcopy {
+    float: left;
+    font-size: 12px;
+    margin: 15px 13px 0 7px;
+    display:none;
+}
+.tfafeeds .feeds-data:hover .feed-title{
+    color: #000;
+}
+.tfafeeds .feeds-data:hover .feed-short-desc{
+    color:#6a6a6a;
+}
+.tfafeeds .feed-title > a:hover{
+    color: #d31a6b;
+}
+.tfafeeds .votebtn.cvoteddone:hover{
+    background: none;
+}
+.voting-start.voteend {
+    line-height: 24px;
+}
+.othercities .list li {
+    display: inline-block;
+    width: auto !important;
+}
+.othercities .list li::after {
+    content: "|";
+    padding: 0 0 0 9px;
+}
+.othercities .list li {
+    display: inline-block;
+    margin: 0 !important;
+    width: auto !important;
+}
+.othercities .list li:last-child::after {
+    content: "";
+}
 /* TFA */

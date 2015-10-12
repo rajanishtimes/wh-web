@@ -431,7 +431,13 @@ function DOMReady(){
 	$(".accordian-block").click(function(){
 		var id = $(this).attr('data-rel');
             $('.'+id).slideToggle(500);
-            $(this).find(".arrow-up, .arrow-down").toggle();
+            var obj = $(this).find(".arrow-up, .arrow-down");
+            setTimeout(function(){
+            	
+            	obj.toggle();
+            }, 500);
+            
+            //$(this).find(".arrow-up, .arrow-down").toggle();
     });
 
 	$('#newsletterform').submit(function(){
@@ -1054,11 +1060,12 @@ function similar_content_load(id, type){
 	}
 }
 
-function copyToClipboard(text) {
+function copyToClipboard(text, elem) {
 	var $temp = $("<input>");
 	$("body").append($temp);
 	$temp.val(text).select();
 	document.execCommand("copy");
 	$temp.remove();
-	alert('Url copied to clipboard.');
+	$(elem).next('.textcopy').css('display', 'block');
+	setTimeout(function(){ $(elem).next('.textcopy').fadeOut(); }, 1000);
 }
