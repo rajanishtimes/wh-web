@@ -383,6 +383,14 @@ class BaseController extends Controller{
 		return $slug2;
 	}
 
+	public function toslug($str) {
+		$clean = preg_replace("/[^a-zA-Z0-9\/_|+() -]/", '', $str);
+		$clean = strtolower(trim($clean, '-'));
+		$clean = preg_replace("/[\/_|+ -()]+/", '-', $clean);
+		$clean = strtolower(trim($clean, '-'));
+		return $clean;
+	}
+	
 	protected function create_title($string){
 		$slug2 = urldecode(trim($string));
 		//$slug2 = str_replace('-', ' ', $slug);

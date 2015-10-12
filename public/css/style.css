@@ -2261,7 +2261,6 @@ a.bg-dark:hover {
 }
 .grayscale {
     background: rgba(0, 0, 0, 0) url("../img/rating.png") repeat scroll 0 33px;
-    height: 33px;
     width: 165px;
 }
 .yellowscale {

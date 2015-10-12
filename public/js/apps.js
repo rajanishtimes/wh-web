@@ -352,7 +352,7 @@ function DOMReady(){
 		if(!$(this).hasClass('votedone')){
 			var elem = $(this);
 			var id = elem.attr('rel');
-			if($('#iscontestruning').val() == 1){				
+			if($('#iscontestruning').val() == 1){
 				if(cookies.get('isvotedbiryani') == null && elem.attr('data-for') == 'bhel'){
 					voting(elem, 'isvotedbiryani');
 				}else if(cookies.get('isvotedpav') == null && elem.attr('data-for') == 'pavbhaji'){
@@ -372,6 +372,16 @@ function DOMReady(){
 						voting(elem, 'isvotedhaleem');	
 					}
 				}
+			}
+		}
+		return false;
+	});
+
+	$('.cvoted').click(function(){
+		if(!$(this).hasClass('votedone')){
+			var elem = $(this);
+			if($('#iscontestruning').val() == 1){
+				votingfortfa(elem);
 			}
 		}
 		return false;
@@ -540,6 +550,68 @@ function voting(elem, cookiesname){
 		});
 	}
 }
+
+var votesendcontest = 0;
+function votingfortfa(elem){
+	if(votesendcontest == 0){
+		var entityid = elem.attr('data-entityid');
+		var city = elem.attr('data-city');
+		var categoryid = elem.attr('data-categoryid');
+		var contestname = elem.attr('data-for');
+		var eventid = elem.attr('data-eventid');
+
+		$('.'+categoryid+'.tfafeeds .tfavotedhover').addClass('dnone');
+		elem.html('VOTING...');
+		$.ajax({
+			url:baseUrl+'/tfa/voting/'+milliseconds,
+			type:'POST',	
+			data:'nominationid='+entityid+'&categoryid='+categoryid+'&city='+city+'&contestname='+contestname+'&eventid='+eventid,
+			beforeSend: function(){
+				votesendcontest = 1;
+			},
+			success:function(data) {
+				votesendcontest = 0;
+				elem.html('VOTE');
+				$('#v_'+entityid+' .tfavotedhover').removeClass('dnone');
+				$('#v_'+entityid+' .tfavotedhover' ).fadeTo( "slow" , 1.0, function() {
+				  // Animation complete.
+				});
+			}
+		});
+	}
+}
+
+
+function cancelvote(elem){
+	var entityid = elem.attr('data-entityid');
+	var city = elem.attr('data-city');
+	var categoryid = elem.attr('data-categoryid');
+	var contestname = elem.attr('data-for');
+	var eventid = elem.attr('data-eventid');
+
+	$('.'+categoryid+'.tfafeeds .tfavotedhover').addClass('dnone');
+	elem.html('VOTING...');
+	$.ajax({
+		url:baseUrl+'/tfa/voting/'+milliseconds,
+		type:'POST',	
+		data:'nominationid='+entityid+'&categoryid='+categoryid+'&city='+city+'&contestname='+contestname+'&eventid='+eventid,
+		beforeSend: function(){
+			votesendcontest = 1;
+		},
+		success:function(data) {
+			votesendcontest = 0;
+			elem.html('VOTE');
+			$('#v_'+entityid+' .tfavotedhover').removeClass('dnone');
+			$('#v_'+entityid+' .tfavotedhover' ).fadeTo( "slow" , 1.0, function() {
+			  // Animation complete.
+			});
+		}
+	});
+}
+
+
+
+
 
 function setquizheight(){
 	if($('.hp .item').length > 0){

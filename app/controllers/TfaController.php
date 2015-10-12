@@ -34,16 +34,15 @@ class TfaController extends BaseController{
         $allpastwinners = $TFA->getpastwinners();
         $this->view->allpastwinners = $allpastwinners;
 
+
+        $this->nomination();
+
+
         //echo "<pre>"; print_r($allpastwinners); echo "</pre>"; exit;
     }
 
-    public function nominationAction(){
-        $this->response->setHeader('Cache-Control', 'private, max-age=0, must-revalidate'); 
-		$title = $this->cityshown($this->currentCity).' Times Food & Nightlife Awards 2016, Best Restaurants | '.$this->config->application->SiteName;
-		$this->tag->setTitle($title);
-		$this->view->meta_description = 'Times Food Awards & Times Nightlife Awards 2016 '.$this->cityshown($this->currentCity).': Find best restaurants, bars & clubs in '.$this->currentCity.'. Best dining and party places in '.$this->currentCity;
-		$this->view->meta_keywords = 'Times Food Awards, Times Nightlife Awards, Times Food Awards '.$this->cityshown($this->currentCity).', Times Nightlife Awards '.$this->currentCity;
-		$TFA = new \WH\Model\Tfa();
+    private function nomination(){
+        $TFA = new \WH\Model\Tfa();
         $TFA->setCityID($this->cityId);
         $tfacategorys = $TFA->getAllCategories();
         $this->view->tfacategorys = $tfacategorys;
@@ -52,47 +51,112 @@ class TfaController extends BaseController{
         $child_category = array();
         $eventId = 0;
         $i = 1;
+
         foreach ($tfacategorys['location'] as $key => $tfacategory) {
             if(strtolower($tfacategory['name']) == $this->tfacity){
-                $eventId = $tfacategorys['location'][$key]['events'][0]['id'];
-                foreach ($tfacategory['events'][0]['categories'] as $key1 => $event) {
-                    foreach ($event['child_category'] as $key2 => $category) {
-                        $title = $this->create_title(strtolower($this->tfasubcat));
-                        if($this->tfasubcat == '' and $i == 1){
-                            $catid = $key2;
-                            $catname = $category['name'];
-                            $child_category = $category['child_category'];
-                        }else if($title == strtolower($category['name'])){
-                            $catid = $key2;
-                            $catname = $category['name'];
-                            $child_category = $category['child_category'];
+                $votestart = $tfacategorys['location'][$key]['events'][0]['voting_start'];
+                $voteend = $tfacategorys['location'][$key]['events'][0]['voting_end'];
+                $result_date = $tfacategorys['location'][$key]['events'][0]['result_date'];
+            }
+        }
+
+        //$votestart = '2015-10-06';
+        //$voteend = '2015-10-08';
+        //$result_date = '2015-10-08';
+
+        if(strtotime($votestart) <= time()){
+            foreach ($tfacategorys['location'] as $key => $tfacategory) {
+                if(strtolower($tfacategory['name']) == $this->tfacity){
+                    $eventId = $tfacategorys['location'][$key]['events'][0]['id'];
+                    foreach ($tfacategory['events'][0]['categories'] as $key1 => $event) {
+                        foreach ($event['child_category'] as $key2 => $category) {
+                            $toslug = $this->toslug($category['name']);
+
+                            echo $this->tfasubcat; echo $toslug;
+                            if($this->tfasubcat == '' and $i == 1){
+                                $catid = $key2;
+                                $catname = $category['name'];
+                                $child_category = $category['child_category'];
+                            }else if($toslug == $this->tfasubcat){
+                                $catid = $key2;
+                                $catname = $category['name'];
+                                $child_category = $category['child_category'];
+                            }
+                            $i++;
                         }
-                        $i++;
                     }
                 }
             }
-        }
-        //echo "<pre>"; print_r($child_category); echo "</pre>"; exit;
-        $nominations =  array();
-        $i = 0;
-        foreach($child_category as $key=>$child_cat){
-            $TFA = new \WH\Model\Tfa();
-            $TFA->setEventID($eventId);
-            $TFA->setCategoryID($key);
-            $nomination_vanue =  $TFA->getAllNominations();
-            if(!empty($nomination_vanue)){
-                $nominations[$i]['id'] = $key;
-                $nominations[$i]['event_id'] = $eventId;
-                $nominations[$i]['maincat_id'] = $catid;
-                $nominations[$i]['category_name'] = $catname;
-                $nominations[$i]['subcategory_name'] = $child_cat['name'];
-                $nominations[$i]['count_venue'] = count($nomination_vanue);
-                $nominations[$i]['venue'] = $nomination_vanue;
-                $i++;
+            $nominations =  array();
+            $i = 0;
+            foreach($child_category as $key=>$child_cat){
+                $TFA = new \WH\Model\Tfa();
+                $TFA->setEventID($eventId);
+                $TFA->setCategoryID($key);
+                $nomination_vanue =  $TFA->getAllNominations();
+
+                /* For vote checking */
+                if ($this->cookies->has("uniquekey")){
+                    $uniquekey = (string)$this->cookies->get("uniquekey");
+                }
+                $votecheck = new \WH\Model\BNH();
+                foreach ($nomination_vanue as $keyfornomination=>$nomination_venue) {
+                    $id = explode('_', $nomination_venue['id']);
+                    $votecheck->setNominationID($id[1]);
+                    $votecheck->setCategoryName($key);
+                    $votecheck->setBrowserID($uniquekey);
+                    $votecheck->setContestName('tfa');
+                    $votecheck->setEventID($eventId);
+                    $result = $votecheck->votingStatus();
+                    $nomination_vanue[$keyfornomination]['isvoted'] = $result;
+                    //if($result == 1)
+                        //$nomination_vanue[$keyfornomination]['is_winner'] = 1;
+                }
+                /* For vote checking */
+
+
+                if(!empty($nomination_vanue)){
+                    $nominations[$i]['id'] = $key;
+                    $nominations[$i]['nominationcatid'] = $this->catCode($child_cat['name'], $key);
+                    $nominations[$i]['event_id'] = $eventId;
+                    $nominations[$i]['maincat_id'] = $catid;
+                    $nominations[$i]['category_name'] = $catname;
+                    $nominations[$i]['subcategory_name'] = $child_cat['name'];
+                    $nominations[$i]['count_venue'] = count($nomination_vanue);
+                    $nominations[$i]['venue'] = $nomination_vanue;
+                    $i++;
+                }
+            }
+            $this->view->nominations = $nominations;
+            //echo "<pre>"; print_r($nominations); echo "</pre>";exit;
+
+            if(strtotime($voteend) <= time()){
+                $this->view->iscontestrunning = 0;
+            }else{
+                $this->view->iscontestrunning = 1;
+            }
+
+            if(strtotime($result_date) <= time()){
+                $this->view->setLayout('tfaLayout');
+                $this->view->pick(['tfa/complete']);
+            }else{
+                $this->view->setLayout('tfaLayout');
+                $this->view->pick(['tfa/nomination']);
             }
         }
-        $this->view->nominations = $nominations;
-        //echo "<pre>"; print_r($nominations); echo "</pre>";exit;
+
+    }
+
+
+    public function catCode($catname, $catId){
+        $catNameArray=explode(' ',$catname);
+        $catcode='';
+        for($i=0;$i<count($catNameArray);$i++)
+        {
+            $catcode.=strtoupper(substr($catNameArray[$i], 0, 1));
+        }
+        $catcode.='-'.$catId;
+        return $catcode;
     }
 
     public function newsletterAction(){
@@ -118,5 +182,43 @@ class TfaController extends BaseController{
     		$this->flash->message("debug", "You are already subscribed with us");
     	}
     	$this->response->redirect($this->baseUrl.'/'.$city.'/times-food-and-nightlife-awards-2016');
+    }
+
+    public function votingAction(){
+        $nominationid = $this->request->getPost('nominationid');
+        $categoryid = $this->request->getPost('categoryid');
+        $city = $this->request->getPost('city');
+        $contestname = $this->request->getPost('contestname');
+        $eventid = $this->request->getPost('eventid');
+        if ($this->cookies->has("uniquekey")){
+            $uniquekey = (string)$this->cookies->get("uniquekey");
+        }
+
+        $user_id = '';
+
+        if(!empty($this->logged_user)){
+            $user_id = $this->logged_user->sso_id;
+        }
+        $voting = new \WH\Model\BNH();
+        $voting->setContestName($contestname);
+        $voting->setNominationID($nominationid);
+        $voting->setBrowserID($uniquekey);
+        $voting->setCategoryName($categoryid);
+        $voting->setIP($_SERVER['REMOTE_ADDR']);
+        $voting->setEventID($eventid);
+        $voting->setUserID($user_id);
+        //echo "<pre>"; print_r($voting); echo "</pre>";
+        
+
+        //insert into voting (contest_name, event_id, nomination_id, browser_id, user_id, category_name, time, ip) values('tfa', 4, 8377, 'uuqid144136171469631536000000', 'cxah7jfirziyen1bbxume2eus', '34', NOW(), '127.0.0.1') on duplicate key update nomination_id=VALUES(nomination_id)
+
+        try{
+            $result = $voting->voting();    
+            echo json_encode($result);
+        }catch(Exception $e){
+             echo "<pre>"; print_r($e); echo "</pre>";
+        }
+        
+        exit;
     }
 }

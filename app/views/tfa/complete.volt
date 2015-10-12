@@ -91,48 +91,26 @@
 				</div>			
 			</div><div class="clearfix"></div>
 			<div class="row work-content allfeeds">	
-				<div class="tfafeeds {{nomination['id']}}">
+				<div class="tfafeeds">
 					<!-- Nomination blocks design -->
 					{% for key2, venues in nominations[key]['venue'] %}
-						<?php $id = explode('_', $venues['id']); $vid = $id[1]; ?>
+						<?php
+							//echo "<pre>"; print_r($venues); echo "</pre>"; exit;
+							$classes = "complete";
+							$imgclass = "grayscale";
+							if($venues['is_winner'] == 1){
+								$classes = "winner";
+								$imgclass = '';
+							}
+						?>
 						<div id="{{venues['id']}}" class="col-sm-4 col-md-3 col-xs-6">
-							<div class="work-item feeds-data">
-								<div class="tfavotedhover {% if(venues['isvoted'] == 0) %}dnone{% endif %}" {% if(venues['isvoted'] == 1) %}style="opacity:1"{% endif %}>
-									<div class="tickimg">
-										Your Vote has been counted.
-									</div>
-									<hr>
-									<div class="promote">
-										Promote your favourite restaurant
-										<div class="stro">The Kitchen for {{nominations[key]['subcategory_name']}}</div>
-										<a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('{{baseUrl}}{{venues['url']}}'),'facebook-share-dialog','width=626,height=436');return false;"><div class="social-icon float-left"><i class="fa fa-facebook"></i></div></a>
-										<a href="#" onclick="window.open('http://twitter.com/share?url={{baseUrl}}{{venues['url']}}','facebook-share-dialog','width=626,height=436');return false;"><div class="social-icon float-left"><i class="fa fa-twitter"></i></div></a>
-										<a href="#" onclick="window.open('https://plus.google.com/share?url={{baseUrl}}{{venues['url']}}','facebook-share-dialog','width=626,height=436');return false;"><div class="social-icon float-left"><i class="fa fa-google-plus"></i></div></a>
-										<div class="clearfix"></div>
-									</div>
-									<div class="clearfix"></div>
-									<div class="share-vote">
-										Share this direct vote link
-										<div class="clearfix"></div><div class="sharebtn" onclick="copyToClipboard('{{baseUrl}}{{venues['url']}}')">COPY LINK <i class="fa fa-link"></i></div>
-									</div>
-									<div class="clearfix"></div>
-									<hr>
-									{% if(iscontestrunning == 1) %}
-										<div class="cvote cancelvote" data-for="tfa" data-entityid="{{vid}}"  data-city="{{currentCity}}" data-categoryid="{{nominations[key]['id']}}" data-eventid="{{nominations[key]['event_id']}}">CANCEL VOTE</div>
-									{% else %}
-										<div class="cvote">CANCEL VOTE</div>
-									{% endif %}
-								</div>
-
+							<div class="work-item feeds-data {{classes}}">
 								<a href="{{baseUrl}}{{venues['url']}}">
 									<div class="hover-container">
-										<div class="hover-wrap">
-											<i class="glyphicon glyphicon-plus bino"></i>
-										</div>
 										<?php if(!empty($venues['img_url'])){ ?>
-											{{feeds.getimage(baseUrl, venues['img_url'], 479, 320, venues['title'], venues['img_url'], '', '', key+1)}}
+											{{feeds.getimage(baseUrl, venues['img_url'], 479, 320, venues['title'], venues['img_url'], '', imgclass, key+1)}}
 										<?php }else{ ?>
-											{{feeds.getimage(baseUrl, venues['image']['uri'], 479, 320, venues['title'], venues['image'], '', '', key+1)}}
+											{{feeds.getimage(baseUrl, venues['image']['uri'], 479, 320, venues['title'], venues['image'], '', imgclass, key+1)}}
 										<?php } ?>
 									</div>
 								</a>
@@ -164,15 +142,14 @@
 									<div class="popup float-left">
 										<a href="{{baseUrl}}{{venues['url']}}"><img src="{{baseUrl}}/img/popup.png"></a>
 									</div>
+									<div class="clearfix" style="border: medium none; padding: 0px;"></div>
 								</div>
-
-								<div class="clearfix"></div>
-								<div class="calls text-center">VOTE OR MISS CALL - 2340 233 456</div>
-
-								{% if(iscontestrunning == 1) %}
-									<div class="votebtn cvoted" data-for="tfa" data-entityid="{{vid}}"  data-city="{{currentCity}}" data-categoryid="{{nominations[key]['id']}}" data-eventid="{{nominations[key]['event_id']}}">VOTE</div>	
+								{% if(venues['is_winner'] == 1) %}
+									<div class="clearfix"></div>
+									<div class="winnerl"><img src="{{baseUrl}}/img/tfa/winnerlogo.png"></div>
 								{% else %}
-									<div class="votebtn cvoteddone">VOTING CLOSED</div>
+									<div class="clearfix"></div>
+									<a href="{{baseUrl}}{{venues['url']}}"><div class="votebtn cvoteddone">READ CRITIC REVIEW</div></a>
 								{% endif %}
 							</div>
 						</div>

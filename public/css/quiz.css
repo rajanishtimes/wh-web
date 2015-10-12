@@ -741,6 +741,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     z-index: 9;
     padding: 25px 21px;
     overflow: hidden;
+    opacity: 0;
 }
 .tickimg{
     background: rgba(0, 0, 0, 0) url("../img/tickcircle.png") no-repeat scroll left center;
@@ -822,5 +823,27 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .work-content .tfafeeds .work-item a .glyphicon {
     margin-top: 30%;
+}
+.tfafeeds .votebtn.cvoteddone {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #51c123;
+    color: #000;
+    font-family: gotham-medium;
+    margin-top: 33px;
+}
+.complete.feeds-data:hover{
+    border:1px solid #c7c7c7;
+}
+.complete.feeds-data .feed-title, .complete.feeds-data:hover .feed-title, .complete.feeds-data .feed-short-desc, .complete.feeds-data:hover .feed-short-desc, .tfafeeds .complete .ratings > div{
+    color:#9b9b9b;
+}
+.work-item.feeds-data.winner {
+    border: 2px solid #b7985b;
+}
+.winnerl {
+    background: #000 none repeat scroll 0 0;
+}
+.winnerl > img {
+    width: auto !important;
 }
 /* TFA */

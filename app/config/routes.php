@@ -122,20 +122,15 @@ $router->add("/{city}/pavwow/winners", array(
     'action' => 'winners',
 )); 
 
+$router->add("/{city}/times-food-and-nightlife-awards-2016/{tfasubcat}", array(
+    'controller' => 'tfa',
+    'action' => 'index'
+));
+
 $router->add("/{city}/times-food-and-nightlife-awards-2016", array(
     'controller' => 'tfa',
     'action' => 'index',
 ));
-
-$router->add("/{city}/nomination/{tfasubcat}", array(
-    'controller' => 'tfa',
-    'action' => 'nomination'
-));
-
-/*$router->add("/{city}/nomination", array(
-    'controller' => 'tfa',
-    'action' => 'nomination'
-));*/
 
 $router->add("/search/autosuggestion", array(
     'controller' => 'search',
