@@ -1,3 +1,29 @@
+<section class="hp tfa">
+	<div class="mainback">
+		<div class="bordered">
+			<div class="desc">
+				<!--<div class="contestlogo"><img src="{{baseUrl}}/img/tfa/groupp.png"></div>-->
+
+				<div class="row">
+					<ul class="list logos padding0">
+						<li><img src="{{baseUrl}}/img/tfa/tfalogo.png"></li>
+						<li><img src="{{baseUrl}}/img/tfa/and.png"></li>
+						<li><img src="{{baseUrl}}/img/tfa/times_nightlife_awards.png"></li>
+					</ul>
+				</div>
+
+				<div class="presents">Powered by</div>
+				<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
+				<div class="coming_text">
+					<div class="voting-start">Scroll Down and Vote</div>
+				</div>
+
+				<!--<a href="#" class="scroll-down img-circle addscroll"><i class="fa fa-angle-down"></i></a>-->
+			</div>
+		</div>
+	</div>
+</section><div class="clearfix"></div>
+
 <section class="share_data">
 	<div class="section">
 		<div class="container">
@@ -75,7 +101,7 @@
 					<div class="main-block">
 						<div class="accordian-block">
 							<div class="nomination-count float-left">
-								FOUND-{{nomination['count_venue']}}
+								{{nomination['nominationcatid']}}
 							</div>
 							<div class="category-name-block float-left">
 								<div class="category-name">
@@ -139,7 +165,7 @@
 
 								<div class="the-box no-margin no-border">
 									<div class="boundarea">
-										<div title="{{venues['title']}}" class="feed-title">{{venues['title']}}</div>
+										<div title="{{venues['title']}}" class="feed-title">{{venues['name']}}</div>
 										<?php
 											$addresses = array();
 											$addresses[] =  $venues['landmark'];
@@ -153,13 +179,13 @@
 								</div>
 								<div class="ratings">
 									<div class="float-left">
-										FOOD <strong>3.5</strong>
+										FOOD <strong>{{venues['rating'][0]['rating']}}</strong>
 									</div>
 									<div class="float-left">
-										SERVICE <strong>3.5</strong>
+										SERVICE <strong>{{venues['rating'][1]['rating']}}</strong>
 									</div>
 									<div class="float-left">
-										DECOR <strong>3.5</strong>
+										DECOR <strong>{{venues['rating'][2]['rating']}}</strong>
 									</div>
 									<div class="popup float-left">
 										<a href="{{baseUrl}}{{venues['url']}}"><img src="{{baseUrl}}/img/popup.png"></a>
@@ -167,7 +193,7 @@
 								</div>
 
 								<div class="clearfix"></div>
-								<div class="calls text-center">VOTE OR MISS CALL - 2340 233 456</div>
+								<div class="calls text-center">VOTE OR MISS CALL - {{venues['zip_dial']}}</div>
 
 								{% if(iscontestrunning == 1) %}
 									<div class="votebtn cvoted" data-for="tfa" data-entityid="{{vid}}"  data-city="{{currentCity}}" data-categoryid="{{nominations[key]['id']}}" data-eventid="{{nominations[key]['event_id']}}">VOTE</div>	
