@@ -179,13 +179,13 @@
 								</div>
 								<div class="ratings">
 									<div class="float-left">
-										FOOD <strong>{{venues['rating'][0]['rating']}}</strong>
+										{{venues['rating'][0]['title']}} <strong>{{venues['rating'][0]['rating']}}</strong>
 									</div>
 									<div class="float-left">
-										SERVICE <strong>{{venues['rating'][1]['rating']}}</strong>
+										{{venues['rating'][1]['title']}} <strong>{{venues['rating'][1]['rating']}}</strong>
 									</div>
 									<div class="float-left">
-										DECOR <strong>{{venues['rating'][2]['rating']}}</strong>
+										{{venues['rating'][2]['title']}} <strong>{{venues['rating'][2]['rating']}}</strong>
 									</div>
 									<div class="popup float-left">
 										<a href="{{baseUrl}}{{venues['url']}}"><img src="{{baseUrl}}/img/popup.png"></a>
