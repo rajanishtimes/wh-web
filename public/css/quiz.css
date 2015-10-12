@@ -689,6 +689,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     font-size: 21px;
     line-height: 18px;
     margin-bottom: 4px;
+    float: left;
 }
 .tfa .event-name{
     color:#fa2d67;
@@ -846,4 +847,30 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .winnerl > img {
     width: auto !important;
 }
+.tfafeeds .nightlife > div {
+    width: 45%;
+}
+.tfa .category-list-data > .ocat {
+    padding: 21px 0 17px;
+}
+.bocat > li {
+    color: #fff;
+    font-family: gotham-bold;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+.tfafeeds .feeds-data:hover{
+    border:1px solid #c7c7c7
+}
+.tfafeeds .votebtn:hover {
+    background: #40961c none repeat scroll 0 0;
+}
+.tfafeeds .feed-title{
+    cursor: pointer;
+}
+.accordian-block{
+    cursor: pointer;
+}
+.arrow-up{float: right;width:25px;display:inline-block; font-size: 14px; margin-left: 6px;}
+.arrow-down{float: right;width:25px;display:inline-block; display: none; font-size: 14px; margin-left: 6px;}
 /* TFA */

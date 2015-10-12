@@ -428,6 +428,12 @@ function DOMReady(){
 		elem.find('img').addClass('dnone');
 	});
 
+	$(".accordian-block").click(function(){
+		var id = $(this).attr('data-rel');
+            $('.'+id).slideToggle(500);
+            $(this).find(".arrow-up, .arrow-down").toggle();
+    });
+
 	$('#newsletterform').submit(function(){
 		var email = $('#emailvalidate').val();
 		$('.alert-debug').remove();

@@ -24,23 +24,11 @@
 	</div>
 </section><div class="clearfix"></div>
 
-<section class="share_data">
-	<div class="section">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-md-12 sponsor">
-					<img src="{{baseUrl}}/img/tfa/sponsor.png">
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
 <div class="clearfix"></div>
 <section class="category-data">
 	<div class="section">
 		<div class="container">
-			<div class="row">
+			<div class="">
 				<div class="category-block">
 					<div class="category-head">
 						SELECT YOUR CATEGORY AND VOTE
@@ -99,20 +87,22 @@
 			<div id="{{nomination['nominationcatid']}}" class="row">
 				<div class="col-sm-12 col-md-12 col-xs-12">
 					<div class="main-block">
-						<div class="accordian-block">
-							<div class="nomination-count float-left">
-								{{nomination['nominationcatid']}}
-							</div>
-							<div class="category-name-block float-left">
-								<div class="category-name">
-									{{nomination['subcategory_name']}}
-								</div>
-								<div class="event-name">
-									{{nomination['category_name']}}
-								</div>
-							</div>
-							<div class="clearfix"></div>
+						<div class="nomination-count float-left">
+							{{nomination['nominationcatid']}}
 						</div>
+						<div class="category-name-block float-left">
+							<div class="category-name">
+								<div class="accordian-block" data-rel="{{nomination['id']}}">
+									{{nomination['subcategory_name']}}
+									<div class="arrow-up">&#9650;</div>
+	    							<div class="arrow-down">&#9660;</div>
+    							</div>
+							</div>
+							<div class="event-name">
+								{{nomination['category_name']}}
+							</div>
+						</div>
+						<div class="clearfix"></div>
 					</div>
 				</div>			
 			</div><div class="clearfix"></div>
@@ -152,9 +142,6 @@
 
 								<a href="{{baseUrl}}{{venues['url']}}">
 									<div class="hover-container">
-										<div class="hover-wrap">
-											<i class="glyphicon glyphicon-plus bino"></i>
-										</div>
 										<?php if(!empty($venues['img_url'])){ ?>
 											{{feeds.getimage(baseUrl, venues['img_url'], 479, 320, venues['title'], venues['img_url'], '', '', key+1)}}
 										<?php }else{ ?>
@@ -177,13 +164,23 @@
 										<div class="feed-short-desc">{{address}}</div>
 									</div>
 								</div>
-								<div class="ratings">
+								<?php
+								if($venues['rating'][0]['title'] == 'buzz'){
+									$ratingclass = 'restaurent';
+								}else{
+									$ratingclass = 'nightlife';
+								} ?>
+								<div class="ratings {{ratingclass}}">
 									<div class="float-left">
 										{{venues['rating'][0]['title']}} <strong>{{venues['rating'][0]['rating']}}</strong>
 									</div>
-									<div class="float-left">
-										{{venues['rating'][1]['title']}} <strong>{{venues['rating'][1]['rating']}}</strong>
-									</div>
+
+									{% if(ratingclass == 'restaurent') %}
+										<div class="float-left">
+											{{venues['rating'][1]['title']}} <strong>{{venues['rating'][1]['rating']}}</strong>
+										</div>
+									{% endif %}
+
 									<div class="float-left">
 										{{venues['rating'][2]['title']}} <strong>{{venues['rating'][2]['rating']}}</strong>
 									</div>
@@ -211,4 +208,74 @@
 </section>
 {% endfor %}
 
+<div class="clearfix"></div>
+<section class="category-list-data">
+	<div class="section ocat">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-12 col-xs-12">
+					<div class="category-list">
+						<ul class="list-inline text-center bocat">
+							<li>BROWSE OTHER CATEGORY</li>
+						</ul>
+					</div>
+				</div>
+				<?php if(count($tfacategorys['location']) > 1){ ?>
+					<div class="col-sm-12 col-md-12 col-xs-12">
+						<div class="category-list">
+							<ul class="list-inline text-center">
+								{% for key, tfacategory in tfacategorys['location'] %}
+									<li data-for="{{key}}" {% if(tfacategory['name'] | lower == tfacity) %}class="active"{% endif %}><a href="{{baseUrl}}/{{tfacity}}/times-food-and-nightlife-awards-2016">{{tfacategory['name']}}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				<?php } ?>
+
+				<div class="col-sm-12 col-md-12 col-xs-12">
+					<div class="category-list">
+						<?php $i = 1; ?>
+						{% for key, tfacategory in tfacategorys['location'] %}
+							{% if(tfacategory['name'] | lower == tfacity) %}
+								<ul class="list-inline list-{{key}} text-center">
+									{% for key1, event in tfacategory['events'][0]['categories'] %}
+										{% for key2, category in event['child_category'] %}
+											<?php $title = $this->elements->toslug($category['name']); ?>
+
+											{% if(tfasubcat == '' and i == 1) %}
+
+											{% elseif(title == tfasubcat) %}
+
+											{% else %}
+												<li class="{{key2}}"><a href="{{baseUrl}}/{{tfacity}}/times-food-and-nightlife-awards-2016/{{title}}">{{category['name']}}</a></li>
+											{% endif %}
+											<?php $i++; ?>
+										{% endfor %}
+									{% endfor %}
+								</ul>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div><div class="clearfix"></div>
+	</div>
+</section>
+
+
+<div class="clearfix"></div>
+<section class="category-list-data award-block">
+	<div class="row">
+		<div class="col-sm-12 col-md-12 no-padding">
+			<div class="col-xs-12 col-sm-6 col-md-6 texting">
+				<div class="award_head">Times Food & Nightlife Awards 2016</div>
+				<div class="award_text">The country's oldest and most revered food & nightlife awards are back! Keep an eye out for your city's nominations, so you can start voting.
+				<!--<br><br><strong>Nominations by star Critic Marryam H Reshii</strong>--></div>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-3 awardimg">
+				<img src="{{baseUrl}}/img/tfa/times_food_b.png">				
+			</div>
+		</div>
+	</div>
+</section>
 
