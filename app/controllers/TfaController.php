@@ -229,22 +229,15 @@ class TfaController extends BaseController{
             $uniquekey = (string)$this->cookies->get("uniquekey");
         }
 
-        $user_id = '';
-
-        if(!empty($this->logged_user)){
-            $user_id = $this->logged_user->sso_id;
-        }
         $voting = new \WH\Model\BNH();
         $voting->setContestName($contestname);
         $voting->setNominationID($nominationid);
         $voting->setBrowserID($uniquekey);
         $voting->setCategoryName($categoryid);
-        $voting->setIP($_SERVER['REMOTE_ADDR']);
         $voting->setEventID($eventid);
-        $voting->setUserID($user_id);
         
         try{
-            $result = $voting->voting();    
+            $result = $voting->deletevote();    
             echo json_encode($result);
         }catch(Exception $e){
              echo "<pre>"; print_r($e); echo "</pre>";

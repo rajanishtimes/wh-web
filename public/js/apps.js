@@ -387,6 +387,14 @@ function DOMReady(){
 		return false;
 	});
 
+	$('.cancelvote').click(function(){
+		var elem = $(this);
+		if($('#iscontestruning').val() == 1){
+			cancelvote(elem);
+		}
+		return false;
+	});
+
 	$('.show_past').click(function(){
 		$('.past_results').slideToggle();
 		return false;
@@ -602,7 +610,7 @@ function cancelvote(elem){
 			success:function(data) {
 				cancelvotesendcontest = 0;
 				elem.html('CANCEL VOTE');
-				$('#v_'+entityid+' .tfavotedhover' ).fadeOut( "slow" , 1.0, function() {
+				$('#v_'+entityid+' .tfavotedhover' ).fadeIn( "slow" , 0, function() {
 					$('#v_'+entityid+' .tfavotedhover').addClass('dnone');
 				});
 			}
