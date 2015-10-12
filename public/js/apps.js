@@ -581,32 +581,33 @@ function votingfortfa(elem){
 	}
 }
 
-
+var cancelvotesendcontest = 0;
 function cancelvote(elem){
-	var entityid = elem.attr('data-entityid');
-	var city = elem.attr('data-city');
-	var categoryid = elem.attr('data-categoryid');
-	var contestname = elem.attr('data-for');
-	var eventid = elem.attr('data-eventid');
+	if(cancelvotesendcontest == 0){
+		var entityid = elem.attr('data-entityid');
+		var city = elem.attr('data-city');
+		var categoryid = elem.attr('data-categoryid');
+		var contestname = elem.attr('data-for');
+		var eventid = elem.attr('data-eventid');
 
-	
-	elem.html('VOTING...');
-	$.ajax({
-		url:baseUrl+'/tfa/voting/'+milliseconds,
-		type:'POST',	
-		data:'nominationid='+entityid+'&categoryid='+categoryid+'&city='+city+'&contestname='+contestname+'&eventid='+eventid,
-		beforeSend: function(){
-			votesendcontest = 1;
-		},
-		success:function(data) {
-			votesendcontest = 0;
-			elem.html('VOTE');
-			$('#v_'+entityid+' .tfavotedhover').removeClass('dnone');
-			$('#v_'+entityid+' .tfavotedhover' ).fadeTo( "slow" , 1.0, function() {
-			  // Animation complete.
-			});
-		}
-	});
+		
+		elem.html('CANCEL VOTING...');
+		$.ajax({
+			url:baseUrl+'/tfa/cancelvoting/'+milliseconds,
+			type:'POST',	
+			data:'nominationid='+entityid+'&categoryid='+categoryid+'&city='+city+'&contestname='+contestname+'&eventid='+eventid,
+			beforeSend: function(){
+				cancelvotesendcontest = 1;
+			},
+			success:function(data) {
+				cancelvotesendcontest = 0;
+				elem.html('CANCEL VOTE');
+				$('#v_'+entityid+' .tfavotedhover' ).fadeOut( "slow" , 1.0, function() {
+					$('#v_'+entityid+' .tfavotedhover').addClass('dnone');
+				});
+			}
+		});
+	}
 }
 
 

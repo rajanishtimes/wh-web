@@ -206,10 +206,43 @@ class TfaController extends BaseController{
         $voting->setEventID($eventid);
         $voting->setUserID($user_id);
         //echo "<pre>"; print_r($voting); echo "</pre>";
+
+        try{
+            $result = $voting->voting();    
+            echo json_encode($result);
+        }catch(Exception $e){
+             echo "<pre>"; print_r($e); echo "</pre>";
+        }
         
+        exit;
+    }
 
-        //insert into voting (contest_name, event_id, nomination_id, browser_id, user_id, category_name, time, ip) values('tfa', 4, 8377, 'uuqid144136171469631536000000', 'cxah7jfirziyen1bbxume2eus', '34', NOW(), '127.0.0.1') on duplicate key update nomination_id=VALUES(nomination_id)
 
+
+    public function cancelvotingAction(){
+        $nominationid = $this->request->getPost('nominationid');
+        $categoryid = $this->request->getPost('categoryid');
+        $city = $this->request->getPost('city');
+        $contestname = $this->request->getPost('contestname');
+        $eventid = $this->request->getPost('eventid');
+        if ($this->cookies->has("uniquekey")){
+            $uniquekey = (string)$this->cookies->get("uniquekey");
+        }
+
+        $user_id = '';
+
+        if(!empty($this->logged_user)){
+            $user_id = $this->logged_user->sso_id;
+        }
+        $voting = new \WH\Model\BNH();
+        $voting->setContestName($contestname);
+        $voting->setNominationID($nominationid);
+        $voting->setBrowserID($uniquekey);
+        $voting->setCategoryName($categoryid);
+        $voting->setIP($_SERVER['REMOTE_ADDR']);
+        $voting->setEventID($eventid);
+        $voting->setUserID($user_id);
+        
         try{
             $result = $voting->voting();    
             echo json_encode($result);
