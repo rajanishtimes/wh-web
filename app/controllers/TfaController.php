@@ -60,7 +60,7 @@ class TfaController extends BaseController{
             }
         }
 
-        //$votestart = '2015-10-06';
+        $votestart = '2015-10-06';
         //$voteend = '2015-10-08';
         //$result_date = '2015-10-08';
 
@@ -71,8 +71,6 @@ class TfaController extends BaseController{
                     foreach ($tfacategory['events'][0]['categories'] as $key1 => $event) {
                         foreach ($event['child_category'] as $key2 => $category) {
                             $toslug = $this->toslug($category['name']);
-
-                            echo $this->tfasubcat; echo $toslug;
                             if($this->tfasubcat == '' and $i == 1){
                                 $catid = $key2;
                                 $catname = $category['name'];

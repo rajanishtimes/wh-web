@@ -589,7 +589,7 @@ function cancelvote(elem){
 	var contestname = elem.attr('data-for');
 	var eventid = elem.attr('data-eventid');
 
-	$('.'+categoryid+'.tfafeeds .tfavotedhover').addClass('dnone');
+	
 	elem.html('VOTING...');
 	$.ajax({
 		url:baseUrl+'/tfa/voting/'+milliseconds,
