@@ -967,9 +967,10 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .othercities.footerlist .list {
     padding: 0;
 }
-.presents.city {
+.presentscity {
     font: 20px gotham-book;
     text-transform: uppercase;
+    width: 100%;
 }
 .vote_close {
     font: 12px gotham-light;

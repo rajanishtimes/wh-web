@@ -72,7 +72,7 @@ class TfaController extends BaseController{
             }
         }
 
-        $votestart = '2015-10-06';
+        //$votestart = '2015-10-06';
         //$voteend = '2015-10-08';
         //$result_date = '2015-10-08';
 

@@ -11,7 +11,7 @@
 						<li><img src="{{baseUrl}}/img/tfa/times_nightlife_awards.png"></li>
 					</ul>
 				</div>
-				<div class="presents city">{{currentCity}}</div>
+				<div class="presentscity">{{currentCity}}</div>
 				<div class="presents">Powered by</div>
 				<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
 				<div class="coming_text">
@@ -38,7 +38,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div><div class="clearfix"></div>
 	</div>
 </section>
 <div class="clearfix"></div>
@@ -77,7 +77,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div><div class="clearfix"></div>
 	</div>
 </section>
 
@@ -223,7 +223,7 @@
 
 				</div>
 			</div>
-		</div>
+		</div><div class="clearfix"></div>
 	</div>
 </section>
 {% endfor %}

@@ -974,6 +974,15 @@ PHONE < 420px
 	.emailer .newsletter-box{
 		width: 270px;
 	}
+
+	.tfa .event-name{
+		clear:both;
+	}
+	.tfa .category-name-block {
+	    margin: 13px 0 0;
+	    padding: 0;
+	    width: 100%;
+	}
 }
 
 /**
