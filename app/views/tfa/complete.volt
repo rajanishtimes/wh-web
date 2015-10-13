@@ -276,7 +276,7 @@
 							<li><a href="{{baseUrl}}/noida/times-food-and-nightlife-awards-2016">Noida</a></li>
 							<li><a href="{{baseUrl}}/gurgaon/times-food-and-nightlife-awards-2016">Gurgaon</a></li>
 							<li><a href="{{baseUrl}}/ahmedabad/times-food-and-nightlife-awards-2016">Ahmedabad</a></li>
-							<li><a href="{{baseUrl}}/banglore/times-food-and-nightlife-awards-2016">Banglore</a></li>
+							<li><a href="{{baseUrl}}/bangalore/times-food-and-nightlife-awards-2016">Banglore</a></li>
 							<li><a href="{{baseUrl}}/chandigarh/times-food-and-nightlife-awards-2016">Chandigarh</a></li>
 							<li><a href="{{baseUrl}}/chennai/times-food-and-nightlife-awards-2016">Chennai</a></li>
 							<li><a href="{{baseUrl}}/goa/times-food-and-nightlife-awards-2016">Goa</a></li>
