@@ -934,7 +934,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .othercities .list li:last-child::after {
     content: "";
 }
-.list-inline > li {
+.tfa .category-list-data .list-inline > li {
     padding: 4px 0 4px 14px; border-left: 1px solid #5b5856; 
 }
 .background {
