@@ -127,9 +127,6 @@ STANDARD DESKTOP < 1024px
 	.tfafeeds .ratings > div{
 		font-size: 11px;
 	}
-	.tfavotedhover .promote{
-		height: 202px;
-	}
 }
 
 
@@ -607,9 +604,6 @@ TABLET < 767px
 	}
 	.tfafeeds .ratings > div{
 		font-size: 12px;
-	}
-	.tfavotedhover .promote{
-		height: 220px;
 	}
 }
 

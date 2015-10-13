@@ -151,7 +151,7 @@
 										DECOR <strong>3.5</strong>
 									</div>
 									<div class="popup float-left">
-										<a href="{{baseUrl}}{{venues['url']}}"><img src="{{baseUrl}}/img/popup.png"></a>
+										<a href="{{baseUrl}}{{venues['review_url']}}" target="_blank"><img src="{{baseUrl}}/img/popup.png"></a>
 									</div>
 									<div class="clearfix" style="border: medium none; padding: 0px;"></div>
 								</div>
@@ -160,7 +160,7 @@
 									<div class="winnerl"><img src="{{baseUrl}}/img/tfa/winnerlogo.png"></div>
 								{% else %}
 									<div class="clearfix"></div>
-									<a href="{{baseUrl}}{{venues['url']}}"><div class="votebtn cvoteddone">READ CRITIC REVIEW</div></a>
+									<a href="{{baseUrl}}{{venues['review_url']}}"><div class="votebtn cvoteddone">READ CRITIC REVIEW</div></a>
 								{% endif %}
 							</div>
 						</div>

@@ -492,8 +492,8 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .tfa .coming_text {
     font-size: 43px;
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: 40px;
+    margin-bottom: 55px;
     font-family: Gotham-Bold;
     line-height: 45px;
 }
@@ -553,7 +553,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     color: #fff;
 }
 .winnerslist{
-    background: #efeeed;
+    background: #fff;
     padding: 30px 0;
 }
 .tfa .footerstyle{
@@ -619,14 +619,15 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     border: none;
 }
 .tfa .category-data > .section{
-    background: #232220;
+    background: #161514;
     color: #fff;
     text-transform: uppercase;
-    padding: 23px 0 15px;
+    padding: 25px 0;
 }
 .tfa .category-head {
     font-family: gotham-light;
     font-size: 14px;
+    margin-left: -4px;
 }
 .tfa .category-list-data > .section{
     background: #010101;
@@ -643,7 +644,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     margin-bottom: 5px;
 }
 .tfa .category-list-data .list-inline li:first-child {
-    padding: 0 0 2px;
+    padding: 0 0 2px; border:none;
 }
 .tfa .category-list-data .list-inline li.active a, .tfa .category-list-data .list-inline li:hover a{
     color: #fff;
@@ -653,8 +654,9 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     background: #fa2d67 none repeat scroll 0 0;
     border-radius: 5px;
     color: #fff;
-    padding: 4px 4px 4px 10px;
+    padding: 4px 8px;
     position: relative;
+    font-family: gotham-bold;
 }
 .tfa .nomination-count:after, .tfa .nomination-count:before {
     left: 100%;
@@ -675,13 +677,11 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .tfa .category-name-block {
     padding: 0 0 0 19px;
+    margin: -2px 0 0;
 }
-.tfa .nomination_data{
-    background: rgba(0, 0, 0, 0) url("../img/tfa/bk.png") repeat scroll 0 bottom;
-    padding: 52px 0 0 0;
-}
+
 .tfa .main-block {
-    padding: 23px 0;
+    padding: 25px 0 48px 0;
 }
 .tfa .category-name {
     border-bottom: 1px solid #7f7f7f;
@@ -693,6 +693,8 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .tfa .event-name{
     color:#fa2d67;
+    font: 14px gotham-medium;
+    text-transform: uppercase;
 }
 .tfafeeds .ratings > div.popup {
     width: 10%;
@@ -708,6 +710,8 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     border-bottom: 1px solid #ccc;
     padding: 5px 0;
     font-size: 12px;
+    font: 11px gotham-book;
+    text-transform: uppercase;
 }
 .popup.float-left > a > img {
     width: auto;
@@ -716,13 +720,14 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     font-family: gotham-book;
     font-size: 14px;
     line-height: 18px;
+    color:#000;
 }
 
 .allfeeds .tfafeeds .the-box{
-    height: 143px;
+    height: 123px;
 }
 .tfafeeds .calls {
-    font-size: 13px;
+    font: 12px gotham-medium;
     margin: 15px 0;
 }
 .tfafeeds .votebtn {
@@ -731,7 +736,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     color: #fff;
     font: 18px gotham-bold;
     margin: 0 20px 20px;
-    padding: 9px;
+    padding: 10px;
     cursor: pointer;
 }
 .tfavotedhover {
@@ -750,23 +755,23 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     font: 18px gotham-bold; 
     padding: 2px 0 0 37px;
     text-align: left;  
-    margin-bottom: 14px;
+    margin-bottom: 26px;
 }
 .promote {
     color: #fff;
     font: 17px gotham-light;
     text-align: left;
-    padding: 30px 0;
-    height: 220px;
+    padding: 20px 0 0 0;
+    height: 176px;
 }
 .promote .stro {
     font: 17px gotham-bold;
-    padding: 4px 0 0;
+    padding: 4px 0 4px;
 }
 .social-icon {
     color: #b7985b;
     font-size: 22px;
-    padding: 8px 20px 0 0;
+    padding: 8px 18px 0 0;
 }
 .social-icon > i{
     cursor: pointer;
@@ -774,24 +779,24 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 .share-vote {
     color: #fff;
     font: 16px gotham-light;
-    padding: 16px 0 0;
+    padding: 0;
     text-align: left;
 }
 .sharebtn {
     background: #b7985b none repeat scroll 0 0;
     border-radius: 15px;
     float: left;
-    font: 12px gotham-bold;
+    font: 12px gotham-black;
     margin-top: 12px;
     padding: 3px 8px;
     margin-bottom: 20px;
     cursor: pointer;
 }
 .cvote {
-    color: #fff;
-    font: 12px gotham-light;
-    margin: 14px 0 0;
+    color: #898989;
     cursor: pointer;
+    font: 12px gotham-light;
+    margin: 29px 0;
 }
 .work-content .feeds-data .work-item a .glyphicon{
     margin-top: 27%;
@@ -820,7 +825,22 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .coming_text .voting-start {
     font-size: 14px;
-    font-family: gotham-light;
+    text-transform: uppercase;
+    font-family: gotham-bold;
+}
+.votestartandend .coming_text .voting-start {
+    font-size: 26px;
+    text-transform: uppercase;
+    font-family: gotham-bold;
+}
+.hp .scroll-down.nominationstart {
+    border: medium none;
+    color: #76643f;
+    height: 33px;
+    margin: 0;
+    padding: 0 10px;
+    position: static;
+    width: 33px;
 }
 .work-content .tfafeeds .work-item a .glyphicon {
     margin-top: 30%;
@@ -852,12 +872,12 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     width: 45%;
 }
 .tfa .category-list-data > .ocat {
-    padding: 21px 0 17px;
+    padding: 32px 0 17px;
 }
 .bocat > li {
     color: #fff;
     font-family: gotham-bold;
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: 1px;
 }
 .tfafeeds .feeds-data:hover{
@@ -871,9 +891,11 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .accordian-block{
     cursor: pointer;
+    font: 21px/19px gotham-black;
+    text-transform: uppercase;
 }
-.arrow-up{float: right;display:inline-block; font-size: 14px; margin-left: 6px;}
-.arrow-down{float: right;display:inline-block; display: none; font-size: 14px; margin-left: 6px;}
+.arrow-up{float: right;display:inline-block;margin-left: 6px; font-size: 21px;}
+.arrow-down{float: right;display:inline-block; display: none; font-size: 21px; margin-left: 6px;}
 .textcopy {
     float: left;
     font-size: 12px;
@@ -884,7 +906,7 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
     color: #000;
 }
 .tfafeeds .feeds-data:hover .feed-short-desc{
-    color:#6a6a6a;
+    color:#000;
 }
 .tfafeeds .feed-title > a:hover{
     color: #d31a6b;
@@ -901,7 +923,8 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .othercities .list li::after {
     content: "|";
-    padding: 0 0 0 9px;
+    padding: 0 4px 0 7px;
+    color: #b7985b;
 }
 .othercities .list li {
     display: inline-block;
@@ -910,5 +933,51 @@ padding-top: 27px; color: rgb(150, 158, 171); font-style: normal; text-align: le
 }
 .othercities .list li:last-child::after {
     content: "";
+}
+.list-inline > li {
+    padding: 4px 0 4px 14px; border-left: 1px solid #5b5856; 
+}
+.background {
+    background: rgba(0, 0, 0, 0) url("../img/tfa/bk.png") repeat scroll 0 bottom;
+    padding: 76px 0 0;
+}
+.tfa .feed-title > a {
+    font: 20px gotham-bold;
+}
+.tfa .allfeeds .the-box{
+    padding: 18px 20px;
+}
+.tfa .feed-title{
+    margin-bottom: 0;
+}
+.sharebtn .fa.fa-link {
+    margin: 0 0 0 4px;
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+}
+.nomination_data .section {
+    margin-bottom: -30px;
+}
+.othercities .list a {
+    color: #b7985b;
+    font: 12px gotham-book;
+    text-transform: uppercase;
+}
+.othercities.footerlist .list {
+    padding: 0;
+}
+.presents.city {
+    font: 20px gotham-book;
+    text-transform: uppercase;
+}
+.vote_close {
+    font: 12px gotham-light;
+}
+.tfa .list.settop {
+    margin-top: 99px;
+}
+.nomination_data .feeds-data{
+
 }
 /* TFA */

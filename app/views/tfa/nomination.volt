@@ -1,28 +1,27 @@
 <section class="hp tfa">
 	<div class="mainback">
-		<div class="bordered">
+		<div class="bordered votestartandend">
 			<div class="desc">
 				<!--<div class="contestlogo"><img src="{{baseUrl}}/img/tfa/groupp.png"></div>-->
 
 				<div class="row">
-					<ul class="list logos padding0">
+					<ul class="list logos padding0 settop">
 						<li><img src="{{baseUrl}}/img/tfa/tfalogo.png"></li>
 						<li><img src="{{baseUrl}}/img/tfa/and.png"></li>
 						<li><img src="{{baseUrl}}/img/tfa/times_nightlife_awards.png"></li>
 					</ul>
 				</div>
-
+				<div class="presents city">{{currentCity}}</div>
 				<div class="presents">Powered by</div>
 				<div class="wh_logo"><img src="{{baseUrl}}/img/wh-logo-revert.png"></div>
 				<div class="coming_text">
 					{% if(iscontestrunning == 1) %}
-						<div class="voting-start">Scroll Down and Vote</div>
+						<div class="voting-start">Vote Now<div class="vote_close">Voting Closes on <?php echo date('d M Y', strtotime($vote_end_date)) ?></div></div>
 					{% else %}
-						<div class="voting-start voteend">Voting Closed <br> Winners to be announced on <?php echo date('d M Y', strtotime($result_date)) ?><br>({{venue_place}})</div>
+						<div class="voting-start voteend">Voting Closed<div class="vote_close">Winners to be announced on <?php echo date('d M Y', strtotime($result_date)) ?><br>({{venue_place}})</div></div>
 					{% endif %}
 				</div>
-
-				<!--<a href="#" class="scroll-down img-circle addscroll"><i class="fa fa-angle-down"></i></a>-->
+				<!--<a href="#" class="scroll-down img-circle addscroll nominationstart">&#9650;</a><div class="clearfix"></div><br>-->
 			</div>
 		</div>
 	</div>
@@ -86,6 +85,7 @@
 
 {% for key, nomination in nominations %}
 <section class="nomination_data">
+	<div class="background"></div>
 	<div class="section">
 		<div class="container">
 			<div id="{{nomination['nominationcatid']}}" class="row">
@@ -98,7 +98,7 @@
 							<div class="category-name">
 								<div class="accordian-block" data-rel="{{nomination['id']}}">
 									{{nomination['subcategory_name']}}
-									<div class="arrow-up">&#9658;</div>
+									<div class="arrow-up">&#9650;</div>
 	    							<div class="arrow-down">&#9660;</div>
     							</div>
 							</div>
@@ -122,7 +122,7 @@
 							<div class="work-item feeds-data">
 								<div class="tfavotedhover {% if(venues['isvoted'] == 0) %}dnone{% endif %}" {% if(venues['isvoted'] == 1) %}style="opacity:1"{% endif %}>
 									<div class="tickimg">
-										Your Vote has been counted.
+										Your Vote has been counted
 									</div>
 									<hr>
 									<div class="promote">
@@ -178,27 +178,33 @@
 									</div>
 								</div>
 								<?php
-								if($venues['rating'][0]['title'] == 'buzz'){
+								if(isset($venues['rating'][0]['title']) && $venues['rating'][0]['title'] == 'buzz'){
 									$ratingclass = 'nightlife';
 								}else{
 									$ratingclass = 'restaurent';
 								} ?>
 								<div class="ratings {{ratingclass}}">
 									<div class="float-left">
-										{{venues['rating'][0]['title']}} <strong>{{venues['rating'][0]['rating']}}</strong>
+										<?php if(isset($venues['rating'][0]['title'])){ ?>
+											{{venues['rating'][0]['title']}} <strong>{{venues['rating'][0]['rating']}}</strong>
+										<?php } ?>
 									</div>
 
 									{% if(ratingclass == 'restaurent') %}
 										<div class="float-left">
+											<?php if(isset($venues['rating'][1]['title'])){ ?>
 											{{venues['rating'][1]['title']}} <strong>{{venues['rating'][1]['rating']}}</strong>
+											<?php } ?>
 										</div>
 									{% endif %}
 
 									<div class="float-left">
+										<?php if(isset($venues['rating'][2]['title'])){ ?>
 										{{venues['rating'][2]['title']}} <strong>{{venues['rating'][2]['rating']}}</strong>
+										<?php } ?>
 									</div>
 									<div class="popup float-left">
-										<a href="{{baseUrl}}{{venues['url']}}"><img src="{{baseUrl}}/img/popup.png"></a>
+										<a href="{{baseUrl}}{{venues['review_url']}}" target="_blank"><img src="{{baseUrl}}/img/popup.png"></a>
 									</div>
 								</div>
 
@@ -214,6 +220,7 @@
 						</div>
 					{% endfor %}
 					<!-- Nomination blocks design end -->
+
 				</div>
 			</div>
 		</div>

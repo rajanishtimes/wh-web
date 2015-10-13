@@ -65,12 +65,14 @@ class TfaController extends BaseController{
                 $voteend = $tfacategorys['location'][$key]['events'][0]['voting_end'];
                 $result_date = $tfacategorys['location'][$key]['events'][0]['result_date'];
                 $venue_place = $tfacategorys['location'][$key]['events'][0]['venue_name'];
+                $this->view->start_date = $votestart;
+                $this->view->vote_end_date = $voteend;
                 $this->view->result_date = $result_date;
                 $this->view->venue_place = $venue_place;
             }
         }
 
-        $votestart = '2015-10-06';
+        //$votestart = '2015-10-06';
         //$voteend = '2015-10-08';
         //$result_date = '2015-10-08';
 
